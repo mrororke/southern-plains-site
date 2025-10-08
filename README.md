@@ -82,20 +82,20 @@ Automatically rebuild CSS/JS when you make changes
 
 ---
 #### Development Notes
-Project is private, intended for personal/local development only.
-.gitignore includes Laravel defaults (vendor/, node_modules/, storage/, .env, etc.)
-Tailwind CSS is used for styling; run npm run dev or npm run watch during development
-Hosting, staging, and production branches will be added later
+* Project is private, intended for personal/local development only.
+* .gitignore includes Laravel defaults (vendor/, node_modules/, storage/, .env, etc.)
+* Tailwind CSS is used for styling; run npm run dev or npm run watch during development
+* Hosting, staging, and production branches will be added later
 
 ---
 
 #### Optional Future Enhancements
-Search functionality for blog posts
-Related posts suggestions
-Comment system
-Analytics integration (Google Analytics or Plausible)
-Newsletter automation and segmentation
-Accessibility and performance optimization
+* Search functionality for blog posts
+* Related posts suggestions
+* Comment system
+* Analytics integration (Google Analytics or Plausible)
+* Newsletter automation and segmentation
+* Accessibility and performance optimization
 
 ---
 
