@@ -31,7 +31,7 @@ Hosting and production workflows will be added once a hosting solution is select
 
 ---
 
-## Quick Start – Local Development
+## Daily Dev Routine (Local)
 
 ### 1. Pull Latest Changes
 ```
@@ -80,6 +80,22 @@ Automatically rebuild CSS/JS when you make changes
 * Test changes in multiple screen sizes (mobile-first).
 * Commit frequently with clear messages.
 
+---
+#### Development Notes
+Project is private, intended for personal/local development only.
+.gitignore includes Laravel defaults (vendor/, node_modules/, storage/, .env, etc.)
+Tailwind CSS is used for styling; run npm run dev or npm run watch during development
+Hosting, staging, and production branches will be added later
+
+---
+
+#### Optional Future Enhancements
+Search functionality for blog posts
+Related posts suggestions
+Comment system
+Analytics integration (Google Analytics or Plausible)
+Newsletter automation and segmentation
+Accessibility and performance optimization
 
 ---
 
