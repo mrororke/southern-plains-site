@@ -3,6 +3,7 @@
 **Project:** Southern Plains – Blog-first, mobile-first website  
 **Tech Stack:** Laravel Breeze, Tailwind CSS, MySQL/PostgreSQL (local)  
 **Repository:** Private – personal use only  
+**Testing:** Staging Env.
 
 ---
 
