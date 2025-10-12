@@ -21,8 +21,7 @@
 
 <body class="antialiased min-h-screen w-full grid">
     <div class="min-h-full">
-        <div x-data="{ open: false }">
-        <nav class="mt-6">
+        <nav class="mt-6" x-data="{ open: :false }">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between">
                     <div>
