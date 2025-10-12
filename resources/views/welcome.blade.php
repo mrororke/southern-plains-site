@@ -33,7 +33,8 @@
                         <div class="hidden md:block">
                             <div class="ml-10 flex items-baseline space-x-4">
                                 
-                                <a href="#" aria-current="page" class="px-3 py-2 text-sm font-medium text-black uppercase hover:text-club hover:text-decoration-solid">Home</a>
+                                <a href="#" aria-current="page" class="px-3 py-2 text-sm font-medium text-black uppercase hover:text-club hover:underline">Home</a>
+                                <a href="#" aria-current="page" class="px-3 py-2 text-sm font-medium text-black uppercase hover:text-club hover:text-decoration-solid">Second Home</a>
                                 <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Team</a>
                                 <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Projects</a>
                                 <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Calendar</a>
