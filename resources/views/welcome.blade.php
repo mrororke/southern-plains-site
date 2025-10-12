@@ -16,7 +16,9 @@
 
 </head>
 
-<body class="antialiased">
+<body class="antialiased min-h-screen w-full grid">
+    <div class="min-h-screen w-full grid grid-cols-6 grid-rows-[100px_1fr_200px]">
+
     <div class="grid grid-flow-col grid-rows-3 gap-4">
         <div class="row-span-3 ...">01</div>
         <div class="col-span-2 ...">02</div>
