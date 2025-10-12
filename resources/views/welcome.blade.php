@@ -21,7 +21,7 @@
 
 <body class="antialiased min-h-screen w-full grid">
     <div class="min-h-full">
-        <nav class="mt-6" x-data="{ open: :false }">
+        <nav class="mt-6" x-data="{ open: false }">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between">
                     <div>
@@ -63,6 +63,21 @@
                                 </svg>
                             </button>
                 </div>
+            </div>
+    </div>
+
+    <div x-show="open" 
+         x-transition:enter="duration-150 ease-out" 
+         x-transition:enter-start="opacity-0 scale-95" 
+         x-transition:enter-end="opacity-100 scale-100" 
+         x-transition:leave="duration-100 ease-in" 
+         x-transition:leave-start="opacity-100 scale-100" 
+         x-transition:leave-end="opacity-0 scale-95" 
+         class="md:hidden">
+        
+        <div class="space-y-1 px-4 pb-3 pt-2">
+            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-100 hover:text-club">Home</a>
+            <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-100 hover:text-club">About</a>
             </div>
     </div>
 
