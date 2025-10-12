@@ -21,11 +21,11 @@
 
 <body class="antialiased min-h-screen w-full grid">
     <div class="min-h-full">
-        <nav>
+        <nav class="mt-6">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                <div class="flex h-16 items-center justify-between">
+                <div class="flex items-center justify-between">
                     <div class="flex items-center">
-                        <div class="shrink-0">
+                        <div>
                             <a href="/">
                                 <x-application-logo class="w-20 h-20 fill-current" />
                             </a>
