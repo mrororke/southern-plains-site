@@ -8,7 +8,7 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->
-         @googlefonts>
+         @googlefonts
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
