@@ -43,7 +43,7 @@
 
                     </div>
 
-                <div class="flex items-center md:hidden" style="border:1px solid red; margin-right:25px;">
+                <div class="flex items-center md:hidden" style="margin-right:25px;">
                     <!-- Mobile menu button -->
                     <button 
                                 type="button" 
