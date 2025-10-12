@@ -49,11 +49,11 @@
 
                                 <h2 class="mt-6 text-xl font-semibold text-gray-900 dark:text-white">Staging now to production Success</h2>
 
-                                <p class="font-sans text-base">
+                                <p class="font-sans text-base dark:text-white">
     This paragraph text should be styled with Archivo.
 </p>
 
-<h1 class="font-heading text-4xl">
+<h1 class="font-heading text-4xl dark:text-white">
     This headline text should be styled with Bebas Neue.
 </h1>
 
