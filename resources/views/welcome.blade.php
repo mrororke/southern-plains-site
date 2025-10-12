@@ -29,7 +29,7 @@
                             <x-application-logo class="w-20 h-20 fill-current" />
                         </a>
                     </div>
-                    <div class="hidden md:flex items-center space-x-4">
+                    <div class="hidden md:block md:flex items-center space-x-4">
     <a href="#" class="px-3 py-2 text-sm font-medium text-black uppercase hover:text-club hover:underline">Home</a>
     <a href="#" class="px-3 py-2 text-sm font-medium text-black uppercase hover:text-club hover:underline">About</a>
     <a href="#" class="px-3 py-2 text-sm font-medium text-black uppercase hover:text-club hover:underline">Blog</a>
