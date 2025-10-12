@@ -8,10 +8,8 @@ return [
      */
     'fonts' => [
     // We'll use this for your font-sans (Archivo)
-    'default' => 'https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap',
+    'default' => 'https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Bebas+Neue&display=swap',
 
-    // We'll use this for your font-heading (Bebas Neue)
-    'headings' => 'https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap',
 ],
 
     /*
