@@ -13,7 +13,7 @@ export default {
         extend: {
             fontFamily: {
                 sans: ['Archivo', ...defaultTheme.fontFamily.sans],
-                heading: ['Bebas Neue', 'sans-serif'],
+                heading: ['BebasNeue', 'sans-serif'], 
             },
         },
     },

@@ -7,9 +7,12 @@ return [
      * The google-fonts:fetch command will prefetch these fonts.
      */
     'fonts' => [
-        'default' => 'https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,700;1,400;1,700',
-        'headings' => 'https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap',
-    ],
+    // We'll use this for your font-sans (Archivo)
+    'default' => 'https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap',
+
+    // We'll use this for your font-heading (Bebas Neue)
+    'headings' => 'https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap',
+],
 
     /*
      * This disk will be used to store local Google Fonts. The public disk
