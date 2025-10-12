@@ -14,7 +14,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Scripts -->
-     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
 
 </head>
@@ -32,9 +32,17 @@
                         </div>
                         <div class="hidden md:block">
                             <div class="ml-10 flex items-baseline space-x-4">
-                                
+
                                 <a href="#" aria-current="page" class="px-3 py-2 text-sm font-medium text-black uppercase hover:text-club hover:underline">Home</a>
-                                <a href="#" aria-current="page" class="px-3 py-2 text-sm font-medium text-black uppercase hover:text-club hover:text-decoration-solid">Second Home</a>
+                                <a href="#" aria-current="page" class="px-3 py-2 text-sm font-medium text-black uppercase hover:text-club hover:underline">About</a>
+                                <a href="#" aria-current="page" class="px-3 py-2 text-sm font-medium text-black uppercase hover:text-club hover:underline">Blog</a>
+                                <a href="#" aria-current="page" class="px-3 py-2 text-sm font-medium text-black uppercase hover:text-club hover:underline">Training</a>
+                                <a href="#" aria-current="page" class="px-3 py-2 text-sm font-medium text-black uppercase hover:text-club hover:underline">League</a>
+                                <a href="#" aria-current="page" class="px-3 py-2 text-sm font-medium text-black uppercase hover:text-club hover:underline">Events</a>
+                                <a href="#" aria-current="page"><x-primary-button class="ms-4">
+                                    {{ __('Contact Us') }}
+                                </x-primary-button>
+
                                 <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Team</a>
                                 <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Projects</a>
                                 <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-white/5 hover:text-white">Calendar</a>
@@ -42,7 +50,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="-mr-2 flex md:hidden">
                         <!-- Mobile menu button -->
                         <button type="button" command="--toggle" commandfor="mobile-menu" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-white/5 hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
