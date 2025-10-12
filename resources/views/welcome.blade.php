@@ -44,7 +44,7 @@
 
                     </div>
 
-                <div class="flex items-center md:hidden">
+                <div class="flex items-center md:hidden" style="border:1px solid red; margin-right:25px;">
                     <!-- Mobile menu button -->
                     <button 
                                 type="button" 
