@@ -47,7 +47,7 @@
                             @click="open = ! open"
                             :aria-expanded="open"
                             class="relative inline-flex items-center justify-center rounded-md p-2 text-black hover:bg-club hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500 flex-shrink-0">
-                            // TODO: Troubleshoot icon disappearing when tapped, but re-appearing when tapped off. Maybe is corrected, may not be.
+                            <!-- TODO: Troubleshoot icon disappearing when tapped, but re-appearing when tapped off. Maybe is corrected, may not be. -->
                             <span class="absolute -inset-0.5"></span>
                             <span class="sr-only">Open main menu</span>
 
@@ -79,6 +79,7 @@
                     <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-100 hover:text-club">Training</a>
                     <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-100 hover:text-club">League</a>
                     <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-100 hover:text-club">Events</a>
+                    <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-100 hover:text-club">Contact</a>
                 </div>
             </div>
         </nav>
