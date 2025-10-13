@@ -7,26 +7,40 @@
 
     <title>Southern Plains Dog Sport Club, LLC. | Serving Rogers, Mayes, and Wagoner Counties.</title>
 
-    <!-- Fonts -->
     @googlefonts
 
-    <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
 
 
-    <!-- Scripts -->
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
-
-
-
-
 </head>
 
 <body class="antialiased min-h-screen w-full">
-    <div class="min-h-full">
-        <nav class="mt-6" x-data="{ open: false }">
+    
+    <div id="hero-slider-fixed" class="fixed top-0 left-0 w-screen h-screen z-[-10]">
+
+        <div id="hamish-slider" class="relative w-full h-full" data-carousel="slide">
+            <div class="relative w-full h-full overflow-hidden">
+                
+                <div class="hidden duration-700 ease-in-out h-full" data-carousel-item>
+                    <img src="{{ asset('images/2025_01_slide_hamish.jpg') }}" class="block h-full w-full object-cover" alt="Hamish the dog on slide 1">
+                </div>
+                <div class="hidden duration-700 ease-in-out h-full" data-carousel-item>
+                    <img src="{{ asset('images/2025_02_slide_hamish.jpg') }}" class="block h-full w-full object-cover" alt="Hamish the dog on slide 2">
+                </div>
+                <div class="hidden duration-700 ease-in-out h-full" data-carousel-item>
+                    <img src="{{ asset('images/2025_03_slide_hamish.jpg') }}" class="block h-full w-full object-cover" alt="Hamish the dog on slide 3">
+                </div>
+                
+            </div>
+        </div>
+
+    </div>
+    <div class="min-h-full pt-28">
+        
+        <nav class="mt-6 z-10" x-data="{ open: false }">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between">
                     <div>
@@ -61,7 +75,7 @@
                                 <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
 
-                            <svg x-show.important="open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 absolute inset-0 m-auto **text-black**">
+                            <svg x-show.important="open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 absolute inset-0 m-auto text-black">
                                 <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </button>
@@ -92,37 +106,16 @@
 
 
         <main>
-            <div class="mx-auto  px-4 py-6 sm:px-6 lg:px-8">
-                <!-- Your content -->
+            <div class="mx-auto px-4 py-6 sm:px-6 lg:px-8">
+                
                 <div class="grid grid-cols-4 gap-4">
+                    
                     <div>
-
-
-                        <div id="hamish-slider" class="relative w-full" data-carousel="slide">
-                            <!-- Carousel wrapper -->
-                            <div class="relative">
-                                <!-- Item 1 -->
-                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                    <img src="{{ asset('images/2025_01_slide_hamish.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                                </div>
-                                <!-- Item 2 -->
-                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                    <img src="{{ asset('images/2025_02_slide_hamish.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                                </div>
-                                <!-- Item 3 -->
-                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                    <img src="{{ asset('images/2025_03_slide_hamish.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-                                </div>
-
-                            </div>
-                            
-                           
-                            
-                        </div>
-
+                        Content for the static column (if any) or simply the left grid area.
                     </div>
+                    
                     <div class="col-span-3">
-                        Content here in rows
+                        Content here in rows that will scroll over the static slider.
                     </div>
 
                 </div>
