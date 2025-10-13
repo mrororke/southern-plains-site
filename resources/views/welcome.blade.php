@@ -21,25 +21,25 @@
     
     <div id="hero-slider-fixed" class="fixed top-0 left-0 w-screen h-screen z-[-10]">
 
-    <div id="hamish-slider" class="relative w-full h-full" data-carousel="slide">
-        <div class="relative w-full h-full overflow-hidden">
-            
-            <div class="duration-700 ease-in-out h-full" data-carousel-item>
-                
-                <img src="{{ asset('images/2025_01_slide_hamish.jpg') }}" 
-                     style="position: absolute !important; top: 0 !important; left: 0 !important; **width: 100vw !important;** height: 100% !important; object-fit: cover;"
-                     class="z-10" 
-                     alt="Hamish the dog on slide 1">
-            </div>
-            
-            <div class="hidden duration-700 ease-in-out h-full" data-carousel-item>
-                <img src="{{ asset('images/2025_02_slide_hamish.jpg') }}" 
-                     style="position: absolute !important; top: 0 !important; left: 0 !important; **width: 100vw !important;** height: 100% !important; object-fit: cover;"
-                     class="z-10" 
-                     alt="Hamish the dog on slide 2">
-            </div>
-            
-        </div>
+    <div class="duration-700 ease-in-out h-full" data-carousel-item>
+        <img src="{{ asset('images/2025_01_slide_hamish.jpg') }}" 
+             style="width: 100vw !important; height: 100vh !important; object-fit: cover;"
+             class="block" 
+             alt="Hamish the dog on slide 1">
+    </div>
+    
+    <div class="hidden duration-700 ease-in-out h-full" data-carousel-item>
+        <img src="{{ asset('images/2025_02_slide_hamish.jpg') }}" 
+             style="width: 100vw !important; height: 100vh !important; object-fit: cover;"
+             class="block" 
+             alt="Hamish the dog on slide 2">
+    </div>
+    
+    <div class="hidden duration-700 ease-in-out h-full" data-carousel-item>
+        <img src="{{ asset('images/2025_03_slide_hamish.jpg') }}" 
+             style="width: 100vw !important; height: 100vh !important; object-fit: cover;"
+             class="block" 
+             alt="Hamish the dog on slide 3">
     </div>
 
 </div>
