@@ -90,8 +90,8 @@
         <main>
             <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                 <!-- Your content -->
-                <div class="grid grid-cols-5 gap-4">
-                    <div>slider here</div>
+                <div class="grid grid-cols-4 gap-4">
+                    <div>01</div>
                     <div class="col-span-3">01</div>
                     
                 </div>
