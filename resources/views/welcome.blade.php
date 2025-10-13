@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="h-full">
 
 <head>
     <meta charset="utf-8">
@@ -17,7 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 </head>
 
-<body class="antialiased min-h-screen w-full">
+<body class="antialiased h-full w-full">
     
     <div id="hero-slider-fixed" class="fixed top-0 left-0 w-screen h-screen z-[-10]">
 
