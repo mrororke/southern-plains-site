@@ -21,18 +21,18 @@
     
     <div id="hero-slider-fixed" class="fixed top-0 left-0 w-screen h-screen z-[-10]">
 
-    <div id="hamish-slider" class="relative w-full h-full" data-carousel="slide">
+    <div id="hamish-slider" class="relative w-full h-full" >
         <div class="relative w-full h-full overflow-hidden">
             
-            <div class="hidden duration-700 ease-in-out h-full" data-carousel-item>
+            <div class=" h-full" >
                 <img src="{{ asset('images/2025_01_slide_hamish.jpg') }}" class="absolute inset-0 !h-full !w-full object-cover **z-10**" alt="Hamish the dog on slide 1">
             </div>
             
-            <div class="hidden duration-700 ease-in-out h-full" data-carousel-item>
+            <div class="hidden h-full" >
                 <img src="{{ asset('images/2025_02_slide_hamish.jpg') }}" class="absolute inset-0 !h-full !w-full object-cover **z-10**" alt="Hamish the dog on slide 2">
             </div>
             
-            <div class="hidden duration-700 ease-in-out h-full" data-carousel-item>
+            <div class="hidden h-full" >
                 <img src="{{ asset('images/2025_03_slide_hamish.jpg') }}" class="absolute inset-0 !h-full !w-full object-cover **z-10**" alt="Hamish the dog on slide 3">
             </div>
             
