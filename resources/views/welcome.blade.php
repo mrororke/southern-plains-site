@@ -27,14 +27,14 @@
             <div class="duration-700 ease-in-out h-full" data-carousel-item>
                 
                 <img src="{{ asset('images/2025_01_slide_hamish.jpg') }}" 
-                     style="position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; object-fit: cover;"
+                     style="position: absolute !important; top: 0 !important; left: 0 !important; **width: 100vw !important;** height: 100% !important; object-fit: cover;"
                      class="z-10" 
                      alt="Hamish the dog on slide 1">
             </div>
             
             <div class="hidden duration-700 ease-in-out h-full" data-carousel-item>
                 <img src="{{ asset('images/2025_02_slide_hamish.jpg') }}" 
-                     style="position: absolute !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; object-fit: cover;"
+                     style="position: absolute !important; top: 0 !important; left: 0 !important; **width: 100vw !important;** height: 100% !important; object-fit: cover;"
                      class="z-10" 
                      alt="Hamish the dog on slide 2">
             </div>
