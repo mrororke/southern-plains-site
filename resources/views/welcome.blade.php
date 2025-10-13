@@ -44,7 +44,7 @@
                     </div>
 
                     <div class="flex items-center md:hidden">
-                        <!-- TODO: Icons on mobile menu disappear when menu has been opened/closed after initial display -->
+                        <!-- TODO: Icons on mobile menu disappear when menu has been opened/closed after initial display; X Icon is white once Opened. When Closed, hamburger icon is also white -->
                         <button
                             type="button"
                             @click="open = ! open"
