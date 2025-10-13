@@ -44,6 +44,7 @@
                     </div>
 
                     <div class="flex items-center md:hidden">
+                        <!-- TODO: Icons on mobile menu disappear when menu has been opened/closed after initial display -->
                         <button
                             type="button"
                             @click="open = ! open"
@@ -93,6 +94,11 @@
         <main>
             <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                 <!-- Your content -->
+                 <div class="grid grid cols-2 gap-4">
+                    <div>Slider</div>
+                    <div> Content</div>
+                 </div>
+                 
             </div>
         </main>
     </div>
