@@ -86,19 +86,17 @@
             </div>
         </nav>
 
-        <header class="relative bg-white shadow-sm">
-            <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-                <h1 class="text-3xl font-bold tracking-tight text-gray-900">Dashboard</h1>
-            </div>
-        </header>
+
         <main>
             <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
                 <!-- Your content -->
-                 <div class="grid grid cols-2 gap-4">
-                    <div>Slider</div>
-                    <div> Content</div>
-                 </div>
-                 
+                <div class="grid grid-cols-4 gap-4">
+                    <div>01</div>
+                    <div>01</div>
+                    <div>01</div>
+                    <div>09</div>
+                </div>
+
             </div>
         </main>
     </div>
