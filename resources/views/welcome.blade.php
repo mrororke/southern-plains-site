@@ -24,9 +24,9 @@
         <nav class="mt-6 z-10" x-data="{ open: false }">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between">
-                    <div>
+                    <div class="text-black lg:text-white">
                         <a href="/">
-                           <x-application-logo class="w-20 h-20 fill-current text-black lg:text-white" />
+                           <x-application-logo class="w-20 h-20 fill-current" />
                         </a>
                     </div>
                     <div class="hidden md:block md:flex items-center space-x-4">
