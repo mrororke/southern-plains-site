@@ -19,7 +19,7 @@
 
 <body class="antialiased h-full w-full">
 
-<div id="default-carousel" class="relative w-full h-full" style="border: 2px solid red;" data-carousel="slide">
+<div id="default-carousel" class="relative w-full h-full" style="border: 2px solid red; width: 33%;" data-carousel="slide">
                         <!-- Carousel wrapper -->
                         <div class="relative overflow-hidden h-screen">
                             <!-- Item 1 -->
