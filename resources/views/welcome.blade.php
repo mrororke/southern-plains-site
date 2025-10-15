@@ -158,8 +158,8 @@
                             <p class="text-base mb-2">Whether you're starting with basic manners, pursuing a Canine Good Citizen title, or aiming for titles in NASDA sport trials, we have the classes, events, and expertise you need to <span class="font-semibold">Train, Play, and Grow</span> together.</p>
                         </div>
                     </div>
-                    <div class="p-6 bg-league bg-cover bg-bottom-right"
-                    style="background-image: url('{{ asset('images/club.png') }}');">
+                    <div class="p-6 bg-league bg-cover bg-center"
+                    style="background-image: url('{{ asset('images/left_mask.png') }}');">
                         Pink
                         <div class="lg:px-[120px] p-4">
                             <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
@@ -168,7 +168,7 @@
                         </div>
                     </div>
                     <div class="p-6 bg-training bg-cover bg-center"
-                    style="background-image: url('{{ asset('images/club.png') }}');">
+                    style="background-image: url('{{ asset('images/right_mask.png') }}');">
                         Blue
                         <div class="lg:px-[120px] p-4">
                             <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
