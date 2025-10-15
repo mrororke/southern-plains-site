@@ -1,18 +1,24 @@
 @props(['type' => 'submit', 'color' => 'club'])
 
 @php
-// Define the base color classes based on the 'color' prop
+// Define the color schemes (Only these should contain conflicting colors like bg/text)
 $colorClasses = [
-'club' => 'bg-club hover:bg-club-hover focus:bg-club-hover active:bg-club',
-    'club-dark' => 'bg-white text-club border-2 border-transparent hover:bg-transparent hover:text-white hover:border-white focus:bg-white active:bg-white',
-// Add more colors here as needed
+    // 1. Primary Button (Club Color)
+    'club' => 'bg-club text-white hover:bg-club-hover active:bg-club focus:ring-indigo-500 border-transparent',
+    
+    // 2. Dark Button (White BG, Club Text, Transparent Hover)
+    // Removed border-2 from here, and put it in $baseClasses so it applies to all buttons.
+    // ADDED !important prefix to text-club to override the default text color if needed.
+    'club-dark' => 'bg-white !text-club hover:bg-transparent hover:text-white hover:border-white focus:ring-indigo-500', 
 ];
 
-// Select the class set, falling back to indigo if the color isn't defined
+// Select the class set
 $currentColors = $colorClasses[$color] ?? $colorClasses['club'];
 
-// Define the common button styles
-$baseClasses = 'inline-flex items-center px-4 py-2 !bg-club border border-transparent font-semibold text-xs text-white uppercase tracking-widest hover:bg-club-hover focus:bg-club-hover active:bg-club focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150';
+// --- REVISED BASE CLASSES ---
+// Contains only structural and common styles (size, padding, font, common focus ring, etc.)
+// Removed: !bg-club, border border-transparent, text-white, hover:bg-club-hover, active:bg-club, focus:bg-club-hover
+$baseClasses = 'inline-flex items-center px-4 py-2 font-semibold text-xs uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150 border-2 border-transparent';
 
 @endphp
 
