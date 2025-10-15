@@ -34,42 +34,41 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 </head>
 
-<body class="antialiased h-full w-full fixed-background">
-<div class="min-h-full pt-28 z-10 bg-white">
+<body class="antialiased h-full w-full"> 
     
-</div>
-    
-    <!-- <div id="hero-slider-fixed" class="fixed top-0 left-0 w-screen h-screen z-[-10]">
+    <div id="hero-slider-fixed" class="fixed top-0 left-0 w-screen h-screen z-[-10]">
 
-    <div id="hamish-slider" class="relative w-full h-full" data-carousel="slide">
-        <div class="relative w-full h-full overflow-hidden">
-            
-            <div class="duration-700 ease-in-out h-full" data-carousel-item>
+        <div id="hamish-slider" class="relative w-full h-full" data-carousel="slide">
+            <div class="relative w-full h-full overflow-hidden">
                 
-                <img src="{{ asset('images/2025_01_slide_hamish.jpg') }}" 
-                     class="absolute inset-0 w-full h-full object-cover block"
-                     alt="Hamish the dog on slide 1">
+                <div class="duration-700 ease-in-out h-full" data-carousel-item>
+                    <img src="{{ asset('images/2025_01_slide_hamish.jpg') }}" 
+                         class="absolute inset-0 block object-cover"
+                         style="width: 100vw !important; height: 100vh !important;" 
+                         alt="Hamish the dog on slide 1">
+                </div>
+                
+                <div class="hidden duration-700 ease-in-out h-full" data-carousel-item>
+                    <img src="{{ asset('images/2025_02_slide_hamish.jpg') }}" 
+                         class="absolute inset-0 block object-cover"
+                         style="width: 100vw !important; height: 100vh !important;" 
+                         alt="Hamish the dog on slide 2">
+                </div>
+                
+                <div class="hidden duration-700 ease-in-out h-full" data-carousel-item>
+                    <img src="{{ asset('images/2025_03_slide_hamish.jpg') }}" 
+                         class="absolute inset-0 block object-cover"
+                         style="width: 100vw !important; height: 100vh !important;" 
+                         alt="Hamish the dog on slide 3">
+                </div>
+                
             </div>
-            
-            <div class="hidden duration-700 ease-in-out h-full" data-carousel-item>
-                <img src="{{ asset('images/2025_02_slide_hamish.jpg') }}" 
-                     class="absolute inset-0 w-full h-full object-cover block"
-                     alt="Hamish the dog on slide 2">
-            </div>
-            
-            <div class="hidden duration-700 ease-in-out h-full" data-carousel-item>
-                <img src="{{ asset('images/2025_03_slide_hamish.jpg') }}" 
-                     class="absolute inset-0 w-full h-full object-cover block"
-                     alt="Hamish the dog on slide 3">
-            </div>
-            
         </div>
     </div>
-</div> -->
-    <div class="min-h-full pt-28">
+    <div class="min-h-full">
         
-        <nav class="mt-6 z-10" x-data="{ open: false }">
-            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <header class="h-screen/4 bg-transparent pt-6 relative z-10">
+            <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" x-data="{ open: false }">
                 <div class="flex items-center justify-between">
                     <div>
                         <a href="/">
@@ -77,77 +76,41 @@
                         </a>
                     </div>
                     <div class="hidden md:block md:flex items-center space-x-4">
-                        <a href="#" class="px-3 py-2 text-sm font-medium text-black uppercase hover:text-club hover:underline">Home</a>
-                        <a href="#" class="px-3 py-2 text-sm font-medium text-black uppercase hover:text-club hover:underline">About</a>
-                        <a href="#" class="px-3 py-2 text-sm font-medium text-black uppercase hover:text-club hover:underline">Blog</a>
-                        <a href="#" class="px-3 py-2 text-sm font-medium text-black uppercase hover:text-club hover:underline">Training</a>
-                        <a href="#" class="px-3 py-2 text-sm font-medium text-black uppercase hover:text-club hover:underline">League</a>
-                        <a href="#" class="px-3 py-2 text-sm font-medium text-black uppercase hover:text-club hover:underline">Events</a>
+                        <a href="#" class="px-3 py-2 text-sm font-medium text-white uppercase hover:text-club hover:underline">Home</a>
+                        <a href="#" class="px-3 py-2 text-sm font-medium text-white uppercase hover:text-club hover:underline">About</a>
+                        <a href="#" class="px-3 py-2 text-sm font-medium text-white uppercase hover:text-club hover:underline">Blog</a>
+                        <a href="#" class="px-3 py-2 text-sm font-medium text-white uppercase hover:text-club hover:underline">Training</a>
+                        <a href="#" class="px-3 py-2 text-sm font-medium text-white uppercase hover:text-club hover:underline">League</a>
+                        <a href="#" class="px-3 py-2 text-sm font-medium text-white uppercase hover:text-club hover:underline">Events</a>
                         <a href="#" aria-current="page">
                             <x-primary-button class="ms-4">
                                 {{ __('Contact Us') }}
                             </x-primary-button>
                         </a>
                     </div>
-
-                    <div class="flex items-center md:hidden">
-                        <button
-                            type="button"
-                            @click="open = ! open"
-                            :aria-expanded="open"
-                            class="relative inline-flex items-center justify-center rounded-md p-2 text-black hover:bg-club hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
-                            <span class="absolute -inset-0.5"></span>
-                            <span class="sr-only">Open main menu</span>
-
-                            <svg x-show.important="! open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 absolute inset-0 m-auto">
-                                <path d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-
-                            <svg x-show.important="open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" data-slot="icon" aria-hidden="true" class="size-6 absolute inset-0 m-auto text-black">
-                                <path d="M6 18 18 6M6 6l12 12" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </button>
-                    </div>
+                    <div class="flex items-center md:hidden">...</div>
                 </div>
+                <div x-show="open" class="md:hidden">...</div>
+            </nav>
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-10">
+                <h1 class="text-4xl text-white font-bold">Welcome to Southern Plains</h1>
             </div>
+        </header>
 
-            <div x-show="open"
-                x-transition:enter="duration-150 ease-out"
-                x-transition:enter-start="opacity-0 scale-95"
-                x-transition:enter-end="opacity-100 scale-100"
-                x-transition:leave="duration-100 ease-in"
-                x-transition:leave-start="opacity-100 scale-100"
-                x-transition:leave-end="opacity-0 scale-95"
-                class="md:hidden">
-
-                <div class="space-y-1 px-4 pb-3 pt-2">
-                    <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-100 hover:text-club">Home</a>
-                    <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-100 hover:text-club">About</a>
-                    <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-100 hover:text-club">Blog</a>
-                    <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-100 hover:text-club">Training</a>
-                    <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-100 hover:text-club">League</a>
-                    <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-100 hover:text-club">Events</a>
-                    <a href="#" class="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-100 hover:text-club">Contact</a>
-                </div>
-            </div>
-        </nav>
-
-
-        <main>
+        <main class="bg-white relative z-10">
             <div class="mx-auto px-4 py-6 sm:px-6 lg:px-8">
                 
                 <div class="grid grid-cols-4 gap-4">
-                    
-                    <div>
-                        Content for the static column (if any) or simply the left grid area.
-                    </div>
-                    
+                    <div>Left column content.</div>
                     <div class="col-span-3">
-                        Content here in rows that will scroll over the static slider.
+                        <p>Content here in rows that will scroll over the fixed area above, but since this main section has a solid white background, the fixed slider is masked below the fold.</p>
+                        <div class="h-96 bg-gray-100 my-4">Placeholder 1</div>
+                        <div class="h-96 bg-gray-200 my-4">Placeholder 2</div>
+                        <div class="h-96 bg-gray-100 my-4">Placeholder 3</div>
+                        <div class="h-96 bg-gray-200 my-4">Placeholder 4</div>
+                        <div class="h-96 bg-gray-100 my-4">Placeholder 5</div>
                     </div>
-
                 </div>
-
             </div>
         </main>
     </div>
