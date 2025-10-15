@@ -110,7 +110,12 @@
                 </div>
 
                 <div class="col-span-2">
-                    Content here in rows that will scroll over the static slider.
+                    <h4 class="uppercase text-xs">Southern Plains Sport Dog Club</h4>
+                    <h1>Train. Play. Grow</h1>
+                    <h3>Your Home for Positive Dog Training, Sport, and Community.</h3>
+                    <p>Welcome to Southern Plains Sport Dog Club —the region's most comprehensive resource dedicated to building better dog-handler partnerships. Our positive-reinforcement training programs, accessible competitive events, and supportive community are designed to help you and your dog thrive.</p>
+
+                    <p>Whether you're starting with basic manners, pursuing a Canine Good Citizen title, or aiming for titles in NASDA sport trials, we have the classes, events, and expertise you need to Train, Play, and Grow together.</p>
                     
                 </div>
 
