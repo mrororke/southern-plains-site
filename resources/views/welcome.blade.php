@@ -24,7 +24,7 @@
         <nav class="mt-6 z-10" x-data="{ open: false }">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between">
-                    <div>
+                    <div class="sticky">
                         <a href="/">
                             <x-application-logo class="w-20 h-20 fill-current" />
                         </a>
