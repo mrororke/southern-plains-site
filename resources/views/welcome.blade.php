@@ -85,7 +85,12 @@
             </div>
         </nav>
         <main>
-            <div id="default-carousel" class="relative w-full h-full -z-10" style="border: 2px solid red; width: 33%; margin-top:-115px;" data-carousel="slide">
+            
+
+            <div class="grid grid-cols-3 gap-4">
+
+                <div>
+                    <div id="default-carousel" class="relative w-full h-full -z-10" style="width: 33%; margin-top:-115px;" data-carousel="slide">
                         <!-- Carousel wrapper -->
                         <div class="relative overflow-hidden h-screen">
                             <!-- Item 1 -->
@@ -102,11 +107,6 @@
                             </div>
                         </div>
                     </div>
-
-            <div class="grid grid-cols-3 gap-4">
-
-                <div>
-                    Content for the static column (if any) or simply the left grid area.
                 </div>
 
                 <div class="col-span-2">
