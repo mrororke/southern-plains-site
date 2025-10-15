@@ -85,7 +85,7 @@
             </div>
         </nav>
         <main>
-            <div id="default-carousel" class="relative w-full h-full -z-10" style="border: 2px solid red; width: 33%;" data-carousel="slide">
+            <div id="default-carousel" class="relative w-full h-full -z-10" style="border: 2px solid red; width: 33%; margin-top:115px;" data-carousel="slide">
                         <!-- Carousel wrapper -->
                         <div class="relative overflow-hidden h-screen">
                             <!-- Item 1 -->
@@ -109,7 +109,7 @@
                     Content for the static column (if any) or simply the left grid area.
                 </div>
 
-                <div class="col-span-3">
+                <div class="col-span-2">
                     Content here in rows that will scroll over the static slider.
                 </div>
 
