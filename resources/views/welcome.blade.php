@@ -125,18 +125,22 @@
                             <div class="relative text-white bg-cover bg-center pt-[203.78%]"
                                 style="background-image: url('{{ asset('images/club.png') }}');">
                                 <div class="absolute inset-0 p-6 flex flex-col items-center justify-center text-center">
-                                <h4 class="font-heading font-bold text-5xl mt-8 mb-8">Club</h4>
-</div>
+                                    <h4 class="font-heading font-bold text-5xl mt-8 mb-8">Club</h4>
+                                </div>
                             </div>
 
-                            <div class="p-6  text-white bg-cover bg-center"
+                            <div class="relative text-white bg-cover bg-center pt-[203.78%]"
                                 style="background-image: url('{{ asset('images/league.png') }}');">
-                                <h4 class="font-heading font-bold text-5xl mt-8 mb-8">League</h4>
+                                <div class="absolute inset-0 p-6 flex flex-col items-center justify-center text-center">
+                                    <h4 class="font-heading font-bold text-5xl mt-8 mb-8">League</h4>
+                                </div>
                             </div>
 
-                            <div class="p-6 text-white bg-cover bg-center"
+                            <div class="relative text-white bg-cover bg-center pt-[203.78%]"
                                 style="background-image: url('{{ asset('images/train.png') }}');">
-                                <h4 class="font-heading font-bold text-5xl mt-8 mb-8">Train</h4>
+                                <div class="absolute inset-0 p-6 flex flex-col items-center justify-center text-center">
+                                    <h4 class="font-heading font-bold text-5xl mt-8 mb-8">Train</h4>
+                                </div>
                             </div>
 
                         </div>
