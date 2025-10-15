@@ -87,9 +87,9 @@
         <main>
             
 
-            <div class="grid grid-cols-3 gap-4">
+            <div class="grid lg:grid-cols-3 gap-4">
 
-                <div class="h-full w-full" style="margin-top:-115px">
+                <div class="h-full w-full sticky" style="margin-top:-115px">
                     <div id="default-carousel" class="relative w-full h-full -z-10" data-carousel="slide">
                         <!-- Carousel wrapper -->
                         <div class="relative overflow-hidden h-screen">
