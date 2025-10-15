@@ -85,17 +85,12 @@
         </nav>
         <main>
 
-
-
-
-
-
             <div class="grid grid-cols-4 gap-4">
 
                 <div>
-                    <div id="default-carousel" class="relative w-full" data-carousel="slide">
+                    <div id="default-carousel" class="relative w-full h-full border-4 border-purple-500" data-carousel="slide">
                         <!-- Carousel wrapper -->
-                        <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                        <div class="relative overflow-hidden h-screen">
                             <!-- Item 1 -->
                             <div class="hidden duration-700 ease-in-out" data-carousel-item>
                                 <img src="{{ asset('images/2025_01_slide_hamish.jpg') }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
