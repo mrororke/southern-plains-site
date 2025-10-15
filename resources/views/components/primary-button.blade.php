@@ -6,7 +6,7 @@
 </button>
 
 
-@props(['type' => 'submit', 'color' => 'indigo'])
+@props(['type' => 'submit', 'color' => 'club'])
 
 @php
     // Define the base color classes based on the 'color' prop
