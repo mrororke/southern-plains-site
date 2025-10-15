@@ -88,7 +88,7 @@
             <div class="grid grid-cols-4 gap-4">
 
                 <div>
-                    <div id="default-carousel" class="relative w-full h-full border-4 border-purple-500" data-carousel="slide">
+                    <div id="default-carousel" class="relative w-full h-full" style="border: 2px solid red;" data-carousel="slide">
                         <!-- Carousel wrapper -->
                         <div class="relative overflow-hidden h-screen">
                             <!-- Item 1 -->
