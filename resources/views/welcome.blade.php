@@ -85,7 +85,7 @@
             </div>
         </nav>
         <main>
-            <div id="default-carousel" class="relative w-full h-full -z-10" style="border: 2px solid red; width: 33%; margin-top:115px;" data-carousel="slide">
+            <div id="default-carousel" class="relative w-full h-full -z-10" style="border: 2px solid red; width: 33%; margin-top:-115px;" data-carousel="slide">
                         <!-- Carousel wrapper -->
                         <div class="relative overflow-hidden h-screen">
                             <!-- Item 1 -->
