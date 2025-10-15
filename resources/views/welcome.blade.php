@@ -86,72 +86,26 @@
         </nav>
         <main>
 
-
-            <div class="grid lg:grid-cols-3 gap-4">
-
-                <div class="h-full w-full sticky  -z-10" style="margin-top:-115px">
-                    <div id="default-carousel" class="relative w-full h-full" data-carousel="slide">
-                        <!-- Carousel wrapper -->
-                        <div class="relative overflow-hidden h-screen">
-                            <!-- Item 1 -->
-                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src="{{ asset('images/2025_01_slide_hamish.jpg') }}" class="absolute block w-full" alt="...">
-                            </div>
-                            <!-- Item 2 -->
-                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src="{{ asset('images/2025_02_slide_hamish.jpg') }}" class="absolute block w-full" alt="...">
-                            </div>
-                            <!-- Item 3 -->
-                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src="{{ asset('images/2025_03_slide_hamish.jpg') }}" class="absolute block w-full" alt="...">
-                            </div>
-                        </div>
-                    </div>
+            <div class="flex min-h-screen">
+                <!-- Sticky Column -->
+                <div class="sticky top-0 h-screen w-1/4 bg-blue-200 p-4">
+                    <p>This column is sticky and full height.</p>
+                    <!-- Content for the sticky column -->
                 </div>
 
-                <div class="col-span-2 col-padding-120">
-                    <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
-                    <h1 class="font-heading text-7xl">Train. Play. Grow</h1>
-                    <h3 class="text-2xl mb-2 mt-2">Your Home for Positive Dog Training, Sport, and Community.</h3>
-
-                    <p class="text-base mb-2">Welcome to <span class="font-semibold">Southern Plains Sport Dog Club</span> — the region's most comprehensive resource dedicated to building better dog-handler partnerships. Our positive-reinforcement training programs, accessible competitive events, and supportive community are designed to help you and your dog thrive.</p>
-
-                    <p class="text-base mb-2">Whether you're starting with basic manners, pursuing a Canine Good Citizen title, or aiming for titles in NASDA sport trials, we have the classes, events, and expertise you need to <span class="font-semibold">Train, Play, and Grow</span> together.</p>
-
-                    <div class="mt-">
-                        <h3 class="font-heading text-5xl mb-6">Choose Your Path</h3>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-                            <div class="relative text-white bg-cover bg-center pt-[203.78%]"
-                                style="background-image: url('{{ asset('images/club.png') }}');">
-                                <div class="absolute inset-0 p-6 flex flex-col items-center justify-center text-center">
-                                    <h4 class="font-heading font-bold text-5xl mt-8 mb-8">Club</h4>
-                                </div>
-                            </div>
-
-                            <div class="relative text-white bg-cover bg-center pt-[203.78%]"
-                                style="background-image: url('{{ asset('images/league.png') }}');">
-                                <div class="absolute inset-0 p-6 flex flex-col items-center justify-center text-center">
-                                    <h4 class="font-heading font-bold text-5xl mt-8 mb-8">League</h4>
-                                </div>
-                            </div>
-
-                            <div class="relative text-white bg-cover bg-center pt-[203.78%]"
-                                style="background-image: url('{{ asset('images/train.png') }}');">
-                                <div class="absolute inset-0 p-6 flex flex-col items-center justify-center text-center">
-                                    <h4 class="font-heading font-bold text-5xl mt-8 mb-8">Train</h4>
-                                </div>
-                            </div>
-
-                        </div>
+                <!-- Scrollable Column -->
+                <div class="flex-1 overflow-y-auto bg-gray-100 p-4">
+                    <p>This column will scroll.</p>
+                    <!-- Add a lot of content here to demonstrate scrolling -->
+                    <div class="h-[150vh] bg-green-200">
+                        <p>Scrollable content area.</p>
+                        <p>More content to make it scroll.</p>
+                        <p>Even more content to ensure scrolling behavior.</p>
                     </div>
-
                 </div>
-
             </div>
 
-    </div>
-    </main>
+        </main>
     </div>
 
 </body>
