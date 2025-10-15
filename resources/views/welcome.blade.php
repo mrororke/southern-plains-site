@@ -180,9 +180,11 @@
                         style="background-image: url('{{ asset('images/right_mask.png') }}');">
                         Blue
                         <div class="lg:px-[120px] p-4">
-                            <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
-                            <h3 class="font-heading text-5xl mb-6">Choose Your Path</h3>
-                            <p class="text-base mb-2">Whether you're starting with basic manners, pursuing a Canine Good Citizen title, or aiming for titles in NASDA sport trials, we have the classes, events, and expertise you need to <span class="font-semibold">Train, Play, and Grow</span> together.</p>
+                            <h4 class="uppercase text-xs font-bold">Southern Plains Training</h4>
+                            <h3 class="font-heading text-5xl mb-6">Our focus is positive-reinforcement training that builds confidence and reliable behavior. We offer core classes, including <span class="font-semibold">Basic Manners, Canine Good Citizen (CGC) preparation, Tricks</span>, and specialized workshops to strengthen your partnership.</p>
+                            <x-primary-button color="train-dark" class="mt-6">
+                                {{ __('View Current Offerings') }}
+                            </x-primary-button>
                         </div>
                     </div>
 
