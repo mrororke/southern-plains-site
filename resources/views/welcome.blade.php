@@ -149,14 +149,23 @@
                         </div>
                     </div>
 
-                    <div class="p-6">
+                    <div class="p-6 bg-club">
                         Green
+                        <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
+                        <h3 class="font-heading text-5xl mb-6">Choose Your Path</h3>
+                        <p class="text-base mb-2">Whether you're starting with basic manners, pursuing a Canine Good Citizen title, or aiming for titles in NASDA sport trials, we have the classes, events, and expertise you need to <span class="font-semibold">Train, Play, and Grow</span> together.</p>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 bg-league">
                         Pink
+                        <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
+                        <h3 class="font-heading text-5xl mb-6">Choose Your Path</h3>
+                        <p class="text-base mb-2">Whether you're starting with basic manners, pursuing a Canine Good Citizen title, or aiming for titles in NASDA sport trials, we have the classes, events, and expertise you need to <span class="font-semibold">Train, Play, and Grow</span> together.</p>
                     </div>
-                    <div class="p-6">
+                    <div class="p-6 bg-training">
                         Blue
+                        <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
+                        <h3 class="font-heading text-5xl mb-6">Choose Your Path</h3>
+                        <p class="text-base mb-2">Whether you're starting with basic manners, pursuing a Canine Good Citizen title, or aiming for titles in NASDA sport trials, we have the classes, events, and expertise you need to <span class="font-semibold">Train, Play, and Grow</span> together.</p>
                     </div>
 
                 </div> <!-- END Scrollable Column -->
