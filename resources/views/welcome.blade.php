@@ -18,6 +18,25 @@
 </head>
 
 <body class="antialiased h-full w-full">
+
+<div id="default-carousel" class="relative w-full h-full" style="border: 2px solid red;" data-carousel="slide">
+                        <!-- Carousel wrapper -->
+                        <div class="relative overflow-hidden h-screen">
+                            <!-- Item 1 -->
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img src="{{ asset('images/2025_01_slide_hamish.jpg') }}" class="absolute block w-full" alt="...">
+                            </div>
+                            <!-- Item 2 -->
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img src="{{ asset('images/2025_02_slide_hamish.jpg') }}" class="absolute block w-full" alt="...">
+                            </div>
+                            <!-- Item 3 -->
+                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                <img src="{{ asset('images/2025_03_slide_hamish.jpg') }}" class="absolute block w-full" alt="...">
+                            </div>
+                        </div>
+                    </div>
+
     <div class="min-h-full pt-28">
 
         <nav class="mt-6 z-10" x-data="{ open: false }">
@@ -88,23 +107,6 @@
             <div class="grid grid-cols-4 gap-4">
 
                 <div>
-                    <div id="default-carousel" class="relative w-full h-full" style="border: 2px solid red;" data-carousel="slide">
-                        <!-- Carousel wrapper -->
-                        <div class="relative overflow-hidden h-screen">
-                            <!-- Item 1 -->
-                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src="{{ asset('images/2025_01_slide_hamish.jpg') }}" class="absolute block w-full" alt="...">
-                            </div>
-                            <!-- Item 2 -->
-                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src="{{ asset('images/2025_02_slide_hamish.jpg') }}" class="absolute block w-full" alt="...">
-                            </div>
-                            <!-- Item 3 -->
-                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src="{{ asset('images/2025_03_slide_hamish.jpg') }}" class="absolute block w-full" alt="...">
-                            </div>
-                        </div>
-                    </div>
                     Content for the static column (if any) or simply the left grid area.
                 </div>
 
