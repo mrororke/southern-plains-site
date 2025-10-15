@@ -89,7 +89,6 @@
             <div class="flex min-h-screen">
                 <!-- Sticky Column -->
                 <div class="sticky top-0 h-screen w-1/3 -z-10" style="margin-top:-115px">
-                    <p>This column is sticky and full height.</p>
                     <!-- Content for the sticky column -->
                      <div id="default-carousel" class="relative w-full h-full" data-carousel="slide">
                         <!-- Carousel wrapper -->
