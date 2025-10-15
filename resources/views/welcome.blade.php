@@ -103,7 +103,7 @@
                         </div>
                     </div>
 
-            <div class="grid grid-cols-4 gap-4">
+            <div class="grid grid-cols-3 gap-4">
 
                 <div>
                     Content for the static column (if any) or simply the left grid area.
