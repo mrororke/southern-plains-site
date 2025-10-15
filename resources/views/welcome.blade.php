@@ -149,7 +149,8 @@
                         </div>
                     </div>
 
-                    <div class="p-6 bg-club">
+                    <div class="p-6 bg-club bg-cover bg-center"
+                    style="background-image: url('{{ asset('images/right_mask.png') }}');">
                         Green
                         <div class="lg:px-[120px] p-4">
                             <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
@@ -157,7 +158,8 @@
                             <p class="text-base mb-2">Whether you're starting with basic manners, pursuing a Canine Good Citizen title, or aiming for titles in NASDA sport trials, we have the classes, events, and expertise you need to <span class="font-semibold">Train, Play, and Grow</span> together.</p>
                         </div>
                     </div>
-                    <div class="p-6 bg-league">
+                    <div class="p-6 bg-league bg-cover bg-bottom-right"
+                    style="background-image: url('{{ asset('images/club.png') }}');">
                         Pink
                         <div class="lg:px-[120px] p-4">
                             <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
@@ -165,7 +167,8 @@
                             <p class="text-base mb-2">Whether you're starting with basic manners, pursuing a Canine Good Citizen title, or aiming for titles in NASDA sport trials, we have the classes, events, and expertise you need to <span class="font-semibold">Train, Play, and Grow</span> together.</p>
                         </div>
                     </div>
-                    <div class="p-6 bg-training">
+                    <div class="p-6 bg-training bg-cover bg-center"
+                    style="background-image: url('{{ asset('images/club.png') }}');">
                         Blue
                         <div class="lg:px-[120px] p-4">
                             <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
