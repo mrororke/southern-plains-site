@@ -133,20 +133,21 @@
                                     </div>
                                 </a>
                                 <a href="#league">
-                                <div class="relative text-white bg-cover bg-center pt-[203.78%]"
-                                    style="background-image: url('{{ asset('images/league.png') }}');">
-                                    <div class="absolute inset-0 p-6 flex flex-col items-center justify-center text-center">
-                                        <h4 class="font-heading font-bold text-5xl mt-8 mb-8">League</h4>
+                                    <div class="relative text-white bg-cover bg-center pt-[203.78%]"
+                                        style="background-image: url('{{ asset('images/league.png') }}');">
+                                        <div class="absolute inset-0 p-6 flex flex-col items-center justify-center text-center">
+                                            <h4 class="font-heading font-bold text-5xl mt-8 mb-8">League</h4>
+                                        </div>
                                     </div>
-                                </div>
                                 </a>
-
-                                <div class="relative text-white bg-cover bg-center pt-[203.78%]"
-                                    style="background-image: url('{{ asset('images/train.png') }}');">
-                                    <div class="absolute inset-0 p-6 flex flex-col items-center justify-center text-center">
-                                        <h4 class="font-heading font-bold text-5xl mt-8 mb-8">Train</h4>
+                                <a href="#train">
+                                    <div class="relative text-white bg-cover bg-center pt-[203.78%]"
+                                        style="background-image: url('{{ asset('images/train.png') }}');">
+                                        <div class="absolute inset-0 p-6 flex flex-col items-center justify-center text-center">
+                                            <h4 class="font-heading font-bold text-5xl mt-8 mb-8">Train</h4>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
 
                             </div>
                         </div>
@@ -157,7 +158,7 @@
                         <div class="lg:px-[120px] p-4">
                             <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
                             <h3 class="font-heading text-5xl mb-6">Your gateway to NASDA Competition.</h3>
-                            <p class="text-base mb-2">We are licensed <span class="font-semibold">NASDA Club</span> dedicated to hosting high-quality, accessible trials in new and underserved areas. This is the perfect place to try out a sport organization before committing<br/> to full club membership.</p>
+                            <p class="text-base mb-2">We are licensed <span class="font-semibold">NASDA Club</span> dedicated to hosting high-quality, accessible trials in new and underserved areas. This is the perfect place to try out a sport organization before committing<br /> to full club membership.</p>
 
                             <x-primary-button color="club-dark" class="mt-6">
                                 {{ __('View Trial Schedule') }}
@@ -176,12 +177,11 @@
                             </x-primary-button>
                         </div>
                     </div>
-                    <div class="p-6 bg-training bg-cover bg-center"
+                    <div id="train" class="p-6 bg-training bg-cover bg-center"
                         style="background-image: url('{{ asset('images/right_mask.png') }}');">
-                        Blue
                         <div class="lg:px-[120px] p-4">
                             <h4 class="uppercase text-xs font-bold">Southern Plains Training</h4>
-                            <h3 class="font-heading text-5xl mb-6">From Manners to Masters<br/>Building a Solid Foundation</h3>
+                            <h3 class="font-heading text-5xl mb-6">From Manners to Masters<br />Building a Solid Foundation</h3>
                             <p class="text-base mb-2">Our focus is positive-reinforcement training that builds confidence and reliable behavior. We offer core classes, including <span class="font-semibold">Basic Manners, Canine Good Citizen (CGC) preparation, Tricks</span>, and specialized workshops to strengthen your partnership.</p>
                             <x-primary-button color="train-dark" class="mt-6">
                                 {{ __('View Current Offerings') }}
