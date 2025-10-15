@@ -123,19 +123,18 @@
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
                             <div class="p-6 rounded-lg shadow-md text-white bg-cover bg-center"
+                                style="background-image: url('{{ asset('images/club.png') }}');">
+                                <h4 class="font-bold text-lg mb-2">Club</h4>
+                            </div>
+
+                            <div class="p-6 rounded-lg shadow-md text-white bg-cover bg-center"
+                                style="background-image: url('{{ asset('images/league.png') }}');">
+                                <h4 class="font-bold text-lg mb-2">League</h4>
+                            </div>
+
+                            <div class="p-6 rounded-lg shadow-md text-white bg-cover bg-center"
                                 style="background-image: url('{{ asset('images/train.png') }}');">
-                                <h4 class="font-bold text-lg mb-2">Basic Manners</h4>
-                                <p class="text-sm">Start your journey with essential obedience and home skills.</p>
-                            </div>
-
-                            <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                                <h4 class="font-bold text-lg mb-2">Sport Training</h4>
-                                <p class="text-sm">Dive into competitive sports like NASDA, Agility, or Rally.</p>
-                            </div>
-
-                            <div class="bg-gray-100 p-6 rounded-lg shadow-md">
-                                <h4 class="font-bold text-lg mb-2">Community & Events</h4>
-                                <p class="text-sm">Join workshops, trials, and social events with other handlers.</p>
+                                <h4 class="font-bold text-lg mb-2">Train</h4>
                             </div>
 
                         </div>
