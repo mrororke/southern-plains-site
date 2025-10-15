@@ -117,6 +117,26 @@
                     <p class="text-base mb-4">Welcome to <span class="font-semibold">Southern Plains Sport Dog Club</span> — the region's most comprehensive resource dedicated to building better dog-handler partnerships. Our positive-reinforcement training programs, accessible competitive events, and supportive community are designed to help you and your dog thrive.</p>
 
                     <p class="text-base mb-4">Whether you're starting with basic manners, pursuing a Canine Good Citizen title, or aiming for titles in NASDA sport trials, we have the classes, events, and expertise you need to <span class="font-semibold">Train, Play, and Grow</span> together.</p>
+
+                    <h3>Choose Your Path</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                <h4 class="font-bold text-lg mb-2">Basic Manners</h4>
+                <p class="text-sm">Start your journey with essential obedience and home skills.</p>
+            </div>
+            
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                <h4 class="font-bold text-lg mb-2">Sport Training</h4>
+                <p class="text-sm">Dive into competitive sports like NASDA, Agility, or Rally.</p>
+            </div>
+            
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+                <h4 class="font-bold text-lg mb-2">Community & Events</h4>
+                <p class="text-sm">Join workshops, trials, and social events with other handlers.</p>
+            </div>
+            
+        </div>
                     
                 </div>
 
