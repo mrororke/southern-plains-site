@@ -118,8 +118,7 @@
       <p>Even more content to ensure scrolling behavior.</p>
     </div>
   </div>
-</div>
-<h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
+  <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
                     <h1 class="font-heading text-7xl">Train. Play. Grow</h1>
                     <h3 class="text-2xl mb-2 mt-2">Your Home for Positive Dog Training, Sport, and Community.</h3>
 
@@ -151,6 +150,8 @@
                                     <h4 class="font-heading font-bold text-5xl mt-8 mb-8">Train</h4>
                                 </div>
                             </div>
+</div>
+
 
         </main>
     </div>
