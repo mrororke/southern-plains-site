@@ -36,7 +36,7 @@
 
 <body class="antialiased h-full w-full fixed-background">
 <div class="min-h-full pt-28 z-10 bg-white">
-    sdfasdfasdf
+    
 </div>
     
     <!-- <div id="hero-slider-fixed" class="fixed top-0 left-0 w-screen h-screen z-[-10]">
