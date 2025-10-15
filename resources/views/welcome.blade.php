@@ -119,11 +119,11 @@
                     <p class="text-base mb-4">Whether you're starting with basic manners, pursuing a Canine Good Citizen title, or aiming for titles in NASDA sport trials, we have the classes, events, and expertise you need to <span class="font-semibold">Train, Play, and Grow</span> together.</p>
 
                     <div class="mt-10">
-                        <h3 class="font-heading text-5xl">Choose Your Path</h3>
+                        <h3 class="font-heading text-5xl mb-6">Choose Your Path</h3>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
                             <div class="p-6 rounded-lg shadow-md text-white bg-cover bg-center"
-                                style="background-image: url('{{ asset('images/2025_03_slide_hamish.jpg') }}');">
+                                style="background-image: url('{{ asset('images/train.png') }}');">
                                 <h4 class="font-bold text-lg mb-2">Basic Manners</h4>
                                 <p class="text-sm">Start your journey with essential obedience and home skills.</p>
                             </div>
