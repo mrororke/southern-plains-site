@@ -10,7 +10,7 @@ $colorClasses = [
 ];
 
 // Select the class set, falling back to indigo if the color isn't defined
-$currentColors = $colorClasses[$color] ?? $colorClasses['indigo'];
+$currentColors = $colorClasses[$color] ?? $colorClasses['club'];
 
 // Define the common button styles
 $baseClasses = 'inline-flex items-center px-4 py-2 border border-transparent font-semibold text-xs text-white uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150';
