@@ -110,12 +110,13 @@
                 </div>
 
                 <div class="col-span-2">
-                    <h4 class="uppercase text-xs">Southern Plains Sport Dog Club</h4>
-                    <h1>Train. Play. Grow</h1>
-                    <h3>Your Home for Positive Dog Training, Sport, and Community.</h3>
-                    <p>Welcome to Southern Plains Sport Dog Club —the region's most comprehensive resource dedicated to building better dog-handler partnerships. Our positive-reinforcement training programs, accessible competitive events, and supportive community are designed to help you and your dog thrive.</p>
+                    <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
+                    <h1 class="heading text-7xl">Train. Play. Grow</h1>
+                    <h3 class="text-2xl">Your Home for Positive Dog Training, Sport, and Community.</h3>
+                    
+                    <p class="text-lg">Welcome to <span class="text-semibold">Southern Plains Sport Dog Club</span> — the region's most comprehensive resource dedicated to building better dog-handler partnerships. Our positive-reinforcement training programs, accessible competitive events, and supportive community are designed to help you and your dog thrive.</p>
 
-                    <p>Whether you're starting with basic manners, pursuing a Canine Good Citizen title, or aiming for titles in NASDA sport trials, we have the classes, events, and expertise you need to Train, Play, and Grow together.</p>
+                    <p class="text-lg">Whether you're starting with basic manners, pursuing a Canine Good Citizen title, or aiming for titles in NASDA sport trials, we have the classes, events, and expertise you need to <span class="text-semibold">Train, Play, and Grow</span> together.</p>
                     
                 </div>
 
