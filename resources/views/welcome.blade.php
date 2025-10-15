@@ -19,7 +19,7 @@
 
 <body class="antialiased h-full w-full">
 
-    <div class="min-h-full pt-28">
+    <div class="min-h-full">
 
         <nav class="mt-6 z-10" x-data="{ open: false }">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
