@@ -159,16 +159,6 @@
 
                 </div> <!-- END Scrollable Column -->
 
-                <div class="p-6">
-                        Green
-                    </div>
-                     <div class="p-6">
-                        Pink
-                    </div>
-                     <div class="p-6">
-                        Blue
-                    </div>
-
 
         </main>
     </div>
