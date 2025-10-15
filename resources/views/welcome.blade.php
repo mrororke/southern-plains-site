@@ -12,18 +12,31 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
 
+    <style>
+        /* In your main CSS file or <style> block */
+.fixed-background {
+    /* Set the image URL */
+    background-image: url('{{ asset('images/2025_01_slide_hamish.jpg') }}');
+    
+    /* Make it fixed so it doesn't scroll */
+    background-attachment: fixed;
+    
+    /* Cover the entire body */
+    background-size: cover;
+    
+    /* Center the image */
+    background-position: center center;
+}
+</style>
+
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 </head>
 
-<body class="antialiased h-full w-full">
-
-<div class="fixed top-0 left-0 w-screen h-screen z-[-10]"
-     style="background-image: url('{{ asset('images/2025_01_slide_hamish.jpg') }}'); 
-            background-size: cover; 
-            background-position: center center; 
-            background-repeat: no-repeat;">
+<body class="antialiased h-full w-full fixed-background">
+<div class="min-h-full pt-28 z-10 bg-white">
+    sdfasdfasdf
 </div>
     
     <!-- <div id="hero-slider-fixed" class="fixed top-0 left-0 w-screen h-screen z-[-10]">
