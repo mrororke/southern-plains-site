@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* Custom utility for 120px padding left/right */
+.col-padding-120 {
+    padding-left: 120px;
+    padding-right: 120px;
+}

@@ -87,7 +87,7 @@
         <main>
 
 
-            <div class="grid lg:grid-cols-12 gap-4">
+            <div class="grid lg:grid-cols-3 gap-4">
 
                 <div class="h-full w-full sticky  -z-10" style="margin-top:-115px">
                     <div id="default-carousel" class="relative w-full h-full" data-carousel="slide">
@@ -109,7 +109,7 @@
                     </div>
                 </div>
 
-                <div class="col-span-2">
+                <div class="col-span-2 col-padding-120">
                     <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
                     <h1 class="font-heading text-7xl">Train. Play. Grow</h1>
                     <h3 class="text-2xl">Your Home for Positive Dog Training, Sport, and Community.</h3>
