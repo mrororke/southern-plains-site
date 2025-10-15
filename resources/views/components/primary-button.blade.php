@@ -4,7 +4,7 @@
 // Define the base color classes based on the 'color' prop
 $colorClasses = [
 'club' => 'bg-club hover:bg-club-hover focus:bg-club-hover active:bg-club',
-    'club-dark' => 'bg-white !text-club hover:bg-club hover:text-white focus:bg-white active:bg-white',
+    'club-dark' => 'bg-white text-club border-2 border-transparent hover:bg-transparent hover:text-white hover:border-white focus:bg-white active:bg-white',
 // Add more colors here as needed
 ];
 
