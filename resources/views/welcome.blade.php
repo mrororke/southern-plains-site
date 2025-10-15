@@ -118,7 +118,7 @@
 
                     <p class="text-base mb-4">Whether you're starting with basic manners, pursuing a Canine Good Citizen title, or aiming for titles in NASDA sport trials, we have the classes, events, and expertise you need to <span class="font-semibold">Train, Play, and Grow</span> together.</p>
 
-                    <h3>Choose Your Path</h3>
+                    <h3 class="font-heading text-5xl">Choose Your Path</h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             
             <div class="bg-gray-100 p-6 rounded-lg shadow-md">
