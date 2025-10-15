@@ -121,7 +121,7 @@
                     <h3 class="font-heading text-5xl">Choose Your Path</h3>
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             
-            <div class="bg-gray-100 p-6 rounded-lg shadow-md">
+            <div class="bg-gray-100 p-6 rounded-lg shadow-md bg-[url({{ asset('images/2025_03_slide_hamish.jpg') }})]">
                 <h4 class="font-bold text-lg mb-2">Basic Manners</h4>
                 <p class="text-sm">Start your journey with essential obedience and home skills.</p>
             </div>
