@@ -24,7 +24,7 @@
         <nav class="mt-6 z-10" x-data="{ open: false }">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between">
-                    <div class="sticky">
+                    <div>
                         <a href="/">
                             <x-application-logo class="w-20 h-20 fill-current" />
                         </a>
@@ -90,7 +90,7 @@
                 <!-- Sticky Column -->
                 <div class="sticky top-0 h-screen w-1/3 -z-10" style="margin-top:-115px">
                     <!-- Content for the sticky column -->
-                     <div id="default-carousel" class="relative w-full h-full" data-carousel="slide">
+                    <div id="default-carousel" class="relative w-full h-full" data-carousel="slide">
                         <!-- Carousel wrapper -->
                         <div class="relative overflow-hidden h-screen">
                             <!-- Item 1 -->
@@ -110,7 +110,7 @@
                 </div>
 
                 <!-- Scrollable Column -->
-                <div class="flex-1 overflow-y-auto col-padding-120">
+                <div class="lg:flex-1 lg:overflow-y-auto p-4 lg:col-padding-120">
                     <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
                     <h1 class="font-heading text-7xl">Train. Play. Grow</h1>
                     <h3 class="text-2xl mb-2 mt-2">Your Home for Positive Dog Training, Sport, and Community.</h3>
