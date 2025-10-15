@@ -167,11 +167,10 @@
                     </div>
                     <div id="league" class="p-6 bg-league bg-cover bg-center"
                         style="background-image: url('{{ asset('images/left_mask.png') }}');">
-                        Pink
                         <div class="lg:px-[120px] p-4">
                             <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog League</h4>
                             <h3 class="font-heading text-5xl mb-6">Friendly Competition, Fierce Team Spirit</h3>
-                            <p class="text-base mb-2">The League provides a regular, local structure for competition and progress measurement. Join our organized events throughout the year to hone your sport skills and enjoy the camaraderie of fellow handlers. <span class="font-italic">(Formerly Redbud Sport Dog League)</span> together.</p>
+                            <p class="text-base mb-2">The League provides a regular, local structure for competition and progress measurement. Join our organized events throughout the year to hone your sport skills and enjoy the camaraderie of fellow handlers. <span class="italic">(Formerly Redbud Sport Dog League)</span>.</p>
                             <x-primary-button color="league-dark" class="mt-6">
                                 {{ __('Explore the League') }}
                             </x-primary-button>
