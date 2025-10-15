@@ -122,19 +122,19 @@
                         <h3 class="font-heading text-5xl mb-6">Choose Your Path</h3>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-                            <div class="p-6 rounded-lg shadow-md text-white bg-cover bg-center"
+                            <div class="p-6 text-white bg-cover bg-center pt-[75%]"
                                 style="background-image: url('{{ asset('images/club.png') }}');">
-                                <h4 class="font-bold text-lg mb-2">Club</h4>
+                                <h4 class="font-heading font-bold text-5xl mt-8 mb-8">Club</h4>
                             </div>
 
-                            <div class="p-6 rounded-lg shadow-md text-white bg-cover bg-center"
+                            <div class="p-6  text-white bg-cover bg-center"
                                 style="background-image: url('{{ asset('images/league.png') }}');">
-                                <h4 class="font-bold text-lg mb-2">League</h4>
+                                <h4 class="font-heading font-bold text-5xl mt-8 mb-8">League</h4>
                             </div>
 
-                            <div class="p-6 rounded-lg shadow-md text-white bg-cover bg-center"
+                            <div class="p-6 text-white bg-cover bg-center"
                                 style="background-image: url('{{ asset('images/train.png') }}');">
-                                <h4 class="font-bold text-lg mb-2">Train</h4>
+                                <h4 class="font-heading font-bold text-5xl mt-8 mb-8">Train</h4>
                             </div>
 
                         </div>
