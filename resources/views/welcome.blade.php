@@ -181,7 +181,8 @@
                         Blue
                         <div class="lg:px-[120px] p-4">
                             <h4 class="uppercase text-xs font-bold">Southern Plains Training</h4>
-                            <h3 class="font-heading text-5xl mb-6">Our focus is positive-reinforcement training that builds confidence and reliable behavior. We offer core classes, including <span class="font-semibold">Basic Manners, Canine Good Citizen (CGC) preparation, Tricks</span>, and specialized workshops to strengthen your partnership.</p>
+                            <h3 class="font-heading text-5xl mb-6">From Manners to Masters<br/>Building a Solid Foundation</h3>
+                            <p class="text-base mb-2">Our focus is positive-reinforcement training that builds confidence and reliable behavior. We offer core classes, including <span class="font-semibold">Basic Manners, Canine Good Citizen (CGC) preparation, Tricks</span>, and specialized workshops to strengthen your partnership.</p>
                             <x-primary-button color="train-dark" class="mt-6">
                                 {{ __('View Current Offerings') }}
                             </x-primary-button>
