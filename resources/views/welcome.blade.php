@@ -26,7 +26,7 @@
                 <div class="flex items-center justify-between">
                     <div>
                         <a href="/">
-                            <x-application-logo class="w-20 h-20 fill-current text-black lg:text-white" />
+                           <x-application-logo class="w-20 h-20 fill-current text-black lg:text-white" />
                         </a>
                     </div>
                     <div class="hidden md:block md:flex items-center space-x-4">
