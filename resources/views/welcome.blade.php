@@ -124,12 +124,14 @@
                             <h3 class="font-heading text-5xl mt-2 mb-6">Choose Your Path</h3>
                             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-                                <a href="#club"><div class="relative text-white bg-cover bg-center pt-[203.78%]"
-                                    style="background-image: url('{{ asset('images/club.png') }}');">
-                                    <div class="absolute inset-0 p-6 flex flex-col items-center justify-center text-center">
-                                        <h4 class="font-heading font-bold text-5xl mt-8 mb-8">Club</h4>
+                                <a href="#club">
+                                    <div class="relative text-white bg-cover bg-center pt-[203.78%]"
+                                        style="background-image: url('{{ asset('images/club.png') }}');">
+                                        <div class="absolute inset-0 p-6 flex flex-col items-center justify-center text-center">
+                                            <h4 class="font-heading font-bold text-5xl mt-8 mb-8">Club</h4>
+                                        </div>
                                     </div>
-                                </div></a>
+                                </a>
 
                                 <div class="relative text-white bg-cover bg-center pt-[203.78%]"
                                     style="background-image: url('{{ asset('images/league.png') }}');">
@@ -150,20 +152,20 @@
                     </div>
 
                     <div id="club" class="p-6 bg-club bg-cover bg-center"
-                    style="background-image: url('{{ asset('images/right_mask.png') }}');">
+                        style="background-image: url('{{ asset('images/right_mask.png') }}');">
                         <div class="lg:px-[120px] p-4">
                             <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
                             <h3 class="font-heading text-5xl mb-6">Your gateway to NASDA Competition.</h3>
                             <p class="text-base mb-2">We are licensed <span class="font-semibold">NASDA Club</span> dedicated to hosting high-quality, accessible trials in new and underserved areas. This is the perfect place to try out a sport organization before committing to full club membership.</p>
 
                             <x-primary-button color="club-dark" class="ms-4">
-    {{ __('Contact Us') }}
-</x-primary-button>
+                                {{ __('View Trial Schedule') }}
+                            </x-primary-button>
 
                         </div>
                     </div>
                     <div class="p-6 bg-league bg-cover bg-center"
-                    style="background-image: url('{{ asset('images/left_mask.png') }}');">
+                        style="background-image: url('{{ asset('images/left_mask.png') }}');">
                         Pink
                         <div class="lg:px-[120px] p-4">
                             <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
@@ -172,7 +174,7 @@
                         </div>
                     </div>
                     <div class="p-6 bg-training bg-cover bg-center"
-                    style="background-image: url('{{ asset('images/right_mask.png') }}');">
+                        style="background-image: url('{{ asset('images/right_mask.png') }}');">
                         Blue
                         <div class="lg:px-[120px] p-4">
                             <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
