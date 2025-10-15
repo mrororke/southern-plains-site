@@ -132,13 +132,14 @@
                                         </div>
                                     </div>
                                 </a>
-
+                                <a href="#league">
                                 <div class="relative text-white bg-cover bg-center pt-[203.78%]"
                                     style="background-image: url('{{ asset('images/league.png') }}');">
                                     <div class="absolute inset-0 p-6 flex flex-col items-center justify-center text-center">
                                         <h4 class="font-heading font-bold text-5xl mt-8 mb-8">League</h4>
                                     </div>
                                 </div>
+                                </a>
 
                                 <div class="relative text-white bg-cover bg-center pt-[203.78%]"
                                     style="background-image: url('{{ asset('images/train.png') }}');">
@@ -164,13 +165,16 @@
 
                         </div>
                     </div>
-                    <div class="p-6 bg-league bg-cover bg-center"
+                    <div id="league" class="p-6 bg-league bg-cover bg-center"
                         style="background-image: url('{{ asset('images/left_mask.png') }}');">
                         Pink
                         <div class="lg:px-[120px] p-4">
-                            <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
-                            <h3 class="font-heading text-5xl mb-6">Choose Your Path</h3>
-                            <p class="text-base mb-2">Whether you're starting with basic manners, pursuing a Canine Good Citizen title, or aiming for titles in NASDA sport trials, we have the classes, events, and expertise you need to <span class="font-semibold">Train, Play, and Grow</span> together.</p>
+                            <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog League</h4>
+                            <h3 class="font-heading text-5xl mb-6">Friendly Competition, Fierce Team Spirit</h3>
+                            <p class="text-base mb-2">The League provides a regular, local structure for competition and progress measurement. Join our organized events throughout the year to hone your sport skills and enjoy the camaraderie of fellow handlers. <span class="font-italic">(Formerly Redbud Sport Dog League)</span> together.</p>
+                            <x-primary-button color="league-dark" class="mt-6">
+                                {{ __('Explore the League') }}
+                            </x-primary-button>
                         </div>
                     </div>
                     <div class="p-6 bg-training bg-cover bg-center"

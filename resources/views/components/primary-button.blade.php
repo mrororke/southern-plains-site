@@ -3,13 +3,10 @@
 @php
 // Define the color schemes (Only these should contain conflicting colors like bg/text)
 $colorClasses = [
-    // 1. Primary Button (Club Color)
-    'club' => 'bg-club text-white hover:bg-club-hover active:bg-club focus:ring-indigo-500 border-transparent',
-    
-    // 2. Dark Button (White BG, Club Text, Transparent Hover)
-    // Removed border-2 from here, and put it in $baseClasses so it applies to all buttons.
-    // ADDED !important prefix to text-club to override the default text color if needed.
-    'club-dark' => 'bg-white !text-club hover:bg-transparent hover:text-white hover:border-white focus:ring-indigo-500', 
+    'club' => 'bg-club text-white hover:bg-club-hover active:bg-club border-transparent',
+    'club-dark' => 'bg-white !text-club hover:bg-transparent hover:text-white hover:border-white', 
+    'league' => 'bg-league text-white hover:bg-league-hover active:bg-league border-transparent',
+    'league-dark' => 'bg-white !text-league hover:bg-transparent hover:text-white hover:border-white', 
 ];
 
 // Select the class set
