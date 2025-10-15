@@ -151,11 +151,10 @@
 
                     <div id="club" class="p-6 bg-club bg-cover bg-center"
                     style="background-image: url('{{ asset('images/right_mask.png') }}');">
-                        Green
                         <div class="lg:px-[120px] p-4">
                             <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
-                            <h3 class="font-heading text-5xl mb-6">Choose Your Path</h3>
-                            <p class="text-base mb-2">Whether you're starting with basic manners, pursuing a Canine Good Citizen title, or aiming for titles in NASDA sport trials, we have the classes, events, and expertise you need to <span class="font-semibold">Train, Play, and Grow</span> together.</p>
+                            <h3 class="font-heading text-5xl mb-6">Your gateway to NASDA Competition.</h3>
+                            <p class="text-base mb-2">We are licensed <span class="font-semibold">NASDA Club</span> dedicated to hosting high-quality, accessible trials in new and underserved areas. This is the perfect place to try out a sport organization before committing to full club membership.</p>
                         </div>
                     </div>
                     <div class="p-6 bg-league bg-cover bg-center"
