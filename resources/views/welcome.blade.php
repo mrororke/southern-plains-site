@@ -87,7 +87,7 @@
         <main>
 
 
-            <div class="grid lg:grid-cols-3 gap-4">
+            <div class="grid lg:grid-cols-12 gap-4">
 
                 <div class="h-full w-full sticky  -z-10" style="margin-top:-115px">
                     <div id="default-carousel" class="relative w-full h-full" data-carousel="slide">
@@ -114,9 +114,9 @@
                     <h1 class="font-heading text-7xl">Train. Play. Grow</h1>
                     <h3 class="text-2xl">Your Home for Positive Dog Training, Sport, and Community.</h3>
                     
-                    <p class="text-lg">Welcome to <span class="text-semibold">Southern Plains Sport Dog Club</span> — the region's most comprehensive resource dedicated to building better dog-handler partnerships. Our positive-reinforcement training programs, accessible competitive events, and supportive community are designed to help you and your dog thrive.</p>
+                    <p class="text-lg">Welcome to <span class="font-semibold">Southern Plains Sport Dog Club</span> — the region's most comprehensive resource dedicated to building better dog-handler partnerships. Our positive-reinforcement training programs, accessible competitive events, and supportive community are designed to help you and your dog thrive.</p>
 
-                    <p class="text-lg">Whether you're starting with basic manners, pursuing a Canine Good Citizen title, or aiming for titles in NASDA sport trials, we have the classes, events, and expertise you need to <span class="text-semibold">Train, Play, and Grow</span> together.</p>
+                    <p class="text-lg">Whether you're starting with basic manners, pursuing a Canine Good Citizen title, or aiming for titles in NASDA sport trials, we have the classes, events, and expertise you need to <span class="font-semibold">Train, Play, and Grow</span> together.</p>
                     
                 </div>
 
