@@ -87,23 +87,38 @@
         <main>
 
             <div class="flex min-h-screen">
-                <!-- Sticky Column -->
-                <div class="sticky top-0 h-screen w-1/4 bg-blue-200 p-4">
-                    <p>This column is sticky and full height.</p>
-                    <!-- Content for the sticky column -->
-                </div>
+  <!-- Sticky Column -->
+  <div class="sticky top-0 h-screen w-1/4 bg-blue-200 p-4">
+    <p>This column is sticky and full height.</p>
+    <!-- Content for the sticky column -->
+  </div>
 
-                <!-- Scrollable Column -->
-                <div class="flex-1 overflow-y-auto bg-gray-100 p-4">
-                    <p>This column will scroll.</p>
-                    <!-- Add a lot of content here to demonstrate scrolling -->
-                    <div class="h-[150vh] bg-green-200">
-                        <p>Scrollable content area.</p>
-                        <p>More content to make it scroll.</p>
-                        <p>Even more content to ensure scrolling behavior.</p>
-                    </div>
-                </div>
-            </div>
+  <!-- Scrollable Column -->
+  <div class="flex-1 overflow-y-auto bg-gray-100 p-4">
+    <p>This column will scroll.</p>
+    <!-- Add a lot of content here to demonstrate scrolling -->
+    <div class="h-[150vh] bg-green-200">
+      <p>Scrollable content area.</p>
+      <p>More content to make it scroll.</p>
+      <p>Even more content to ensure scrolling behavior.</p>
+    </div>
+    <div class="h-[150vh] bg-green-200">
+      <p>Scrollable content area.</p>
+      <p>More content to make it scroll.</p>
+      <p>Even more content to ensure scrolling behavior.</p>
+    </div>
+    <div class="h-[150vh] bg-green-200">
+      <p>Scrollable content area.</p>
+      <p>More content to make it scroll.</p>
+      <p>Even more content to ensure scrolling behavior.</p>
+    </div>
+    <div class="h-[150vh] bg-green-200">
+      <p>Scrollable content area.</p>
+      <p>More content to make it scroll.</p>
+      <p>Even more content to ensure scrolling behavior.</p>
+    </div>
+  </div>
+</div>
 
         </main>
     </div>
