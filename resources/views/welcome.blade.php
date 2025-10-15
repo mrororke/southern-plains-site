@@ -156,7 +156,7 @@
                         <div class="lg:px-[120px] p-4">
                             <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
                             <h3 class="font-heading text-5xl mb-6">Your gateway to NASDA Competition.</h3>
-                            <p class="text-base mb-2">We are licensed <span class="font-semibold">NASDA Club</span> dedicated to hosting high-quality, accessible trials in new and underserved areas. This is the perfect place to try out a sport organization before committing to full club membership.</p>
+                            <p class="text-base mb-2">We are licensed <span class="font-semibold">NASDA Club</span> dedicated to hosting high-quality, accessible trials in new and underserved areas. This is the perfect place to try out a sport organization before committing<br/> to full club membership.</p>
 
                             <x-primary-button color="club-dark">
                                 {{ __('View Trial Schedule') }}
