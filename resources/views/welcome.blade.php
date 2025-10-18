@@ -21,8 +21,8 @@
 
     <div class="bg-cover bg-top h-screen w-screen"
          style="background-image: url('{{ asset('images/coming_soon_bg.jpg') }}');">
-        <div class="backdrop-blur-md h-full w-full flex items-center justify-center bg-white/50 text-black text-3xl">
-            <div class="min-h-screen flex items-center justify-center">
+        <div class="backdrop-blur-md h-full w-full flex items-center justify-center">
+            <div class="min-h-screen flex items-center justify-center  bg-white/50">
     <div class="flex w-full max-w-4xl">
 
         <div class="w-1/2 p-6">
