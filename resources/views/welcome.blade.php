@@ -32,7 +32,7 @@
 
         <div class="w-1/3 p-6">
             <h2 class="text-xl font-bold mb-2">Right Column</h2>
-            <p class="text-gray-700">Content for the second column. This also takes up half the width.</p>
+            <img src="{{ asset('images/right_mask.png') }}" class="absolute block w-full" alt="...">
         </div>
 
     </div>
