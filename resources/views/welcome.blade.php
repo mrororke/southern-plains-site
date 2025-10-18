@@ -27,15 +27,17 @@
                     style="background-image: url('{{ asset('images/right_mask.png') }}');">
 
                     <div class="p-8">
-                        <div class="text-black">
+                        <div class="text-black flex text-black mb-4 justify-center items-center">
                                 <x-application-logo class="w-20 h-20 fill-current" />
                         </div>
 
                         <h1 class="font-heading text-5xl mb-6">The Southern Plains Evolution is Coming!</h1>
                         <h3 class="text-2xl mb-2 mt-2">The new website launches January 1, 2026, bringing expanded League and Training information.</h3>
                         <p class="text-base mb-2">We're creating a streamlined, central resource for all things Southern Plains, featuring detailed schedules, resources, and online registration.</p>
-                        <p class="text-base mb-2">
-                            Don't wait until January 1st to secure your spot!<br />
+                        <p class="text-base mb-2 font-bold">
+                            Don't wait until January 1st to secure your spot!
+                        </p>
+                         <p class="text-base mb-2 font-bold">
                             Join the official mailing list below for PRIORITY ACCESS to all registration links and event announcements before the general public.
                         </p>
 
