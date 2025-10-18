@@ -23,7 +23,7 @@
          style="background-image: url('{{ asset('images/coming_soon_bg.jpg') }}');">
         <div class="backdrop-blur-md h-full w-full flex items-center justify-center">
             <div class="flex items-center justify-center  bg-white/50 min-h-96">
-    <div class="flex w-full max-w-4xl bg-cover bg-right-bottom"
+    <div class="flex w-full max-w-4xl bg-cover bg-right-bottom min-h-96"
     style="background-image: url('{{ asset('images/right_mask.png') }}');">
 
             <h2 class="text-xl font-bold mb-2">Left Column</h2>
