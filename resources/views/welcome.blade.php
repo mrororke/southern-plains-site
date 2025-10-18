@@ -22,15 +22,21 @@
     <div class="bg-cover bg-top h-screen w-screen"
          style="background-image: url('{{ asset('images/coming_soon_bg.jpg') }}');">
         <div class="backdrop-blur-md h-full w-full flex items-center justify-center text-black text-3xl">
-            <div class="grid grid-cols-2">
-                <div>super cool
-                    <p>This text is clear, but the background behind this div is blurred.</p>
-                </div>
-                <div>second column</div>
-    
-</div>
-  </div>
+            <div class="min-h-screen flex items-center justify-center bg-gray-100">
+    <div class="flex w-full max-w-4xl border border-gray-300 shadow-xl">
 
+        <div class="w-1/2 p-6 bg-white border-r border-gray-200">
+            <h2 class="text-xl font-bold mb-2">Left Column</h2>
+            <p class="text-gray-700">Content for the first column. This takes up half the width of the main container.</p>
+        </div>
+
+        <div class="w-1/2 p-6 bg-white">
+            <h2 class="text-xl font-bold mb-2">Right Column</h2>
+            <p class="text-gray-700">Content for the second column. This also takes up half the width.</p>
+        </div>
+
+    </div>
+</div>
 
     </div>
 
