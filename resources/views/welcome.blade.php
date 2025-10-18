@@ -23,17 +23,12 @@
          style="background-image: url('{{ asset('images/coming_soon_bg.jpg') }}');">
         <div class="backdrop-blur-md h-full w-full flex items-center justify-center">
             <div class="flex items-center justify-center  bg-white/50">
-    <div class="flex w-full max-w-4xl">
+    <div class="flex w-full max-w-4xl bg-cover bg-right-bottom"
+    style="background-image: url('{{ asset('images/coming_soon_bg.jpg') }}');">
 
-        <div class="w-2/3 p-6">
             <h2 class="text-xl font-bold mb-2">Left Column</h2>
             <p class="text-gray-700">Content for the first column. This takes up half the width of the main container.</p>
-        </div>
-
-        <div class="w-1/3 p-6">
-            <h2 class="text-xl font-bold mb-2">Right Column</h2>
-            <img src="{{ asset('images/right_mask.png') }}" class="absolute block w-full" alt="...">
-        </div>
+        
 
     </div>
 </div>
