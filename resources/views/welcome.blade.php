@@ -19,9 +19,11 @@
 
 <body class="antialiased h-full w-full">
 
-    <div class="bg-cover bg-center"
+    <div class="bg-cover bg-bottom h-screen w-screen"
          style="background-image: url('{{ asset('images/coming_soon_bg.jpg') }}');">
-        This will be the coming soon page
+        <div class="backdrop-blur-md h-full w-full flex items-center justify-center text-black text-3xl">
+    <p>This text is clear, but the background behind this div is blurred.</p>
+  </div>
 
 
     </div>
