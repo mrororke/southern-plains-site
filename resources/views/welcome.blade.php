@@ -22,7 +22,13 @@
     <div class="bg-cover bg-top h-screen w-screen"
          style="background-image: url('{{ asset('images/coming_soon_bg.jpg') }}');">
         <div class="backdrop-blur-md h-full w-full flex items-center justify-center text-black text-3xl">
-    <p>This text is clear, but the background behind this div is blurred.</p>
+            <div class="grid grid-cols-2">
+                <div>super cool
+                    <p>This text is clear, but the background behind this div is blurred.</p>
+                </div>
+                <div>second column</div>
+    
+</div>
   </div>
 
 
