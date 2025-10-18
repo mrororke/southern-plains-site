@@ -22,7 +22,7 @@
     <div class="bg-cover bg-top h-screen w-screen"
          style="background-image: url('{{ asset('images/coming_soon_bg.jpg') }}');">
         <div class="backdrop-blur-md h-full w-full flex items-center justify-center">
-            <div class="min-h-screen flex items-center justify-center  bg-white/50">
+            <div class="flex items-center justify-center  bg-white/50">
     <div class="flex w-full max-w-4xl">
 
         <div class="w-1/2 p-6">
@@ -31,8 +31,7 @@
         </div>
 
         <div class="w-1/2 p-6">
-            <h2 class="text-xl font-bold mb-2">Right Column</h2>
-            <p class="text-gray-700">Content for the second column. This also takes up half the width.</p>
+            <img src="{{ asset('images/coming_soon_bg.jpg') }}" class="absolute block w-full" alt="Luka von Hagedorn, a doberman pinscher.">
         </div>
 
     </div>
