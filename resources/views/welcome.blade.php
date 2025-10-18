@@ -26,7 +26,7 @@
                 <div class="flex w-full max-w-4xl bg-cover bg-right-bottom min-h-96"
                     style="background-image: url('{{ asset('images/right_mask.png') }}');">
 
-                    <div class="p-8">
+                    <div class="px-[120px]">
                         <div class="text-black flex text-black mb-4 justify-center items-center">
                                 <x-application-logo class="w-20 h-20 fill-current" />
                         </div>
