@@ -19,8 +19,10 @@
 
 <body class="antialiased h-full w-full">
 
-    <div class="min-h-full">
+    <div class="bg-cover bg-center"
+         style="background-image: url('{{ asset('images/coming_soon_bg.jpg') }}');">
         This will be the coming soon page
+
 
     </div>
 
