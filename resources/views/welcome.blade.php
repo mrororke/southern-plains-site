@@ -25,13 +25,13 @@
             <div class="flex items-center justify-center  bg-white/50">
     <div class="flex w-full max-w-4xl">
 
-        <div class="w-1/2 p-6">
+        <div class="w-2/3 p-6">
             <h2 class="text-xl font-bold mb-2">Left Column</h2>
             <p class="text-gray-700">Content for the first column. This takes up half the width of the main container.</p>
         </div>
 
-        <div class="w-1/2 p-6"
-        style="background-image: url('{{ asset('images/coming_soon_bg.jpg') }}');">
+        <div class="w-1/3 p-6"
+        style="background-image: url('{{ asset('images/right_mask.png') }}');">
             
         </div>
 
