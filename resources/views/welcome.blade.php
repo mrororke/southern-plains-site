@@ -30,8 +30,9 @@
             <p class="text-gray-700">Content for the first column. This takes up half the width of the main container.</p>
         </div>
 
-        <div class="w-1/2 p-6">
-            <img src="{{ asset('images/coming_soon_bg.jpg') }}" class="absolute block w-full" alt="Luka von Hagedorn, a doberman pinscher.">
+        <div class="w-1/2 p-6 bg-cover bg-top"
+        style="background-image: url('{{ asset('images/coming_soon_bg.jpg') }}');>
+            
         </div>
 
     </div>
