@@ -118,23 +118,15 @@
     <div id="sib-container" class="sib-container--large sib-container--vertical">
       <form id="sib-form" method="POST" action="https://a7e86912.sibforms.com/serve/MUIFAEVrrxbebcKdzV34JTC1n-8USU8gszDeusfHsLDwTNTw3NhAmq5eK-r95cx-lzJCi9jccX6gABRR_GqPVRhi1qW8bKBvvd7SHbYzit3A_v3OUFCxFDz-RnJaE9S35h16JnkgtYy2PhehKa-Peoc442B5OX1WWf9w7G8uGhjUrSXIUx8fQkAvDJnP9ZF-CtvNa9tWScSVuiP8uw==" data-type="subscription">
         
-        <div style="padding: 8px 0;">
-          <div class="sib-form-block" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#3C4858; background-color:transparent; text-align:left">
-            <div class="sib-text-form-block">
-              <p>Subscribe to our newsletter and stay updated.</p>
-            </div>
-          </div>
-        </div>
+        
         <div style="padding: 8px 0;">
           <div class="sib-input sib-form-block">
             <div class="form__entry entry_block">
-              <div class="form__label-row ">
-                <label class="entry__label" style="font-weight: 700; text-align:left; font-size:16px; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3c4858;" for="EMAIL" data-required="*">Enter your email address to subscribe</label>
+              
 
                 <div class="entry__field">
                   <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="EMAIL" data-required="true" required />
                 </div>
-              </div>
 
               <label class="entry__error entry__error--primary" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
               </label>
