@@ -48,8 +48,8 @@
                         <!--  END - We recommend to place the above code in head tag of your website html -->
 
                         <!-- START - We recommend to place the below code where you want the form in your website html  -->
-                        <div class="sib-form">
-                            <div id="sib-form-container" class="sib-form-container">
+                        <div class="sib-form" style="padding: 0px !important;">
+                            <div id="sib-form-container">
                                 <div id="error-message" class="sib-form-message-panel" style="font-size:11px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;max-width:540px;">
                                     <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
                                         <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
@@ -112,15 +112,9 @@
                             </div>
                         </div>
                         <!-- END - We recommend to place the above code where you want the form in your website html  -->
-
-                       
                         <!-- End Brevo Form -->
 
                     </div>
-
-
-
-
                 </div>
             </div>
 
@@ -130,33 +124,33 @@
 
 </html>
 
- <!-- START - We recommend to place the below code in footer or bottom of your website html  -->
-                        <script>
-                            window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
-                            window.LOCALE = 'en';
-                            window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+<!-- START - We recommend to place the below code in footer or bottom of your website html  -->
+<script>
+    window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+    window.LOCALE = 'en';
+    window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
 
-                            window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+    window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
 
-                            window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
-
-
+    window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
 
 
-                            window.translation = {
-                                common: {
-                                    selectedList: '{quantity} list selected',
-                                    selectedLists: '{quantity} lists selected',
-                                    selectedOption: '{quantity} selected',
-                                    selectedOptions: '{quantity} selected',
-                                }
-                            };
 
-                            var AUTOHIDE = Boolean(0);
-                        </script>
 
-                        <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+    window.translation = {
+        common: {
+            selectedList: '{quantity} list selected',
+            selectedLists: '{quantity} lists selected',
+            selectedOption: '{quantity} selected',
+            selectedOptions: '{quantity} selected',
+        }
+    };
 
-                        <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
+    var AUTOHIDE = Boolean(0);
+</script>
 
-                        <!-- END - We recommend to place the above code in footer or bottom of your website html  -->
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+
+<script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
+
+<!-- END - We recommend to place the above code in footer or bottom of your website html  -->
