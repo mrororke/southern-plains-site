@@ -80,7 +80,7 @@
                                                 <div class="form__entry entry_block">
 
 
-                                                    <div class="entry__field" style="padding: 0px !important;">
+                                                    <div class="entry__field" style="padding: 0px !important; width:100% !important;">
                                                         <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="Please enter your email address." data-required="true" required />
                                                     </div>
 
