@@ -76,7 +76,7 @@
 
 
                                         <div style="padding: 0px 0;">
-                                            <div class="sib-input sib-form-block">
+                                            <div class="sib-input sib-form-block" style="padding: 0px !important">
                                                 <div class="form__entry entry_block">
 
 
