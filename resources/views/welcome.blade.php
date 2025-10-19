@@ -72,11 +72,11 @@
                                     </div>
                                 </div>
                                 <div></div>
-                                <div id="sib-container" class="sib-container--large sib-container--vertical">
+                                <div id="sib-container" style="background: transparent !important; padding: 0px !important;">
                                     <form id="sib-form" method="POST" action="https://a7e86912.sibforms.com/serve/MUIFAEVrrxbebcKdzV34JTC1n-8USU8gszDeusfHsLDwTNTw3NhAmq5eK-r95cx-lzJCi9jccX6gABRR_GqPVRhi1qW8bKBvvd7SHbYzit3A_v3OUFCxFDz-RnJaE9S35h16JnkgtYy2PhehKa-Peoc442B5OX1WWf9w7G8uGhjUrSXIUx8fQkAvDJnP9ZF-CtvNa9tWScSVuiP8uw==" data-type="subscription">
 
 
-                                        <div style="padding: 8px 0;">
+                                        <div style="padding: 0px 0;">
                                             <div class="sib-input sib-form-block">
                                                 <div class="form__entry entry_block">
 
