@@ -212,11 +212,20 @@
                         
                         <div class="lg:px-[120px] p-6">
                             <h3 class="font-heading text-5xl mb-6">Why Choose Southern Plains?</h3>
-                            <div class="grid grid-cols-2 gap-4">
-        <div class="p-6 border">01</div>
-        <div class="p-6 border">02</div>
-        <div class="p-6 border">03</div>
-        <div class="p-6 border">04</div>
+                            <div class="grid grid-cols-2 gap-4 text-center">
+        <div class="p-6 border">
+            <img src="{{ asset('images/positive_reinfocement.svg') }}" alt="...">
+            <h3 class="uppercase text-small font-bold">Positive Reinforcement</h3>
+            <p class="text-xs mb-2">Our training methods are rooted in science-backed, positive techniques. We focus on building confidence, communication, and a happy, willing partnership with your dog.</p>
+        </div>
+        <div class="p-6 border">
+        </div>
+        <div class="p-6 border">
+            
+        </div>
+        <div class="p-6 border">
+
+        </div>
     </div>
                             
                         </div>
