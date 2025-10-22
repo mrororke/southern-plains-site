@@ -213,11 +213,11 @@
                         <div class="lg:px-[120px] p-6">
                             <h3 class="font-heading text-5xl mb-6">Why Choose Southern Plains?</h3>
                             <div class="grid grid-cols-2 gap-4">
-  <div class="w-1/2 p-6 border">01</div>
-  <div class="w-1/2 p-6 border">02</div>
-  <div class="w-1/2 p-6 border">03</div>
-  <div class="w-1/2 p-6 border">04</div>
-</div>
+        <div class="p-6 border">01</div>
+        <div class="p-6 border">02</div>
+        <div class="p-6 border">03</div>
+        <div class="p-6 border">04</div>
+    </div>
                             
                         </div>
 
