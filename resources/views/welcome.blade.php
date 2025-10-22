@@ -209,7 +209,11 @@
                         </div>
                     </div>
 
-                        <h1 class="font-heading text-7xl">Train. Play. Grow</h1>
+                        
+                        <div class="lg:px-[120px] p-4">
+                            <h3 class="font-heading text-5xl mb-6">Why Choose Southern Plains?</h3>
+                            
+                        </div>
 
                 </div> <!-- END Scrollable Column -->
 
