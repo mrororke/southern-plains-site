@@ -255,16 +255,15 @@
                             <h3 class="font-heading text-5xl mb-6">Hear it From Our Handlers</h3>
                             <p class="text-base mb-2">Nothing proves the strength of our system like the success stories of the dogs and handlers we work with. See what our community has to say about training, competing, and growing with Southern Plains.</p>
 
-                            <div>
-                                <div class="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth">
-  <article class="snap-center min-w-[18rem] rounded-2xl border border-base-200 p-6 shadow">
-    <h3 class="text-lg font-semibold">Component previews</h3>
+                            <div class="flex snap-x snap-mandatory gap-6 overflow-x-auto scroll-smooth">
+  <article class="snap-center min-w-[18rem] rounded-2xl border border-base-200 p-6 lg:w-full shadow">
+    <h3 class="text-lg font-semibold">Component previews 1</h3>
   </article>
-  <article class="snap-center min-w-[18rem] rounded-2xl border border-base-200 p-6 shadow">
-    <h3 class="text-lg font-semibold">Component previews 2</h3>
+  <article class="snap-center min-w-[18rem] rounded-2xl border border-base-200 p-6 lg:w-full shadow">
+    <h3 class="text-lg font-semibold">Component previews 12</h3>
   </article>
-  <article class="snap-center min-w-[18rem] rounded-2xl border border-base-200 p-6 shadow">
-    <h3 class="text-lg font-semibold">Component previews 3</h3>
+  <article class="snap-center min-w-[18rem] rounded-2xl border border-base-200 p-6 lg:w-full shadow">
+    <h3 class="text-lg font-semibold">Component previews 13</h3>
   </article>
 </div>
                                 testimonial here
