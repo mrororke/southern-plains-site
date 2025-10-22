@@ -254,15 +254,16 @@
                         <div class="lg:px-[120px] p-6"> <!-- BEGIN testimonial -->
                             <h3 class="font-heading text-5xl mb-6">Hear it From Our Handlers</h3>
 </div><!-- END testimonial  -->
+<div><!-- BEGIN Footer -->
+        Footer starts here
+    </div> <!-- END footer -->
 
                 </div> <!-- END Scrollable Column -->
 
 
         </main>
     </div>
-    <div>
-        Footer starts here
-    </div>
+    
 
 </body>
 
