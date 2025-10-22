@@ -214,12 +214,12 @@
                             <h3 class="font-heading text-5xl mb-6">Why Choose Southern Plains?</h3>
                             <div class="grid grid-cols-2 gap-4 text-center">
         <div class="p-6 border">
-            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="36" height="36" class="mb-4 mx-auto" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M19 0H19.25C23.25 0 26.875 2.125 28.875 5.625L32 10.75L35 5.625C37 2.125 40.625 0 44.625 0H45C51 0 56 5 56 11C56 12.875 55.5 14.5 54.75 16H60C62.125 16 64 17.875 64 20V28C64 30.25 62.125 32 60 32H4C1.75 32 0 30.25 0 28V20C0 17.875 1.75 16 4 16H9.125C8.375 14.5 8 12.875 8 11C8 5 12.875 0 19 0ZM23.75 8.625C22.75 7 21.125 6 19.25 6H19C16.125 6 14 8.25 14 11C14 13.875 16.125 16 19 16H28.125L23.75 8.625ZM45 6H44.625C42.75 6 41.125 7 40.125 8.625L35.75 16H45C47.75 16 50 13.875 50 11C50 8.25 47.75 6 45 6ZM4 36H28V64H10C6.625 64 4 61.375 4 58V36ZM36 64V36H60V58C60 61.375 57.25 64 54 64H36Z" fill="#4CBB17"/>
 </svg>
 
-            <h3 class="uppercase text-small font-bold">Positive Reinforcement</h3>
-            <p class="text-xs mb-2">Our training methods are rooted in science-backed, positive techniques. We focus on building confidence, communication, and a happy, willing partnership with your dog.</p>
+            <h3 class="uppercase text-small font-bold mb-4">Positive Reinforcement</h3>
+            <p class="text-small mb-2">Our training methods are rooted in science-backed, positive techniques. We focus on building confidence, communication, and a happy, willing partnership with your dog.</p>
         </div>
         <div class="p-6 border">
         </div>
