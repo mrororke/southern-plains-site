@@ -210,8 +210,14 @@
                     </div>
 
                         
-                        <div class="lg:px-[120px] p-4">
+                        <div class="lg:px-[120px] p-6">
                             <h3 class="font-heading text-5xl mb-6">Why Choose Southern Plains?</h3>
+                            <div class="flex flex-wrap">
+  <div>01</div>
+  <div>02</div>
+  <div>03</div>
+  <div>04</div>
+</div>
                             
                         </div>
 
