@@ -209,6 +209,8 @@
                         </div>
                     </div>
 
+                        <h1 class="font-heading text-7xl">Train. Play. Grow</h1>
+
                 </div> <!-- END Scrollable Column -->
 
 
