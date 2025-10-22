@@ -210,7 +210,7 @@
                     </div>
 
                         
-                        <div class="lg:px-[120px] p-6">
+                        <div class="lg:px-[120px] p-6"><!-- END Why Us -->
                             <h3 class="font-heading text-5xl mb-6">Why Choose Southern Plains?</h3>
                             <div class="grid grid-cols-2 gap-4 text-center">
         <div class="p-8 border">
@@ -249,12 +249,19 @@
         </div>
     </div>
                             
-                        </div>
+                        </div> <!-- END Why Us -->
+
+                        <div class="lg:px-[120px] p-6"> <!-- BEGIN testimonial -->
+                            <h3 class="font-heading text-5xl mb-6">Hear it From Our Handlers</h3>
+</div><!-- END testimonial  -->
 
                 </div> <!-- END Scrollable Column -->
 
 
         </main>
+    </div>
+    <div>
+        Footer starts here
     </div>
 
 </body>
