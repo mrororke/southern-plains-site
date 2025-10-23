@@ -262,12 +262,15 @@
                                 <div class="relative h-56 overflow-hidden  mt-4 mb-4 md:h-96">
                                     <!-- Item 1 -->
                                     <div class="hidden duration-700 ease-in-out bg-[#D9D9D9]/20" data-carousel-item="active">
-                                        <div class="grid grid-cols-2 gap-4 text-center">
-                                            <div class="p-8 border">
-                                                <img src="{{ asset('images/quote.png') }}" class="block w-full" alt="...">
+                                        <div class="grid grid-cols-4">
+                                            <div class="p-8 ">
+                                                <img src="{{ asset('images/quote.png') }}" class="mx-auto pt-2" alt="Green opening quotation mark">
                                             </div>
-                                            <div class="p-8 border">
-                                                Columnn two
+                                            <div class="p-8 col-span-3">
+                                                <p>
+                                                    "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps."
+                                                </p>
+                                                <p>— Michael T., Handler of 'Gus'</p>
                                             </div>
                                         </div>
                                     </div>
