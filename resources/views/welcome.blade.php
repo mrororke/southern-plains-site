@@ -318,6 +318,9 @@
                         <div class="lg:px-[120px] p-4">
                             <div class="grid grid-cols-3 gap-4">
                                 <div>
+                                    <div class="text-black lg:text-white">
+                                        <x-application-logo class="w-20 h-20 fill-current" />
+                                    </div>
                                     <h3 class="font-heading text-5xl mb-6">Footer.</h3>
                                 </div>
                                 <div>
