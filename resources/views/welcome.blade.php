@@ -364,7 +364,7 @@
 
                     <div id="footer" class="p-6 bg-club"><!-- BEGIN Footer -->
                         <div class="lg:px-[120px] p-4">
-                            <div class="grid grid-cols-3 gap-4">
+                            <div class="grid grid-cols-4 gap-4">
                                 <div>
                                     <div class="text-black mb-4">
                                         <x-application-logo-footer class="w-20 h-20 fill-current" />
@@ -397,7 +397,7 @@
                                     </ul>
 
                                 </div>
-                                <div>
+                                <div class="text-center">
                                     <h3 class="font-heading text-2xl mb-2">Explore</h3>
                                     <ul class="list-none text-sm">
                                         <li>Home</li>
@@ -409,7 +409,7 @@
                                         <li>Contact</li>
                                     </ul>
                                 </div>
-                                <div>
+                                <div class="col-span-2">
                                     <h3 class="font-heading text-2xl mb-2">Stay in the loop.</h3>
                                     <p class="text-base mb-2">Get our best positive training tips, behavior insights, and early access to specialty class registration (like The Predictable Path!). No spam, just value.</p>
                                     <!-- Begin Brevo Form -->
