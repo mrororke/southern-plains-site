@@ -33,52 +33,52 @@
         <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
 
         <!-- START - We recommend to place the below code in head tag of your website html  -->
-                                    <style>
-                                        @font-face {
-                                            font-display: block;
-                                            font-family: Roboto;
-                                            src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff")
-                                        }
+        <style>
+            @font-face {
+                font-display: block;
+                font-family: Roboto;
+                src: url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/7529907e9eaf8ebb5220c5f9850e3811.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/normal/normal/25c678feafdc175a70922a116c9be3e7.woff) format("woff")
+            }
 
-                                        @font-face {
-                                            font-display: fallback;
-                                            font-family: Roboto;
-                                            font-weight: 600;
-                                            src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff")
-                                        }
+            @font-face {
+                font-display: fallback;
+                font-family: Roboto;
+                font-weight: 600;
+                src: url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/6e9caeeafb1f3491be3e32744bc30440.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/medium/normal/71501f0d8d5aa95960f6475d5487d4c2.woff) format("woff")
+            }
 
-                                        @font-face {
-                                            font-display: fallback;
-                                            font-family: Roboto;
-                                            font-weight: 700;
-                                            src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff")
-                                        }
+            @font-face {
+                font-display: fallback;
+                font-family: Roboto;
+                font-weight: 700;
+                src: url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/3ef7cf158f310cf752d5ad08cd0e7e60.woff2) format("woff2"), url(https://assets.brevo.com/font/Roboto/Latin/bold/normal/ece3a1d82f18b60bcce0211725c476aa.woff) format("woff")
+            }
 
-                                        #sib-container input:-ms-input-placeholder {
-                                            text-align: left;
-                                            font-family: Helvetica, sans-serif;
-                                            color: #c0ccda;
-                                        }
+            #sib-container input:-ms-input-placeholder {
+                text-align: left;
+                font-family: Helvetica, sans-serif;
+                color: #c0ccda;
+            }
 
-                                        #sib-container input::placeholder {
-                                            text-align: left;
-                                            font-family: Helvetica, sans-serif;
-                                            color: #c0ccda;
-                                        }
+            #sib-container input::placeholder {
+                text-align: left;
+                font-family: Helvetica, sans-serif;
+                color: #c0ccda;
+            }
 
-                                        #sib-container textarea::placeholder {
-                                            text-align: left;
-                                            font-family: Helvetica, sans-serif;
-                                            color: #c0ccda;
-                                        }
+            #sib-container textarea::placeholder {
+                text-align: left;
+                font-family: Helvetica, sans-serif;
+                color: #c0ccda;
+            }
 
-                                        #sib-container a {
-                                            text-decoration: underline;
-                                            color: #2BB2FC;
-                                        }
-                                    </style>
-                                    <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
-                                    <!--  END - We recommend to place the above code in head tag of your website html -->
+            #sib-container a {
+                text-decoration: underline;
+                color: #2BB2FC;
+            }
+        </style>
+        <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+        <!--  END - We recommend to place the above code in head tag of your website html -->
 
 
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -413,11 +413,8 @@
                                     <h3 class="font-heading text-2xl mb-2">Stay in the loop.</h3>
                                     <p class="text-base mb-2">Get our best positive training tips, behavior insights, and early access to specialty class registration (like The Predictable Path!). No spam, just value.</p>
                                     <!-- Begin Brevo Form -->
-                                    
-
                                     <!-- START - We recommend to place the below code where you want the form in your website html  -->
-                                    <div class="sib-form" style="text-align: center;
-         background-color: #EFF2F7;                                 ">
+                                    <div class="sib-form">
                                         <div id="sib-form-container" class="sib-form-container">
                                             <div id="error-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;max-width:350px;">
                                                 <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
@@ -441,9 +438,9 @@
                                                 </div>
                                             </div>
                                             <div></div>
-                                            <div id="sib-container" class="sib-container--medium sib-container--vertical" style="text-align:center; background-color:rgba(255,255,255,1); max-width:350px; border-radius:3px; border-width:1px; border-color:#C0CCD9; border-style:solid; direction:ltr">
+                                            <div id="sib-container" class="sib-container--medium sib-container--vertical">
                                                 <form id="sib-form" method="POST" action="https://a7e86912.sibforms.com/serve/MUIFALaiW_cgjZZq0ayhdtxbsif4BZea7eROckpMP551S5bkLy-2I8IjrPNDt9iO7KkberEPWYXFH79i9ipaTZMYts7_wxrpyk9LAlFe2NnAd8Hc-IR_6VJF-bykEiKkufCS8ayvk5SVTFoFZJP1Dum4HEbk_A2r13WFalmiAacIehqYNQ4cKT9i0JQt7IkMqNON1gA7GU_Pu7H2ZQ==" data-type="subscription">
-                                                    <div style="padding: 8px 0;">
+                                                    <div>
                                                         <div class="sib-input sib-form-block">
                                                             <div class="form__entry entry_block">
                                                                 <div class="form__label-row ">
@@ -511,33 +508,33 @@
 
     </html>
 
-                                    <!-- START - We recommend to place the below code in footer or bottom of your website html  -->
-                                    <script>
-                                        window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
-                                        window.LOCALE = 'en';
-                                        window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+    <!-- START - We recommend to place the below code in footer or bottom of your website html  -->
+    <script>
+        window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+        window.LOCALE = 'en';
+        window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
 
-                                        window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+        window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
 
-                                        window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
-
-
+        window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
 
 
-                                        window.translation = {
-                                            common: {
-                                                selectedList: '{quantity} list selected',
-                                                selectedLists: '{quantity} lists selected',
-                                                selectedOption: '{quantity} selected',
-                                                selectedOptions: '{quantity} selected',
-                                            }
-                                        };
 
-                                        var AUTOHIDE = Boolean(0);
-                                    </script>
 
-                                    <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+        window.translation = {
+            common: {
+                selectedList: '{quantity} list selected',
+                selectedLists: '{quantity} lists selected',
+                selectedOption: '{quantity} selected',
+                selectedOptions: '{quantity} selected',
+            }
+        };
 
-                                    <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
+        var AUTOHIDE = Boolean(0);
+    </script>
 
-                                    <!-- END - We recommend to place the above code in footer or bottom of your website html  -->
+    <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+
+    <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
+
+    <!-- END - We recommend to place the above code in footer or bottom of your website html  -->
