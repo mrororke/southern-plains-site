@@ -312,19 +312,29 @@
                             </div>
                         </div>
                         <!-- END Testimonial Carousel -->
-                </div><!-- END testimonial  -->
-                
-                <div id="footer" class="p-6 bg-club"><!-- BEGIN Footer -->
-                            <div class="lg:px-[120px] p-4">
-                                <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
-                                <h3 class="font-heading text-5xl mb-6">Footer.</h3>
-                                
+                    </div><!-- END testimonial  -->
 
-
+                    <div id="footer" class="p-6 bg-club"><!-- BEGIN Footer -->
+                        <div class="lg:px-[120px] p-4">
+                            <div class="grid grid-cols-3 gap-4">
+                                <div class="p-8 border">
+                                    <h3 class="font-heading text-5xl mb-6">Footer.</h3>
+                                </div>
+                                <div class="p-8 border">
+                                    <h3 class="font-heading text-5xl mb-6">Footer.</h3>
+                                </div>
+                                <div class="p-8 border">
+                                    <h3 class="font-heading text-5xl mb-6">Footer.</h3>
+                                </div>
                             </div>
-        </div> <!-- END footer -->
-        </div>
-        
+                            <h3 class="font-heading text-5xl mb-6">Footer.</h3>
+
+
+
+                        </div>
+                    </div> <!-- END footer -->
+                </div>
+
 
         </div> <!-- END Scrollable Column -->
 
