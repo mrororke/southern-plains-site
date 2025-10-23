@@ -406,7 +406,7 @@
                                         <li>Contact</li>
                                     </ul>
                                 </div>
-                                <div class="col-span-2">
+                                <div class="md:col-span-2">
                                     <h3 class="font-heading text-2xl mb-2">Stay in the loop.</h3>
                                     <p class="text-sm mb-2">Get our best positive training tips, behavior insights, and early access to specialty class registration (like The Predictable Path!). No spam, just value.</p>
                                     <!-- Begin Brevo Form -->
