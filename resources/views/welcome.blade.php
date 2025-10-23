@@ -317,17 +317,16 @@
                     <div id="footer" class="p-6 bg-club"><!-- BEGIN Footer -->
                         <div class="lg:px-[120px] p-4">
                             <div class="grid grid-cols-3 gap-4">
-                                <div class="p-8 border">
+                                <div>
                                     <h3 class="font-heading text-5xl mb-6">Footer.</h3>
                                 </div>
-                                <div class="p-8 border">
+                                <div>
                                     <h3 class="font-heading text-5xl mb-6">Footer.</h3>
                                 </div>
-                                <div class="p-8 border">
+                                <div>
                                     <h3 class="font-heading text-5xl mb-6">Footer.</h3>
                                 </div>
                             </div>
-                            <h3 class="font-heading text-5xl mb-6">Footer.</h3>
 
 
 
