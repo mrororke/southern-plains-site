@@ -444,17 +444,14 @@
                                                         <div class="sib-input sib-form-block" style="padding:0px;">
                                                             <div class="form__entry entry_block">
                                                                 <div class="form__label-row ">
-                                                                    <label class="entry__label" style="font-weight: 700; text-align:left; font-size: .875rem; text-align:left; font-weight:700; font-family:Helvetica, sans-serif; color:#3c4858;" for="EMAIL" data-required="*">Enter your email address to subscribe to our mailing list.</label>
+                                                                    
 
                                                                     <div class="entry__field">
-                                                                        <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="EMAIL" data-required="true" required />
+                                                                        <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="Enter your email address" data-required="true" required />
                                                                     </div>
                                                                 </div>
 
                                                                 <label class="entry__error entry__error--primary" style="font-size: .875rem; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;">
-                                                                </label>
-                                                                <label class="entry__specification" style="font-size:12px; text-align:left; font-family:Helvetica, sans-serif; color:#8390A4; text-align:left">
-                                                                    Provide your email address to subscribe. For e.g abc@xyz.com
                                                                 </label>
                                                             </div>
                                                         </div>
