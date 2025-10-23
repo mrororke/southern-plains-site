@@ -110,7 +110,7 @@
                     <!-- Sticky Column -->
                     <div class="hidden lg:block lg:sticky lg:top-0 h-screen w-full lg:w-1/3 -z-10" style="margin-top:-115px">
                         <!-- Content for the sticky column -->
-                        <div id="default-carousel" class="relative w-full h-full" data-carousel="slide">
+                        <div id="header-carousel" class="relative w-full h-full" data-carousel="slide">
                             <!-- Carousel wrapper -->
                             <div class="relative overflow-hidden h-screen">
                                 <!-- Item 1 -->
