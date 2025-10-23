@@ -267,10 +267,10 @@
                                                 <img src="{{ asset('images/quote.png') }}" class="mx-auto pt-2" alt="Green opening quotation mark">
                                             </div>
                                             <div class="p-8 col-span-3">
-                                                <p>
+                                                <p class="text-lg">
                                                     "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps."
                                                 </p>
-                                                <p>— Michael T., Handler of 'Gus'</p>
+                                                <p class="italic text-right">— Michael T., Handler of 'Gus'</p>
                                             </div>
                                         </div>
                                     </div>
