@@ -259,12 +259,12 @@
                             <!-- BEGIN Testimonial CAROUSEL -->
                             <div id="testimonials-carousel" class="relative w-full" data-carousel="static">
                                 <!-- Carousel wrapper -->
-                                <div class="relative h-56 overflow-hidden bg-[#D9D9D9]/20 mt-4 mb-4 md:h-96">
+                                <div class="relative h-56 overflow-hidden  mt-4 mb-4 md:h-96">
                                     <!-- Item 1 -->
-                                    <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+                                    <div class="hidden duration-700 ease-in-out bg-[#D9D9D9]/20" data-carousel-item="active">
                                         <div class="grid grid-cols-2 gap-4 text-center">
                                             <div class="p-8 border">
-                                                Columnn One
+                                                <img src="{{ asset('images/quote.png') }}" class="block w-full" alt="...">
                                             </div>
                                             <div class="p-8 border">
                                                 Columnn two
