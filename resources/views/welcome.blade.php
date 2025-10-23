@@ -319,7 +319,7 @@
                             <div class="grid grid-cols-3 gap-4">
                                 <div>
                                     <div class="text-black">
-                                        <x-application-logo class="w-20 h-20 fill-current" />
+                                        <x-application-logo-footer class="w-20 h-20 fill-current" />
                                     </div>
                                     <h3 class="font-heading text-5xl mb-6">Footer.</h3>
                                 </div>
