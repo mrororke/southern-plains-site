@@ -313,8 +313,11 @@
                         </div>
                         <!-- END Testimonial Carousel -->
                     </div>
-                </div>
-        </div><!-- END testimonial  -->
+                </div><!-- END testimonial  -->
+                <div><!-- BEGIN Footer -->
+            Footer starts here
+        </div> <!-- END footer -->
+        </div>
         <div><!-- BEGIN Footer -->
             Footer starts here
         </div> <!-- END footer -->
