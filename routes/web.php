@@ -18,6 +18,31 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/about', function () {
+    return view('welcome');
+});
+
+Route::get('/blog', function () {
+    return view('welcome');
+});
+
+Route::get('/training', function () {
+    return view('welcome');
+});
+
+Route::get('/league', function () {
+    return view('welcome');
+});
+
+Route::get('/events', function () {
+    return view('welcome');
+});
+
+Route::get('/contact', function () {
+    return view('welcome');
+});
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
