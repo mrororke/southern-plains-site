@@ -30,17 +30,18 @@ Route::get('/training', function () {
     return view('welcome');
 });
 
-Route::get('/', function () {
-    return view('league');
+Route::get('/league', function () {
+    return view('welcome');
 });
 
-Route::get('/', function () {
-    return view('events');
+Route::get('/events', function () {
+    return view('welcome');
 });
 
-Route::get('/', function () {
-    return view('contact');
+Route::get('/contact', function () {
+    return view('welcome');
 });
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
