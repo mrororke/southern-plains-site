@@ -56,25 +56,22 @@
 
             #sib-container input:-ms-input-placeholder {
                 text-align: left;
-                font-family: Helvetica, sans-serif;
-                color: #c0ccda;
+                color: #000000;
             }
 
             #sib-container input::placeholder {
                 text-align: left;
-                font-family: Helvetica, sans-serif;
-                color: #c0ccda;
+                color: #000000;
             }
 
             #sib-container textarea::placeholder {
                 text-align: left;
-                font-family: Helvetica, sans-serif;
-                color: #c0ccda;
+                color: #000000;
             }
 
             #sib-container a {
                 text-decoration: underline;
-                color: #2BB2FC;
+                color: #000000;
             }
         </style>
         <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
