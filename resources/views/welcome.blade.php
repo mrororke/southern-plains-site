@@ -56,17 +56,17 @@
 
             #sib-container input:-ms-input-placeholder {
                 text-align: left;
-                color: #000000;
+                color: #000000 !important;
             }
 
             #sib-container input::placeholder {
                 text-align: left;
-                color: #000000;
+                color: #000000 !important;
             }
 
             #sib-container textarea::placeholder {
                 text-align: left;
-                color: #000000;
+                color: #000000 !important;
             }
 
             #sib-container a {
