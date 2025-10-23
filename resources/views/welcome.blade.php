@@ -315,10 +315,11 @@
                     </div>
                 </div><!-- END testimonial  -->
                 
-        </div>
-        <div><!-- BEGIN Footer -->
+                <div><!-- BEGIN Footer -->
             Footer starts here
         </div> <!-- END footer -->
+        </div>
+        
 
         </div> <!-- END Scrollable Column -->
 
