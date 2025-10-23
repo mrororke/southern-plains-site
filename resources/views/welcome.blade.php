@@ -318,10 +318,15 @@
                         <div class="lg:px-[120px] p-4">
                             <div class="grid grid-cols-3 gap-4">
                                 <div>
-                                    <div class="text-black">
+                                    <div class="text-black mb-2">
                                         <x-application-logo-footer class="w-20 h-20 fill-current" />
                                     </div>
-                                    <h3 class="font-heading text-5xl mb-6">Footer.</h3>
+                                    <ul class="list-none">
+                                        <li><a href="tel:9188144446">(918) 814 - 4446</a></li>
+                                        <li><a href="mail:southernplainssportsdogclub@gmail.com">southernplainssportsdogclub@gmail.com</a></li>
+                                        <li>Serving Northeastern Oklahoma<br/>Rogers, Mayes, and Wagoner Counties</li>
+                                    </ul>
+
                                 </div>
                                 <div>
                                     <h3 class="font-heading text-5xl mb-6">Footer.</h3>
@@ -331,8 +336,8 @@
                                 </div>
                             </div>
                             <div>
-                                <p class="text-xs">Copyright &copy; 2025 - 2026 Southern Plains Sport Dog Club, LLC. All rights. reserved.<br/>
-                                By using this site, you agree to our Terms of Service and Privacy Policy.For copyright, accessibility inquiries, or other policies, visit our Legal & Policies Hub, or contact us at <a href="mailto:southernplainssportsdogclub@gmail.com">southernplainssportsdogclub@gmail.com</a></p>
+                                <p class="text-xs">Copyright &copy; 2025 - 2026 Southern Plains Sport Dog Club, LLC. All rights. reserved.<br />
+                                    By using this site, you agree to our Terms of Service and Privacy Policy.For copyright, accessibility inquiries, or other policies, visit our Legal & Policies Hub, or contact us at <a href="mailto:southernplainssportsdogclub@gmail.com">southernplainssportsdogclub@gmail.com</a></p>
                             </div>
 
 
