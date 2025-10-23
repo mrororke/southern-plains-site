@@ -276,11 +276,31 @@
                                     </div>
                                     <!-- Item 2 -->
                                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                        <p>Slide Two</p>
+                                        <div class="grid grid-cols-4">
+                                            <div class="p-8 ">
+                                                <img src="{{ asset('images/quote.png') }}" class="mx-auto pt-2" alt="Green opening quotation mark">
+                                            </div>
+                                            <div class="p-8 col-span-3">
+                                                <p class="text-lg">
+                                                    "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps."
+                                                </p>
+                                                <p class="italic text-right">— Michael C., Handler of 'Tuff'</p>
+                                            </div>
+                                        </div>
                                     </div>
                                     <!-- Item 3 -->
                                     <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                        <p>Slide Three</p>
+                                        <div class="grid grid-cols-4">
+                                            <div class="p-8 ">
+                                                <img src="{{ asset('images/quote.png') }}" class="mx-auto pt-2" alt="Green opening quotation mark">
+                                            </div>
+                                            <div class="p-8 col-span-3">
+                                                <p class="text-lg">
+                                                    "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps."
+                                                </p>
+                                                <p class="italic text-right">— Michael H., Handler of 'Margo'</p>
+                                            </div>
+                                        </div>
                                     </div>
 
                                 </div>
