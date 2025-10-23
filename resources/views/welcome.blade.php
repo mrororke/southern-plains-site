@@ -304,14 +304,14 @@
                             <!-- BEGIN Testimonial CAROUSEL -->
                             <div id="testimonials-carousel" class="relative w-full" data-carousel="slide">
                                 <!-- Carousel wrapper -->
-                                <div class="relative h-56 overflow-hidden  mt-4 mb-4 md:h-96">
+                                <div class="relative h-96 overflow-hidden  mt-4 mb-4 ">
                                     <!-- Item 1 -->
                                     <div class="hidden duration-700 ease-in-out bg-gray-100 lg:px-[100px] lg:p-6" data-carousel-item="active">
-                                        <div class="grid grid-cols-4">
-                                            <div class="p-8 ">
+                                        <div class="grid lg:grid-cols-4">
+                                            <div class="hidden lg:block lg:p-8 ">
                                                 <img src="{{ asset('images/quote.png') }}" class="mx-auto pt-2" alt="Green opening quotation mark">
                                             </div>
-                                            <div class="p-8 col-span-3">
+                                            <div class="p-8 lg:col-span-3">
                                                 <p class="text-lg">
                                                     "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps."
                                                 </p>
@@ -321,7 +321,7 @@
                                     </div>
                                     <!-- Item 2 -->
                                     <div class="hidden duration-700 ease-in-out bg-gray-100 lg:px-[100px] lg:p-6" data-carousel-item>
-                                        <div class="grid grid-cols-4">
+                                        <div class="grid lg:grid-cols-4">
                                             <div class="p-8 ">
                                                 <img src="{{ asset('images/quote.png') }}" class="mx-auto pt-2" alt="Green opening quotation mark">
                                             </div>
