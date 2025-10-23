@@ -261,7 +261,7 @@
                                 <!-- Carousel wrapper -->
                                 <div class="relative h-56 overflow-hidden  mt-4 mb-4 md:h-96">
                                     <!-- Item 1 -->
-                                    <div class="hidden duration-700 ease-in-out bg-[#D9D9D9]/20 lg:px-[100px] lg:p-6" data-carousel-item="active">
+                                    <div class="hidden duration-700 ease-in-out bg-gray-300 lg:px-[100px] lg:p-6" data-carousel-item="active">
                                         <div class="grid grid-cols-4">
                                             <div class="p-8 ">
                                                 <img src="{{ asset('images/quote.png') }}" class="mx-auto pt-2" alt="Green opening quotation mark">
@@ -275,7 +275,7 @@
                                         </div>
                                     </div>
                                     <!-- Item 2 -->
-                                    <div class="hidden duration-700 ease-in-out bg-[#D9D9D9]/20 lg:px-[100px] lg:p-6"" data-carousel-item>
+                                    <div class="hidden duration-700 ease-in-out bg-gray-300 lg:px-[100px] lg:p-6"" data-carousel-item>
                                         <div class="grid grid-cols-4">
                                             <div class="p-8 ">
                                                 <img src="{{ asset('images/quote.png') }}" class="mx-auto pt-2" alt="Green opening quotation mark">
@@ -289,7 +289,7 @@
                                         </div>
                                     </div>
                                     <!-- Item 3 -->
-                                    <div class="hidden duration-700 ease-in-out bg-[#D9D9D9]/20 lg:px-[100px] lg:p-6"" data-carousel-item>
+                                    <div class="hidden duration-700 ease-in-out bg-gray-3000 lg:px-[100px] lg:p-6"" data-carousel-item>
                                         <div class="grid grid-cols-4">
                                             <div class="p-8 ">
                                                 <img src="{{ asset('images/quote.png') }}" class="mx-auto pt-2" alt="Green opening quotation mark">
