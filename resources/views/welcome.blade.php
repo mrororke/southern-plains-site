@@ -270,7 +270,7 @@
                                                 <p class="text-lg">
                                                     "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps."
                                                 </p>
-                                                <p class="italic text-right">— Michael T., Handler of 'Gus'</p>
+                                                <p class="italic text-right pt-4">— Michael T., Handler of 'Gus'</p>
                                             </div>
                                         </div>
                                     </div>
@@ -284,7 +284,7 @@
                                                 <p class="text-lg">
                                                     "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps."
                                                 </p>
-                                                <p class="italic text-right">— Michael C., Handler of 'Tuff'</p>
+                                                <p class="italic text-right pt-4">— Michael C., Handler of 'Tuff'</p>
                                             </div>
                                         </div>
                                     </div>
@@ -298,7 +298,7 @@
                                                 <p class="text-lg">
                                                     "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps."
                                                 </p>
-                                                <p class="italic text-right">— Michael H., Handler of 'Margo'</p>
+                                                <p class="italic text-right pt-4">— Michael H., Handler of 'Margo'</p>
                                             </div>
                                         </div>
                                     </div>
