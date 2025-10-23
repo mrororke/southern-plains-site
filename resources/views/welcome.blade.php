@@ -335,7 +335,7 @@
                                     </div>
                                     <!-- Item 3 -->
                                     <div class="hidden duration-700 ease-in-out bg-gray-100 lg:px-[100px] lg:p-6"" data-carousel-item>
-                                        <div class=" grid grid-cols-4">
+                                        <div class=" grid lg:grid-cols-4">
                                         <div class="hidden lg:block lg:p-8">
                                             <img src="{{ asset('images/quote.png') }}" class="mx-auto pt-2" alt="Green opening quotation mark">
                                         </div>
