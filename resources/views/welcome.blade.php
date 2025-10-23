@@ -411,7 +411,7 @@
                                 </div>
                                 <div class="col-span-2">
                                     <h3 class="font-heading text-2xl mb-2">Stay in the loop.</h3>
-                                    <p class="text-base mb-2">Get our best positive training tips, behavior insights, and early access to specialty class registration (like The Predictable Path!). No spam, just value.</p>
+                                    <p class="text-sm mb-2">Get our best positive training tips, behavior insights, and early access to specialty class registration (like The Predictable Path!). No spam, just value.</p>
                                     <!-- Begin Brevo Form -->
                                     <!-- START - We recommend to place the below code where you want the form in your website html  -->
                                     <div class="sib-form">
@@ -438,7 +438,7 @@
                                                 </div>
                                             </div>
                                             <div></div>
-                                            <div id="sib-container" class="sib-container--medium sib-container--vertical">
+                                            <div class="sib-container--medium sib-container--vertical">
                                                 <form id="sib-form" method="POST" action="https://a7e86912.sibforms.com/serve/MUIFALaiW_cgjZZq0ayhdtxbsif4BZea7eROckpMP551S5bkLy-2I8IjrPNDt9iO7KkberEPWYXFH79i9ipaTZMYts7_wxrpyk9LAlFe2NnAd8Hc-IR_6VJF-bykEiKkufCS8ayvk5SVTFoFZJP1Dum4HEbk_A2r13WFalmiAacIehqYNQ4cKT9i0JQt7IkMqNON1gA7GU_Pu7H2ZQ==" data-type="subscription">
                                                     <div>
                                                         <div class="sib-input sib-form-block">
