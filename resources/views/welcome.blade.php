@@ -312,8 +312,6 @@
                                 </div>
                             </div>
                             <!-- END Testimonial Carousel -->
-
-                            testimonial here
                         </div>
                     </div><!-- END testimonial  -->
                     <div><!-- BEGIN Footer -->
