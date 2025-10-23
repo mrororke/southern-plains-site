@@ -290,38 +290,39 @@
                                     </div>
                                     <!-- Item 3 -->
                                     <div class="hidden duration-700 ease-in-out bg-gray-100 lg:px-[100px] lg:p-6"" data-carousel-item>
-                                        <div class="grid grid-cols-4">
-                                            <div class="p-8 ">
-                                                <img src="{{ asset('images/quote.png') }}" class="mx-auto pt-2" alt="Green opening quotation mark">
-                                            </div>
-                                            <div class="p-8 col-span-3">
-                                                <p class="text-lg">
-                                                    "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps."
-                                                </p>
-                                                <p class="italic text-right pt-4">— Michael H., Handler of 'Margo'</p>
-                                            </div>
+                                        <div class=" grid grid-cols-4">
+                                        <div class="p-8 ">
+                                            <img src="{{ asset('images/quote.png') }}" class="mx-auto pt-2" alt="Green opening quotation mark">
+                                        </div>
+                                        <div class="p-8 col-span-3">
+                                            <p class="text-lg">
+                                                "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps."
+                                            </p>
+                                            <p class="italic text-right pt-4">— Michael H., Handler of 'Margo'</p>
                                         </div>
                                     </div>
+                                </div>
 
-                                </div>
-                                <!-- Slider indicators NOTE: ONE IS NEEDED FOR EACH SLIDE -->
-                                <div class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
-                                    <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-                                </div>
                             </div>
-                            <!-- END Testimonial Carousel -->
+                            <!-- Slider indicators NOTE: ONE IS NEEDED FOR EACH SLIDE -->
+                            <div class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
+                                <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                            </div>
                         </div>
-                    </div><!-- END testimonial  -->
-                    <div><!-- BEGIN Footer -->
-                        Footer starts here
-                    </div> <!-- END footer -->
+                        <!-- END Testimonial Carousel -->
+                    </div>
+                </div>
+        </div><!-- END testimonial  -->
+        <div><!-- BEGIN Footer -->
+            Footer starts here
+        </div> <!-- END footer -->
 
-                </div> <!-- END Scrollable Column -->
+        </div> <!-- END Scrollable Column -->
 
 
-            </main>
+        </main>
         </div>
 
 
