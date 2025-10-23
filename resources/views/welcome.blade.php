@@ -321,7 +321,7 @@
                                     <div class="text-black mb-2">
                                         <x-application-logo-footer class="w-20 h-20 fill-current" />
                                     </div>
-                                    <ul class="list-none">
+                                    <ul class="list-none text-xs">
                                         <li><a href="tel:9188144446">(918) 814 - 4446</a></li>
                                         <li><a href="mail:southernplainssportsdogclub@gmail.com">southernplainssportsdogclub@gmail.com</a></li>
                                         <li>Serving Northeastern Oklahoma<br/>Rogers, Mayes, and Wagoner Counties</li>
