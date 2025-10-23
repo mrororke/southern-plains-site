@@ -322,7 +322,7 @@
                                     <!-- Item 2 -->
                                     <div class="hidden duration-700 ease-in-out bg-gray-100 lg:px-[100px] lg:p-6" data-carousel-item>
                                         <div class="grid lg:grid-cols-4">
-                                            <div class="p-8 ">
+                                            <div class="hidden lg:block lg:p-8">
                                                 <img src="{{ asset('images/quote.png') }}" class="mx-auto pt-2" alt="Green opening quotation mark">
                                             </div>
                                             <div class="p-8 col-span-3">
@@ -336,7 +336,7 @@
                                     <!-- Item 3 -->
                                     <div class="hidden duration-700 ease-in-out bg-gray-100 lg:px-[100px] lg:p-6"" data-carousel-item>
                                         <div class=" grid grid-cols-4">
-                                        <div class="p-8 ">
+                                        <div class="hidden lg:block lg:p-8">
                                             <img src="{{ asset('images/quote.png') }}" class="mx-auto pt-2" alt="Green opening quotation mark">
                                         </div>
                                         <div class="p-8 col-span-3">
@@ -361,7 +361,7 @@
 
                     <div id="footer" class="p-6 bg-club"><!-- BEGIN Footer -->
                         <div class="lg:px-[120px] p-4">
-                            <div class="grid grid-cols-4 gap-4">
+                            <div class="grid md:grid-cols-4 gap-4">
                                 <div>
                                     <div class="text-black mb-4">
                                         <x-application-logo-footer class="w-20 h-20 fill-current" />
