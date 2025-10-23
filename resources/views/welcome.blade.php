@@ -443,7 +443,7 @@
                                                                 <div class="form__label-row ">
                                                                     
 
-                                                                    <div class="entry__field">
+                                                                    <div class="entry__field" style="border:1px solid white !important; border-radius:0px !important; background: none !important;">
                                                                         <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="Enter your email address" data-required="true" required />
                                                                     </div>
                                                                 </div>
