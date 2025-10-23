@@ -414,7 +414,7 @@
                                     <p class="text-sm mb-2">Get our best positive training tips, behavior insights, and early access to specialty class registration (like The Predictable Path!). No spam, just value.</p>
                                     <!-- Begin Brevo Form -->
                                     <!-- START - We recommend to place the below code where you want the form in your website html  -->
-                                    <div class="sib-form">
+                                    <div class="sib-form" style="padding: 0 !important;">
                                         <div id="sib-form-container" class="sib-form-container">
                                             <div id="error-message" class="sib-form-message-panel" style="font-size:16px; text-align:left; font-family:Helvetica, sans-serif; color:#661d1d; background-color:#ffeded; border-radius:3px; border-color:#ff4949;max-width:350px;">
                                                 <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
