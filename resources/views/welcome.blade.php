@@ -31,6 +31,56 @@ $slidesData = [
                 <x-home.choose-path-section :paths="$pathsData" />
             </div>
 
+            @php
+    $highlightBlocks = [
+        [
+            'id' => 'club',
+            'subheading' => 'Sport Dog Club',
+            'heading' => 'Your gateway to NASDA Competition.',
+            'paragraph' => 'We are licensed <span class="font-semibold">NASDA Club</span> dedicated to hosting high-quality, accessible trials in new and underserved areas. This is the perfect place to try out a sport organization before committing<br /> to full club membership.',
+            'buttonText' => 'View Trial Schedule',
+            'buttonColor' => 'club-dark',
+            'bgColor' => 'bg-club',
+            'bgMask' => 'right_mask.png',
+        ],
+        [
+            'id' => 'league',
+            'subheading' => 'Sport Dog League',
+            'heading' => 'Friendly Competition, Fierce Team Spirit',
+            'paragraph' => 'The League provides a regular, local structure for competition and progress measurement. Join our organized events throughout the year to hone your sport skills and enjoy the camaraderie of fellow handlers. <span class="italic">(Formerly Redbud Sport Dog League)</span>.',
+            'buttonText' => 'Explore the League',
+            'buttonColor' => 'league-dark',
+            'bgColor' => 'bg-league',
+            'bgMask' => 'left_mask.png',
+        ],
+        [
+            'id' => 'train',
+            'subheading' => 'Training',
+            'heading' => 'From Manners to Masters<br />Building a Solid Foundation',
+            'paragraph' => 'Our focus is positive-reinforcement training that builds confidence and reliable behavior. We offer core classes, including <span class="font-semibold">Basic Manners, Canine Good Citizen (CGC) preparation, Tricks</span>, and specialized workshops to strengthen your partnership.',
+            'buttonText' => 'View Current Offerings',
+            'buttonColor' => 'train-dark',
+            'bgColor' => 'bg-training',
+            'bgMask' => 'right_mask.png',
+        ],
+    ];
+@endphp
+
+@foreach ($highlightBlocks as $block)
+    <x-shared.info-highlight-block 
+        :id="$block['id']"
+        :subheading="$block['subheading']"
+        :heading="$block['heading']"
+        :paragraph="$block['paragraph']"
+        :button-text="$block['buttonText']"
+        :button-color="$block['buttonColor']"
+        :bg-color="$block['bgColor']"
+        :bg-mask="$block['bgMask']"
+    />
+@endforeach
+
+
+
             <div id="club" class="p-6 bg-club bg-cover bg-center"
                 style="background-image: url('{{ asset('images/right_mask.png') }}');">
                 <div class="lg:px-[120px] p-4">
@@ -68,7 +118,7 @@ $slidesData = [
             </div>
 
 
-            <div class="lg:px-[120px] p-6"><!-- END Why Us -->
+            <div class="lg:px-[120px] p-6"><!-- BEGIN Why Us -->
                 <h3 class="font-heading text-5xl mb-6">Why Choose Southern Plains?</h3>
                 <div class="grid md:grid-cols-2 gap-4 text-center">
                     <div class="p-8 border">
