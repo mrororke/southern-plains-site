@@ -32,8 +32,8 @@ $slidesData = [
             </div>
 
             @php
-    $highlightBlocks = [
-        [
+            $highlightBlocks = [
+            [
             'id' => 'club',
             'subheading' => 'Sport Dog Club',
             'heading' => 'Your gateway to NASDA Competition.',
@@ -42,8 +42,8 @@ $slidesData = [
             'buttonColor' => 'club-dark',
             'bgColor' => 'bg-club',
             'bgMask' => 'right_mask.png',
-        ],
-        [
+            ],
+            [
             'id' => 'league',
             'subheading' => 'Sport Dog League',
             'heading' => 'Friendly Competition, Fierce Team Spirit',
@@ -52,8 +52,8 @@ $slidesData = [
             'buttonColor' => 'league-dark',
             'bgColor' => 'bg-league',
             'bgMask' => 'left_mask.png',
-        ],
-        [
+            ],
+            [
             'id' => 'train',
             'subheading' => 'Training',
             'heading' => 'From Manners to Masters<br />Building a Solid Foundation',
@@ -62,61 +62,21 @@ $slidesData = [
             'buttonColor' => 'train-dark',
             'bgColor' => 'bg-training',
             'bgMask' => 'right_mask.png',
-        ],
-    ];
-@endphp
+            ],
+            ];
+            @endphp
 
-@foreach ($highlightBlocks as $block)
-    <x-shared.info-highlight-block 
-        :id="$block['id']"
-        :subheading="$block['subheading']"
-        :heading="$block['heading']"
-        :paragraph="$block['paragraph']"
-        :button-text="$block['buttonText']"
-        :button-color="$block['buttonColor']"
-        :bg-color="$block['bgColor']"
-        :bg-mask="$block['bgMask']"
-    />
-@endforeach
-
-
-
-            <div id="club" class="p-6 bg-club bg-cover bg-center"
-                style="background-image: url('{{ asset('images/right_mask.png') }}');">
-                <div class="lg:px-[120px] p-4">
-                    <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
-                    <h3 class="font-heading text-5xl mb-6">Your gateway to NASDA Competition.</h3>
-                    <p class="text-base mb-2">We are licensed <span class="font-semibold">NASDA Club</span> dedicated to hosting high-quality, accessible trials in new and underserved areas. This is the perfect place to try out a sport organization before committing<br /> to full club membership.</p>
-
-                    <x-primary-button color="club-dark" class="mt-6">
-                        {{ __('View Trial Schedule') }}
-                    </x-primary-button>
-
-                </div>
-            </div>
-            <div id="league" class="p-6 bg-league bg-cover bg-center"
-                style="background-image: url('{{ asset('images/left_mask.png') }}');">
-                <div class="lg:px-[120px] p-4">
-                    <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog League</h4>
-                    <h3 class="font-heading text-5xl mb-6">Friendly Competition, Fierce Team Spirit</h3>
-                    <p class="text-base mb-2">The League provides a regular, local structure for competition and progress measurement. Join our organized events throughout the year to hone your sport skills and enjoy the camaraderie of fellow handlers. <span class="italic">(Formerly Redbud Sport Dog League)</span>.</p>
-                    <x-primary-button color="league-dark" class="mt-6">
-                        {{ __('Explore the League') }}
-                    </x-primary-button>
-                </div>
-            </div>
-            <div id="train" class="p-6 bg-training bg-cover bg-center"
-                style="background-image: url('{{ asset('images/right_mask.png') }}');">
-                <div class="lg:px-[120px] p-4">
-                    <h4 class="uppercase text-xs font-bold">Southern Plains Training</h4>
-                    <h3 class="font-heading text-5xl mb-6">From Manners to Masters<br />Building a Solid Foundation</h3>
-                    <p class="text-base mb-2">Our focus is positive-reinforcement training that builds confidence and reliable behavior. We offer core classes, including <span class="font-semibold">Basic Manners, Canine Good Citizen (CGC) preparation, Tricks</span>, and specialized workshops to strengthen your partnership.</p>
-                    <x-primary-button color="train-dark" class="mt-6">
-                        {{ __('View Current Offerings') }}
-                    </x-primary-button>
-                </div>
-            </div>
-
+            @foreach ($highlightBlocks as $block)
+            <x-shared.info-highlight-block
+                :id="$block['id']"
+                :subheading="$block['subheading']"
+                :heading="$block['heading']"
+                :paragraph="$block['paragraph']"
+                :button-text="$block['buttonText']"
+                :button-color="$block['buttonColor']"
+                :bg-color="$block['bgColor']"
+                :bg-mask="$block['bgMask']" />
+            @endforeach
 
             <div class="lg:px-[120px] p-6"><!-- BEGIN Why Us -->
                 <h3 class="font-heading text-5xl mb-6">Why Choose Southern Plains?</h3>
