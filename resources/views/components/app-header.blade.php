@@ -33,7 +33,6 @@
         <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
 
         <!-- START - We recommend to place the below code in head tag of your website html  -->
-        <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
 
         <style>
             #sib-container input:-ms-input-placeholder {
@@ -59,6 +58,7 @@
                 color: #000000;
             }
         </style>
+        <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
         <!--  END - We recommend to place the above code in head tag of your website html -->
 
 

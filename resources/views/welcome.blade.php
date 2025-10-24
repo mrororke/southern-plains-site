@@ -295,7 +295,7 @@
 
 
                                                         <div class="entry__field" style="border:1px solid #000000 !important; border-radius:0px !important; background: none !important;">
-                                                            <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="Enter your email address" data-required="true" required style="color:#000000 !important;" />
+                                                            <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="Enter your email address" data-required="true" required />
                                                         </div>
                                                     </div>
 
@@ -355,40 +355,6 @@
 
 <!-- START - We recommend to place the below code in footer or bottom of your website html  -->
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const emailInput = document.getElementById('EMAIL');
-        if (emailInput) {
-            // Function to apply the styles
-            function forcePlaceholderColor(element, color) {
-                if (element.style) {
-                    // Set the placeholder color property for standard browsers
-                    element.style.setProperty('--placeholder-color', color, 'important');
-
-                    // Fallback for older browsers (directly manipulates the element style)
-                    element.style.setProperty('color', color, 'important');
-
-                    // Apply styles to the pseudo-elements (the only way to truly target the placeholder)
-                    // This creates a temporary style element and injects the rules.
-                    const style = document.createElement('style');
-                    style.innerHTML = `
-                        #EMAIL::placeholder,
-                        #EMAIL::-webkit-input-placeholder,
-                        #EMAIL:-ms-input-placeholder {
-                            color: ${color} !important;
-                            opacity: 1 !important;
-                        }
-                    `;
-                    document.head.appendChild(style);
-                }
-            }
-
-            // Execute the force color function
-            forcePlaceholderColor(emailInput, '#000000');
-        }
-    });
-
-
-
     window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
     window.LOCALE = 'en';
     window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
@@ -396,9 +362,6 @@
     window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
 
     window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
-
-
-
 
     window.translation = {
         common: {
