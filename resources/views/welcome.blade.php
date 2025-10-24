@@ -294,7 +294,7 @@
                                                     <div class="form__label-row ">
 
                                                         <div style="background: transparent !important; border: 1px solid #000000 !important; border-radius: 0px !important;">
-                                                            <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="EMAIL" data-required="true" required />
+                                                            <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="EMAIL" data-required="true" required style="font-size:12px !important;"/>
                                                         </div>
                                                     </div>
 
