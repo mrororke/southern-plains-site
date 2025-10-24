@@ -1,4 +1,4 @@
-<x-app-header />
+<x-home.app-header />
 
             <main>
 
