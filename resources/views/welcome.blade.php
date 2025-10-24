@@ -2,7 +2,7 @@
 
             <main>
 
-                <x-home.app-left-slider />
+                <x-home.home-slider-column />
 
                     <!-- Scrollable Column -->
                     <div class="w-full lg:w-2/3 flex-shrink-0 overflow-y-auto">
