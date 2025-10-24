@@ -34,6 +34,21 @@
 
         <!-- START - We recommend to place the below code in head tag of your website html  -->
         <style>
+            /* TARGETING ALL INPUT TYPES WITHIN THE FORM CONTAINER */
+            #sib-container input.input::placeholder,
+            #sib-container input.input::-webkit-input-placeholder,
+            #sib-container input.input:-ms-input-placeholder {
+                text-align: left;
+                color: #000000 !important;
+                opacity: 1 !important;
+                /* Ensures the color isn't dimmed */
+            }
+
+            #sib-container textarea::placeholder {
+                text-align: left;
+                color: #000000 !important;
+            }
+
             /* Ensure Webkit (Chrome/Safari) is explicitly targeted */
             #sib-container input::-webkit-input-placeholder {
                 color: #000000 !important;
