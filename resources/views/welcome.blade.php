@@ -1,9 +1,9 @@
 @php
-    $slidesData = [
-        ['path' => 'images/2025_01_slide_hamish.jpg', 'alt' => 'Hamish image one'],
-        ['path' => 'images/2025_02_slide_hamish.jpg', 'alt' => 'Hamish image two'],
-        ['path' => 'images/2025_03_slide_hamish.jpg', 'alt' => 'Hamish image three'],
-    ];
+$slidesData = [
+['path' => 'images/2025_01_slide_hamish.jpg', 'alt' => 'Hamish image one'],
+['path' => 'images/2025_02_slide_hamish.jpg', 'alt' => 'Hamish image two'],
+['path' => 'images/2025_03_slide_hamish.jpg', 'alt' => 'Hamish image three'],
+];
 @endphp
 
 <x-app-header />
@@ -16,46 +16,19 @@
 
         <!-- Scrollable Column -->
         <div class="w-full lg:w-2/3 flex-shrink-0 overflow-y-auto">
+
+            @php
+            $pathsData = [
+            ['href' => '#club', 'image' => 'images/club.png', 'title' => 'Club'],
+            ['href' => '#league', 'image' => 'images/league.png', 'title' => 'League'],
+            ['href' => '#train', 'image' => 'images/train.png', 'title' => 'Train'],
+            ];
+            @endphp
             <div class="lg:px-[120px] p-4">
-                <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
-                <h1 class="font-heading text-7xl">Train. Play. Grow</h1>
-                <h3 class="text-2xl mb-2 mt-2">Your Home for Positive Dog Training, Sport, and Community.</h3>
 
-                <p class="text-base mb-2">Welcome to <span class="font-semibold">Southern Plains Sport Dog Club</span> — the region's most comprehensive resource dedicated to building better dog-handler partnerships. Our positive-reinforcement training programs, accessible competitive events, and supportive community are designed to help you and your dog thrive.</p>
+                <x-home.home-hero-text />
 
-                <p class="text-base mb-2">Whether you're starting with basic manners, pursuing a Canine Good Citizen title, or aiming for titles in NASDA sport trials, we have the classes, events, and expertise you need to <span class="font-semibold">Train, Play, and Grow</span> together.</p>
-
-                <div class="mt-6">
-                    <h3 class="font-heading text-5xl mt-2 mb-6">Choose Your Path</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-                        <a href="#club">
-                            <div class="relative text-white bg-cover bg-center pt-[203.78%]"
-                                style="background-image: url('{{ asset('images/club.png') }}');">
-                                <div class="absolute inset-0 p-6 flex flex-col items-center justify-center text-center">
-                                    <h4 class="font-heading font-bold text-5xl mt-8 mb-8">Club</h4>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#league">
-                            <div class="relative text-white bg-cover bg-center pt-[203.78%]"
-                                style="background-image: url('{{ asset('images/league.png') }}');">
-                                <div class="absolute inset-0 p-6 flex flex-col items-center justify-center text-center">
-                                    <h4 class="font-heading font-bold text-5xl mt-8 mb-8">League</h4>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#train">
-                            <div class="relative text-white bg-cover bg-center pt-[203.78%]"
-                                style="background-image: url('{{ asset('images/train.png') }}');">
-                                <div class="absolute inset-0 p-6 flex flex-col items-center justify-center text-center">
-                                    <h4 class="font-heading font-bold text-5xl mt-8 mb-8">Train</h4>
-                                </div>
-                            </div>
-                        </a>
-
-                    </div>
-                </div>
+                <x-home.choose-path-section :paths="$pathsData" />
             </div>
 
             <div id="club" class="p-6 bg-club bg-cover bg-center"
@@ -283,7 +256,7 @@
                                                     <div class="form__label-row ">
 
                                                         <div style="background: transparent !important; border: 1px solid #000000 !important; border-radius: 0px !important;">
-                                                            <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="Please enter your email address." data-required="true" required style="font-size:12px !important;"/>
+                                                            <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="Please enter your email address." data-required="true" required style="font-size:12px !important;" />
                                                         </div>
                                                     </div>
 
