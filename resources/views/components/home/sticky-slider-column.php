@@ -4,7 +4,6 @@
     <div id="header-carousel" class="relative w-full h-full" data-carousel="slide">
         <div class="relative overflow-hidden h-screen">
             
-            {{-- Use the new sub-component here --}}
             @foreach ($slides as $slide)
                 <x-shared.carousel-slide :image-path="$slide['path']" :alt-text="$slide['alt']" />
             @endforeach
