@@ -1,30 +1,8 @@
-<x-app-header>
-    
-</x-app-header>
+<x-app-header />
+
             <main>
 
-                <div class="flex min-h-screen">
-                    <!-- Sticky Column -->
-                    <div class="hidden lg:block lg:sticky lg:top-0 h-screen w-full lg:w-1/3 -z-10" style="margin-top:-115px">
-                        <!-- Content for the sticky column -->
-                        <div id="header-carousel" class="relative w-full h-full" data-carousel="slide">
-                            <!-- Carousel wrapper -->
-                            <div class="relative overflow-hidden h-screen">
-                                <!-- Item 1 -->
-                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                    <img src="{{ asset('images/2025_01_slide_hamish.jpg') }}" class="absolute block w-full" alt="...">
-                                </div>
-                                <!-- Item 2 -->
-                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                    <img src="{{ asset('images/2025_02_slide_hamish.jpg') }}" class="absolute block w-full" alt="...">
-                                </div>
-                                <!-- Item 3 -->
-                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                    <img src="{{ asset('images/2025_03_slide_hamish.jpg') }}" class="absolute block w-full" alt="...">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                <x-app-left-slider />
 
                     <!-- Scrollable Column -->
                     <div class="w-full lg:w-2/3 flex-shrink-0 overflow-y-auto">
@@ -333,7 +311,7 @@
                             </div>
                             <div class="mt-8">
                                 <p class="text-xs">Copyright &copy; 2025 - 2026 Southern Plains Sport Dog Club, LLC. All rights. reserved.<br />
-                                    By using this site, you agree to our Terms of Service and Privacy Policy.For copyright, accessibility inquiries, or other policies, visit our Legal & Policies Hub, or contact us at <a href="mailto:southernplainssportsdogclub@gmail.com">southernplainssportsdogclub@gmail.com</a></p>
+                                    By using this site, you agree to our Terms of Service and Privacy Policy. For copyright, accessibility inquiries, or other policies, visit our Legal & Policies Hub, or contact us at <a href="mailto:southernplainssportsdogclub@gmail.com">southernplainssportsdogclub@gmail.com</a></p>
                             </div>
 
 
