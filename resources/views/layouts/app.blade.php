@@ -7,6 +7,14 @@
     {{-- SEO SLOTS FOR TITLE AND DESCRIPTION --}}
     <title>@yield('metaTitle', 'Southern Plains Sport Dog Club, LLC. | Serving NE Oklahoma.')</title>
     <meta name="description" content="@yield('metaDescription', 'Positive reinforcement dog training, NASDA, and sport dog competition in Northeastern Oklahoma.')">
+
+    {{-- 2. OPEN GRAPH (OG) TAGS: For Facebook, LinkedIn, WhatsApp, etc. --}}
+    <meta property="og:title" content="@yield('metaTitle')">
+    <meta property="og:description" content="@yield('metaDescription')">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="@yield('ogImage', asset('images/og-images/default-social-share.jpg'))"> 
+    <meta property="og:locale" content="en_US">
     
     </head>
 <body>
