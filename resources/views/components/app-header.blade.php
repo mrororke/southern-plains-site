@@ -36,12 +36,22 @@
         <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
 
         <style>
-            /* Targeting by Attribute (Highest Specificity without being inline) */
-            #sib-container input[name="EMAIL"]::placeholder,
-            #sib-container input[name="EMAIL"]::-webkit-input-placeholder,
-            #sib-container input[name="EMAIL"]:-ms-input-placeholder {
-                color: #000000 !important;
-                opacity: 1 !important;
+            #sib-container input:-ms-input-placeholder {
+                text-align: left;
+                font-family: Helvetica, sans-serif;
+                color: #000000;
+            }
+
+            #sib-container input::placeholder {
+                text-align: left;
+                font-family: Helvetica, sans-serif;
+                color: #000000;
+            }
+
+            #sib-container textarea::placeholder {
+                text-align: left;
+                font-family: Helvetica, sans-serif;
+                color: #000000;
             }
 
             #sib-container a {
