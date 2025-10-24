@@ -288,12 +288,12 @@
                                 <div></div>
                                 <div id="sib-container" class="sib-container--medium sib-container--vertical" style="text-align:center; background-color:transparent; max-width:350px; border-width:0px; border-color:#C0CCD9; border-style:solid; direction:ltr; padding:0px !important;">
                                     <form id="sib-form" method="POST" action="https://a7e86912.sibforms.com/serve/MUIFALaiW_cgjZZq0ayhdtxbsif4BZea7eROckpMP551S5bkLy-2I8IjrPNDt9iO7KkberEPWYXFH79i9ipaTZMYts7_wxrpyk9LAlFe2NnAd8Hc-IR_6VJF-bykEiKkufCS8ayvk5SVTFoFZJP1Dum4HEbk_A2r13WFalmiAacIehqYNQ4cKT9i0JQt7IkMqNON1gA7GU_Pu7H2ZQ==" data-type="subscription">
-                                        <div style="padding: 8px 0;">
+                                        <div>
                                             <div class="sib-input sib-form-block">
                                                 <div class="form__entry entry_block">
                                                     <div class="form__label-row ">
 
-                                                        <div class="entry__field">
+                                                        <div style="background: transparent !important; border: 1px solid #000000 !important; border-radius: 0px !important;">
                                                             <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="EMAIL" data-required="true" required />
                                                         </div>
                                                     </div>
