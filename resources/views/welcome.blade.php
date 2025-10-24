@@ -122,221 +122,153 @@ $slidesData = [
 
 
             @php
-    $testimonialsData = [
-        [
+            $testimonialsData = [
+            [
             'quote' => "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps.",
             'attribution' => "Michael T., Handler of 'Gus'",
-        ],
-        [
+            ],
+            [
             'quote' => "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps.",
             'attribution' => "Michael C., Handler of 'Tuff'",
-        ],
-        [
+            ],
+            [
             'quote' => "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps.",
             'attribution' => "Michael H., Handler of 'Margo'",
-        ],
-    ];
-@endphp
+            ],
+            ];
+            @endphp
 
-<x-home.testimonial-carousel-section :testimonials="$testimonialsData" />
-
-
-
-            <div class="lg:px-[120px] p-6"> <!-- BEGIN testimonial -->
-                <h3 class="font-heading text-5xl mb-6">Hear it From Our Handlers</h3>
-                <p class="text-base mb-2">Nothing proves the strength of our system like the success stories of the dogs and handlers we work with. See what our community has to say about training, competing, and growing with Southern Plains.</p>
+            <x-home.testimonial-carousel-section :testimonials="$testimonialsData" />
 
 
-                <!-- BEGIN Testimonial CAROUSEL -->
-                <div id="testimonials-carousel" class="relative w-full" data-carousel="slide">
-                    <!-- Carousel wrapper -->
-                    <div class="relative h-96 overflow-hidden  mt-4 mb-4 ">
-                        <!-- Item 1 -->
-                        <div class="hidden duration-700 ease-in-out bg-gray-100 lg:px-[100px] lg:p-6" data-carousel-item="active">
-                            <div class="grid lg:grid-cols-4">
-                                <div class="hidden lg:block lg:p-8 ">
-                                    <img src="{{ asset('images/quote.png') }}" class="mx-auto pt-2" alt="Green opening quotation mark">
-                                </div>
-                                <div class="p-8 col-span-3">
-                                    <p class="text-lg">
-                                        "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps."
-                                    </p>
-                                    <p class="italic text-right pt-4">— Michael T., Handler of 'Gus'</p>
-                                </div>
+
+            <div id="footer" class="p-6 bg-club"><!-- BEGIN Footer -->
+                <div class="lg:px-[120px] p-4">
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div>
+                            <div class="text-black mb-4">
+                                <x-application-logo-footer class="w-20 h-20 fill-current" />
                             </div>
+                            <ul class="list-none text-xs">
+                                <li><a href="tel:9188144446">(918) 814 - 4446</a></li>
+                                <li><a href="mail:southernplainssportsdogclub@gmail.com">southernplainssportsdogclub@gmail.com</a></li>
+                                <li>Serving Northeastern Oklahoma<br />Rogers, Mayes, and Wagoner Counties</li>
+                            </ul>
+                            <ul class="list-none text-xs mt-4">
+                                <li class="inline-block align-middle pr-4">
+                                    <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M2.0625 9.375H0V6.3125H2.0625V5C2.0625 1.59375 3.59375 0 6.9375 0C7.5625 0 8.65625 0.125 9.09375 0.25V3.03125C8.875 3 8.46875 3 7.9375 3C6.3125 3 5.6875 3.625 5.6875 5.21875V6.3125H8.9375L8.375 9.375H5.6875V16H2.0625V9.375Z" fill="currentColor" />
+                                    </svg>
+
+                                </li>
+                                <li class="inline-block align-middle pr-4">
+                                    <svg width="16" height="16" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M7.03125 3.40625C9 3.40625 10.625 5.03125 10.625 7C10.625 9 9 10.5938 7.03125 10.5938C5.03125 10.5938 3.4375 9 3.4375 7C3.4375 5.03125 5.03125 3.40625 7.03125 3.40625ZM7.03125 9.34375C8.3125 9.34375 9.34375 8.3125 9.34375 7C9.34375 5.71875 8.3125 4.6875 7.03125 4.6875C5.71875 4.6875 4.6875 5.71875 4.6875 7C4.6875 8.3125 5.75 9.34375 7.03125 9.34375ZM11.5938 3.28125C11.5938 2.8125 11.2188 2.4375 10.75 2.4375C10.2812 2.4375 9.90625 2.8125 9.90625 3.28125C9.90625 3.75 10.2812 4.125 10.75 4.125C11.2188 4.125 11.5938 3.75 11.5938 3.28125ZM13.9688 4.125C14.0312 5.28125 14.0312 8.75 13.9688 9.90625C13.9062 11.0312 13.6562 12 12.8438 12.8438C12.0312 13.6562 11.0312 13.9062 9.90625 13.9688C8.75 14.0312 5.28125 14.0312 4.125 13.9688C3 13.9062 2.03125 13.6562 1.1875 12.8438C0.375 12 0.125 11.0312 0.0625 9.90625C0 8.75 0 5.28125 0.0625 4.125C0.125 3 0.375 2 1.1875 1.1875C2.03125 0.375 3 0.125 4.125 0.0625C5.28125 0 8.75 0 9.90625 0.0625C11.0312 0.125 12.0312 0.375 12.8438 1.1875C13.6562 2 13.9062 3 13.9688 4.125ZM12.4688 11.125C12.8438 10.2188 12.75 8.03125 12.75 7C12.75 6 12.8438 3.8125 12.4688 2.875C12.2188 2.28125 11.75 1.78125 11.1562 1.5625C10.2188 1.1875 8.03125 1.28125 7.03125 1.28125C6 1.28125 3.8125 1.1875 2.90625 1.5625C2.28125 1.8125 1.8125 2.28125 1.5625 2.875C1.1875 3.8125 1.28125 6 1.28125 7C1.28125 8.03125 1.1875 10.2188 1.5625 11.125C1.8125 11.75 2.28125 12.2188 2.90625 12.4688C3.8125 12.8438 6 12.75 7.03125 12.75C8.03125 12.75 10.2188 12.8438 11.1562 12.4688C11.75 12.2188 12.25 11.75 12.4688 11.125Z" fill="currentColor" />
+                                    </svg>
+
+                                </li>
+                                <li class="inline-block align-middle">
+                                    <svg width="22" height="16" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16.7188 1.90625C17.0938 3.21875 17.0938 6.03125 17.0938 6.03125C17.0938 6.03125 17.0938 8.8125 16.7188 10.1562C16.5312 10.9062 15.9375 11.4688 15.2188 11.6562C13.875 12 8.5625 12 8.5625 12C8.5625 12 3.21875 12 1.875 11.6562C1.15625 11.4688 0.5625 10.9062 0.375 10.1562C0 8.8125 0 6.03125 0 6.03125C0 6.03125 0 3.21875 0.375 1.90625C0.5625 1.15625 1.15625 0.5625 1.875 0.375C3.21875 0 8.5625 0 8.5625 0C8.5625 0 13.875 0 15.2188 0.375C15.9375 0.5625 16.5312 1.15625 16.7188 1.90625ZM6.8125 8.5625L11.25 6.03125L6.8125 3.5V8.5625Z" fill="currentColor" />
+                                    </svg>
+
+                                </li>
+
+                            </ul>
+
                         </div>
-                        <!-- Item 2 -->
-                        <div class="hidden duration-700 ease-in-out bg-gray-100 lg:px-[100px] lg:p-6" data-carousel-item>
-                            <div class="grid lg:grid-cols-4">
-                                <div class="hidden lg:block lg:p-8">
-                                    <img src="{{ asset('images/quote.png') }}" class="mx-auto pt-2" alt="Green opening quotation mark">
-                                </div>
-                                <div class="p-8 col-span-3">
-                                    <p class="text-lg">
-                                        "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps."
-                                    </p>
-                                    <p class="italic text-right pt-4">— Michael C., Handler of 'Tuff'</p>
-                                </div>
-                            </div>
+                        <div class="text-center">
+                            <h3 class="font-heading text-2xl mb-2">Explore</h3>
+                            <ul class="list-none text-sm">
+                                <li>Home</li>
+                                <li>About</li>
+                                <li>Blog</li>
+                                <li>Training</li>
+                                <li>League</li>
+                                <li>Events</li>
+                                <li>Contact</li>
+                            </ul>
                         </div>
-                        <!-- Item 3 -->
-                        <div class="hidden duration-700 ease-in-out bg-gray-100 lg:px-[100px] lg:p-6"" data-carousel-item>
-                                        <div class=" grid lg:grid-cols-4">
-                            <div class="hidden lg:block lg:p-8">
-                                <img src="{{ asset('images/quote.png') }}" class="mx-auto pt-2" alt="Green opening quotation mark">
-                            </div>
-                            <div class="p-8 col-span-3">
-                                <p class="text-lg">
-                                    "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps."
-                                </p>
-                                <p class="italic text-right pt-4">— Michael H., Handler of 'Margo'</p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <!-- Slider indicators NOTE: ONE IS NEEDED FOR EACH SLIDE -->
-                <div class="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                    <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-                </div>
-            </div>
-            <!-- END Testimonial Carousel -->
-        </div><!-- END testimonial  -->
-
-        <div id="footer" class="p-6 bg-club"><!-- BEGIN Footer -->
-            <div class="lg:px-[120px] p-4">
-                <div class="grid md:grid-cols-4 gap-4">
-                    <div>
-                        <div class="text-black mb-4">
-                            <x-application-logo-footer class="w-20 h-20 fill-current" />
-                        </div>
-                        <ul class="list-none text-xs">
-                            <li><a href="tel:9188144446">(918) 814 - 4446</a></li>
-                            <li><a href="mail:southernplainssportsdogclub@gmail.com">southernplainssportsdogclub@gmail.com</a></li>
-                            <li>Serving Northeastern Oklahoma<br />Rogers, Mayes, and Wagoner Counties</li>
-                        </ul>
-                        <ul class="list-none text-xs mt-4">
-                            <li class="inline-block align-middle pr-4">
-                                <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M2.0625 9.375H0V6.3125H2.0625V5C2.0625 1.59375 3.59375 0 6.9375 0C7.5625 0 8.65625 0.125 9.09375 0.25V3.03125C8.875 3 8.46875 3 7.9375 3C6.3125 3 5.6875 3.625 5.6875 5.21875V6.3125H8.9375L8.375 9.375H5.6875V16H2.0625V9.375Z" fill="currentColor" />
-                                </svg>
-
-                            </li>
-                            <li class="inline-block align-middle pr-4">
-                                <svg width="16" height="16" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7.03125 3.40625C9 3.40625 10.625 5.03125 10.625 7C10.625 9 9 10.5938 7.03125 10.5938C5.03125 10.5938 3.4375 9 3.4375 7C3.4375 5.03125 5.03125 3.40625 7.03125 3.40625ZM7.03125 9.34375C8.3125 9.34375 9.34375 8.3125 9.34375 7C9.34375 5.71875 8.3125 4.6875 7.03125 4.6875C5.71875 4.6875 4.6875 5.71875 4.6875 7C4.6875 8.3125 5.75 9.34375 7.03125 9.34375ZM11.5938 3.28125C11.5938 2.8125 11.2188 2.4375 10.75 2.4375C10.2812 2.4375 9.90625 2.8125 9.90625 3.28125C9.90625 3.75 10.2812 4.125 10.75 4.125C11.2188 4.125 11.5938 3.75 11.5938 3.28125ZM13.9688 4.125C14.0312 5.28125 14.0312 8.75 13.9688 9.90625C13.9062 11.0312 13.6562 12 12.8438 12.8438C12.0312 13.6562 11.0312 13.9062 9.90625 13.9688C8.75 14.0312 5.28125 14.0312 4.125 13.9688C3 13.9062 2.03125 13.6562 1.1875 12.8438C0.375 12 0.125 11.0312 0.0625 9.90625C0 8.75 0 5.28125 0.0625 4.125C0.125 3 0.375 2 1.1875 1.1875C2.03125 0.375 3 0.125 4.125 0.0625C5.28125 0 8.75 0 9.90625 0.0625C11.0312 0.125 12.0312 0.375 12.8438 1.1875C13.6562 2 13.9062 3 13.9688 4.125ZM12.4688 11.125C12.8438 10.2188 12.75 8.03125 12.75 7C12.75 6 12.8438 3.8125 12.4688 2.875C12.2188 2.28125 11.75 1.78125 11.1562 1.5625C10.2188 1.1875 8.03125 1.28125 7.03125 1.28125C6 1.28125 3.8125 1.1875 2.90625 1.5625C2.28125 1.8125 1.8125 2.28125 1.5625 2.875C1.1875 3.8125 1.28125 6 1.28125 7C1.28125 8.03125 1.1875 10.2188 1.5625 11.125C1.8125 11.75 2.28125 12.2188 2.90625 12.4688C3.8125 12.8438 6 12.75 7.03125 12.75C8.03125 12.75 10.2188 12.8438 11.1562 12.4688C11.75 12.2188 12.25 11.75 12.4688 11.125Z" fill="currentColor" />
-                                </svg>
-
-                            </li>
-                            <li class="inline-block align-middle">
-                                <svg width="22" height="16" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M16.7188 1.90625C17.0938 3.21875 17.0938 6.03125 17.0938 6.03125C17.0938 6.03125 17.0938 8.8125 16.7188 10.1562C16.5312 10.9062 15.9375 11.4688 15.2188 11.6562C13.875 12 8.5625 12 8.5625 12C8.5625 12 3.21875 12 1.875 11.6562C1.15625 11.4688 0.5625 10.9062 0.375 10.1562C0 8.8125 0 6.03125 0 6.03125C0 6.03125 0 3.21875 0.375 1.90625C0.5625 1.15625 1.15625 0.5625 1.875 0.375C3.21875 0 8.5625 0 8.5625 0C8.5625 0 13.875 0 15.2188 0.375C15.9375 0.5625 16.5312 1.15625 16.7188 1.90625ZM6.8125 8.5625L11.25 6.03125L6.8125 3.5V8.5625Z" fill="currentColor" />
-                                </svg>
-
-                            </li>
-
-                        </ul>
-
-                    </div>
-                    <div class="text-center">
-                        <h3 class="font-heading text-2xl mb-2">Explore</h3>
-                        <ul class="list-none text-sm">
-                            <li>Home</li>
-                            <li>About</li>
-                            <li>Blog</li>
-                            <li>Training</li>
-                            <li>League</li>
-                            <li>Events</li>
-                            <li>Contact</li>
-                        </ul>
-                    </div>
-                    <div class="col-span-2">
-                        <h3 class="font-heading text-2xl mb-2">Stay in the loop.</h3>
-                        <p class="text-sm mb-2">Get our best positive training tips, behavior insights, and early access to specialty class registration (like The Predictable Path!). No spam, just value.</p>
-                        <!-- Begin Brevo Form -->
-                        <!-- START - We recommend to place the below code where you want the form in your website html  -->
-                        <div class="sib-form" style="text-align: center; background-color: transparent; padding: 0px !important;">
-                            <div id="sib-form-container" class="sib-form-container">
-                                <div id="error-message" class="sib-form-message-panel" style="font-size:12px; text-align:left;  color:#661d1d; background-color:#ffeded; border-radius:0px; border-color:#ff4949;max-width:350px;">
-                                    <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-                                        <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
-                                            <path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z" />
-                                        </svg>
-                                        <span class="sib-form-message-panel__inner-text">
-                                            Your subscription could not be saved. Please try again.
-                                        </span>
+                        <div class="col-span-2">
+                            <h3 class="font-heading text-2xl mb-2">Stay in the loop.</h3>
+                            <p class="text-sm mb-2">Get our best positive training tips, behavior insights, and early access to specialty class registration (like The Predictable Path!). No spam, just value.</p>
+                            <!-- Begin Brevo Form -->
+                            <!-- START - We recommend to place the below code where you want the form in your website html  -->
+                            <div class="sib-form" style="text-align: center; background-color: transparent; padding: 0px !important;">
+                                <div id="sib-form-container" class="sib-form-container">
+                                    <div id="error-message" class="sib-form-message-panel" style="font-size:12px; text-align:left;  color:#661d1d; background-color:#ffeded; border-radius:0px; border-color:#ff4949;max-width:350px;">
+                                        <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                                            <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+                                                <path d="M256 40c118.621 0 216 96.075 216 216 0 119.291-96.61 216-216 216-119.244 0-216-96.562-216-216 0-119.203 96.602-216 216-216m0-32C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm-11.49 120h22.979c6.823 0 12.274 5.682 11.99 12.5l-7 168c-.268 6.428-5.556 11.5-11.99 11.5h-8.979c-6.433 0-11.722-5.073-11.99-11.5l-7-168c-.283-6.818 5.167-12.5 11.99-12.5zM256 340c-15.464 0-28 12.536-28 28s12.536 28 28 28 28-12.536 28-28-12.536-28-28-28z" />
+                                            </svg>
+                                            <span class="sib-form-message-panel__inner-text">
+                                                Your subscription could not be saved. Please try again.
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div></div>
-                                <div id="success-message" class="sib-form-message-panel" style="font-size:12px; text-align:left; color:#085229; background-color:#e7faf0; border-radius:0px; border-color:#13ce66;max-width:350px;">
-                                    <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
-                                        <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
-                                            <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" />
-                                        </svg>
-                                        <span class="sib-form-message-panel__inner-text">
-                                            Your subscription has been successful.
-                                        </span>
+                                    <div></div>
+                                    <div id="success-message" class="sib-form-message-panel" style="font-size:12px; text-align:left; color:#085229; background-color:#e7faf0; border-radius:0px; border-color:#13ce66;max-width:350px;">
+                                        <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                                            <svg viewBox="0 0 512 512" class="sib-icon sib-notification__icon">
+                                                <path d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 464c-118.664 0-216-96.055-216-216 0-118.663 96.055-216 216-216 118.664 0 216 96.055 216 216 0 118.663-96.055 216-216 216zm141.63-274.961L217.15 376.071c-4.705 4.667-12.303 4.637-16.97-.068l-85.878-86.572c-4.667-4.705-4.637-12.303.068-16.97l8.52-8.451c4.705-4.667 12.303-4.637 16.97.068l68.976 69.533 163.441-162.13c4.705-4.667 12.303-4.637 16.97.068l8.451 8.52c4.668 4.705 4.637 12.303-.068 16.97z" />
+                                            </svg>
+                                            <span class="sib-form-message-panel__inner-text">
+                                                Your subscription has been successful.
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div></div>
-                                <div id="sib-container" class="sib-container--medium sib-container--vertical" style="text-align:center; background-color:transparent; max-width:350px; border-width:0px; border-color:#C0CCD9; border-style:solid; direction:ltr; padding:0px !important;">
-                                    <form id="sib-form" method="POST" action="https://a7e86912.sibforms.com/serve/MUIFALaiW_cgjZZq0ayhdtxbsif4BZea7eROckpMP551S5bkLy-2I8IjrPNDt9iO7KkberEPWYXFH79i9ipaTZMYts7_wxrpyk9LAlFe2NnAd8Hc-IR_6VJF-bykEiKkufCS8ayvk5SVTFoFZJP1Dum4HEbk_A2r13WFalmiAacIehqYNQ4cKT9i0JQt7IkMqNON1gA7GU_Pu7H2ZQ==" data-type="subscription">
-                                        <div>
-                                            <div class="sib-input">
-                                                <div class="form__entry entry_block">
-                                                    <div class="form__label-row ">
+                                    <div></div>
+                                    <div id="sib-container" class="sib-container--medium sib-container--vertical" style="text-align:center; background-color:transparent; max-width:350px; border-width:0px; border-color:#C0CCD9; border-style:solid; direction:ltr; padding:0px !important;">
+                                        <form id="sib-form" method="POST" action="https://a7e86912.sibforms.com/serve/MUIFALaiW_cgjZZq0ayhdtxbsif4BZea7eROckpMP551S5bkLy-2I8IjrPNDt9iO7KkberEPWYXFH79i9ipaTZMYts7_wxrpyk9LAlFe2NnAd8Hc-IR_6VJF-bykEiKkufCS8ayvk5SVTFoFZJP1Dum4HEbk_A2r13WFalmiAacIehqYNQ4cKT9i0JQt7IkMqNON1gA7GU_Pu7H2ZQ==" data-type="subscription">
+                                            <div>
+                                                <div class="sib-input">
+                                                    <div class="form__entry entry_block">
+                                                        <div class="form__label-row ">
 
-                                                        <div style="background: transparent !important; border: 1px solid #000000 !important; border-radius: 0px !important;">
-                                                            <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="Please enter your email address." data-required="true" required style="font-size:12px !important;" />
+                                                            <div style="background: transparent !important; border: 1px solid #000000 !important; border-radius: 0px !important;">
+                                                                <input class="input " type="text" id="EMAIL" name="EMAIL" autocomplete="off" placeholder="Please enter your email address." data-required="true" required style="font-size:12px !important;" />
+                                                            </div>
                                                         </div>
-                                                    </div>
 
-                                                    <label class="entry__error entry__error--primary" style="font-size:12px; text-align:left;color:#661d1d; background-color:#ffeded; border-radius:0px; border-color:#ff4949;">
-                                                    </label>
+                                                        <label class="entry__error entry__error--primary" style="font-size:12px; text-align:left;color:#661d1d; background-color:#ffeded; border-radius:0px; border-color:#ff4949;">
+                                                        </label>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div>
-                                            <div class="g-recaptcha" data-sitekey="6Lea_eYrAAAAABcNsOhAw6zRZ39JRmKK8JSSXLHg" data-callback="invisibleCaptchaCallback" data-size="invisible" onclick="executeCaptcha"></div>
-                                        </div>
-                                        <div>
-                                            <div style="text-align: left" class="pt-4">
-                                                <button class="sib-form-block__button sib-form-block__button-with-loader" style="font-size:12px; text-align:left; font-weight:700; color:#4cbb17; background-color:#ffffff; border-width:0px;" form="sib-form" type="submit">
-                                                    <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" style="">
-                                                        <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
-                                                    </svg>
-                                                    JOIN THE PACK
-                                                </button>
+                                            <div>
+                                                <div class="g-recaptcha" data-sitekey="6Lea_eYrAAAAABcNsOhAw6zRZ39JRmKK8JSSXLHg" data-callback="invisibleCaptchaCallback" data-size="invisible" onclick="executeCaptcha"></div>
                                             </div>
-                                        </div>
+                                            <div>
+                                                <div style="text-align: left" class="pt-4">
+                                                    <button class="sib-form-block__button sib-form-block__button-with-loader" style="font-size:12px; text-align:left; font-weight:700; color:#4cbb17; background-color:#ffffff; border-width:0px;" form="sib-form" type="submit">
+                                                        <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" style="">
+                                                            <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
+                                                        </svg>
+                                                        JOIN THE PACK
+                                                    </button>
+                                                </div>
+                                            </div>
 
-                                        <input type="text" name="email_address_check" value="" class="input--hidden">
-                                        <input type="hidden" name="locale" value="en">
-                                    </form>
+                                            <input type="text" name="email_address_check" value="" class="input--hidden">
+                                            <input type="hidden" name="locale" value="en">
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- END - We recommend to place the above code where you want the form in your website html  -->
+                            <!-- END - We recommend to place the above code where you want the form in your website html  -->
 
+                        </div>
+                    </div>
+                    <div class="mt-8">
+                        <p class="text-xs">Copyright &copy; 2025 - 2026 Southern Plains Sport Dog Club, LLC. All rights. reserved.<br />
+                            By using this site, you agree to our Terms of Service and Privacy Policy. For copyright, accessibility inquiries, or other policies, visit our Legal & Policies Hub, or contact us at <a href="mailto:southernplainssportsdogclub@gmail.com">southernplainssportsdogclub@gmail.com</a></p>
                     </div>
                 </div>
-                <div class="mt-8">
-                    <p class="text-xs">Copyright &copy; 2025 - 2026 Southern Plains Sport Dog Club, LLC. All rights. reserved.<br />
-                        By using this site, you agree to our Terms of Service and Privacy Policy. For copyright, accessibility inquiries, or other policies, visit our Legal & Policies Hub, or contact us at <a href="mailto:southernplainssportsdogclub@gmail.com">southernplainssportsdogclub@gmail.com</a></p>
-                </div>
-
-
-
-            </div>
-        </div> <!-- END footer -->
-    </div>
+            </div> <!-- END footer -->
+        </div>
 
 
     </div> <!-- END Scrollable Column -->
-
-
 </main>
 </div>
 
