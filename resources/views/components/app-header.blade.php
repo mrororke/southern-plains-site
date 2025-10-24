@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@yield('metaTitle', 'Southern Plains Dog Sport Club, LLC. | Serving Rogers, Mayes, and Wagoner Counties.')</title>
+    <meta name="description" content="@yield('metaDescription', 'Serving Rogers, Mayes, and Wagoner Counties.')">
 
     <title>Southern Plains Dog Sport Club, LLC. | Serving Rogers, Mayes, and Wagoner Counties.</title>
 

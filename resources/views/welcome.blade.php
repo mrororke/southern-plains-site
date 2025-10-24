@@ -1,8 +1,14 @@
+@extends('layouts.app') 
+
+@section('metaTitle', 'Positive Dog Training and Dog Sports in NE Oklahoma')
+
+@section('metaDescription', 'Comprehensive positive-reinforcement dog training, sport, and community in the Northeastern Oklahoma area. Join our NASDA club, league, and manners classes.')
+
 @php
 $slidesData = [
-['path' => 'images/2025_01_slide_hamish.jpg', 'alt' => 'Hamish image one'],
-['path' => 'images/2025_02_slide_hamish.jpg', 'alt' => 'Hamish image two'],
-['path' => 'images/2025_03_slide_hamish.jpg', 'alt' => 'Hamish image three'],
+['path' => 'images/2025_01_slide_hamish.jpg', 'alt' => 'A photo of Hamish, a Shetland Sheepdog, when he was six months old.'],
+['path' => 'images/2025_02_slide_hamish.jpg', 'alt' => 'Hamish, a black and white Shetland Sheepdog, at six months old.'],
+['path' => 'images/2025_03_slide_hamish.jpg', 'alt' => 'Hamish, a Shetland Sheepdog, when he was four months old.'],
 ];
 @endphp
 
