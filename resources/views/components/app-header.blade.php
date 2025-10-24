@@ -33,42 +33,15 @@
         <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
 
         <!-- START - We recommend to place the below code in head tag of your website html  -->
+        <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+
         <style>
-            /* TARGETING ALL INPUT TYPES WITHIN THE FORM CONTAINER */
-            #sib-container input.input::placeholder,
-            #sib-container input.input::-webkit-input-placeholder,
-            #sib-container input.input:-ms-input-placeholder {
-                text-align: left;
+            /* Targeting by Attribute (Highest Specificity without being inline) */
+            #sib-container input[name="EMAIL"]::placeholder,
+            #sib-container input[name="EMAIL"]::-webkit-input-placeholder,
+            #sib-container input[name="EMAIL"]:-ms-input-placeholder {
                 color: #000000 !important;
                 opacity: 1 !important;
-                /* Ensures the color isn't dimmed */
-            }
-
-            #sib-container textarea::placeholder {
-                text-align: left;
-                color: #000000 !important;
-            }
-
-            /* Ensure Webkit (Chrome/Safari) is explicitly targeted */
-            #sib-container input::-webkit-input-placeholder {
-                color: #000000 !important;
-                opacity: 1 !important;
-                /* Ensure opacity is not hiding the color */
-            }
-
-            #sib-container input:-ms-input-placeholder {
-                text-align: left;
-                color: #000000 !important;
-            }
-
-            #sib-container input::placeholder {
-                text-align: left;
-                color: #000000 !important;
-            }
-
-            #sib-container textarea::placeholder {
-                text-align: left;
-                color: #000000 !important;
             }
 
             #sib-container a {
@@ -76,7 +49,6 @@
                 color: #000000;
             }
         </style>
-        <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
         <!--  END - We recommend to place the above code in head tag of your website html -->
 
 
