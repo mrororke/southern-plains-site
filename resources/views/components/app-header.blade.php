@@ -33,7 +33,6 @@
         <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
 
         <!-- START - We recommend to place the below code in head tag of your website html  -->
-
         <style>
             #sib-container input:-ms-input-placeholder {
                 text-align: left;
@@ -55,7 +54,7 @@
 
             #sib-container a {
                 text-decoration: underline;
-                color: #000000;
+                color: #2BB2FC;
             }
         </style>
         <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
