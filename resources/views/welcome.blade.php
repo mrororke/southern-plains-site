@@ -120,7 +120,27 @@ $slidesData = [
             {{-- Call the component --}}
             <x-home.why-us-section :features="$featuresData" />
 
-            
+
+            @php
+    $testimonialsData = [
+        [
+            'quote' => "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps.",
+            'attribution' => "Michael T., Handler of 'Gus'",
+        ],
+        [
+            'quote' => "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps.",
+            'attribution' => "Michael C., Handler of 'Tuff'",
+        ],
+        [
+            'quote' => "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps.",
+            'attribution' => "Michael H., Handler of 'Margo'",
+        ],
+    ];
+@endphp
+
+<x-home.testimonial-carousel-section :testimonials="$testimonialsData" />
+
+
 
             <div class="lg:px-[120px] p-6"> <!-- BEGIN testimonial -->
                 <h3 class="font-heading text-5xl mb-6">Hear it From Our Handlers</h3>
