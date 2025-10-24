@@ -1,8 +1,17 @@
+@php
+    // Define the data array needed for the slider right here:
+    $slidesData = [
+        ['path' => 'images/2025_01_slide_hamish.jpg', 'alt' => 'Hamish image one'],
+        ['path' => 'images/2025_02_slide_hamish.jpg', 'alt' => 'Hamish image two'],
+        ['path' => 'images/2025_03_slide_hamish.jpg', 'alt' => 'Hamish image three'],
+    ];
+@endphp
+
 <x-home.app-header />
 
             <main>
 
-                <x-home.home-slider-column />
+                <x-home.home-slider-column :slides="$slidesData" />
 
                     <!-- Scrollable Column -->
                     <div class="w-full lg:w-2/3 flex-shrink-0 overflow-y-auto">
