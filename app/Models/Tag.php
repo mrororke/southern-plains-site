@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name', 
+        'slug',
+        // 'created_at' and 'updated_at' are handled automatically
+    ];
+
 }
