@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->timestamps();
         });
+        DB::statement('ALTER TABLE categories CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci');
     }
 
     /**
