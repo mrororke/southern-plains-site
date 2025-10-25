@@ -13,6 +13,7 @@
     <meta property="og:description" content="@yield('metaDescription')">
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ url()->current() }}">
+    {{-- TODO: Verify OG Image Works on Production --}}
     <meta property="og:image" content="@yield('ogImage', asset('images/og-images/default-social-share.jpg'))"> 
     <meta property="og:locale" content="en_US">
     
