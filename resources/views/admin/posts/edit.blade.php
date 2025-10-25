@@ -1,11 +1,10 @@
 @extends('layouts.admin')
 
 @section('title', 'Dashboard Overview')
-@section('page_title', 'Edit Post: {{ $post->title }}')
+@section('page_title', 'Admin Dashboard')
 
 @section('content')
-<div class="container mx-auto p-4">
-        
+<div class="bg-white p-6 rounded-lg shadow-md">
     @if ($errors->any())
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
             <strong class="font-bold">Whoops!</strong>
