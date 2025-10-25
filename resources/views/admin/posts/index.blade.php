@@ -4,7 +4,7 @@
 @section('page_title', 'Post Management Dashboard')
 
 @section('content')
-<div class="bg-white p-6 rounded-lg shadow-md">
+<div class="bg-white p-6 shadow-md">
     
     <div class="container mx-auto p-4">
 
@@ -17,7 +17,7 @@
 
     <div class="flex justify-between items-center mb-6">
 
-        <a href="{{ route('admin.posts.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-150">
+        <a href="{{ route('admin.posts.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4  transition duration-150">
             + New Post
         </a>
     </div>
@@ -49,9 +49,9 @@
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap">
                         @if ($post->published_at)
-                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">Published</span>
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold bg-green-100 text-green-800">Published</span>
                         @else
-                        <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-red-100 text-red-800">Draft</span>
+                        <span class="px-2 inline-flex text-xs leading-5 font-semibold bg-red-100 text-red-800">Draft</span>
                         @endif
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
@@ -59,7 +59,7 @@
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
 
-                        <a href="{{ route('admin.posts.edit', $post) }}" class="bg-emerald-500 hover:bg-emerald-800 text-white font-bold py-2 px-4 rounded transition duration-150">Edit</a>
+                        <a href="{{ route('admin.posts.edit', $post) }}" class="bg-emerald-500 hover:bg-emerald-800 text-white font-bold py-2 px-4 transition duration-150">Edit</a>
 
                         <form action="{{ route('admin.posts.destroy', $post) }}" method="POST" class="inline-block" onsubmit="return confirm('Are you sure you want to delete this post?');">
                             @csrf

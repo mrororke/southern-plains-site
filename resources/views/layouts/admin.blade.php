@@ -28,11 +28,11 @@
                         </div>
             
             <nav class="flex-1 p-4 space-y-2">
-                <a href="{{ route('admin.dashboard') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 @if(request()->routeIs('admin.dashboard')) bg-gray-700 @endif">
+                <a href="{{ route('admin.dashboard') }}" class="block py-2.5 px-4 transition duration-200 hover:bg-gray-700 @if(request()->routeIs('admin.dashboard')) bg-gray-700 @endif">
                     Dashboard
                 </a>
                 
-                <a href="{{ route('admin.posts.index') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 @if(request()->routeIs('admin.posts.*')) bg-gray-700 @endif">
+                <a href="{{ route('admin.posts.index') }}" class="block py-2.5 px-4  transition duration-200 hover:bg-gray-700 @if(request()->routeIs('admin.posts.*')) bg-gray-700 @endif">
                     Post Management
                 </a>
                 
@@ -43,7 +43,7 @@
             <div class="p-4 border-t border-gray-700">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <button type="submit" class="w-full text-left py-2 px-4 text-sm rounded transition duration-200 hover:bg-red-700 bg-red-600">
+                    <button type="submit" class="w-full text-left py-2 px-4 text-sm transition duration-200 hover:bg-red-700 bg-red-600">
                         Log Out
                     </button>
                 </form>
