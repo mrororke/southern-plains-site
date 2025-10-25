@@ -21,9 +21,11 @@
     <div class="flex h-screen">
         
         <aside class="w-64 bg-gray-800 text-white flex flex-col">
-            <div class="p-4 text-2xl font-bold border-b border-gray-700">
-                Admin Panel
-            </div>
+            <div class="text-black lg:text-white">
+                            <a href="/admin/dashboard">
+                                <x-application-logo class="w-20 h-20 fill-current" />
+                            </a>
+                        </div>
             
             <nav class="flex-1 p-4 space-y-2">
                 <a href="{{ route('admin.dashboard') }}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-gray-700 @if(request()->routeIs('admin.dashboard')) bg-gray-700 @endif">
