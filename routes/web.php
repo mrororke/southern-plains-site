@@ -53,4 +53,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::middleware(['auth', 'admin'])->group(function () {
+    
+    // These routes will now only be accessible if the user is logged in AND is_admin is true
+    Route::resource('admin/posts', App\Http\Controllers\Admin\PostController::class);
+
+});
+
 require __DIR__.'/auth.php';
