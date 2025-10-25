@@ -142,7 +142,7 @@ class PostController extends Controller
 
         // 3. Redirect (The new, simpler redirect)
         return redirect('admin/posts') // 💡 USE THE SIMPLE URI INSTEAD OF route()
-                         ->with('success', 'Post updated successfully.');
+            ->with('success', 'Post updated successfully.');
     }
 
     /**
@@ -153,7 +153,7 @@ class PostController extends Controller
         $title = $post->title;
         $post->delete();
 
-        return redirect()->route('admin.posts.index')
+        return redirect('admin/posts')
             ->with('success', 'Post "' . $title . '" deleted successfully.');
     }
 }
