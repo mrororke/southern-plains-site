@@ -138,12 +138,11 @@ class PostController extends Controller
         $post->update($validated);
 
         // 2. Sync Tags
-        // The sync() method takes an array of IDs and updates the pivot table
         $post->tags()->sync($request->tags ?? []);
 
-        // 3. Redirect
+        // 3. Redirect (Simplified redirect message)
         return redirect()->route('admin.posts.index')
-            ->with('success', 'Post "' . $post->title . '" updated successfully.');
+                         ->with('success', 'Post updated successfully.'); // 💡 REMOVE $post->title FROM THE MESSAGE
     }
 
     /**
