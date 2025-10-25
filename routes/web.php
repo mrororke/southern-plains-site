@@ -57,7 +57,7 @@ Route::middleware('auth')->group(function () {
 // In the route group at the bottom of the file
 Route::middleware(['auth', 'admin'])->group(function () {
     
-    // ✅ Use the imported class name directly
+    // Use the imported class name directly
     Route::resource('admin/posts', PostController::class); 
 });
 
