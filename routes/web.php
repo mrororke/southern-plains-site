@@ -58,6 +58,11 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'admin'])
      ->name('admin.') // 💡 TEMPORARILY ADD THIS TO FORCE RECOGNITION
      ->group(function () {
+
+        /// Admin Dashboard Route
+    Route::get('/admin/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard'); // <--- Define this name
     
     // The previous name of the route was implicitly 'admin.posts.store'
     // Now the name is explicitly defined.
