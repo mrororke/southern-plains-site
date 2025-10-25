@@ -140,9 +140,9 @@ class PostController extends Controller
         // 2. Sync Tags
         $post->tags()->sync($request->tags ?? []);
 
-        // 3. Redirect (Simplified redirect message)
-        return redirect()->route('admin.posts.index')
-                         ->with('success', 'Post updated successfully.'); // 💡 REMOVE $post->title FROM THE MESSAGE
+        // 3. Redirect (The new, simpler redirect)
+        return redirect('admin/posts') // 💡 USE THE SIMPLE URI INSTEAD OF route()
+                         ->with('success', 'Post updated successfully.');
     }
 
     /**
