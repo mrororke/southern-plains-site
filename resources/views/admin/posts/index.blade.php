@@ -1,12 +1,10 @@
 @extends('layouts.admin')
 
 @section('title', 'Post Management')
-@section('page_title', 'Posts Dashboard')
+@section('page_title', 'Post Management Dashboard')
 
 @section('content')
 <div class="bg-white p-6 rounded-lg shadow-md">
-    <h3 class="text-2xl font-bold mb-4">Post Management Dashbaord</h3>
-    
     
     <div class="container mx-auto p-4">
 
