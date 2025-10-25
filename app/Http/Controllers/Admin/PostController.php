@@ -89,7 +89,7 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Post $post)
     {
         // The $post variable is automatically found by Laravel's Route Model Binding.
 
@@ -148,7 +148,7 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Post $post)
     {
         $title = $post->title;
         $post->delete();
