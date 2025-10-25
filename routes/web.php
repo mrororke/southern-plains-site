@@ -53,6 +53,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// Use the string aliases 'auth' and 'admin'
 Route::middleware(['auth', 'admin'])->group(function () {
     
     // These routes will now only be accessible if the user is logged in AND is_admin is true
