@@ -7,6 +7,8 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
+use App\Models\Tag;
+
 class TagSeeder extends Seeder
 {
     /**
@@ -62,8 +64,8 @@ class TagSeeder extends Seeder
         ];
 
         foreach ($tags as $tag) {
-            // Using firstOrCreate prevents duplicate tags if you re-run the seeder later
-            DB::table('tags')->firstOrCreate(
+            // 💡 CHANGED: Using the Tag Model, which supports firstOrCreate()
+            Tag::firstOrCreate(
                 ['name' => $tag],
                 [
                     'slug' => Str::slug($tag),
