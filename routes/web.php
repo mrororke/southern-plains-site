@@ -56,17 +56,17 @@ Route::middleware('auth')->group(function () {
 
 // In the route group at the bottom of the file
 Route::middleware(['auth', 'admin'])
-     ->name('admin.') // 💡 TEMPORARILY ADD THIS TO FORCE RECOGNITION
-     ->group(function () {
+    ->name('admin.') // 💡 TEMPORARILY ADD THIS TO FORCE RECOGNITION
+    ->group(function () {
 
-        /// Admin Dashboard Route
-    Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard'); // <--- Define this name
-    
-    // The previous name of the route was implicitly 'admin.posts.store'
-    // Now the name is explicitly defined.
-    Route::resource('admin/posts', PostController::class); 
-});
+        // Admin Dashboard Route
+        Route::get('/admin/dashboard', function () {
+            return view('admin.dashboard');
+        })->name('admin.dashboard');
 
-require __DIR__.'/auth.php';
+        // The previous name of the route was implicitly 'admin.posts.store'
+        // Now the name is explicitly defined.
+        Route::resource('admin/posts', PostController::class);
+    });
+
+require __DIR__ . '/auth.php';
