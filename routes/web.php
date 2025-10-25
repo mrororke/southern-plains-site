@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\Admin\PostController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,12 +54,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Use the string aliases 'auth' and 'admin'
+// In the route group at the bottom of the file
 Route::middleware(['auth', 'admin'])->group(function () {
     
-    // These routes will now only be accessible if the user is logged in AND is_admin is true
-    Route::resource('admin/posts', App\Http\Controllers\Admin\PostController::class);
-
+    // ✅ Use the imported class name directly
+    Route::resource('admin/posts', PostController::class); 
 });
 
 require __DIR__.'/auth.php';
