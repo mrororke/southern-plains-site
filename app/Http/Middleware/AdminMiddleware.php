@@ -17,9 +17,9 @@ class AdminMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         // Check if the user is logged in AND is an admin
-        if (Auth::check() && Auth::user()->isAdmin()) {
-            return $next($request);
-        }
+    if (Auth::check() && Auth::user()->isAdmin()) { // Uses Auth::check() and isAdmin()
+        return $next($request);
+    }
 
         // If not admin, redirect them to the home page
         return redirect('/');
