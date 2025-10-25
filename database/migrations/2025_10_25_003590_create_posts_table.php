@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('posts', function (Blueprint $table) {
-            $table->bigIncrement('id');
-            $table->bigInteger('category_id')->unsigned()->nullable();
+        $table->bigIncrements('id');
+
+        // Explicit type matching categories.id
+        $table->bigInteger('category_id')->unsigned()->nullable();
             $table->string('slug')->unique();
             $table->text('body');
             $table->string('meta_description', 200);
