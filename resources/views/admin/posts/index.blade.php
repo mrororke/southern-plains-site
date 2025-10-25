@@ -6,9 +6,7 @@
 @section('content')
 <div class="bg-white p-6 rounded-lg shadow-md">
     <h3 class="text-2xl font-bold mb-4">Post Management Dashbaord</h3>
-    <p class="text-gray-700">
-        Welcome to your administrative control panel. Use the sidebar to manage posts and other site content.
-    </p>
+    
     
     <div class="container mx-auto p-4">
 
@@ -20,7 +18,6 @@
     @endif
 
     <div class="flex justify-between items-center mb-6">
-        <h1 class="text-3xl font-bold">Post Management Dashboard</h1>
 
         <a href="{{ route('admin.posts.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-150">
             + New Post
