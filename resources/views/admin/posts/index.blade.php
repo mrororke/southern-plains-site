@@ -59,11 +59,11 @@
                     </td>
                     <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
 
-                        <a href="{{ route('admin.posts.edit', $post) }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-150">Edit</a>
+                        <a href="{{ route('admin.posts.edit', $post) }}" class="bg-emerald-500 hover:bg-emerald-800 text-white font-bold py-2 px-4 rounded transition duration-150">Edit</a>
 
                         <form action="{{ route('admin.posts.destroy', $post) }}" method="POST" class="inline-block" onsubmit="return confirm('Are you sure you want to delete this post?');">
                             @csrf
-                            @method('DELETE') <button type="submit" class="text-red-600 hover:text-red-900">Delete</button>
+                            @method('DELETE') <button type="submit" class="text-red-500 hover:text-red-950">Delete</button>
                         </form>
                     </td>
                 </tr>
