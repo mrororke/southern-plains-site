@@ -14,7 +14,7 @@
 
     {{-- Display Success Message --}}
     @if (session('success'))
-    <div class="bg-club border-l-4 border-club text-black p-4 mb-4" role="alert">
+    <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4" role="alert">
         <p>{{ session('success') }}</p>
     </div>
     @endif
@@ -22,7 +22,7 @@
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-3xl font-bold">Post Management Dashboard</h1>
 
-        <a href="{{ route('admin.posts.create') }}" class="bg-club hover:bg-club-hover text-white font-bold py-2 px-4 rounded transition duration-150">
+        <a href="{{ route('admin.posts.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-150">
             + New Post
         </a>
     </div>
