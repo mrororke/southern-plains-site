@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('title', 'Dashboard Overview')
-@section('page_title', '{{ $post->title }}')
+@section('page_title', 'Admin Dashboard')
 
 @section('content')
 <div class="bg-white p-6 shadow-md">
