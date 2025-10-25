@@ -64,15 +64,18 @@ class TagSeeder extends Seeder
         ];
 
         foreach ($tags as $tag) {
-            // 💡 CHANGED: Using the Tag Model, which supports firstOrCreate()
-            Tag::firstOrCreate(
-                ['name' => $tag],
-                [
+            // Check if the tag already exists to mimic firstOrCreate functionality
+            $exists = DB::table('tags')->where('name', $tag)->exists();
+
+            if (!$exists) {
+                // 💡 Use the guaranteed working insert method
+                DB::table('tags')->insert([
+                    'name' => $tag,
                     'slug' => Str::slug($tag),
                     'created_at' => now(),
                     'updated_at' => now(),
-                ]
-            );
+                ]);
+            }
         }
     }
 }
