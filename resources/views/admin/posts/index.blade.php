@@ -5,16 +5,16 @@
 
 @section('content')
 <div class="bg-white p-6 rounded-lg shadow-md">
-    <h3 class="text-2xl font-bold mb-4">Overview</h3>
+    <h3 class="text-2xl font-bold mb-4">Post Management Dashbaord</h3>
     <p class="text-gray-700">
         Welcome to your administrative control panel. Use the sidebar to manage posts and other site content.
     </p>
     
-    div class="container mx-auto p-4">
+    <div class="container mx-auto p-4">
 
     {{-- Display Success Message --}}
     @if (session('success'))
-    <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4" role="alert">
+    <div class="bg-club border-l-4 border-club text-black p-4 mb-4" role="alert">
         <p>{{ session('success') }}</p>
     </div>
     @endif
@@ -22,7 +22,7 @@
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-3xl font-bold">Post Management Dashboard</h1>
 
-        <a href="{{ route('admin.posts.create') }}" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded transition duration-150">
+        <a href="{{ route('admin.posts.create') }}" class="bg-club hover:bg-club-hover text-white font-bold py-2 px-4 rounded transition duration-150">
             + New Post
         </a>
     </div>
