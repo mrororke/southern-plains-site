@@ -50,7 +50,6 @@
                     <label for="category_id" class="block text-gray-700 font-semibold mb-2">Category</label>
                     <select name="category_id" id="category_id" class="shadow border rounded w-full py-2 px-3 text-gray-700" required>
                         <option value="">Select a Category</option>
-                        {{-- Selects the category based on old data or the post's current data --}}
                         @foreach($categories as $category)
                             <option value="{{ $category->id }}" 
                                 {{ old('category_id', $post->category_id) == $category->id ? 'selected' : '' }}>
@@ -65,13 +64,8 @@
                     <div class="max-h-60 overflow-y-auto border rounded p-3 bg-gray-50">
                         @foreach($tags as $tag)
                             @php
-                                // Check if the tag was selected in old input (validation failed)
                                 $oldTags = collect(old('tags')); 
-                                
-                                // Check if the tag is currently attached to the post
                                 $isAttached = $post->tags->contains($tag->id);
-
-                                // Determine if the checkbox should be checked
                                 $checked = $oldTags->contains($tag->id) || (empty($oldTags) && $isAttached);
                             @endphp
                             <label class="block items-center mb-1 cursor-pointer hover:bg-gray-100 p-1 rounded">
@@ -87,7 +81,6 @@
                     <label for="published_at" class="block text-gray-700 font-semibold">Publish Date</label>
                     <input type="date" name="published_at" id="published_at" 
                         class="shadow border rounded py-2 px-3 text-gray-700" 
-                        {{-- Formats the Carbon date object to a simple YYYY-MM-DD string --}}
                         value="{{ old('published_at', $post->published_at ? $post->published_at->format('Y-m-d') : '') }}">
                     <span class="text-sm text-gray-500"> (Leave blank for Draft)</span>
                 </div>
@@ -102,14 +95,7 @@
                 Cancel
             </a>
             
-            {{-- OPTIONAL: Add a delete button to the edit form for quick removal --}}
-            <form action="{{ route('admin.posts.destroy', $post) }}" method="POST" class="inline-block ml-4" onsubmit="return confirm('Are you sure you want to delete this post? This cannot be undone.');">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded transition duration-150">
-                    Delete Post
-                </button>
-            </form>
+            {{-- THE DELETE FORM HAS BEEN REMOVED --}}
         </div>
     </form>
 </div>
