@@ -6,6 +6,8 @@
     <title>Admin Dashboard - @yield('title', 'Your App Name')</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet"> 
 </head>
+
+<x-app-header />
 <body class="bg-gray-100 font-sans antialiased">
 
     <div class="flex h-screen">
