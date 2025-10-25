@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('category_id')->nullable()->constrained()->onDelete('cascade');
+            $table->bigInteger('category_id')->unsigned()->nullable();
             $table->string('slug')->unique();
             $table->text('body');
             $table->string('meta_description', 200);
@@ -22,7 +22,6 @@ return new class extends Migration
             $table->timestamps();
         });
 
-        DB::statement('ALTER TABLE categories CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci');
     }
 
     /**
