@@ -54,19 +54,22 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// In the route group at the bottom of the file
-Route::middleware(['auth', 'admin'])
-    ->name('admin.') // 💡 TEMPORARILY ADD THIS TO FORCE RECOGNITION
-    ->group(function () {
+// In Admin Routes
+Route::middleware(['auth', 'admin'])->group(function () {
+    
+    // FIX 1: Correct the Dashboard name
+    Route::get('/admin/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('admin.dashboard'); 
+    
+    // FIX 2: Correct the base /admin route (if you added it)
+    Route::get('/admin', function () {
+        return redirect()->route('admin.dashboard');
+    })->name('admin.index');
 
-        // Admin Dashboard Route
-        Route::get('/admin/dashboard', function () {
-            return view('admin.dashboard');
-        })->name('admin.dashboard');
-
-        // The previous name of the route was implicitly 'admin.posts.store'
-        // Now the name is explicitly defined.
-        Route::resource('admin/posts', PostController::class);
-    });
+    // FIX 3: Correct the Post Management name 
+    // This is the most complex one. Your current setup should work, but let's be explicit.
+    Route::resource('admin/posts', PostController::class)->names('admin.posts');
+});
 
 require __DIR__ . '/auth.php';
