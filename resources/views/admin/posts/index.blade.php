@@ -1,7 +1,16 @@
-@extends('layouts.app')
+@extends('layouts.admin')
+
+@section('title', 'Post Management')
+@section('page_title', 'Posts Dashboard')
 
 @section('content')
-<div class="container mx-auto p-4">
+<div class="bg-white p-6 rounded-lg shadow-md">
+    <h3 class="text-2xl font-bold mb-4">Overview</h3>
+    <p class="text-gray-700">
+        Welcome to your administrative control panel. Use the sidebar to manage posts and other site content.
+    </p>
+    
+    div class="container mx-auto p-4">
 
     {{-- Display Success Message --}}
     @if (session('success'))
@@ -72,5 +81,6 @@
         {{ $posts->links() }}
     </div>
     @endif
+</div>
 </div>
 @endsection
