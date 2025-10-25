@@ -42,8 +42,47 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // 1. Validation
+        $validated = $request->validate([
+            'title' => [
+                'required', 
+                'string', 
+                'max:255',
+                // Ensure the title is unique in the posts table
+                Rule::unique('posts', 'title'), 
+            ],
+            'category_id' => 'required|exists:categories,id', // Must be a valid category ID
+            'meta_description' => 'nullable|string|max:200',
+            'body' => 'required|string',
+            'published_at' => 'nullable|date',
+            'tags' => 'nullable|array',
+            'tags.*' => 'exists:tags,id', // Ensure all submitted tags are valid IDs
+        ]);
+
+        // 2. Prepare Data and Create Post
+        
+        // Add the automatically generated slug to the data array
+        $validated['slug'] = Str::slug($validated['title']);
+        
+        // Use the authenticated user's ID as the author (if you added a user_id column)
+        // If not, you can skip this, but it's good practice. (Assuming current user is the author)
+        // $validated['user_id'] = auth()->id(); 
+        
+        // Create the post record
+        $post = Post::create($validated);
+
+        // 3. Attach Tags (Synchronization)
+        if ($request->has('tags')) {
+            // The sync method takes an array of IDs and updates the pivot table (post_tag)
+            // It attaches new tags and detaches any that were unchecked.
+            $post->tags()->sync($request->tags);
+        }
+
+        // 4. Redirect with Success Message
+        return redirect()->route('admin.posts.index')
+                         ->with('success', 'Post "' . $post->title . '" created successfully.');
     }
+    
 
     /**
      * Display the specified resource.
