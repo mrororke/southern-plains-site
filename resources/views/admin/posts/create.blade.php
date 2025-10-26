@@ -1,8 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.admin')
+
+@section('title', 'Dashboard Overview')
+@section('page_title', 'Create New Post')
 
 @section('content')
-<div class="container mx-auto p-4">
-    <h1 class="text-3xl font-bold mb-6">Create New Post</h1>
+<div class="bg-white p-6 rounded-lg shadow-md">
     
     @if ($errors->any())
         <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4" role="alert">
