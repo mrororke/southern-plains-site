@@ -10,7 +10,7 @@
     <meta name="description" content="@yield('metaDescription', 'Positive reinforcement dog training, NASDA competition, and community in the Northeastern Oklahoma area.')">
 
     {{-- SOCIAL SHARING IMAGE --}}
-    <meta property="og:image" content="@yield('ogImage', asset('images/2025_01_slide_hamish.jpg'))">
+    <meta property="og:image" content="@yield('ogImage', asset('images/og-images/default-social-share.jpg'))">
 
     {{-- Add your main CSS/Tailwind includes here, e.g., <link href="/css/app.css" rel="stylesheet"> --}}
 </head>
