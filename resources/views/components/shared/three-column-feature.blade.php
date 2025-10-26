@@ -7,7 +7,7 @@
     <div class="grid md:grid-cols-3 lg:grid-cols-3 gap-8 text-center">
 
         @foreach ($features as $feature)
-        <x-shared.feature-card
+        <x-shared.feature-card-small
             :svg="$feature['svg']"
             :title="$feature['title']"
             :content="$feature['content']" />
