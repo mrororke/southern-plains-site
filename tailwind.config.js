@@ -15,6 +15,7 @@ export default {
                 // Add your custom brand color here
                 'club': '#4CBB17',
                 'club-hover': '#3D9612',
+                'club-active': '#3D9612',
                 'league': '#FF0398',
                 'league-hover': '#CC027A',
                 'training': '#03CCFF',
@@ -25,6 +26,9 @@ export default {
             fontFamily: {
                 sans: ['Archivo', ...defaultTheme.fontFamily.sans],
                 heading: ['Bebas Neue', 'sans-serif'],
+            },
+            borderWidth: {
+                '3': '3px',
             },
         },
     },
