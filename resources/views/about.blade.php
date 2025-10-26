@@ -24,58 +24,36 @@
     ['path' => 'images/2025_03_slide_hamish.jpg', 'alt' => 'Hamish, a Shetland Sheepdog, when he was four months old.'],
     ];
 
-    // 2. SVG/FEATURES DATA (Copied directly from your home.blade.php)
-    $svgPositiveReinforcement = '<svg width="36" height="36" class="mb-4 mx-auto" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M19 0H19.25C23.25 0 26.875 2.125 28.875 5.625L32 10.75L35 5.625C37 2.125 40.625 0 44.625 0H45C51 0 56 5 56 11C56 12.875 55.5 14.5 54.75 16H60C62.125 16 64 17.875 64 20V28C64 30.25 62.125 32 60 32H4C1.75 32 0 30.25 0 28V20C0 17.875 1.75 16 4 16H9.125C8.375 14.5 8 12.875 8 11C8 5 12.875 0 19 0ZM23.75 8.625C22.75 7 21.125 6 19.25 6H19C16.125 6 14 8.25 14 11C14 13.875 16.125 16 19 16H28.125L23.75 8.625ZM45 6H44.625C42.75 6 41.125 7 40.125 8.625L35.75 16H45C47.75 16 50 13.875 50 11C50 8.25 47.75 6 45 6ZM4 36H28V64H10C6.625 64 4 61.375 4 58V36ZM36 64V36H60V58C60 61.375 57.25 64 54 64H36Z" fill="#4CBB17" />
-    </svg>';
-    $svgTrainPlayCompete = '<svg width="36" height="36" class="mb-4 mx-auto" viewBox="0 0 66 57" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M43 23.625C41.625 24.875 39.625 24.875 38.125 23.75L24.625 13.625L7 27.625C5.375 29 2.875 28.75 1.5 27C0 25.375 0.375 22.875 2.125 21.375L22.125 5.5C23.5 4.25 25.5 4.25 27 5.375L40.5 15.5L58.125 1.5C59.75 0 62.25 0.375 63.625 2.125C65.125 3.75 64.75 6.25 63 7.625L43 23.625ZM20.625 28.5C20.625 26.375 22.375 24.5 24.625 24.5C26.75 24.5 28.625 26.375 28.625 28.5V52.5C28.625 54.75 26.75 56.5 24.625 56.5C22.375 56.5 20.625 54.75 20.625 52.5V28.5ZM4.625 40.5C4.625 38.375 6.375 36.5 8.625 36.5C10.75 36.5 12.625 38.375 12.625 40.5V52.5C12.625 54.75 10.75 56.5 8.625 56.5C6.375 56.5 4.625 54.75 4.625 52.5V40.5ZM44.625 36.5V52.5C44.625 54.75 42.75 56.5 40.625 56.5C38.375 56.5 36.625 54.75 36.625 52.5V36.5C36.625 34.375 38.375 32.5 40.625 32.5C42.75 32.5 44.625 34.375 44.625 36.5ZM52.625 28.5C52.625 26.375 54.375 24.5 56.625 24.5C58.75 24.5 60.625 26.375 60.625 28.5V52.5C60.625 54.75 58.75 56.5 56.625 56.5C54.375 56.5 52.625 54.75 52.625 52.5V28.5Z" fill="#4CBB17" />
-    </svg>';
-    $svgQualifiedCertified = '<svg width="36" height="36" class="mb-4 mx-auto" viewBox="0 0 65 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M44.25 16C44.25 18.25 46 20 48.25 20H64.25V58C64.25 61.375 61.5 64 58.25 64H28.125V52.625C30.375 51.75 32 49.875 32.625 47.5L32.75 47C32.875 46.625 32.875 46.375 33 46.125C33.125 46 33.375 45.75 33.625 45.5L34 45.125C35.875 43.25 36.625 40.375 35.875 37.75L35.75 37.25C35.75 36.875 35.625 36.5 35.625 36.375C35.625 36.125 35.75 35.875 35.875 35.375V35C36.625 32.375 35.875 29.5 33.875 27.5L33.625 27.25C33.375 26.875 33.125 26.75 33 26.5C32.875 26.375 32.875 26 32.75 25.625L32.625 25.125C31.875 22.5 29.875 20.375 27.25 19.75L26.75 19.625C26.375 19.5 26.125 19.375 25.875 19.375C25.75 19.125 25.5 19 25.25 18.75L24.875 18.375C23.5 16.875 21.5 16 19.5 16C18.875 16 18.125 16.125 17.5 16.375L17 16.5C16.625 16.5 16.375 16.625 16.25 16.625V6C16.25 2.75 18.875 0 22.25 0H44.25V16ZM48.25 0L64.25 16H48.25V0ZM28.75 46.5C28.625 46.875 28.5 47.125 28.375 47.375C27.875 48.25 27.125 48.875 26.125 49.125C24.375 49.625 24.75 49.5 24.125 49.75V64L16.25 60L8.25 64V49.75C7.875 49.625 7.875 49.625 7.625 49.5C7.5 49.5 7.125 49.375 6.25 49.125C5 48.75 4 47.75 3.625 46.5C3.5 45.875 3.375 45.375 3.25 45C2.875 44 2.625 43.75 1.25 42.375C1 42.125 0.875 41.875 0.625 41.625C0.25 40.75 0 39.75 0.375 38.75C1 36.125 1 36.5 0.375 34C0 33 0.25 32 0.625 31.125C0.875 30.875 1 30.625 1.25 30.375C2.375 29.125 2.75 28.875 3.125 28.125C3.25 27.75 3.375 27.125 3.625 26.125C4 24.875 5 23.875 6.25 23.5C8.75 22.875 8.375 23 10.25 21.125C10.625 20.875 11 20.625 11.375 20.375C11.5 20.375 11.5 20.375 11.625 20.25C12 20.125 12.5 20 12.875 20C13.25 20 13.5 20.125 13.75 20.125C15 20.5 15.5 20.75 16.125 20.75C16.75 20.75 17.25 20.5 18.5 20.125C18.625 20.125 18.625 20.125 18.625 20.125C18.625 20.125 18.625 20.125 18.5 20.125C18.875 20.125 19.125 20 19.5 20C19.875 20 20.375 20.125 20.75 20.25C20.875 20.375 20.875 20.375 21 20.375C21.375 20.625 21.75 20.875 22.125 21.125C22.25 21.375 22.5 21.625 22.625 21.75C23 22.125 23.25 22.375 23.5 22.5C24.125 23 24.625 23.125 26.125 23.5C27.125 23.875 27.875 24.5 28.375 25.25C28.5 25.5 28.625 25.875 28.75 26.125C28.875 26.875 29 27.25 29.125 27.625C29.5 28.75 29.75 28.875 31.125 30.375C32 31.25 32.375 32.625 32 34C31.375 36.5 31.375 36.125 32 38.75C32.375 40 32 41.375 31.125 42.375C29.75 43.75 29.5 43.875 29.125 45C29 45.375 28.875 45.875 28.75 46.5ZM16.25 44C20.625 44 24.125 40.5 24.125 36C24.125 31.625 20.625 28 16.25 28C15.625 28 15.125 28.125 14.625 28.25C13.5 28.375 12.625 28.875 11.75 29.375C10.875 30 10.125 30.75 9.5 31.625C8.75 32.875 8.25 34.375 8.25 36C8.25 37.75 8.75 39.25 9.5 40.5C10.125 41.375 10.875 42.125 11.75 42.75C12.625 43.25 13.5 43.625 14.625 43.875C15.125 44 15.625 44 16.25 44Z" fill="#4CBB17" />
-    </svg>';
-    $svgCommunityFocused = '<svg width="36" height="36" class="mx-auto mb-4" viewBox="0 0 80 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M39.875 40C32.75 40 26.875 34.25 27 27C27 19.875 32.75 14 39.875 14C47 14 52.875 19.875 52.875 27C52.875 34.25 47.125 40 39.875 40ZM46.125 44C56 44 64 51.5 64 60.75C64 62.625 62.375 64 60.375 64H19.5C17.5 64 16 62.625 16 60.75C16 51.5 23.875 44 33.75 44H46.125ZM64 20C58.375 20 54 15.625 54 10C54 4.5 58.375 0 64 0C69.5 0 74 4.5 74 10C74 15.625 69.5 20 64 20ZM22.875 27C22.875 31.25 24.5 35.125 27.125 38H2.125C0.875 38 0 37 0 35.75C0 29.25 4.875 24 11 24H18.625C20.25 24 21.75 24.375 23.125 25.125C23 25.75 22.875 26.375 22.875 27ZM16 20C10.375 20 6 15.625 6 10C6 4.5 10.375 0 16 0C21.5 0 26 4.5 26 10C26 15.625 21.5 20 16 20ZM68.875 24C75 24 80 29.25 80 35.75C80 37 79 38 77.75 38H52.75C55.375 35.125 56.875 31.25 56.875 27C56.875 26.375 56.75 25.75 56.75 25.125C58.125 24.5 59.625 24 61.25 24H68.875Z" fill="#4CBB17" />
-    </svg>';
+    // 2. SVG/FEATURES DATA 
+    $svgCompassion = '<svg width="48" height="42" viewBox="0 0 48 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 14.4375V13.9688C0 7.40625 4.6875 1.78125 11.1562 0.75C15.375 0 19.7812 1.40625 22.875 4.5L24 5.53125L25.0312 4.5C28.125 1.40625 32.5312 0 36.75 0.75C43.2188 1.78125 48 7.40625 48 13.9688V14.4375C48 18.375 46.3125 22.125 43.5 24.75L26.5312 40.5938C25.875 41.25 24.9375 41.5312 24 41.5312C22.9688 41.5312 22.0312 41.25 21.375 40.5938L4.40625 24.75C1.59375 22.125 0 18.375 0 14.4375Z" fill="#FF0398"/>
+</svg>';
+    $svgScienceBased = '<svg width="60" height="48" viewBox="0 0 60 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M59.8125 20.3438C59.9062 20.5312 60 20.8125 60 20.9062C60 21.4688 59.5312 22.125 59.0625 22.3125L48 26.9062C47.9062 26.9062 47.625 27 47.4375 27C46.875 27 46.3125 26.625 46.0312 26.0625L38.0625 6.65625C37.9688 6.5625 37.875 6.28125 37.875 6.09375C37.875 5.53125 38.3438 4.96875 38.8125 4.6875L49.875 0.1875C49.9688 0.09375 50.25 0 50.4375 0C51 0 51.5625 0.46875 51.8438 1.03125L59.8125 20.3438ZM35.625 8.71875L42.8438 26.3438L36.6562 28.5C36.6562 28.5 36.6562 28.5 36.6562 28.5938C36.6562 30.0938 36.0938 31.5938 35.1562 32.7188L39.4688 45C39.9375 46.2188 39.2812 47.5312 38.1562 47.9062C37.875 48 37.5938 48 37.4062 48C36.5625 48 35.625 47.4375 35.25 46.5L31.2188 35.1562C30.75 35.25 30.375 35.25 29.9062 35.25C29.4375 35.25 28.9688 35.25 28.5 35.1562L24.4688 46.5C24.1875 47.4375 23.25 48 22.4062 48C22.2188 48 21.9375 48 21.75 47.8125C20.5312 47.4375 19.875 46.125 20.3438 45L24.6562 32.7188V32.625L12.75 36.75C11.9062 37.0312 11.0625 36.6562 10.6875 35.9062L9.9375 33.9375L3.9375 36.4688C3.75 36.5625 3.46875 36.5625 3.375 36.5625C2.8125 36.5625 2.15625 36.1875 1.96875 35.625L0.09375 31.125C0 30.9375 0 30.6562 0 30.5625C0 30 0.375 29.3438 0.84375 29.1562L6.84375 26.625L6.09375 24.6562C5.71875 23.9062 6.09375 23.0625 6.9375 22.6875L35.625 8.71875ZM29.9062 30.75C31.2188 30.75 32.1562 29.8125 32.1562 28.5C32.1562 27.1875 31.125 26.25 29.9062 26.25C28.5938 26.25 27.6562 27.1875 27.6562 28.5C27.6562 29.7188 28.5938 30.75 29.9062 30.75Z" fill="#FF0398"/>
+</svg>';
+    $svgRelationship = '<svg width="55" height="48" viewBox="0 0 55 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M31.5 1.875C31.6875 0.84375 32.625 0 33.75 0C34.4062 0 35.0625 0.375 35.5312 0.9375L37.125 3H42C43.125 3 44.3438 3.5625 45.1875 4.40625L46.875 6H52.125C53.3438 6 54.375 7.03125 54.375 8.25V10.5C54.375 14.7188 51 18 46.875 18H40.3125L39.8438 20.9062L29.3438 14.9062L31.5 1.875ZM42.375 6C41.5312 6 40.875 6.75 40.875 7.5C40.875 8.34375 41.5312 9 42.375 9C43.125 9 43.875 8.34375 43.875 7.5C43.875 6.75 43.125 6 42.375 6ZM39.375 24.0938V45C39.375 46.6875 37.9688 48 36.375 48H33.375C31.6875 48 30.375 46.6875 30.375 45V34.2188C28.0312 35.4375 25.5 36 22.875 36C20.1562 36 17.625 35.4375 15.375 34.2188V45C15.375 46.6875 13.9688 48 12.375 48H9.375C7.6875 48 6.375 46.6875 6.375 45V23.4375C3.65625 22.4062 1.5 20.1562 0.75 17.25L0.375 15.75C0 14.1562 1.03125 12.5625 2.625 12.0938C4.21875 11.7188 5.8125 12.75 6.28125 14.3438L6.5625 15.75C6.9375 17.0625 8.15625 18 9.46875 18H28.7812L39.375 24.0938Z" fill="#FF0398"/>
+</svg>';
+    
 
     $featuresData = [
         [
-        'svg' => $svgPositiveReinforcement,
-        'title' => 'Positive Reinforcement',
-        'content' => 'Our training methods are rooted in science-backed, positive techniques. We focus on building confidence, communication, and a happy, willing partnership with your dog.',
+        'svg' => $svgCompassion,
+        'title' => 'Compassion First',
+        'content' => "We believe in humane, understanding methods that honor each dog’s unique temperament and needs, fostering trust and positive emotional well-being above all else.",
         ],
         [
-        'svg' => $svgTrainPlayCompete,
-        'title' => 'Train, Play, Compete',
-        'content' => 'We provide a structured pathway for every stage: from foundational skills in our Training classes, to engaging Monthly League competitions, to official NASDA Trial events.',
+        'svg' => $svgScienceBased,
+        'title' => 'Science-Based Effectiveness',
+        'content' => 'Our training solutions are rooted in the latest canine behavior science and positive reinforcement techniques, ensuring lasting and reliable results for real-world challenges.',
         ],
         [
-        'svg' => $svgQualifiedCertified,
-        'title' => 'Qualified & Certified',
-        'content' => 'Our lead instructor is an authorized AKC Canine Good Citizen (CGC) Evaluator and a Level 3 Fit Dog Instructor, ensuring the highest standards in manners, safety, and canine conditioning.',
-        ],
-        [
-        'svg' => $svgCommunityFocused,
-        'title' => 'Community Focused',
-        'content' => 'More than just training, we are a supportive network of handlers committed to learning, competing, and growing together in a welcoming environment. Join our team!',
-        ],
+        'svg' => $svgRelationship,
+        'title' => 'Harmonious Relationship',
+        'content' => 'Beyond teaching cues, we focus on empowering dogs and owners to overcome obstacles together, cultivating the deep trust needed to build a calm, cooperative, and enriching life for both partners.',
+        ]
     ];
 
-    // 3. TESTIMONIALS DATA (Copied directly from your home.blade.php)
-    $testimonialsData = [
-        [
-        'quote' => "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps.",
-        'attribution' => "Michael T., Handler of 'Gus'",
-        ],
-        [
-        'quote' => "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps.",
-        'attribution' => "Michael C., Handler of 'Tuff'",
-        ],
-        [
-        'quote' => "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps.",
-        'attribution' => "Michael H., Handler of 'Margo'",
-        ],
-    ];
     @endphp
 @endsection
 
@@ -123,9 +101,4 @@
 {{-- Re-uses the Why Us section from the home page, using the $featuresData defined above --}}
 @section('feature_blocks')
     <x-home.why-us-section :features="$featuresData" />
-@endsection
-
-{{-- Re-uses the Testimonial section from the home page, using the $testimonialsData defined above --}}
-@section('testimonial_blocks')
-    <x-home.testimonial-carousel-section :testimonials="$testimonialsData" />
 @endsection
