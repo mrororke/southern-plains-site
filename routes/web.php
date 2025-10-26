@@ -15,34 +15,42 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Home Page
 Route::get('/', function () {
+    // This assumes you have renamed your original 'welcome.blade.php' to 'home.blade.php'
     return view('home');
-});
+})->name('welcome'); // Named 'welcome' for the link, or you can use 'home'
 
+// About Page
 Route::get('/about', function () {
     return view('about');
-});
+})->name('about');
 
+// Blog Index Page
 Route::get('/blog', function () {
-    return view('welcome');
-});
+    // We will assume you have a 'blog.blade.php' view file for the main index
+    return view('blog'); 
+})->name('blog.index');
 
+// Services / Training Page
 Route::get('/training', function () {
-    return view('welcome');
-});
+    return view('services'); // Using the appropriate view name for the content we created
+})->name('services'); // Named 'services' to reflect the content of the page
 
+// League Page
 Route::get('/league', function () {
-    return view('welcome');
-});
+    return view('league'); // Using the appropriate view name
+})->name('league');
 
+// Events Page
 Route::get('/events', function () {
-    return view('welcome');
-});
+    return view('events'); // Using the appropriate view name
+})->name('events');
 
+// Contact Page
 Route::get('/contact', function () {
-    return view('welcome');
-});
-
+    return view('contact'); // Using the appropriate view name
+})->name('contact');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
