@@ -105,15 +105,15 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         // Fetch all tags and categories
-    $categories = Category::all();
-    $tags = Tag::all();
+        $categories = Category::all();
+        $tags = Tag::all();
 
-    // 💡 GUARANTEE FIX: Create a simple, flat array of attached Tag IDs
-    // This is the cleanest data structure for the Blade check.
-    $attachedTagIds = $post->tags->pluck('id')->toArray();
-    
-    // Pass the post, all tags/categories, AND the array of attached IDs to the view.
-    return view('admin.posts.edit', compact('post', 'categories', 'tags', 'attachedTagIds'));
+        // 💡 GUARANTEE FIX: Create a simple, flat array of attached Tag IDs
+        // This is the cleanest data structure for the Blade check.
+        $attachedTagIds = $post->tags->pluck('id')->toArray();
+
+        // Pass the post, all tags/categories, AND the array of attached IDs to the view.
+        return view('admin.posts.edit', compact('post', 'categories', 'tags', 'attachedTagIds'));
     }
 
     /**
