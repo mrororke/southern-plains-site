@@ -1,7 +1,10 @@
 @extends('layouts.admin')
 
-@section('title', 'Dashboard Overview')
-@section('page_title', 'Admin Dashboard')
+{{-- 💡 1. SET THE PAGE TITLE FOR THE BROWSER TAB --}}
+@section('title', 'Edit: ' . $post->title)
+
+{{-- 💡 2. SET THE PAGE TITLE FOR THE DASHBOARD HEADER --}}
+@section('page_title', 'Editing: ' . $post->title)
 
 @section('content')
 <div class="bg-white p-6 shadow-md">
