@@ -64,20 +64,17 @@
                     <div class="max-h-60 overflow-y-auto border p-3 bg-gray-50">
                         @foreach($tags as $tag)
                         @php
-                        $oldTags = collect(old('tags'));
-
-                        // 💡 FIX: Create an array of IDs from the post's attached tags for reliable checking
+                        // Get the IDs of tags currently attached to the post for easy lookup.
+                        // This is safer than relying on Collection::contains() on models.
                         $attachedTagIds = $post->tags->pluck('id')->toArray();
 
-                        // Checks if the current tag ID is present in the array of attached IDs
-                        $isAttached = in_array($tag->id, $attachedTagIds);
-
-                        // Determines if the box should be checked
-                        $checked = $oldTags->contains($tag->id) || (empty($oldTags) && $isAttached);
+                        // Check if the current tag's ID is in the list of attached IDs OR
+                        // if a validation error occurred, check if the ID was in the old submitted array.
+                        $isChecked = in_array($tag->id, $attachedTagIds) || in_array($tag->id, old('tags', []));
                         @endphp
                         <label class="block items-center mb-1 cursor-pointer hover:bg-gray-100 p-1 rounded">
                             <input type="checkbox" name="tags[]" value="{{ $tag->id }}" class="form-checkbox"
-                                {{ $checked ? 'checked' : '' }}>
+                                {{ $isChecked ? 'checked' : '' }}>
                             <span class="ml-2 text-gray-700 text-sm">{{ $tag->name }}</span>
                         </label>
                         @endforeach
