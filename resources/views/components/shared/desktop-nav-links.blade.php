@@ -1,8 +1,8 @@
 <div class="hidden md:block md:flex items-center space-x-4">
     
     {{-- Home Link: Uses 'welcome' or 'home' route --}}
-    @php $isHome = request()->routeIs('welcome') || request()->routeIs('home'); @endphp
-    <a href="{{ route('welcome') }}" 
+    @php $isHome = request()->routeIs('home') || request()->routeIs('home'); @endphp
+    <a href="{{ route('home') }}" 
        class="px-3 py-2 text-sm font-medium uppercase hover:text-club hover:underline {{ $isHome ? 'text-green-700 border-b-3 border-green-700' : 'text-black' }}">
         Home
     </a>
