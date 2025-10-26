@@ -5,5 +5,5 @@
     {!! $svg !!}
 
     <h3 class="uppercase text-small font-bold mb-4">{{ $title }}</h3>
-    <p class="text-xs mb-2">{{ $content }}</p>
+    <p class="text-xs text-left mb-2">{{ $content }}</p>
 </div>
