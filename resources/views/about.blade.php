@@ -85,7 +85,11 @@
 
     <div class="grid grid-cols-2">
         <div>one</div>
-        <div>two</div>
+        <div>
+            <img src="{{ asset('images/about-luka.jpg') }}" 
+             alt="Luka von Hagedorn, September 21, 2020 - July 9, 2025" 
+             class="w-full  ml-4 mb-4 shadow-lg">
+        </div>
     </div>
 
 
