@@ -74,7 +74,7 @@
                         @endphp
                         <label class="block items-center mb-1 cursor-pointer hover:bg-gray-100 p-1 rounded">
                             <input type="checkbox" name="tags[]" value="{{ $tag->id }}" class="form-checkbox"
-                                {{ $checked ? 'checked' : '' }}> // <--- THIS IS WHERE THE ATTRIBUTE IS ADDED
+                                {{ $checked ? 'checked' : '' }}> 
                                 <span class="ml-2 text-gray-700 text-sm">{{ $tag->name }}</span>
                         </label>
                         @endforeach
