@@ -8,17 +8,23 @@
 
 @section('metaTitle', 'About Us | Mission, Instructor, and Training Philosophy')
 @section('metaDescription', 'Learn about Southern Plains Sport Dog Club\'s mission, meet lead instructor Melanie O\'Rorke, and understand our positive reinforcement training philosophy.')
-{{-- We won't use ogImage here, so it defaults to the base layout's default image. --}}
 
 
 {{-- 
 | ----------------------------------------------------
-| DATA DEFINITIONS - Moved into the layout slot
+| DATA DEFINITIONS - MOVED INTO THE LAYOUT SLOT
 | ----------------------------------------------------
 --}}
 @section('data_definitions')
     @php
-    // 1. SVG/FEATURES DATA (Copied directly from your home.blade.php)
+    // 1. SLIDES DATA (REQUIRED FOR SLIDER_COLUMN SECTION)
+    $slidesData = [
+    ['path' => 'images/2025_01_slide_hamish.jpg', 'alt' => 'A photo of Hamish, a Shetland Sheepdog, when he was six months old.'],
+    ['path' => 'images/2025_02_slide_hamish.jpg', 'alt' => 'Hamish, a black and white Shetland Sheepdog, at six months old.'],
+    ['path' => 'images/2025_03_slide_hamish.jpg', 'alt' => 'Hamish, a Shetland Sheepdog, when he was four months old.'],
+    ];
+
+    // 2. SVG/FEATURES DATA (Copied directly from your home.blade.php)
     $svgPositiveReinforcement = '<svg width="36" height="36" class="mb-4 mx-auto" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M19 0H19.25C23.25 0 26.875 2.125 28.875 5.625L32 10.75L35 5.625C37 2.125 40.625 0 44.625 0H45C51 0 56 5 56 11C56 12.875 55.5 14.5 54.75 16H60C62.125 16 64 17.875 64 20V28C64 30.25 62.125 32 60 32H4C1.75 32 0 30.25 0 28V20C0 17.875 1.75 16 4 16H9.125C8.375 14.5 8 12.875 8 11C8 5 12.875 0 19 0ZM23.75 8.625C22.75 7 21.125 6 19.25 6H19C16.125 6 14 8.25 14 11C14 13.875 16.125 16 19 16H28.125L23.75 8.625ZM45 6H44.625C42.75 6 41.125 7 40.125 8.625L35.75 16H45C47.75 16 50 13.875 50 11C50 8.25 47.75 6 45 6ZM4 36H28V64H10C6.625 64 4 61.375 4 58V36ZM36 64V36H60V58C60 61.375 57.25 64 54 64H36Z" fill="#4CBB17" />
     </svg>';
@@ -55,7 +61,7 @@
         ],
     ];
 
-    // 2. TESTIMONIALS DATA (Copied directly from your home.blade.php)
+    // 3. TESTIMONIALS DATA (Copied directly from your home.blade.php)
     $testimonialsData = [
         [
         'quote' => "I started training because my dog was reactive. The positive methods here not only fixed that but inspired me to pursue competitive dog sports! Knowing the instructor is an official CGC Evaluator gave me so much confidence in the foundational safety and manners training. We now look forward to the monthly league comps.",
@@ -74,17 +80,27 @@
 @endsection
 
 
+{{--
+| ----------------------------------------------------
+| SLIDER COLUMN SECTION - Calls the sticky component
+| ----------------------------------------------------
+--}}
+@section('slider_column')
+    {{-- Passes the $slidesData defined in the data_definitions section --}}
+    <x-home.sticky-slider-column :slides="$slidesData" />
+@endsection
+
+
 {{-- 
 | ----------------------------------------------------
 | PAGE-SPECIFIC CONTENT (Goes inside the main padded wrapper)
 | ----------------------------------------------------
 --}}
-
 @section('page_content')
     <h1 class="text-4xl font-extrabold text-gray-900 mb-6 border-b pb-2">About Southern Plains Sport Dog Club</h1>
 
     <div class="prose max-w-none text-lg text-gray-700">
-        <p>This is the introductory paragraph for the about page.</p>
+        <p>This is the introductory paragraph for the about page. It sits next to the dynamic image slider, matching the structure of the homepage.</p>
 
         <h2>Our Mission</h2>
         <p>This is where the mission statement will go.</p>
