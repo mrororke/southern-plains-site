@@ -66,16 +66,19 @@
                         @php
                         $oldTags = collect(old('tags'));
 
-                        // Checks if the current tag is attached to the post
-                        $isAttached = $post->tags->contains($tag->id);
+                        // 💡 FIX: Create an array of IDs from the post's attached tags for reliable checking
+                        $attachedTagIds = $post->tags->pluck('id')->toArray();
+
+                        // Checks if the current tag ID is present in the array of attached IDs
+                        $isAttached = in_array($tag->id, $attachedTagIds);
 
                         // Determines if the box should be checked
                         $checked = $oldTags->contains($tag->id) || (empty($oldTags) && $isAttached);
                         @endphp
                         <label class="block items-center mb-1 cursor-pointer hover:bg-gray-100 p-1 rounded">
                             <input type="checkbox" name="tags[]" value="{{ $tag->id }}" class="form-checkbox"
-                                {{ $checked ? 'checked' : '' }}> 
-                                <span class="ml-2 text-gray-700 text-sm">{{ $tag->name }}</span>
+                                {{ $checked ? 'checked' : '' }}>
+                            <span class="ml-2 text-gray-700 text-sm">{{ $tag->name }}</span>
                         </label>
                         @endforeach
                     </div>
