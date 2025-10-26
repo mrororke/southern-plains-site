@@ -19,27 +19,33 @@
 
     {{--
 | ----------------------------------------------------
-| PAGE CONTENT 
+| DATA DEFINITIONS - SLOT
+| This slot is used to define PHP variables (like $slidesData) before any components that need them are called.
 | ----------------------------------------------------
 --}}
+    @yield('data_definitions')
 
     <x-app-header />
 
     <main>
-        <div class="flex">
+        {{-- 💡 FLEX CONTAINER: This enables the side-by-side layout for pages with a slider --}}
+        <div class="flex min-h-screen">
             
-            {{-- 💡 This is where the main content will go on ALL pages --}}
-            <div class="w-full flex-shrink-0">
+            {{-- 💡 NEW SLOT FOR THE STICKY SLIDER COLUMN --}}
+            @yield('slider_column')
+
+            {{-- 💡 MAIN CONTENT COLUMN: Its width shrinks if the slider column is present --}}
+            <div class="@hasSection('slider_column') w-full lg:w-2/3 @else w-full @endif flex-shrink-0 overflow-y-auto">
 
                 <div class="lg:px-[120px] p-4">
 
-                    {{-- 💡 START OF PAGE-SPECIFIC CONTENT SLOT --}}
+                    {{-- 💡 START OF PAGE-SPECIFIC CONTENT SLOT (e.g., about text, contact form) --}}
                     @yield('page_content')
                     {{-- 💡 END OF PAGE-SPECIFIC CONTENT SLOT --}}
 
                 </div>
                 
-                {{-- 💡 These sections will be called only when needed by specific pages --}}
+                {{-- 💡 OPTIONAL BLOCKS: These sections will be called only when needed by specific pages --}}
                 @yield('highlight_blocks')
                 @yield('feature_blocks')
                 @yield('testimonial_blocks')

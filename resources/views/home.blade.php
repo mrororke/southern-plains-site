@@ -1,30 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.base')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    {{-- 💡 SEO SLOTS: This is the dynamic title for search engines and browser tabs --}}
-    <title>@yield('metaTitle', 'Southern Plains Sport Dog Club | NE Oklahoma Training & NASDA')</title>
-    <meta name="description" content="@yield('metaDescription', 'Positive reinforcement dog training, NASDA competition, and community in the Northeastern Oklahoma area.')">
-
-    {{-- 2. SOCIAL SHARING IMAGE --}}
-{{-- Use an image that is 1200x630px or better, relative to your public directory --}}
-@section('ogImage', asset('images/2025_01_slide_hamish.jpg'))
-
-
-    {{-- Add your main CSS/Tailwind includes here, e.g., <link href="/css/app.css" rel="stylesheet"> --}}
-</head>
-
-<body>
-
-    {{--
+{{-- 
 | ----------------------------------------------------
-| DATA DEFINITIONS - MOVED TO THE TOP TO PREVENT ERRORS
+| SEO SLOTS
 | ----------------------------------------------------
 --}}
 
+@section('ogImage', asset('images/2025_01_slide_hamish.jpg'))
+{{-- The <title> and <meta description> default to the base layout --}}
+
+
+{{--
+| ----------------------------------------------------
+| DATA DEFINITIONS - MOVED INTO THE LAYOUT SLOT
+| ----------------------------------------------------
+--}}
+@section('data_definitions')
     @php
     // 1. SLIDES DATA
     $slidesData = [
@@ -127,110 +118,70 @@
     ],
     ];
     @endphp
+@endsection
 
 
-    {{--
+{{--
 | ----------------------------------------------------
-| PAGE CONTENT 
-| ----------------------------------------------------
---}}
-
-    <x-app-header />
-
-    <main>
-
-        <div class="flex min-h-screen">
-            <x-home.sticky-slider-column :slides="$slidesData" />
-
-            <div class="w-full lg:w-2/3 flex-shrink-0 overflow-y-auto">
-
-                <div class="lg:px-[120px] p-4">
-
-                    <x-home.home-hero-text />
-
-                    {{-- Calls the $pathsData variable defined above --}}
-                    <x-home.choose-path-section :paths="$pathsData" />
-                </div>
-
-                @foreach ($highlightBlocks as $block)
-                <x-shared.info-highlight-block
-                    :id="$block['id']"
-                    :subheading="$block['subheading']"
-                    :heading="$block['heading']"
-                    :paragraph="$block['paragraph']"
-                    :button-text="$block['buttonText']"
-                    :button-color="$block['buttonColor']"
-                    :bg-color="$block['bgColor']"
-                    :bg-mask="$block['bgMask']" />
-                @endforeach
-
-                {{-- Calls the $featuresData variable defined above --}}
-                <x-home.why-us-section :features="$featuresData" />
-
-                {{-- Calls the $testimonialsData variable defined above --}}
-                <x-home.testimonial-carousel-section :testimonials="$testimonialsData" />
-
-
-
-                <div id="footer" class="p-6 bg-club">
-                    <div class="lg:px-[120px] p-4">
-                        <div class="grid md:grid-cols-4 gap-4">
-
-                            {{-- Contact and Social Info (Col 1) --}}
-                            <x-shared.footer-contact-info />
-
-                            {{-- Explore Links (Col 2) --}}
-                            <x-shared.footer-explore-links />
-
-                            {{-- Newsletter Signup (Cols 3 & 4) --}}
-                            <x-shared.newsletter-signup />
-
-                        </div>
-
-                        {{-- Copyright Text (Always at the bottom) --}}
-                        <div class="mt-8">
-                            <p class="text-xs">Copyright &copy; 2025 - 2026 Southern Plains Sport Dog Club, LLC. All rights. reserved.<br />
-                                By using this site, you agree to our Terms of Service and Privacy Policy. For copyright, accessibility inquiries, or other policies, visit our Legal & Policies Hub, or contact us at <a href="mailto:southernplainssportsdogclub@gmail.com">southernplainssportsdogclub@gmail.com</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </main>
-
-
-    {{--
-| ----------------------------------------------------
-| SCRIPTS (Must be before the closing </body> tag)
+| SLIDER COLUMN SECTION - Calls the sticky component
 | ----------------------------------------------------
 --}}
+@section('slider_column')
+    {{-- Passes the $slidesData defined in the data_definitions section --}}
+    <x-home.sticky-slider-column :slides="$slidesData" />
+@endsection
 
-    <script>
-        window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
-        window.LOCALE = 'en';
-        window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
 
-        window.REQUIRED_ERROR_MESSAGE = "This field cannot be left blank. ";
+{{--
+| ----------------------------------------------------
+| PAGE-SPECIFIC CONTENT (Goes inside the main padded wrapper)
+| ----------------------------------------------------
+--}}
+@section('page_content')
+    <x-home.home-hero-text />
 
-        window.GENERIC_INVALID_MESSAGE = "The information provided is invalid. Please review the field format and try again.";
+    {{-- Calls the $pathsData variable defined above --}}
+    <x-home.choose-path-section :paths="$pathsData" />
+@endsection
 
-        window.translation = {
-            common: {
-                selectedList: '{quantity} list selected',
-                selectedLists: '{quantity} lists selected',
-                selectedOption: '{quantity} selected',
-                selectedOptions: '{quantity} selected',
-            }
-        };
 
-        var AUTOHIDE = Boolean(0);
-    </script>
+{{--
+| ----------------------------------------------------
+| HIGHLIGHT BLOCKS SECTION (Goes full width below the main padded content)
+| ----------------------------------------------------
+--}}
+@section('highlight_blocks')
+    @foreach ($highlightBlocks as $block)
+    <x-shared.info-highlight-block
+        :id="$block['id']"
+        :subheading="$block['subheading']"
+        :heading="$block['heading']"
+        :paragraph="$block['paragraph']"
+        :button-text="$block['buttonText']"
+        :button-color="$block['buttonColor']"
+        :bg-color="$block['bgColor']"
+        :bg-mask="$block['bgMask']" />
+    @endforeach
+@endsection
 
-    <script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
 
-    <script src="https://www.google.com/recaptcha/api.js?hl=en"></script>
+{{--
+| ----------------------------------------------------
+| FEATURE BLOCKS SECTION (Goes full width below highlight blocks)
+| ----------------------------------------------------
+--}}
+@section('feature_blocks')
+    {{-- Calls the $featuresData variable defined above --}}
+    <x-home.why-us-section :features="$featuresData" />
+@endsection
 
-</body>
 
-</html>
+{{--
+| ----------------------------------------------------
+| TESTIMONIAL BLOCKS SECTION (Goes full width below feature blocks)
+| ----------------------------------------------------
+--}}
+@section('testimonial_blocks')
+    {{-- Calls the $testimonialsData variable defined above --}}
+    <x-home.testimonial-carousel-section :testimonials="$testimonialsData" />
+@endsection
