@@ -76,12 +76,14 @@
 --}}
 @section('page_content')
 
-    <div class="prose max-w-none text-lg text-gray-700">
+    <div class="prose max-w-none text-lg text-black">
         <h4 class="uppercase text-xs font-bold">About Southern Plains Sport Dog Club</h4>
 <h1 class="font-heading text-7xl">Our Story.<br/>Your Transformation.</h1>
 
 <p class="text-base mb-2">The path to Southern Plains began with a powerful, unexpected teacher: Luka, a spirited European-bred Doberman who entered my life in 2020. What started as a dream of a versatile canine partner quickly evolved into something far more profound. Through his unique challenges and triumphs, Luka sparked a journey of discovery that now fuels our mission to empower other dogs and their owners.</p>
     </div>
+
+
 @endsection
 
 
