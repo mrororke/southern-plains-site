@@ -125,15 +125,18 @@
             <p class="text-base mb-2">
                 Today, I am passionately committed to delivering compassionate, effective training solutions tailored to your dog’s unique temperament and challenges. My experience spans instruction and competition management, including designing and teaching Tricks Classes at the Tulsa Dog Training Club since March 2021, fostering a positive learning environment centered on positive reinforcement techniques. I am also an authorized AKC Canine Good Citizen (CGC) Evaluator and a Level 3 Fit Dog Instructor, ensuring the highest standards in both manners training and canine conditioning.
             </p>
-            <p class="text-base mb-2">
-                Furthermore, my dedication to dog sports is reflected in my role as a Judge for the North American Sport Dog Association (NASDA). This includes managing logistics and leading training events that prepare teams for competition. Most notably, in 2025, I was part of the Showcase and Invitational Judging Panel in Wagoner, Oklahoma. The Invitational Championship is the pinnacle of NASDA competition, and panel judging is used in the semi-final and final rounds to ensure fair, consistent scoring—a commitment to accuracy that informs all training I provide.
-            </p>
+            
         </div>
         <div>
             <img src="{{ asset('images/about-melanie.jpg') }}" 
              alt="Melanie and Luka in 2022" 
              class="w-full ml-4  shadow-lg">
         </div>
+    </div>
+    <div>
+        <p class="text-base mb-2">
+                Furthermore, my dedication to dog sports is reflected in my role as a Judge for the North American Sport Dog Association (NASDA). This includes managing logistics and leading training events that prepare teams for competition. Most notably, in 2025, I was part of the Showcase and Invitational Judging Panel in Wagoner, Oklahoma. The Invitational Championship is the pinnacle of NASDA competition, and panel judging is used in the semi-final and final rounds to ensure fair, consistent scoring—a commitment to accuracy that informs all training I provide.
+            </p>
     </div>
 </div>
 @endsection('testimonial_blocks')
