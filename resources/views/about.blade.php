@@ -83,12 +83,20 @@
 <p class="text-base mb-2">The path to Southern Plains began with a powerful, unexpected teacher: Luka, a spirited European-bred Doberman who entered my life in 2020. What started as a dream of a versatile canine partner quickly evolved into something far more profound. Through his unique challenges and triumphs, Luka sparked a journey of discovery that now fuels our mission to empower other dogs and their owners.</p>
     </div>
 
-    <div class="grid grid-cols-2 mt-4">
-        <div>one</div>
+    <div class="grid grid-cols-2 mt-6 mb-6">
+        <div>
+            <h3 class="font-heading text-5xl mb-6">The heart behind our mission</h3>
+            <p class="text-base mb-2">
+                From the outset, Luka’s intelligence and eagerness to learn ignited my dedication to positive reinforcement. We embraced clicker training, and Luka flourished, rapidly mastering cues and even earning his Novice Trick Dog title at just six months old.
+            </p>
+            <p class="text-base mb-2">
+                However, our journey wasn’t without its challenges. Attempts to achieve his AKC Canine Good Citizen title revealed Luka’s underlying anxieties and reactive tendencies. This was a pivotal moment—it taught me the profound truth of training the dog before me, not the dog I had initially envisioned. This realization spurred an intensive exploration of canine behavior and positive methods, ultimately becoming the catalyst for my professional certification.
+            </p>
+        </div>
         <div>
             <img src="{{ asset('images/about-luka.jpg') }}" 
              alt="Luka von Hagedorn, September 21, 2020 - July 9, 2025" 
-             class="w-full  ml-4 mb-4 shadow-lg">
+             class="w-full ml-4 mb-4 shadow-lg">
         </div>
     </div>
 
