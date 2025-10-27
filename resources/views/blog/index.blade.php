@@ -26,6 +26,10 @@
 --}}
 @section('page_content')
 <div class="max-w-4xl mx-auto py-12">
+    <div class="grid grid-cols-3">
+        <div class="col-span-2">column one</div>
+        <div> COlumn two</div>
+    </div>
     <h4 class="uppercase text-xs font-bold">Southern Plains Blog</h4>
     <h1 class="font-heading text-7xl">A trainer's insight.<br/>A judge's perspective.</h1>
     
