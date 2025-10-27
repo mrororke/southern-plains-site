@@ -115,4 +115,8 @@
     <x-shared.three-column-feature :features="$featuresData" />
 @endsection
 
+@section('testimonial_blocks')
+    blah blah blah
+@endsection('testimonial_blocks')
+
 
