@@ -29,7 +29,7 @@ Route::get('/about', function () {
 // Blog Index Page
 Route::get('/blog', function () {
     // We will assume you have a 'blog.blade.php' view file for the main index
-    return view('blog'); 
+    return view('blog.index'); 
 })->name('blog.index');
 
 // Services / Training Page
