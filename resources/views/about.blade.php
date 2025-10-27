@@ -118,17 +118,20 @@
 <div class="lg:px-[120px] p-6">
     <div class="grid grid-cols-2 mt-6 mb-6">
         <div>
-            <h3 class="font-heading text-5xl mb-6">The heart behind our mission</h3>
+            <h3 class="font-heading text-5xl mb-6">Meet Melanie: The Trainer &amp; Founder</h3>
             <p class="text-base mb-2">
-                From the outset, Luka’s intelligence and eagerness to learn ignited my dedication to positive reinforcement. We embraced clicker training, and Luka flourished, rapidly mastering cues and even earning his Novice Trick Dog title at just six months old.
+                My personal journey with Luka ignited an intensive exploration of canine behavior and positive reinforcement, culminating in my successful pursuit of professional dog trainer certification. This hands-on experience has given me a deep appreciation for the individual needs and complexities of every dog.
             </p>
             <p class="text-base mb-2">
-                However, our journey wasn’t without its challenges. Attempts to achieve his AKC Canine Good Citizen title revealed Luka’s underlying anxieties and reactive tendencies. This was a pivotal moment—it taught me the profound truth of training the dog before me, not the dog I had initially envisioned. This realization spurred an intensive exploration of canine behavior and positive methods, ultimately becoming the catalyst for my professional certification.
+                Today, I am passionately committed to delivering compassionate, effective training solutions tailored to your dog’s unique temperament and challenges. My experience spans instruction and competition management, including designing and teaching Tricks Classes at the Tulsa Dog Training Club since March 2021, fostering a positive learning environment centered on positive reinforcement techniques. I am also an authorized AKC Canine Good Citizen (CGC) Evaluator and a Level 3 Fit Dog Instructor, ensuring the highest standards in both manners training and canine conditioning.
+            </p>
+            <p class="text-base mb-2">
+                Furthermore, my dedication to dog sports is reflected in my role as a Judge for the North American Sport Dog Association (NASDA). This includes managing logistics and leading training events that prepare teams for competition. Most notably, in 2025, I was part of the Showcase and Invitational Judging Panel in Wagoner, Oklahoma. The Invitational Championship is the pinnacle of NASDA competition, and panel judging is used in the semi-final and final rounds to ensure fair, consistent scoring—a commitment to accuracy that informs all training I provide.
             </p>
         </div>
         <div>
-            <img src="{{ asset('images/about-luka.jpg') }}" 
-             alt="Luka von Hagedorn, September 21, 2020 - July 9, 2025" 
+            <img src="{{ asset('images/about-melanie.jpg') }}" 
+             alt="Melanie and Luka in 2022" 
              class="w-full ml-4  shadow-lg">
         </div>
     </div>
