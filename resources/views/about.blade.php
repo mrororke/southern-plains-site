@@ -114,3 +114,19 @@
 @section('feature_blocks')
     <x-shared.three-column-feature :features="$featuresData" />
 @endsection
+
+<div class="grid grid-cols-2 mt-6 mb-6">
+        <div>
+            <h3 class="font-heading text-5xl mb-6">The heart behind our mission</h3>
+            <p class="text-base mb-2">
+                From the outset, Luka’s intelligence and eagerness to learn ignited my dedication to positive reinforcement. We embraced clicker training, and Luka flourished, rapidly mastering cues and even earning his Novice Trick Dog title at just six months old.
+            </p>
+            <p class="text-base mb-2">
+                However, our journey wasn’t without its challenges. Attempts to achieve his AKC Canine Good Citizen title revealed Luka’s underlying anxieties and reactive tendencies. This was a pivotal moment—it taught me the profound truth of training the dog before me, not the dog I had initially envisioned. This realization spurred an intensive exploration of canine behavior and positive methods, ultimately becoming the catalyst for my professional certification.
+            </p>
+        </div>
+        <div>
+            <img src="{{ asset('images/about-luka.jpg') }}" 
+             alt="Luka von Hagedorn, September 21, 2020 - July 9, 2025" 
+             class="w-full ml-4  shadow-lg">
+        </div>
