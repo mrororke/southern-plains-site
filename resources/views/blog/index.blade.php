@@ -27,15 +27,14 @@
 @section('page_content')
 <div class="max-w-4xl mx-auto py-12">
     <div class="grid grid-cols-3">
-        <div class="col-span-2">column one</div>
-        <div> COlumn two</div>
-    </div>
-    <h4 class="uppercase text-xs font-bold">Southern Plains Blog</h4>
-    <h1 class="font-heading text-7xl">A trainer's insight.<br/>A judge's perspective.</h1>
-    
-    <p class="text-base mb-2">This is where the training ground meets the trial field. Dive into our latest articles where we break down positive reinforcement techniques, share advanced NASDA judging insights, and review the best gear and books for dog sports. Whether you're working on foundational manners or competing for a championship title, find the informed perspective you need to sharpen your partnership and achieve your goals.</p>
+        <div class="col-span-2">
+            <h4 class="uppercase text-xs font-bold">Southern Plains Blog</h4>
+            <h1 class="font-heading text-7xl">A trainer's insight.<br />A judge's perspective.</h1>
 
-    {{-- STATIC FILTER/SEARCH AREA --}}
+            <p class="text-base mb-2">This is where the training ground meets the trial field. Dive into our latest articles where we break down positive reinforcement techniques, share advanced NASDA judging insights, and review the best gear and books for dog sports. Whether you're working on foundational manners or competing for a championship title, find the informed perspective you need to sharpen your partnership and achieve your goals.</p>
+        </div>
+        <div>
+            {{-- STATIC FILTER/SEARCH AREA --}}
     <div class="mb-10 p-4 bg-gray-50 border border-gray-200 rounded-lg">
         <div class="flex flex-col md:flex-row gap-4">
             <input type="search" placeholder="Search blog posts..." class="w-full md:w-2/3 p-3 border border-gray-300 rounded-lg">
@@ -46,6 +45,11 @@
             </select>
         </div>
     </div>
+        </div>
+    </div>
+
+
+    
 </div>
 @endsection
 
