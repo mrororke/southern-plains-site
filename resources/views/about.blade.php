@@ -82,7 +82,6 @@
 
 <p class="text-base mb-2">The path to Southern Plains began with a powerful, unexpected teacher: Luka, a spirited European-bred Doberman who entered my life in 2020. What started as a dream of a versatile canine partner quickly evolved into something far more profound. Through his unique challenges and triumphs, Luka sparked a journey of discovery that now fuels our mission to empower other dogs and their owners.</p>
     </div>
-
     <div class="grid grid-cols-2 mt-6 mb-6">
         <div>
             <h3 class="font-heading text-5xl mb-6">The heart behind our mission</h3>
@@ -116,6 +115,7 @@
 @endsection
 
 @section('testimonial_blocks')
+<div class="lg:px-[120px] p-6">
     <div class="grid grid-cols-2 mt-6 mb-6">
         <div>
             <h3 class="font-heading text-5xl mb-6">The heart behind our mission</h3>
@@ -132,6 +132,7 @@
              class="w-full ml-4  shadow-lg">
         </div>
     </div>
+</div>
 @endsection('testimonial_blocks')
 
 
