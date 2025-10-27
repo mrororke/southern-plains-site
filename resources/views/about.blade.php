@@ -120,10 +120,10 @@ $featuresData = [
         <div>
             <h3 class="font-heading text-5xl mb-6">Meet Melanie: The Trainer &amp; Founder</h3>
             <p class="text-base mb-2">
-                My personal journey with Luka ignited an intensive exploration of canine behavior and positive reinforcement, culminating in my successful pursuit of professional dog trainer certification. This hands-on experience has given me a deep appreciation for the individual needs and complexities of every dog.
+                My personal journey with Luka ignited an intensive exploration of canine behavior and positive reinforcement, culminating in my pursuit of professional dog trainer certification. This hands-on experience has given me a deep appreciation for the individual needs and complexities of every dog.
             </p>
             <p class="text-base">
-                Today, I am passionately committed to delivering compassionate, effective training solutions tailored to your dog’s unique temperament and challenges. My experience spans instruction and competition management, including designing and teaching Tricks Classes at the Tulsa Dog Training Club since March 2021, fostering a positive learning environment centered on positive reinforcement techniques. I am also an authorized AKC Canine Good Citizen (CGC) Evaluator and a Level 3 Fit Dog Instructor, ensuring the highest standards in both manners training and canine conditioning.
+                Today, I am passionately committed to delivering compassionate, effective training solutions tailored to your dog’s unique temperament and challenges. My experience spans instruction and competition management, including teaching Tricks Classes at the Tulsa Dog Training Club since March 2021, fostering a positive learning environment centered on positive reinforcement techniques. I am also an AKC Canine Good Citizen (CGC) Evaluator and a Level 3 Fit Dog Instructor, ensuring the highest standards in both manners training and canine conditioning.
             </p>
 
         </div>
