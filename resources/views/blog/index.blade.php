@@ -27,8 +27,9 @@
 @section('page_content')
 <div class="max-w-4xl mx-auto py-12">
     <h4 class="uppercase text-xs font-bold">Southern Plains Blog</h4>
-    <h1 class="font-heading text-7xl">A trainer's insight. A judge's perspective.</h1>
-    <h3 class="text-2xl mb-2 mt-2">This is where the training ground meets the trial field. Dive into our latest articles where we break down positive reinforcement techniques, share advanced NASDA judging insights, and review the best gear and books for dog sports. Whether you're working on foundational manners or competing for a championship title, find the informed perspective you need to sharpen your partnership and achieve your goals.</h3>
+    <h1 class="font-heading text-7xl">A trainer's insight.<br/>A judge's perspective.</h1>
+    
+    <p class="text-base mb-2">This is where the training ground meets the trial field. Dive into our latest articles where we break down positive reinforcement techniques, share advanced NASDA judging insights, and review the best gear and books for dog sports. Whether you're working on foundational manners or competing for a championship title, find the informed perspective you need to sharpen your partnership and achieve your goals.</p>
 
     {{-- STATIC FILTER/SEARCH AREA --}}
     <div class="mb-10 p-4 bg-gray-50 border border-gray-200 rounded-lg">
