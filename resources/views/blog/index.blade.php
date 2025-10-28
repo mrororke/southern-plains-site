@@ -61,10 +61,10 @@
         {{-- MAIN ARTICLES (Left Side: 3/4 Width) --}}
         <div class="w-full lg:w-3/4">
             <div class="flex flex-col lg:flex-row gap-4">
-                <div class="w-full lg:w-1/2">
+                <div class="w-full lg:w-3/4">
                     One Half
                 </div>
-                <div class="w-full lg:w-1/2">
+                <div class="w-full">
                     Two Half
                 </div>
 
