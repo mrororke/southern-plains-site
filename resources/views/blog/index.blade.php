@@ -59,7 +59,16 @@
     <div class="flex flex-col lg:flex-row gap-10">
 
         {{-- MAIN ARTICLES (Left Side: 3/4 Width) --}}
-        <div class="w-full lg:w-3/4 space-y-16">
+        <div class="w-full lg:w-3/4">
+            <div class="flex flex-col lg:flex-row gap-4">
+                <div class="w-full lg:w-1/2">
+                    One Half
+                </div>
+                <div class="w-full lg:w-1/2">
+                    Two Half
+                </div>
+
+            </div>
 
             {{-- STATIC PLACEHOLDER ARTICLE 1 --}}
             <article class="border-b pb-8">
