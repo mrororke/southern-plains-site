@@ -146,18 +146,18 @@
                                 
                                 // 3. Define Visual Appearance
                                 // Use a more prominent color/style for the largest tags
-                                $colorClass = ($fontSize == 'text-xl') 
-                                    ? 'bg-pink-600 text-white hover:bg-pink-700' 
-                                    : 'bg-gray-200 text-gray-700 hover:bg-pink-100';
+                                $colorClass = ($fontSize == 'text-lg') 
+                                    ? 'bg-club text-white hover:bg-club-hover' 
+                                    : 'bg-club text-black hover:bg-club-hover';
                             @endphp
                             
                             <a href="{{ route('blog.tag', $tag->slug) }}"
-                               class="{{ $fontSize }} {{ $colorClass }} font-medium py-1 px-3 rounded-full transition duration-200 whitespace-nowrap">
+                               class="{{ $fontSize }} {{ $colorClass }} font-sm py-1 px-3 rounded-full transition duration-200 whitespace-nowrap">
                                 #{{ $tag->name }}
                             </a>
                         @endforeach
                     @else
-                        <p class="text-sm text-gray-500">No tags currently in use.</p>
+                        <p class="text-sm text-black">No tags currently in use.</p>
                     @endif
         </aside>
 
