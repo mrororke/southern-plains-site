@@ -37,12 +37,7 @@
             {{-- STATIC FILTER/SEARCH AREA --}}
     <div class="mb-10 p-4">
         <div class="flex flex-col md:flex-row gap-4">
-            <input type="search" placeholder="Search blog posts..." class="w-full md:w-2/3 p-3 border border-gray-300 rounded-lg">
-            <select class="w-full md:w-1/3 p-3 border border-gray-300 rounded-lg">
-                <option value="">Filter by Category</option>
-                <option value="training">Training</option>
-                <option value="stories">Success Stories</option>
-            </select>
+            <x-blog.search-filter />
         </div>
     </div>
         </div>
