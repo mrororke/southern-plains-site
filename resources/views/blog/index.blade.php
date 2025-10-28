@@ -106,7 +106,7 @@
                         <li class="flex justify-between items-center pb-2 border-b last:border-b-0">
                             {{-- Category Name (Linked to the filter route) --}}
                             <a href="{{ route('blog.category', $category->slug) }}" 
-                               class="text-base font-medium text-black hover:text-club-hover block leading-snug">
+                               class="text-small font-medium text-black hover:text-club-hover block leading-snug">
                                 {{ $category->name }}
                             </a>
                             
