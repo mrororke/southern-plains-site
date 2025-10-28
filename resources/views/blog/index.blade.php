@@ -62,10 +62,34 @@
         <div class="w-full lg:w-3/4">
             <div class="flex flex-col lg:flex-row gap-4">
                 <div class="w-full lg:w-3/4">
-                    One Half
+                    <article class="border-b pb-8">
+                <img src="{{ asset('images/placeholder-article-1.jpg') }}"
+                    alt="Placeholder image of a dog training"
+                    class="w-full h-96 object-cover rounded-lg shadow-md mb-6">
+                <p class="text-sm font-semibold uppercase text-pink-600 mb-2">Training</p>
+                <h3 class="text-4xl font-heading font-extrabold text-gray-900 mb-3">
+                    Title of the Latest Post Goes Here
+                </h3>
+                <p class="text-base text-gray-600 mb-4">
+                    This is the excerpt for the main article. In the functional version, this content would be pulled directly from the database and truncated.
+                </p>
+                <a href="#" class="text-pink-600 font-medium hover:text-pink-800">Read More &rarr;</a>
+            </article>
                 </div>
-                <div class="w-full">
-                    Two Half
+                <div class="w-full lg:w-1/4">
+                    <article class="border-b pb-8">
+                <img src="{{ asset('images/placeholder-article-1.jpg') }}"
+                    alt="Placeholder image of a dog training"
+                    class="w-full h-96 object-cover rounded-lg shadow-md mb-6">
+                <p class="text-sm font-semibold uppercase text-pink-600 mb-2">Training</p>
+                <h3 class="text-4xl font-heading font-extrabold text-gray-900 mb-3">
+                    Title of the Latest Post Goes Here
+                </h3>
+                <p class="text-base text-gray-600 mb-4">
+                    This is the excerpt for the main article. In the functional version, this content would be pulled directly from the database and truncated.
+                </p>
+                <a href="#" class="text-pink-600 font-medium hover:text-pink-800">Read More &rarr;</a>
+            </article>
                 </div>
 
             </div>
