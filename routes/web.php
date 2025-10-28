@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\BlogController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,11 +27,18 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-// Blog Index Page
-Route::get('/blog', function () {
-    // We will assume you have a 'blog.blade.php' view file for the main index
-    return view('blog.index'); 
-})->name('blog.index');
+// PUBLIC BLOG ROUTES
+// Blog Index
+Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+
+// Filter by Category
+Route::get('/blog/category/{category:slug}', [BlogController::class, 'category'])->name('blog.category');
+
+// Filter by Tag
+Route::get('/blog/tag/{tag:slug}', [BlogController::class, 'tag'])->name('blog.tag');
+
+// Single Post View (Using Post:slug for route model binding)
+Route::get('/blog/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
 
 // Services / Training Page
 Route::get('/training', function () {

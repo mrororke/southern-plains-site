@@ -97,7 +97,7 @@
             
         </div>
 
-        {{-- OLDER POSTS / ARCHIVE (Right Side: 1/4 Width) --}}
+        {{-- Categories & Tags (Right Side: 1/4 Width) --}}
         <aside class="w-full lg:w-1/4 pt-4 lg:pt-0">
             <h4 class="uppercase text-small font-bold">Categories &amp; Tags</h4>
 
