@@ -2,7 +2,7 @@
     
     {{-- Search Input --}}
     <input type="search" placeholder="Search blog posts..."
-           class="w-full p-3 border border-black focus:ring-[#4CBB17] focus:border-[#4CBB17]">
+           class="w-full p-3 border border-black placeholder:text-black focus:ring-[#4CBB17] focus:border-[#4CBB17]">
     
     {{-- Filter Dropdown --}}
     <select class="w-full p-3 border border-black focus:ring-[#4CBB17] focus:border-[#4CBB17]">
