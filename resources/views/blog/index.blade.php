@@ -94,35 +94,7 @@
 
             </div>
 
-            {{-- STATIC PLACEHOLDER ARTICLE 1 --}}
-            <article class="border-b pb-8">
-                <img src="{{ asset('images/placeholder-article-1.jpg') }}"
-                    alt="Placeholder image of a dog training"
-                    class="w-full h-96 object-cover rounded-lg shadow-md mb-6">
-                <p class="text-sm font-semibold uppercase text-pink-600 mb-2">Training</p>
-                <h3 class="text-4xl font-heading font-extrabold text-gray-900 mb-3">
-                    Title of the Latest Post Goes Here
-                </h3>
-                <p class="text-base text-gray-600 mb-4">
-                    This is the excerpt for the main article. In the functional version, this content would be pulled directly from the database and truncated.
-                </p>
-                <a href="#" class="text-pink-600 font-medium hover:text-pink-800">Read More &rarr;</a>
-            </article>
-
-            {{-- STATIC PLACEHOLDER ARTICLE 2 --}}
-            <article class="border-b pb-8">
-                <img src="{{ asset('images/placeholder-article-2.jpg') }}"
-                    alt="Placeholder image of a dog competing"
-                    class="w-full h-96 object-cover rounded-lg shadow-md mb-6">
-                <p class="text-sm font-semibold uppercase text-pink-600 mb-2">Competition</p>
-                <h3 class="text-4xl font-heading font-extrabold text-gray-900 mb-3">
-                    Tips for Your First NASDA Trial
-                </h3>
-                <p class="text-base text-gray-600 mb-4">
-                    A brief summary of your second most recent article. This column is dedicated to the core content.
-                </p>
-                <a href="#" class="text-pink-600 font-medium hover:text-pink-800">Read More &rarr;</a>
-            </article>
+            
         </div>
 
         {{-- OLDER POSTS / ARCHIVE (Right Side: 1/4 Width) --}}
