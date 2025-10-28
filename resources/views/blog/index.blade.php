@@ -25,9 +25,9 @@
 | ----------------------------------------------------
 --}}
 @section('page_content')
-<div class="mx-auto pt-6">
+<div class="mx-auto pt-10">
     <div class="flex flex-col lg:flex-row gap-10">
-        <div class="w-full lg;w-3/4 space-y-16">
+        <div class="w-full lg:w-3/4 space-y-16">
             <h4 class="uppercase text-xs font-bold">Southern Plains Blog</h4>
             <h1 class="font-heading text-7xl">A trainer's insight.<br />A judge's perspective.</h1>
 
