@@ -66,11 +66,11 @@
                 <img src="{{ asset('images/blog-large-preview.jpg') }}"
                     alt="Placeholder image of a dog training"
                     class="w-full h-96 object-cover shadow-md mb-6">
-                <p class="text-sm font-semibold uppercase text-[#4CBB17] mb-2">Training</p>
-                <h3 class="text-4xl font-heading font-extrabold text-gray-900 mb-3">
+                <p class="text-sm font-semibold uppercase text-[#4CBB17] ">Training</p>
+                <h3 class="text-4xl font-heading font-extrabold text-black mb-3">
                     Title of the Latest Post Goes Here
                 </h3>
-                <p class="text-base text-gray-600 mb-4">
+                <p class="text-base text-gray-900 mb-4">
                     This is the excerpt for the main article. In the functional version, this content would be pulled directly from the database and truncated.
                 </p>
                 <a href="#" class="text-[#4CBB17] font-medium hover:text-pink-800">Read More &rarr;</a>
@@ -81,10 +81,11 @@
                 <img src="{{ asset('images/blog-small-preview.jpg') }}"
                     alt="Placeholder image of a dog training"
                     class="w-full h-48 object-cover shadow-md mb-6">
-                <p class="text-xs font-semibold uppercase text-[#4CBB17] mb-2">Training</p>
-                <h3 class="uppercase text-base font-bold">Categories &amp; Tags
+                <p class="text-xs font-semibold uppercase text-[#4CBB17]">Training</p>
+                <h3 class="uppercase text-base font-bold">
+                    Title of the Latest Post Goes Here
                 </h3>
-                <p class="text-small text-gray-600 mb-4">
+                <p class="text-small text-gray-900 mb-4">
                     This is the excerpt for the main article. In the functional version, this content would be pulled directly from the database and truncated.
                 </p>
                 <a href="#" class="text-[#4CBB17] font-medium hover:text-pink-800">Read More &rarr;</a>
