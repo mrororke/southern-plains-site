@@ -99,7 +99,7 @@
 
         {{-- Categories & Tags (Right Side: 1/4 Width) --}}
         <aside class="w-full lg:w-1/4 pt-4 lg:pt-0">
-            <h4 class="uppercase text-small font-bold pb-4">Categories &amp; Tags</h4>
+            <h4 class="uppercase text-small font-bold pb-4">Categories</h4>
 
             <ul class="space-y-4">
                 @forelse ($categories as $category)
@@ -120,13 +120,13 @@
                     @endforelse
             </ul>
 
-            <h3 class="text-2xl font-semibold text-gray-800 border-b pb-2 mb-6">Popular Tags</h3>
+            <h4 class="uppercase text-small font-bold pt-4 pb-4">Tags</h4>
                 
                     @if ($tags->isNotEmpty())
                         @php
                             // 1. Define Range and Available Sizes
                             // You can adjust the font sizes here (from smallest to largest)
-                            $fontSizes = ['text-sm', 'text-base', 'text-lg', 'text-xl']; 
+                            $fontSizes = ['text-xs', 'text-sm', 'text-base', 'text-lg']; 
                             $sizeCount = count($fontSizes);
                             
                             // Find the min/max counts in the collection
