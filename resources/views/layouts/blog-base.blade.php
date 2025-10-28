@@ -116,7 +116,7 @@
             {{-- 💡 MAIN CONTENT COLUMN: Its width shrinks if the slider column is present --}}
             <div class="@hasSection('slider_column') w-full lg:w-2/3 @else w-full @endif flex-shrink-0 overflow-y-auto">
 
-                <div class="lg:px-[120px] p-4">
+                <div class="lg:px-[100px] p-4">
 
                     {{-- 💡 START OF PAGE-SPECIFIC CONTENT SLOT (e.g., about text, contact form) --}}
                     @yield('page_content')
