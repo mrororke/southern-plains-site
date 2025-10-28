@@ -14,7 +14,7 @@ class Tag extends Model
 
     // -- RELATIONSHIPS --
     // a tag can belong to many posts
-    public function post()
+    public function posts()
     {
         return $this->belongsToMany(Post::class);
     }
