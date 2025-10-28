@@ -63,9 +63,9 @@
             <div class="flex flex-col lg:flex-row gap-4">
                 <div class="w-full lg:w-3/4">
                     <article class="border-b pb-8">
-                <img src="{{ asset('images/placeholder-article-1.jpg') }}"
+                <img src="{{ asset('images/blog-large-preview.jpg') }}"
                     alt="Placeholder image of a dog training"
-                    class="w-full h-96 object-cover rounded-lg shadow-md mb-6">
+                    class="w-full h-96 object-cover shadow-md mb-6">
                 <p class="text-sm font-semibold uppercase text-pink-600 mb-2">Training</p>
                 <h3 class="text-4xl font-heading font-extrabold text-gray-900 mb-3">
                     Title of the Latest Post Goes Here
@@ -78,9 +78,9 @@
                 </div>
                 <div class="w-full lg:w-1/4">
                     <article class="border-b pb-8">
-                <img src="{{ asset('images/placeholder-article-1.jpg') }}"
+                <img src="{{ asset('images/blog-small-preview.jpg') }}"
                     alt="Placeholder image of a dog training"
-                    class="w-full h-96 object-cover rounded-lg shadow-md mb-6">
+                    class="w-full h-48 object-cover shadow-md mb-6">
                 <p class="text-sm font-semibold uppercase text-pink-600 mb-2">Training</p>
                 <h3 class="text-4xl font-heading font-extrabold text-gray-900 mb-3">
                     Title of the Latest Post Goes Here
