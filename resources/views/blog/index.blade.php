@@ -111,12 +111,12 @@
                             </a>
                             
                             {{-- Number of Posts --}}
-                            <span class="text-xs font-bold text-gray-500 bg-gray-200 px-2 py-0.5 rounded-full">
+                            <span class="text-xs font-bold text-black bg-gray-200 px-2 py-0.5 rounded-full">
                                 {{ $category->posts_count }} 
                             </span>
                         </li>
                     @empty
-                        <p class="text-sm text-gray-500">No categories defined yet.</p>
+                        <p class="text-sm text-black">No categories defined yet.</p>
                     @endforelse
             </ul>
         </aside>
