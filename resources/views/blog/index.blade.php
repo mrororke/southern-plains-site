@@ -36,7 +36,7 @@
         <div>
             {{-- STATIC FILTER/SEARCH AREA --}}
     <div class="mb-10 p-4">
-        <div class="flex flex-col md:flex-row gap-4">
+        <div class="flex flex-col md:flex-column gap-4">
             <x-blog.search-filter />
         </div>
     </div>
