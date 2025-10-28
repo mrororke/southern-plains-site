@@ -102,22 +102,22 @@
             <h4 class="uppercase text-small font-bold">Categories &amp; Tags</h4>
 
             <ul class="space-y-4">
-                <li class="pb-2 border-b">
-                    <a href="#" class="text-base font-medium text-gray-700 hover:text-pink-600 block leading-snug">Older Post Title Example 1</a>
-                    <p class="text-xs text-gray-500 mt-0.5">Jan 2025</p>
-                </li>
-                <li class="pb-2 border-b">
-                    <a href="#" class="text-base font-medium text-gray-700 hover:text-pink-600 block leading-snug">Older Post Title Example 2</a>
-                    <p class="text-xs text-gray-500 mt-0.5">Dec 2024</p>
-                </li>
-                <li class="pb-2 border-b">
-                    <a href="#" class="text-base font-medium text-gray-700 hover:text-pink-600 block leading-snug">Older Post Title Example 3</a>
-                    <p class="text-xs text-gray-500 mt-0.5">Nov 2024</p>
-                </li>
-                <li class="pb-2">
-                    <a href="#" class="text-base font-medium text-gray-700 hover:text-pink-600 block leading-snug">Older Post Title Example 4</a>
-                    <p class="text-xs text-gray-500 mt-0.5">Oct 2024</p>
-                </li>
+                @forelse ($categories as $category)
+                        <li class="flex justify-between items-center pb-2 border-b last:border-b-0">
+                            {{-- Category Name (Linked to the filter route) --}}
+                            <a href="{{ route('blog.category', $category->slug) }}" 
+                               class="text-base font-medium text-gray-700 hover:text-pink-600 block leading-snug">
+                                {{ $category->name }}
+                            </a>
+                            
+                            {{-- Number of Posts --}}
+                            <span class="text-xs font-bold text-gray-500 bg-gray-200 px-2 py-0.5 rounded-full">
+                                {{ $category->posts_count }} 
+                            </span>
+                        </li>
+                    @empty
+                        <p class="text-sm text-gray-500">No categories defined yet.</p>
+                    @endforelse
             </ul>
         </aside>
 
