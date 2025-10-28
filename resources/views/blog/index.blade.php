@@ -99,14 +99,14 @@
 
         {{-- Categories & Tags (Right Side: 1/4 Width) --}}
         <aside class="w-full lg:w-1/4 pt-4 lg:pt-0">
-            <h4 class="uppercase text-small font-bold pb-2">Categories &amp; Tags</h4>
+            <h4 class="uppercase text-small font-bold pb-4">Categories &amp; Tags</h4>
 
             <ul class="space-y-4">
                 @forelse ($categories as $category)
                         <li class="flex justify-between items-center pb-2 border-b last:border-b-0">
                             {{-- Category Name (Linked to the filter route) --}}
                             <a href="{{ route('blog.category', $category->slug) }}" 
-                               class="text-small font-medium text-black hover:text-club-hover block leading-snug">
+                               class="text-sm font-medium text-black hover:text-club-hover block leading-snug">
                                 {{ $category->name }}
                             </a>
                             
