@@ -25,7 +25,7 @@
 | ----------------------------------------------------
 --}}
 @section('page_content')
-<div class="mx-auto py-12">
+<div class="mx-auto pt-12">
     <div class="grid grid-cols-3">
         <div class="col-span-2">
             <h4 class="uppercase text-xs font-bold">Southern Plains Blog</h4>
@@ -35,16 +35,15 @@
         </div>
         <div>
             {{-- STATIC FILTER/SEARCH AREA --}}
-    <div class="mb-10 p-4">
-        <div class="flex flex-col md:flex-column gap-4">
-            <x-blog.search-filter />
-        </div>
-    </div>
+            <div class="mb-10 p-4">
+                <div class="flex flex-col md:flex-column gap-4">
+                    <x-blog.search-filter />
+                </div>
+            </div>
         </div>
     </div>
 
 
-    
 </div>
 @endsection
 
@@ -55,7 +54,7 @@
 | ----------------------------------------------------
 --}}
 @section('feature_blocks')
-<div class="container mx-auto px-6 py-12">
+<div class="container mx-auto px-6 py-6">
 
     {{-- Flex container for the 3/4 and 1/4 split --}}
     <div class="flex flex-col lg:flex-row gap-10">
