@@ -147,7 +147,7 @@
                                 // 3. Define Visual Appearance
                                 // Use a more prominent color/style for the largest tags
                                 $colorClass = ($fontSize == 'text-lg') 
-                                    ? 'bg-club text-white hover:bg-club-hover' 
+                                    ? 'bg-[#4CBB17]/50 text-white hover:bg-club-hover' 
                                     : 'bg-club text-black hover:bg-club-hover';
                             @endphp
                             
