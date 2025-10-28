@@ -119,6 +119,46 @@
                         <p class="text-sm text-black">No categories defined yet.</p>
                     @endforelse
             </ul>
+
+            <h3 class="text-2xl font-semibold text-gray-800 border-b pb-2 mb-6">Popular Tags</h3>
+                
+                    @if ($tags->isNotEmpty())
+                        @php
+                            // 1. Define Range and Available Sizes
+                            // You can adjust the font sizes here (from smallest to largest)
+                            $fontSizes = ['text-sm', 'text-base', 'text-lg', 'text-xl']; 
+                            $sizeCount = count($fontSizes);
+                            
+                            // Find the min/max counts in the collection
+                            $minCount = $tags->min('posts_count');
+                            $maxCount = $tags->max('posts_count');
+                            
+                            // Handle edge case where all tags have the same count
+                            $range = ($maxCount > $minCount) ? ($maxCount - $minCount) : 1;
+                        @endphp
+                        
+                        @foreach ($tags as $tag)
+                            @php
+                                // 2. Calculate Proportional Size
+                                // This formula scales the tag's count to an index within the $fontSizes array
+                                $sizeIndex = floor((($tag->posts_count - $minCount) / $range) * ($sizeCount - 1));
+                                $fontSize = $fontSizes[$sizeIndex];
+                                
+                                // 3. Define Visual Appearance
+                                // Use a more prominent color/style for the largest tags
+                                $colorClass = ($fontSize == 'text-xl') 
+                                    ? 'bg-pink-600 text-white hover:bg-pink-700' 
+                                    : 'bg-gray-200 text-gray-700 hover:bg-pink-100';
+                            @endphp
+                            
+                            <a href="{{ route('blog.tag', $tag->slug) }}"
+                               class="{{ $fontSize }} {{ $colorClass }} font-medium py-1 px-3 rounded-full transition duration-200 whitespace-nowrap">
+                                #{{ $tag->name }}
+                            </a>
+                        @endforeach
+                    @else
+                        <p class="text-sm text-gray-500">No tags currently in use.</p>
+                    @endif
         </aside>
 
     </div>
