@@ -41,7 +41,7 @@
             <p class="text-lg text-gray-600">No posts found with this tag.</p>
             @endforelse
         </div>
-        <div> two</div>
+        <x-blog.aside :categories="$categories" :tags="$tags" />
     </div>
 
     {{-- Filtered Posts Display (Uses the small card design) --}}
