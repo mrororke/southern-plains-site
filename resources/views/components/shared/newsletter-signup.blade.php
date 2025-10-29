@@ -2,7 +2,7 @@
     <h3 class="font-heading text-2xl mb-2">Stay in the loop.</h3>
     <p class="text-sm mb-2">Get our best positive training tips, behavior insights, and early access to specialty class registration (like The Predictable Path!). No spam, just value.</p>
 
-    <div class="sib-form" style="text-align: center; background-color: transparent; padding: 0px !important;">
+    <div class="sib-form" style="background-color: transparent; padding: 0px !important;">
         <div id="sib-form-container" class="sib-form-container">
             <div id="error-message" class="sib-form-message-panel" style="font-size:12px; text-align:left;  color:#661d1d; background-color:#ffeded; border-radius:0px; border-color:#ff4949;max-width:350px;">
                 <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
