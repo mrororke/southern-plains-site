@@ -63,7 +63,7 @@
             <div class="flex flex-col lg:flex-row gap-4">
                 <div class="w-full lg:w-3/4">
                     {{-- Loop through the first three posts fetched --}}
-                    @forelse ($latestPosts->take(3) as $post)
+                    @forelse ($allPostsOnPage->take(3) as $post)
                 <article class="border-b pb-8">
                     {{-- Large Article Design --}}
                     <a href="{{ route('blog.show', $post->slug) }}">
@@ -86,7 +86,7 @@
                     </div>
                 </div>
                 <div class="w-full lg:w-1/4">
-                    @forelse ($latestPosts->skip(3) as $post)
+                    @forelse ($allPostsOnPage->skip(3) as $post)
                 <article class="pb-6 border-b">
                     {{-- Small Article Design --}}
                     <a href="{{ route('blog.show', $post->slug) }}">

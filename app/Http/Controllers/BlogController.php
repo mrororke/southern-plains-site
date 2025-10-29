@@ -15,9 +15,11 @@ class BlogController extends Controller
     public function index()
     {
         // 1. Fetch Main and Archive Posts
-        // You'll replace these with actual database queries once you are ready.
-        $latestPosts = Post::orderBy('published_at', 'desc')->take(3)->get();
-        $archivePosts = Post::orderBy('published_at', 'desc')->skip(3)->take(5)->get();
+        $allPostsOnPage = Post::whereNotNull('published_at') // Crucial: Only published posts
+            ->orderBy('published_at', 'desc')
+            // Fetch a reasonable number for one page view, e.g., 15 posts total
+            ->take(15)
+            ->get();
 
         // 2. Fetch Categories with Post Counts (for the sidebar)
         $categories = Category::withCount(['posts' => function ($query) {
@@ -30,8 +32,7 @@ class BlogController extends Controller
         }])->having('posts_count', '>', 0)->orderBy('posts_count', 'desc')->get();
 
         return view('blog.index', compact(
-            'latestPosts',
-            'archivePosts',
+            'allPostsOnPage',
             'categories',
             'tags'
         ));
