@@ -12,30 +12,55 @@ class BlogController extends Controller
     /**
      * Display the main Blog Index page (/blog)
      */
-    public function index()
-    {
-        // 1. Fetch Main and Archive Posts
-        $allPostsOnPage = Post::whereNotNull('published_at') // Crucial: Only published posts
-            ->orderBy('published_at', 'desc')
-            // REPLACED: Use paginate(15) to fetch 15 posts per page and return a Paginator object
-            ->paginate(15);
+    public function index(Request $request)
+{
+    // 1. Fetch Categories and Tags (needed for the sidebar/filter components)
+    // NOTE: I'm updating the orderBy to match your existing 'name', 'asc'
+    $categories = Category::withCount(['posts' => fn($q) => $q->whereNotNull('published_at')])
+                            ->having('posts_count', '>', 0)
+                            ->orderBy('name', 'asc')
+                            ->get();
 
-        // 2. Fetch Categories with Post Counts (for the sidebar)
-        $categories = Category::withCount(['posts' => function ($query) {
-            $query->whereNotNull('published_at'); // Only count published posts
-        }])->having('posts_count', '>', 0)->orderBy('name', 'asc')->get();
+    $tags = Tag::withCount(['posts' => fn($q) => $q->whereNotNull('published_at')])
+                ->having('posts_count', '>', 0)
+                ->orderBy('name', 'asc')
+                ->get();
+    
+    // 2. Start the base query for all posts
+    $query = Post::whereNotNull('published_at')
+                 ->orderBy('published_at', 'desc');
 
-        // 3. Fetch Tags with Usage Counts (for the tag cloud)
-        $tags = Tag::withCount(['posts' => function ($query) {
-            $query->whereNotNull('published_at'); // Only count usage on published posts
-        }])->having('posts_count', '>', 0)->orderBy('name', 'asc')->get();
-
-        return view('blog.index', compact(
-            'allPostsOnPage',
-            'categories',
-            'tags'
-        ));
+    // 3. Apply Search Filter
+    if ($request->has('search') && $request->input('search') != '') {
+        $searchTerm = $request->input('search');
+        $query->where(function ($q) use ($searchTerm) {
+            $q->where('title', 'LIKE', '%' . $searchTerm . '%')
+              ->orWhere('body', 'LIKE', '%' . $searchTerm . '%');
+        });
     }
+
+    // 4. Apply Category Filter
+    if ($request->has('category') && $request->input('category') != '') {
+        $categorySlug = $request->input('category');
+        
+        // Find the category ID based on the slug from the form
+        $category = Category::where('slug', $categorySlug)->first();
+        
+        if ($category) {
+            $query->where('category_id', $category->id);
+        }
+    }
+    
+    // 5. Execute the final, filtered query with pagination
+    $allPostsOnPage = $query->paginate(15); 
+    // This executes the query (including any search or category filters)
+
+    return view('blog.index', compact(
+        'allPostsOnPage', 
+        'categories',   
+        'tags'
+    ));
+}
 
     /**
      * Display posts filtered by a specific Category (/blog/category/{slug})
