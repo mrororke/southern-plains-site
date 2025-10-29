@@ -23,7 +23,7 @@
 
         {{-- Author and Date --}}
         <p class="text-sm text-gray-600">
-            By <span class="font-medium text-black">{{ $post->author->name ?? 'Admin' }}</span>
+            By <span class="font-medium text-black">{{ $post->author->name ?? "Melanie O'Rorke" }}</span>
             on {{ $post->published_at->format('F jS, Y') }}
         </p>
     </div>
