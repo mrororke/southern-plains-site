@@ -31,7 +31,7 @@
 
         {{-- Excerpt/Body --}}
         <p class="text-sm text-black mb-4">
-            {!! Str::limit($post->body, 150) !!}
+            {!! Str::limit($post->body, 350) !!}
         </p>
 
         {{-- Read More Link --}}
@@ -41,7 +41,7 @@
     <p class="text-lg text-gray-600">No posts found in this category.</p>
     @endforelse
         </div>
-        <div> Two</div>
+        <x-blog.aside :categories="$categories" :tags="$tags" />
     </div>
 </div>
 
