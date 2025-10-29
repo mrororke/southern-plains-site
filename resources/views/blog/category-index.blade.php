@@ -16,7 +16,7 @@
                 <a href="{{ route('blog.show', $post->slug) }}">
                     <img src="{{ asset($post->hero_image_path) }}"
                         alt="{{ $post->title }}"
-                        class="w-full object-cover h-64 shadow-md mb-6">
+                        class="w-full object-cover h-64shadow-md mb-6">
                 </a>
 
                 {{-- Category --}}
@@ -45,15 +45,14 @@
             <div class="py-10">
                 {{ $posts->links() }}
             </div>
-            
+           
         </div>
-        <div>
-                <x-blog.aside :categories="$categories" :tags="$tags" />
-            </div>
     </div>
 
 
-
+ <div>
+                <x-blog.aside :categories="$categories" :tags="$tags" />
+            </div>
 
 </div>
 @endsection
