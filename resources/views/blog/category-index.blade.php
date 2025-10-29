@@ -51,12 +51,7 @@
         </div>
     </div>
 
-    {{-- Filtered Posts Display (Uses the small card design) --}}
-    <div class="w-3/4 space-y-12">
-
-
-    </div>
-
+    
 </div>
 
 
