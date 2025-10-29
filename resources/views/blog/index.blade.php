@@ -88,7 +88,7 @@
                         </p>
 
                         {{-- Read More Link --}}
-                        <a href="{{ route('blog.show', $post->slug) }}" class="text-[#4CBB17] font-medium hover:text-pink-800">Read More &rarr;</a>
+                        <a href="{{ route('blog.show', $post->slug) }}" class="text-[#4CBB17] font-medium hover:text-club-hover">Read More &rarr;</a>
                     </article>
                     @endforeach
 
@@ -118,12 +118,12 @@
                         </h3>
 
                         {{-- Excerpt/Body --}}
-                        <p class="text-sm text-gray-900 mb-4">
-                            {{ Str::limit($post->body, 150) }}
+                        <p class="text-sm text-black mb-4">
+                             {!! Str::limit($post->body, 150) !!}
                         </p>
 
                         {{-- Read More Link --}}
-                        <a href="{{ route('blog.show', $post->slug) }}" class="text-[#4CBB17] font-medium hover:text-pink-800">Read More &rarr;</a>
+                        <a href="{{ route('blog.show', $post->slug) }}" class="text-[#4CBB17] font-medium hover:text-club-hover text-sm">Read More &rarr;</a>
                     </article>
                     @endforeach
                 </div>
