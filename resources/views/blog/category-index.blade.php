@@ -54,10 +54,12 @@
     <div class="py-10">
         {{ $posts->links() }}
     </div>
-</div>
 
-<div class="w-1/4">
+    <div class="w-1/4">
     sidebar here
 </div>
+</div>
+
+
 </div>
 @endsection
