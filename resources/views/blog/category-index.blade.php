@@ -47,9 +47,9 @@
             {{ $posts->links() }}
         </div>
     </div> 
-    sidebar here
-    <div>
-        
+    
+    <div class="w-1/4">
+        sidebar here
     </div>
 </div>
 @endsection
