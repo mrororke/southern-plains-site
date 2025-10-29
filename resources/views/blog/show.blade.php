@@ -14,15 +14,8 @@
             {{ $post->category->name }}
         </a>
         
-            <h1 class="font-heading text-7xl">A trainer's insight.<br />A judge's perspective.</h1>
-        
-        {{-- Category Link --}}
-        <a href="{{ route('blog.category', $post->category->slug) }}" class="text-sm font-semibold uppercase text-[#4CBB17] mb-2 inline-block hover:text-black transition">
-            {{ $post->category->name }}
-        </a>
-
         {{-- Title --}}
-        <h1 class="text-5xl font-heading font-extrabold text-black mb-4 leading-tight">
+        <h1 class="text-6xl font-heading text-black mb-4 leading-tight">
             {{ $post->title }}
         </h1>
 
