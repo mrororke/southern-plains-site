@@ -67,7 +67,7 @@
                 <article class="border-b pb-8">
                     {{-- Large Article Design --}}
                     <a href="{{ route('blog.show', $post->slug) }}">
-                        <img src="{{ asset($post->hero_image_path) }}" alt="{{ $post->title }}" class="w-full h-96 object-cover shadow-md mb-6 rounded-lg">
+                        <img src="{{ asset($post->hero_image_path) }}" alt="{{ $post->title }}" class="w-full h-96 object-cover shadow-md mb-6">
                     </a>
                     <p class="text-sm font-semibold uppercase text-[#4CBB17] ">{{ $post->category->name }}</p>
                     <h3 class="text-4xl font-heading font-extrabold text-black mb-3">
@@ -90,7 +90,7 @@
                 <article class="pb-6 border-b">
                     {{-- Small Article Design --}}
                     <a href="{{ route('blog.show', $post->slug) }}">
-                        <img src="{{ asset($post->hero_image_path) }}" alt="{{ $post->title }}" class="w-full h-48 object-cover shadow-md mb-3 rounded-lg">
+                        <img src="{{ asset($post->hero_image_path) }}" alt="{{ $post->title }}" class="w-full h-48 object-cover shadow-md mb-3">
                     </a>
                     <p class="text-xs font-semibold uppercase text-[#4CBB17]">{{ $post->category->name }}</p>
                     <h4 class="uppercase text-sm font-bold leading-snug mb-2">
@@ -165,7 +165,7 @@
             @endphp
 
             <a href="{{ route('blog.tag', $tag->slug) }}"
-                class="{{ $fontSize }} {{ $colorClass }} font-sm py-1 px-3 rounded-full transition duration-200 whitespace-nowrap">
+                class="{{ $fontSize }} {{ $colorClass }} font-sm py-1 px-3 transition duration-200 whitespace-nowrap">
                 #{{ $tag->name }}
             </a>
             @endforeach
