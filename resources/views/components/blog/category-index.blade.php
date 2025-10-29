@@ -1,0 +1,51 @@
+@extends('layouts.base') 
+
+@section('page_content')
+<div class="container mx-auto px-6 py-12">
+    
+    {{-- Dynamic Title for the Filtered Page --}}
+    <h1 class="text-4xl font-heading font-extrabold text-black mb-10 border-b pb-3">
+        Articles in Category: <span class="text-[#4CBB17]">{{ $category->name }}</span>
+    </h1>
+
+    {{-- Filtered Posts Display (Uses the small card design) --}}
+    <div class="w-full space-y-12">
+        
+        @forelse ($posts as $post)
+            <article class="border-b pb-8">
+                {{-- Post Image (Linked) --}}
+                <a href="{{ route('blog.show', $post->slug) }}">
+                    <img src="{{ asset($post->hero_image_path) }}"
+                        alt="{{ $post->title }}"
+                        class="w-full h-48 object-cover shadow-md mb-6 rounded-lg">
+                </a>
+                
+                {{-- Category --}}
+                <p class="text-xs font-semibold uppercase text-[#4CBB17]">
+                    {{ $post->category->name }}
+                </p>
+                
+                {{-- Title (Linked) --}}
+                <h3 class="uppercase text-base font-bold">
+                    <a href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a>
+                </h3>
+                
+                {{-- Excerpt/Body --}}
+                <p class="text-sm text-black mb-4">
+                    {!! Str::limit($post->body, 150) !!}
+                </p>
+                
+                {{-- Read More Link --}}
+                <a href="{{ route('blog.show', $post->slug) }}" class="text-[#4CBB17] font-medium hover:text-club-hover">Read More &rarr;</a>
+            </article>
+        @empty
+            <p class="text-lg text-gray-600">No posts found in this category.</p>
+        @endforelse
+
+        {{-- Pagination Links --}}
+        <div class="py-10">
+            {{ $posts->links() }}
+        </div>
+    </div> 
+</div>
+@endsection
