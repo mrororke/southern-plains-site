@@ -16,8 +16,8 @@ class BlogController extends Controller
     {
         // 1. Fetch Main and Archive Posts
         // You'll replace these with actual database queries once you are ready.
-        $latestPosts = Post::orderBy('published_at', 'desc')->take(10)->get();
-        $archivePosts = Post::orderBy('published_at', 'desc')->skip(10)->take(5)->get();
+        $latestPosts = Post::orderBy('published_at', 'desc')->take(3)->get();
+        $archivePosts = Post::orderBy('published_at', 'desc')->skip(3)->take(5)->get();
 
         // 2. Fetch Categories with Post Counts (for the sidebar)
         $categories = Category::withCount(['posts' => function ($query) {
