@@ -116,7 +116,7 @@
 
         </div>
 
-        <x-blog.aside/>
+        <x-blog.aside :categories="$categories" :tags="$tags" />
 
     </div>
 </div>
