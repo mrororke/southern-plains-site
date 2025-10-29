@@ -17,9 +17,8 @@ class BlogController extends Controller
         // 1. Fetch Main and Archive Posts
         $allPostsOnPage = Post::whereNotNull('published_at') // Crucial: Only published posts
             ->orderBy('published_at', 'desc')
-            // Fetch a reasonable number for one page view, e.g., 15 posts total
-            ->take(15)
-            ->get();
+            // REPLACED: Use paginate(15) to fetch 15 posts per page and return a Paginator object
+            ->paginate(15);
 
         // 2. Fetch Categories with Post Counts (for the sidebar)
         $categories = Category::withCount(['posts' => function ($query) {
