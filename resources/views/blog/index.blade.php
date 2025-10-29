@@ -84,7 +84,7 @@
 
                         {{-- Excerpt/Body --}}
                         <p class="text-base text-gray-900 mb-4">
-                            {{!! Str::limit($post->body, 250) !!}}
+                            {!! Str::limit($post->body, 250) !!}
                         </p>
 
                         {{-- Read More Link --}}
