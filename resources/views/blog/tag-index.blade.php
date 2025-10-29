@@ -43,16 +43,10 @@
         </div>
         <x-blog.aside :categories="$categories" :tags="$tags" />
     </div>
-
-    {{-- Filtered Posts Display (Uses the small card design) --}}
-    <div class="w-full space-y-12">
-
-
-
-        {{-- Pagination Links --}}
-        <div class="py-10">
+    <div class="py-10">
             {{ $posts->links() }}
         </div>
-    </div>
+
+    
 </div>
 @endsection
