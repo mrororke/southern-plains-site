@@ -10,15 +10,7 @@
 
     <div class="flex flex-col lg:flex-row gap-10">
         <div class="w-full lg:w-3/4">
-            one
-        </div>
-        <div> two</div>
-    </div>
-
-    {{-- Filtered Posts Display (Uses the small card design) --}}
-    <div class="w-full space-y-12">
-
-        @forelse ($posts as $post)
+            @forelse ($posts as $post)
         <article class="border-b pb-8">
             {{-- Post Image (Linked) --}}
             <a href="{{ route('blog.show', $post->slug) }}">
@@ -48,6 +40,14 @@
         @empty
         <p class="text-lg text-gray-600">No posts found with this tag.</p>
         @endforelse
+        </div>
+        <div> two</div>
+    </div>
+
+    {{-- Filtered Posts Display (Uses the small card design) --}}
+    <div class="w-full space-y-12">
+
+        
 
         {{-- Pagination Links --}}
         <div class="py-10">
