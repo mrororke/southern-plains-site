@@ -49,10 +49,7 @@
         </div>
     </div>
 
-
- <div>
                 <x-blog.aside :categories="$categories" :tags="$tags" />
-            </div>
 
 </div>
 @endsection
