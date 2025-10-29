@@ -1,4 +1,4 @@
-@extends('layouts.base') 
+@extends('layouts.blog-base') 
 
 @section('page_content')
 <div class="container mx-auto px-6 py-12">
