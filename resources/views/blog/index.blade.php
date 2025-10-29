@@ -106,7 +106,13 @@
                     {{-- {{ $latestPosts->links() }} --}}
                 </div>
             </div>
-
+{{-- 3. PAGINATION SECTION (FULL WIDTH) --}}
+    <div class="py-10">
+        <div class="flex justify-center">
+            {{-- UNCOMMENT THIS CODE --}}
+            {!! $allPostsOnPage->links() !!}
+        </div>
+    </div>
 
         </div>
 
