@@ -16,7 +16,7 @@
         
         {{-- Title --}}
         <h1 class="text-6xl font-heading text-black mb-4 leading-tight">
-            {{ $post->title }}
+            {!! $post->title !!}
         </h1>
 
         {{-- Author and Date --}}
@@ -29,7 +29,7 @@
     {{-- Hero Image (Full Width within the Content Slot) --}}
     <img src="{{ asset($post->hero_image_path) }}"
         alt="{{ $post->title }}"
-        class="w-full object-cover shadow-xl mb-12 rounded-lg max-h-[600px]">
+        class="w-full object-cover shadow-xl mb-12 max-h-[600px]">
 
     {{-- ---------------------------------------------------- --}}
     {{-- 2. POST CONTENT (The full article body) --}}
