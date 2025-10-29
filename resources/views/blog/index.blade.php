@@ -98,21 +98,38 @@
                     </div>
                 </div>
                 <div class="w-full lg:w-1/4">
+                    @foreach ($latestPosts->skip(3) as $post)
                     <article class="border-b pb-8">
-                        <img src="{{ asset('images/blog-small-preview.jpg') }}"
-                            alt="Placeholder image of a dog training"
-                            class="w-full h-48 object-cover shadow-md mb-6">
-                        <p class="text-xs font-semibold uppercase text-[#4CBB17]">Training</p>
-                        <h3 class="uppercase text-base font-bold">
-                            Title of the Latest Post Goes Here
-                        </h3>
-                        <p class="text-small text-gray-900 mb-4">
-                            This is the excerpt for the main article. In the functional version, this content would be pulled directly from the database and truncated.
-                        </p>
-                        <a href="#" class="text-[#4CBB17] font-medium hover:text-pink-800">Read More &rarr;</a>
-                    </article>
-                </div>
+                        {{-- Post Image (Linked) --}}
+                        <a href="{{ route('blog.show', $post->slug) }}">
+                            <img src="{{ asset($post->hero_image_path) }}"
+                                alt="{{ $post->title }}"
+                                class="w-full h-48 object-cover shadow-md mb-6 rounded-lg">
+                        </a>
 
+                        {{-- Category --}}
+                        <p class="text-xs font-semibold uppercase text-[#4CBB17]">
+                            {{ $post->category->name }}
+                        </p>
+
+                        {{-- Title (Linked) --}}
+                        <h3 class="uppercase text-base font-bold">
+                            <a href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a>
+                        </h3>
+
+                        {{-- Excerpt/Body --}}
+                        <p class="text-sm text-gray-900 mb-4">
+                            {{ Str::limit($post->body, 150) }}
+                        </p>
+
+                        {{-- Read More Link --}}
+                        <a href="{{ route('blog.show', $post->slug) }}" class="text-[#4CBB17] font-medium hover:text-pink-800">Read More &rarr;</a>
+                    </article>
+                    @endforeach
+                </div>
+                <div class="py-10">
+                    {{-- {{ $latestPosts->links() }} --}}
+                </div>
             </div>
 
 
