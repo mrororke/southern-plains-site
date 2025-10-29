@@ -11,37 +11,41 @@
     <div class="flex flex-col lg:flex-row gap-10">
         <div class="w-full lg:w-3/4">
             @forelse ($posts as $post)
-    <article class="border-b pb-8">
-        {{-- Post Image (Linked) --}}
-        <a href="{{ route('blog.show', $post->slug) }}">
-            <img src="{{ asset($post->hero_image_path) }}"
-                alt="{{ $post->title }}"
-                class="w-full h-64 object-cover shadow-md mb-6">
-        </a>
+            <article class="border-b pb-8">
+                {{-- Post Image (Linked) --}}
+                <a href="{{ route('blog.show', $post->slug) }}">
+                    <img src="{{ asset($post->hero_image_path) }}"
+                        alt="{{ $post->title }}"
+                        class="w-full h-64 object-cover shadow-md mb-6">
+                </a>
 
-        {{-- Category --}}
-        <p class="text-xs font-semibold uppercase text-[#4CBB17]">
-            {{ $post->category->name }}
-        </p>
+                {{-- Category --}}
+                <p class="text-xs font-semibold uppercase text-[#4CBB17]">
+                    {{ $post->category->name }}
+                </p>
 
-        {{-- Title (Linked) --}}
-        <h3 class="uppercase text-base font-bold">
-            <a href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a>
-        </h3>
+                {{-- Title (Linked) --}}
+                <h3 class="uppercase text-base font-bold">
+                    <a href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a>
+                </h3>
 
-        {{-- Excerpt/Body --}}
-        <p class="text-sm text-black mb-4">
-            {!! Str::limit($post->body, 350) !!}
-        </p>
+                {{-- Excerpt/Body --}}
+                <p class="text-sm text-black mb-4">
+                    {!! Str::limit($post->body, 350) !!}
+                </p>
 
-        {{-- Read More Link --}}
-        <a href="{{ route('blog.show', $post->slug) }}" class="text-[#4CBB17] font-medium hover:text-club-hover">Read More &rarr;</a>
-    </article>
-    @empty
-    <p class="text-lg text-gray-600">No posts found in this category.</p>
-    @endforelse
+                {{-- Read More Link --}}
+                <a href="{{ route('blog.show', $post->slug) }}" class="text-[#4CBB17] font-medium hover:text-club-hover">Read More &rarr;</a>
+            </article>
+            @empty
+            <p class="text-lg text-gray-600">No posts found in this category.</p>
+            @endforelse
         </div>
         <x-blog.aside :categories="$categories" :tags="$tags" />
+    </div>
+    {{-- Pagination Links --}}
+    <div class="py-10">
+        {{ $posts->links() }}
     </div>
 </div>
 
