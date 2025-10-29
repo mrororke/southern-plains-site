@@ -10,6 +10,11 @@
 
     {{-- Post Header and Hero Image --}}
     <div class="mb-10">
+        <a href="{{ route('blog.category', $post->category->slug) }}" class="uppercase text-xs font-bold text-club inline-block hover:text-black transition">
+            {{ $post->category->name }}
+        </a>
+        
+            <h1 class="font-heading text-7xl">A trainer's insight.<br />A judge's perspective.</h1>
         
         {{-- Category Link --}}
         <a href="{{ route('blog.category', $post->category->slug) }}" class="text-sm font-semibold uppercase text-[#4CBB17] mb-2 inline-block hover:text-black transition">
