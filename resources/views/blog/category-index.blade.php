@@ -9,7 +9,7 @@
     </h1>
 
     {{-- Filtered Posts Display (Uses the small card design) --}}
-    <div class="w-full space-y-12">
+    <div class="w-3/4 space-y-12">
         
         @forelse ($posts as $post)
             <article class="border-b pb-8">
@@ -47,5 +47,8 @@
             {{ $posts->links() }}
         </div>
     </div> 
+    <div>
+        sidebar here
+    </div>
 </div>
 @endsection
