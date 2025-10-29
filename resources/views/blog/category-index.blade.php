@@ -16,7 +16,7 @@
                 <a href="{{ route('blog.show', $post->slug) }}">
                     <img src="{{ asset($post->hero_image_path) }}"
                         alt="{{ $post->title }}"
-                        class="w-full object-cover h-64shadow-md mb-6">
+                        class="w-full h-48 object-cover shadow-md mb-6 rounded-lg">
                 </a>
 
                 {{-- Category --}}
@@ -31,7 +31,7 @@
 
                 {{-- Excerpt/Body --}}
                 <p class="text-sm text-black mb-4">
-                    {!! Str::limit($post->body, 350) !!}
+                    {!! Str::limit($post->body, 150) !!}
                 </p>
 
                 {{-- Read More Link --}}
@@ -45,11 +45,11 @@
             <div class="py-10">
                 {{ $posts->links() }}
             </div>
-           
+            <div> Two</div>
         </div>
     </div>
 
-                <x-blog.aside :categories="$categories" :tags="$tags" />
+
 
 </div>
 @endsection
