@@ -98,7 +98,7 @@
                     </div>
                 </div>
                 <div class="w-full lg:w-1/4">
-                    @foreach ($archivePosts->skip(3) as $post)
+                    @forelse ($latestPosts->skip(3) as $post)
                     <article class="border-b pb-8">
                         {{-- Post Image (Linked) --}}
                         <a href="{{ route('blog.show', $post->slug) }}">
@@ -123,9 +123,9 @@
                         </p>
 
                         {{-- Read More Link --}}
-                        <a href="{{ route('blog.show', $post->slug) }}" class="text-[#4CBB17] font-medium hover:text-club-hover text-sm">Read More &rarr;</a>
+                        <a href="{{ route('blog.show', $post->slug) }}" class="text-[#4CBB17] font-medium hover:text-club-hover">Read More &rarr;</a>
                     </article>
-                    @endforeach
+                    @endforelse
                 </div>
                 <div class="py-10">
                     {{-- {{ $latestPosts->links() }} --}}
