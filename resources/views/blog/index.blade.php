@@ -165,7 +165,7 @@
             @endphp
 
             <a href="{{ route('blog.tag', $tag->slug) }}"
-                class="{{ $fontSize }} {{ $colorClass }} mt-4 mb-4 mr-4 font-sm py-1 px-3 transition duration-200 whitespace-nowrap">
+                class="{{ $fontSize }} {{ $colorClass }} my-6 mx-4 font-sm py-1 px-3 transition duration-200 whitespace-nowrap">
                 #{{ $tag->name }}
             </a>
             @endforeach
