@@ -98,7 +98,7 @@
                     </div>
                 </div>
                 <div class="w-full lg:w-1/4">
-                    @foreach ($latestPosts->skip(3) as $post)
+                    @foreach ($archivePosts->skip(3) as $post)
                     <article class="border-b pb-8">
                         {{-- Post Image (Linked) --}}
                         <a href="{{ route('blog.show', $post->slug) }}">
