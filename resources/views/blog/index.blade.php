@@ -63,7 +63,7 @@
             <div class="flex flex-col lg:flex-row gap-4">
                 <div class="w-full lg:w-3/4">
                     {{-- Loop through the first three posts fetched --}}
-                    @foreach ($latestPosts->take(3) as $post)
+                    @forelse ($latestPosts->take(3) as $post)
                     <article class="border-b pb-8">
                         {{-- Post Image (Linked) --}}
                         <a href="{{ route('blog.show', $post->slug) }}">
@@ -90,7 +90,7 @@
                         {{-- Read More Link --}}
                         <a href="{{ route('blog.show', $post->slug) }}" class="text-[#4CBB17] font-medium hover:text-club-hover">Read More &rarr;</a>
                     </article>
-                    @endforeach
+                    @endforelse
 
                     {{-- Placeholder for Pagination or "Load More" button --}}
                     <div class="py-6 text-center">
