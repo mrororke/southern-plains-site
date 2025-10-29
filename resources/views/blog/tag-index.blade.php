@@ -15,7 +15,7 @@
                 {{-- Post Image (Linked) --}}
                 <a href="{{ route('blog.show', $post->slug) }}">
                     <img src="{{ asset($post->hero_image_path) }}"
-                        alt="{{ $post->title }}"
+                        alt="{!! $post->title !!}"
                         class="w-full h-64 object-cover shadow-md mb-6">
                 </a>
 
@@ -26,7 +26,7 @@
 
                 {{-- Title (Linked) --}}
                 <h3 class="uppercase text-base font-bold">
-                    <a href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a>
+                    <a href="{{ route('blog.show', $post->slug) }}">{!! $post->title !!}</a>
                 </h3>
 
                 {{-- Excerpt/Body --}}
