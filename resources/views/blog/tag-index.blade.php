@@ -16,7 +16,7 @@
                 <a href="{{ route('blog.show', $post->slug) }}">
                     <img src="{{ asset($post->hero_image_path) }}"
                         alt="{{ $post->title }}"
-                        class="w-full h-48 object-cover shadow-md mb-6">
+                        class="w-full h-64 object-cover shadow-md mb-6">
                 </a>
 
                 {{-- Category --}}
