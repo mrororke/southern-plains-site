@@ -64,33 +64,21 @@
                 <div class="w-full lg:w-3/4">
                     {{-- Loop through the first three posts fetched --}}
                     @forelse ($latestPosts->take(3) as $post)
-                    <article class="border-b pb-8">
-                        {{-- Post Image (Linked) --}}
-                        <a href="{{ route('blog.show', $post->slug) }}">
-                            <img src="{{ asset($post->hero_image_path) }}"
-                                alt="{{ $post->title }}"
-                                class="w-full h-96 object-cover shadow-md mb-6">
-                        </a>
-
-                        {{-- Category --}}
-                        <p class="text-sm font-semibold uppercase text-[#4CBB17] ">
-                            {{ $post->category->name }}
-                        </p>
-
-                        {{-- Title (Linked) --}}
-                        <h3 class="text-4xl font-heading font-extrabold text-black mb-3">
-                            <a href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a>
-                        </h3>
-
-                        {{-- Excerpt/Body --}}
-                        <p class="text-base text-gray-900 mb-4">
-                            {!! Str::limit($post->body, 250) !!}
-                        </p>
-
-                        {{-- Read More Link --}}
-                        <a href="{{ route('blog.show', $post->slug) }}" class="text-[#4CBB17] font-medium hover:text-club-hover">Read More &rarr;</a>
-                    </article>
-                    @endforelse
+                <article class="border-b pb-8">
+                    {{-- Large Article Design --}}
+                    <a href="{{ route('blog.show', $post->slug) }}">
+                        <img src="{{ asset($post->hero_image_path) }}" alt="{{ $post->title }}" class="w-full h-96 object-cover shadow-md mb-6 rounded-lg">
+                    </a>
+                    <p class="text-sm font-semibold uppercase text-[#4CBB17] ">{{ $post->category->name }}</p>
+                    <h3 class="text-4xl font-heading font-extrabold text-black mb-3">
+                        <a href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a>
+                    </h3>
+                    <p class="text-base text-gray-900 mb-4">{!! Str::limit($post->body, 250) !!}</p>
+                    <a href="{{ route('blog.show', $post->slug) }}" class="text-[#4CBB17] font-medium hover:text-club-hover">Read More &rarr;</a>
+                </article>
+            @empty
+                <p class="text-gray-500">No featured posts are currently available.</p>
+            @endforelse
 
                     {{-- Placeholder for Pagination or "Load More" button --}}
                     <div class="py-6 text-center">
@@ -99,33 +87,20 @@
                 </div>
                 <div class="w-full lg:w-1/4">
                     @forelse ($latestPosts->skip(3) as $post)
-                    <article class="border-b pb-8">
-                        {{-- Post Image (Linked) --}}
-                        <a href="{{ route('blog.show', $post->slug) }}">
-                            <img src="{{ asset($post->hero_image_path) }}"
-                                alt="{{ $post->title }}"
-                                class="w-full h-48 object-cover shadow-md mb-6 rounded-lg">
-                        </a>
-
-                        {{-- Category --}}
-                        <p class="text-xs font-semibold uppercase text-[#4CBB17]">
-                            {{ $post->category->name }}
-                        </p>
-
-                        {{-- Title (Linked) --}}
-                        <h3 class="uppercase text-base font-bold">
-                            <a href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a>
-                        </h3>
-
-                        {{-- Excerpt/Body --}}
-                        <p class="text-sm text-black mb-4">
-                             {!! Str::limit($post->body, 150) !!}
-                        </p>
-
-                        {{-- Read More Link --}}
-                        <a href="{{ route('blog.show', $post->slug) }}" class="text-[#4CBB17] font-medium hover:text-club-hover">Read More &rarr;</a>
-                    </article>
-                    @endforelse
+                <article class="pb-6 border-b">
+                    {{-- Small Article Design --}}
+                    <a href="{{ route('blog.show', $post->slug) }}">
+                        <img src="{{ asset($post->hero_image_path) }}" alt="{{ $post->title }}" class="w-full h-48 object-cover shadow-md mb-3 rounded-lg">
+                    </a>
+                    <p class="text-xs font-semibold uppercase text-[#4CBB17]">{{ $post->category->name }}</p>
+                    <h4 class="uppercase text-sm font-bold leading-snug mb-2">
+                        <a href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a>
+                    </h4>
+                    <a href="{{ route('blog.show', $post->slug) }}" class="text-[#4CBB17] text-xs font-medium hover:text-club-hover">Read More &rarr;</a>
+                </article>
+            @empty
+                <p class="text-sm text-gray-500">No older articles to display.</p>
+            @endforelse
                 </div>
                 <div class="py-10">
                     {{-- {{ $latestPosts->links() }} --}}
