@@ -24,12 +24,12 @@ class BlogController extends Controller
         // 2. Fetch Categories with Post Counts (for the sidebar)
         $categories = Category::withCount(['posts' => function ($query) {
             $query->whereNotNull('published_at'); // Only count published posts
-        }])->having('posts_count', '>', 0)->orderBy('posts_count', 'desc')->get();
+        }])->having('posts_count', '>', 0)->orderBy('name', 'asc')->get();
 
         // 3. Fetch Tags with Usage Counts (for the tag cloud)
         $tags = Tag::withCount(['posts' => function ($query) {
             $query->whereNotNull('published_at'); // Only count usage on published posts
-        }])->having('posts_count', '>', 0)->orderBy('posts_count', 'desc')->get();
+        }])->having('posts_count', '>', 0)->orderBy('name', 'asc')->get();
 
         return view('blog.index', compact(
             'allPostsOnPage',
