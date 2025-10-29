@@ -130,7 +130,7 @@
                 @yield('testimonial_blocks')
 
 
-                <x-layouts.app-footer />
+                <x-app-footer />
             </div>
 
         </div>
