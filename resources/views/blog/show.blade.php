@@ -6,7 +6,7 @@
 @section('ogImage', asset($post->hero_image_path)) 
 
 @section('page_content')
-<div class="container mx-auto px-6 py-12">
+<div class="container mx-auto pt-8 pb-8">
 
     {{-- Post Header and Hero Image --}}
     <div class="mb-10">
@@ -15,7 +15,7 @@
         </a>
         
         {{-- Title --}}
-        <h1 class="text-6xl font-heading text-black mb-4 leading-tight">
+        <h1 class="text-5xl font-heading text-black mb-4 leading-tight">
             {!! $post->title !!}
         </h1>
 
@@ -28,7 +28,7 @@
 
     {{-- Hero Image (Full Width within the Content Slot) --}}
     <img src="{{ asset($post->hero_image_path) }}"
-        alt="{{ $post->title }}"
+        alt="{!! $post->title !!}"
         class="w-full object-cover shadow-xl mb-12 max-h-[600px]">
 
     {{-- ---------------------------------------------------- --}}
