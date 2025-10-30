@@ -14,15 +14,18 @@ class Post extends Model
         'title',
         'slug',
         'body',
+        'meta_title',
         'meta_description',
         'hero_image_path',
         'published_at',
         'category_id',
+        'has_affiliate_links',
     ];
 
     // cast the publish_at column to a date/datetime object
     protected $casts = [
         'published_at' => 'datetime',
+        'has_affiliate_links' => 'boolean',
     ];
 
     // -- RELATIONSHIPS --

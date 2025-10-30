@@ -35,6 +35,10 @@
     {{-- 2. POST CONTENT (The full article body) --}}
     {{-- ---------------------------------------------------- --}}
 
+    @if ($post->has_affiliate_links)
+        <x-site.affiliate-disclaimer />
+    @endif
+
     <article class="text-gray-800 leading-relaxed space-y-6">
         {{-- CRUCIAL: Use {!! ... !!} to render saved HTML (headings, lists, formatting) --}}
         {!! $post->body !!}

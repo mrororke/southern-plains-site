@@ -89,6 +89,17 @@
                         value="{{ old('published_at', $post->published_at ? $post->published_at->format('Y-m-d') : '') }}">
                     <span class="text-sm text-gray-500"> (Leave blank for Draft)</span>
                 </div>
+                <div class="mb-4 flex items-center space-x-4">
+                    <label for="affiliate-checkbox" class="block font-medium text-sm text-gray-700">
+                        <input type="checkbox" name="has_affiliate_links" id="affiliate-checkbox"
+                            value="1" {{ old('has_affiliate_links', $post->has_affiliate_links) ? 'checked' : '' }}>
+
+                        <span class="ml-2">This post contains affiliate links and requires a disclaimer.</span>
+                    </label>
+
+                    {{-- Hidden input for when the checkbox is unchecked (to save '0') --}}
+                    <input type="hidden" name="has_affiliate_links" value="0">
+                </div>
             </div>
         </div>
 
