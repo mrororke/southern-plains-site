@@ -40,10 +40,9 @@ Route::get('/blog/tag/{tag:slug}', [BlogController::class, 'tag'])->name('blog.t
 // Single Post View (Using Post:slug for route model binding)
 Route::get('/blog/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
 
-// Services / Training Page
-Route::get('/training', function () {
-    return view('services'); // Using the appropriate view name for the content we created
-})->name('services'); // Named 'services' to reflect the content of the page
+// Training Page
+Route::view('/training', 'training.index')
+    ->name('training.index');
 
 // League Page
 Route::get('/league', function () {
