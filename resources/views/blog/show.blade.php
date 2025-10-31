@@ -60,7 +60,7 @@
                 <div class="bg-gray-50 border p-6 rounded-lg sticky top-8">
                     
                     {{-- Assuming hero_image_path is used for the cover --}}
-                    <img src="{{ asset($post->hero_image_path) }}" 
+                    <img src="{{ asset($post->book_cover_path) }}" 
                          alt="Cover of {{ $post->title }}"
                          class="w-2/3 mx-auto shadow-lg mb-4">
                          
