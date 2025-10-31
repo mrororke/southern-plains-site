@@ -56,12 +56,12 @@
         Events
     </a>
 
-    {{-- Contact Button: Uses 'contact' route --}}
+     {{-- Contact Button: Uses 'contact' route --}}
     @php $isContact = request()->routeIs('contact'); @endphp
-    <a href="{{ route('contact') }}" aria-current="page"
-        class="bg-training">
-        <x-primary-button class="ms-4 
-            {{ $isContact ? 'bg-training-active hover:bg-training-hover' : '' }}">
+    <a href="{{ route('contact') }}" aria-current="page">
+        <x-primary-button color="training" class="ms-4 
+            {{-- 💡 APPLY CUSTOM ACTIVE BACKGROUND FOR BUTTON --}}
+            {{ $isContact ? 'bg-training-active hover:bg-training-dark' : '' }}">
             {{ __('Contact Us') }}
         </x-primary-button>
     </a>
