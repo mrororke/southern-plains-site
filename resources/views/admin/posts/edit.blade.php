@@ -49,6 +49,15 @@
                         class="shadow border w-full py-2 px-3 text-gray-700">{{ old('meta_description', $post->meta_description) }}</textarea>
                 </div>
 
+                <div class="mb-6">
+                    <label for="excerpt" class="block text-sm font-medium text-gray-700">Post Excerpt</label>
+                    <p class="text-xs text-gray-500 mb-2">Write a clean, compelling summary (1-2 sentences) for search results and list pages.</p>
+                    <textarea name="excerpt" id="excerpt" rows="3"
+                        class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                    {{ old('excerpt', $post->excerpt) }}
+                    </textarea>
+                </div>
+
                 <div class="mb-4">
                     <label for="category_id" class="block text-gray-700 font-semibold mb-2">Category</label>
                     <select name="category_id" id="category_id" class="shadow border w-full py-2 px-3 text-gray-700" required>

@@ -23,6 +23,7 @@ class Post extends Model
         'category_id',
         'has_affiliate_links',
         'book_cover_path',
+        'excerpt',
     ];
 
     // cast the publish_at column to a date/datetime object
