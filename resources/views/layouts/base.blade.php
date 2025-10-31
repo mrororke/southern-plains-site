@@ -16,10 +16,6 @@
 </head>
 
 <body>
-    @php
-    // Set a default color if $accentColor hasn't been defined in the extending view
-    $accentColor = $accentColor ?? 'club';
-    @endphp
 
     {{--
 | ----------------------------------------------------
@@ -34,7 +30,7 @@
     <main>
         {{-- 💡 FLEX CONTAINER: This enables the side-by-side layout for pages with a slider --}}
         <div class="flex min-h-screen">
-
+            
             {{-- 💡 NEW SLOT FOR THE STICKY SLIDER COLUMN --}}
             @yield('slider_column')
 
@@ -48,7 +44,7 @@
                     {{-- 💡 END OF PAGE-SPECIFIC CONTENT SLOT --}}
 
                 </div>
-
+                
                 {{-- 💡 OPTIONAL BLOCKS: These sections will be called only when needed by specific pages --}}
                 @yield('highlight_blocks')
                 @yield('feature_blocks')
