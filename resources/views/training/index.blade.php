@@ -7,7 +7,7 @@
     <header class="mb-10 text-center">
         {{-- Place the Training Logo here --}}
         {{-- Assuming you have a specific logo for your services/training brand --}}
-        <img src="{{ asset('images/logos/logo-training.svg') }}" 
+        <img src="{{ asset('images/logo-training.svg') }}" 
              alt="Southern Plains Dog Training Services Logo"
              class="h-16 w-auto mx-auto mb-4"> 
              
