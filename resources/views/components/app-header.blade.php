@@ -86,7 +86,7 @@
                                 type="button"
                                 @click="open = ! open"
                                 :aria-expanded="open"
-                                class="relative inline-flex items-center justify-center rounded-md p-2 text-black hover:bg-club hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
+                                class="relative inline-flex items-center justify-center rounded-md p-2 text-black hover:bg-{{ $accentColor }} hover:text-white focus:outline-2 focus:outline-offset-2 focus:outline-indigo-500">
                                 <span class="absolute -inset-0.5"></span>
                                 <span class="sr-only">Open main menu</span>
 
