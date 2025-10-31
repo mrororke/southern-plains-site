@@ -51,7 +51,7 @@
                 @yield('testimonial_blocks')
 
 
-                <x-app-footer />
+                <x-app-footer-training />
             </div>
 
         </div>
