@@ -28,8 +28,8 @@
     </a>
 
     {{-- Training/Services Link: Uses 'services' route --}}
-    @php $isTraining = request()->routeIs('services'); @endphp
-    <a href="{{ route('services') }}" 
+    @php $isTraining = request()->routeIs('training'); @endphp
+    <a href="{{ route('training') }}" 
        class="px-3 py-2 text-sm font-medium uppercase hover:text-club 
        {{-- 💡 APPLY CUSTOM ACTIVE CLASSES --}}
        {{ $isTraining ? 'text-club-active border-b-3 border-club-active' : 'text-black' }}">
