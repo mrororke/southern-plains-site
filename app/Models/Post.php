@@ -13,6 +13,8 @@ class Post extends Model
     protected $fillable = [
         'title',
         'slug',
+        'is_book_review',
+        'rating',
         'body',
         'meta_title',
         'meta_description',
@@ -26,6 +28,8 @@ class Post extends Model
     protected $casts = [
         'published_at' => 'datetime',
         'has_affiliate_links' => 'boolean',
+        'is_book_review' => 'boolean',
+        'rating' => 'decimal:1',
     ];
 
     // -- RELATIONSHIPS --
