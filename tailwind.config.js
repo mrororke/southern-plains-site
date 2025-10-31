@@ -18,10 +18,10 @@ export default {
                 'club-active': '#3D9612',
                 'league': '#FF0398',
                 'league-hover': '#CC027A',
+                'league-active': '#CC027A',
                 'training': '#03CCFF',
                 'training-hover': '#02A3CC',
-                // You can add others like a secondary brand color:
-                // 'secondary-brand': '#FF5733', 
+                'training-active': '#02A3CC',
             },
             fontFamily: {
                 sans: ['Archivo', ...defaultTheme.fontFamily.sans],

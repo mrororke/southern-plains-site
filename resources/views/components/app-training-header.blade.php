@@ -79,7 +79,7 @@
                                 <x-app-training-logo class="w-20 h-20 fill-current" />
                             </a>
                         </div>
-                        <x-shared.desktop-nav-links />
+                        <x-shared.desktop-training-nav-links />
 
                         <div class="flex items-center md:hidden">
                             <button
