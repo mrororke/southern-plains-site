@@ -73,7 +73,7 @@
                     <h3 class="text-4xl font-heading font-extrabold text-black mb-3">
                         <a href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a>
                     </h3>
-                    <p class="text-base text-gray-900 mb-4">{!! Str::limit($post->excerpt) !!}</p>
+                    <p class="text-base text-gray-900 mb-4">{!! $post->excerpt !!}</p>
                     <a href="{{ route('blog.show', $post->slug) }}" class="text-[#4CBB17] font-medium hover:text-club-hover">Read More &rarr;</a>
                 </article>
             @empty

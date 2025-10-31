@@ -31,7 +31,7 @@
 
                 {{-- Excerpt/Body --}}
                 <p class="text-sm text-black mb-4">
-                    {!! Str::limit($post->excerpt) !!}
+                    {!! $post->excerpt !!}
                 </p>
 
                 {{-- Read More Link --}}
