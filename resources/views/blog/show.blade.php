@@ -57,24 +57,11 @@
 
         {{-- Book Info Block (Right-side float structure) --}}
         <aside class="lg:w-1/3 w-full lg:order-2">
-            <div class="bg-gray-50 border p-6 rounded-lg sticky top-8">
 
                 {{-- Assuming hero_image_path is used for the cover --}}
                 <img src="{{ asset($post->book_cover_path) }}"
                     alt="Cover of {{ $post->title }}"
                     class="w-2/3 mx-auto shadow-lg mb-4">
-
-                <h3 class="text-xl font-bold mb-1 text-center">{{ $post->title }}</h3>
-                <p class="text-sm text-gray-600 mb-4 text-center">by {{ $post->author->name ?? 'N/A' }}</p>
-
-                
-
-                {{-- Link to buy the book (Placeholder) --}}
-                <a href="#" class="block w-full text-center bg-[#4CBB17] text-white font-bold py-2 rounded hover:bg-club-hover transition"
-                    target="_blank" rel="sponsored noopener" title="Buy the book: {{ $post->title }}">
-                    Buy the Book
-                </a>
-            </div>
         </aside>
 
         {{-- Review Content (Left-side/Main Content) --}}
