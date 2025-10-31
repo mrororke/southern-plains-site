@@ -47,8 +47,6 @@
     </article>
 
     @else
-
-    @else
         {{-- Specialized Book Review Layout --}}
         
         <h1 class="text-5xl font-heading font-extrabold text-black mb-10 leading-tight">
