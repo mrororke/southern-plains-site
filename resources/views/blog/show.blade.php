@@ -67,12 +67,7 @@
                 <h3 class="text-xl font-bold mb-1 text-center">{{ $post->title }}</h3>
                 <p class="text-sm text-gray-600 mb-4 text-center">by {{ $post->author->name ?? 'N/A' }}</p>
 
-                {{-- Star Rating Display (Uses the new rating column) --}}
-                @if ($post->rating)
-                <div class="flex justify-center mb-4">
-                    <x-blog.star-rating :rating="$post->rating" />
-                </div>
-                @endif
+                
 
                 {{-- Link to buy the book (Placeholder) --}}
                 <a href="#" class="block w-full text-center bg-[#4CBB17] text-white font-bold py-2 rounded hover:bg-club-hover transition"
@@ -87,6 +82,14 @@
             @if ($post->has_affiliate_links)
             <x-site.affiliate-disclaimer />
             @endif
+            
+            {{-- Star Rating Display (Uses the new rating column) --}}
+                @if ($post->rating)
+                <div class="flex justify-center mb-4">
+                    <x-blog.star-rating :rating="$post->rating" />
+                </div>
+                @endif
+
             {!! $post->body !!}
         </article>
 
