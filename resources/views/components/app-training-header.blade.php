@@ -76,7 +76,7 @@
                     <div class="flex items-center justify-between">
                         <div class="text-black">
                             <a href="/">
-                                <x-application-training-logo class="w-20 h-20 fill-current" />
+                                <x-app-training-logo class="w-20 h-20 fill-current" />
                             </a>
                         </div>
                         <x-shared.desktop-nav-links />
