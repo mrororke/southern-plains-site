@@ -39,7 +39,7 @@
     </a>
 
     {{-- League Link: Uses 'league' route --}}
-    @php $isLeague = request()->routeIs('league'); @endphp
+    @php $isLeague = request()->routeIs('league.index'); @endphp
     <a href="{{ route('league.index') }}"
         class="px-3 py-2 text-sm font-medium uppercase hover:text-training 
        {{-- 💡 APPLY CUSTOM ACTIVE CLASSES --}}
