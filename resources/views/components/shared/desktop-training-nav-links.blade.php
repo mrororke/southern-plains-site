@@ -5,7 +5,7 @@
     <a href="{{ route('welcome') }}"
         class="px-3 py-2 text-sm font-medium uppercase hover:text-training 
        {{-- 💡 APPLY CUSTOM ACTIVE CLASSES --}}
-       {{ $isHome ? 'text-training-active border-b-3 border-trianing-active' : 'text-black' }}">
+       {{ $isHome ? 'text-training-active border-b-3 border-training-active' : 'text-black' }}">
         Home
     </a>
 
@@ -40,7 +40,7 @@
 
     {{-- League Link: Uses 'league' route --}}
     @php $isLeague = request()->routeIs('league'); @endphp
-    <a href="{{ route('league') }}"
+    <a href="{{ route('league.index') }}"
         class="px-3 py-2 text-sm font-medium uppercase hover:text-training 
        {{-- 💡 APPLY CUSTOM ACTIVE CLASSES --}}
        {{ $isLeague ? 'text-training-active border-b-3 border-training-active' : 'text-black' }}">

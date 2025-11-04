@@ -40,7 +40,7 @@
 
     {{-- League Link: Uses 'league' route --}}
     @php $isLeague = request()->routeIs('league'); @endphp
-    <a href="{{ route('league') }}"
+    <a href="{{ route('league.index') }}"
         class="px-3 py-2 text-sm font-medium uppercase hover:text-club 
        {{-- 💡 APPLY CUSTOM ACTIVE CLASSES --}}
        {{ $isLeague ? 'text-club-active border-b-3 border-club-active' : 'text-black' }}">
