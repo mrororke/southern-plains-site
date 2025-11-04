@@ -46,8 +46,8 @@ Route::view('/training', 'training.index')
 
 // League Page
 Route::get('/league', function () {
-    return view('league'); // Using the appropriate view name
-})->name('league');
+    return view('league.index'); // Using the appropriate view name
+})->name('league.index');
 
 // Events Page
 Route::get('/events', function () {
