@@ -23,7 +23,7 @@
     </div>
 
     <div> 
-       <h2 id="schedule" class="font-heading text-5xl mt-4 mb-6">
+       <h2 id="schedule" class="font-heading text-5xl mt-6 mb-2">
     Season Schedule
 </h2>
 <p class="text-base text-black mb-6">
