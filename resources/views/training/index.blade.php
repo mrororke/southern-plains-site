@@ -23,7 +23,7 @@
 
 
 </div>
-<div class="border grid grid-cols-7">
+<div class="pt-10 grid grid-cols-7">
     <div class="col-span-2">
         01
     </div>
