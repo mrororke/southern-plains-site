@@ -139,6 +139,63 @@
 </div>
 
 <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mt-12">
+<!-- Begin Tier Two -->
+ <h2 class="font-heading text-4xl mt-16 mb-8 text-black border-b-2 pb-2">Official Titling, Virtual Training & Community</h2>
 
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+    <div class="md:col-span-1 border-2 border-black p-8 shadow-lg bg-white">
+        <h3 class="text-2xl font-extrabold text-black mb-4">Official Titling & Testing</h3>
+        
+        <div class="mb-6 pb-4 border-b">
+            <h4 class="text-lg font-bold text-black mb-1">Trick Dog Evaluations</h4>
+            <p class="text-sm text-black mb-3">
+                Earn recognized Trick Dog titles! Evaluations are available both **online** (via YouTube playlist submission) and **in person** (max ten tricks per title). Payment is only requested after a successful evaluation.
+            </p>
+            <p class="text-sm font-bold text-black">Cost: $10 per Title</p>
+            <a href="#trick-dog-form" class="mt-2 inline-block text-training-blue-default font-semibold text-sm hover:underline">
+                Submit Evaluation Request
+            </a>
+        </div>
+
+        <div class="mb-0">
+            <h4 class="text-lg font-bold text-black mb-1">Canine Good Citizen (CGC) Testing</h4>
+            <p class="text-sm text-black mb-3">
+                AKC CGC, CGCA, and CGCU Testing is held **every other month**. Registration is required in advance. Testing proceeds only if a minimum of six dogs are registered.
+            </p>
+            <p class="text-sm font-bold text-black">Cost: $10 per Test (In-Person Only)</p>
+            <a href="#cgc-form" class="mt-2 inline-block text-training-blue-default font-semibold text-sm hover:underline">
+                Register for Next Test Date
+            </a>
+        </div>
+    </div>
+
+    <div class="md:col-span-1 border-2 border-black p-8 shadow-lg bg-white">
+        <h3 class="text-2xl font-extrabold text-black mb-4">Virtual & Community Programs</h3>
+
+        <div class="mb-6 pb-4 border-b">
+            <h4 class="text-lg font-bold text-black mb-1">Virtual Fit Dog</h4>
+            <p class="text-sm text-black mb-3">
+                Build conditioning and stamina from home! This **six-week virtual class** helps you and your dog meet distance requirements for official Fit Dog titles. Requires monthly Virtual Group Walk participation and video skill submission.
+            </p>
+            <p class="text-sm font-bold text-black">Duration: 6 Weeks | Cost: $50</p>
+            <a href="#fit-dog-registration" class="mt-2 inline-block text-training-blue-default font-semibold text-sm hover:underline">
+                Enroll in Virtual Class
+            </a>
+        </div>
+
+        <div class="mb-0">
+            <h4 class="text-lg font-bold text-black mb-1">The Wander Club (Hiking Meetup)</h4>
+            <p class="text-sm text-black mb-3">
+                Get active and social! Join us at pre-selected, dog-friendly hiking trails for a low-pressure community walk. A great way to build community and enjoy the outdoors.
+            </p>
+            <p class="text-sm font-bold text-black">Format: In-Person Drop-In | Cost: FREE</p>
+            <a href="#schedule-link" class="mt-2 inline-block text-training-blue-default font-semibold text-sm hover:underline">
+                View Schedule & Trail Info
+            </a>
+        </div>
+    </div>
+</div>
+ <!-- End Tier Two -->
 </div>
 @endsection
