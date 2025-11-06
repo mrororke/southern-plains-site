@@ -20,6 +20,10 @@
 
         
     </div>
+
+
+</div>
+
 <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mt-12">
 
     <div class="md:col-span-1 border-2 border-training-blue-default p-8 shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] bg-white">
@@ -137,7 +141,5 @@
         </p>
 
     </div>
-</div>
-
 </div>
 @endsection
