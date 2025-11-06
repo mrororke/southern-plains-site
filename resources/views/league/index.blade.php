@@ -13,9 +13,7 @@
             aside
         </aside>
 
-        <div class="lg:pl-[105px] lg:pr-[95px] p-4">
-            column one
-        </div>
-
     </div>
-    @endsection
+
+</div>
+@endsection
