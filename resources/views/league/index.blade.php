@@ -43,7 +43,9 @@
     <tbody>
         <tr class="border-b border-black">
             <td class="p-3 font-semibold border-r border-black">April</td>
-            <td class="p-3 border-r border-black">Field Scent Work</td>
+            <td class="p-3 border-r border-black">Field Events</td>
+            <td class="p-3 font-semibold border-r border-black">August</td>
+            <td class="p-3 border-r border-black">Urban Events</td>
         </tr>
 </tbody>
 </table>
