@@ -9,6 +9,9 @@
 
             <p class="text-base mb-2">Welcome to the Southern Plains League! This structured six-event season is designed for fun, low-pressure skill-building, allowing teams to practice specialized scent work and retrieval events, including simulating historic urban hunting (Urban Locating), following trails for quarry (Trailing & Locating), and searching for white-tail deer antlers (Shed Hunting). All scores contribute to the annual Top Dog Award.</p>
         </div>
+        <aside>
+            aside
+        </aside>
 
         <div class="lg:pl-[105px] lg:pr-[95px] p-4">
             column one
