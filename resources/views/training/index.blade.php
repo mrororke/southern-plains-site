@@ -76,7 +76,7 @@
                 <li><strong>Essential Trust:</strong> Establishes clear routines, building independence and the handler/dog bond.</li>
             </ul>
 
-            <div class="text-base font-bold text-black mb-4">
+            <div class="text-base font-bold text-black">
                 Format: In-Person Class (Limestone Acres Dog Sports)
             </div>
             <div class="text-base font-bold text-black mb-8">
