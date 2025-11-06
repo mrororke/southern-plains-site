@@ -32,10 +32,10 @@
 
 <table class="w-full text-black border border-black">
     <thead>
-        <tr class="bg-gray-100 border-b border-black">
-            <th class="p-3 text-left uppercase text-sm font-bold border-r border-black" colspan="2">
+        <tr class="bg-black border-b border-black">
+            <th class="p-3 text-left uppercase text-sm font-bold text-white" colspan="2">
                 Spring Season
-            </th><th class="p-3 text-left uppercase text-sm font-bold border-r border-black" colspan="2">
+            </th><th class="p-3 text-left uppercase text-sm font-bold text-white" colspan="2">
                 Fall Season
             </th>
         </tr>
