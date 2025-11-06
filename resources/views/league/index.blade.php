@@ -45,7 +45,7 @@
             <td class="p-3 font-semibold">April</td>
             <td class="p-3 text-sm border-r border-black"><span class="font-semibold">Field Events</span><br/><span class="text-xs">Trailing & Locating, Brace</td>
             <td class="p-3 font-semibold">August</td>
-            <td class="p-3">Urban Events</td>
+            <td class="p-3"><span class="font-semibold">Urban Events</span><br/><span class="text-xs">Lost Item: Handler Odor</td>
         </tr>
 </tbody>
 </table>
