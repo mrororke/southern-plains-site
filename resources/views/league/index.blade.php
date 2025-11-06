@@ -23,10 +23,10 @@
     </div>
 
     <div> 
-       <h2 id="schedule" class="font-heading text-3xl mt-12 mb-4 text-black">
-    2026 Split Season Schedule
+       <h2 id="schedule" class="font-heading text-5xl mt-2 mb-6">
+    2Season Schedule
 </h2>
-<p class="text-sm text-black mb-6">
+<p class="text-base text-black mb-6">
     The season is split into two sessions to accommodate climate concerns. Points from both sessions accumulate for the annual Top Dog Award.
 </p>
 
