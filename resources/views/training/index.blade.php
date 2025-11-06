@@ -16,7 +16,7 @@
 
 
 </div>
-<div class="pt-10 grid grid-cols-7">
+<div class="pt-10 grid grid-cols-7 items-center">
     <div class="col-span-2">
         <div class="border-1 border-black p-8 shadow-lg bg-gray-50 opacity-80">
 
@@ -95,7 +95,7 @@
 
         </div>
     </div>
-    <div class="col-span-2">03
+    <div class="col-span-2">
         <div class="border-1 p-8 shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] bg-white">
 
             <div class="flex items-center mb-4">
