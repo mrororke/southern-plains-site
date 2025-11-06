@@ -21,6 +21,46 @@
         
     </div>
 <div>
+    <div class="md:col-span-1 border-2 border-training-blue-default rounded-xl p-8 shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] bg-white">
+    
+    <div class="flex items-center mb-4">
+        <svg class="w-8 h-8 text-training-blue-default mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        <h2 class="text-3xl font-extrabold text-gray-900">
+            The Predictable Path
+        </h2>
+    </div>
+    
+    <p class="text-gray-700 mb-6 border-b pb-4">
+        This specialized **in-person class** is designed for dogs who feel overwhelmed or reactive in public settings. We use the **Course Circle technique** to build focus, confidence, and calmness around triggers.
+    </p>
+
+    <ul class="list-disc list-inside space-y-2 text-gray-600 mb-8 ml-4">
+        <li>**Builds Confidence:** Uses repeating circuits (platforms, cavalletti, slow feeders) for clear routines.</li>
+        <li>**Reduces Reactivity:** Transforms fear into focused engagement with predictable environmental cues.</li>
+        <li>**Essential Trust:** Teaches the dog independence and solidifies the handler/dog bond.</li>
+    </ul>
+
+    <div class="text-lg font-bold text-gray-800 mb-4">
+        Format: In-Person Class
+    </div>
+    <div class="text-lg font-bold text-gray-800 mb-8">
+        Duration/Cost: Varies (See Schedule)
+    </div>
+
+    <a href="#class-registration" 
+       class="block w-full text-center bg-training-blue-default text-white py-3 rounded-lg font-bold uppercase tracking-wider 
+              hover:bg-training-blue-hover focus:outline-none focus:ring-4 focus:ring-training-blue-default focus:ring-opacity-50 transition duration-150 shadow-md">
+        View Schedule & Register
+    </a>
+    
+    <p class="mt-4 text-sm text-gray-500 text-center">
+        Registration is required to attend.
+    </p>
+
+</div>
           <div class="md:col-span-1 border-2 border-training-default  p-8 shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] bg-white">
     
     <div class="flex items-center mb-4">
