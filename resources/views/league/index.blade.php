@@ -33,19 +33,19 @@
 <table class="w-full text-black border border-black">
     <thead>
         <tr class="bg-black border-b border-black">
-            <th class="p-3 text-center uppercase text-sm font-bold text-white" colspan="2">
+            <th class="p-3 text-left uppercase text-sm font-bold text-white" colspan="2">
                 Spring Season
-            </th><th class="p-3 text-center uppercase text-sm font-bold text-white" colspan="2">
+            </th><th class="p-3 text-left uppercase text-sm font-bold text-white" colspan="2">
                 Fall Season
             </th>
         </tr>
     </thead>
     <tbody>
         <tr class="border-b border-black">
-            <td class="p-3 font-semibold border-r border-black">April</td>
-            <td class="p-3 border-r border-black">Field Events</td>
-            <td class="p-3 font-semibold border-r border-black">August</td>
-            <td class="p-3 border-r border-black">Urban Events</td>
+            <td class="p-3 font-semibold">April</td>
+            <td class="p-3 text-sm">Field Events<br/><span class="text-xs">Trailing & Locating, Brace</td>
+            <td class="p-3 font-semibold">August</td>
+            <td class="p-3">Urban Events</td>
         </tr>
 </tbody>
 </table>
