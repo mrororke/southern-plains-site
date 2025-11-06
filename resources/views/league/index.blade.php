@@ -33,6 +33,24 @@
 <table class="w-full text-black border border-black">
     <thead>
         <tr class="bg-gray-100 border-b border-black">
+            <th class="p-3 text-left uppercase text-sm font-bold border-r border-black" colspan="2">
+                Spring Season
+            </th><th class="p-3 text-left uppercase text-sm font-bold border-r border-black" colspan="2">
+                Fall Season
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="border-b border-black">
+            <td class="p-3 font-semibold border-r border-black">April</td>
+            <td class="p-3 border-r border-black">Field Scent Work</td>
+        </tr>
+</tbody>
+</table>
+
+<table class="w-full text-black border border-black">
+    <thead>
+        <tr class="bg-gray-100 border-b border-black">
             <th class="p-3 text-left uppercase text-sm font-bold border-r border-black" colspan="4">
                 Spring Season (April - June)
             </th>
