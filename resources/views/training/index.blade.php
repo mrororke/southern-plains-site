@@ -21,7 +21,7 @@
         01
     </div>
     <div class="col-span-3">
-        <div class="border-2 border-training-blue-default p-8 shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] bg-white">
+        <div class="border-1 p-8 shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] bg-white">
 
             <div class="flex items-center mb-4">
                 <svg class="w-8 h-8 text-training mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#03CCFF" stroke-width="2">
@@ -32,17 +32,17 @@
                 </h2>
             </div>
 
-            <p class="text-black mb-6 border-b pb-4 text-sm">
+            <p class="text-black mb-6 border-b pb-4 text-base">
                 Customized, <strong>one-on-one sessions</strong> for complex issues, sport goals, or obedience challenges.
             </p>
 
-            <ul class="list-disc list-inside space-y-2 text-black mb-8 ml-4 text-sm">
+            <ul class="list-disc list-inside space-y-2 text-black mb-8 text-sm">
                 <li><strong>Complex Issues:</strong> Aggression, anxiety, and fear-based reactivity.</li>
                 <li><strong>Personalized Coaching:</strong> Advanced sport techniques.</li>
                 <li><strong>Flexible Scheduling:</strong> Designed around your unique environment.</li>
             </ul>
 
-            <div class="text-sm font-bold text-black mb-4">
+            <div class="text-sm font-bold text-black">
                 Format: In-Person / Virtual
             </div>
             <div class="text-sm font-bold text-black mb-8">
