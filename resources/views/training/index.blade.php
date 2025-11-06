@@ -23,8 +23,11 @@
 
 
 </div>
-<div>
+<div class="border grid grid-col-3">
     I am an empty div
+    <div>01</div>
+    <div>02</div>
+    <div>03</div>
 </div>
 
 <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mt-12">
