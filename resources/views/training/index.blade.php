@@ -23,10 +23,9 @@
 
 
 </div>
-<div class="border grid grid-col-3">
-    I am an empty div
+<div class="border grid grid-cols-5">
     <div>01</div>
-    <div>02</div>
+    <div class="col-span-3">02</div>
     <div>03</div>
 </div>
 
