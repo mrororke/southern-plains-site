@@ -28,35 +28,35 @@
             <svg class="w-8 h-8 text-training-blue-default mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.65 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <h2 class="text-3xl font-extrabold text-gray-900">
+            <h2 class="text-xl font-extrabold text-gray-900">
                 Private Training
             </h2>
         </div>
         
-        <p class="text-gray-700 mb-6 border-b pb-4">
-            Customized, **one-on-one sessions** tailored specifically to your dog's most pressing behavioral needs, sport goals, or obedience challenges. This format is ideal for:
+        <p class="text-gray-700 mb-6 border-b pb-4 text-sm">
+            Customized, **one-on-one sessions** for complex issues, sport goals, or obedience challenges.
         </p>
 
-        <ul class="list-disc list-inside space-y-2 text-gray-600 mb-8 ml-4">
-            <li>**Complex Issues:** Aggression, severe anxiety, and fear-based reactivity.</li>
-            <li>**Personalized Coaching:** Advanced sport techniques (e.g., Trailing mechanics).</li>
-            <li>**Flexible Scheduling:** Sessions designed around your unique environment.</li>
+        <ul class="list-disc list-inside space-y-2 text-gray-600 mb-8 ml-4 text-sm">
+            <li>**Complex Issues:** Aggression, anxiety, and fear-based reactivity.</li>
+            <li>**Personalized Coaching:** Advanced sport techniques.</li>
+            <li>**Flexible Scheduling:** Designed around your unique environment.</li>
         </ul>
 
-        <div class="text-lg font-bold text-gray-800 mb-4">
+        <div class="text-sm font-bold text-gray-800 mb-4">
             Format: In-Person / Virtual
         </div>
-        <div class="text-lg font-bold text-gray-800 mb-8">
+        <div class="text-sm font-bold text-gray-800 mb-8">
             Cost: Varies (Customized Packages)
         </div>
 
         <a href="#consultation-form" 
            class="block w-full text-center bg-training-blue-default text-white py-3 rounded-lg font-bold uppercase tracking-wider 
-                  hover:bg-training-blue-hover focus:outline-none focus:ring-4 focus:ring-training-blue-default focus:ring-opacity-50 transition duration-150 shadow-md">
+                  hover:bg-training-blue-hover focus:outline-none focus:ring-4 focus:ring-training-blue-default focus:ring-opacity-50 transition duration-150 shadow-md text-sm">
             Request Consultation
         </a>
         
-        <p class="mt-4 text-sm text-gray-500 text-center">
+        <p class="mt-4 text-xs text-gray-500 text-center">
             Schedule a 15-minute introductory call.
         </p>
 
@@ -75,7 +75,7 @@
         </div>
         
         <p class="text-gray-700 mb-6 border-b pb-4">
-            This specialized **in-person class** is designed for dogs who feel overwhelmed or reactive in public settings. We use the **Course Circle technique**—a highly predictable, repeating circuit of stations (platforms, cavalletti, slow feeders)—to help your dog build focus, confidence, and calmness around triggers.
+            This specialized **in-person class** uses the **Course Circle technique** to help your dog build focus, confidence, and calmness around triggers, transforming fear into engagement.
         </p>
 
         <ul class="list-disc list-inside space-y-2 text-gray-600 mb-8 ml-4">
@@ -109,7 +109,7 @@
             <svg class="w-8 h-8 text-gray-400 mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
               <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <h2 class="text-3xl font-extrabold text-gray-700">
+            <h2 class="text-xl font-extrabold text-gray-700">
                 Coming Soon!
             </h2>
         </div>
@@ -118,21 +118,21 @@
             Click to Calm!
         </h3>
 
-        <p class="text-gray-600 mb-6">
+        <p class="text-gray-600 mb-6 text-sm">
             Specialized behavior modification focused on transforming unwanted, reactive, and aggressive dog behavior using Emma Parson's award-winning, science-based methodology.
         </p>
         
-        <p class="font-bold text-gray-800 mb-8">
-            Be the first to know when this highly anticipated class opens for enrollment!
+        <p class="font-bold text-gray-800 mb-8 text-sm">
+            Be the first to know when this class opens for enrollment!
         </p>
 
         <a href="#waitlist-signup" 
            class="block w-full text-center bg-gray-400 text-white py-3 rounded-lg font-bold uppercase tracking-wider 
-                  hover:bg-gray-500 focus:outline-none focus:ring-4 focus:ring-gray-300 transition duration-150 shadow-md cursor-pointer">
+                  hover:bg-gray-500 focus:outline-none focus:ring-4 focus:ring-gray-300 transition duration-150 shadow-md cursor-pointer text-sm">
             Join Waitlist
         </a>
         
-        <p class="mt-4 text-sm text-gray-500 text-center">
+        <p class="mt-4 text-xs text-gray-500 text-center">
             In-Person Class / Varies
         </p>
 
