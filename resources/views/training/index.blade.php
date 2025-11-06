@@ -138,9 +138,7 @@
     </div>
 </div>
 
-<div class="grid grid-cols-1 md:grid-cols-5 gap-8 mt-12">
 <!-- Begin Tier Two -->
- <h2 class="font-heading text-4xl mt-16 mb-8 text-black border-b-2 pb-2">Official Titling, Virtual Training & Community</h2>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
@@ -197,5 +195,4 @@
     </div>
 </div>
  <!-- End Tier Two -->
-</div>
 @endsection
