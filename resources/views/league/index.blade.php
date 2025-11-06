@@ -63,63 +63,6 @@
 </tbody>
 </table>
 
-<table class="w-full text-black border border-black">
-    <thead>
-        <tr class="bg-gray-100 border-b border-black">
-            <th class="p-3 text-left uppercase text-sm font-bold border-r border-black" colspan="4">
-                Spring Season (April - June)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="border-b border-black">
-            <td class="p-3 w-1/4 font-semibold border-r border-black">April</td>
-            <td class="p-3 w-1/4 border-r border-black">Field Scent Work</td>
-            <td class="p-3 w-1/4 border-r border-black">Trailing & Locating (T&L) & Brace</td>
-            <td class="p-3 w-1/4">Efficiency: Paired for course layout.</td>
-        </tr>
-        <tr class="border-b border-black">
-            <td class="p-3 w-1/4 font-semibold border-r border-black">May</td>
-            <td class="p-3 w-1/4 border-r border-black">Urban Scent Work</td>
-            <td class="p-3 w-1/4 border-r border-black">Urban Locating</td>
-            <td class="p-3 w-1/4">Rat Quarry Focus.</td>
-        </tr>
-        <tr class="border-b border-black">
-            <td class="p-3 w-1/4 font-semibold border-r border-black">June</td>
-            <td class="p-3 w-1/4 border-r border-black">Standalone Skill</td>
-            <td class="p-3 w-1/4 border-r border-black">Shed Hunting</td>
-            <td class="p-3 w-1/4"></td>
-        </tr>
-    </tbody>
-
-    <thead>
-        <tr class="bg-gray-100 border-b border-black mt-4">
-            <th class="p-3 text-left uppercase text-sm font-bold border-r border-black" colspan="4">
-                Fall Season (August - October)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr class="border-b border-black">
-            <td class="p-3 w-1/4 font-semibold border-r border-black">August</td>
-            <td class="p-3 w-1/4 border-r border-black">Urban Scent Work</td>
-            <td class="p-3 w-1/4 border-r border-black">Lost Item Recovery</td>
-            <td class="p-3 w-1/4">Inanimate object focus.</td>
-        </tr>
-        <tr class="border-b border-black">
-            <td class="p-3 w-1/4 font-semibold border-r border-black">September</td>
-            <td class="p-3 w-1/4 border-r border-black">Field Scent Work</td>
-            <td class="p-3 w-1/4 border-r border-black">Trailing & Locating (T&L) & Brace</td>
-            <td class="p-3 w-1/4">Efficiency: Paired for course layout.</td>
-        </tr>
-        <tr>
-            <td class="p-3 w-1/4 font-semibold border-r border-black">October</td>
-            <td class="p-3 w-1/4 border-r border-black">Standalone Skill</td>
-            <td class="p-3 w-1/4 border-r border-black">Shed Hunting</td>
-            <td class="p-3 w-1/4"></td>
-        </tr>
-    </tbody>
-</table>
 </div>
 
 </div>
