@@ -20,38 +20,38 @@
     <div class="col-span-2">
         <div class="border-1 border-black p-8 shadow-lg bg-gray-50 opacity-80">
 
-            <div class="flex items-center mb-4">
-                <svg class="w-8 h-8 text-black mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <h2 class="text-xl font-extrabold text-black">
-                    Coming Soon!
-                </h2>
-            </div>
-
-            <h3 class="text-2xl font-bold text-black mb-6 border-b pb-4">
-                Click to Calm!
-            </h3>
-
-            <p class="text-black mb-6 text-sm">
-                Specialized behavior modification focused on transforming unwanted, reactive, and aggressive dog behavior using Emma Parson's award-winning, science-based methodology.
-            </p>
-
-            <p class="font-bold text-black mb-8 text-sm">
-                Be the first to know when this class opens for enrollment!
-            </p>
-
-            <a href="#waitlist-signup"
-                class="block w-full text-center bg-black text-white py-3 font-bold uppercase tracking-wider 
-                  hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-black transition duration-150 shadow-md cursor-pointer text-sm">
-                Join Waitlist
-            </a>
-
-            <p class="mt-4 text-xs text-black text-center">
-                In-Person Class / Varies
-            </p>
-
+        <div class="flex items-center mb-4">
+            <svg class="w-8 h-8 text-black mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h2 class="text-xl font-extrabold text-black">
+                Coming Soon!
+            </h2>
         </div>
+
+        <h3 class="text-2xl font-bold text-black mb-6 border-b pb-4">
+            Click to Calm!
+        </h3>
+
+        <p class="text-black mb-6 text-sm">
+            Specialized behavior modification focused on transforming unwanted, reactive, and aggressive dog behavior using Emma Parson's award-winning, science-based methodology.
+        </p>
+
+        <p class="font-bold text-black mb-8 text-sm">
+            Be the first to know when this class opens for enrollment!
+        </p>
+
+        <a href="#waitlist-signup"
+            class="block w-full text-center bg-black text-white py-3 font-bold uppercase tracking-wider 
+                  hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-black transition duration-150 shadow-md cursor-pointer text-sm">
+            Join Waitlist
+        </a>
+
+        <p class="mt-4 text-xs text-black text-center">
+            In-Person Class / Varies
+        </p>
+
+    </div>
     </div>
     <div class="col-span-3">
         <div class="border-1 p-8 shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] bg-white">
