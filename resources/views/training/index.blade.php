@@ -3,20 +3,13 @@
 @section('page_content')
 <div class="mx-auto pt-10">
     <div class="flex flex-col lg:flex-row gap-10">
-        <div class="w-full lg:w-3/4">
+        <div class="w-full">
             <h4 class="uppercase text-xs font-bold">Southern Plains Training</h4>
             <h1 class="font-heading text-7xl">Training the dog you have.<br />Building the partner you need.</h1>
 
             <p class="text-base mb-2">We specialize in compassionate, positive reinforcement training, focusing on real-world solutions for complex behaviors like anxiety and reactivity. From foundational puppy skills to advanced skills, our methods empower handlers to build trust and achieve mutual success, all while prioritizing your dog's comfort and confidence.</p>
         </div>
-        <aside class="w-full lg:w-1/4 pt-4 lg:pt-0">
-            {{-- STATIC FILTER/SEARCH AREA --}}
-            <div class="mb-10 p-4">
-                <div class="flex flex-col md:flex-column gap-4">
-                    aside
-                </div>
-            </div>
-        </aside>
+        
 
 
     </div>
@@ -34,19 +27,19 @@
                 <svg class="w-8 h-8 text-training mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#03CCFF" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.65 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
-                <h2 class="text-xl font-extrabold text-black">
+                <h2 class="text-xl font-bold text-black">
                     Private Training
                 </h2>
             </div>
 
             <p class="text-black mb-6 border-b pb-4 text-sm">
-                Customized, **one-on-one sessions** for complex issues, sport goals, or obedience challenges.
+                Customized, <strong>one-on-one sessions</strong> for complex issues, sport goals, or obedience challenges.
             </p>
 
             <ul class="list-disc list-inside space-y-2 text-black mb-8 ml-4 text-sm">
-                <li>**Complex Issues:** Aggression, anxiety, and fear-based reactivity.</li>
-                <li>**Personalized Coaching:** Advanced sport techniques.</li>
-                <li>**Flexible Scheduling:** Designed around your unique environment.</li>
+                <li><strong>Complex Issues:</strong> Aggression, anxiety, and fear-based reactivity.</li>
+                <li><strong>Personalized Coaching:</strong> Advanced sport techniques.</li>
+                <li><strong>Flexible Scheduling:</strong> Designed around your unique environment.</li>
             </ul>
 
             <div class="text-sm font-bold text-black mb-4">
