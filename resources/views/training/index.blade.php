@@ -17,6 +17,46 @@
                 </div>
             </div>
         </aside>
+
+        <div>
+            <div class="md:col-span-1 border-2 border-training-blue-default rounded-xl p-8 shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] bg-white">
+    
+    <div class="flex items-center mb-4">
+        <svg class="w-8 h-8 text-training-blue-default mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.31-2.69 6-6 6s-6-2.69-6-6 2.69-6 6-6 6 2.69 6 6zm-6 0h.01M21 21l-4.35-4.35"></path></svg>
+        <h2 class="text-3xl font-extrabold text-gray-900">
+            Private Training
+        </h2>
+    </div>
+    
+    <p class="text-gray-700 mb-6 border-b pb-4">
+        Customized, **one-on-one sessions** tailored specifically to your dog's most pressing behavioral needs, sport goals, or obedience challenges. This format is ideal for:
+    </p>
+
+    <ul class="list-disc list-inside space-y-2 text-gray-600 mb-8 ml-4">
+        <li>**Complex Issues:** Aggression, severe anxiety, and fear-based reactivity.</li>
+        <li>**Personalized Coaching:** Focused work on advanced sport techniques (e.g., Trailing mechanics).</li>
+        <li>**Flexible Scheduling:** Sessions designed around your life and unique home environment.</li>
+    </ul>
+
+    <div class="text-lg font-bold text-gray-800 mb-4">
+        Format: In-Person / Virtual
+    </div>
+    <div class="text-lg font-bold text-gray-800 mb-8">
+        Cost: Varies (Customized Packages)
+    </div>
+
+    <a href="#consultation-form" 
+       class="block w-full text-center bg-training-blue-default text-white py-3 rounded-lg font-bold uppercase tracking-wider 
+              hover:bg-training-blue-hover focus:outline-none focus:ring-4 focus:ring-training-blue-default focus:ring-opacity-50 transition duration-150 shadow-md">
+        Request Consultation
+    </a>
+    
+    <p class="mt-4 text-sm text-gray-500 text-center">
+        Use the form to schedule a 15-minute introductory call.
+    </p>
+
+</div>
+        </div>
     </div>
 
 
