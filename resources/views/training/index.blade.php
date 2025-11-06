@@ -24,14 +24,8 @@
 
 </div>
 <div class="border grid grid-cols-7">
-    <div class="col-span-2">01</div>
-    <div class="col-span-3">02</div>
-    <div class="col-span-2">03</div>
-</div>
-
-<div class="grid grid-cols-1 md:grid-cols-5 gap-8 mt-12">
-
-    <div class="md:col-span-1 border-2 border-training-blue-default p-8 shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] bg-white">
+    <div class="col-span-2">
+        <div class="border-2 border-training-blue-default p-8 shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] bg-white">
         
         <div class="flex items-center mb-4">
             <svg class="w-8 h-8 text-training-blue-default mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -70,6 +64,14 @@
         </p>
 
     </div>
+    </div>
+    <div class="col-span-3">02</div>
+    <div class="col-span-2">03</div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-5 gap-8 mt-12">
+
+    
 
     <div class="md:col-span-3 border-2 border-training-blue-default p-8 shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] bg-white">
         
