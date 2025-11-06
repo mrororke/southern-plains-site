@@ -48,7 +48,7 @@
     </div>
 
     <a href="#consultation-form" 
-       class="block w-full text-center bg-training-blue text-white py-3 font-bold uppercase tracking-wider 
+       class="block w-full text-center bg-training text-white py-3 font-bold uppercase tracking-wider 
               hover:bg-training-hover focus:outline-none focus:ring-4 focus:ring-training-blue-default focus:ring-opacity-50 transition duration-150 shadow-md">
         Request Consultation
     </a>
