@@ -18,46 +18,7 @@
 </div>
 <div class="pt-10 grid grid-cols-7">
     <div class="col-span-2">
-        <div class="border-1 p-8 shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] bg-white">
-
-            <div class="flex items-center mb-4">
-                <svg class="w-8 h-8 text-training mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#03CCFF" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.65 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <h2 class="text-xl font-bold text-black uppercase">
-                    Private Training
-                </h2>
-            </div>
-
-            <p class="text-black mb-6 border-b pb-4 text-base">
-                Customized, <strong>one-on-one sessions</strong> for complex issues, sport goals, or obedience challenges.
-            </p>
-
-            <ul class="list-disc list-inside space-y-2 text-black mb-8 text-sm">
-                <li><strong>Complex Issues:</strong> Aggression, anxiety, and fear-based reactivity.</li>
-                <li><strong>Personalized Coaching:</strong> Advanced sport techniques.</li>
-                <li><strong>Flexible Scheduling:</strong> Designed around your unique environment.</li>
-            </ul>
-
-            <div class="text-sm font-bold text-black">
-                Format: In-Person / Virtual
-            </div>
-            <div class="text-sm font-bold text-black mb-8">
-                Cost: Varies (Customized Packages)
-            </div>
-
-            <a href="#consultation-form"
-                class="block w-full text-center bg-training text-white py-3 font-bold uppercase tracking-wider 
-                  hover:bg-training-hover focus:outline-none focus:ring-4 focus:ring-training-blue focus:ring-opacity-50 transition duration-150 shadow-md text-sm">
-                Request Consultation
-            </a>
-
-            <p class="mt-4 text-xs text-black text-center">
-                Schedule a 15-minute introductory call.
-            </p>
-
-        </div>
-    </div>
+        
     </div>
     <div class="col-span-3">
         <div class="border-1 p-8 shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] bg-white">
@@ -102,7 +63,46 @@
     </div>
     </div>
     <div class="col-span-2">03
-</div>
+        <div class="border-1 p-8 shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] bg-white">
+
+            <div class="flex items-center mb-4">
+                <svg class="w-8 h-8 text-training mr-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="#03CCFF" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.65 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <h2 class="text-xl font-bold text-black uppercase">
+                    Private Training
+                </h2>
+            </div>
+
+            <p class="text-black mb-6 border-b pb-4 text-base">
+                Customized, <strong>one-on-one sessions</strong> for complex issues, sport goals, or obedience challenges.
+            </p>
+
+            <ul class="list-disc list-inside space-y-2 text-black mb-8 text-sm">
+                <li><strong>Complex Issues:</strong> Aggression, anxiety, and fear-based reactivity.</li>
+                <li><strong>Personalized Coaching:</strong> Advanced sport techniques.</li>
+                <li><strong>Flexible Scheduling:</strong> Designed around your unique environment.</li>
+            </ul>
+
+            <div class="text-sm font-bold text-black">
+                Format: In-Person / Virtual
+            </div>
+            <div class="text-sm font-bold text-black mb-8">
+                Cost: Varies (Customized Packages)
+            </div>
+
+            <a href="#consultation-form"
+                class="block w-full text-center bg-training text-white py-3 font-bold uppercase tracking-wider 
+                  hover:bg-training-hover focus:outline-none focus:ring-4 focus:ring-training-blue focus:ring-opacity-50 transition duration-150 shadow-md text-sm">
+                Request Consultation
+            </a>
+
+            <p class="mt-4 text-xs text-black text-center">
+                Schedule a 15-minute introductory call.
+            </p>
+
+        </div>
+    </div>
 </div>
 
 <div class="grid grid-cols-1 md:grid-cols-5 gap-8 mt-12">
