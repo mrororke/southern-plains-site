@@ -18,7 +18,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicons/favicon.ico') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicons/favicon.ico') }}?v=1.1">
     <link rel="icon" type="image/svg+xml" href="{{ asset('favicons/favicon.svg') }}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('favicons/favicon-96x96.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('favicons/apple-touch-icon.png') }}">
