@@ -1,7 +1,7 @@
 @extends('layouts.base-training')
 
 @section('page_content')
-<div class="mx-auto pt-10">
+<div class="lg:pl-[105px] lg:pr-[95px] p-4">
     <div class="flex flex-col lg:flex-row gap-10">
         <div class="w-full lg:w-3/4">
             <h4 class="uppercase text-xs font-bold">Southern Plains Training</h4>
