@@ -18,8 +18,10 @@
             </div>
         </aside>
 
-        <div>
-            <div class="md:col-span-1 border-2 border-training-blue-default rounded-xl p-8 shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] bg-white">
+        
+    </div>
+<div>
+          <div class="md:col-span-1 border-2 border-training-blue-default rounded-xl p-8 shadow-lg hover:shadow-2xl transition duration-300 transform hover:scale-[1.02] bg-white">
     
     <div class="flex items-center mb-4">
         <svg class="w-8 h-8 text-training-blue-default mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0 3.31-2.69 6-6 6s-6-2.69-6-6 2.69-6 6-6 6 2.69 6 6zm-6 0h.01M21 21l-4.35-4.35"></path></svg>
@@ -55,10 +57,8 @@
         Use the form to schedule a 15-minute introductory call.
     </p>
 
-</div>
+</div>  
         </div>
-    </div>
-
 
 </div>
 @endsection
