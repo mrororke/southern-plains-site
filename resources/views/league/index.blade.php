@@ -45,19 +45,19 @@
             <td class="p-3 font-semibold">April</td>
             <td class="p-3 text-sm border-r border-black"><span class="font-semibold">Field Events</span><br/><span class="text-xs">Trailing & Locating, Brace</td>
             <td class="p-3 font-semibold">August</td>
-            <td class="p-3"><span class="font-semibold">Urban Events</span><br/><span class="text-xs">Lost Item: Handler Odor</td>
+            <td class="p-3 text-sm"><span class="font-semibold">Urban Events</span><br/><span class="text-xs">Lost Item: Handler Odor</td>
         </tr>
         <tr class="border-b border-black">
             <td class="p-3 font-semibold">May</td>
             <td class="p-3 text-sm border-r border-black"><span class="font-semibold">Urban Events</span><br/><span class="text-xs">Urban Locating</td>
             <td class="p-3 font-semibold">September</td>
-            <td class="p-3"><span class="font-semibold">Field Events</span><br/><span class="text-xs">Trailing & Locating, Brace</td>
+            <td class="p-3 text-sm"><span class="font-semibold">Field Events</span><br/><span class="text-xs">Trailing & Locating, Brace</td>
         </tr>
         <tr class="border-b border-black">
             <td class="p-3 font-semibold">June</td>
             <td class="p-3 text-sm border-r border-black"><span class="font-semibold">Shed</span></td>
             <td class="p-3 font-semibold">October</td>
-            <td class="p-3"><span class="font-semibold">Shed</span></td>
+            <td class="p-3 text-sm"><span class="font-semibold">Shed</span></td>
         </tr>
         
 </tbody>
