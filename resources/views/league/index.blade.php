@@ -3,7 +3,7 @@
 @section('page_content')
 <div class="mx-auto pt-10 pb-10">
     <div class="flex flex-col lg:flex-row gap-10">
-        <div class="w-full">
+        <div class="w-full lg:w-3/4">
             <h4 class="uppercase text-xs font-bold">The 2026 season</h4>
             <h1 class="font-heading text-7xl">Southern Plains League<br />Training Days.</h1>
 
