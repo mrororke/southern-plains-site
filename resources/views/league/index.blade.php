@@ -16,6 +16,9 @@
                 <li class="flex justify-between items-center pb-2 border-b last:border-b-0">
                     <a href="#schedule">Schedule</a>
                 </li>
+                <li class="flex justify-between items-center pb-2 border-b last:border-b-0">
+                    <a href="#membership">Membership, Participation, &amp; Fees</a>
+                </li>
                 
             </ul>
         </aside>
@@ -65,8 +68,8 @@
 </div>
 
 <div>
-    <h2 id="membership" class="font-heading text-3xl mt-12 mb-4 text-black">
-    2. Membership, Participation & Fees
+    <h2 id="membership" class="font-heading text-5xl mt-6 mb-2k">
+    Membership, Participation & Fees
 </h2>
 
 <h3 class="font-bold text-xl text-black mt-6 mb-3">
