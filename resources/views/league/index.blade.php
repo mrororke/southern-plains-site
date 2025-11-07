@@ -90,5 +90,100 @@
 </ul>
 </div>
 
+<div>
+    <h2 id="scoring" class="font-heading text-3xl mt-12 mb-4 text-black">
+    3. Scoring and Year-End Top Dog Award
+</h2>
+<p class="text-base text-black mb-6">
+    League points are awarded only to the participating dog(s) and accumulate across the Spring and Fall seasons. The Top Dog Award is based on consistent performance throughout the year.
+</p>
+
+<h3 class="font-bold text-xl text-black mt-6 mb-3">
+    Standardized Point Allocation
+</h3>
+<p class="text-sm text-black mb-3">
+    Points are awarded based on placement during Training Days, determined by the fastest Qualifying Run (QR) time.
+</p>
+<table class="w-full text-black border border-black mb-6">
+    <thead>
+        <tr class="bg-gray-100 border-b border-black">
+            <th class="p-3 text-left uppercase text-sm font-bold border-r border-black">Placement (Based on Fastest QR Time)</th>
+            <th class="p-3 text-left uppercase text-sm font-bold">Points Awarded to Dog</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="border-b border-black">
+            <td class="p-3 border-r border-black">1st Place</td>
+            <td class="p-3">5 Points</td>
+        </tr>
+        <tr class="border-b border-black">
+            <td class="p-3 border-r border-black">2nd Place</td>
+            <td class="p-3">3 Points</td>
+        </tr>
+        <tr class="border-b border-black">
+            <td class="p-3 border-r border-black">3rd Place</td>
+            <td class="p-3">1 Point</td>
+        </tr>
+        <tr>
+            <td class="p-3 border-r border-black">Any Other Qualifying Run (QR)</td>
+            <td class="p-3">0.5 Point (Base Score)</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 class="font-bold text-xl text-black mt-6 mb-3">
+    Brace Event Scoring Rule
+</h3>
+<p class="text-sm text-black mb-6">
+    The Brace Event is scored as a single team performance. When a Brace team achieves a QR and/or places, the full points are awarded to <strong>each of the two dogs</strong> who participated in that successful run.
+</p>
+
+<h3 class="font-bold text-xl text-black mt-6 mb-3">
+    Top Dog Award and Jackpot Payout
+</h3>
+<p class="text-sm text-black mb-2">
+    The dogs with the highest cumulative points at the end of the year are recognized as high achievers and receive a share of the League's Jackpot Prize Money.
+</p>
+
+<table class="w-full text-black border border-black mb-6">
+    <thead>
+        <tr class="bg-gray-100 border-b border-black">
+            <th class="p-3 text-left uppercase text-sm font-bold border-r border-black">Final Placement</th>
+            <th class="p-3 text-left uppercase text-sm font-bold border-r border-black">Title</th>
+            <th class="p-3 text-left uppercase text-sm font-bold">Jackpot Prize Money</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="border-b border-black">
+            <td class="p-3 border-r border-black">1st Place</td>
+            <td class="p-3 border-r border-black">Champion (Top Dog)</td>
+            <td class="p-3">50%</td>
+        </tr>
+        <tr class="border-b border-black">
+            <td class="p-3 border-r border-black">2nd Place</td>
+            <td class="p-3 border-r border-black">Reserve Champion</td>
+            <td class="p-3">35%</td>
+        </tr>
+        <tr>
+            <td class="p-3 border-r border-black">3rd Place</td>
+            <td class="p-3 border-r border-black">Third Place Prize</td>
+            <td class="p-3">15%</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4 class="font-bold text-lg text-black mt-6 mb-2">
+    Tiebreaker Rules
+</h4>
+<p class="text-sm text-black mb-1">
+    In the event of a tie in cumulative points, the following rules apply:
+</p>
+<ul class="list-disc list-inside text-sm text-black ml-4">
+    <li>**Tiebreaker 1:** The dog with the most first-place finishes.</li>
+    <li>**Tiebreaker 2:** The dog with the most second-place finishes.</li>
+    <li>**Tiebreaker 3:** The dog with the fastest average time across all qualifying runs.</li>
+</ul>
+</div>
+
 </div>
 @endsection
