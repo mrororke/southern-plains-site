@@ -33,7 +33,7 @@
     The season is split into two sessions to accommodate climate concerns. Points from both sessions accumulate for the annual Top Dog Award.
 </p>
 
-<table class="w-full text-black border border-black">
+<table class="w-full text-black border border-black mb-6">
     <thead>
         <tr class="bg-black border-b border-black">
             <th class="p-3 text-left uppercase text-sm font-bold text-white" colspan="2">
