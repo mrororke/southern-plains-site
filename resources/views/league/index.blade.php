@@ -68,11 +68,11 @@
 </div>
 
 <div>
-    <h2 id="membership" class="font-heading text-5xl mt-6 mb-2k">
+    <h2 id="membership" class="font-heading text-5xl mt-6 mb-2">
     Membership, Participation & Fees
 </h2>
 
-<h3 class="font-bold text-xl text-black mt-6 mb-3">
+<h3 class="font-bold text-xl text-black mt-6 mb-2">
     Eligibility and Participation
 </h3>
 <ul class="list-disc list-inside text-base text-black ml-4 mb-4">
@@ -81,12 +81,12 @@
     <li>To qualify for year-end awards, handlers and dogs must participate in at least 50% (3 of 6) of the season's Training Days.</li>
 </ul>
 
-<h3 class="font-bold text-xl text-black mt-6 mb-3">
+<h3 class="font-bold text-xl text-black mt-6 mb-2">
     Fees and Entry
 </h3>
 <ul class="list-disc list-inside text-base text-black ml-4 mb-6">
-    <li>Membership Fee: There are no annual membership fees at this time.</li>
-    <li>Entry Fees: A flat-rate entry fee will be charged for each Training Day, per dog participating. Fee details will be provided on the event registration page.</li>
+    <li><strong>Membership Fee:</strong> There are no annual membership fees at this time.</li>
+    <li><strong>Entry Fees:</strong> A flat-rate entry fee will be charged for each Training Day, per dog participating. Fee details will be provided on the event registration page.</li>
 </ul>
 </div>
 
