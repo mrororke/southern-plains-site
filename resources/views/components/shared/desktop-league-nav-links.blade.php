@@ -48,8 +48,8 @@
     </a>
 
     {{-- Events Link: Uses 'events' route --}}
-    @php $isEvents = request()->routeIs('events'); @endphp
-    <a href="{{ route('events') }}"
+    @php $isEvents = request()->routeIs('events.index'); @endphp
+    <a href="{{ route('events.index') }}"
         class="px-3 py-2 text-sm font-medium uppercase hover:text-league 
        {{-- 💡 APPLY CUSTOM ACTIVE CLASSES --}}
        {{ $isEvents ? 'text-league-active border-b-3 border-league-active' : 'text-black' }}">
