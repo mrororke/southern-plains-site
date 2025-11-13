@@ -24,13 +24,14 @@
         @foreach ($monthlyEvents as $event)
 
         <div class="event-card {{ $event->category_class }} p-4 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                    <p>I am an event in {{ $monthYear }}</p>
+            <p>I am an event in {{ $monthYear }}</p>
 
-            
+
         </div>
         @endforeach
 
         @endforeach
+</div>
 
         @foreach ($events as $event)
 
