@@ -186,6 +186,25 @@
     <li><strong>Tiebreaker 2:</strong> The dog with the most second-place finishes.</li>
     <li><strong>Tiebreaker 3:</strong> The dog with the fastest average time across all qualifying runs.</li>
 </ul>
+
+ <h2 id="rules" class="font-heading text-5xl mt-6 mb-2">
+   Rules of Conduct &amp; Equipment
+</h2>
+
+<h3 class="font-bold text-xl text-black mt-6 mb-2">
+    Sportsmanship
+</h3>
+<ul class="list-disc list-inside text-base text-black ml-4 mb-4">
+    <li>Participants are expected to behave respectfully towards handlers, dogs, judges, and volunteers at all times.</li>
+</ul>
+<h3 class="font-bold text-xl text-black mt-6 mb-2">
+    Dog Safety &amp; Welfare
+</h3>
+<ul class="list-disc list-inside text-base text-black ml-4 mb-4">
+    <li>Dogs must be in good health and handled responsibly.</li>
+    <li>Bitches in season (BIS) are allowed to train. They must wear appropriate pants and will run at the end of the rotation.</li>
+</ul>
+
 </div>
 
 </div>
