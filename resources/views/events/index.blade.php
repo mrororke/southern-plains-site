@@ -15,16 +15,10 @@
         <p class="text-base mb-2">Check back soon! We are currently working on planning our next training days and club meetings.</p>
         @else
 
-
-        <div class="grid md:grid-cols-2 gap-4 text-center">
-            <div>One</div>
-            <div>Two</div>
-        </div>
-
     </div>
 
 
-    <div class="space-y-6">
+    <div class="space-y-6 grid md:grid-cols-2 gap-4">
         @foreach ($events->groupBy(fn($event) => $event->date->format('F Y')) as $monthYear => $monthlyEvents)
         <h3 class="uppercase font-semibold bg-black text-white p-2">{{ $monthYear }}</h3>
         @foreach ($monthlyEvents as $event)
