@@ -7,11 +7,16 @@
     <h4 class="uppercase text-xs font-bold">Southern Plains Events</h4>
     <h1 class="font-heading text-7xl">Training, Community,<br />and Competition.</h1>
 
-    <p class="text-base mb-2">This is your comprehensive guide to the club's activities. Find the dates and details for upcoming League Training Days, essential Club Meetings, and specialized Training Seminars. Whether you're a competitor looking to secure your Top Dog title or a member seeking community, plan your participation here.</p>
+    <p class="text-base mb-2">This is your comprehensive guide to the club's activities. Find the dates and details for upcoming<br/>League Training Days, essential Club Meetings, and specialized Training Seminars.<br/>Whether you're a competitor looking to secure your Top Dog title or a member seeking community, plan your participation here.</p>
 
     <div class="container mx-auto px-6 py-6">
         <div class="flex flex-col lg:flex-row gap-10">
             look at my row isn't it cool
+            <div class="md:w-1/2">
+                COlumn one
+            </div>div class="md:w-1/2">
+                COlumn two
+            </div>
         </div>
 
     </div>
