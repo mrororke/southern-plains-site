@@ -28,7 +28,7 @@
         @foreach ($events->groupBy(fn($event) => $event->date->format('F Y')) as $monthYear => $monthlyEvents)
         <h3 class="uppercase font-semibold bg-black text-white p-2">{{ $monthYear }}</h3>
         @foreach ($monthlyEvents as $event)
-        <p>I am an event in december</p>
+        <p>I am an event in {{ $monthYear }}</p>
         @endforeach
 
         @endforeach
