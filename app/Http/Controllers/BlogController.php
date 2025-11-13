@@ -16,12 +16,12 @@ class BlogController extends Controller
     {
         // 1. Fetch Categories and Tags (needed for the sidebar/filter components)
         // NOTE: I'm updating the orderBy to match your existing 'name', 'asc'
-        $categories = Category::withCount(['posts' => fn($q) => $q->whereNotNull('published_at')])
+        $categories = Category::withCount(['posts' => fn($q) => $q->where('published_at', '<=', now())])
             ->having('posts_count', '>', 0)
             ->orderBy('name', 'asc')
             ->get();
 
-        $tags = Tag::withCount(['posts' => fn($q) => $q->whereNotNull('published_at')])
+        $tags = Tag::withCount(['posts' => fn($q) => $q->where('published_at', '<=', now())])
             ->having('posts_count', '>', 0)
             ->orderBy('name', 'asc')
             ->get();
@@ -68,17 +68,17 @@ class BlogController extends Controller
     public function category(Category $category)
     {
         $posts = $category->posts()
-            ->whereNotNull('published_at') // Only show published posts
+            ->whereNotNull('published_at', '<=', now()) // Only show published posts
             ->latest('published_at')
             ->paginate(15);
 
         // ADDED LOGIC TO FETCH SIDEBAR DATA
-        $categories = Category::withCount(['posts' => fn($q) => $q->whereNotNull('published_at')])
+        $categories = Category::withCount(['posts' => fn($q) => $q->where('published_at', '<=', now())])
             ->having('posts_count', '>', 0)
             ->orderBy('name', 'asc')
             ->get();
 
-        $tags = Tag::withCount(['posts' => fn($q) => $q->whereNotNull('published_at')])
+        $tags = Tag::withCount(['posts' => fn($q) => $q->where('published_at', '<=', now())])
             ->having('posts_count', '>', 0)
             ->orderBy('name', 'asc')
             ->get();
@@ -94,17 +94,17 @@ class BlogController extends Controller
     public function tag(Tag $tag)
     {
         $posts = $tag->posts()
-            ->whereNotNull('published_at') // Only show published posts
+            ->whereNotNull('published_at', '<=', now()) // Only show published posts
             ->latest('published_at')
             ->paginate(10);
 
             // START: ADDED LOGIC TO FETCH SIDEBAR DATA
-    $categories = Category::withCount(['posts' => fn($q) => $q->whereNotNull('published_at')])
+    $categories = Category::withCount(['posts' => fn($q) => $q->where('published_at', '<=', now())])
                             ->having('posts_count', '>', 0)
                             ->orderBy('name', 'asc')
                             ->get();
 
-    $tags = Tag::withCount(['posts' => fn($q) => $q->whereNotNull('published_at')])
+    $tags = Tag::withCount(['posts' => fn($q) => $q->where('published_at', '<=', now())])
                 ->having('posts_count', '>', 0)
                 ->orderBy('name', 'asc')
                 ->get();
