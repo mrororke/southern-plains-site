@@ -15,11 +15,6 @@
         <p class="text-base mb-2">Check back soon! We are currently working on planning our next training days and club meetings.</p>
         @else
 
-        // New loop start:
-        @foreach ($events->groupBy(fn($event) => $event->date->format('F Y')) as $monthYear => $monthlyEvents)
-        {{-- $monthYear will be "November 2025" --}}
-        {{-- $monthlyEvents is a collection of all events in that month --}}
-        @endforeach
 
         <div class="grid md:grid-cols-2 gap-4 text-center">
             <div>One</div>
@@ -31,6 +26,12 @@
 
     <div class="space-y-6">
         @foreach ($events as $event)
+         // New loop start:
+        @foreach ($events->groupBy(fn($event) => $event->date->format('F Y')) as $monthYear => $monthlyEvents)
+        {{-- $monthYear will be "November 2025" --}}
+        {{-- $monthlyEvents is a collection of all events in that month --}}
+        @endforeach
+
         {{-- Event Card --}}
         <div class="event-card bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border-l-4 {{ $event->category_class }}">
             <div class="p-6 md:flex md:items-center">
