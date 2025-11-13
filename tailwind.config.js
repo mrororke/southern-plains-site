@@ -9,6 +9,20 @@ export default {
         './resources/views/**/*.blade.php',
     ],
 
+    safelist: [
+    // --- Safelist Dynamic Event Colors ---
+    // Safelist background colors for dynamic category classes (1, 2, 3)
+    'bg-[#4CBB17]/50', // Club Event (Category 1)
+    'bg-[#FF0398]/50', // League Event (Category 2)
+    'bg-[#03CCFF]/50', // Training Event (Category 3)
+    
+    // Safelist border colors if you use them dynamically (not required for current classes)
+    'border-[#4CBB17]',
+    'border-[#FF0398]',
+    'border-[#03CCFF]',
+    // --- End Safelist ---
+  ],
+
     theme: {
         extend: {
             colors: {
