@@ -68,7 +68,7 @@
                     View Details
                 </a>
                 @if ($event->event_link)
-                <a href="{{ $event->event_link }}" target="_blank" class="text-center px-4 py-4 text-sm font-medium text-{{ $event->category_name }} border border-{{ $event->category_class }} hover:bg-{{ $event->category_name }}-hover hover:text-white transition-colors duration-200">
+                <a href="{{ $event->event_link }}" target="_blank" class="text-center px-4 py-4 text-sm font-medium text-black border border-{{ $event->category_class }} hover:bg-{{ $event->category_name }}-hover hover:text-white transition-colors duration-200">
                     Register / Learn More
                 </a>
                 @endif
