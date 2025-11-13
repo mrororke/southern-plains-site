@@ -4,10 +4,10 @@
 
 @section('page_content')
     <div class="container mx-auto px-4 py-12">
-        <h1 class="text-4xl font-extrabold text-gray-900 mb-8">Upcoming Events</h1>
-        <p class="text-lg text-gray-600 mb-10">
-            View all official Southern Plains Sport Dog Club activities, including League Days, Club Meetings, and Training Seminars.
-        </p>
+        <h4 class="uppercase text-xs font-bold">Southern Plains Events</h4>
+            <h1 class="font-heading text-7xl">Training, Community,<br />and Competition.</h1>
+
+            <p class="text-base mb-2">This is your comprehensive guide to the club's activities. Find the dates and details for upcoming League Training Days, essential Club Meetings, and specialized Training Seminars. Whether you're a competitor looking to secure your Top Dog title or a member seeking community, plan your participation here.</p>
 
         @if ($events->isEmpty())
             <div class="text-center p-10 bg-white rounded-xl shadow-lg border border-gray-200">
