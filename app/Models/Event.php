@@ -45,7 +45,7 @@ class Event extends Model
     public function getCategoryClassAttribute()
     {
         return match ($this->category_id) {
-            1 => 'bg-indigo-100 text-indigo-700 border-indigo-500', // Club
+            1 => 'bg-club text-black', // Club
             2 => 'bg-green-100 text-green-700 border-green-500', // League
             3 => 'bg-yellow-100 text-yellow-700 border-yellow-500', // Training
             4 => 'bg-gray-100 text-gray-700 border-gray-500', // Other
