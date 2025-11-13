@@ -2,7 +2,7 @@
 
 @section('title', 'Events Calendar')
 
-@section('content')
+@section('page_content')
     <div class="container mx-auto px-4 py-12">
         <h1 class="text-4xl font-extrabold text-gray-900 mb-8">Upcoming Events</h1>
         <p class="text-lg text-gray-600 mb-10">
