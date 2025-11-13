@@ -25,10 +25,12 @@
 
 
     <div class="space-y-6">
-        @foreach ($events as $event)
         @foreach ($events->groupBy(fn($event) => $event->date->format('F Y')) as $monthYear => $monthlyEvents)
         <h3 class="uppercase font-semibold bg-black text-white p-2">{{ $monthYear }}</h3>
         @endforeach
+
+        @foreach ($events as $event)
+        
 
         {{-- Event Card --}}
         <div class="event-card bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border-l-4 {{ $event->category_class }}">
