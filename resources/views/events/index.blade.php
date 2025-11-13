@@ -40,7 +40,7 @@
 
                     {{-- Event Name --}}
                     <a href="{{ route('events.show', $event->slug) }}" class="block">
-                        <h2 class="font-heading text-4xl mb-2 hover:text-{{ $event->category_name }} transition-colors duration-200">
+                        <h2 class="font-heading text-3xl mb-2 hover:text-{{ $event->category_name }} transition-colors duration-200">
                             {{ $event->name }}
                         </h2>
                     </a>
