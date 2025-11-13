@@ -19,6 +19,9 @@
                 <li class="flex justify-between items-center pb-2 border-b last:border-b-0">
                     <a href="#membership">Membership, Participation, &amp; Fees</a>
                 </li>
+                <li class="flex justify-between items-center pb-2 border-b last:border-b-0">
+                    <a href="#scoring">Scoring &amp; Year End Awards</a>
+                </li>
                 
             </ul>
         </aside>
@@ -91,14 +94,14 @@
 </div>
 
 <div>
-    <h2 id="scoring" class="font-heading text-3xl mt-12 mb-4 text-black">
-    3. Scoring and Year-End Top Dog Award
+    <h2 id="scoring" class="font-heading text-5xl mt-6 mb-2">
+    Scoring &amp; Year-End Awards
 </h2>
 <p class="text-base text-black mb-6">
     League points are awarded only to the participating dog(s) and accumulate across the Spring and Fall seasons. The Top Dog Award is based on consistent performance throughout the year.
 </p>
 
-<h3 class="font-bold text-xl text-black mt-6 mb-3">
+<h3 class="font-bold text-xl text-black mt-6 mb-2">
     Standardized Point Allocation
 </h3>
 <p class="text-sm text-black mb-3">
@@ -106,9 +109,9 @@
 </p>
 <table class="w-full text-black border border-black mb-6">
     <thead>
-        <tr class="bg-gray-100 border-b border-black">
-            <th class="p-3 text-left uppercase text-sm font-bold border-r border-black">Placement (Based on Fastest QR Time)</th>
-            <th class="p-3 text-left uppercase text-sm font-bold">Points Awarded to Dog</th>
+        <tr class="bg-black border-b border-black">
+            <th class="p-3 text-left uppercase text-sm font-bold text-white">Placement (Based on Fastest QR Time)</th>
+            <th class="p-3 text-left uppercase text-sm font-bold text-white">Points Awarded to Dog</th>
         </tr>
     </thead>
     <tbody>
