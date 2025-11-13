@@ -9,7 +9,7 @@
 
     <p class="text-base mb-2">This is your comprehensive guide to the club's activities. Find the dates and details for upcoming<br/>League Training Days, essential Club Meetings, and specialized Training Seminars. Whether you're<br/>a competitor looking to secure your Top Dog title or a member seeking community, plan your participation here.</p>
 
-    <div class="container mx-auto px-6 py-6">
+    <div class="container mx-auto py-6">
         @if ($events->isEmpty())
         <h3 class="font-heading text-5xl mb-6">No events currently scheduled.</h3>
         <p class="text-base mb-2">Check back soon! We are currently working on planning our next training days and club meetings.</p>
