@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('blog.base')
 
 @section('title', 'Events Calendar')
 
