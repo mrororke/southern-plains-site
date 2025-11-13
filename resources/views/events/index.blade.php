@@ -48,7 +48,7 @@
                     {{-- Location --}}
                     @if ($event->location)
                     <p class="text-sm text-gray-700 mt-1 flex items-center">
-                        <svg class="w-4 h-4 mr-1 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <svg class="w-4 h-4 mr-1 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"></path>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
                         </svg>
@@ -58,12 +58,12 @@
 
                     {{-- Description Snippet --}}
                     @if ($event->about)
-                    <p class="text-gray-500 mt-3 text-sm line-clamp-2">
+                    <p class="text-black mt-3 text-sm line-clamp-2">
                         {{ Str::limit($event->about, 150) }}
                     </p>
                     @endif
 
-                    <div class="mt-4 md:mt-0 md:ml-6 flex-shrink-0 flex flex-col space-y-2 w-full md:w-auto">
+                    <div class="mt-4 md:mt-0 md:ml-6 flex-shrink-0 flex flex-row space-y-2 w-full md:w-auto">
                 <a href="{{ route('events.show', $event->slug) }}" class="text-center px-4 py-2 text-sm font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 transition-colors duration-200 shadow-md">
                     View Details
                 </a>
