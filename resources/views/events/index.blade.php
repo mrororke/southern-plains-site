@@ -27,7 +27,7 @@
                 <div class="p-6 md:flex md:items-center">
                     <div class="flex-shrink-0 mb-4 md:mb-0 md:w-12 text-center md:pr-6">
                         <p class="text-4xl font-bold text-black">{{ $event->date->format('d') }}</p>
-                        <p class="text-xs text-black uppercase">{{ $event->date->format('D') }}</p>
+                        <p class="text-xs text-black uppercase">{{ $event->date->format('l') }}</p>
                     </div>
                 </div>
 
