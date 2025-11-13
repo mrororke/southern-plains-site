@@ -25,16 +25,12 @@
             <!-- Event Card -->
             <div class="event-card {{ $event->category_class }} p-4 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div class="p-6 md:flex md:items-center">
-
-                    {{-- Date Block (Fixed Width) --}}
-                    <div class="flex-shrink-0 mb-4 md:mb-0 md:w-32 text-center border-b md:border-b-0 md:border-r md:pr-6">
-                        <p class="text-sm font-semibold uppercase text-gray-500">{{ $event->date->format('D') }}</p>
-                        <p class="text-4xl font-bold text-gray-900">{{ $event->date->format('d') }}</p>
-                        <p class="text-sm text-gray-500">{{ $event->date->format('Y') }}</p>
-                    </div>
-
-
+                    {{ $event->date->format('D') }}
+                    {{ $event->date->format('d') }}
                 </div>
+                
+
+
                 @endforeach
             </div>
             @endforeach
