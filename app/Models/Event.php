@@ -31,11 +31,11 @@ class Event extends Model
     public function getCategoryNameAttribute()
     {
         return match ($this->category_id) {
-            1 => 'hover:text-club',
-            2 => 'hover:text-league',
-            3 => 'hover:text-training',
-            4 => 'hover:text-club',
-            default => 'hover:text-club',
+            1 => 'club',
+            2 => 'league',
+            3 => 'training',
+            4 => 'club',
+            default => 'club',
         };
     }
 
