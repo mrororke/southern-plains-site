@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,10 +50,9 @@ Route::get('/league', function () {
     return view('league.index'); // Using the appropriate view name
 })->name('league.index');
 
-// Events Page
-Route::get('/events', function () {
-    return view('events'); // Using the appropriate view name
-})->name('events');
+// Calendar Routes
+Route::get('/events', [EventController::class, 'index'])->name('events.index');
+Route::get('/events/{event:slug}', [EventController::class, 'show'])->name('events.show');
 
 // Contact Page
 Route::get('/contact', function () {
