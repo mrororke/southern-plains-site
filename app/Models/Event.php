@@ -45,11 +45,12 @@ class Event extends Model
     public function getCategoryClassAttribute()
     {
         return match ($this->category_id) {
-            1 => 'bg-[#4CBB17]/25 text-black', // Club
-            2 => 'bg-[#FF0398]/25 text-black', // League
-            3 => 'bg-[#03CCFF]/25 text-black', // Training
-            4 => 'bg-white text-black border-gray-500', // Other
-            default => 'bg-white text-black border-gray-500',
+            1 => '[#4CBB17]/25 text-black', // Club
+            2 => '[#FF0398]/25 text-black', // League
+            3 => '[#03CCFF]/25 text-black', // Training
+            4 => 'white text-black border-gray-500', // Other
+            default => 'white text-black border-gray-500',
         };
     }
+
 }
