@@ -28,8 +28,7 @@
         @foreach ($events as $event)
          // New loop start:
         @foreach ($events->groupBy(fn($event) => $event->date->format('F Y')) as $monthYear => $monthlyEvents)
-        {{-- $monthYear will be "November 2025" --}}
-        {{-- $monthlyEvents is a collection of all events in that month --}}
+        {{ $monthlyEvents }}
         @endforeach
 
         {{-- Event Card --}}
