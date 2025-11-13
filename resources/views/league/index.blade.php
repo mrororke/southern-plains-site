@@ -181,10 +181,10 @@
 <p class="text-base text-black mb-6">
     In the event of a tie in cumulative points, the following rules apply:
 </p>
-<ul class="list-disc list-inside text-sm text-black ml-4">
-    <li>**Tiebreaker 1:** The dog with the most first-place finishes.</li>
-    <li>**Tiebreaker 2:** The dog with the most second-place finishes.</li>
-    <li>**Tiebreaker 3:** The dog with the fastest average time across all qualifying runs.</li>
+<ul class="list-disc list-inside text-base text-black ml-4 mb-6">
+    <li><strong>Tiebreaker 1:</strong> The dog with the most first-place finishes.</li>
+    <li><strong>Tiebreaker 2:</strong> The dog with the most second-place finishes.</li>
+    <li><strong>Tiebreaker 3:</strong> The dog with the fastest average time across all qualifying runs.</li>
 </ul>
 </div>
 
