@@ -22,6 +22,9 @@
                 <li class="flex justify-between items-center pb-2 border-b last:border-b-0">
                     <a href="#scoring">Scoring &amp; Year End Awards</a>
                 </li>
+                <li class="flex justify-between items-center pb-2 border-b last:border-b-0">
+                    <a href="#rules">Rules of Conduct &amp; Equipment</a>
+                </li>
                 
             </ul>
         </aside>
@@ -203,6 +206,14 @@
 <ul class="list-disc list-inside text-base text-black ml-4 mb-4">
     <li>Dogs must be in good health and handled responsibly.</li>
     <li>Bitches in season (BIS) are allowed to train. They must wear appropriate pants and will run at the end of the rotation.</li>
+</ul>
+
+<h3 class="font-bold text-xl text-black mt-6 mb-2">
+    Equipment
+</h3>
+<ul class="list-disc list-inside text-base text-black ml-4 mb-4">
+    <li><strong>Allowed:</strong> Flat buckle or snap collars, fixed harnesses, and leashes long enough for the dog to work without interference. GPS/location collars are permitted.</li>
+    <li><strong>Prohibited:</strong> Prong collars, shock collars, choke chains or other correctional equipment is not permitted.</li>
 </ul>
 
 </div>
