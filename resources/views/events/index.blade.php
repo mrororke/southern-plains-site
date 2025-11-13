@@ -10,7 +10,7 @@
     <p class="text-base mb-2">This is your comprehensive guide to the club's activities. Find the dates and details for upcoming<br/>League Training Days, essential Club Meetings, and specialized Training Seminars. Whether you're<br/>a competitor looking to secure your Top Dog title or a member seeking community, plan your participation here.</p>
 
     <div class="container mx-auto px-6 py-6">
-        <div class="flex flex-col lg:flex-row gap-10">
+        <div class="grid gap-10">
             look at my row isn't it cool
             <div class="md:w-1/2">
                 COlumn one
