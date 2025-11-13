@@ -22,19 +22,11 @@
         @foreach ($events->groupBy(fn($event) => $event->date->format('F Y')) as $monthYear => $monthlyEvents)
         <h3 class="uppercase font-semibold bg-black text-white p-2">{{ $monthYear }}</h3>
         @foreach ($monthlyEvents as $event)
-        <p>I am an event in {{ $monthYear }}</p>
 
         <div class="event-card {{ $event->category_class }} p-4 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <p>I am an event in {{ $monthYear }}</p>
+
             
-            @if ($event->category_id === 1)
-            <p>This is category one</p>
-            @elseif ($event->category_id === 2)
-            <p>This is category two</p>
-            @elseif ($event->category_id === 3)
-            <p>This is category three</p>
-            @elseif ($event->category_id === 4)
-            <p>This is category four</p>
-            @endif
         </div>
         @endforeach
 
