@@ -17,10 +17,10 @@
 
     </div>
 
-    <div class="space-y-12">
+    <div class="space-y-6">
         @foreach ($events->groupBy(fn($event) => $event->date->format('F Y')) as $monthYear => $monthlyEvents)
         <h3 class="uppercase font-semibold bg-black text-white p-2">{{ $monthYear }}</h3>
-        <div class="grid md:grid-cols-2 gap-6 pt-2">
+        <div class="grid md:grid-cols-2 gap-6">
             @foreach ($monthlyEvents as $event)
             <!-- Event Card -->
             <div class="event-card flex bg-{{ $event->category_class }}/25 text=black p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
