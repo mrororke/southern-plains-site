@@ -9,71 +9,31 @@
 
     <p class="text-base mb-2">This is your comprehensive guide to the club's activities. Find the dates and details for upcoming<br />League Training Days, essential Club Meetings, and specialized Training Seminars. Whether you're<br />a competitor looking to secure your Top Dog title or a member seeking community, plan your participation here.</p>
 
-   <!-- Calendar List: Using space-y-8 to separate monthly blocks -->
-    <div class="space-y-12">
-        @foreach ($events->groupBy(fn($event) => $event->date->format('F Y')) as $monthYear => $monthlyEvents)
+    <div class="container mx-auto py-6">
+        @if ($events->isEmpty())
+        <h3 class="font-heading text-5xl mb-6">No events currently scheduled.</h3>
+        <p class="text-base mb-2">Check back soon! We are currently working on planning our next training days and club meetings.</p>
+        @else
 
-            <!-- 1. FULL WIDTH MONTH HEADER -->
-            <h3 class="uppercase font-extrabold text-2xl tracking-wider text-white bg-gray-800 p-4 rounded-t-lg shadow-md">
-                {{ $monthYear }}
-            </h3>
+    </div>
 
-            <!-- 2. NESTED GRID FOR EVENT CARDS -->
-            <!-- The grid is applied here, making the event cards the children of the grid -->
-            <div class="grid md:grid-cols-2 gap-6 pt-2">
+
+    <div class="space-y-6 grid md:grid-cols-2 gap-4">
+        <div class="md:col-span-2">
+            @foreach ($events->groupBy(fn($event) => $event->date->format('F Y')) as $monthYear => $monthlyEvents)
+            <h3 class="uppercase font-semibold bg-black text-white p-2">{{ $monthYear }}</h3>
+            <div class="mt-4 space-y-4">
                 @foreach ($monthlyEvents as $event)
-                
-                    <!-- Event Card -->
-                    <div class="
-                        event-card 
-                        {{ $event->category_class }} 
-                        p-6 rounded-lg 
-                        shadow-lg 
-                        border-b-4 
-                        border-transparent 
-                        hover:shadow-xl 
-                        hover:border-gray-800 
-                        transition-all 
-                        duration-300
-                    ">
-                        
-                        <!-- Category Tag -->
-                        <span class="text-xs font-semibold px-3 py-1 rounded-full border border-black/50 mb-3 inline-block">
-                            {{ $event->category_name }}
-                        </span>
+                <!-- Event Card -->
+                <div class="event-card {{ $event->category_class }} p-4 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                    <p>I am an event in {{ $monthYear }}</p>
 
-                        <h4 class="text-2xl font-bold mb-2 text-gray-900">
-                            {{ $event->name }}
-                        </h4>
-                        
-                        <!-- Date & Location -->
-                        <div class="flex items-center text-sm text-gray-700 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                            </svg>
-                            <span class="font-medium text-lg">{{ $event->date->format('M j, Y') }}</span>
-                            <span class="mx-3 text-gray-400">|</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                            </svg>
-                            <span class="text-sm">{{ $event->location }}</span>
-                        </div>
 
-                        <!-- Details Link -->
-                        <a href="{{ route('events.show', $event->slug) }}" class="inline-flex items-center text-sm font-semibold text-gray-800 hover:text-gray-600 transition duration-150 mt-2">
-                            View Details
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                            </svg>
-                        </a>
-                        
-                    </div>
+                </div>
                 @endforeach
             </div>
-            <!-- END: NESTED GRID -->
-
-        @endforeach
+            @endforeach
+        </div>
     </div>
 
 
@@ -142,7 +102,5 @@
     </div>
 </div>
 @endforeach
-</div>
-@endif
 </div>
 @endsection
