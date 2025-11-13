@@ -25,8 +25,10 @@
             <!-- Event Card -->
             <div class="event-card {{ $event->category_class }} p-4 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div class="p-6 md:flex md:items-center">
-                    {{ $event->date->format('D') }}
-                    {{ $event->date->format('d') }}
+                    <div class="flex-shrink-0 mb-4 md:mb-0 md:w-32 text-center border-b md:border-b-0 md:border-r md:pr-6">
+                        {{ $event->date->format('D') }}
+                        {{ $event->date->format('d') }}
+                    </div>
                 </div>
 
             </div>
