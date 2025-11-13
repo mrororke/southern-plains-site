@@ -11,8 +11,8 @@
 
     <div class="container mx-auto px-6 py-6">
         @if ($events->isEmpty())
-        <p class="text-xl font-semibold text-gray-700">No Upcoming Events Scheduled</p>
-        <p class="text-gray-500 mt-2">Check back soon! We are currently working on planning our next training days and club meetings.</p>
+        <h3 class="font-heading text-5xl mb-6">No events currently scheduled.</h3>
+        <p class="text-base mb-2">Check back soon! We are currently working on planning our next training days and club meetings.</p>
         @else
         <div class="grid md:grid-cols-2 gap-4 text-center">
             <div>One</div>
