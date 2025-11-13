@@ -26,9 +26,8 @@
 
     <div class="space-y-6">
         @foreach ($events as $event)
-         // New loop start:
         @foreach ($events->groupBy(fn($event) => $event->date->format('F Y')) as $monthYear => $monthlyEvents)
-        {{ $monthYear }}
+        <h3 class="uppercase bg-black text-white">{{ $monthYear }}</h3>
         @endforeach
 
         {{-- Event Card --}}
