@@ -3,6 +3,13 @@
 @section('title', 'Events Calendar')
 
 @section('page_content')
+<div class="container mx-auto px-6 py-6">
+        <div class="flex flex-col lg:flex-row gap-10">
+            look at my row isn't it cool
+</div>
+
+</div>
+
     <div class="container mx-auto px-4 py-12">
         <h4 class="uppercase text-xs font-bold">Southern Plains Events</h4>
             <h1 class="font-heading text-7xl">Training, Community,<br />and Competition.</h1>
