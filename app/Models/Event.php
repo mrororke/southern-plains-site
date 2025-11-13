@@ -46,10 +46,10 @@ class Event extends Model
     {
         return match ($this->category_id) {
             1 => 'bg-[#4CBB17]/50 text-black', // Club
-            2 => 'bg-green-100 text-green-700 border-green-500', // League
-            3 => 'bg-yellow-100 text-yellow-700 border-yellow-500', // Training
-            4 => 'bg-gray-100 text-gray-700 border-gray-500', // Other
-            default => 'bg-gray-100 text-gray-700 border-gray-500',
+            2 => 'bg-[#FF0398]/50 text-black', // League
+            3 => 'bg-[#03CCFF]/50 text-black', // Training
+            4 => 'bg-white text-black border-gray-500', // Other
+            default => 'bg-white text-black border-gray-500',
         };
     }
 }

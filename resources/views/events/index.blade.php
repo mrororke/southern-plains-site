@@ -30,7 +30,7 @@
         @foreach ($monthlyEvents as $event)
         <p>I am an event in {{ $monthYear }}</p>
 
-        <div class="event-card {{ $event->category_class }}">
+        <div class="event-card {{ $event->category_class }} p-4">
             @if ($event->category_id === 1)
             <p>This is category one</p>
             @elseif ($event->category_id === 2)
