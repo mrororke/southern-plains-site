@@ -64,7 +64,7 @@
                     @endif
 
                     <div class="mt-4 flex-shrink-0 flex flex-row space-x-2 w-full md:w-auto">
-                <a href="{{ route('events.show', $event->slug) }}" class="text-center px-4 py-4 text-xs font-medium text-white bg-{{ $event->category_name }} hover:hover:{{ $event->category_name }}-hover transition-colors duration-200 shadow-md">
+                <a href="{{ route('events.show', $event->slug) }}" class="text-center px-4 py-4 text-xs font-medium text-white bg-{{ $event->category_name }} hover:bg-{{ $event->category_name }}-hover transition-colors duration-200 shadow-md">
                     View Details
                 </a>
                 @if ($event->event_link)
