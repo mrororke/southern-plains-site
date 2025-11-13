@@ -29,7 +29,9 @@
         <h3 class="uppercase font-semibold bg-black text-white p-2">{{ $monthYear }}</h3>
         @foreach ($monthlyEvents as $event)
         <p>I am an event in {{ $monthYear }}</p>
-        @if ($event->category_id === 1)
+
+        <div class="event-card {{ $event->category_class }}">
+            @if ($event->category_id === 1)
             <p>This is category one</p>
             @elseif ($event->category_id === 2)
             <p>This is category two</p>
@@ -37,16 +39,14 @@
             <p>This is category three</p>
             @elseif ($event->category_id === 4)
             <p>This is category four</p>
-        @endif
-        <div class="event-card">
-
+            @endif
         </div>
         @endforeach
 
         @endforeach
 
         @foreach ($events as $event)
-        
+
 
         {{-- Event Card --}}
         <div class="event-card bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden border-l-4 {{ $event->category_class }}">
