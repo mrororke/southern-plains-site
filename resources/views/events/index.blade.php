@@ -31,6 +31,10 @@
         <p>I am an event in {{ $monthYear }}</p>
         @if ($event->category_id === 1)
             <p>This is category one</p>
+            @elseif ($event->category_id === 2)
+            <p>This is category two</p>
+            @elseif ($event->category_id === 3)
+            <p>This is category three</p>
             @elseif ($event->category_id === 4)
             <p>This is category four</p>
         @endif
