@@ -7,14 +7,20 @@
     <h4 class="uppercase text-xs font-bold">Southern Plains Events</h4>
     <h1 class="font-heading text-7xl">Training, Community,<br />and Competition.</h1>
 
-    <p class="text-base mb-2">This is your comprehensive guide to the club's activities. Find the dates and details for upcoming<br/>League Training Days, essential Club Meetings, and specialized Training Seminars. Whether you're<br/>a competitor looking to secure your Top Dog title or a member seeking community, plan your participation here.</p>
+    <p class="text-base mb-2">This is your comprehensive guide to the club's activities. Find the dates and details for upcoming<br />League Training Days, essential Club Meetings, and specialized Training Seminars. Whether you're<br />a competitor looking to secure your Top Dog title or a member seeking community, plan your participation here.</p>
 
     <div class="container mx-auto py-6">
         @if ($events->isEmpty())
         <h3 class="font-heading text-5xl mb-6">No events currently scheduled.</h3>
         <p class="text-base mb-2">Check back soon! We are currently working on planning our next training days and club meetings.</p>
         @else
-        
+
+        // New loop start:
+        @foreach ($events->groupBy(fn($event) => $event->date->format('F Y')) as $monthYear => $monthlyEvents)
+        {{-- $monthYear will be "November 2025" --}}
+        {{-- $monthlyEvents is a collection of all events in that month --}}
+        @endforeach
+
         <div class="grid md:grid-cols-2 gap-4 text-center">
             <div>One</div>
             <div>Two</div>
@@ -22,7 +28,7 @@
 
     </div>
 
-    
+
     <div class="space-y-6">
         @foreach ($events as $event)
         {{-- Event Card --}}
