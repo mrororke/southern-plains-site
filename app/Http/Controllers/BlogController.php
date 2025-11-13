@@ -27,7 +27,7 @@ class BlogController extends Controller
             ->get();
 
         // 2. Start the base query for all posts
-        $query = Post::whereNotNull('published_at')
+        $query = Post::whereNotNull('published_at', '<=', now())
             ->orderBy('published_at', 'desc');
 
         // 3. Apply Search Filter
