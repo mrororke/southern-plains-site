@@ -31,11 +31,11 @@ class Event extends Model
     public function getCategoryNameAttribute()
     {
         return match ($this->category_id) {
-            1 => 'Club Meeting',
-            2 => 'League Day',
-            3 => 'Training Seminar',
+            1 => 'Club Event',
+            2 => 'League Event',
+            3 => 'Training Event',
             4 => 'Other Event',
-            default => 'Unknown',
+            default => 'Other Event',
         };
     }
 
