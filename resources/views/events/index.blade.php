@@ -23,7 +23,7 @@
         <div class="grid md:grid-cols-2 gap-6 pt-2">
             @foreach ($monthlyEvents as $event)
             <!-- Event Card -->
-            <div class="event-card flex bg-{{ $event->category_class }} p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div class="event-card flex bg-{{ $event->category_class }}/25 p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
                 <div class="p-6 md:flex md:items-center">
                     <div class="flex-shrink-0 mb-4 md:mb-0 text-center md:pr-6">
                         <p class="text-4xl font-bold text-black">{{ $event->date->format('d') }}</p>
