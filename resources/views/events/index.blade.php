@@ -28,7 +28,7 @@
         @foreach ($events as $event)
          // New loop start:
         @foreach ($events->groupBy(fn($event) => $event->date->format('F Y')) as $monthYear => $monthlyEvents)
-        {{ $monthlyEvents }}
+        {{ $monthYear }}
         @endforeach
 
         {{-- Event Card --}}
