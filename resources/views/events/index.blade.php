@@ -10,6 +10,10 @@
     <p class="text-base mb-2">This is your comprehensive guide to the club's activities. Find the dates and details for upcoming<br/>League Training Days, essential Club Meetings, and specialized Training Seminars. Whether you're<br/>a competitor looking to secure your Top Dog title or a member seeking community, plan your participation here.</p>
 
     <div class="container mx-auto px-6 py-6">
+        @if ($events->isEmpty())
+        <p class="text-xl font-semibold text-gray-700">No Upcoming Events Scheduled</p>
+        <p class="text-gray-500 mt-2">Check back soon! We are currently working on planning our next training days and club meetings.</p>
+        @else
         <div class="grid md:grid-cols-2 gap-4 text-center">
             <div>One</div>
             <div>Two</div>
@@ -17,12 +21,7 @@
 
     </div>
 
-    @if ($events->isEmpty())
-    <div class="text-center p-10 bg-white rounded-xl shadow-lg border border-gray-200">
-        <p class="text-xl font-semibold text-gray-700">No Upcoming Events Scheduled</p>
-        <p class="text-gray-500 mt-2">Check back soon! We are currently working on planning our next training days and club meetings.</p>
-    </div>
-    @else
+    
     <div class="space-y-6">
         @foreach ($events as $event)
         {{-- Event Card --}}
