@@ -18,7 +18,4 @@
 
 
 </div>
-</div>
-@endif
-</div>
 @endsection
