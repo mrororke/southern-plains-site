@@ -3,50 +3,23 @@
 @section('title', 'Events Calendar')
 
 @section('page_content')
-<div class="container mx-auto px-4 py-12">
-    <h4 class="uppercase text-xs font-bold">{{ $event->host }}</h4>
-    <h1 class="font-heading text-7xl">{{ $event->name }}</h1>
+<div class="mx-auto pt-10">
+    <div class="flex flex-col lg:flex-row gap-10">
+        <div class="w-full lg:w-3/4">
+            <h4 class="uppercase text-xs font-bold">{{ $event->host }}</h4>
+            <h1 class="font-heading text-7xl">{{ $event->name }}</h1>
 
-    <p class="text-base mb-2">This is your comprehensive guide to the club's activities. Find the dates and details for upcoming<br />League Training Days, essential Club Meetings, and specialized Training Seminars. Whether you're<br />a competitor looking to secure your Top Dog title or a member seeking community, plan your participation here.</p>
-
-
-
-    <div class="space-y-6">
-        
-
-    </div>
-
-    <!-- Header Accent and Primary Info -->
-        <div class="p-6 md:p-8 rounded-t-xl">
-            <!-- Event Name -->
-            <h1 class="text-3xl md:text-5xl font-extrabold text-black leading-tight mb-2">
-                {{ $event->name }}
-            </h1>
-            
-            <!-- Host Information -->
-            @if ($event->host_club_name)
-                <p class="text-lg md:text-xl font-semibold text-black/80">
-                    Hosted by: {{ $event->host_club_name }}
-                </p>
-            @endif
+            <p class="text-base mb-2">This is where the training ground meets the trial field. Dive into our latest articles where we break down positive reinforcement techniques, share NASDA judging insights, and review the best gear and books for dog sports. Whether you're working on foundational manners or competing for a championship title, find the informed perspective you need to sharpen your partnership and achieve your goals.</p>
         </div>
-        
-        <!-- Rest of the Content Section -->
-        <div class="p-6 md:p-8 space-y-6">
-
-            <!-- Placeholder for Date, Location, and About -->
-            <div class="border-b pb-4">
-                <h3 class="text-xl font-bold text-gray-700 mb-2">Details</h3>
-                <p class="text-gray-600">
-                    <!-- This is where the rest of the event details will go -->
-                    Date: {{ $event->date->format('F jS, Y') }}
-                </p>
+        <aside class="w-full lg:w-1/4 pt-4 lg:pt-0">
+            {{-- STATIC FILTER/SEARCH AREA --}}
+            <div class="mb-10 p-4">
+                <div class="flex flex-col md:flex-column gap-4">
+                    small column
+                </div>
             </div>
-            
-            <p>
-                The full event description, links, and all other details will be placed here.
-            </p>
-        </div>
+        </aside>
+    </div>
 
 
 </div>
