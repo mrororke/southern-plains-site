@@ -33,6 +33,18 @@
                     </p>
                     @endif
 
+                    @if ($event->date)
+<p class="text-sm text-black mt-1 flex items-center">
+    <!-- Calendar Icon SVG -->
+    <svg class="w-4 h-4 mr-1 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+    </svg>
+    
+    <!-- Formatted Date -->
+    {{ $event->date->format('l, F jS, Y') }}
+</p>
+@endif
+
                     @if ($event->event_link)
                     <a href="{{ $event->event_link }}" target="_blank" class="text-center px-4 py-4 text-sm font-medium text-white bg-{{ $event->category_name }} hover:bg-{{ $event->category_name }}-hover transition-colors duration-200">
                         Learn More
