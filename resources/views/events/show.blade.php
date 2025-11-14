@@ -17,7 +17,7 @@
     </div>
 
     <!-- Header Accent and Primary Info -->
-        <div class="{{ $event->getCategoryClass() }} p-6 md:p-8 rounded-t-xl">
+        <div class="p-6 md:p-8 rounded-t-xl">
             <!-- Event Name -->
             <h1 class="text-3xl md:text-5xl font-extrabold text-black leading-tight mb-2">
                 {{ $event->name }}
