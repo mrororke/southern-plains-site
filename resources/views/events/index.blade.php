@@ -59,7 +59,7 @@
                     {{-- Description Snippet --}}
                     @if ($event->about)
                     <p class="text-black mt-3 text-sm line-clamp-2">
-                        {{ Str::limit($event->about, 200) }}
+                        {{ Str::limit($event->about, 250) }}
                     </p>
                     @endif
 
