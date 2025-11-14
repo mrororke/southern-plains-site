@@ -9,7 +9,7 @@
             <h4 class="uppercase text-xs font-bold">{{ $event->host }}</h4>
             <h1 class="font-heading text-7xl">{{ $event->name }}</h1>
 
-            <p class="text-base mb-2">This is where the training ground meets the trial field. Dive into our latest articles where we break down positive reinforcement techniques, share NASDA judging insights, and review the best gear and books for dog sports. Whether you're working on foundational manners or competing for a championship title, find the informed perspective you need to sharpen your partnership and achieve your goals.</p>
+            <p class="text-base mb-2">{{ $event->about }}</p>
         </div>
         <aside class="w-full lg:w-1/4 pt-4 lg:pt-0">
             {{-- STATIC FILTER/SEARCH AREA --}}
