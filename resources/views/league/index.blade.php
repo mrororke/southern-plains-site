@@ -92,7 +92,7 @@
 </h3>
 <ul class="list-disc list-inside text-base text-black ml-4 mb-6">
     <li><strong>Membership Fee:</strong> There are no annual membership fees at this time.</li>
-    <li><strong>Entry Fees:</strong> A flat-rate entry fee will be charged for each Training Day, per dog participating. Fee details will be provided on the event registration page.</li>
+    <li><strong>Entry Fees:</strong> A flat-rate entry fee of <strong>$50</strong> will be charged for each Training Day, per dog participating. Fee details will be provided on the event registration page.</li>
 </ul>
 </div>
 
