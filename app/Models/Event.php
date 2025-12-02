@@ -50,7 +50,7 @@ class Event extends Model
             2 => '[#FF0398]', // League
             3 => '[#03CCFF]', // Training
             4 => 'white text-black border-gray-500', // Other
-            5 => 'gray-200 text-black border-gray-500', // disabled
+            5 => 'gray-100 text-black border-gray-100', // disabled
             default => 'white text-black border-gray-500',
         };
     }
