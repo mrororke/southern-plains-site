@@ -38,6 +38,7 @@
 
                 <div class="md:flex-grow md:pl-6">
                     <div class="flex items-center justify-between">
+                        <p>{{ $event->category_name }}</p>
                         <span class="text-xs font-semibold tracking-wider uppercase">
                             {{ $event->host }}
                         </span>
