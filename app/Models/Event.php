@@ -35,6 +35,7 @@ class Event extends Model
             2 => 'league',
             3 => 'training',
             4 => 'club',
+            5 => 'not-affiliated',
             default => 'club',
         };
     }
