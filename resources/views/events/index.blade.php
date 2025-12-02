@@ -22,6 +22,10 @@
         <h3 class="uppercase font-semibold bg-black text-white p-2">{{ $monthYear }}</h3>
         <div class="grid md:grid-cols-2 gap-6">
             @foreach ($monthlyEvents as $event)
+
+            @if ($event->category_name='not-affiliated')
+                        <p> I am cat 5</p>
+                        @endif
            
              
 
