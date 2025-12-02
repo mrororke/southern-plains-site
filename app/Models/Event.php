@@ -34,8 +34,7 @@ class Event extends Model
             1 => 'club',
             2 => 'league',
             3 => 'training',
-            4 => 'other',
-            5 => 'disabled',
+            4 => 'club',
             default => 'club',
         };
     }
@@ -50,7 +49,6 @@ class Event extends Model
             2 => '[#FF0398]', // League
             3 => '[#03CCFF]', // Training
             4 => 'white text-black border-gray-500', // Other
-            5 => 'gray-100 text-black border-gray-100', // disabled
             default => 'white text-black border-gray-500',
         };
     }
