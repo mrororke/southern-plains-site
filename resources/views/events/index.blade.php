@@ -35,54 +35,16 @@
 
                 <div class="md:flex-grow md:pl-6">
                     <div class="flex items-center justify-between">
-                        <p>{{ $event->category_name }}</p>
                         <span class="text-xs font-semibold tracking-wider uppercase">
                             {{ $event->host }}
                         </span>
                     </div>
 
                     {{-- Event Name --}}
-                    <a href="{{ route('events.show', $event->slug) }}" class="block">
                         <h2 class="font-heading text-3xl mb-2 hover:text-{{ $event->category_name }} transition-colors duration-200">
                             {{ $event->name }}
                         </h2>
-                    </a>
 
-                    {{-- Location --}}
-                    @if ($event->location)
-                    <p class="text-sm text-black mt-1 flex items-center">
-                         <a href="https://www.google.com/maps/search/?api=1&query={{ urlencode($event->location) }}" 
-       target="_blank" 
-       rel="noopener noreferrer" 
-       class="flex items-center hover:text-decoration-solid transition-colors duration-200">
-        
-        <svg class="w-4 h-4 mr-1 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z"></path>
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-        </svg>
-        
-        {{ $event->location }}
-    </a>
-                    </p>
-                    @endif
-
-                    {{-- Description Snippet --}}
-                    @if ($event->about)
-                    <p class="text-black mt-3 text-sm line-clamp-2">
-                        {{ Str::limit($event->about, 250) }}
-                    </p>
-                    @endif
-
-                    <div class="mt-4 flex-shrink-0 flex flex-row space-x-2 w-full md:w-auto">
-                        <a href="{{ route('events.show', $event->slug) }}" class="text-center px-4 py-4 text-sm font-medium text-white bg-{{ $event->category_name }} hover:bg-{{ $event->category_name }}-hover transition-colors duration-200">
-                            View Details
-                        </a>
-                        @if ($event->event_link)
-                        <a href="{{ $event->event_link }}" target="_blank" class="text-center px-4 py-4 text-sm font-medium text-black border border-{{ $event->category_class }} hover:bg-{{ $event->category_name }}-hover hover:text-white transition-colors duration-200">
-                            Learn More
-                        </a>
-                        @endif
-                    </div>
 
                 </div>
             </div>
@@ -102,7 +64,6 @@
 
                 <div class="md:flex-grow md:pl-6">
                     <div class="flex items-center justify-between">
-                        <p>{{ $event->category_name }}</p>
                         <span class="text-xs font-semibold tracking-wider uppercase">
                             {{ $event->host }}
                         </span>
