@@ -23,9 +23,7 @@
         <div class="grid md:grid-cols-2 gap-6">
             @foreach ($monthlyEvents as $event)
            
-             @if ({{ $event->category_name }})
-                        <p>I am a cat 5 event</p>
-                        @endif
+             
 
             <!-- Event Card -->
             <div class="event-card flex bg-{{ $event->category_class }}/25 text-black p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
