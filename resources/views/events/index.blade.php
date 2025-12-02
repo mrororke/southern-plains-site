@@ -23,7 +23,7 @@
         <div class="grid md:grid-cols-2 gap-6">
             @foreach ($monthlyEvents as $event)
            
-             @if ($event->category_name == 5)
+             @if ({{ $event->category_name }})
                         <p>I am a cat 5 event</p>
                         @endif
 
