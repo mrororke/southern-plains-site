@@ -19,9 +19,11 @@
     @php
     // 1. SLIDES DATA
     $slidesData = [
-    ['path' => 'images/2025_01_slide_hamish.jpg', 'alt' => 'A photo of Hamish, a Shetland Sheepdog, when he was six months old.'],
-    ['path' => 'images/2025_02_slide_hamish.jpg', 'alt' => 'Hamish, a black and white Shetland Sheepdog, at six months old.'],
-    ['path' => 'images/2025_03_slide_hamish.jpg', 'alt' => 'Hamish, a Shetland Sheepdog, when he was four months old.'],
+    ['path' => 'images/2026_01_hamish_01.jpg', 'alt' => 'A photo of Hamish, a black bi-color Shetland Sheepdog.'],
+    ['path' => 'images/2026_01_hamish_02.jpg', 'alt' => 'Hamish, a black and white Shetland Sheepdog.'],
+    ['path' => 'images/images/2026_01_hamish_03g.jpg', 'alt' => 'Hamish, a Shetland Sheepdog.'],
+    ],
+    ['path' => 'images/images/2026_01_hamish_04g.jpg', 'alt' => 'Hamish, a Shetland Sheepdog.'],
     ];
 
     // 2. PATHS DATA (Must be defined before <x-home.choose-path-section />)
