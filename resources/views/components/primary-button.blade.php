@@ -6,12 +6,12 @@ $colorClasses = [
     'club' => 'bg-club text-white hover:bg-club-hover active:bg-club border-transparent focus:ring-club',
     
     // FIX: Changed hover:text-white to !hover:text-white for dark themes to override !text-[color]
-    'club-dark' => 'bg-white !text-club hover:bg-transparent !hover:text-white hover:border-white focus:ring-club', 
+    'club-dark' => 'bg-white text-club hover:bg-transparent !hover:text-white hover:border-white focus:ring-club', 
     
     'league' => 'bg-league text-white hover:bg-league-hover active:bg-league border-transparent focus:ring-league',
     
     // FIX: Changed hover:text-white to !hover:text-white
-    'league-dark' => 'bg-white !text-league hover:bg-transparent !hover:text-white hover:border-white focus:ring-league', 
+    'league-dark' => 'bg-white text-league hover:bg-transparent !hover:text-white hover:border-white focus:ring-league', 
     
     'train' => 'bg-training text-white hover:bg-training-hover active:bg-training border-transparent focus:ring-training',
     
