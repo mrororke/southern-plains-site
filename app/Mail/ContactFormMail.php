@@ -3,10 +3,7 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
 class ContactFormMail extends Mailable
@@ -14,7 +11,7 @@ class ContactFormMail extends Mailable
     use Queueable, SerializesModels;
 
     /**
-     * Create a new message instance.
+     * The data array containing all validated form inputs.
      */
     public function __construct(public array $data)
     {
@@ -22,27 +19,19 @@ class ContactFormMail extends Mailable
     }
 
     /**
-     * Get the message envelope.
+     * Build the message.
+     * This uses the robust build() method to ensure compatibility with your verified SMTP setup.
      */
-    public function envelope(): Envelope
+    public function build(): self
     {
         $subject = "New Inquiry: {$this->data['inquiry_type']} ({$this->data['first_name']} {$this->data['last_name']})";
-        
-        return new Envelope(
-            from: $this->data['email'],
-            subject: $subject,
-        );
-    }
 
-    /**
-     * Get the message content definition.
-     */
-    public function content(): Content
-    {
-        // Renders the email using a dedicated Blade view (contact.mail)
-        return new Content(
-            view: 'contact.mail',
-        );
+        // Returns the message using the subject, reply-to, and the Blade view.
+        return $this->subject($subject)
+                    // Allows you to hit "Reply" in your inbox to email the user back.
+                    ->replyTo($this->data['email'])
+                    // Renders the HTML content using the view: resources/views/contact/mail.blade.php.
+                    ->view('contact.mail');
     }
 
     /**
