@@ -16,7 +16,7 @@ $colorClasses = [
     'train' => 'bg-training text-white hover:bg-training-hover active:bg-training border-transparent focus:ring-training',
     
     // FIX: Changed hover:text-white to !hover:text-white
-    'train-dark' => 'bg-white !text-training hover:bg-transparent !hover:text-white hover:border-white focus:ring-training', 
+    'train-dark' => 'bg-white text-training hover:bg-transparent !hover:text-white hover:border-white focus:ring-training', 
 ];
 
 // Select the class set based on the 'color' prop
