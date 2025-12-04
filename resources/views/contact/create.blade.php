@@ -1,15 +1,16 @@
 @extends('layouts.base')
 
-@section('title', 'Contact Us')
-
 @section('page_content')
-    <!-- Header Section -->
-    <h1 class="font-heading text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
-        Get in Touch
-    </h1>
-    <p class="text-xl text-gray-700 max-w-3xl mb-10">
-        Have questions about the league, our training meet-ups, or membership? Select a topic below and we'll route your message to the right person.
-    </p>
+<div class="mx-auto pt-10 pb-10">
+    <div class="flex flex-col lg:flex-row gap-10">
+        <div class="w-full lg:w-3/4">
+            <h4 class="uppercase text-xs font-bold">Get in Touch</h4>
+            <h1 class="font-heading text-7xl">Southern Plains League<br />Training Days.</h1>
+
+            <p class="text-base mb-2">Have questions about the league, our training meet-ups, or membership? Select a topic below and we'll route your message to the right person.</p>
+        </div>
+    </div>
+<div class="container mx-auto px-4 py-12 max-w-4xl">
 
     <!-- Success/Error Messages -->
     @if (session('success'))
@@ -107,3 +108,9 @@
         If the form does not work, please email us directly at <a href="mailto:your-club-email@example.com" class="text-club hover:text-club-dark font-semibold">your-club-email@example.com</a>.
     </div>
 
+</div>
+
+<!-- End of form -->
+
+</div>
+@endsection
