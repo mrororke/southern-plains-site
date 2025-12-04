@@ -1,4 +1,4 @@
-@props(['id', 'heading', 'subheading', 'paragraph', 'buttonText', 'buttonColor', 'bgColor', 'bgMask'])
+@props(['id', 'heading', 'subheading', 'paragraph', 'buttonText', 'buttonColor', 'bgColor', 'bgMask', 'link'])
 
 <div id="{{ $id }}" class="p-6 {{ $bgColor }} bg-cover bg-center"
     style="background-image: url('{{ asset('images/' . $bgMask) }}');">
