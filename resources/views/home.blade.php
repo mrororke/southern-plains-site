@@ -43,6 +43,7 @@
     'buttonColor' => 'club-dark',
     'bgColor' => 'bg-club',
     'bgMask' => 'right_mask.png',
+    'link' => '/events',
     ],
     [
     'id' => 'league',
@@ -53,6 +54,7 @@
     'buttonColor' => 'league-dark',
     'bgColor' => 'bg-league',
     'bgMask' => 'left_mask.png',
+    'link' => '/league',
     ],
     [
     'id' => 'train',
@@ -63,6 +65,7 @@
     'buttonColor' => 'train-dark',
     'bgColor' => 'bg-training',
     'bgMask' => 'right_mask.png',
+    'link' => '/training',
     ],
     ];
 
@@ -161,7 +164,8 @@
         :button-text="$block['buttonText']"
         :button-color="$block['buttonColor']"
         :bg-color="$block['bgColor']"
-        :bg-mask="$block['bgMask']" />
+        :bg-mask="$block['bgMask']"
+        :link="$block['link']" />
     @endforeach
 @endsection
 

@@ -14,8 +14,10 @@
         <p class="text-base mb-2">{!! $paragraph !!}</p>
 
         {{-- Call to Action Button --}}
+        <a href="{{ $link }}" class="inline-block">
         <x-primary-button color="{{ $buttonColor }}" class="mt-6">
             {{ __($buttonText) }}
         </x-primary-button>
+        </a>
     </div>
 </div>
