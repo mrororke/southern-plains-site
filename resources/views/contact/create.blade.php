@@ -1,4 +1,4 @@
-@extends('layouts.base')
+@extends('layouts.blog-base')
 
 @section('page_content')
 <div class="mx-auto pt-10 pb-10">
