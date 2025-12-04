@@ -10,7 +10,7 @@
             <p class="text-base mb-2">Have questions about the league, our training meet-ups, or membership? Select a topic below and we'll route your message to the right person.</p>
         </div>
     </div>
-<div class="container mx-auto px-4 py-12 max-w-4xl">
+<div class="container mx-auto px-4 max-w-4xl">
 
     <!-- Success/Error Messages -->
     @if (session('success'))
