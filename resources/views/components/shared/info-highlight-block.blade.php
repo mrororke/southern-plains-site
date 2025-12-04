@@ -14,7 +14,7 @@
         <p class="text-base mb-2">{!! $paragraph !!}</p>
 
         {{-- Call to Action Button --}}
-        <a href="{{ $link }}" class="inline-block">
+        <a href="{{ $link }}" class="inline-block hover:text-white">
         <x-primary-button color="{{ $buttonColor }}" class="mt-6 hover:text-white">
             {{ __($buttonText) }}
         </x-primary-button>
