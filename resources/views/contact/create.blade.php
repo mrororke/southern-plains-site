@@ -1,3 +1,8 @@
+@extends('layouts.base')
+
+@section('title', 'Contact Us')
+
+@section('page_content')
 <div class="container mx-auto px-4 py-12 max-w-4xl">
     <!-- Header Section -->
     <h1 class="font-heading text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
