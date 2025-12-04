@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,6 +59,9 @@ Route::get('/events/{event:slug}', [EventController::class, 'show'])->name('even
 Route::get('/contact', function () {
     return view('contact'); // Using the appropriate view name
 })->name('contact');
+// CONTACT FORM ROUTES <-- NEW SECTION
+Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
+Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
