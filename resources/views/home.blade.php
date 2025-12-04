@@ -38,7 +38,7 @@
     'id' => 'club',
     'subheading' => 'Sport Dog Club',
     'heading' => 'Your gateway to NASDA Competition.',
-    'paragraph' => 'We are licensed <span class="font-semibold">NASDA Club</span> dedicated to hosting high-quality, accessible trials in new and underserved areas. This is the perfect place to try out a sport organization before committing<br /> to full club membership.',
+    'paragraph' => 'We are licensed <span class="font-semibold">NASDA Club</span> dedicated to hosting high-quality, accessible trials in new and underserved areas. This is the perfect place to try out a sport organization before committing to full club membership.',
     'buttonText' => 'View Trial Schedule',
     'buttonColor' => 'club-dark',
     'bgColor' => 'bg-club',
