@@ -15,7 +15,7 @@
 
         {{-- Call to Action Button --}}
         <a href="{{ $link }}" class="inline-block">
-        <x-primary-button color="{{ $buttonColor }}" class="mt-6">
+        <x-primary-button color="{{ $buttonColor }}" class="mt-6 hover:text-white">
             {{ __($buttonText) }}
         </x-primary-button>
         </a>
