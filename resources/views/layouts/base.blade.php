@@ -48,7 +48,7 @@
                 {{-- 💡 OPTIONAL BLOCKS: These sections will be called only when needed by specific pages --}}
                 @yield('highlight_blocks')
                 @yield('feature_blocks')
-                @yield('testimonial_blocks')
+                <!-- @yield('testimonial_blocks') -->
 
 
                 <x-app-footer />
