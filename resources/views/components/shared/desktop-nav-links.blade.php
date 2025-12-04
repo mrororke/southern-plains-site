@@ -29,7 +29,6 @@
 
     {{-- Training/Services Link: Uses 'services' route --}}
     @php $isTraining = request()->routeIs('training.index'); @endphp
-
     <a href="{{ route('training.index') }}"
         class="px-3 py-2 text-sm font-medium uppercase hover:text-club 
        {{-- 💡 APPLY CUSTOM ACTIVE CLASSES --}}
