@@ -58,12 +58,10 @@
 
     {{-- Contact Button: Uses 'contact' route --}}
     @php $isContact = request()->routeIs('contact'); @endphp
-    <a href="{{ route('contact') }}" aria-current="page">
-        <x-primary-button
-            class="ms-4"
-            color="train"
-            {{-- Conditionally add the active background classes --}}
-            activeClass="{{ $isContact ? 'bg-training-active hover:bg-training-dark' : '' }}">
+    <a href="{{ route('contact.create') }}" aria-current="page">
+        <x-primary-button class="ms-4 
+            {{-- 💡 APPLY CUSTOM ACTIVE BACKGROUND FOR BUTTON --}}
+            {{ $isContact ? 'bg-club-active hover:bg-club-dark' : '' }}">
             {{ __('Contact Us') }}
         </x-primary-button>
     </a>
