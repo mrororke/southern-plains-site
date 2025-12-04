@@ -3,7 +3,6 @@
 @section('title', 'Contact Us')
 
 @section('page_content')
-<div class="container mx-auto px-4 py-12 max-w-4xl">
     <!-- Header Section -->
     <h1 class="font-heading text-5xl md:text-6xl font-extrabold text-gray-900 leading-tight mb-4">
         Get in Touch
@@ -108,4 +107,3 @@
         If the form does not work, please email us directly at <a href="mailto:your-club-email@example.com" class="text-club hover:text-club-dark font-semibold">your-club-email@example.com</a>.
     </div>
 
-</div>
