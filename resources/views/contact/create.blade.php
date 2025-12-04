@@ -105,7 +105,7 @@
 
     <!-- Fallback Info -->
     <div class="mt-10 text-center text-sm text-gray-500">
-        If the form does not work, please email us directly at <a href="mailto:your-club-email@example.com" class="text-club hover:text-club-dark font-semibold">your-club-email@example.com</a>.
+        If the form does not work, please email us directly at <a href="mailto:southernplainssportdogclub@gmail.com" class="text-club hover:text-club-dark font-semibold">southernplainssportdogclub@gmail.com</a>.
     </div>
 
 </div>
