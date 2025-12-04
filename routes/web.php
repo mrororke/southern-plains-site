@@ -56,10 +56,6 @@ Route::get('/events', [EventController::class, 'index'])->name('events.index');
 Route::get('/events/{event:slug}', [EventController::class, 'show'])->name('events.show');
 
 // Contact Page
-Route::get('/contact', function () {
-    return view('contact'); // Using the appropriate view name
-})->name('contact');
-// CONTACT FORM ROUTES <-- NEW SECTION
 Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
