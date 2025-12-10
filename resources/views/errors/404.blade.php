@@ -116,8 +116,9 @@
                 background-repeat: no-repeat;
                 background-position: bottom right;
                 background-size: auto;">
-            <div class="shadow-xl">
-                I am the new error page base
+            <div class="max-w-4xl shadow-xl mx-auto pt-10 pb-10">
+                <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
+                <h1 class="font-heading text-7xl">Train. Play. Grow.</h1>
             </div>
         </div>
 
