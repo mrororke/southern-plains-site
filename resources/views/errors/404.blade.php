@@ -108,10 +108,7 @@
 
     <main>
 
-        <div class="min-h-[500px] pt-10 pb-10
-        bg-[url('{{ asset('images/error-hamish.png') }}')]
-        bg-bottom-right
-        bg-auto"
+        <div class="min-h-[500px] pt-10 pb-10"
             style="background-image: url('{{ asset('images/error-hamish.png') }}');
                 background-repeat: no-repeat;
                 background-position: bottom right;
