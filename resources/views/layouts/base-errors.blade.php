@@ -129,8 +129,8 @@
         | CORRECTED DIV: Inline styles removed and replaced with the custom class 
         | ----------------------------------------------------
         --}}
-        <div class="min-h-[500px] pt-10 pb-10 sm:pr-10 sm:pl-10 error-bg-image">
-            <div class="max-w-4xl mx-auto pt-10 pb-10 py-8">
+        <div class="min-h-[500px] pt-10 pb-10 error-bg-image">
+            <div class="lg:max-w-4xl max-w-sm mx-auto pt-10 pb-10 py-8">
                 @yield('page_content')
             </div>
         </div>
