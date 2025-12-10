@@ -22,11 +22,12 @@
     <style>
         /* CSS to control background image visibility based on screen size */
         .error-bg-image {
-            background-image: none !important; /* Default: Hide image on mobile screens */
+            /* 1. Hide image by default on mobile */
+            background-image: none !important; 
         }
 
         @media (min-width: 1024px) {
-            /* Show image only on desktop (lg) screens and up */
+            /* 2. Show image only on desktop (lg) screens and up */
             .error-bg-image {
                 background-image: url('{{ asset('images/error-hamish.png') }}') !important;
                 background-repeat: no-repeat;
@@ -127,10 +128,11 @@
         {{-- 
         | ----------------------------------------------------
         | CORRECTED DIV: Inline styles removed and replaced with the custom class 
+        | The inner div maintains the original max-width and auto margins for centering.
         | ----------------------------------------------------
         --}}
         <div class="min-h-[500px] pt-10 pb-10 error-bg-image">
-            <div class="lg:max-w-4xl max-w-sm mx-auto pt-10 pb-10 py-8">
+            <div class="max-w-4xl mx-auto pt-10 pb-10 py-8">
                 @yield('page_content')
             </div>
         </div>
