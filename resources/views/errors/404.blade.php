@@ -9,15 +9,10 @@
 
             <p class="text-base mb-2">Have questions about the league, our training meet-ups, or membership? Select a topic below and we'll route your message to the right person.</p>
         </div>
+        <div class="lg:w-1/4">
+            Image here
+        </div>
     </div>
-<div class="container mx-auto px-4 max-w-4xl">
-
-   I am an error page
-
-
-</div>
-
-<!-- End of form -->
 
 </div>
 @endsection
