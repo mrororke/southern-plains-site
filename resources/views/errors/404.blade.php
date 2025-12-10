@@ -107,15 +107,14 @@
     </nav>
 
     <main>
-        {{-- 💡 FLEX CONTAINER: This enables the side-by-side layout for pages with a slider --}}
-        <div class="flex min-h-screen">
+        
+        <div >
 
            I am the new error page base
 
 
                 <x-app-footer />
 
-        </div>
     </main>
 
 
