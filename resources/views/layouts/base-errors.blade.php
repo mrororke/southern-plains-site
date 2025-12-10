@@ -20,6 +20,22 @@
 
     <!-- START - We recommend to place the below code in head tag of your website html  -->
     <style>
+        /* CSS to control background image visibility based on screen size */
+        .error-bg-image {
+            background-image: none !important; /* Default: Hide image on mobile screens */
+        }
+
+        @media (min-width: 1024px) {
+            /* Show image only on desktop (lg) screens and up */
+            .error-bg-image {
+                background-image: url('{{ asset('images/error-hamish.png') }}') !important;
+                background-repeat: no-repeat;
+                background-position: bottom right;
+                background-size: auto;
+            }
+        }
+        
+        /* Existing SibForms Styles (Untouched) */
         #sib-container input:-ms-input-placeholder {
             text-align: left;
             font-family: Helvetica, sans-serif;
@@ -108,11 +124,12 @@
 
     <main>
 
-        <div class="min-h-[500px] pt-10 pb-10"
-            style="background-image: url('{{ asset('images/error-hamish.png') }}');
-                background-repeat: no-repeat;
-                background-position: bottom right;
-                background-size: auto;">
+        {{-- 
+        | ----------------------------------------------------
+        | CORRECTED DIV: Inline styles removed and replaced with the custom class 
+        | ----------------------------------------------------
+        --}}
+        <div class="min-h-[500px] pt-10 pb-10 error-bg-image">
             <div class="max-w-4xl mx-auto pt-10 pb-10 py-8">
                 @yield('page_content')
             </div>
