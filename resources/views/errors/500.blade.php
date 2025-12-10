@@ -5,7 +5,7 @@
 <h1 class="font-heading lg:text-7xl text-5xl">Uh oh... I think I ate some bad kibble. The server is sick.</h1>
 
 <h3 class="lg:text-2xl text-lg mb-2 mt-2 text-black">
-Oops! Looks like Hamish couldn't sniff out this page.<br/>It might have moved to a new spot, been deleted,<br/> or the address was typed incorrectly.
+The server is resting after eating some bad code.<br/>It’s not you, it’s us! We've been notified and are fetching help now.
 </h3>
 
 <p class="font-bold text-lg mb-3">Don't worry, let's get you back on track:</p>
