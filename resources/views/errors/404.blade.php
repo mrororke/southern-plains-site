@@ -2,8 +2,7 @@
 
 @section('page_content')
 <style>
-    /* This custom CSS class is the ultimate solution to force the width to 100vw, 
-       overriding any hidden 'max-width' or 'mx-auto' on a parent element. */
+    /* GUARANTEES full viewport width (100vw) */
     .full-breakout {
         width: 100vw;
         position: relative;
@@ -12,28 +11,31 @@
     }
 </style>
 
-<!-- 1. AGGRESSIVE FULL-WIDTH CONTAINER: 
-     - Guarantees 100vw width via .full-breakout
-     - Correctly negates the parent padding (1rem/120px).
-     - bg-no-repeat bg-bottom-right: Ensures Hamish is at natural size and positioned correctly. -->
+<!-- FULL-WIDTH CONTAINER: Guarantees 100vw background -->
 <div class="
     full-breakout 
-    mx-[-1rem] lg:ml-[-120px] lg:mr-[-120px] 
     pt-10 pb-10 
-    bg-no-repeat bg-bottom-right 
+    bg-no-repeat 
     relative overflow-hidden
 " 
-    style="background-image: url('{{ asset('images/error-hamish.png') }}');">
+    style="
+        background-image: url('{{ asset('images/error-hamish.png') }}');
+        background-position: 100% 100%; /* Bottom-Right Corner */
+        background-size: auto; /* Natural Image Size */
+        background-color: #F3F4F6; /* Gray background */
+        /* Temporary fix for padding negation, which may be conflicting */
+        margin-left: -1rem;
+        margin-right: -1rem;
+    ">
     
-    <!-- 2. ALIGNMENT WRAPPER: Re-applies the site's original left padding rules to align the text. 
-         This ensures the text is correctly indented by 120px/1rem. -->
+    <!-- ALIGNMENT WRAPPER: This is the problem area. We are testing the correct padding. -->
     <div class="lg:pl-[120px] p-4">
         
-        <!-- Headlines: These should now be aligned with the rest of your site's content. -->
+        <!-- Headlines: Check alignment here -->
         <h4 class="uppercase text-xs font-bold">404 ERROR</h4>
         <h1 class="font-heading text-7xl">I looked, but I<br />can't find it!</h1>
         
-        <!-- Add vertical space to prevent text from overlapping Hamish's image area. -->
+        <!-- Vertical space -->
         <div class="h-64 sm:h-80 md:h-96"></div>
     </div>
 </div>
