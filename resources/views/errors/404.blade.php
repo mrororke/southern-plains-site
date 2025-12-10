@@ -109,9 +109,9 @@
     <main>
 
         <div class="pt-10 pb-10
-        background-image: url('{{ asset('images/error-hamish.png') }}');
-        background-position: 100% 100%; /* Bottom-Right Corner */
-        background-size: auto; /* Natural Image Size */">
+        bg-[url('{{ asset('images/error-hamish.png') }}')]
+        bg-bottom-right
+        bg-auto">
 
             I am the new error page base
         </div>
