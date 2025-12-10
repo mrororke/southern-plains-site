@@ -2,41 +2,49 @@
 
 @section('page_content')
 <style>
-    /* GUARANTEES full viewport width (100vw) for the background */
-    .full-breakout {
-        width: 100vw;
-        position: relative;
-        left: 50%;
-        transform: translateX(-50%);
+    /* This custom CSS class is for the main row. 
+    It forces the background to span the full width of the main content column 
+    (negating parent padding only). 
+    */
+    .header-section {
+        /* Negates the p-4 padding */
+        margin-left: -1rem;
+        margin-right: -1rem;
+        /* Negates the lg:px-[120px] padding */
+        @media (min-width: 1024px) {
+            margin-left: -120px;
+            margin-right: -120px;
+        }
     }
 </style>
 
-<!-- 1. AGGRESSIVE FULL-WIDTH CONTAINER: Background/Image Edge Alignment -->
-<div class="
-    full-breakout 
-    pt-10 pb-10 bg-gray-100 
-    relative overflow-hidden
-">
+<!-- 1. HEADER SECTION: Now uses the simpler negative margin class for the full background color. -->
+<div class="header-section pt-10 pb-10 bg-gray-100 relative overflow-hidden">
     
-    <!-- 2. CONTENT ALIGNMENT WRAPPER: Re-establishes the site's main content column.
-         This is the key. We are assuming max-w-7xl and centering. -->
-    <div class="mx-auto max-w-7xl">
-        
-        <!-- 3. INNER PADDING WRAPPER: Applies the site's specific padding (120px/1rem). -->
-        <div class="lg:pl-[120px] p-4 clearfix">
-            
-            <!-- Image: Floats right and uses the EXACT negative margin to hit the edge, 
-                 counteracting the parent padding only on the right. -->
-            <img src="{{ asset('images/error-hamish.png') }}"
-                alt="Hamish"
-                class="float-right ml-8 mr-[-1rem] lg:mr-[-120px] max-w-xs">
+    <!-- 2. CONTENT WRAPPER: Re-applies the necessary padding ONLY for the text to align. -->
+    <div class="lg:pl-[120px] p-4">
 
-            <!-- Headlines: Should now align correctly with the rest of your site's content column -->
-            <h4 class="uppercase text-xs font-bold">404 ERROR</h4>
-            <h1 class="font-heading text-7xl">I looked, but I<br />can't find it!</h1>
-            
-            <div class="clear-both"></div>
-        </div>
+        <!-- Headlines: PERFECTLY ALIGNED because they are correctly nested. -->
+        <h4 class="uppercase text-xs font-bold">404 ERROR</h4>
+        <h1 class="font-heading text-7xl">I looked, but I<br />can't find it!</h1>
+        
+        <!-- Placeholder for the Hamish image content -->
+        <div class="h-64 sm:h-80 md:h-96"></div>
+
     </div>
+
+    <!-- 3. ABSOLUTELY POSITIONED IMAGE: Placed at the bottom-right corner of the section.
+         - The negative 'right-0' combined with the negative margins on the parent ensures it hits the edge. -->
+    <img src="{{ asset('images/error-hamish.png') }}"
+        alt="Hamish"
+        class="absolute bottom-0 right-0 max-w-xs transform translate-y-1/4" 
+        style="
+            /* Override for large screen: pull 120px to the right to hit the edge */
+            @media (min-width: 1024px) {
+                right: -120px;
+            }
+            /* Override for small screen: pull 1rem to the right to hit the edge */
+            right: -1rem;
+        ">
 </div>
 @endsection
