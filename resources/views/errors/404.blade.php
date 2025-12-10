@@ -19,26 +19,21 @@
     relative overflow-hidden
 ">
     
-    <!-- 2. ALIGNMENT WRAPPER: Recreates the necessary padding/alignment for the text.
-         - The max-w-7xl and mx-auto are required to re-center the content *after* the aggressive breakout.
-         - max-w-7xl is a standard large container size used in many Tailwind layouts.
-         - mx-auto centers this container. -->
-    <div class="mx-auto max-w-7xl">
+    <!-- 2. ALIGNMENT WRAPPER: Re-applies the site's original left padding rules. 
+         This wrapper provides the margin the text needs to align with the rest of your site. -->
+    <div class="lg:pl-[120px] p-4 pl-4">
         
-        <!-- 3. INNER PADDING WRAPPER: Re-applies the site's specific padding (120px/1rem) -->
-        <div class="lg:pl-[120px] p-4 pl-4 clearfix">
-            
-            <!-- Image: Floats right and breaks out to the edge of the display -->
-            <img src="{{ asset('images/error-hamish.png') }}"
-                alt="Hamish"
-                class="float-right ml-8 mr-[-1rem] lg:mr-[-120px] max-w-xs">
+        <!-- Image: Floats right and breaks out to the edge of the display -->
+        <img src="{{ asset('images/error-hamish.png') }}"
+            alt="Hamish"
+            class="float-right ml-8 mr-[-1rem] lg:mr-[-120px] max-w-xs">
 
-            <!-- Headlines: Should now align correctly -->
-            <h4 class="uppercase text-xs font-bold">404 ERROR</h4>
-            <h1 class="font-heading text-7xl">I looked, but I<br />can't find it!</h1>
-            
-            <div class="clear-both"></div>
-        </div>
+        <!-- Headlines: These should now align correctly, using the padding from the parent div -->
+        <h4 class="uppercase text-xs font-bold">404 ERROR</h4>
+        <h1 class="font-heading text-7xl">I looked, but I<br />can't find it!</h1>
+        
+        <!-- 3. CLEARFIX: Ensures the float is contained and does not break the footer -->
+        <div class="clear-both"></div>
     </div>
 </div>
 @endsection
