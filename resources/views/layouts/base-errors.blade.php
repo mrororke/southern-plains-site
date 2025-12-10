@@ -20,29 +20,28 @@
 
     <!-- START - We recommend to place the below code in head tag of your website html  -->
     <style>
-        /* * MOBILE OPTIMIZATION: 
-         * By default, background-image is set to 'none' on small screens.
-         * We use the 'lg' breakpoint to apply the image only on desktops/tablets.
-         */
-        .bg-hamish-only-lg {
-            background-image: none !important; /* Default: No image on mobile */
-            background-color: #F3F4F6; /* Optional: Use the gray background color */
+        #sib-container input:-ms-input-placeholder {
+            text-align: left;
+            font-family: Helvetica, sans-serif;
+            color: #000000;
         }
 
-        @media (min-width: 1024px) {
-            .bg-hamish-only-lg {
-                background-image: url('{{ asset('images/error-hamish.png') }}') !important;
-                background-repeat: no-repeat !important;
-                background-position: bottom right !important;
-                background-size: auto !important;
-            }
+        #sib-container input::placeholder {
+            text-align: left;
+            font-family: Helvetica, sans-serif;
+            color: #000000;
         }
-        
-        /* Existing SibForms Styles (Untouched) */
-        #sib-container input:-ms-input-placeholder { text-align: left; font-family: Helvetica, sans-serif; color: #000000; }
-        #sib-container input::placeholder { text-align: left; font-family: Helvetica, sans-serif; color: #000000; }
-        #sib-container textarea::placeholder { text-align: left; font-family: Helvetica, sans-serif; color: #000000; }
-        #sib-container a { text-decoration: underline; color: #2BB2FC; }
+
+        #sib-container textarea::placeholder {
+            text-align: left;
+            font-family: Helvetica, sans-serif;
+            color: #000000;
+        }
+
+        #sib-container a {
+            text-decoration: underline;
+            color: #2BB2FC;
+        }
     </style>
 
     <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
@@ -58,6 +57,7 @@
     {{--
 | ----------------------------------------------------
 | DATA DEFINITIONS - SLOT
+| This slot is used to define PHP variables (like $slidesData) before any components that need them are called.
 | ----------------------------------------------------
 --}}
     @yield('data_definitions')
@@ -107,24 +107,14 @@
     </nav>
 
     <main>
-        {{-- 
-        | ----------------------------------------------------
-        | FULL-WIDTH ERROR SECTION: Uses custom class for responsive background
-        | ----------------------------------------------------
-        --}}
-        <div class="
-                min-h-[500px] pt-10 pb-10 
-                mx-[-1rem] lg:ml-[-120px] lg:mr-[-120px] 
-                bg-hamish-only-lg
-            ">
 
-            {{-- CONTENT WRAPPER: Re-applies the site's original left padding rules to align the text. --}}
-            <div class="lg:pl-[120px] p-4">
-                
+        <div class="min-h-[500px] pt-10 pb-10"
+            style="background-image: url('{{ asset('images/error-hamish.png') }}');
+                background-repeat: no-repeat;
+                background-position: bottom right;
+                background-size: auto;">
+            <div class="max-w-4xl mx-auto pt-10 pb-10 py-8">
                 @yield('page_content')
-                
-                {{-- Add vertical space so the text doesn't overlap Hamish's image area --}}
-                <div class="h-64 sm:h-80 md:h-96"></div>
             </div>
         </div>
 
