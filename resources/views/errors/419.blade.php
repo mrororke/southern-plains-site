@@ -2,7 +2,7 @@
 
 @section('page_content')
 <h4 class="uppercase text-xs font-bold">Error 419 | Page Expired</h4>
-<h1 class="font-heading text-7xl">May bad!<br />I forgot to save the ball.<br/>Please refresh the page!</h1>
+<h1 class="font-heading text-7xl">My bad!<br />I forgot to save the ball.<br/>Please refresh the page!</h1>
 
 <h3 class="lg:text-2xl text-lg mb-2 mt-2 text-black">
 Your playtime was too long, and your session treats expired! <br/>This is a security precaution. Please go back, refresh the page, <br/>and try submitting the form again.
