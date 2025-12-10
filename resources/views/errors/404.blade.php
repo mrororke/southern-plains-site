@@ -8,7 +8,7 @@
             <h1 class="font-heading text-7xl">Get in Touch With<br />Southern Plains.</h1>
             <img src="{{ asset('images/error-hamish.png') }}"
                 alt="Hamish"
-                class="w-full ml-4">
+                class="float-right">
 
         </div>
     </div>
