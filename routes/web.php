@@ -87,17 +87,5 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('admin/posts', PostController::class)->names('admin.posts');
 });
 
-// --- ADD THIS TEMPORARILY FOR TESTING ---
-Route::get('/test-error/{code}', function ($code) {
-    // This function tells Laravel to render the specified error view (e.g., resources/views/errors/500.blade.php)
-    // without actually raising the corresponding HTTP status.
-    abort($code); 
-})->where('code', '[0-9]+'); // Ensures the code is a number
-
-// Example usage in browser:
-// http://yourdomain.test/test-error/500 
-// http://yourdomain.test/test-error/419
-// http://yourdomain.test/test-error/503
-// ----------------------------------------
 
 require __DIR__ . '/auth.php';
