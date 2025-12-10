@@ -11,9 +11,7 @@
     }
 </style>
 
-<!-- 1. FULL-WIDTH CONTAINER (Background/Image Edge) 
-     - Uses raw CSS to guarantee 100vw width.
-     - Includes the necessary negative margins to perfectly counter the parent's padding. -->
+<!-- 1. FULL-WIDTH CONTAINER: Background and image edge alignment is guaranteed by CSS/Negative Margins. -->
 <div class="
     full-breakout 
     mx-[-1rem] lg:ml-[-120px] lg:mr-[-120px] 
@@ -21,26 +19,20 @@
     relative overflow-hidden
 ">
     
-    <!-- 2. GLOBAL CENTERING WRAPPER (mx-auto max-w-7xl)
-         - This wrapper centers the content column on the page, matching the rest of your site's structure. -->
-    <div class="mx-auto max-w-7xl">
+    <!-- 2. ALIGNMENT WRAPPER: Re-applies the site's original left padding. 
+         Note: We removed the mx-auto max-w-* wrappers as they caused the misalignment. -->
+    <div class="lg:pl-[120px] p-4 pl-4 clearfix">
         
-        <!-- 3. INNER PADDING WRAPPER 
-             - Re-applies the site's specific padding (120px/1rem) to position the text 
-               relative to the centered column. -->
-        <div class="lg:pl-[120px] p-4 pl-4 clearfix">
-            
-            <!-- Image: Floats right and breaks out to the edge of the display -->
-            <img src="{{ asset('images/error-hamish.png') }}"
-                alt="Hamish"
-                class="float-right ml-8 mr-[-1rem] lg:mr-[-120px] max-w-xs">
+        <!-- Image: Floats right and breaks out to the edge of the display -->
+        <img src="{{ asset('images/error-hamish.png') }}"
+            alt="Hamish"
+            class="float-right ml-8 mr-[-1rem] lg:mr-[-120px] max-w-xs">
 
-            <!-- Headlines: Now aligned correctly with the rest of your site's text column -->
-            <h4 class="uppercase text-xs font-bold">404 ERROR</h4>
-            <h1 class="font-heading text-7xl">I looked, but I<br />can't find it!</h1>
-            
-            <div class="clear-both"></div>
-        </div>
+        <!-- Headlines: Should now align perfectly with the original content column's left edge -->
+        <h4 class="uppercase text-xs font-bold">404 ERROR</h4>
+        <h1 class="font-heading text-7xl">I looked, but I<br />can't find it!</h1>
+        
+        <div class="clear-both"></div>
     </div>
 </div>
 @endsection
