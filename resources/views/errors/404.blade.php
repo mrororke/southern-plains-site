@@ -18,7 +18,7 @@ Oops! Looks like Hamish couldn't sniff out this page.<br/>It might have moved to
 If you followed a link, please let us know by visiting our <a href="/contact" class="text-club hover:text-club-darker font-semibold">Contact Page</a>.
 </li>
 <li>
-<a href="/training-schedule" class="text-club hover:text-club-darker font-semibold">See our training schedule</a> to find a class.
+<a href="/events" class="text-club hover:text-club-darker font-semibold">See our training schedule</a> to find a class.
 </li>
 </ul>
 
