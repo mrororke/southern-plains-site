@@ -2,7 +2,7 @@
 
 @section('page_content')
 <h4 class="uppercase text-xs font-bold">Error 500 | Internal Server Error</h4>
-<h1 class="font-heading text-7xl">Uh oh... I think I ate some bad kibble.<br/>The server is sick.</h1>
+<h1 class="font-heading text-7xl">Uh oh... I think I ate<br/> some bad kibble.<br/>The server is sick.</h1>
 
 <h3 class="lg:text-2xl text-lg mb-2 mt-2 text-black">
 The server is resting after eating some bad code.<br/>It’s not you, it’s us! We've been notified and are fetching help now.
