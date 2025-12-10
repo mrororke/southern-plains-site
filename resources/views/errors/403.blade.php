@@ -2,7 +2,7 @@
 
 @section('page_content')
 <h4 class="uppercase text-xs font-bold">Error 403 | Forbidden</h4>
-<h1 class="font-heading text-7xl">Wait!<br/>I think you need Admin's keys for that door!</h1>
+<h1 class="font-heading text-7xl">Wait!<br/>I think you need<br/> keys for that door!</h1>
 
 <h3 class="lg:text-2xl text-lg mb-2 mt-2 text-black">
 Hamish says, "Stop right there!" You don't have the <br/>privileges to access this cozy spot. We can't let <br/>just anyone play with the special toys.
