@@ -9,6 +9,11 @@
         left: 50%;
         transform: translateX(-50%);
     }
+    
+    /* Custom utility to fix the image's right edge for mobile (p-4) */
+    .mr-breakout-sm {
+        margin-right: -1rem; /* Negates p-4 (1rem) */
+    }
 </style>
 
 <!-- 1. AGGRESSIVE FULL-WIDTH CONTAINER: Background/Image Edge Alignment -->
@@ -19,21 +24,25 @@
     relative overflow-hidden
 ">
     
-    <!-- 2. ALIGNMENT WRAPPER: Re-applies the site's original left padding rules. 
-         This wrapper provides the margin the text needs to align with the rest of your site. -->
-    <div class="lg:pl-[120px] p-4 pl-4">
+    <!-- 2. GLOBAL CENTERING WRAPPER (REQUIRED): Centers content and provides maximum width.
+         Assuming a standard width like max-w-7xl, this is what defines your site's column. -->
+    <div class="mx-auto max-w-7xl">
         
-        <!-- Image: Floats right and breaks out to the edge of the display -->
-        <img src="{{ asset('images/error-hamish.png') }}"
-            alt="Hamish"
-            class="float-right ml-8 mr-[-1rem] lg:mr-[-120px] max-w-xs">
+        <!-- 3. INNER PADDING WRAPPER: Re-applies the site's specific left padding rules. -->
+        <div class="lg:pl-[120px] p-4 clearfix">
+            
+            <!-- Image: Floats right, breaks out using custom CSS for small screens 
+                 and corrected margin for large screens. -->
+            <img src="{{ asset('images/error-hamish.png') }}"
+                alt="Hamish"
+                class="float-right ml-8 mr-breakout-sm lg:mr-[-120px] max-w-xs">
 
-        <!-- Headlines: These should now align correctly, using the padding from the parent div -->
-        <h4 class="uppercase text-xs font-bold">404 ERROR</h4>
-        <h1 class="font-heading text-7xl">I looked, but I<br />can't find it!</h1>
-        
-        <!-- 3. CLEARFIX: Ensures the float is contained and does not break the footer -->
-        <div class="clear-both"></div>
+            <!-- Headlines: Should now align correctly, starting 120px from the left of the centered container -->
+            <h4 class="uppercase text-xs font-bold">404 ERROR</h4>
+            <h1 class="font-heading text-7xl">I looked, but I<br />can't find it!</h1>
+            
+            <div class="clear-both"></div>
+        </div>
     </div>
 </div>
 @endsection
