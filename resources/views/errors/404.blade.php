@@ -19,30 +19,30 @@
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
 
     <!-- START - We recommend to place the below code in head tag of your website html  -->
-        <style>
-            #sib-container input:-ms-input-placeholder {
-                text-align: left;
-                font-family: Helvetica, sans-serif;
-                color: #000000;
-            }
+    <style>
+        #sib-container input:-ms-input-placeholder {
+            text-align: left;
+            font-family: Helvetica, sans-serif;
+            color: #000000;
+        }
 
-            #sib-container input::placeholder {
-                text-align: left;
-                font-family: Helvetica, sans-serif;
-                color: #000000;
-            }
+        #sib-container input::placeholder {
+            text-align: left;
+            font-family: Helvetica, sans-serif;
+            color: #000000;
+        }
 
-            #sib-container textarea::placeholder {
-                text-align: left;
-                font-family: Helvetica, sans-serif;
-                color: #000000;
-            }
+        #sib-container textarea::placeholder {
+            text-align: left;
+            font-family: Helvetica, sans-serif;
+            color: #000000;
+        }
 
-            #sib-container a {
-                text-decoration: underline;
-                color: #2BB2FC;
-            }
-        </style>
+        #sib-container a {
+            text-decoration: underline;
+            color: #2BB2FC;
+        }
+    </style>
 
     <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
     <!--  END - We recommend to place the above code in head tag of your website html -->
@@ -107,13 +107,13 @@
     </nav>
 
     <main>
-        
-        <div >
 
-           I am the new error page base
+        <div>
 
+            I am the new error page base
+        </div>
 
-                <x-app-footer />
+        <x-app-footer />
 
     </main>
 
