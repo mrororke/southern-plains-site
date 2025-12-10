@@ -2,7 +2,7 @@
 
 @section('page_content')
 <h4 class="uppercase text-xs font-bold">Error 503 | Service Unavailable</h4>
-<h1 class="font-heading text-7xl">Quiet Time!<br/>The humans are cleaning<br/>my kennel. We'll be back soon.</h1>
+<h1 class="font-heading text-7xl">Quiet Time!<br/>The humans are cleaning<br/>my kennel. We'll be back.</h1>
 
 <h3 class="lg:text-2xl text-lg mb-2 mt-2 text-black">
 We’re currently giving the server a bath. <br/>It will be back and squeaky clean soon! <br/>Thanks for your patience while we tidy up.
