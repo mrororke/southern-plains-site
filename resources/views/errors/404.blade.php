@@ -25,7 +25,7 @@
     <div class="lg:pl-[120px] p-4">
 
         <!-- Headlines: PERFECTLY ALIGNED because they are correctly nested. -->
-        <h4 class="uppercase text-xs font-bold">404 ERROR</h4>
+        <h4 class="uppercase text-xs font-bold">404 ERROR Again</h4>
         <h1 class="font-heading text-7xl">I looked, but I<br />can't find it!</h1>
         
         <!-- Placeholder for the Hamish image content -->
