@@ -112,13 +112,13 @@
         bg-[url('{{ asset('images/error-hamish.png') }}')]
         bg-bottom-right
         bg-auto"
-        style="background-image: url('{{ asset('images/error-hamish.png') }}');
+            style="background-image: url('{{ asset('images/error-hamish.png') }}');
                 background-repeat: no-repeat;
                 background-position: bottom right;
-                background-size: auto;
-                ">
-
-            I am the new error page base
+                background-size: auto;">
+            <div class="shadow-xl">
+                I am the new error page base
+            </div>
         </div>
 
         <x-app-footer />
