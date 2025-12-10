@@ -108,7 +108,7 @@
 
     <main>
 
-        <div class="pt-10 pb-10
+        <div class="min-h-[500px] pt-10 pb-10
         bg-[url('{{ asset('images/error-hamish.png') }}')]
         bg-bottom-right
         bg-auto"
@@ -116,7 +116,7 @@
                 background-repeat: no-repeat;
                 background-position: bottom right;
                 background-size: auto;">
-            <div class="max-w-4xl shadow-xl mx-auto pt-10 pb-10">
+            <div class="max-w-4xl mx-auto pt-10 pb-10 py-8">
                 <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
                 <h1 class="font-heading text-7xl">Train. Play. Grow.</h1>
             </div>
