@@ -1,7 +1,9 @@
 <div class="text-center md:text-left">
     <h3 class="font-heading text-2xl mb-2">Explore</h3>
     <ul class="list-none text-sm">
-        <li>Home</li>
+        <li>
+            <a href="{{ route('home') }}">Home</a>
+        </li>
         <li>About</li>
         <li>Blog</li>
         <li>Training</li>
