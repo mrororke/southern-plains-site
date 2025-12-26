@@ -186,7 +186,7 @@
 | TESTIMONIAL BLOCKS SECTION (Goes full width below feature blocks)
 | ----------------------------------------------------
 --}}
-@section('testimonial_blocks')
+<!-- @section('testimonial_blocks')
     {{-- Calls the $testimonialsData variable defined above --}}
     <x-home.testimonial-carousel-section :testimonials="$testimonialsData" />
-@endsection
+@endsection -->
