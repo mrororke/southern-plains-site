@@ -10,9 +10,17 @@
         <li>
             <a href="{{ route('blog.index') }}">Blog</a>
         </li>
-        <li>Training</li>
-        <li>League</li>
-        <li>Events</li>
-        <li>Contact</li>
+        <li>
+            <a href="{{ route('training.index') }}">Training</a>
+        </li>
+        <li>
+            <a href="{{ route('league.index') }}">League</a>
+        </li>
+        <li>
+            <a href="{{ route('events.index') }}">Events</a>
+        </li>
+        <li>
+            <a href="{{ route('contact.create') }}">Contact</a>
+        </li>
     </ul>
 </div>
