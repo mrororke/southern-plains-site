@@ -4,8 +4,12 @@
         <li>
             <a href="{{ route('welcome') }}">Home</a>
         </li>
-        <li>About</li>
-        <li>Blog</li>
+        <li>
+            <a href="{{ route('about') }}">About</a>
+        </li>
+        <li>
+            <a href="{{ route('blog.index') }}">Blog</a>
+        </li>
         <li>Training</li>
         <li>League</li>
         <li>Events</li>
