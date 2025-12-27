@@ -141,7 +141,7 @@
 <!-- Begin Tier Two -->
  <div class="grid md:grid-cols-4 gap-8 mt-10 mb-10">
     <div></div>
-    <div class="col-span-2 border-2 border-black p-8 shadow-lg bg-white">
+    <div class="col-span-2 border-2 border-black p-8  bg-white">
         <h3 class="text-2xl font-extrabold text-black mb-4">Private Training</h3>
         <p class="text-sm text-black mb-3">
                 Customized, <strong>one-on-one sessions</strong> for sports goals, or obedience challenges.
@@ -151,7 +151,7 @@
             </p>
             <a href="#class-registration"
                 class="block w-full text-center bg-training text-white py-3 font-bold uppercase tracking-wider 
-                  hover:bg-training-blue-hover focus:outline-none focus:ring-4 focus:ring-training focus:ring-opacity-50 transition duration-150 shadow-md">
+                  hover:bg-training-blue-hover focus:outline-none focus:ring-4 focus:ring-training focus:ring-opacity-50 transition duration-150">
                 Schedule Your Free 15 Minute Intro Call
             </a>
     </div>
@@ -160,7 +160,7 @@
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10 mb-10">
 
-    <div class="md:col-span-1 border-2 border-black p-8 shadow-lg bg-white">
+    <div class="md:col-span-1 border-2 border-black p-8  bg-white">
         <h3 class="text-2xl font-extrabold text-black mb-4">Official Titling & Testing</h3>
         
         <div class="mb-6 pb-4">
@@ -186,7 +186,7 @@
         </div> -->
     </div>
 
-    <div class="md:col-span-1 border-2 border-black p-8 shadow-lg bg-white">
+    <div class="md:col-span-1 border-2 border-black p-8 bg-white">
         <h3 class="text-2xl font-extrabold text-black mb-4">Virtual & Community Programs</h3>
 
         <!-- <div class="mb-6 pb-4 border-b">
