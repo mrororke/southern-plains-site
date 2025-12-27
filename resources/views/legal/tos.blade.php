@@ -163,43 +163,41 @@ As a member of our community or a participant in our Wander Club meetups, you ag
 </ul>
 </p>
 
-<p class="text-base mb-2">3. Training & Content Disclaimer
-
+<p class="text-base mb-2"><strong>3. Training & Content Disclaimer</strong><br/>
 The content provided on this Site, including blog posts regarding canine behavior, NASDA trials, and the Wander Club, is for informational and educational purposes only.
+<ul class="list-disc list-inside mb-2">
+<li><strong>No Professional Guarantee:</strong> While we strive for accuracy, canine training involves inherent risks. Results vary based on the individual dog and handler.</li>
+<li><strong>Health & Safety:</strong> Always consult with a qualified veterinarian or professional trainer before beginning a new physical activity or training regimen with your dog.</li>
+</ul></p>
 
-No Professional Guarantee: While we strive for accuracy, canine training involves inherent risks. Results vary based on the individual dog and handler.
-
-Health & Safety: Always consult with a qualified veterinarian or professional trainer before beginning a new physical activity or training regimen with your dog.</p>
-
-<p class="text-base mb-2">4. User Accounts & Memberships (Future Implementation)
-
+<p class="text-base mb-2"><strong>4. User Accounts & Memberships</strong></br>
 If you create an account or join a members-only section of the Site:
+<ul class="list-disc list-inside mb-2">
+<li>You are responsible for maintaining the confidentiality of your account credentials.</li>
+<li>You agree to provide accurate information and update it as necessary.</li>
+<li>We reserve the right to suspend or terminate accounts that violate these Terms or our community standards.</li>
+<ul></p>
 
-You are responsible for maintaining the confidentiality of your account credentials.
-
-You agree to provide accurate information and update it as necessary.
-
-We reserve the right to suspend or terminate accounts that violate these Terms or our community standards.</p>
-
-<p class="text-base mb-2">5. Intellectual Property
+<p class="text-base mb-2"><strong>5. Intellectual Property</strong></br>
 
 All content on this Site—including text, photographs (including images of Luka, Hamish, and Moose), logos, and training materials—is the property of Southern Plains or its content creators and is protected by copyright laws. You may not reproduce or distribute this content without express written permission.</p>
 
-<p class="text-base mb-2">6. External Links & Third-Party Tools
-
+<p class="text-base mb-2"><strong>6. External Links & Third-Party Tools</strong><br/>
 Our Site may link to third-party services (such as NASDA, Linktree, or Brevo). We are not responsible for the content or privacy practices of these external sites.</p>
 
-<p class="text-base mb-2">7. Limitation of Liability
+<p class="text-base mb-2"><strong>7. Limitation of Liability</strong><br/>
+To the maximum extent permitted by law, Southern Plains shall not be liable for any direct, indirect, or incidental damages resulting from your use of the Site, participation in events, or reliance on any information provided on the Site.</p>
 
-To the maximum extent permitted by law, Southern Plains shall not be liable for any direct, indirect, or incidental damages resulting from your use of the Site, participation in Wander Club events, or reliance on any information provided on the Site.</p>
-
-<p class="text-base mb-2">8. Changes to Terms
-
+<p class="text-base mb-2"><strong>8. Changes to Terms</strong><br/>
 We reserve the right to modify these Terms at any time. Significant changes will be communicated via our newsletter or a notice on our homepage. Your continued use of the Site after such changes constitutes acceptance of the new Terms.</p>
 
-<p class="text-base mb-2">9. Contact Us
+<p class="text-base mb-2"><strong>9. Contact Us</strong><br/>
 
-If you have questions regarding these Terms, please contact us via our [Contact Page]({{ route('contact.create') }}).</p>
+If you have questions regarding these Terms, please contact us via our
+<a href="{{ route('contact.create') }}"
+    title="Contact Us"
+   style="color: #4CBB17; text-decoration:underline;">
+Contact Page</a>.</p>
 
 @endsection
 
