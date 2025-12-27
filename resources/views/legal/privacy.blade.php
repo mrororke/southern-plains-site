@@ -98,7 +98,7 @@ You have the right to:
 <ul class="list-disc list-inside mb-4">
 <li><strong>Unsubscribe:</strong> You can opt-out of our marketing emails at any time by clicking the "unsubscribe" link at the bottom of our emails.</li>
 <li><strong>Access/Correct Data:</strong> You may request to view or update the personal information we have on file for you.</li>
-<li><strong>Data Deletion:</strong> You may request that we delete your personal data, subject to certain legal obligations.<li></ul>
+<li><strong>Data Deletion:</strong> You may request that we delete your personal data, subject to certain legal obligations.</li></ul>
 </p>
 
 <p class="text-base mb-4"><strong>7. Children’s Privacy</strong><br/>
