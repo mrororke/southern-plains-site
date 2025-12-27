@@ -139,6 +139,11 @@
 </div> -->
 
 <!-- Begin Tier Two -->
+ <div class="grid grid-cols-1 gap-8 mt-10 mb-10">
+    <div class="md:col-span-1 border-2 border-black p-8 shadow-lg bg-white">
+        Private training
+    </div>
+</div>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10 mb-10">
 
