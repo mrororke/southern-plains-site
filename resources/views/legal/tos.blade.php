@@ -147,7 +147,61 @@
 
 <p class="text-base mb-2">Effective Date: January 1, 2026</p>
 
-<p class="text-base mb-2">Welcome to Southern Plains Sport Dog Club (“Southern Plains,” “we,” “us,” or “our”). These Terms of Service (“Terms”) govern your access to and use of our website (the “Site”), including our blog, training resources, and community features. By accessing or using the Site, you agree to be bound by these Terms..</p>
+<p class="text-base mb-2">Welcome to Southern Plains Sport Dog Club (“Southern Plains,” “we,” “us,” or “our”). These Terms of Service (“Terms”) govern your access to and use of our website (the “Site”), including our blog, training resources, and community features. By accessing or using the Site, you agree to be bound by these Terms.</p>
+
+<p class="text-base mb-2">1. The Southern Plains Philosophy
+
+Southern Plains is dedicated to the bond between handlers and their dogs. We advocate for the "train the dog in front of you" philosophy. Our content and community are designed for responsible handlers committed to the sports, health, and well-being of their teammates.</p>
+
+<p class="text-base mb-2">2. Community Standards & Conduct
+
+As a member of our community or a participant in our Wander Club meetups, you agree to:
+
+Treat all handlers and dogs with respect.
+
+Adhere to all local laws and trail regulations (including leash laws).
+
+Maintain a safe environment for your teammate and others.
+
+Refrain from using the Site to post harmful, offensive, or harassing content.</p>
+
+<p class="text-base mb-2">3. Training & Content Disclaimer
+
+The content provided on this Site, including blog posts regarding canine behavior, NASDA trials, and the Wander Club, is for informational and educational purposes only.
+
+No Professional Guarantee: While we strive for accuracy, canine training involves inherent risks. Results vary based on the individual dog and handler.
+
+Health & Safety: Always consult with a qualified veterinarian or professional trainer before beginning a new physical activity or training regimen with your dog.</p>
+
+<p class="text-base mb-2">4. User Accounts & Memberships (Future Implementation)
+
+If you create an account or join a members-only section of the Site:
+
+You are responsible for maintaining the confidentiality of your account credentials.
+
+You agree to provide accurate information and update it as necessary.
+
+We reserve the right to suspend or terminate accounts that violate these Terms or our community standards.</p>
+
+<p class="text-base mb-2">5. Intellectual Property
+
+All content on this Site—including text, photographs (including images of Luka, Hamish, and Moose), logos, and training materials—is the property of Southern Plains or its content creators and is protected by copyright laws. You may not reproduce or distribute this content without express written permission.</p>
+
+<p class="text-base mb-2">6. External Links & Third-Party Tools
+
+Our Site may link to third-party services (such as NASDA, Linktree, or Brevo). We are not responsible for the content or privacy practices of these external sites.</p>
+
+<p class="text-base mb-2">7. Limitation of Liability
+
+To the maximum extent permitted by law, Southern Plains shall not be liable for any direct, indirect, or incidental damages resulting from your use of the Site, participation in Wander Club events, or reliance on any information provided on the Site.</p>
+
+<p class="text-base mb-2">8. Changes to Terms
+
+We reserve the right to modify these Terms at any time. Significant changes will be communicated via our newsletter or a notice on our homepage. Your continued use of the Site after such changes constitutes acceptance of the new Terms.</p>
+
+<p class="text-base mb-2">9. Contact Us
+
+If you have questions regarding these Terms, please contact us via our [Contact Page]({{ route('contact.create') }}).</p>
 
 @endsection
 
