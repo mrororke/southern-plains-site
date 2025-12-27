@@ -48,7 +48,7 @@
 --}}
 @section('page_content')
 <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
-<h1 class="font-heading text-7xl">Liability Waiver & Release of Liability.</h1>
+<h1 class="font-heading text-7xl">Liability Waiver<br/> & Release of Liability.</h1>
 
 <p class="text-base mb-4"><strong>NOTICE:</strong> By participating in any Southern Plains Sport Dog Club event, including Wander Club meetups and League Training Days, you acknowledge and agree to the following:
 <ul class="list-decimal list-inside mb-4">
