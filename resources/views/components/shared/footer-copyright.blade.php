@@ -13,5 +13,5 @@
         <a href="{{ route('legal.refund') }}" style="text-decoration:underline;">Refund Policy</a>
     </span>
 
-    <strong>Contact us:</strong> <a href="mailto:southernplainssportsdogclub@gmail.com">southernplainssportsdogclub@gmail.com</a>
+    <strong>Contact Us:</strong> <a href="mailto:southernplainssportsdogclub@gmail.com">southernplainssportsdogclub@gmail.com</a>
 </p>
