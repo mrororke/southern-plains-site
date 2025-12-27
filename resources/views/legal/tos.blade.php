@@ -142,7 +142,13 @@
 | ----------------------------------------------------
 --}}
 @section('page_content')
-    Terms of Service
+<h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
+<h1 class="font-heading text-7xl">Terms of Service.</h1>
+
+<p class="text-base mb-2">Effective Date: January 1, 2026</p>
+
+<p class="text-base mb-2">Welcome to Southern Plains Sport Dog Club (“Southern Plains,” “we,” “us,” or “our”). These Terms of Service (“Terms”) govern your access to and use of our website (the “Site”), including our blog, training resources, and community features. By accessing or using the Site, you agree to be bound by these Terms..</p>
+
 @endsection
 
 
