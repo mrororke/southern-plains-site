@@ -141,7 +141,18 @@
 <!-- Begin Tier Two -->
  <div class="grid grid-cols-1 gap-8 mt-10 mb-10">
     <div class="md:col-span-1 border-2 border-black p-8 shadow-lg bg-white">
-        Private training
+        <h3 class="text-2xl font-extrabold text-black mb-4">Private Training</h3>
+        <p class="text-sm text-black mb-3">
+                Customized, <strong>one-on-one sessions</strong> for sports goals, or obedience challenges.
+            </p>
+            <p class="text-sm text-black mb-3">
+                Our private coaching provides personalized instruction tailored to your specific goals, whether you are looking to sharpen advanced sport techniques or build a more reliable foundation for daily life. We offer focused coaching sessions and flexible scheduling designed to work specifically around your unique training environment, helping you and your teammate progress at your own pace.
+            </p>
+            <a href="#class-registration"
+                class="block w-full text-center bg-training text-white py-3 font-bold uppercase tracking-wider 
+                  hover:bg-training-blue-hover focus:outline-none focus:ring-4 focus:ring-training focus:ring-opacity-50 transition duration-150 shadow-md">
+                Schedule Your Free 15 Minute Intro Call
+            </a>
     </div>
 </div>
 
