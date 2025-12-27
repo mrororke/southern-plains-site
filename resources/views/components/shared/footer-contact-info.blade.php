@@ -10,9 +10,14 @@
     <ul class="list-none text-xs mt-4">
         {{-- Facebook --}}
         <li class="inline-block align-middle pr-4">
+            <a href="https://www.facebook.com/southernplainsportdogclub" 
+   target="_blank" 
+   rel="noopener" 
+   title="Check out our page on Facebook">
             <svg width="10" height="16" viewBox="0 0 10 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M2.0625 9.375H0V6.3125H2.0625V5C2.0625 1.59375 3.59375 0 6.9375 0C7.5625 0 8.65625 0.125 9.09375 0.25V3.03125C8.875 3 8.46875 3 7.9375 3C6.3125 3 5.6875 3.625 5.6875 5.21875V6.3125H8.9375L8.375 9.375H5.6875V16H2.0625V9.375Z" fill="currentColor" />
             </svg>
+</a>
         </li>
         {{-- Instagram --}}
         <li class="inline-block align-middle pr-4">
