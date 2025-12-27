@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HistoryFormController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -59,6 +60,11 @@ Route::get('/events/{event:slug}', [EventController::class, 'show'])->name('even
 Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
+// Form Related Routes
+Route::get('/training-history', [HistoryFormController::class, 'create'])->name('history.create');
+Route::post('/training-history', [HistoryFormController::class, 'store'])->name('history.store');
+
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -72,22 +78,18 @@ Route::middleware('auth')->group(function () {
 // In Admin Routes
 Route::middleware(['auth', 'admin'])->group(function () {
     
-    // FIX 1: Correct the Dashboard name
     Route::get('/admin/dashboard', function () {
         return view('admin.dashboard');
     })->name('admin.dashboard'); 
     
-    // FIX 2: Correct the base /admin route (if you added it)
     Route::get('/admin', function () {
         return redirect()->route('admin.dashboard');
     })->name('admin.index');
 
-    // FIX 3: Correct the Post Management name 
     // This is the most complex one. Your current setup should work, but let's be explicit.
     Route::resource('admin/posts', PostController::class)->names('admin.posts');
 });
 
-//Legal Routes
 // Legal Routes
 Route::prefix('legal')->name('legal.')->group(function () {
     Route::get('/tos', function () { return view('legal.tos'); })->name('tos');

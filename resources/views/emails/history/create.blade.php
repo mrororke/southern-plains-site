@@ -49,6 +49,13 @@ Form will Go here
             </div>
         </div>
 
+        <!-- Submit Button -->
+        <div class="pt-4">
+            <button type="submit" class="w-full inline-flex justify-center py-3 px-4 border border-transparent uppercase text-sm font-medium rounded-md text-white bg-club hover:bg-club/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-club transition duration-150">
+                Send Message
+            </button>
+        </div>
+
     
            </form>
 
