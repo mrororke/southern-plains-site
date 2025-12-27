@@ -64,7 +64,7 @@ We use first-party and third-party cookies for several reasons:
 <ul class="list-disc list-inside mb-4">
 <li><strong>Essential Cookies:</strong> These are strictly necessary to provide you with services available through our Site (such as logging into your member account).</li>
 <li><strong>Performance and Functionality Cookies:</strong> These are used to enhance the performance and functionality of our Site but are non-essential to its use.</li>
-<li><strong>Analytics and Customization Cookies:</strong> These collect information that is used either in aggregate form to help us understand how our Site is being used (e.g., Google Analytics) or to help us customize our Site for you.</li.
+<li><strong>Analytics and Customization Cookies:</strong> These collect information that is used either in aggregate form to help us understand how our Site is being used (e.g., Google Analytics) or to help us customize our Site for you.</li>
 </ul>
 </p>
 
