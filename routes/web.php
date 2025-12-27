@@ -88,12 +88,15 @@ Route::middleware(['auth', 'admin'])->group(function () {
 });
 
 //Legal Routes
-Route::get('/tos', function () {
-    return view('legal.tos');
-})->name('legal.tos');
-Route::get('/privacypolicy', function () {
-    return view('legal.privacy');
-})->name('legal.privacy');
+// Legal Routes
+Route::prefix('legal')->name('legal.')->group(function () {
+    Route::get('/tos', function () { return view('legal.tos'); })->name('tos');
+    Route::get('/privacy', function () { return view('legal.privacy'); })->name('privacy');
+    Route::get('/cookies', function () { return view('legal.cookies'); })->name('cookies');
+    Route::get('/refund', function () { return view('legal.refund'); })->name('refund');
+    Route::get('/waiver', function () { return view('legal.waiver'); })->name('waiver');
+    Route::get('/conduct', function () { return view('legal.conduct'); })->name('conduct');
+});
 
 
 require __DIR__ . '/auth.php';
