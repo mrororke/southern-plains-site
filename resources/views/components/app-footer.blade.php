@@ -15,8 +15,7 @@
 
                         {{-- Copyright Text (Always at the bottom) --}}
                         <div class="mt-8">
-                            <p class="text-xs">Copyright &copy; 2025 - 2026 Southern Plains Sport Dog Club, LLC. All rights. reserved.<br />
-                                By using this site, you agree to our Terms of Service and Privacy Policy. For copyright, accessibility inquiries, or other policies, visit our Legal & Policies Hub, or contact us at <a href="mailto:southernplainssportsdogclub@gmail.com">southernplainssportsdogclub@gmail.com</a></p>
+                            <x-shared.footer-copyright />
                         </div>
                     </div>
                 </div>
