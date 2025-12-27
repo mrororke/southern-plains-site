@@ -5,7 +5,7 @@
     <a href="{{ route('legal.privacy') }}" style="text-decoration:underline;">Privacy Policy</a>, and 
     <a href="{{ route('legal.cookies') }}" style="text-decoration:underline;">Cookie Policy</a>.<br />
     
-    <span class="mt-2 block">
+    <span class="block">
         <strong>Participant Resources:</strong> 
         <a href="#" style="text-decoration:underline;">Client Area</a> | 
         <a href="{{ route('legal.waiver') }}" style="text-decoration:underline;">Liability Waiver</a> | 
@@ -13,5 +13,5 @@
         <a href="{{ route('legal.refund') }}" style="text-decoration:underline;">Refund Policy</a>
     </span>
 
-    Contact us: <a href="mailto:southernplainssportsdogclub@gmail.com">southernplainssportsdogclub@gmail.com</a>
+    <strong>Contact us:</strong> <a href="mailto:southernplainssportsdogclub@gmail.com">southernplainssportsdogclub@gmail.com</a>
 </p>
