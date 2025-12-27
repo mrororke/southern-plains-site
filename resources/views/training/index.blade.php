@@ -16,8 +16,8 @@
 
 
 </div>
-<!-- <div class="pt-10 grid grid-cols-7 items-center">
-    <div class="col-span-2">
+ <div class="pt-10 grid grid-cols-7 items-center">
+    <!--<div class="col-span-2">
         <div class="border-1 p-8 shadow-lg bg-gray-50 opacity-80">
 
         <div class="flex items-center mb-4">
