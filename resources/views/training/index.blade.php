@@ -140,7 +140,7 @@
 
 <!-- Begin Tier Two -->
  <div class="grid md:grid-cols-4 gap-8 mt-10 mb-10">
-    <div>Empty</div>
+    <div></div>
     <div class="col-span-2 border-2 border-black p-8 shadow-lg bg-white">
         <h3 class="text-2xl font-extrabold text-black mb-4">Private Training</h3>
         <p class="text-sm text-black mb-3">
@@ -155,7 +155,7 @@
                 Schedule Your Free 15 Minute Intro Call
             </a>
     </div>
-    <div>Empty</div>
+    <div></div>
 </div>
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-10 mb-10">
@@ -174,7 +174,7 @@
             </a>
         </div>
 
-        <div class="mb-0">
+        <!-- <div class="mb-0">
             <h4 class="text-lg font-bold text-black mb-1">Canine Good Citizen (CGC) Testing</h4>
             <p class="text-sm text-black mb-3">
                 AKC CGC, CGCA, and CGCU Testing is held **every other month**. Registration is required in advance. Testing proceeds only if a minimum of six dogs are registered.
@@ -183,13 +183,13 @@
             <a href="#cgc-form" class="mt-2 inline-block text-training-blue-default font-semibold text-sm hover:underline">
                 Register for Next Test Date
             </a>
-        </div>
+        </div> -->
     </div>
 
     <div class="md:col-span-1 border-2 border-black p-8 shadow-lg bg-white">
         <h3 class="text-2xl font-extrabold text-black mb-4">Virtual & Community Programs</h3>
 
-        <div class="mb-6 pb-4 border-b">
+        <!-- <div class="mb-6 pb-4 border-b">
             <h4 class="text-lg font-bold text-black mb-1">Virtual Fit Dog</h4>
             <p class="text-sm text-black mb-3">
                 Build conditioning and stamina from home! This **six-week virtual class** helps you and your dog meet distance requirements for official Fit Dog titles. Requires monthly Virtual Group Walk participation and video skill submission.
@@ -198,7 +198,7 @@
             <a href="#fit-dog-registration" class="mt-2 inline-block text-training-blue-default font-semibold text-sm hover:underline">
                 Enroll in Virtual Class
             </a>
-        </div>
+        </div> -->
 
         <div class="mb-0">
             <h4 class="text-lg font-bold text-black mb-1">The Wander Club (Hiking Meetup)</h4>
