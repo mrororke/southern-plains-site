@@ -155,7 +155,7 @@ Southern Plains is dedicated to the bond between handlers and their dogs. We adv
 <p class="text-base mb-2"><strong>2. Community Standards & Conduct</strong><br/>
 
 As a member of our community or a participant in our Wander Club meetups, you agree to:
-<ul>
+<ul class="list-disc list-inside">
 <li>Treat all handlers and dogs with respect.</li>
 <li>Adhere to all local laws and trail regulations (including leash laws).</li>
 <li>Maintain a safe environment for your teammate and others.</li>
