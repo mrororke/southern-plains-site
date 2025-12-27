@@ -50,9 +50,24 @@
 <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
 <h1 class="font-heading text-7xl">Refund & Cancellation Policy.</h1>
 
-<p class="text-base mb-4">Effective Date: January 1, 2026</p>
+<p class="text-base mb-4">
+<ul class="list-decimal list-inside mb-4">
+<li><strong>League & Event Registration:</strong>
+<ul class="list-disc list-inside mb-4">
+<li>Cancellations made more than 7 days prior to an event are eligible for a full refund or credit toward a future event.</li>
+<li>Cancellations made within 2-7 days of an event are eligible for a 50% refund.</li>
+<li>Cancellations made less than 48 hours before an event are non-refundable.</li>
+</ul>
+</li>
 
-<p class="text-base mb-4">Southern Plains Sport Dog Club (“Southern Plains,” “we,” “us,” or “our”) respects your privacy and is committed to protecting the personal information you share with us. This Privacy Policy outlines how we collect, use, and safeguard your data when you visit our website (the “Site”).</p>
+<li><strong>Private Training:</strong><br/>
+24-hour notice is required to reschedule or cancel a private lesson without penalty. Late cancellations will be charged the full session fee.</li>
+
+<li><strong>Club Cancellations:</strong>
+If Southern Plains cancels an event due to extreme weather (e.g., Oklahoma heat advisories or ice) or instructor illness, a full refund or rescheduled date will be provided.</li>
+
+
+</ul></p>
 
 
 
