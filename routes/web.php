@@ -61,8 +61,9 @@ Route::get('/contact', [ContactController::class, 'create'])->name('contact.crea
 Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
 
 // Form Related Routes
-Route::get('/training-history', [HistoryFormController::class, 'create'])->name('emails.history.create');
-Route::post('/training-history', [HistoryFormController::class, 'store'])->name('emails.history.store');
+Route::get('/history/create', [HistoryFormController::class, 'create'])->name('history.create');
+Route::post('/history/store', [HistoryFormController::class, 'store'])->name('history.store');
+
 
 
 Route::get('/dashboard', function () {
