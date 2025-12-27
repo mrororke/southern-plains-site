@@ -13,7 +13,7 @@ class HistoryFormController extends Controller
      */
     public function create()
     {
-        return view('history.create');
+        return view('emails.history.create');
     }
 
     /**
