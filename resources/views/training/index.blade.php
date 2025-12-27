@@ -166,7 +166,7 @@
         <div class="mb-6 pb-4">
             <h4 class="text-lg font-bold text-black mb-1">Trick Dog Evaluations</h4>
             <p class="text-sm text-black mb-3">
-                Earn recognized Trick Dog titles! Evaluations are available both <strong>online</strong> (via YouTube playlist submission) and <strong>in person</stong> (max ten tricks per title). Payment is only requested after a successful evaluation.
+                Earn recognized Trick Dog titles! Evaluations are available both <strong>online</strong> (via YouTube playlist submission) and <strong>in person</strong> (max ten tricks per title). Payment is only requested after a successful evaluation.
             </p>
             <p class="text-sm font-bold text-black">Cost: $10 per Title</p>
             <a href="#trick-dog-form" class="mt-2 inline-block text-training-blue-default font-semibold text-sm hover:underline">
