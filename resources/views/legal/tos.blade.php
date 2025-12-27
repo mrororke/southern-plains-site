@@ -81,7 +81,7 @@ If you create an account or join a members-only section of the Site:
 <li>You are responsible for maintaining the confidentiality of your account credentials.</li>
 <li>You agree to provide accurate information and update it as necessary.</li>
 <li>We reserve the right to suspend or terminate accounts that violate these Terms or our community standards.</li>
-<ul></p>
+</ul></p>
 
 <p class="text-base mb-4"><strong>5. Intellectual Property</strong></br>
 
