@@ -56,7 +56,7 @@
 <ul class="list-decimal list-inside mb-4">
 <li><strong>The "Three-Foot" Rule:</strong> Always ask for permission before allowing your dog to approach another dog or person. Not all teammates are social; some are here for focused training.</li>
 
-<li>Gear Requirements:
+<li><strong>Gear Requirements:</strong>
 <ul class="list-disc list-inside mb-4">
 <li>No retractable (flexi) leashes are permitted at group meetups or trials.</li>
 <li>Standard flat collars, martingales, or harnesses are required.</li>
