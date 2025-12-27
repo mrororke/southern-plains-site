@@ -139,8 +139,8 @@
 </div> -->
 
 <!-- Begin Tier Two -->
- <div class="grid grid-cols-1 gap-8 mt-10 mb-10">
-    <div class="md:col-span-1 border-2 border-black p-8 shadow-lg bg-white">
+ <div class="grid md:grid-cols-4 gap-8 mt-10 mb-10">
+    <div class="md:col-span-2 border-2 border-black p-8 shadow-lg bg-white">
         <h3 class="text-2xl font-extrabold text-black mb-4">Private Training</h3>
         <p class="text-sm text-black mb-3">
                 Customized, <strong>one-on-one sessions</strong> for sports goals, or obedience challenges.
