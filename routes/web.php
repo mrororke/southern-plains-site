@@ -29,6 +29,11 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
+//Legal Routes
+Route::get('/tos', function () {
+    return view('legal.tos');
+})->name('tos');
+
 // PUBLIC BLOG ROUTES
 // Blog Index
 Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
