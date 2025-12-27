@@ -1,13 +1,16 @@
-<p class="text-xs">Copyright &copy; 2025 - 2026 Southern Plains Sport Dog Club, LLC. All rights. reserved.<br />
-    By using this site, you agree to our 
-    <a href="{{ route('legal.tos') }}"
-    title="Read our Terms of Service"
-   style=" text-decoration:underline;">
-   Terms of Service</a>
-   and 
-   <a href="{{ route('legal.privacy') }}"
-    title="Read our Privacy Policy"
-   style=" text-decoration:underline;">Privacy Policy</a>. For copyright, accessibility inquiries, or other policies, visit our Legal & Policies Hub, or contact us at <a href="mailto:southernplainssportsdogclub@gmail.com">southernplainssportsdogclub@gmail.com</a></p>
+<p class="text-xs">
+    Copyright &copy; 2025 - 2026 Southern Plains Sport Dog Club, LLC. All rights reserved.<br />
+    By using this site, you agree to our 
+    <a href="{{ route('legal.tos') }}" style="text-decoration:underline;">Terms of Service</a>, 
+    <a href="{{ route('legal.privacy') }}" style="text-decoration:underline;">Privacy Policy</a>, and 
+    <a href="{{ route('legal.cookies') }}" style="text-decoration:underline;">Cookie Policy</a>.<br />
+    
+    <span class="mt-2 block">
+        <strong>Participant Resources:</strong> 
+        <a href="{{ route('legal.waiver') }}" style="text-decoration:underline;">Liability Waiver</a> | 
+        <a href="{{ route('legal.conduct') }}" style="text-decoration:underline;">Community Guidelines</a> | 
+        <a href="{{ route('legal.refund') }}" style="text-decoration:underline;">Refund Policy</a>
+    </span>
 
-
-
+    Contact us: <a href="mailto:southernplainssportsdogclub@gmail.com">southernplainssportsdogclub@gmail.com</a>
+</p>

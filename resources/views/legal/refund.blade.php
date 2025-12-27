@@ -48,7 +48,7 @@
 --}}
 @section('page_content')
 <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
-<h1 class="font-heading text-7xl">Refund & Cancellation Policy.</h1>
+<h1 class="font-heading text-7xl">Refund &<br/> Cancellation Policy.</h1>
 
 <p class="text-base mb-4">
 <ul class="list-decimal list-inside mb-4">
