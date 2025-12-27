@@ -60,7 +60,7 @@
 </ul>
 </li>
 
-<li><strong>Private Training:</strong><br/>
+<li class="mb-4"><strong>Private Training:</strong><br/>
 24-hour notice is required to reschedule or cancel a private lesson without penalty. Late cancellations will be charged the full session fee.</li>
 
 <li><strong>Club Cancellations:</strong>
