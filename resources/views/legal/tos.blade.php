@@ -145,7 +145,7 @@
 <h4 class="uppercase text-xs font-bold">Southern Plains Sport Dog Club</h4>
 <h1 class="font-heading text-7xl">Terms of Service.</h1>
 
-<p class="text-base mb-2">Effective Date: January 1, 2026</p>
+<p class="text-base mb-4">Effective Date: January 1, 2026</p>
 
 <p class="text-base mb-2">Welcome to Southern Plains Sport Dog Club (“Southern Plains,” “we,” “us,” or “our”). These Terms of Service (“Terms”) govern your access to and use of our website (the “Site”), including our blog, training resources, and community features. By accessing or using the Site, you agree to be bound by these Terms.</p>
 
@@ -155,7 +155,7 @@ Southern Plains is dedicated to the bond between handlers and their dogs. We adv
 <p class="text-base mb-2"><strong>2. Community Standards & Conduct</strong><br/>
 
 As a member of our community or a participant in our Wander Club meetups, you agree to:
-<ul class="list-disc list-inside">
+<ul class="list-disc list-inside mb-2">
 <li>Treat all handlers and dogs with respect.</li>
 <li>Adhere to all local laws and trail regulations (including leash laws).</li>
 <li>Maintain a safe environment for your teammate and others.</li>
