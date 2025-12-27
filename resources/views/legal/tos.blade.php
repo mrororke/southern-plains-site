@@ -25,13 +25,6 @@
     ['path' => 'images/2026_01_hamish_04.jpg', 'alt' => 'Hamish, a black bi-color Shetland Sheepdog, photo by Blue Ridge Prairie Photography.'],
     ];
 
-    // 2. PATHS DATA (Must be defined before <x-home.choose-path-section />)
-    $pathsData = [
-    ['href' => '#club', 'image' => 'images/club.png', 'title' => 'Club'],
-    ['href' => '#league', 'image' => 'images/league.png', 'title' => 'League'],
-    ['href' => '#train', 'image' => 'images/train.png', 'title' => 'Train'],
-    ];
-
 
     @endphp
 @endsection
