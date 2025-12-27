@@ -52,7 +52,7 @@
 
 <p class="text-base mb-4">Effective Date: January 1, 2026</p>
 
-<p class="text-base mb-4">Welcome to Southern Plains Sport Dog Club (“Southern Plains,” “we,” “us,” or “our”). These Terms of Service (“Terms”) govern your access to and use of our website (the “Site”), including our blog, training resources, and community features. By accessing or using the Site, you agree to be bound by these Terms.</p>
+<p class="text-base mb-4">Southern Plains Sport Dog Club (“Southern Plains,” “we,” “us,” or “our”) respects your privacy and is committed to protecting the personal information you share with us. This Privacy Policy outlines how we collect, use, and safeguard your data when you visit our website (the “Site”).</p>
 
 @endsection
 

@@ -91,6 +91,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
 Route::get('/tos', function () {
     return view('legal.tos');
 })->name('legal.tos');
+Route::get('/privacypolicy', function () {
+    return view('legal.privacy');
+})->name('legal.privacy');
 
 
 require __DIR__ . '/auth.php';

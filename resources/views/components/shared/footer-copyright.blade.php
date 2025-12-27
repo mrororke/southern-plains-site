@@ -4,7 +4,10 @@
     title="Read our Terms of Service"
    style=" text-decoration:underline;">
    Terms of Service</a>
-   and Privacy Policy. For copyright, accessibility inquiries, or other policies, visit our Legal & Policies Hub, or contact us at <a href="mailto:southernplainssportsdogclub@gmail.com">southernplainssportsdogclub@gmail.com</a></p>
+   and 
+   <a href="{{ route('legal.privacy') }}"
+    title="Read our Privacy Policy"
+   style=" text-decoration:underline;">Privacy Policy</a>. For copyright, accessibility inquiries, or other policies, visit our Legal & Policies Hub, or contact us at <a href="mailto:southernplainssportsdogclub@gmail.com">southernplainssportsdogclub@gmail.com</a></p>
 
 
 
