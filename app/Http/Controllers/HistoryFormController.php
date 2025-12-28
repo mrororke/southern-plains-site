@@ -23,8 +23,13 @@ class HistoryFormController extends Controller
     {
         // 1. Validation matching the required fields for the history form
         $validated = $request->validate([
-            'first_name' => 'required|string|max:100',
-            'last_name' => 'required|string|max:100',
+            // Owner Information
+            'first_name'        => 'required|string|max:100',
+            'last_name'         => 'required|string|max:100',
+            'email'             => 'required|email|max:100', // Uses 'email' filter for better validation
+            'phone'             => 'required|string|max:20',  // Reduced max size for phone numbers
+            'preferred_contact' => 'required|string|in:email,phone,text', // Ensures only specific options are sent
+
         ]);
 
         try {
@@ -33,7 +38,6 @@ class HistoryFormController extends Controller
 
             // 3. Redirect back with a success message
             return redirect()->route('emails.history.create')->with('success', 'Thank you! Your training history has been submitted successfully.');
-
         } catch (\Exception $e) {
             // Log the error and redirect back with failure
             \Log::error("History form submission failed: " . $e->getMessage());
