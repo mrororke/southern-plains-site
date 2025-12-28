@@ -25,13 +25,6 @@ class HistoryFormController extends Controller
         $validated = $request->validate([
             'first_name' => 'required|string|max:100',
             'last_name' => 'required|string|max:100',
-            'email' => 'required|email:rfc,dns',
-            'dog_name' => 'required|string|max:255',
-            'dog_breed' => 'nullable|string|max:255',
-            'dog_age' => 'nullable|string|max:100',
-            'training_goals' => 'required|string|min:20',
-            'previous_training' => 'nullable|string',
-            'health_notes' => 'nullable|string',
         ]);
 
         try {
