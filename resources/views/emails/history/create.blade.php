@@ -62,7 +62,7 @@
                         <!-- Preferred Contact Method - Full Width Row -->
                         <div class="col-span-2 py-4 border-y border-gray-100">
                             <label class="block text-sm font-semibold text-gray-700 mb-4">Preferred Method of Contact <span class="text-red-500">*</span></label>
-                            <div class="flex flex-col sm:flex-row gap-6 sm:gap-12">
+                            <div class="flex flex-row sm:flex-row gap-6 sm:gap-12">
                                 <label class="inline-flex items-center cursor-pointer group">
                                     <input type="radio" name="preferred_contact" value="email" {{ old('preferred_contact') == 'email' ? 'checked' : '' }} required class="w-5 h-5 text-training border-gray-300 focus:ring-training">
                                     <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors">Email</span>
