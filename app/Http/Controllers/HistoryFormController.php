@@ -32,7 +32,7 @@ class HistoryFormController extends Controller
             Mail::to('southernplainssportdogclub@gmail.com')->send(new HistoryFormMail($validated));
 
             // 3. Redirect back with a success message
-            return redirect()->route('history.create')->with('success', 'Thank you! Your training history has been submitted successfully.');
+            return redirect()->route('emails.history.create')->with('success', 'Thank you! Your training history has been submitted successfully.');
 
         } catch (\Exception $e) {
             // Log the error and redirect back with failure

@@ -28,7 +28,7 @@ Form will Go here
     @endif
 
      <!-- Form -->
-    <form action="{{ route('contact.store') }}" method="POST" class="space-y-6 p-8">
+    <form action="{{ route('emails.history.store') }}" method="POST" class="space-y-6 p-8">
         @csrf
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
