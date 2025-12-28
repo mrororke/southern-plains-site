@@ -5,10 +5,10 @@
 <div class="mx-auto max-w-4xl pt-10 pb-10">
     <div class="flex flex-col lg:flex-row gap-10">
         <div class="w-full lg:w-3/4">
-            <h4 class="uppercase text-xs font-bold">Ask Us Anything</h4>
-            <h1 class="font-heading text-7xl">Get in Touch With<br />Southern Plains.</h1>
+            <h4 class="uppercase text-xs font-bold">New Client Onboarding</h4>
+            <h1 class="font-heading text-7xl">Tell Us Your Training History</h1>
 
-            <p class="text-base mb-2">Have questions about the league, our training meet-ups, or membership? Select a topic below and we'll route your message to the right person.</p>
+            <p class="text-base mb-2">To help us prepare for our upcoming intro call, please provide a detailed history of your dog's training and behaviors. Once you submit this form, we will review your information and reach out shortly to get you on the schedule.</p>
         </div>
     </div>
 <div class="container mx-auto px-4 max-w-4xl">
