@@ -1,4 +1,4 @@
-@extends('layouts.blog-base')
+@extends('layouts.base-training')
 
 @section('page_content')
 
@@ -51,8 +51,8 @@ Form will Go here
 
         <!-- Submit Button -->
         <div class="pt-4">
-            <button type="submit" class="w-full inline-flex justify-center py-3 px-4 border border-transparent uppercase text-sm font-medium rounded-md text-white bg-club hover:bg-club/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-club transition duration-150">
-                Send Message
+            <button type="submit" class="w-full inline-flex justify-center py-3 px-4 border border-transparent uppercase text-sm font-medium rounded-md text-white bg-training hover:bg-training/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-training transition duration-150">
+                Send History
             </button>
         </div>
 
@@ -61,7 +61,7 @@ Form will Go here
 
     <!-- Fallback Info -->
     <div class="mt-10 text-center text-sm text-gray-500">
-        If the form does not work, please email us directly at <a href="mailto:southernplainssportdogclub@gmail.com" class="text-club hover:text-club-dark font-semibold">southernplainssportdogclub@gmail.com</a>.
+        If the form does not work, please email us directly at <a href="mailto:southernplainssportdogclub@gmail.com" class="text-training hover:text-training-dark font-semibold">southernplainssportdogclub@gmail.com</a>.
     </div>
 
 </div>
