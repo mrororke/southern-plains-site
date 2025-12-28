@@ -30,7 +30,7 @@ class HistoryFormController extends Controller
             'phone'             => 'required|string|max:20',  // Reduced max size for phone numbers
             'preferred_contact' => 'required|string|in:email,phone,text',
             'area'         => 'required|string|max:100',
-            'referred'         => 'string|max:100',
+            'referred'         => 'mullable|string|max:100',
             'dog_name'         => 'required|string|max:100',
             'dog_breed'         => 'required|string|max:100',
             'dog_age'         => 'required|string|max:100',
