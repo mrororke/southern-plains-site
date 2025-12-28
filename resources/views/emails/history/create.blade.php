@@ -117,15 +117,15 @@
                                     <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors">Male</span>
                                 </label>
                                 <label class="inline-flex items-center cursor-pointer group">
-                                    <input type="radio" name="gender" value="phone" {{ old('gender') == 'NeuteredMale' ? 'checked' : '' }} class="w-5 h-5 text-training border-gray-300 focus:ring-training">
-                                    <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors">Neutered Male</span>
+                                    <input type="radio" name="gender" value="phone" {{ old('gender') == 'Neutered' ? 'checked' : '' }} class="w-5 h-5 text-training border-gray-300 focus:ring-training">
+                                    <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors">Neutered</span>
                                 </label>
                                 <label class="inline-flex items-center cursor-pointer group">
                                     <input type="radio" name="gender" value="text" {{ old('gender') == 'Female' ? 'checked' : '' }} class="w-5 h-5 text-training border-gray-300 focus:ring-training">
                                     <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors">Female</span>
                                 </label><label class="inline-flex items-center cursor-pointer group">
-                                    <input type="radio" name="gender" value="text" {{ old('gender') == 'SpayedFemale' ? 'checked' : '' }} class="w-5 h-5 text-training border-gray-300 focus:ring-training">
-                                    <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors">Spayed Female</span>
+                                    <input type="radio" name="gender" value="text" {{ old('gender') == 'Spayed' ? 'checked' : '' }} class="w-5 h-5 text-training border-gray-300 focus:ring-training">
+                                    <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors">Spayed</span>
                                 </label>
                         </div>
 
