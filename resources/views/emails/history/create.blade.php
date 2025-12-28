@@ -60,7 +60,7 @@
                         </div>
 
                         <!-- Preferred Contact Method - Full Width Row -->
-                        <div class="col-span-2 py-4 border-y border-gray-100">
+                        <div class="col-span-2 py-4">
                             <label class="block text-sm font-semibold text-gray-700 mb-4">Preferred Method of Contact <span class="text-red-500">*</span></label>
                             <div class="flex flex-row sm:flex-row gap-6 sm:gap-12">
                                 <label class="inline-flex items-center cursor-pointer group">
@@ -109,7 +109,7 @@
                                 class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
                         </div>
 
-                        <div>
+                        <div class="py-4">
                             <label class="block text-sm font-semibold text-gray-700 mb-4">What is your dog's gender? <span class="text-red-500">*</span></label>
                             <div class="flex flex-row sm:flex-row gap-6 sm:gap-12">
                                 <label class="inline-flex items-center cursor-pointer group">
