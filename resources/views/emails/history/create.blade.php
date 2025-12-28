@@ -29,7 +29,6 @@
         <form action="{{ route('emails.history.store') }}" method="POST" class="space-y-6 p-8">
             @csrf
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                 <!-- Section One: Owner Information -->
                 <fieldset class="border-t border-black pt-8">
@@ -87,7 +86,6 @@
                 </fieldset>
 
 
-            </div>
 
             <!-- Submit Button -->
             <div class="pt-4">
