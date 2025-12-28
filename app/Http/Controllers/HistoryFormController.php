@@ -31,6 +31,7 @@ class HistoryFormController extends Controller
             'preferred_contact' => 'required|string|in:email,phone,text', // Ensures only specific options are sent
             'area'         => 'required|string|max:100',
             'referred'         => 'string|max:100',
+            'how_can_i_help' => 'required|string|min:10|max:1000',
 
         ]);
 
