@@ -5,10 +5,10 @@
 <div class="mx-auto max-w-4xl pt-10 pb-10">
     <div class="flex flex-col lg:flex-row gap-10">
         <div class="w-full lg:w-3/4">
-            <h4 class="uppercase text-xs font-bold">New Client Onboarding</h4>
-            <h1 class="font-heading text-7xl">Tell Us Your<br />Training History</h1>
+            <h4 class="uppercase text-xs font-bold">Training History</h4>
+            <h1 class="font-heading text-7xl">The Basics of<br/> Your History.</h1>
 
-            <p class="text-base mb-2">To help us prepare for our upcoming intro call, please provide a detailed history of your dog's training and behaviors. Once you submit this form, we will review your information and reach out shortly to get you on the schedule.</p>
+            <p class="text-base mb-2">To get a head start on our intro call, please provide a brief overview of your dog’s background. This shortened history helps us understand where you're starting from so we can dive right in when we talk.</p>
         </div>
     </div>
     <div class="container mx-auto px-4 max-w-4xl">
