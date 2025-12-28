@@ -91,6 +91,44 @@
                                 class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
                         </div>
 
+                        <div>
+                            <label for="dog_name" class="block text-sm font-semibold text-gray-700">What is your dog's name? <span class="text-red-500">*</span></label>
+                            <input type="text" name="dog_name" id="dog_name" value="{{ old('dog_name') }}" required
+                                class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
+                        </div>
+
+                        <div>
+                            <label for="dog_breed" class="block text-sm font-semibold text-gray-700">What is your dog's breed? </label>
+                            <input type="text" name="dog_breed" id="dog_breed" value="{{ old('dog_breed') }}" 
+                                class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
+                        </div>
+
+                        <div>
+                            <label for="dog_age" class="block text-sm font-semibold text-gray-700">What is your dog's age? <span class="text-red-500">*</span></label>
+                            <input type="text" name="dog_age" id="dog_age" value="{{ old('dog_age') }}" required
+                                class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-4">What is your dog's gender? <span class="text-red-500">*</span></label>
+                            <div class="flex flex-row sm:flex-row gap-6 sm:gap-12">
+                                <label class="inline-flex items-center cursor-pointer group">
+                                    <input type="radio" name="gender" value="email" {{ old('gender') == 'male' ? 'checked' : '' }} required class="w-5 h-5 text-training border-gray-300 focus:ring-training">
+                                    <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors">Male</span>
+                                </label>
+                                <label class="inline-flex items-center cursor-pointer group">
+                                    <input type="radio" name="gender" value="phone" {{ old('gender') == 'NeuteredMale' ? 'checked' : '' }} class="w-5 h-5 text-training border-gray-300 focus:ring-training">
+                                    <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors">Neutered Male</span>
+                                </label>
+                                <label class="inline-flex items-center cursor-pointer group">
+                                    <input type="radio" name="gender" value="text" {{ old('gender') == 'Female' ? 'checked' : '' }} class="w-5 h-5 text-training border-gray-300 focus:ring-training">
+                                    <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors">Female</span>
+                                </label><label class="inline-flex items-center cursor-pointer group">
+                                    <input type="radio" name="gender" value="text" {{ old('gender') == 'SpayedFemale' ? 'checked' : '' }} class="w-5 h-5 text-training border-gray-300 focus:ring-training">
+                                    <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors">Spayed Female</span>
+                                </label>
+                        </div>
+
                         <!-- How can I help field -->
                         <div class="col-span-2">
                             <label for="how_can_i_help" class="block text-sm font-semibold text-gray-700">How can I help? <span class="text-red-500">*</span></label>
