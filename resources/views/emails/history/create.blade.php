@@ -30,9 +30,6 @@
             @csrf
 
                 <!-- Section One: Owner Information -->
-                <fieldset class="border-t border-black">
-                    <legend class="text-lg font-bold uppercase tracking-widest text-black mb-6 pr-4">Owner Information</legend>
-
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- First Name -->
                         <div>
@@ -81,8 +78,6 @@
                             </div>
                         </div>
                     </div>
-
-                </fieldset>
 
 
 
