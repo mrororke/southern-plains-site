@@ -29,7 +29,6 @@
         <form action="{{ route('emails.history.store') }}" method="POST" class="space-y-6 p-8">
             @csrf
 
-
                 <!-- Section One: Owner Information -->
                 <fieldset class="border-t border-black">
                     <legend class="text-lg font-bold uppercase tracking-widest text-black mb-6">Owner Information</legend>
@@ -68,15 +67,15 @@
                             <label class="block text-sm font-semibold text-gray-700 mb-4">Preferred Method of Contact <span class="text-red-500">*</span></label>
                             <div class="flex flex-wrap gap-8">
                                 <label class="inline-flex items-center cursor-pointer">
-                                    <input type="radio" name="preferred_contact" value="email" {{ old('preferred_contact') == 'email' ? 'checked' : '' }} required class="w-5 h-5 text-club border-gray-300 focus:ring-club">
+                                    <input type="radio" name="preferred_contact" value="email" {{ old('preferred_contact') == 'email' ? 'checked' : '' }} required class="w-5 h-5 text-training border-gray-300 focus:ring-training">
                                     <span class="ml-3 text-sm text-gray-600">Email</span>
                                 </label>
                                 <label class="inline-flex items-center cursor-pointer">
-                                    <input type="radio" name="preferred_contact" value="phone" {{ old('preferred_contact') == 'phone' ? 'checked' : '' }} class="w-5 h-5 text-club border-gray-300 focus:ring-club">
+                                    <input type="radio" name="preferred_contact" value="phone" {{ old('preferred_contact') == 'phone' ? 'checked' : '' }} class="w-5 h-5 text-training border-gray-300 focus:ring-training">
                                     <span class="ml-3 text-sm text-gray-600">Phone Call</span>
                                 </label>
                                 <label class="inline-flex items-center cursor-pointer">
-                                    <input type="radio" name="preferred_contact" value="text" {{ old('preferred_contact') == 'text' ? 'checked' : '' }} class="w-5 h-5 text-club border-gray-300 focus:ring-club">
+                                    <input type="radio" name="preferred_contact" value="text" {{ old('preferred_contact') == 'text' ? 'checked' : '' }} class="w-5 h-5 text-training border-gray-300 focus:ring-training">
                                     <span class="ml-3 text-sm text-gray-600">Text Message</span>
                                 </label>
                             </div>
