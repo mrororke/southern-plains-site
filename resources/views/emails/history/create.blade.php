@@ -128,6 +128,7 @@
                                     <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors">Spayed</span>
                                 </label>
                         </div>
+</div>
 
                         <!-- How can I help field -->
                         <div class="col-span-2">
