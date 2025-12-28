@@ -28,9 +28,13 @@ class HistoryFormController extends Controller
             'last_name'         => 'required|string|max:100',
             'email'             => 'required|email|max:100', // Uses 'email' filter for better validation
             'phone'             => 'required|string|max:20',  // Reduced max size for phone numbers
-            'preferred_contact' => 'required|string|in:email,phone,text', // Ensures only specific options are sent
+            'preferred_contact' => 'required|string|in:email,phone,text',
             'area'         => 'required|string|max:100',
             'referred'         => 'string|max:100',
+            'dog_name'         => 'required|string|max:100',
+            'dog_breed'         => 'required|string|max:100',
+            'dog_age'         => 'required|string|max:100',
+            'gender' => 'required|string|in:male,neutered,female,spayed',
             'how_can_i_help' => 'required|string|min:10|max:1000',
 
         ]);
