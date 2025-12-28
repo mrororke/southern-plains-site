@@ -13,6 +13,17 @@
     </div>
     <div class="container mx-auto px-4 max-w-4xl">
 
+    @if ($errors->any())
+    <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6" role="alert">
+        <p class="font-bold">Please correct the following errors:</p>
+        <ul class="list-disc ml-5 mt-2">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
         <!-- Success/Error Messages -->
         @if (session('success'))
         <div class="bg-club/10 border-l-4 border-training text-club p-4 mb-6 " role="alert">
@@ -133,9 +144,11 @@
 
                 <!-- How can I help field -->
                 <div class="col-span-2">
-                    <label for="how_can_i_help" class="block text-sm font-semibold text-gray-700">How can I help? <span class="text-red-500">*</span></label>
-                    <textarea name="how_can_i_help" id="how_can_i_help" rows="4" required
-                        class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training p-3" placeholder="Tell us a little about your goals..."></textarea>
+                   <label for="how_can_i_help" class="block text-sm font-semibold text-gray-700">How can I help? <span class="text-red-500">*</span></label>
+                <textarea name="how_can_i_help" id="how_can_i_help" rows="4" required
+                    class="mt-1 block w-full {{ $errors->has('how_can_i_help') ? 'border-red-500' : 'border-gray-300' }} p-3" 
+                    placeholder="Tell us a little about your goals...">{{ old('how_can_i_help') }}</textarea>
+                <p class="text-xs text-gray-400 mt-1">Minimum 10 characters required.</p>
                 </div>
             </div>
 
