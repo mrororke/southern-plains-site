@@ -29,6 +29,8 @@ class HistoryFormController extends Controller
             'email'             => 'required|email|max:100', // Uses 'email' filter for better validation
             'phone'             => 'required|string|max:20',  // Reduced max size for phone numbers
             'preferred_contact' => 'required|string|in:email,phone,text', // Ensures only specific options are sent
+            'area'         => 'required|string|max:100',
+            'referred'         => 'string|max:100',
 
         ]);
 
