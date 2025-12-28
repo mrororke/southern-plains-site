@@ -83,7 +83,7 @@
                                 class="mt-1 block w-full  border-gray-300  focus:border-training focus:ring-training h-12">
                         </div>
                         <div>
-                            <label for="referred" class="block text-sm font-semibold text-gray-700">What area do you live in? </label>
+                            <label for="referred" class="block text-sm font-semibold text-gray-700">How were you referred? </label>
                             <input type="text" name="referred" id="referred" value="{{ old('referred') }}" 
                                 class="mt-1 block w-full  border-gray-300  focus:border-training focus:ring-training h-12">
                         </div>
