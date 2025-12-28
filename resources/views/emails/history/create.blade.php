@@ -31,8 +31,8 @@
 
 
                 <!-- Section One: Owner Information -->
-                <fieldset class="border-t border-black pt-8">
-                    <legend class="text-lg font-bold uppercase tracking-widest text-black px-2 mb-6">Owner Information</legend>
+                <fieldset class="border-t border-black">
+                    <legend class="text-lg font-bold uppercase tracking-widest text-black mb-6">Owner Information</legend>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <!-- First Name -->
