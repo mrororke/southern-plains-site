@@ -6,14 +6,12 @@
     <div class="flex flex-col lg:flex-row gap-10">
         <div class="w-full lg:w-3/4">
             <h4 class="uppercase text-xs font-bold">New Client Onboarding</h4>
-            <h1 class="font-heading text-7xl">Tell Us Your Training History</h1>
+            <h1 class="font-heading text-7xl">Tell Us Your<br/>Training History</h1>
 
             <p class="text-base mb-2">To help us prepare for our upcoming intro call, please provide a detailed history of your dog's training and behaviors. Once you submit this form, we will review your information and reach out shortly to get you on the schedule.</p>
         </div>
     </div>
 <div class="container mx-auto px-4 max-w-4xl">
-
-Form will Go here
 
  <!-- Success/Error Messages -->
     @if (session('success'))
