@@ -60,7 +60,7 @@
                         </div>
 
                         <!-- Preferred Contact Method - Full Width Row -->
-                        <div class="md:col-span-2 py-4 border-y border-gray-100">
+                        <div class="col-span-2 py-4 border-y border-gray-100">
                             <label class="block text-sm font-semibold text-gray-700 mb-4">Preferred Method of Contact <span class="text-red-500">*</span></label>
                             <div class="flex flex-col sm:flex-row gap-6 sm:gap-12">
                                 <label class="inline-flex items-center cursor-pointer group">
@@ -92,7 +92,7 @@
                         </div>
 
                         <!-- How can I help field -->
-                        <div class="md:col-span-2">
+                        <div class="col-span-2">
                             <label for="how_can_i_help" class="block text-sm font-semibold text-gray-700">How can I help? <span class="text-red-500">*</span></label>
                             <textarea name="how_can_i_help" id="how_can_i_help" rows="4" required
                                 class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training p-3" placeholder="Tell us a little about your goals..."></textarea>
