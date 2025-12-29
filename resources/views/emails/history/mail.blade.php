@@ -38,7 +38,7 @@
             <div class="message-details">{{ $data['health_notes'] }}</div>
         @endif
 
-        <p class="footer">Submitted via Southern Plains Sport Dog Club Website</p>
+        <p class="footer">Submitted via Southern Plains Sport Dog Club Website using the mail file</p>
     </div>
 </body>
 </html>
