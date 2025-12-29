@@ -149,7 +149,7 @@
             <p class="text-sm text-black mb-3">
                 Our private coaching provides personalized instruction tailored to your specific goals, whether you are looking to sharpen advanced sport techniques or build a more reliable foundation for daily life. We offer focused coaching sessions and flexible scheduling designed to work specifically around your unique training environment, helping you and your teammate progress at your own pace.
             </p>
-            <a href="{{ route('history.create') }}"
+            <a href="{{ route('emails.history.create') }}"
                 class="block w-full text-center bg-training text-white py-3 font-bold uppercase tracking-wider 
                   hover:bg-training-blue-hover focus:outline-none focus:ring-4 focus:ring-training focus:ring-opacity-50 transition duration-150">
                 Schedule Your Free 15 Minute Intro Call
