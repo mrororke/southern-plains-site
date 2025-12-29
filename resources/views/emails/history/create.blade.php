@@ -197,7 +197,7 @@
                 <!-- Visitor Timeline -->
                 <div class="col-span-2">
                    <label for="visitor_time" class="block text-sm font-semibold text-gray-700">How long has it been since you had a visitor our dog did not know? <span class="text-red-500">*</span></label>
-                <textarea name="visitor_reaction" id="visitor_time" rows="4" required
+                <textarea name="visitor_time" id="visitor_time" rows="4" required
                     class="mt-1 block w-full {{ $errors->has('visitor_time') ? 'border-red-500' : 'border-gray-300' }} p-3" 
                     placeholder="How long has it been since an unfamiliar person visited? If it has been more than 3 months, is this due to your lifestyle or because of the dog's behavior?">{{ old('visitor_time') }}</textarea>
                 <p class="text-xs text-gray-400 mt-1">Minimum 10 characters required.</p>
