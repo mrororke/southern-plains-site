@@ -35,8 +35,11 @@ class HistoryFormController extends Controller
             'dog_breed'         => 'required|string|max:100',
             'dog_age'         => 'required|string|max:100',
             'gender' => 'required|string|in:male,neutered,female,spayed',
-            'how_can_i_help' => 'required|string|min:10|max:1000',
-            'home_occupants' => 'required|string|min:0|max:1000',
+            'how_can_i_help' => 'required|string|min:10|max:2500',
+            'home_occupants' => 'required|string|min:0|max:2500',
+            'timeline' => 'required|string|min:10|max:2500',
+            'dog_living' => 'required|string|min:10|max:2500',
+            'bite_history' => 'required|string|min:10|max:2500',
 
         ]);
 

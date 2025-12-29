@@ -157,6 +157,35 @@
                     class="mt-1 block w-full {{ $errors->has('home_occupants') ? 'border-red-500' : 'border-gray-300' }} p-3" 
                     placeholder="List humans and animals in the home, plus how they generally get along with your dog...">{{ old('home_occupants') }}</textarea>
                 </div>
+
+                 <!-- How long has this been a problem -->
+                <div class="col-span-2">
+                   <label for="timeline" class="block text-sm font-semibold text-gray-700">How long has this been a problem? Why are you seeking help now? <span class="text-red-500">*</span></label>
+                <textarea name="timeline" id="timeline" rows="4" required
+                    class="mt-1 block w-full {{ $errors->has('timeline') ? 'border-red-500' : 'border-gray-300' }} p-3" 
+                    placeholder="While we've managed this for [length of time], I'm reaching out now because [event/realization] made me realize we can no longer [current management strategy].">{{ old('timeline') }}</textarea>
+                <p class="text-xs text-gray-400 mt-1">Minimum 10 characters required.</p>
+                </div>
+
+                 <!-- Does your dog live indoors or outdoors? -->
+                <div class="col-span-2">
+                   <label for="dog_living" class="block text-sm font-semibold text-gray-700">Does your dog live indoors or outdoors? <span class="text-red-500">*</span></label>
+                <textarea name="dog_living" id="dog_living" rows="4" required
+                    class="mt-1 block w-full {{ $errors->has('dog_living') ? 'border-red-500' : 'border-gray-300' }} p-3" 
+                    placeholder="My dog typically spends [Number] hours inside with the family and [Number] hours in the yard. At night, they sleep in [specific location, e.g., the bedroom/a kennel].">{{ old('dog_living') }}</textarea>
+                <p class="text-xs text-gray-400 mt-1">Minimum 10 characters required.</p>
+                </div>
+
+                 <!-- Bite History -->
+                <div class="col-span-2">
+                   <label for="bite_history" class="block text-sm font-semibold text-gray-700">Has your dog ever bitten anyone? <span class="text-red-500">*</span></label>
+                <textarea name="bite_history" id="bite_history" rows="4" required
+                    class="mt-1 block w-full {{ $errors->has('bite_history') ? 'border-red-500' : 'border-gray-300' }} p-3" 
+                    placeholder=" Has your dog ever made tooth-to-skin contact with a person, even if it didn't break the skin? Please describe the circumstances (e.g., during play, guarding food, or when startled).">{{ old('bite_history') }}</textarea>
+                <p class="text-xs text-gray-400 mt-1">Minimum 10 characters required.</p>
+                </div>
+
+
             </div>
 
             <!-- Submit Button -->

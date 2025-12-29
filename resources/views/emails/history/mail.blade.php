@@ -35,6 +35,22 @@
             <span class="label">How Can I Help?</span><br/> {{ $formData['how_can_i_help'] }}
         </p>
 
+        <p>
+            <span class="label">Who else is living in the home? Are there other pets?</span><br/> {{ $formData['home_occupants'] }}
+        </p>
+
+        <p>
+            <span class="label">How long has this been a problem? Why are you seeking help now?</span><br/> {{ $formData['timeline'] }}
+        </p>
+
+        <p>
+            <span class="label">Does your dog live indoors or outdoors?</span><br/> {{ $formData['dog_living'] }}
+        </p>
+
+        <p>
+            <span class="label">Has your dog ever bitten anyone?</span><br/> {{ $formData['bite_history'] }}
+        </p>
+
         <p style="font-size: 12px; color: #999; margin-top: 30px;">
             This email was sent automatically from the Southern Plains mailing system.
         </p>
