@@ -150,6 +150,13 @@
                     placeholder="Tell us a bit about your dog and what's been on your mind regarding their behavior lately.">{{ old('how_can_i_help') }}</textarea>
                 <p class="text-xs text-gray-400 mt-1">Minimum 10 characters required.</p>
                 </div>
+
+                <div class="col-span-2">
+                   <label for="home_occupants" class="block text-sm font-semibold text-gray-700">Who else is living in the home? Are there other pets? <span class="text-red-500">*</span></label>
+                <textarea name="home_occupants" id="home_occupants" rows="4" required
+                    class="mt-1 block w-full {{ $errors->has('home_occupants') ? 'border-red-500' : 'border-gray-300' }} p-3" 
+                    placeholder="List humans and animals in the home, plus how they generally get along with your dog...">{{ old('home_occupants') }}</textarea>
+                </div>
             </div>
 
             <!-- Submit Button -->
