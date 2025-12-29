@@ -206,7 +206,7 @@
                 Get active and social! Join us at pre-selected, dog-friendly hiking trails for a low-pressure community walk. A great way to build community and enjoy the outdoors.
             </p>
             <p class="text-sm font-bold text-black">Format: In-Person Drop-In | Cost: FREE</p>
-            <a href="#schedule-link" class="mt-2 inline-block text-training-blue-default font-semibold text-sm hover:underline">
+            <a href="{{ route('events.index') }}" class="mt-2 inline-block text-training-blue-default font-semibold text-sm hover:underline">
                 View Schedule & Trail Info
             </a>
         </div>
