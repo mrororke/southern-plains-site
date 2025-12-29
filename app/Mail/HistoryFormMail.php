@@ -20,6 +20,6 @@ class HistoryFormMail extends Mailable
     public function build()
     {
         return $this->subject('New Club History Form Submission')
-                    ->view('emails.history.notification'); // We will create this simple view next
+                    ->view('emails.history.mail'); // We will create this simple view next
     }
 }

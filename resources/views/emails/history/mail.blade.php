@@ -1,44 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>New Training History Submission</title>
     <style>
-        body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-        .container { max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 5px; }
-        .header { color: #4CBB17; }
-        .message-details { background-color: #f9f9f9; padding: 15px; border-radius: 4px; white-space: pre-wrap; }
-        .footer { margin-top: 20px; font-size: 0.9em; color: #777; }
+        body { font-family: sans-serif; line-height: 1.6; color: #333; }
+        .container { padding: 20px; border: 1px solid #eee; border-radius: 5px; max-width: 600px; }
+        .header { border-bottom: 2px solid #f4f4f4; padding-bottom: 10px; margin-bottom: 20px; }
+        .label { font-weight: bold; color: #555; }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <h2 class="header">New Training History: {{ $data['dog_name'] }}</h2>
+        <div class="header">
+            <h2>New Club History Submission</h2>
+        </div>
         
-        <p><strong>From:</strong> {{ $data['first_name'] }} {{ $data['last_name'] }}</p>
-        <p><strong>Email:</strong> <a href="mailto:{{ $data['email'] }}">{{ $data['email'] }}</a></p>
+        <p>A new history record has been submitted through the website form.</p>
         
-        <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
+        <p>
+            <span class="label">First Name:</span> {{ $formData['first_name'] }}<br>
+            <span class="label">Last Name:</span> {{ $formData['last_name'] }}
+        </p>
 
-        <h3 class="header">Dog Profile:</h3>
-        <p><strong>Name:</strong> {{ $data['dog_name'] }}</p>
-        <p><strong>Breed:</strong> {{ $data['dog_breed'] ?? 'Not specified' }}</p>
-        <p><strong>Age:</strong> {{ $data['dog_age'] ?? 'Not specified' }}</p>
-
-        <h3 class="header">Training Goals:</h3>
-        <div class="message-details">{{ $data['training_goals'] }}</div>
-
-        @if (!empty($data['previous_training']))
-            <h3 class="header">Previous Experience:</h3>
-            <div class="message-details">{{ $data['previous_training'] }}</div>
-        @endif
-
-        @if (!empty($data['health_notes']))
-            <h3 class="header">Health/Medical Notes:</h3>
-            <div class="message-details">{{ $data['health_notes'] }}</div>
-        @endif
-
-        <p class="footer">Submitted via Southern Plains Sport Dog Club Website using the mail file</p>
+        <p style="font-size: 12px; color: #999; margin-top: 30px;">
+            This email was sent automatically from the Southern Plains archives system using the mail file. now that I am at home.
+        </p>
     </div>
 </body>
 </html>
