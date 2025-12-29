@@ -45,28 +45,28 @@
                 <!-- First Name -->
                 <div>
                     <label for="first_name" class="block text-sm font-semibold text-gray-700">First Name <span class="text-red-500">*</span></label>
-                    <input type="text" name="first_name" id="first_name" value="{{ old('first_name') }}" required
+                    <input type="text" name="first_name" id="first_name" placeholder="First Name" value="{{ old('first_name') }}" required
                         class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
                 </div>
 
                 <!-- Last Name -->
                 <div>
                     <label for="last_name" class="block text-sm font-semibold text-gray-700">Last Name <span class="text-red-500">*</span></label>
-                    <input type="text" name="last_name" id="last_name" value="{{ old('last_name') }}" required
+                    <input type="text" name="last_name" id="last_name" placeholder="Last Name" value="{{ old('last_name') }}" required
                         class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
                 </div>
 
                 <!-- Email -->
                 <div>
                     <label for="email" class="block text-sm font-semibold text-gray-700">Email Address <span class="text-red-500">*</span></label>
-                    <input type="email" name="email" id="email" value="{{ old('email') }}" required
+                    <input type="email" name="email" id="email" placeholder="youraddress@yourdomain.com" value="{{ old('email') }}" required
                         class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
                 </div>
 
                 <!-- Phone -->
                 <div>
                     <label for="phone" class="block text-sm font-semibold text-gray-700">Phone Number <span class="text-red-500">*</span></label>
-                    <input type="tel" name="phone" id="phone" value="{{ old('phone') }}" required
+                    <input type="tel" name="phone" id="phone" placeholder="(555) 555-5555" value="{{ old('phone') }}" required
                         class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
                 </div>
 
@@ -92,31 +92,31 @@
                 <!-- New Row: Area and Referral -->
                 <div>
                     <label for="area" class="block text-sm font-semibold text-gray-700">What area do you live in? <span class="text-red-500">*</span></label>
-                    <input type="text" name="area" id="area" value="{{ old('area') }}" required
+                    <input type="text" name="area" id="area" placeholder="e.g., Catoosa, Pryor, or Rogers County" value="{{ old('area') }}" required
                         class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
                 </div>
 
                 <div>
                     <label for="referred" class="block text-sm font-semibold text-gray-700">How were you referred? </label>
-                    <input type="text" name="referred" id="referred" value="{{ old('referred') }}"
+                    <input type="text" name="referred" id="referred" placeholder="e.g., Recommended by [Friend's Name]" value="{{ old('referred') }}"
                         class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
                 </div>
 
                 <div>
                     <label for="dog_name" class="block text-sm font-semibold text-gray-700">What is your dog's name? <span class="text-red-500">*</span></label>
-                    <input type="text" name="dog_name" id="dog_name" value="{{ old('dog_name') }}" required
+                    <input type="text" name="dog_name" id="dog_name" placeholder="What do you call your dog?" value="{{ old('dog_name') }}" required
                         class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
                 </div>
 
                 <div>
                     <label for="dog_breed" class="block text-sm font-semibold text-gray-700">What is your dog's breed? </label>
-                    <input type="text" name="dog_breed" id="dog_breed" value="{{ old('dog_breed') }}"
+                    <input type="text" name="dog_breed" id="dog_breed" placeholder="What breed is your dog?" value="{{ old('dog_breed') }}"
                         class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
                 </div>
 
                 <div>
                     <label for="dog_age" class="block text-sm font-semibold text-gray-700">What is your dog's age? <span class="text-red-500">*</span></label>
-                    <input type="text" name="dog_age" id="dog_age" value="{{ old('dog_age') }}" required
+                    <input type="number" name="dog_age" id="dog_age" value="{{ old('dog_age') }}" required
                         class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
                 </div>
 
@@ -147,7 +147,7 @@
                    <label for="how_can_i_help" class="block text-sm font-semibold text-gray-700">How can I help? <span class="text-red-500">*</span></label>
                 <textarea name="how_can_i_help" id="how_can_i_help" rows="4" required
                     class="mt-1 block w-full {{ $errors->has('how_can_i_help') ? 'border-red-500' : 'border-gray-300' }} p-3" 
-                    placeholder="Tell us a little about your goals...">{{ old('how_can_i_help') }}</textarea>
+                    placeholder="Tell us a bit about your dog and what's been on your mind regarding their behavior lately.">{{ old('how_can_i_help') }}</textarea>
                 <p class="text-xs text-gray-400 mt-1">Minimum 10 characters required.</p>
                 </div>
             </div>
