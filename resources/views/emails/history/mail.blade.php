@@ -51,6 +51,14 @@
             <span class="label">Has your dog ever bitten anyone?</span><br/> {{ $formData['bite_history'] }}
         </p>
 
+        <p>
+            <span class="label">How does your dog do when an unfamiliar person enters your home?</span><br/> {{ $formData['visitor_reaction'] }}
+        </p>
+
+        <p>
+            <span class="label">How long has it been since you had a visitor our dog did not know?</span><br/> {{ $formData['visitor_time'] }}
+        </p>
+
         <p style="font-size: 12px; color: #999; margin-top: 30px;">
             This email was sent automatically from the Southern Plains mailing system.
         </p>

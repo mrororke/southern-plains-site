@@ -181,7 +181,25 @@
                    <label for="bite_history" class="block text-sm font-semibold text-gray-700">Has your dog ever bitten anyone? <span class="text-red-500">*</span></label>
                 <textarea name="bite_history" id="bite_history" rows="4" required
                     class="mt-1 block w-full {{ $errors->has('bite_history') ? 'border-red-500' : 'border-gray-300' }} p-3" 
-                    placeholder=" Has your dog ever made tooth-to-skin contact with a person, even if it didn't break the skin? Please describe the circumstances (e.g., during play, guarding food, or when startled).">{{ old('bite_history') }}</textarea>
+                    placeholder="Has your dog ever made tooth-to-skin contact with a person, even if it didn't break the skin? Please describe the circumstances (e.g., during play, guarding food, or when startled).">{{ old('bite_history') }}</textarea>
+                <p class="text-xs text-gray-400 mt-1">Minimum 10 characters required.</p>
+                </div>
+
+                 <!-- Visitor Reaction -->
+                <div class="col-span-2">
+                   <label for="visitor_reaction" class="block text-sm font-semibold text-gray-700">How does your dog do when an unfamiliar person enters your home? <span class="text-red-500">*</span></label>
+                <textarea name="visitor_reaction" id="visitor_reaction" rows="4" required
+                    class="mt-1 block w-full {{ $errors->has('visitor_reaction') ? 'border-red-500' : 'border-gray-300' }} p-3" 
+                    placeholder="Describe the first 10 minutes after a guest arrives. Does your dog settle down quickly, or do they remain on high alert the entire time the person is there?">{{ old('visitor_reaction') }}</textarea>
+                <p class="text-xs text-gray-400 mt-1">Minimum 10 characters required.</p>
+                </div>
+
+                <!-- Visitor Timeline -->
+                <div class="col-span-2">
+                   <label for="visitor_time" class="block text-sm font-semibold text-gray-700">How long has it been since you had a visitor our dog did not know? <span class="text-red-500">*</span></label>
+                <textarea name="visitor_reaction" id="visitor_time" rows="4" required
+                    class="mt-1 block w-full {{ $errors->has('visitor_time') ? 'border-red-500' : 'border-gray-300' }} p-3" 
+                    placeholder="How long has it been since an unfamiliar person visited? If it has been more than 3 months, is this due to your lifestyle or because of the dog's behavior?">{{ old('visitor_time') }}</textarea>
                 <p class="text-xs text-gray-400 mt-1">Minimum 10 characters required.</p>
                 </div>
 

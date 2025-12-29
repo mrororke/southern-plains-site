@@ -40,6 +40,8 @@ class HistoryFormController extends Controller
             'timeline' => 'required|string|min:10|max:2500',
             'dog_living' => 'required|string|min:10|max:2500',
             'bite_history' => 'required|string|min:10|max:2500',
+            'visitor_reaction' => 'required|string|min:10|max:2500',
+            'visitor_time' => 'required|string|min:10|max:2500',
 
         ]);
 
