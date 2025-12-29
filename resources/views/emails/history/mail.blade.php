@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h2>New Training History: {{ $data['dog_name'] }}</h2>
+            <h2>New Club History Submission</h2>
         </div>
         
         <p>A new history record has been submitted through the website form.</p>
