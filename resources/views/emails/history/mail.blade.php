@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h2>New Club History Submission</h2>
+            <h2>New Training History Submission: {{ $formData['dog_name'] }}</h2>
         </div>
         
         <p>A new history record has been submitted through the website form.</p>
@@ -22,7 +22,7 @@
         </p>
 
         <p style="font-size: 12px; color: #999; margin-top: 30px;">
-            This email was sent automatically from the Southern Plains archives system using the mail file. now that I am at home.
+            This email was sent automatically from the Southern Plains mailing system.
         </p>
     </div>
 </body>
