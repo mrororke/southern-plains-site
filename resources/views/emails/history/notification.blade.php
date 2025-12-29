@@ -22,7 +22,7 @@
         </p>
 
         <p style="font-size: 12px; color: #999; margin-top: 30px;">
-            This email was sent automatically from the Southern Plains archives system using the notificaiton file.
+            This email was sent automatically from the Southern Plains archives system using the notificaiton file. now that I am at home.
         </p>
     </div>
 </body>
