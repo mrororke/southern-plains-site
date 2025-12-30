@@ -154,7 +154,7 @@
                 <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
                     <div class="text-center sm:text-left">
                         <p class="uppercase text-xs font-bold">Total Evaluation Fee</p>
-                        <div class="flex items-baseline gap-2">
+                        <div class="mx-auto">
                              <p id="fee_display" class="font-heading text-7xl text-training">$10</p>
                              
                         </div>
