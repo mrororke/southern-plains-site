@@ -30,6 +30,7 @@ class TrickEvaluationController extends Controller
 
             // Primary Dog Info
             'dog_name'           => 'required|string|max:100',
+            'dog_number'         => 'required|string|max:50', // Added this
             'trick_level'        => 'required|in:Novice,Intermediate,Advanced,Performer,Elite Performer',
 
             // Evaluation Method Logic
@@ -45,6 +46,10 @@ class TrickEvaluationController extends Controller
             'additional_dogs'           => 'nullable|integer|min:0|max:10',
             'additional_dog_names'      => 'nullable|array',
             'additional_dog_names.*'    => 'required_with:additional_dog_names|string|max:100',
+            
+            'additional_dog_numbers'    => 'nullable|array', // Added this
+            'additional_dog_numbers.*'  => 'required_with:additional_dog_names|string|max:50', // Added this
+            
             'additional_dog_levels'     => 'nullable|array',
             'additional_dog_levels.*'   => 'required_with:additional_dog_names|in:Novice,Intermediate,Advanced,Performer,Elite Performer',
             'additional_dog_video'      => 'nullable|array',
