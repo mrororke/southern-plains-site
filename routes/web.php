@@ -65,7 +65,7 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 Route::get('/history/create', [HistoryFormController::class, 'create'])->name('emails.history.create');
 Route::post('/history/store', [HistoryFormController::class, 'store'])->name('emails.history.store');
 Route::get('/trickevaluation/create', [TrickEvaluationController::class, 'create'])->name('emails.trickevaluation.create');
-Route::get('/trickevaluation/store', [TrickEvaluationController::class, 'create'])->name('emails.trickevaluation.store');
+Route::get('/trickevaluation/store', [TrickEvaluationController::class, 'store'])->name('emails.trickevaluation.store');
 
 
 
