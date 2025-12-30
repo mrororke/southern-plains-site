@@ -155,8 +155,9 @@
                     <div class="text-center sm:text-left">
                         <p class="uppercase text-xs font-bold">Total Evaluation Fee</p>
                         <div class="flex items-baseline gap-2">
-                             <p id="fee_display" class="font-heading text-7xl text-training">$10<br/></p>
-                             <span class="text-black text-xs font-medium">$10 per dog</span>
+                             <p id="fee_display" class="font-heading text-7xl text-training">$10<br/>
+                            <span class="text-black text-xs font-medium">$10 per dog</span></p>
+                             
                         </div>
                     </div>
                     <div class="pt-6">
