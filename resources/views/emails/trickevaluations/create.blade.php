@@ -6,7 +6,7 @@
         <div class="w-full lg:w-3/4 px-4">
             <h4 class="uppercase text-xs font-bold">Official Titling & Testing</h4>
             <h1 class="font-heading text-7xl">Trick Dog<br />Evaluations.</h1>
-            <p class="text-base mb-2">Ready to show off what your dogs have learned? Select the level and submission method for each dog below. In-person evaluations are held Tuesdays through Thursdays between 10:00 AM and 5:00 PM. Virtual evaluations will be completed within 72 hours of receipt.</p>
+            <p class="text-base mb-2">Ready to show off what your dogs have learned? Select the level and submission method for each dog below. In-person evaluations are held Tuesdays through Thursdays between 10:00 AM and 5:00 PM. Virtual evaluations will be completed within 72 hours of receipt. Cost of evaluation is $10 per title, per dog.</p>
         </div>
     </div>
 
@@ -155,8 +155,7 @@
                     <div class="text-center sm:text-left">
                         <p class="uppercase text-xs font-bold">Total Evaluation Fee</p>
                         <div class="flex items-baseline gap-2">
-                             <p id="fee_display" class="font-heading text-7xl text-training">$10<br/>
-                            <span class="text-black text-xs font-medium">$10 per dog</span></p>
+                             <p id="fee_display" class="font-heading text-7xl text-training">$10</p>
                              
                         </div>
                     </div>
