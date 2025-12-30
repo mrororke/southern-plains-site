@@ -60,6 +60,21 @@
                         class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3">
                 </div>
 
+                <!-- Evaluation Method -->
+                <div class="col-span-2 py-4 border-t border-b border-gray-100">
+                    <label class="block text-sm font-semibold text-gray-700 mb-4">How should we evaluate the tricks? <span class="text-red-500">*</span></label>
+                    <div class="flex flex-row gap-12">
+                        <label class="inline-flex items-center cursor-pointer group">
+                            <input type="radio" name="eval_method" value="online" id="method_online" {{ old('eval_method') == 'online' ? 'checked' : '' }} required class="w-5 h-5 text-training border-gray-300 focus:ring-training">
+                            <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors font-medium">Video Submission</span>
+                        </label>
+                        <label class="inline-flex items-center cursor-pointer group">
+                            <input type="radio" name="eval_method" value="in-person" id="method_person" {{ old('eval_method') == 'in-person' ? 'checked' : '' }} class="w-5 h-5 text-training border-gray-300 focus:ring-training">
+                            <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors font-medium">In-Person Evaluation</span>
+                        </label>
+                    </div>
+                </div>
+
                 <!-- Primary Dog Info Section -->
                 <div class="col-span-2 p-6 bg-gray-50 border border-gray-100">
                     <p class="text-xs font-bold text-black uppercase tracking-widest mb-4">Dog #1</p>
@@ -86,21 +101,6 @@
                                 <option value="Elite Performer" {{ old('trick_level') == 'Elite Performer' ? 'selected' : '' }}>Elite Performer</option>
                             </select>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Evaluation Method -->
-                <div class="col-span-2 py-4 border-t border-b border-gray-100">
-                    <label class="block text-sm font-semibold text-gray-700 mb-4">How should we evaluate the tricks? <span class="text-red-500">*</span></label>
-                    <div class="flex flex-row gap-12">
-                        <label class="inline-flex items-center cursor-pointer group">
-                            <input type="radio" name="eval_method" value="online" id="method_online" {{ old('eval_method') == 'online' ? 'checked' : '' }} required class="w-5 h-5 text-training border-gray-300 focus:ring-training">
-                            <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors font-medium">Video Submission</span>
-                        </label>
-                        <label class="inline-flex items-center cursor-pointer group">
-                            <input type="radio" name="eval_method" value="in-person" id="method_person" {{ old('eval_method') == 'in-person' ? 'checked' : '' }} class="w-5 h-5 text-training border-gray-300 focus:ring-training">
-                            <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors font-medium">In-Person Evaluation</span>
-                        </label>
                     </div>
                 </div>
 
