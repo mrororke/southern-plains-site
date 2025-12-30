@@ -24,7 +24,7 @@
         @endif
 
         <!-- Form -->
-        <form action="{{ route('emails.trick-dog.store') }}" method="POST" id="trickDogForm" class="space-y-8 py-8">
+        <form action="{{ route('emails.trickevaluation.store') }}" method="POST" id="trickDogForm" class="space-y-8 py-8">
             @csrf
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
