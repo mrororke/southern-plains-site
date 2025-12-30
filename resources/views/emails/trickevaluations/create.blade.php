@@ -45,7 +45,7 @@
 
                 <!-- Primary Dog Info Section -->
                 <div class="col-span-2 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                    <p class="text-xs font-bold text-training uppercase tracking-widest mb-4">Primary Dog</p>
+                    <p class="text-xs font-bold text-training uppercase tracking-widest mb-4">Dog #1</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label for="dog_name" class="block text-sm font-semibold text-gray-700">Dog's Name <span class="text-red-500">*</span></label>
@@ -84,7 +84,7 @@
 
                 <!-- Video Input (Primary Dog) -->
                 <div id="video_main_container" class="col-span-2 hidden">
-                    <label for="video_link" class="block text-sm font-semibold text-gray-700">Video Link for <span id="primary_dog_name_display">Primary Dog</span> <span class="text-red-500">*</span></label>
+                    <label for="video_link" class="block text-sm font-semibold text-gray-700">Video Link for <span id="primary_dog_name_display">Dog #1</span> <span class="text-red-500">*</span></label>
                     <input type="url" name="video_link" id="video_link" placeholder="https://www.youtube.com/watch?v=..."
                         class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3">
                 </div>
@@ -115,13 +115,35 @@
                         <div id="additional_dogs_fields" class="mt-8 space-y-6"></div>
                     </div>
                 </div>
+
+                <!-- Payment Method Selection -->
+                <div class="col-span-2 p-6 bg-gray-50 border border-gray-200 rounded-lg mt-4">
+                    <label class="block text-sm font-semibold text-gray-700 mb-4">Preferred Payment Method <span class="text-red-500">*</span></label>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <label class="flex items-center p-3 bg-white border border-gray-300 rounded cursor-pointer hover:border-training transition-colors">
+                            <input type="radio" name="payment_method" value="Apple Pay" required class="text-training focus:ring-training">
+                            <span class="ml-3 text-sm font-medium">Apple Pay</span>
+                        </label>
+                        <label class="flex items-center p-3 bg-white border border-gray-300 rounded cursor-pointer hover:border-training transition-colors">
+                            <input type="radio" name="payment_method" value="Venmo" class="text-training focus:ring-training">
+                            <span class="ml-3 text-sm font-medium">Venmo</span>
+                        </label>
+                        <label class="flex items-center p-3 bg-white border border-gray-300 rounded cursor-pointer hover:border-training transition-colors">
+                            <input type="radio" name="payment_method" value="PayPal" class="text-training focus:ring-training">
+                            <span class="ml-3 text-sm font-medium">PayPal</span>
+                        </label>
+                    </div>
+                </div>
             </div>
 
             <div class="pt-8 border-t border-gray-200 mt-10">
                 <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
                     <div class="text-center sm:text-left">
-                        <p class="text-sm uppercase tracking-widest text-gray-400 font-bold">Total Application Fee</p>
-                        <p id="fee_display" class="text-5xl font-heading text-training font-bold">$10</p>
+                        <p class="text-sm uppercase tracking-widest text-gray-400 font-bold">Total Evaluation Fee</p>
+                        <div class="flex items-baseline gap-2">
+                             <p id="fee_display" class="text-5xl font-heading text-training font-bold">$10</p>
+                             <span class="text-gray-400 text-sm font-medium">($10 per dog)</span>
+                        </div>
                     </div>
                     <button type="submit" id="submit_btn" class="w-full sm:w-auto px-12 py-5 bg-training text-white uppercase text-sm font-bold tracking-widest hover:bg-training/90 transition shadow-xl disabled:opacity-50">
                         Submit Application
@@ -153,9 +175,9 @@
 
         const methodRadios = document.querySelectorAll('input[name="eval_method"]');
 
-        // Dynamic Label for Primary Dog
+        // Dynamic Label for Dog #1
         dogNameInput.addEventListener('input', function() {
-            primaryDogNameDisplay.innerText = this.value || 'Primary Dog';
+            primaryDogNameDisplay.innerText = this.value || 'Dog #1';
         });
 
         // Date & Time Validation
@@ -230,7 +252,7 @@
                 }
 
                 section.innerHTML = `
-                    <p class="text-xs font-bold text-training uppercase tracking-widest mb-4">Additional Dog #${i}</p>
+                    <p class="text-xs font-bold text-training uppercase tracking-widest mb-4">Dog #${i + 1}</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-xs font-bold text-gray-500 uppercase">Dog's Name <span class="text-red-500">*</span></label>
