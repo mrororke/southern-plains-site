@@ -4,9 +4,9 @@
 <div class="mx-auto max-w-4xl pt-10 pb-10">
     <div class="flex flex-col lg:flex-row gap-10">
         <div class="w-full lg:w-3/4 px-4">
-            <h4 class="uppercase text-xs font-bold">Certifications</h4>
+            <h4 class="uppercase text-xs font-bold tracking-widest text-training">Certifications</h4>
             <h1 class="font-heading text-7xl">Trick Dog<br />Application.</h1>
-            <p class="text-base mb-2">Ready to show off what your dogs have learned? Select your level and submission method below. We'll review the performances and issue the official title certificates.</p>
+            <p class="text-base mb-2">Ready to show off what your dogs have learned? Select the level and submission method for each dog below. We'll review the performances and issue official certificates.</p>
         </div>
     </div>
 
@@ -36,26 +36,36 @@
                 </div>
 
                 <div class="col-span-2 md:col-span-1">
-                    <label for="dog_name" class="block text-sm font-semibold text-gray-700">Primary Dog's Name <span class="text-red-500">*</span></label>
-                    <input type="text" name="dog_name" id="dog_name" value="{{ old('dog_name') }}" required
+                    <label for="email" class="block text-sm font-semibold text-gray-700">Email Address <span class="text-red-500">*</span></label>
+                    <input type="email" name="email" id="email" value="{{ old('email') }}" required
                         class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3">
                 </div>
 
-                <!-- Level Selection -->
-                <div class="col-span-2">
-                    <label for="trick_level" class="block text-sm font-semibold text-gray-700">Title Level Seeking <span class="text-red-500">*</span></label>
-                    <select name="trick_level" id="trick_level" required
-                        class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3 bg-white">
-                        <option value="">-- Select a Level --</option>
-                        <option value="Novice" {{ old('trick_level') == 'Novice' ? 'selected' : '' }}>Novice</option>
-                        <option value="Intermediate" {{ old('trick_level') == 'Intermediate' ? 'selected' : '' }}>Intermediate</option>
-                        <option value="Advanced" {{ old('trick_level') == 'Advanced' ? 'selected' : '' }}>Advanced</option>
-                        <option value="Performer" {{ old('trick_level') == 'Performer' ? 'selected' : '' }}>Performer</option>
-                        <option value="Elite Performer" {{ old('trick_level') == 'Elite Performer' ? 'selected' : '' }}>Elite Performer</option>
-                    </select>
+                <!-- Primary Dog Info Section -->
+                <div class="col-span-2 p-6 bg-gray-50 border border-gray-200 rounded-lg">
+                    <p class="text-xs font-bold text-training uppercase tracking-widest mb-4">Primary Dog</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="dog_name" class="block text-sm font-semibold text-gray-700">Dog's Name <span class="text-red-500">*</span></label>
+                            <input type="text" name="dog_name" id="dog_name" value="{{ old('dog_name') }}" required
+                                class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3 bg-white">
+                        </div>
+                        <div>
+                            <label for="trick_level" class="block text-sm font-semibold text-gray-700">Title Level Seeking <span class="text-red-500">*</span></label>
+                            <select name="trick_level" id="trick_level" required
+                                class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3 bg-white">
+                                <option value="">-- Select a Level --</option>
+                                <option value="Novice" {{ old('trick_level') == 'Novice' ? 'selected' : '' }}>Novice</option>
+                                <option value="Intermediate" {{ old('trick_level') == 'Intermediate' ? 'selected' : '' }}>Intermediate</option>
+                                <option value="Advanced" {{ old('trick_level') == 'Advanced' ? 'selected' : '' }}>Advanced</option>
+                                <option value="Performer" {{ old('trick_level') == 'Performer' ? 'selected' : '' }}>Performer</option>
+                                <option value="Elite Performer" {{ old('trick_level') == 'Elite Performer' ? 'selected' : '' }}>Elite Performer</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- DYNAMIC: Prerequisite Field -->
+                <!-- DYNAMIC: Prerequisite Field (Main Dog) -->
                 <div id="prereq_container" class="col-span-2 hidden bg-amber-50 border-l-4 border-amber-400 p-4">
                     <label for="prereq_title" class="block text-sm font-semibold text-amber-900">Advanced Title Certificate # <span class="text-red-500">*</span></label>
                     <p class="text-xs text-amber-700 mb-2 font-medium">Performer levels require a verified Advanced Title on file.</p>
@@ -78,9 +88,9 @@
                     </div>
                 </div>
 
-                <!-- Video Input Container (Primary Dog) -->
+                <!-- Video Input (Primary Dog) -->
                 <div id="video_main_container" class="col-span-2 hidden">
-                    <label for="video_link" class="block text-sm font-semibold text-gray-700">Primary Dog Video Link <span class="text-red-500">*</span></label>
+                    <label for="video_link" class="block text-sm font-semibold text-gray-700">Video Link for <span id="primary_dog_name_display">Primary Dog</span> <span class="text-red-500">*</span></label>
                     <input type="url" name="video_link" id="video_link" placeholder="https://www.youtube.com/watch?v=..."
                         class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3">
                 </div>
@@ -107,7 +117,7 @@
                         <input type="number" name="additional_dogs" id="additional_dogs" value="0" min="0" max="10"
                             class="block w-24 border-gray-300 focus:border-training focus:ring-training h-12 px-3">
                         
-                        <!-- DYNAMIC CONTAINER: Injected additional dog fields -->
+                        <!-- DYNAMIC CONTAINER -->
                         <div id="additional_dogs_fields" class="mt-8 space-y-6"></div>
                     </div>
                 </div>
@@ -131,6 +141,8 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        const dogNameInput = document.getElementById('dog_name');
+        const primaryDogNameDisplay = document.getElementById('primary_dog_name_display');
         const levelSelect = document.getElementById('trick_level');
         const prereqDiv = document.getElementById('prereq_container');
         const prereqInput = document.getElementById('prereq_title');
@@ -148,7 +160,12 @@
 
         const methodRadios = document.querySelectorAll('input[name="eval_method"]');
 
-        // 1. Level Toggle
+        // Update name label for primary dog link
+        dogNameInput.addEventListener('input', function() {
+            primaryDogNameDisplay.innerText = this.value || 'Primary Dog';
+        });
+
+        // 1. Level Toggle for Main Dog
         levelSelect.addEventListener('change', function() {
             const highLevels = ['Performer', 'Elite Performer'];
             if (highLevels.includes(this.value)) {
@@ -175,42 +192,54 @@
                 locationDiv.classList.remove('hidden');
                 locationSelect.required = true;
             }
-            renderAdditionalFields(); // Redraw additional fields if method changes
+            renderAdditionalFields(); 
         }
 
         methodRadios.forEach(r => r.addEventListener('change', updateMethodVisibility));
 
-        // 3. Dynamic Field Rendering (Multi-dog names and links)
+        // 3. Dynamic Field Rendering
         function renderAdditionalFields() {
             const count = parseInt(additionalDogsInput.value) || 0;
             const isOnline = document.querySelector('input[name="eval_method"]:checked')?.value === 'online';
             
-            additionalFieldsContainer.innerHTML = ''; // Clear current
+            additionalFieldsContainer.innerHTML = ''; 
 
             for (let i = 1; i <= count; i++) {
                 const section = document.createElement('div');
-                section.className = 'p-4 bg-white border border-gray-200 shadow-sm space-y-4';
+                section.className = 'p-6 bg-white border border-gray-200 shadow-sm space-y-4 rounded-md';
                 
                 let videoFieldHtml = '';
                 if (isOnline) {
                     videoFieldHtml = `
-                        <div>
-                            <label class="block text-xs font-bold text-gray-500 uppercase">Dog #${i + 1} Video Link <span class="text-red-500">*</span></label>
+                        <div class="col-span-2">
+                            <label class="block text-xs font-bold text-gray-500 uppercase">Video Link <span class="text-red-500">*</span></label>
                             <input type="url" name="additional_dog_video[]" required 
-                                class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3"
+                                class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3 bg-gray-50"
                                 placeholder="https://youtube.com/...">
                         </div>
                     `;
                 }
 
                 section.innerHTML = `
-                    <p class="text-xs font-bold text-training uppercase tracking-widest mb-2">Additional Dog #${i}</p>
-                    <div class="grid grid-cols-1 gap-4">
+                    <p class="text-xs font-bold text-training uppercase tracking-widest mb-4">Additional Dog #${i}</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                            <label class="block text-xs font-bold text-gray-500 uppercase">Dog Name <span class="text-red-500">*</span></label>
+                            <label class="block text-xs font-bold text-gray-500 uppercase">Dog's Name <span class="text-red-500">*</span></label>
                             <input type="text" name="additional_dog_names[]" required 
-                                class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3"
+                                class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3 bg-gray-50"
                                 placeholder="Enter dog's name">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase">Level Applying For <span class="text-red-500">*</span></label>
+                            <select name="additional_dog_levels[]" required
+                                class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3 bg-gray-50">
+                                <option value="">-- Select Level --</option>
+                                <option value="Novice">Novice</option>
+                                <option value="Intermediate">Intermediate</option>
+                                <option value="Advanced">Advanced</option>
+                                <option value="Performer">Performer</option>
+                                <option value="Elite Performer">Elite Performer</option>
+                            </select>
                         </div>
                         ${videoFieldHtml}
                     </div>
@@ -241,7 +270,7 @@
 
         additionalDogsInput.addEventListener('input', renderAdditionalFields);
         
-        // Initial Run for potential "old" inputs
+        // Initial Run
         updateMethodVisibility();
         if (multiCheck.checked) multiCountDiv.classList.remove('hidden');
         renderAdditionalFields();
