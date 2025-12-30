@@ -4,7 +4,7 @@
 <div class="mx-auto max-w-4xl pt-10 pb-10">
     <div class="flex flex-col lg:flex-row gap-10">
         <div class="w-full lg:w-3/4 px-4">
-            <h4 class="uppercase text-xs font-bold tracking-widest text-training">Official Titling & Testing</h4>
+            <h4 class="uppercase text-xs font-bold tracking-widest text-training">Offical Titling & Testing</h4>
             <h1 class="font-heading text-7xl">Trick Dog<br />Evaluations.</h1>
             <p class="text-base mb-2">Ready to show off what your dogs have learned? Select the level and submission method for each dog below. In-person evaluations are held Tuesdays through Thursdays between 10:00 AM and 5:00 PM. Virtual evaluations will be completed within 72 hours of receipt.</p>
         </div>
@@ -25,6 +25,9 @@
 
         <form action="{{ route('emails.trickevaluation.store') }}" method="POST" id="trickDogForm" class="space-y-8 py-8">
             @csrf
+            
+            <!-- Hidden input to pass the total fee to the email/controller -->
+            <input type="hidden" name="total_fee" id="total_fee_input" value="10">
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Owner Info -->
@@ -105,7 +108,7 @@
                     </label>
 
                     <div id="multi_dog_count_container" class="hidden mt-6">
-                        <label for="additional_dogs" class="block text-sm font-semibold text-gray-700 mb-2">How many additional dogs? ($15 per extra dog)</label>
+                        <label for="additional_dogs" class="block text-sm font-semibold text-gray-700 mb-2">How many additional dogs? ($10 per dog)</label>
                         <input type="number" name="additional_dogs" id="additional_dogs" value="0" min="0" max="10"
                             class="block w-24 border-gray-300 focus:border-training focus:ring-training h-12 px-3">
                         
@@ -146,6 +149,7 @@
         const additionalDogsInput = document.getElementById('additional_dogs');
         const additionalFieldsContainer = document.getElementById('additional_dogs_fields');
         const feeDisplay = document.getElementById('fee_display');
+        const totalFeeInput = document.getElementById('total_fee_input');
 
         const methodRadios = document.querySelectorAll('input[name="eval_method"]');
 
@@ -157,19 +161,16 @@
         // Date & Time Validation
         dateTimeInput.addEventListener('input', function() {
             const dateValue = new Date(this.value);
-            const day = dateValue.getDay(); // 0 (Sun) to 6 (Sat)
+            const day = dateValue.getDay(); 
             const hours = dateValue.getHours();
             
             let isValid = true;
             let errorMessage = "";
 
-            // Days: Friday (5), Saturday (6), Sunday (0), Monday (1) are BLOCKED
-            // Allowed: Tuesday (2), Wednesday (3), Thursday (4)
             if (day === 0 || day === 1 || day === 5 || day === 6) {
                 isValid = false;
                 errorMessage = "Evaluations are only available Tuesday through Thursday.";
             } 
-            // Hours: Before 10am (10) or After 5pm (17)
             else if (hours < 10 || hours >= 17) {
                 isValid = false;
                 errorMessage = "Please select a time between 10:00 AM and 5:00 PM.";
@@ -259,7 +260,13 @@
         function calculateFee() {
             const base = 10;
             const extraCount = parseInt(additionalDogsInput.value) || 0;
-            feeDisplay.innerText = '$' + (base + (extraCount * 10));
+            const total = base + (extraCount * 10);
+            
+            // Update UI
+            feeDisplay.innerText = '$' + total;
+            
+            // Update Hidden Input for Form Submission
+            totalFeeInput.value = total;
         }
 
         multiCheck.addEventListener('change', function() {
