@@ -169,7 +169,7 @@
                 Earn recognized Trick Dog titles! Evaluations are available both <strong>online</strong> (via YouTube playlist submission) and <strong>in person</strong> (max ten tricks per title). Payment is only requested after a successful evaluation.
             </p>
             <p class="text-sm font-bold text-black">Cost: $10 per Title</p>
-            <a href="#trick-dog-form" class="mt-2 inline-block text-training-blue-default font-semibold text-sm hover:underline">
+            <a href="{{ route('emails.trickevaluation.create') }}" class="mt-2 inline-block text-training-blue-default font-semibold text-sm hover:underline">
                 Submit Evaluation Request
             </a>
         </div>
