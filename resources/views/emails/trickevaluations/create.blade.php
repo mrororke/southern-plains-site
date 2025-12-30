@@ -6,7 +6,7 @@
         <div class="w-full lg:w-3/4 px-4">
             <h4 class="uppercase text-xs font-bold">Certifications</h4>
             <h1 class="font-heading text-7xl">Trick Dog<br />Application.</h1>
-            <p class="text-base mb-2">Ready to show off what you've learned? Select your level and submission method below. We'll review your performance and issue your official title certificate.</p>
+            <p class="text-base mb-2">Ready to show off what your dogs have learned? Select your level and submission method below. We'll review the performances and issue the official title certificates.</p>
         </div>
     </div>
 
@@ -29,14 +29,14 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Owner Info -->
-                <div>
+                <div class="col-span-2 md:col-span-1">
                     <label for="owner_name" class="block text-sm font-semibold text-gray-700">Owner Name <span class="text-red-500">*</span></label>
                     <input type="text" name="owner_name" id="owner_name" value="{{ old('owner_name') }}" required
                         class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3">
                 </div>
 
-                <div>
-                    <label for="dog_name" class="block text-sm font-semibold text-gray-700">Dog's Name <span class="text-red-500">*</span></label>
+                <div class="col-span-2 md:col-span-1">
+                    <label for="dog_name" class="block text-sm font-semibold text-gray-700">Primary Dog's Name <span class="text-red-500">*</span></label>
                     <input type="text" name="dog_name" id="dog_name" value="{{ old('dog_name') }}" required
                         class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3">
                 </div>
@@ -55,8 +55,8 @@
                     </select>
                 </div>
 
-                <!-- DYNAMIC: Prerequisite Field (Hidden by default) -->
-                <div id="prereq_container" class="col-span-2 hidden bg-amber-50 border-l-4 border-amber-400 p-4 transition-all">
+                <!-- DYNAMIC: Prerequisite Field -->
+                <div id="prereq_container" class="col-span-2 hidden bg-amber-50 border-l-4 border-amber-400 p-4">
                     <label for="prereq_title" class="block text-sm font-semibold text-amber-900">Advanced Title Certificate # <span class="text-red-500">*</span></label>
                     <p class="text-xs text-amber-700 mb-2 font-medium">Performer levels require a verified Advanced Title on file.</p>
                     <input type="text" name="prereq_title" id="prereq_title" placeholder="e.g., TD-ADV-12345"
@@ -64,28 +64,28 @@
                 </div>
 
                 <!-- Evaluation Method -->
-                <div class="col-span-2 py-4">
+                <div class="col-span-2 py-4 border-t border-b border-gray-100">
                     <label class="block text-sm font-semibold text-gray-700 mb-4">How should we evaluate the tricks? <span class="text-red-500">*</span></label>
                     <div class="flex flex-row gap-12">
                         <label class="inline-flex items-center cursor-pointer group">
-                            <input type="radio" name="eval_method" value="online" onclick="toggleEvalFields('online')" {{ old('eval_method') == 'online' ? 'checked' : '' }} required class="w-5 h-5 text-training border-gray-300 focus:ring-training">
+                            <input type="radio" name="eval_method" value="online" id="method_online" {{ old('eval_method') == 'online' ? 'checked' : '' }} required class="w-5 h-5 text-training border-gray-300 focus:ring-training">
                             <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors font-medium">Video Submission</span>
                         </label>
                         <label class="inline-flex items-center cursor-pointer group">
-                            <input type="radio" name="eval_method" value="in-person" onclick="toggleEvalFields('in-person')" {{ old('eval_method') == 'in-person' ? 'checked' : '' }} class="w-5 h-5 text-training border-gray-300 focus:ring-training">
+                            <input type="radio" name="eval_method" value="in-person" id="method_person" {{ old('eval_method') == 'in-person' ? 'checked' : '' }} class="w-5 h-5 text-training border-gray-300 focus:ring-training">
                             <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors font-medium">In-Person Evaluation</span>
                         </label>
                     </div>
                 </div>
 
-                <!-- DYNAMIC: Video Field -->
-                <div id="video_container" class="col-span-2 hidden">
-                    <label for="video_link" class="block text-sm font-semibold text-gray-700">Video Link (YouTube/Vimeo) <span class="text-red-500">*</span></label>
+                <!-- Video Input Container (Primary Dog) -->
+                <div id="video_main_container" class="col-span-2 hidden">
+                    <label for="video_link" class="block text-sm font-semibold text-gray-700">Primary Dog Video Link <span class="text-red-500">*</span></label>
                     <input type="url" name="video_link" id="video_link" placeholder="https://www.youtube.com/watch?v=..."
                         class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3">
                 </div>
 
-                <!-- DYNAMIC: Location Selection -->
+                <!-- Location Container -->
                 <div id="location_container" class="col-span-2 hidden">
                     <label for="location" class="block text-sm font-semibold text-gray-700">Preferred Evaluation Center <span class="text-red-500">*</span></label>
                     <select name="location" id="location" class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3 bg-white">
@@ -96,16 +96,19 @@
                 </div>
 
                 <!-- Multi-dog Logic -->
-                <div class="col-span-2 pt-4 border-t border-gray-100">
+                <div class="col-span-2 pt-4 bg-gray-50/50 p-6 rounded-lg border border-gray-100">
                     <label class="inline-flex items-center cursor-pointer">
                         <input type="checkbox" id="multi_dog_trigger" class="w-5 h-5 text-training border-gray-300 focus:ring-training rounded">
-                        <span class="ml-3 text-sm font-semibold text-gray-700">Submit for additional dogs?</span>
+                        <span class="ml-3 text-sm font-bold text-gray-700 uppercase tracking-tight">Add Additional Dogs?</span>
                     </label>
 
-                    <div id="multi_dog_count_container" class="hidden mt-4 bg-gray-50 p-4 border border-gray-200">
+                    <div id="multi_dog_count_container" class="hidden mt-6">
                         <label for="additional_dogs" class="block text-sm font-semibold text-gray-700 mb-2">How many additional dogs? ($15 per extra dog)</label>
                         <input type="number" name="additional_dogs" id="additional_dogs" value="0" min="0" max="10"
                             class="block w-24 border-gray-300 focus:border-training focus:ring-training h-12 px-3">
+                        
+                        <!-- DYNAMIC CONTAINER: Injected additional dog fields -->
+                        <div id="additional_dogs_fields" class="mt-8 space-y-6"></div>
                     </div>
                 </div>
             </div>
@@ -132,17 +135,20 @@
         const prereqDiv = document.getElementById('prereq_container');
         const prereqInput = document.getElementById('prereq_title');
         
-        const videoDiv = document.getElementById('video_container');
-        const videoInput = document.getElementById('video_link');
+        const videoMainDiv = document.getElementById('video_main_container');
+        const videoMainInput = document.getElementById('video_link');
         const locationDiv = document.getElementById('location_container');
         const locationSelect = document.getElementById('location');
 
         const multiCheck = document.getElementById('multi_dog_trigger');
         const multiCountDiv = document.getElementById('multi_dog_count_container');
         const additionalDogsInput = document.getElementById('additional_dogs');
+        const additionalFieldsContainer = document.getElementById('additional_dogs_fields');
         const feeDisplay = document.getElementById('fee_display');
 
-        // Toggle Prerequisite Field
+        const methodRadios = document.querySelectorAll('input[name="eval_method"]');
+
+        // 1. Level Toggle
         levelSelect.addEventListener('change', function() {
             const highLevels = ['Performer', 'Elite Performer'];
             if (highLevels.includes(this.value)) {
@@ -154,22 +160,67 @@
             }
         });
 
-        // Toggle Video vs Location
-        window.toggleEvalFields = function(method) {
-            if (method === 'online') {
-                videoDiv.classList.remove('hidden');
-                videoInput.required = true;
+        // 2. Evaluation Method Toggles
+        function updateMethodVisibility() {
+            const selectedMethod = document.querySelector('input[name="eval_method"]:checked')?.value;
+            
+            if (selectedMethod === 'online') {
+                videoMainDiv.classList.remove('hidden');
+                videoMainInput.required = true;
                 locationDiv.classList.add('hidden');
                 locationSelect.required = false;
-            } else {
-                videoDiv.classList.add('hidden');
-                videoInput.required = false;
+            } else if (selectedMethod === 'in-person') {
+                videoMainDiv.classList.add('hidden');
+                videoMainInput.required = false;
                 locationDiv.classList.remove('hidden');
                 locationSelect.required = true;
             }
-        };
+            renderAdditionalFields(); // Redraw additional fields if method changes
+        }
 
-        // Multi-dog price calculation
+        methodRadios.forEach(r => r.addEventListener('change', updateMethodVisibility));
+
+        // 3. Dynamic Field Rendering (Multi-dog names and links)
+        function renderAdditionalFields() {
+            const count = parseInt(additionalDogsInput.value) || 0;
+            const isOnline = document.querySelector('input[name="eval_method"]:checked')?.value === 'online';
+            
+            additionalFieldsContainer.innerHTML = ''; // Clear current
+
+            for (let i = 1; i <= count; i++) {
+                const section = document.createElement('div');
+                section.className = 'p-4 bg-white border border-gray-200 shadow-sm space-y-4';
+                
+                let videoFieldHtml = '';
+                if (isOnline) {
+                    videoFieldHtml = `
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase">Dog #${i + 1} Video Link <span class="text-red-500">*</span></label>
+                            <input type="url" name="additional_dog_video[]" required 
+                                class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3"
+                                placeholder="https://youtube.com/...">
+                        </div>
+                    `;
+                }
+
+                section.innerHTML = `
+                    <p class="text-xs font-bold text-training uppercase tracking-widest mb-2">Additional Dog #${i}</p>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase">Dog Name <span class="text-red-500">*</span></label>
+                            <input type="text" name="additional_dog_names[]" required 
+                                class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3"
+                                placeholder="Enter dog's name">
+                        </div>
+                        ${videoFieldHtml}
+                    </div>
+                `;
+                additionalFieldsContainer.appendChild(section);
+            }
+            calculateFee();
+        }
+
+        // 4. Price and Checkbox Logic
         function calculateFee() {
             const base = 25;
             const extraCount = parseInt(additionalDogsInput.value) || 0;
@@ -180,19 +231,20 @@
         multiCheck.addEventListener('change', function() {
             if (this.checked) {
                 multiCountDiv.classList.remove('hidden');
+                if (additionalDogsInput.value == 0) additionalDogsInput.value = 1;
             } else {
                 multiCountDiv.classList.add('hidden');
                 additionalDogsInput.value = 0;
-                calculateFee();
             }
+            renderAdditionalFields();
         });
 
-        additionalDogsInput.addEventListener('input', calculateFee);
+        additionalDogsInput.addEventListener('input', renderAdditionalFields);
         
-        // Handle Laravel 'old' values on page load
-        if (levelSelect.value) levelSelect.dispatchEvent(new Event('change'));
+        // Initial Run for potential "old" inputs
+        updateMethodVisibility();
         if (multiCheck.checked) multiCountDiv.classList.remove('hidden');
-        calculateFee();
+        renderAdditionalFields();
     });
 </script>
 @endsection
