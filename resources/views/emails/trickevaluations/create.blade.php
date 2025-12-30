@@ -14,18 +14,8 @@
         
         <!-- Success Message -->
         @if (session('success'))
-        <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-6 mb-8 shadow-md" role="alert">
-            <div class="flex items-center">
-                <div class="py-1">
-                    <svg class="fill-current h-6 w-6 text-green-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                        <path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z"/>
-                    </svg>
-                </div>
-                <div>
-                    <p class="font-bold">Success!</p>
-                    <p class="text-sm">{{ session('success') }}</p>
-                </div>
-            </div>
+        <div class="bg-club/10 border-l-4 border-club text-green-800 p-4 mb-6 " role="alert">
+            {{ session('success') }}
         </div>
         @endif
 
@@ -169,9 +159,15 @@
                              <span class="text-gray-400 text-sm font-medium">($10 per dog)</span>
                         </div>
                     </div>
-                    <button type="submit" id="submit_btn" class="w-full sm:w-auto px-12 py-5 bg-training text-white uppercase text-sm font-bold tracking-widest hover:bg-training/90 transition shadow-xl disabled:opacity-50">
+                    <div class="pt-6">
+                    <button type="submit" id="submit_btn" class="w-full inline-flex justify-center py-4 px-4 border border-transparent uppercase text-sm font-bold tracking-widest text-white bg-training hover:bg-training/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-training transition-all duration-150">
                         Submit Application
                     </button>
+</div>
+
+                    
+
+
                 </div>
             </div>
         </form>
