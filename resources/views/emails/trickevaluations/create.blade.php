@@ -120,15 +120,15 @@
                 <div class="col-span-2 p-6 bg-gray-50 border border-gray-200 mt-4">
                     <label class="block text-sm font-semibold text-gray-700 mb-4">Preferred Payment Method <span class="text-red-500">*</span></label>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <label class="flex items-center p-3 bg-white border border-gray-300 rounded cursor-pointer hover:border-training transition-colors">
+                        <label class="flex items-center p-3 bg-white border border-gray-300 cursor-pointer hover:border-training transition-colors">
                             <input type="radio" name="payment_method" value="Apple Pay" required class="text-training focus:ring-training">
                             <span class="ml-3 text-sm font-medium">Apple Pay</span>
                         </label>
-                        <label class="flex items-center p-3 bg-white border border-gray-300 rounded cursor-pointer hover:border-training transition-colors">
+                        <label class="flex items-center p-3 bg-white border border-gray-300 cursor-pointer hover:border-training transition-colors">
                             <input type="radio" name="payment_method" value="Venmo" class="text-training focus:ring-training">
                             <span class="ml-3 text-sm font-medium">Venmo</span>
                         </label>
-                        <label class="flex items-center p-3 bg-white border border-gray-300 rounded cursor-pointer hover:border-training transition-colors">
+                        <label class="flex items-center p-3 bg-white border border-gray-300 cursor-pointer hover:border-training transition-colors">
                             <input type="radio" name="payment_method" value="PayPal" class="text-training focus:ring-training">
                             <span class="ml-3 text-sm font-medium">PayPal</span>
                         </label>
