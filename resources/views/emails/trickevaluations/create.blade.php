@@ -11,6 +11,7 @@
     </div>
 
     <div class="container mx-auto px-4 max-w-4xl">
+        
         <!-- Success Message -->
         @if (session('success'))
         <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-6 mb-8 shadow-md" role="alert">
@@ -27,6 +28,7 @@
             </div>
         </div>
         @endif
+
         <!-- Validation Errors -->
         @if ($errors->any())
         <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6" role="alert">
@@ -42,7 +44,6 @@
         <form action="{{ route('emails.trickevaluation.store') }}" method="POST" id="trickDogForm" class="space-y-8 py-8">
             @csrf
             
-            <!-- Hidden input to pass the total fee to the email/controller -->
             <input type="hidden" name="total_fee" id="total_fee_input" value="10">
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -62,11 +63,16 @@
                 <!-- Primary Dog Info Section -->
                 <div class="col-span-2 p-6 bg-gray-50 border border-gray-100">
                     <p class="text-xs font-bold text-black uppercase tracking-widest mb-4">Dog #1</p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                         <div>
                             <label for="dog_name" class="block text-sm font-semibold text-gray-700">Dog's Name <span class="text-red-500">*</span></label>
                             <input type="text" name="dog_name" id="dog_name" value="{{ old('dog_name') }}" required
                                 class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3 bg-white">
+                        </div>
+                        <div>
+                            <label for="dog_number" class="block text-sm font-semibold text-gray-700">Registration / Dog # <span class="text-red-500">*</span></label>
+                            <input type="text" name="dog_number" id="dog_number" value="{{ old('dog_number') }}" required
+                                class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3 bg-white" placeholder="AKC / PAL / etc.">
                         </div>
                         <div>
                             <label for="trick_level" class="block text-sm font-semibold text-gray-700">Title Level Seeking <span class="text-red-500">*</span></label>
@@ -191,12 +197,10 @@
 
         const methodRadios = document.querySelectorAll('input[name="eval_method"]');
 
-        // Dynamic Label for Dog #1
         dogNameInput.addEventListener('input', function() {
             primaryDogNameDisplay.innerText = this.value || 'Dog #1';
         });
 
-        // Date & Time Validation
         dateTimeInput.addEventListener('input', function() {
             const dateValue = new Date(this.value);
             const day = dateValue.getDay(); 
@@ -258,7 +262,7 @@
                 let videoFieldHtml = '';
                 if (isOnline) {
                     videoFieldHtml = `
-                        <div class="col-span-2">
+                        <div class="col-span-3">
                             <label class="block text-xs font-bold text-gray-500 uppercase">Video Link <span class="text-red-500">*</span></label>
                             <input type="url" name="additional_dog_video[]" required 
                                 class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3 bg-gray-50"
@@ -269,10 +273,15 @@
 
                 section.innerHTML = `
                     <p class="text-xs text-black font-bold uppercase tracking-widest mb-4">Dog #${i + 1}</p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <div>
                             <label class="block text-xs font-bold text-gray-500 uppercase">Dog's Name <span class="text-red-500">*</span></label>
                             <input type="text" name="additional_dog_names[]" required 
+                                class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3 bg-gray-50">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase">Registration / Dog # <span class="text-red-500">*</span></label>
+                            <input type="text" name="additional_dog_numbers[]" required 
                                 class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3 bg-gray-50">
                         </div>
                         <div>
@@ -299,11 +308,7 @@
             const base = 10;
             const extraCount = parseInt(additionalDogsInput.value) || 0;
             const total = base + (extraCount * 10);
-            
-            // Update UI
             feeDisplay.innerText = '$' + total;
-            
-            // Update Hidden Input for Form Submission
             totalFeeInput.value = total;
         }
 
@@ -319,7 +324,6 @@
         });
 
         additionalDogsInput.addEventListener('input', renderAdditionalFields);
-        
         updateMethodVisibility();
     });
 </script>
