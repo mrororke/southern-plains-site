@@ -4,7 +4,7 @@
 <div class="mx-auto max-w-4xl pt-10 pb-10">
     <div class="flex flex-col lg:flex-row gap-10">
         <div class="w-full lg:w-3/4 px-4">
-            <h4 class="uppercase text-xs font-bold tracking-widest text-training">Offical Titling & Testing</h4>
+            <h4 class="uppercase text-xs font-bold tracking-widest text-black">Offical Titling & Testing</h4>
             <h1 class="font-heading text-7xl">Trick Dog<br />Evaluations.</h1>
             <p class="text-base mb-2">Ready to show off what your dogs have learned? Select the level and submission method for each dog below. In-person evaluations are held Tuesdays through Thursdays between 10:00 AM and 5:00 PM. Virtual evaluations will be completed within 72 hours of receipt.</p>
         </div>
@@ -44,8 +44,8 @@
                 </div>
 
                 <!-- Primary Dog Info Section -->
-                <div class="col-span-2 p-6 bg-gray-50 border border-gray-200 rounded-lg">
-                    <p class="text-xs font-bold text-training uppercase tracking-widest mb-4">Dog #1</p>
+                <div class="col-span-2 p-6 bg-gray-50 border border-gray-100">
+                    <p class="text-xs font-bold text-black uppercase tracking-widest mb-4">Dog #1</p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label for="dog_name" class="block text-sm font-semibold text-gray-700">Dog's Name <span class="text-red-500">*</span></label>
@@ -91,19 +91,19 @@
 
                 <!-- In-Person Scheduling -->
                 <div id="scheduling_container" class="col-span-2 hidden">
-                    <div class="p-6 bg-blue-50 border border-blue-100 rounded-lg">
-                        <label for="scheduled_datetime" class="block text-sm font-semibold text-blue-900">Requested Evaluation Date & Time <span class="text-red-500">*</span></label>
-                        <p class="text-xs text-blue-700 mb-3">Available Tuesdays – Thursdays, 10:00 AM – 5:00 PM.</p>
+                    <div class="p-6 bg-[#03CCFF/50] border border-training">
+                        <label for="scheduled_datetime" class="block text-sm font-semibold text-black">Requested Evaluation Date & Time <span class="text-red-500">*</span></label>
+                        <p class="text-xs text-black mb-3">Available Tuesdays – Thursdays, 10:00 AM – 5:00 PM.</p>
                         <input type="datetime-local" name="scheduled_datetime" id="scheduled_datetime"
-                            class="block w-full border-blue-200 focus:border-training focus:ring-training h-12 px-3 bg-white">
+                            class="block w-full border-training focus:border-training focus:ring-training h-12 px-3 bg-white">
                         <div id="date_error" class="text-red-600 text-xs mt-2 hidden font-bold"></div>
                     </div>
                 </div>
 
                 <!-- Multi-dog Logic -->
-                <div class="col-span-2 pt-4 bg-gray-50/50 p-6 rounded-lg border border-gray-100">
+                <div class="col-span-2 pt-4 bg-gray-50/50 p-6  border border-gray-100">
                     <label class="inline-flex items-center cursor-pointer">
-                        <input type="checkbox" id="multi_dog_trigger" class="w-5 h-5 text-training border-gray-300 focus:ring-training rounded">
+                        <input type="checkbox" id="multi_dog_trigger" class="w-5 h-5 text-training border-gray-300 focus:ring-training">
                         <span class="ml-3 text-sm font-bold text-gray-700 uppercase tracking-tight">Add Additional Dogs?</span>
                     </label>
 
@@ -117,7 +117,7 @@
                 </div>
 
                 <!-- Payment Method Selection -->
-                <div class="col-span-2 p-6 bg-gray-50 border border-gray-200 rounded-lg mt-4">
+                <div class="col-span-2 p-6 bg-gray-50 border border-gray-200 mt-4">
                     <label class="block text-sm font-semibold text-gray-700 mb-4">Preferred Payment Method <span class="text-red-500">*</span></label>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <label class="flex items-center p-3 bg-white border border-gray-300 rounded cursor-pointer hover:border-training transition-colors">
@@ -237,7 +237,7 @@
 
             for (let i = 1; i <= count; i++) {
                 const section = document.createElement('div');
-                section.className = 'p-6 bg-white border border-gray-200 shadow-sm space-y-4 rounded-md';
+                section.className = 'p-6 bg-white border border-gray-200 shadow-sm space-y-4';
                 
                 let videoFieldHtml = '';
                 if (isOnline) {
