@@ -4,9 +4,9 @@
 <div class="mx-auto max-w-4xl pt-10 pb-10">
     <div class="flex flex-col lg:flex-row gap-10">
         <div class="w-full lg:w-3/4 px-4">
-            <h4 class="uppercase text-xs font-bold tracking-widest text-training">Certifications</h4>
-            <h1 class="font-heading text-7xl">Trick Dog<br />Application.</h1>
-            <p class="text-base mb-2">Ready to show off what your dogs have learned? Select the level and submission method for each dog below. Evaluations are held Tuesdays through Thursdays between 10:00 AM and 5:00 PM.</p>
+            <h4 class="uppercase text-xs font-bold tracking-widest text-training">Official Titling & Testing</h4>
+            <h1 class="font-heading text-7xl">Trick Dog<br />Evaluations.</h1>
+            <p class="text-base mb-2">Ready to show off what your dogs have learned? Select the level and submission method for each dog below. In-person evaluations are held Tuesdays through Thursdays between 10:00 AM and 5:00 PM. Virtual evaluations will be completed within 72 hours of receipt.</p>
         </div>
     </div>
 
