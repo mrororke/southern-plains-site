@@ -6,7 +6,7 @@
         <div class="w-full lg:w-3/4 px-4">
             <h4 class="uppercase text-xs font-bold tracking-widest text-training">Certifications</h4>
             <h1 class="font-heading text-7xl">Trick Dog<br />Application.</h1>
-            <p class="text-base mb-2">Ready to show off what your dogs have learned? Select the level and submission method for each dog below. We'll review the performances and issue official certificates.</p>
+            <p class="text-base mb-2">Ready to show off what your dogs have learned? Select the level and submission method for each dog below. Evaluations are held Tuesdays through Thursdays between 10:00 AM and 5:00 PM.</p>
         </div>
     </div>
 
@@ -23,7 +23,6 @@
         </div>
         @endif
 
-        <!-- Form -->
         <form action="{{ route('emails.trickevaluation.store') }}" method="POST" id="trickDogForm" class="space-y-8 py-8">
             @csrf
 
@@ -65,14 +64,6 @@
                     </div>
                 </div>
 
-                <!-- DYNAMIC: Prerequisite Field (Main Dog) -->
-                <div id="prereq_container" class="col-span-2 hidden bg-amber-50 border-l-4 border-amber-400 p-4">
-                    <label for="prereq_title" class="block text-sm font-semibold text-amber-900">Advanced Title Certificate # <span class="text-red-500">*</span></label>
-                    <p class="text-xs text-amber-700 mb-2 font-medium">Performer levels require a verified Advanced Title on file.</p>
-                    <input type="text" name="prereq_title" id="prereq_title" placeholder="e.g., TD-ADV-12345"
-                        class="block w-full border-amber-300 focus:border-amber-500 focus:ring-amber-500 h-12 px-3">
-                </div>
-
                 <!-- Evaluation Method -->
                 <div class="col-span-2 py-4 border-t border-b border-gray-100">
                     <label class="block text-sm font-semibold text-gray-700 mb-4">How should we evaluate the tricks? <span class="text-red-500">*</span></label>
@@ -95,14 +86,15 @@
                         class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3">
                 </div>
 
-                <!-- Location Container -->
-                <div id="location_container" class="col-span-2 hidden">
-                    <label for="location" class="block text-sm font-semibold text-gray-700">Preferred Evaluation Center <span class="text-red-500">*</span></label>
-                    <select name="location" id="location" class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3 bg-white">
-                        <option value="">-- Choose a Location --</option>
-                        <option value="Main Street">Main Street Training Hub</option>
-                        <option value="Rogers County">Rogers County Annex</option>
-                    </select>
+                <!-- In-Person Scheduling -->
+                <div id="scheduling_container" class="col-span-2 hidden">
+                    <div class="p-6 bg-blue-50 border border-blue-100 rounded-lg">
+                        <label for="scheduled_datetime" class="block text-sm font-semibold text-blue-900">Requested Evaluation Date & Time <span class="text-red-500">*</span></label>
+                        <p class="text-xs text-blue-700 mb-3">Available Tuesdays – Thursdays, 10:00 AM – 5:00 PM.</p>
+                        <input type="datetime-local" name="scheduled_datetime" id="scheduled_datetime"
+                            class="block w-full border-blue-200 focus:border-training focus:ring-training h-12 px-3 bg-white">
+                        <div id="date_error" class="text-red-600 text-xs mt-2 hidden font-bold"></div>
+                    </div>
                 </div>
 
                 <!-- Multi-dog Logic -->
@@ -117,20 +109,18 @@
                         <input type="number" name="additional_dogs" id="additional_dogs" value="0" min="0" max="10"
                             class="block w-24 border-gray-300 focus:border-training focus:ring-training h-12 px-3">
                         
-                        <!-- DYNAMIC CONTAINER -->
                         <div id="additional_dogs_fields" class="mt-8 space-y-6"></div>
                     </div>
                 </div>
             </div>
 
-            <!-- Footer / Pricing Display -->
             <div class="pt-8 border-t border-gray-200 mt-10">
                 <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
                     <div class="text-center sm:text-left">
                         <p class="text-sm uppercase tracking-widest text-gray-400 font-bold">Total Application Fee</p>
                         <p id="fee_display" class="text-5xl font-heading text-training font-bold">$25</p>
                     </div>
-                    <button type="submit" class="w-full sm:w-auto px-12 py-5 bg-training text-white uppercase text-sm font-bold tracking-widest hover:bg-training/90 transition shadow-xl">
+                    <button type="submit" id="submit_btn" class="w-full sm:w-auto px-12 py-5 bg-training text-white uppercase text-sm font-bold tracking-widest hover:bg-training/90 transition shadow-xl disabled:opacity-50">
                         Submit Application
                     </button>
                 </div>
@@ -143,14 +133,13 @@
     document.addEventListener('DOMContentLoaded', function() {
         const dogNameInput = document.getElementById('dog_name');
         const primaryDogNameDisplay = document.getElementById('primary_dog_name_display');
-        const levelSelect = document.getElementById('trick_level');
-        const prereqDiv = document.getElementById('prereq_container');
-        const prereqInput = document.getElementById('prereq_title');
-        
         const videoMainDiv = document.getElementById('video_main_container');
         const videoMainInput = document.getElementById('video_link');
-        const locationDiv = document.getElementById('location_container');
-        const locationSelect = document.getElementById('location');
+        
+        const schedulingDiv = document.getElementById('scheduling_container');
+        const dateTimeInput = document.getElementById('scheduled_datetime');
+        const dateError = document.getElementById('date_error');
+        const submitBtn = document.getElementById('submit_btn');
 
         const multiCheck = document.getElementById('multi_dog_trigger');
         const multiCountDiv = document.getElementById('multi_dog_count_container');
@@ -160,44 +149,63 @@
 
         const methodRadios = document.querySelectorAll('input[name="eval_method"]');
 
-        // Update name label for primary dog link
+        // Dynamic Label for Primary Dog
         dogNameInput.addEventListener('input', function() {
             primaryDogNameDisplay.innerText = this.value || 'Primary Dog';
         });
 
-        // 1. Level Toggle for Main Dog
-        levelSelect.addEventListener('change', function() {
-            const highLevels = ['Performer', 'Elite Performer'];
-            if (highLevels.includes(this.value)) {
-                prereqDiv.classList.remove('hidden');
-                prereqInput.required = true;
+        // Date & Time Validation
+        dateTimeInput.addEventListener('input', function() {
+            const dateValue = new Date(this.value);
+            const day = dateValue.getDay(); // 0 (Sun) to 6 (Sat)
+            const hours = dateValue.getHours();
+            
+            let isValid = true;
+            let errorMessage = "";
+
+            // Days: Friday (5), Saturday (6), Sunday (0), Monday (1) are BLOCKED
+            // Allowed: Tuesday (2), Wednesday (3), Thursday (4)
+            if (day === 0 || day === 1 || day === 5 || day === 6) {
+                isValid = false;
+                errorMessage = "Evaluations are only available Tuesday through Thursday.";
+            } 
+            // Hours: Before 10am (10) or After 5pm (17)
+            else if (hours < 10 || hours >= 17) {
+                isValid = false;
+                errorMessage = "Please select a time between 10:00 AM and 5:00 PM.";
+            }
+
+            if (!isValid && this.value !== "") {
+                dateError.innerText = errorMessage;
+                dateError.classList.remove('hidden');
+                submitBtn.disabled = true;
+                this.classList.add('border-red-500');
             } else {
-                prereqDiv.classList.add('hidden');
-                prereqInput.required = false;
+                dateError.classList.add('hidden');
+                submitBtn.disabled = false;
+                this.classList.remove('border-red-500');
             }
         });
 
-        // 2. Evaluation Method Toggles
         function updateMethodVisibility() {
             const selectedMethod = document.querySelector('input[name="eval_method"]:checked')?.value;
             
             if (selectedMethod === 'online') {
                 videoMainDiv.classList.remove('hidden');
                 videoMainInput.required = true;
-                locationDiv.classList.add('hidden');
-                locationSelect.required = false;
+                schedulingDiv.classList.add('hidden');
+                dateTimeInput.required = false;
             } else if (selectedMethod === 'in-person') {
                 videoMainDiv.classList.add('hidden');
                 videoMainInput.required = false;
-                locationDiv.classList.remove('hidden');
-                locationSelect.required = true;
+                schedulingDiv.classList.remove('hidden');
+                dateTimeInput.required = true;
             }
             renderAdditionalFields(); 
         }
 
         methodRadios.forEach(r => r.addEventListener('change', updateMethodVisibility));
 
-        // 3. Dynamic Field Rendering
         function renderAdditionalFields() {
             const count = parseInt(additionalDogsInput.value) || 0;
             const isOnline = document.querySelector('input[name="eval_method"]:checked')?.value === 'online';
@@ -226,8 +234,7 @@
                         <div>
                             <label class="block text-xs font-bold text-gray-500 uppercase">Dog's Name <span class="text-red-500">*</span></label>
                             <input type="text" name="additional_dog_names[]" required 
-                                class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3 bg-gray-50"
-                                placeholder="Enter dog's name">
+                                class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3 bg-gray-50">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-gray-500 uppercase">Level Applying For <span class="text-red-500">*</span></label>
@@ -249,12 +256,10 @@
             calculateFee();
         }
 
-        // 4. Price and Checkbox Logic
         function calculateFee() {
             const base = 25;
             const extraCount = parseInt(additionalDogsInput.value) || 0;
-            const total = base + (extraCount * 15);
-            feeDisplay.innerText = '$' + total;
+            feeDisplay.innerText = '$' + (base + (extraCount * 15));
         }
 
         multiCheck.addEventListener('change', function() {
@@ -270,10 +275,7 @@
 
         additionalDogsInput.addEventListener('input', renderAdditionalFields);
         
-        // Initial Run
         updateMethodVisibility();
-        if (multiCheck.checked) multiCountDiv.classList.remove('hidden');
-        renderAdditionalFields();
     });
 </script>
 @endsection
