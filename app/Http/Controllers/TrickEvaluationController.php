@@ -4,51 +4,72 @@ namespace App\Http\Controllers;
 
 use App\Mail\TrickEvaluationMail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 
 class TrickEvaluationController extends Controller
 {
+    /**
+     * Show the form for creating a new trick evaluation request.
+     */
     public function create()
     {
         return view('emails.trickevaluations.create');
     }
 
-     /**
-     * Handle the submission of the training history form.
+    /**
+     * Handle the submission of the trick evaluation form.
      */
     public function store(Request $request)
     {
-        // 1. Validation matching the required fields for the history form
+        // 1. Validation matching your Blade input names exactly
         $validated = $request->validate([
-            // Trick Level Selection
-    'trick_level'      => 'required|in:Novice,Intermediate,Advanced,Performer,Elite Performer',
+            // Owner Info
+            'owner_name'         => 'required|string|max:255',
+            'email'              => 'required|email:rfc,dns|max:255',
 
-    // Owner Information
-    'owner_name'       => 'required|string|max:255',
-    'owner_email'      => 'required|email:rfc,dns|max:255',
+            // Primary Dog Info
+            'dog_name'           => 'required|string|max:100',
+            'trick_level'        => 'required|in:Novice,Intermediate,Advanced,Performer,Elite Performer',
 
-    // Dog Information
-    'dog_name'         => 'required|string|max:100',
-    'dog_number'       => 'nullable|string|max:50',
+            // Evaluation Method Logic
+            'eval_method'        => 'required|in:online,in-person',
+            
+            // Required if method is 'online'
+            'video_link'         => 'required_if:eval_method,online|nullable|url|max:255',
+            
+            // Required if method is 'in-person'
+            'scheduled_datetime' => 'required_if:eval_method,in-person|nullable|date',
 
-    // Submission Logic
-    // Required if in-person dates are missing
-    'video_playlist'   => 'required_without:in_person_schedule|nullable|url|max:255',
+            // Multi-dog Logic (Arrays)
+            'additional_dogs'           => 'nullable|integer|min:0|max:10',
+            'additional_dog_names'      => 'nullable|array',
+            'additional_dog_names.*'    => 'required_with:additional_dog_names|string|max:100',
+            'additional_dog_levels'     => 'nullable|array',
+            'additional_dog_levels.*'   => 'required_with:additional_dog_names|in:Novice,Intermediate,Advanced,Performer,Elite Performer',
+            'additional_dog_video'      => 'nullable|array',
+            'additional_dog_video.*'    => 'nullable|url|max:255',
 
-    // Required if video link is missing
-    'in_person_schedule' => 'required_without:video_playlist|nullable|string|min:20|max:1000',
-
+            // Payment & Totals
+            'payment_method'     => 'required|in:Apple Pay,Venmo,PayPal',
+            'total_fee'          => 'required|numeric',
         ]);
 
         try {
-            // 2. Send the email using Laravel's Mail facade
-            Mail::to('southernplainssportdogclub@gmail.com')->send(new TrickEvaluation($validated));
+            // 2. Send the email to the club
+            Mail::to('southernplainssportdogclub@gmail.com')->send(new TrickEvaluationMail($validated));
 
-            // 3. Redirect back with a success message
-            return redirect()->route('emails.trickevaluation.create')->with('success', 'Thank you! Your trick evaluation request has been submitted successfully.');
+            // 3. Success Redirect
+            return redirect()->back()
+                ->with('success', 'Thank you! Your evaluation request for ' . $request->dog_name . ' has been submitted successfully.');
+
         } catch (\Exception $e) {
-            // Log the error and redirect back with failure
-            \Log::error("Trick evaluation form submission failed: " . $e->getMessage());
-            return redirect()->back()->with('error', 'There was an issue submitting your evaluation request. Please try again or email us directly.')->withInput();
+            // Log the actual error for debugging
+            Log::error("Trick evaluation submission error: " . $e->getMessage());
+
+            return redirect()->back()
+                ->with('error', 'There was an issue submitting your request. Please check your details and try again.')
+                ->withInput();
         }
     }
 }
