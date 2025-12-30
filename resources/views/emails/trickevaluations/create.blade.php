@@ -75,6 +75,17 @@
                     </div>
                 </div>
 
+                 <!-- In-Person Scheduling -->
+                <div id="scheduling_container" class="col-span-2 hidden">
+                    <div class="p-6 bg-[#03CCFF/50] border border-training">
+                        <label for="scheduled_datetime" class="block text-sm font-semibold text-black">Requested Evaluation Date & Time <span class="text-red-500">*</span></label>
+                        <p class="text-xs text-black mb-3">Available Tuesdays – Thursdays, 10:00 AM – 5:00 PM.</p>
+                        <input type="datetime-local" name="scheduled_datetime" id="scheduled_datetime"
+                            class="block w-full border-training focus:border-training focus:ring-training h-12 px-3 bg-white">
+                        <div id="date_error" class="text-red-600 text-xs mt-2 hidden font-bold"></div>
+                    </div>
+                </div>
+
                 <!-- Primary Dog Info Section -->
                 <div class="col-span-2 p-6 bg-gray-50 border border-gray-100">
                     <p class="text-xs font-bold text-black uppercase tracking-widest mb-4">Dog #1</p>
@@ -111,16 +122,7 @@
                         class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12 px-3">
                 </div>
 
-                <!-- In-Person Scheduling -->
-                <div id="scheduling_container" class="col-span-2 hidden">
-                    <div class="p-6 bg-[#03CCFF/50] border border-training">
-                        <label for="scheduled_datetime" class="block text-sm font-semibold text-black">Requested Evaluation Date & Time <span class="text-red-500">*</span></label>
-                        <p class="text-xs text-black mb-3">Available Tuesdays – Thursdays, 10:00 AM – 5:00 PM.</p>
-                        <input type="datetime-local" name="scheduled_datetime" id="scheduled_datetime"
-                            class="block w-full border-training focus:border-training focus:ring-training h-12 px-3 bg-white">
-                        <div id="date_error" class="text-red-600 text-xs mt-2 hidden font-bold"></div>
-                    </div>
-                </div>
+               
 
                 <!-- Multi-dog Logic -->
                 <div class="col-span-2 pt-4 bg-gray-50/50 p-6  border border-gray-100">
