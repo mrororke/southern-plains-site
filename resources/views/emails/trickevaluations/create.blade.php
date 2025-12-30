@@ -118,7 +118,7 @@
                 <div class="flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
                     <div class="text-center sm:text-left">
                         <p class="text-sm uppercase tracking-widest text-gray-400 font-bold">Total Application Fee</p>
-                        <p id="fee_display" class="text-5xl font-heading text-training font-bold">$25</p>
+                        <p id="fee_display" class="text-5xl font-heading text-training font-bold">$10</p>
                     </div>
                     <button type="submit" id="submit_btn" class="w-full sm:w-auto px-12 py-5 bg-training text-white uppercase text-sm font-bold tracking-widest hover:bg-training/90 transition shadow-xl disabled:opacity-50">
                         Submit Application
@@ -257,9 +257,9 @@
         }
 
         function calculateFee() {
-            const base = 25;
+            const base = 10;
             const extraCount = parseInt(additionalDogsInput.value) || 0;
-            feeDisplay.innerText = '$' + (base + (extraCount * 15));
+            feeDisplay.innerText = '$' + (base + (extraCount * 10));
         }
 
         multiCheck.addEventListener('change', function() {
