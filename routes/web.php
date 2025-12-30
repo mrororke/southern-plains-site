@@ -6,6 +6,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HistoryFormController;
+use App\Http\Controllers\TrickEvaluationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -63,6 +64,8 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 // Form Related Routes
 Route::get('/history/create', [HistoryFormController::class, 'create'])->name('emails.history.create');
 Route::post('/history/store', [HistoryFormController::class, 'store'])->name('emails.history.store');
+Route::get('/trickevaluation/create', [TrickEvaluationController::class, 'create'])->name('emails.trickevaluation.create');
+Route::get('/trickevaluation/store', [TrickEvaluationController::class, 'create'])->name('emails.trickevaluation.store');
 
 
 
