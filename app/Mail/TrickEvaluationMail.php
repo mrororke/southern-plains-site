@@ -23,6 +23,6 @@ class TrickEvaluationMail extends Mailable
     public function build()
     {
         return $this->subject('New Trick Evaluation Form Submission')
-                    ->view('emails.trickevaluation.mail'); // We will create this simple view next
+                    ->view('emails.trickevaluations.mail'); // We will create this simple view next
     }
 }
