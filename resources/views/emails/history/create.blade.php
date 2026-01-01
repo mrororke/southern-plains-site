@@ -1,0 +1,227 @@
+@extends('layouts.base-training')
+
+@section('page_content')
+
+<div class="mx-auto max-w-4xl pt-10 pb-10">
+    <div class="flex flex-col lg:flex-row gap-10">
+        <div class="w-full lg:w-3/4 px-4">
+            <h4 class="uppercase text-xs font-bold">Training History</h4>
+            <h1 class="font-heading text-7xl">The Basics of<br /> Your History.</h1>
+
+            <p class="text-base mb-2">To get a head start on our intro call, please provide a brief overview of your dog’s background. This shortened history helps us understand where you're starting from so we can dive right in when we talk.</p>
+        </div>
+    </div>
+    <div class="container mx-auto px-4 max-w-4xl">
+
+    @if ($errors->any())
+    <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6" role="alert">
+        <p class="font-bold">Please correct the following errors:</p>
+        <ul class="list-disc ml-5 mt-2">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
+        <!-- Success/Error Messages -->
+        @if (session('success'))
+        <div class="bg-club/10 border-l-4 border-training text-club p-4 mb-6 " role="alert">
+            {{ session('success') }}
+        </div>
+        @endif
+        @if (session('error'))
+        <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 " role="alert">
+            {{ session('error') }}
+        </div>
+        @endif
+
+        <!-- Form -->
+        <form action="{{ route('emails.history.store') }}" method="POST" class="space-y-8 py-8">
+            @csrf
+
+            <!-- Section One: Owner Information -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- First Name -->
+                <div>
+                    <label for="first_name" class="block text-sm font-semibold text-gray-700">First Name <span class="text-red-500">*</span></label>
+                    <input type="text" name="first_name" id="first_name" placeholder="First Name" value="{{ old('first_name') }}" required
+                        class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
+                </div>
+
+                <!-- Last Name -->
+                <div>
+                    <label for="last_name" class="block text-sm font-semibold text-gray-700">Last Name <span class="text-red-500">*</span></label>
+                    <input type="text" name="last_name" id="last_name" placeholder="Last Name" value="{{ old('last_name') }}" required
+                        class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
+                </div>
+
+                <!-- Email -->
+                <div>
+                    <label for="email" class="block text-sm font-semibold text-gray-700">Email Address <span class="text-red-500">*</span></label>
+                    <input type="email" name="email" id="email" placeholder="youraddress@yourdomain.com" value="{{ old('email') }}" required
+                        class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
+                </div>
+
+                <!-- Phone -->
+                <div>
+                    <label for="phone" class="block text-sm font-semibold text-gray-700">Phone Number <span class="text-red-500">*</span></label>
+                    <input type="tel" name="phone" id="phone" placeholder="(555) 555-5555" value="{{ old('phone') }}" required
+                        class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
+                </div>
+
+                <!-- Preferred Contact Method - Full Width Row -->
+                <div class="col-span-2 py-4">
+                    <label class="block text-sm font-semibold text-gray-700 mb-4">Preferred Method of Contact <span class="text-red-500">*</span></label>
+                    <div class="flex flex-row sm:flex-row gap-6 sm:gap-12">
+                        <label class="inline-flex items-center cursor-pointer group">
+                            <input type="radio" name="preferred_contact" value="email" {{ old('preferred_contact') == 'email' ? 'checked' : '' }} required class="w-5 h-5 text-training border-gray-300 focus:ring-training">
+                            <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors">Email</span>
+                        </label>
+                        <label class="inline-flex items-center cursor-pointer group">
+                            <input type="radio" name="preferred_contact" value="phone" {{ old('preferred_contact') == 'phone' ? 'checked' : '' }} class="w-5 h-5 text-training border-gray-300 focus:ring-training">
+                            <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors">Phone Call</span>
+                        </label>
+                        <label class="inline-flex items-center cursor-pointer group">
+                            <input type="radio" name="preferred_contact" value="text" {{ old('preferred_contact') == 'text' ? 'checked' : '' }} class="w-5 h-5 text-training border-gray-300 focus:ring-training">
+                            <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors">Text Message</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- New Row: Area and Referral -->
+                <div>
+                    <label for="area" class="block text-sm font-semibold text-gray-700">What area do you live in? <span class="text-red-500">*</span></label>
+                    <input type="text" name="area" id="area" placeholder="e.g., Catoosa, Pryor, or Rogers County" value="{{ old('area') }}" required
+                        class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
+                </div>
+
+                <div>
+                    <label for="referred" class="block text-sm font-semibold text-gray-700">How were you referred? </label>
+                    <input type="text" name="referred" id="referred" placeholder="e.g., Recommended by [Friend's Name]" value="{{ old('referred') }}"
+                        class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
+                </div>
+
+                <div>
+                    <label for="dog_name" class="block text-sm font-semibold text-gray-700">What is your dog's name? <span class="text-red-500">*</span></label>
+                    <input type="text" name="dog_name" id="dog_name" placeholder="What do you call your dog?" value="{{ old('dog_name') }}" required
+                        class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
+                </div>
+
+                <div>
+                    <label for="dog_breed" class="block text-sm font-semibold text-gray-700">What is your dog's breed? </label>
+                    <input type="text" name="dog_breed" id="dog_breed" placeholder="What breed is your dog?" value="{{ old('dog_breed') }}"
+                        class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
+                </div>
+
+                <div>
+                    <label for="dog_age" class="block text-sm font-semibold text-gray-700">What is your dog's age? <span class="text-red-500">*</span></label>
+                    <input type="number" name="dog_age" id="dog_age" value="{{ old('dog_age') }}" required
+                        class="mt-1 block w-full border-gray-300 focus:border-training focus:ring-training h-12">
+                </div>
+
+                <div class="py-4">
+                    <label class="block text-sm font-semibold text-gray-700 mb-4">What is your dog's gender? <span class="text-red-500">*</span></label>
+                    <div class="flex flex-row sm:flex-row gap-6 sm:gap-12">
+                        <label class="inline-flex items-center cursor-pointer group">
+                            <input type="radio" name="gender" value="male" {{ old('gender') == 'male' ? 'checked' : '' }} required class="w-5 h-5 text-training border-gray-300 focus:ring-training">
+                            <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors">Male</span>
+                        </label>
+                        <label class="inline-flex items-center cursor-pointer group">
+                            <input type="radio" name="gender" value="neutered" {{ old('gender') == 'neutered' ? 'checked' : '' }} class="w-5 h-5 text-training border-gray-300 focus:ring-training">
+                            <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors">Neutered</span>
+                        </label>
+                        <label class="inline-flex items-center cursor-pointer group">
+                            <input type="radio" name="gender" value="female" {{ old('gender') == 'female' ? 'checked' : '' }} class="w-5 h-5 text-training border-gray-300 focus:ring-training">
+                            <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors">Female</span>
+                        </label>
+                        <label class="inline-flex items-center cursor-pointer group">
+                            <input type="radio" name="gender" value="spayed" {{ old('gender') == 'spayed' ? 'checked' : '' }} class="w-5 h-5 text-training border-gray-300 focus:ring-training">
+                            <span class="ml-3 text-sm text-gray-600 group-hover:text-training transition-colors">Spayed</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- How can I help field -->
+                <div class="col-span-2">
+                   <label for="how_can_i_help" class="block text-sm font-semibold text-gray-700">How can I help? <span class="text-red-500">*</span></label>
+                <textarea name="how_can_i_help" id="how_can_i_help" rows="4" required
+                    class="mt-1 block w-full {{ $errors->has('how_can_i_help') ? 'border-red-500' : 'border-gray-300' }} p-3" 
+                    placeholder="Tell us a bit about your dog and what's been on your mind regarding their behavior lately.">{{ old('how_can_i_help') }}</textarea>
+                <p class="text-xs text-gray-400 mt-1">Minimum 10 characters required.</p>
+                </div>
+
+                <div class="col-span-2">
+                   <label for="home_occupants" class="block text-sm font-semibold text-gray-700">Who else is living in the home? Are there other pets? <span class="text-red-500">*</span></label>
+                <textarea name="home_occupants" id="home_occupants" rows="4" required
+                    class="mt-1 block w-full {{ $errors->has('home_occupants') ? 'border-red-500' : 'border-gray-300' }} p-3" 
+                    placeholder="List humans and animals in the home, plus how they generally get along with your dog...">{{ old('home_occupants') }}</textarea>
+                </div>
+
+                 <!-- How long has this been a problem -->
+                <div class="col-span-2">
+                   <label for="timeline" class="block text-sm font-semibold text-gray-700">How long has this been a problem? Why are you seeking help now? <span class="text-red-500">*</span></label>
+                <textarea name="timeline" id="timeline" rows="4" required
+                    class="mt-1 block w-full {{ $errors->has('timeline') ? 'border-red-500' : 'border-gray-300' }} p-3" 
+                    placeholder="While we've managed this for [length of time], I'm reaching out now because [event/realization] made me realize we can no longer [current management strategy].">{{ old('timeline') }}</textarea>
+                <p class="text-xs text-gray-400 mt-1">Minimum 10 characters required.</p>
+                </div>
+
+                 <!-- Does your dog live indoors or outdoors? -->
+                <div class="col-span-2">
+                   <label for="dog_living" class="block text-sm font-semibold text-gray-700">Does your dog live indoors or outdoors? <span class="text-red-500">*</span></label>
+                <textarea name="dog_living" id="dog_living" rows="4" required
+                    class="mt-1 block w-full {{ $errors->has('dog_living') ? 'border-red-500' : 'border-gray-300' }} p-3" 
+                    placeholder="My dog typically spends [Number] hours inside with the family and [Number] hours in the yard. At night, they sleep in [specific location, e.g., the bedroom/a kennel].">{{ old('dog_living') }}</textarea>
+                <p class="text-xs text-gray-400 mt-1">Minimum 10 characters required.</p>
+                </div>
+
+                 <!-- Bite History -->
+                <div class="col-span-2">
+                   <label for="bite_history" class="block text-sm font-semibold text-gray-700">Has your dog ever bitten anyone? <span class="text-red-500">*</span></label>
+                <textarea name="bite_history" id="bite_history" rows="4" required
+                    class="mt-1 block w-full {{ $errors->has('bite_history') ? 'border-red-500' : 'border-gray-300' }} p-3" 
+                    placeholder="Has your dog ever made tooth-to-skin contact with a person, even if it didn't break the skin? Please describe the circumstances (e.g., during play, guarding food, or when startled).">{{ old('bite_history') }}</textarea>
+                <p class="text-xs text-gray-400 mt-1">Minimum 10 characters required.</p>
+                </div>
+
+                 <!-- Visitor Reaction -->
+                <div class="col-span-2">
+                   <label for="visitor_reaction" class="block text-sm font-semibold text-gray-700">How does your dog do when an unfamiliar person enters your home? <span class="text-red-500">*</span></label>
+                <textarea name="visitor_reaction" id="visitor_reaction" rows="4" required
+                    class="mt-1 block w-full {{ $errors->has('visitor_reaction') ? 'border-red-500' : 'border-gray-300' }} p-3" 
+                    placeholder="Describe the first 10 minutes after a guest arrives. Does your dog settle down quickly, or do they remain on high alert the entire time the person is there?">{{ old('visitor_reaction') }}</textarea>
+                <p class="text-xs text-gray-400 mt-1">Minimum 10 characters required.</p>
+                </div>
+
+                <!-- Visitor Timeline -->
+                <div class="col-span-2">
+                   <label for="visitor_time" class="block text-sm font-semibold text-gray-700">How long has it been since you had a visitor our dog did not know? <span class="text-red-500">*</span></label>
+                <textarea name="visitor_time" id="visitor_time" rows="4" required
+                    class="mt-1 block w-full {{ $errors->has('visitor_time') ? 'border-red-500' : 'border-gray-300' }} p-3" 
+                    placeholder="How long has it been since an unfamiliar person visited? If it has been more than 3 months, is this due to your lifestyle or because of the dog's behavior?">{{ old('visitor_time') }}</textarea>
+                <p class="text-xs text-gray-400 mt-1">Minimum 10 characters required.</p>
+                </div>
+
+
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-6">
+                <button type="submit" class="w-full inline-flex justify-center py-4 px-4 border border-transparent uppercase text-sm font-bold tracking-widest text-white bg-training hover:bg-training/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-training transition-all duration-150">
+                    Let's Talk!
+                </button>
+            </div>
+
+
+        </form>
+
+        <!-- Fallback Info -->
+        <div class="mt-10 text-center text-sm text-gray-500">
+            If the form does not work, please email us directly at <a href="mailto:southernplainssportdogclub@gmail.com" class="text-training hover:text-training-dark font-semibold">southernplainssportdogclub@gmail.com</a>.
+        </div>
+
+    </div>
+
+</div>
+@endsection
