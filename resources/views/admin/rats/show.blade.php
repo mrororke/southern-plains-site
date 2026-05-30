@@ -13,10 +13,10 @@
 {{-- HERO --}}
 <div class="bg-white shadow border p-6 mb-6">
 
-    <div class="flex flex-col md:flex-row gap-6">
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-        {{-- PROFILE IMAGE --}}
-        <div class="w-64 flex-shrink-0">
+        {{-- COLUMN 1: IMAGE --}}
+        <div>
 
             @if($primaryImage)
                 <img
@@ -32,8 +32,8 @@
 
         </div>
 
-        {{-- PROFILE INFO --}}
-        <div class="flex-1">
+        {{-- COLUMN 2: RAT DETAILS --}}
+        <div>
 
             <h1 class="text-3xl font-bold">
                 {{ $rat->name }}
@@ -45,10 +45,57 @@
                 </p>
             @endif
 
-            {{-- BREEDER --}}
+            <div class="mt-6 space-y-2">
+
+                <p><strong>Sex:</strong> {{ $rat->sex }}</p>
+                <p><strong>Variety:</strong> {{ $rat->variety }}</p>
+                <p><strong>Color:</strong> {{ $rat->color }}</p>
+                <p><strong>Markings:</strong> {{ $rat->markings }}</p>
+                <p><strong>Eye Color:</strong> {{ $rat->eye_color }}</p>
+                <p><strong>Ear Set:</strong> {{ $rat->ear_set }}</p>
+
+            </div>
+
+        </div>
+
+        {{-- COLUMN 3: STATUS / BREEDER --}}
+        <div>
+
+            <h2 class="font-semibold text-lg mb-4">
+                Quick Info
+            </h2>
+
+            <div class="space-y-2">
+
+                <p>
+                    <strong>Status:</strong>
+                    {{ $rat->dod ? 'Deceased' : 'Alive' }}
+                </p>
+
+                <p>
+                    <strong>DOB:</strong>
+                    {{ $rat->dob ?? 'Unknown' }}
+                </p>
+
+                @if($rat->dod)
+                    <p>
+                        <strong>DOD:</strong>
+                        {{ $rat->dod }}
+                    </p>
+                @endif
+
+                @if($rat->breeder_reference)
+                    <p>
+                        <strong>Breeder Ref:</strong>
+                        {{ $rat->breeder_reference }}
+                    </p>
+                @endif
+
+            </div>
+
             @if($breeder)
 
-                <div class="relative inline-block group mt-3">
+                <div class="relative inline-block group mt-6">
 
                     <a
                         href="{{ $breeder->url }}"
@@ -60,7 +107,7 @@
                     </a>
 
                     <div
-                        class="absolute left-0 top-full mt-2 w-72 bg-white border shadow-lg rounded p-4
+                        class="absolute right-0 top-full mt-2 w-72 bg-white border shadow-lg rounded p-4
                                opacity-0 invisible group-hover:opacity-100 group-hover:visible
                                transition-all duration-200 z-50"
                     >
@@ -102,69 +149,12 @@
 
             @endif
 
-            {{-- DETAILS --}}
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 mt-6">
-
-                <div>
-                    <strong>Sex:</strong> {{ $rat->sex }}
-                </div>
-
-                <div>
-                    <strong>Status:</strong>
-                    {{ $rat->dod ? 'Deceased' : 'Alive' }}
-                </div>
-
-                <div>
-                    <strong>Date of Birth:</strong>
-                    {{ $rat->dob ?? 'Unknown' }}
-                </div>
-
-                @if($rat->dod)
-                    <div>
-                        <strong>Date of Death:</strong>
-                        {{ $rat->dod }}
-                    </div>
-                @endif
-
-                <div>
-                    <strong>Variety:</strong>
-                    {{ $rat->variety }}
-                </div>
-
-                <div>
-                    <strong>Color:</strong>
-                    {{ $rat->color }}
-                </div>
-
-                <div>
-                    <strong>Markings:</strong>
-                    {{ $rat->markings }}
-                </div>
-
-                <div>
-                    <strong>Eye Color:</strong>
-                    {{ $rat->eye_color }}
-                </div>
-
-                <div>
-                    <strong>Ear Set:</strong>
-                    {{ $rat->ear_set }}
-                </div>
-
-                @if($rat->breeder_reference)
-                    <div>
-                        <strong>Breeder Reference:</strong>
-                        {{ $rat->breeder_reference }}
-                    </div>
-                @endif
-
-            </div>
-
         </div>
 
     </div>
 
 </div>
+
 
 {{-- PEDIGREE PLACEHOLDER --}}
 <div class="bg-white shadow border p-6 mb-6">
