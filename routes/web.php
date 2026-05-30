@@ -84,25 +84,23 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// In Admin Routes
-Route::middleware(['auth', 'admin'])->group(function () {
-    
-    Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard'); 
-    
-    Route::get('/admin', function () {
-        return redirect()->route('admin.dashboard');
-    })->name('admin.index');
+Route::middleware(['auth', 'admin'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
 
-    // This is the most complex one. Your current setup should work, but let's be explicit.
-    Route::resource('admin/posts', PostController::class)->names('admin.posts');
+        Route::get('/dashboard', function () {
+            return view('admin.dashboard');
+        })->name('dashboard');
 
-    // Rat Related Routes
-    Route::get('admin//rats/create', [RatController::class, 'create']);
-    Route::post('/admin/rats', [RatController::class, 'store']);
+        Route::get('/', function () {
+            return redirect()->route('admin.dashboard');
+        })->name('index');
 
-});
+        Route::resource('posts', PostController::class);
+
+        Route::resource('rats', RatController::class);
+    });
 
 // Legal Routes
 Route::prefix('legal')->name('legal.')->group(function () {
