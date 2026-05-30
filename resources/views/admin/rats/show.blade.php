@@ -33,30 +33,41 @@
         </div>
 
         {{-- COLUMN 2: RAT DETAILS --}}
+        <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
+
+    <div>
+        <div class="text-gray-500 uppercase tracking-wide text-xs">Sex</div>
+        <div>{{ $rat->sex }}</div>
+    </div>
+
+    <div>
+        <div class="text-gray-500 uppercase tracking-wide text-xs">Status</div>
+        <div>{{ $rat->dod ? 'Deceased' : 'Living' }}</div>
+    </div>
+
+    <div>
+        <div class="text-gray-500 uppercase tracking-wide text-xs">Date of Birth</div>
         <div>
-
-            <h1 class="text-3xl font-bold">
-                {{ $rat->name }}
-            </h1>
-
-            @if($rat->registered_name)
-                <p class="text-lg text-gray-600">
-                    {{ $rat->registered_name }}
-                </p>
-            @endif
-
-            <div class="mt-6 space-y-2">
-
-                <p><strong>Sex:</strong> {{ $rat->sex }}<br/>
-                <strong>Variety:</strong> {{ $rat->variety }}<br/>
-                <strong>Color:</strong> {{ $rat->color }}<br/>
-                <strong>Markings:</strong> {{ $rat->markings }}<br/>
-                <strong>Eye Color:</strong> {{ $rat->eye_color }}<br/>
-                <strong>Ear Set:</strong> {{ $rat->ear_set }}</p>
-
-            </div>
-
+            {{ $rat->dob ? \Carbon\Carbon::parse($rat->dob)->format('F j, Y') : 'Unknown' }}
         </div>
+    </div>
+
+    <div>
+        <div class="text-gray-500 uppercase tracking-wide text-xs">Variety</div>
+        <div>{{ $rat->variety }}</div>
+    </div>
+
+    <div>
+        <div class="text-gray-500 uppercase tracking-wide text-xs">Color</div>
+        <div>{{ $rat->color }}</div>
+    </div>
+
+    <div>
+        <div class="text-gray-500 uppercase tracking-wide text-xs">Markings</div>
+        <div>{{ $rat->markings }}</div>
+    </div>
+
+</div>
 
         {{-- COLUMN 3: STATUS / BREEDER --}}
         <div>
