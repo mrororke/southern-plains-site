@@ -21,12 +21,12 @@
         {{-- ========================= --}}
         {{-- IMAGE (LEFT) --}}
         {{-- ========================= --}}
-        <div class="md:w-1/4 flex-shrink-0">
+        <div class="w-64 flex-shrink-0">
             @if($primaryImage)
                 <img
                     src="{{ asset($primaryImage->file_path) }}"
                     alt="{{ $primaryImage->caption ?? $rat->name }}"
-                    class="w-full h-56 md:h-64 object-cover border shadow-sm rounded-sm"
+                    class="w-64 h-64 object-cover border shadow-sm rounded-sm"
                 >
             @else
                 <div class="w-full h-72 bg-gray-100 border flex items-center justify-center text-gray-400">
