@@ -21,12 +21,12 @@
         {{-- ========================= --}}
         {{-- IMAGE (LEFT) --}}
         {{-- ========================= --}}
-        <div class="md:w-1/3">
+        <div class="md:w-1/4 flex-shrink-0">
             @if($primaryImage)
                 <img
                     src="{{ asset($primaryImage->file_path) }}"
                     alt="{{ $primaryImage->caption ?? $rat->name }}"
-                    class="w-full h-72 object-cover border shadow-sm"
+                    class="w-full h-56 md:h-64 object-cover border shadow-sm rounded-sm"
                 >
             @else
                 <div class="w-full h-72 bg-gray-100 border flex items-center justify-center text-gray-400">
@@ -74,7 +74,7 @@
             <div class="mt-4 text-sm text-gray-600">
 
                 @if($breeder)
-                    <a href="{{ $breeder->url }}"
+                    Breeder: <a href="{{ $breeder->url }}"
            target="_blank"
            rel="noopener noreferrer"
            class="underline hover:text-black"
@@ -82,7 +82,7 @@
 Owner: {{ $breeder->owner_name ?? 'Unknown' }}
 Location: {{ $breeder->location ?? 'Unknown' }}">
 
-                        Breeder: {{ $breeder->rattery }}
+                        {{ $breeder->rattery }}
 
                     </a>
                 @else
