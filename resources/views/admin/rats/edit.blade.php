@@ -97,47 +97,62 @@
                 {{-- Color --}}
                 <div>
                     <label class="block text-sm font-medium">Color</label>
-                    <input type="text"
-                           name="color"
-                           value="{{ old('color', $rat->color) }}"
-                           class="w-full border p-2">
+                    <select name="color" class="w-full border p-2">
+                        @foreach($colors as $color)
+                        <option value="{{ $color }}" @selected(old('color', $rat->color ?? '') == $color)>
+                            {{ $color }}
+                        </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 {{-- Silvered --}}
                 <div>
                     <label class="block text-sm font-medium">Silvered</label>
-                    <input type="text"
-                           name="silvered"
-                           value="{{ old('silvered', $rat->silvered) }}"
-                           class="w-full border p-2">
+                    <select name="silvered" class="w-full border p-2">
+                        <option value="">None</option>
+                        @foreach($silveredOptions as $opt)
+                        <option value="{{ $opt }}" @selected(old('silvered', $rat->silvered ?? '') == $opt)>
+                            {{ $opt }}
+                        </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 {{-- Markings --}}
                 <div>
                     <label class="block text-sm font-medium">Markings</label>
-                    <input type="text"
-                           name="markings"
-                           value="{{ old('markings', $rat->markings) }}"
-                           class="w-full border p-2">
+                    <select name="markings" class="w-full border p-2">
+                        @foreach($markings as $markings)
+                        <option value="{{ $markings }}" @selected(old('markings', $rat->markings ?? '') == $markings)>
+                            {{ $markings }}
+                        </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 {{-- Eye Color --}}
                 <div>
                     <label class="block text-sm font-medium">Eye Color</label>
-                    <input type="text"
-                           name="eye_color"
-                           value="{{ old('eye_color', $rat->eye_color) }}"
-                           class="w-full border p-2">
+                    <select name="eye_color" class="w-full border p-2">
+                        @foreach($eyeColors as $eye_color)
+                        <option value="{{ $eye_color }}" @selected(old('eye_color', $rat->eye_color ?? '') == $eye_color)>
+                            {{ $eye_color }}
+                        </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 {{-- Ear Set --}}
                 <div>
                     <label class="block text-sm font-medium">Ear Set</label>
-                    <input type="text"
-                           name="ear_set"
-                           value="{{ old('ear_set', $rat->ear_set) }}"
-                           class="w-full border p-2">
-                </div>
+                    <select name="ear_set" class="w-full border p-2">
+                        @foreach($earSets as $ear_set)
+                        <option value="{{ $ear_set }}" @selected(old('ear_set', $rat->ear_set ?? '') == $ear_set)>
+                            {{ $ear_set }}
+                        </option>
+                        @endforeach
+                    </select>
 
                 {{-- Breeder --}}
                 <div>
