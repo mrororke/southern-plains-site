@@ -155,6 +155,7 @@
                                 >
                                     Visit Website
                                 </a>
+</p>
                         @endif
 
                     </div>
