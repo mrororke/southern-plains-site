@@ -97,6 +97,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     // This is the most complex one. Your current setup should work, but let's be explicit.
     Route::resource('admin/posts', PostController::class)->names('admin.posts');
+
+    // Rat Related Routes
+Route::get('admin//rats/create', [RatController::class, 'create']);
+Route::post('/admin/rats', [RatController::class, 'store']);
+
 });
 
 // Legal Routes
