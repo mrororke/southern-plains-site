@@ -137,18 +137,16 @@
                             <p class="mt-2">
                                 <strong>Owner:</strong>
                                 {{ $breeder->owner_name }}
-                            </p>
+                            <br/>
                         @endif
 
                         @if($breeder->location)
-                            <p>
                                 <strong>Location:</strong>
                                 {{ $breeder->location }}
-                            </p>
+                            <br/>
                         @endif
 
                         @if($breeder->url)
-                            <div class="mt-3">
                                 <a
                                     href="{{ $breeder->url }}"
                                     target="_blank"
@@ -157,7 +155,6 @@
                                 >
                                     Visit Website
                                 </a>
-                            </div>
                         @endif
 
                     </div>
