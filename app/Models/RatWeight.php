@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class RatWeight extends Model
 {
     use HasFactory;
+
+    public function rat()
+    {
+        return $this->belongsTo(Rat::class);
+    }
 }

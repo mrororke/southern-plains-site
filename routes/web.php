@@ -7,6 +7,9 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HistoryFormController;
 use App\Http\Controllers\TrickEvaluationController;
+
+use App\Http\Controllers\RatController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -67,7 +70,9 @@ Route::post('/history/store', [HistoryFormController::class, 'store'])->name('em
 Route::get('/trickevaluation/create', [TrickEvaluationController::class, 'create'])->name('emails.trickevaluation.create');
 Route::post('/trickevaluation/store', [TrickEvaluationController::class, 'store'])->name('emails.trickevaluation.store');
 
-
+// Rat Related Routes
+Route::get('/rats/create', [RatController::class, 'create']);
+Route::post('/rats', [RatController::class, 'store']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

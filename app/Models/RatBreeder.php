@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class RatBreeder extends Model
 {
     use HasFactory;
+
+    public function rats()
+    {
+        return $this->hasMany(\App\Models\Rat::class, 'breeder_id');
+    }
 }
