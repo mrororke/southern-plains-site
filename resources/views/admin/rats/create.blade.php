@@ -125,6 +125,13 @@
                 {{-- Markings --}}
                 <div>
                     <label class="block text-sm font-medium">Markings *</label>
+                    <select name="markings" class="w-full border p-2">
+    @foreach($markings as $markings)
+        <option value="{{ $markings }}" @selected(old('markings', $rat->markings ?? '') == $markings)>
+            {{ $markings }}
+        </option>
+    @endforeach
+</select>
                     <input type="text"
                            name="markings"
                            value="{{ old('markings', 'Black') }}"
