@@ -96,16 +96,7 @@
             @if($breeder)
 
                 <div class="relative inline-block group mt-6">
-                    <strong>Bred By: </strong>
-
-                    <a
-                        href="{{ $breeder->url }}"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-blue-600 hover:text-blue-800 underline"
-                    >
-                        {{ $breeder->rattery }}
-                    </a>
+                    <strong>Bred By: </strong> {{ $breeder->rattery }}
                     @if($breeder->owner_name)
                             <p class="mt-2">
                                 <strong>Owner:</strong>
