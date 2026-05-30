@@ -4,198 +4,133 @@
 @section('page_title', 'Rat Profile: ' . $rat->name)
 
 @section('content')
-
-@php
-$latestImage = $rat->attachments->sortByDesc('created_at')->first();
+    @php
+    $images = $rat->attachments->sortByDesc('created_at');
 @endphp
 
-<div class="bg-white p-6 shadow-md">
-
-    <div class="container mx-auto p-4">
-
-        {{-- Back Navigation --}}
-        <div class="mb-6 flex justify-between items-center">
-
-            <a href="{{ route('admin.rats.index') }}"
-                class="text-blue-600 hover:underline">
-                ← Back to Rats
-            </a>
-
-            <a href="{{ route('admin.rats.edit', $rat) }}"
-                class="bg-emerald-500 hover:bg-emerald-800 text-white font-bold py-2 px-4">
-                Edit Rat
-            </a>
-
+{{-- ========================= --}}
+{{-- 🖼 IMAGE STRIP --}}
+{{-- ========================= --}}
+@if($images->count())
+    <div class="mb-6">
+        <div class="flex gap-3 overflow-x-auto pb-2">
+            @foreach($images->take(6) as $img)
+                <img
+                    src="{{ asset($img->file_path) }}"
+                    class="h-24 w-24 object-cover border shadow-sm flex-shrink-0 hover:scale-105 transition"
+                    alt="Rat image"
+                >
+            @endforeach
         </div>
-
-        {{-- HERO SECTION --}}
-        <div class="bg-gray-50 p-6 border mb-6">
-
-
-            <h2 class="text-2xl font-bold">{{ $rat->name }}</h2>
-
-            @if($rat->registered_name)
-            <p class="text-gray-600 italic">{{ $rat->registered_name }}</p>
-            @endif
-
-            <div class="mt-3 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
-
-                <div>
-                    <span class="font-semibold">Sex:</span>
-                    {{ $rat->sex }}
-                </div>
-
-                <div>
-                    <span class="font-semibold">DOB:</span>
-                    {{ $rat->dob ?? '—' }}
-                </div>
-
-                <div>
-                    <span class="font-semibold">Status:</span>
-                    @if($rat->dod)
-                    <span class="text-red-600">Deceased</span>
-                    @else
-                    <span class="text-green-600">Alive</span>
-                    @endif
-                </div>
-
-                <div>
-                    <span class="font-semibold">Owned:</span>
-                    {{ $rat->is_owned ? 'Yes' : 'No' }}
-                </div>
-
-            </div>
-
-        </div>
-
-        @if($latestImage)
-    <div class="mb-6 border bg-gray-50 p-4 flex justify-center">
-        <img
-            src="{{ asset($latestImage->file_path) }}"
-            alt="{{ $rat->name }}"
-            class="max-h-80 object-contain border shadow-sm"
-        >
-    </div>
-@else
-    <div class="mb-6 border bg-gray-50 p-6 text-center text-gray-500">
-        No images uploaded yet
     </div>
 @endif
 
-        {{-- MAIN GRID --}}
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-            {{-- BASIC INFO --}}
-            <div class="border p-4">
-                <h3 class="font-bold mb-2">Basic Info</h3>
+{{-- ========================= --}}
+{{-- 🟢 DASHBOARD CARDS --}}
+{{-- ========================= --}}
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
 
-                <p><strong>Variety:</strong> {{ $rat->variety }}</p>
-                <p><strong>Color:</strong> {{ $rat->color }}</p>
-                <p><strong>Markings:</strong> {{ $rat->markings }}</p>
-                <p><strong>Eye Color:</strong> {{ $rat->eye_color }}</p>
-                <p><strong>Ear Set:</strong> {{ $rat->ear_set }}</p>
-                <p><strong>Silvered:</strong> {{ $rat->silvered ?? '—' }}</p>
-            </div>
+    {{-- BASIC INFO --}}
+    <div class="bg-white p-4 shadow border">
+        <h2 class="font-bold mb-3">Basic Info</h2>
 
-            {{-- BREEDER + LINEAGE --}}
-            <div class="border p-4">
-                <h3 class="font-bold mb-2">Lineage</h3>
-
-                <p>
-                    <strong>Breeder:</strong>
-                    {{ $rat->breeder->rattery ?? '—' }}
-                </p>
-
-                <p>
-                    <strong>Sire ID:</strong>
-                    {{ $rat->sire_id ?? '—' }}
-                </p>
-
-                <p>
-                    <strong>Dam ID:</strong>
-                    {{ $rat->dam_id ?? '—' }}
-                </p>
-
-                <p class="mt-2 text-sm text-gray-500">
-                    (We will later expand this into full pedigree trees)
-                </p>
-            </div>
-
-            {{-- QUICK HEALTH --}}
-            <div class="border p-4">
-                <h3 class="font-bold mb-2">Health Snapshot</h3>
-
-                <p><strong>Deformities:</strong></p>
-                <p class="text-sm text-gray-600">{{ $rat->deformities ?? '—' }}</p>
-
-                <p class="mt-2"><strong>Abnormalities:</strong></p>
-                <p class="text-sm text-gray-600">{{ $rat->abnormalities ?? '—' }}</p>
-
-                <p class="mt-2"><strong>Temperament Notes:</strong></p>
-                <p class="text-sm text-gray-600">{{ $rat->temperament ?? '—' }}</p>
-            </div>
-
-        </div>
-
-        {{-- SECOND ROW --}}
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-
-            {{-- WEIGHTS (future chart-ready) --}}
-            <div class="border p-4">
-                <h3 class="font-bold mb-2">Weight History</h3>
-
-                @if($rat->weights && $rat->weights->count())
-                <ul class="text-sm">
-                    @foreach($rat->weights->sortByDesc('recorded_at') as $weight)
-                    <li>
-                        {{ $weight->recorded_at }} — {{ $weight->weight }}g
-                    </li>
-                    @endforeach
-                </ul>
-                @else
-                <p class="text-sm text-gray-500">No weight records yet.</p>
-                @endif
-            </div>
-
-            {{-- HEALTH RECORDS --}}
-            <div class="border p-4">
-                <h3 class="font-bold mb-2">Health Records</h3>
-
-                @if($rat->healthRecords && $rat->healthRecords->count())
-                <ul class="text-sm space-y-2">
-                    @foreach($rat->healthRecords as $record)
-                    <li>
-                        <strong>{{ $record->diagnosis }}</strong>
-                        <br>
-                        <span class="text-gray-500">
-                            {{ $record->onset_date }} → {{ $record->resolved_date ?? 'Ongoing' }}
-                        </span>
-                    </li>
-                    @endforeach
-                </ul>
-                @else
-                <p class="text-sm text-gray-500">No health records yet.</p>
-                @endif
-            </div>
-
-        </div>
-
-        {{-- IMAGES --}}
-        <div class="border p-4 mt-6">
-            <h3 class="font-bold mb-2">Images</h3>
-
-            @if($rat->attachments && $rat->attachments->count())
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                @foreach($rat->attachments as $image)
-                <img src="{{ asset($image->file_path) }}"
-                    class="w-full h-32 object-cover border">
-                @endforeach
-            </div>
-            @else
-            <p class="text-sm text-gray-500">No images uploaded.</p>
-            @endif
-        </div>
-
+        <p><strong>Sex:</strong> {{ $rat->sex }}</p>
+        <p><strong>DOB:</strong> {{ $rat->dob ?? 'Unknown' }}</p>
+        <p><strong>DOD:</strong> {{ $rat->dod ?? 'Alive' }}</p>
+        <p><strong>Variety:</strong> {{ $rat->variety }}</p>
+        <p><strong>Color:</strong> {{ $rat->color }}</p>
+        <p><strong>Markings:</strong> {{ $rat->markings }}</p>
     </div>
+
+    {{-- LINEAGE --}}
+    <div class="bg-white p-4 shadow border">
+        <h2 class="font-bold mb-3">Lineage</h2>
+
+        <p><strong>Sire:</strong> {{ $rat->sire->name ?? 'Unknown' }}</p>
+        <p><strong>Dam:</strong> {{ $rat->dam->name ?? 'Unknown' }}</p>
+
+        @if($rat->sire || $rat->dam)
+            <p class="text-sm text-gray-500 mt-2">Pedigree available</p>
+        @endif
+    </div>
+
+    {{-- BREEDER --}}
+    <div class="bg-white p-4 shadow border">
+        <h2 class="font-bold mb-3">Breeder</h2>
+
+        <p>{{ $rat->breeder->rattery ?? 'Unknown' }}</p>
+        <p class="text-sm text-gray-500">
+            {{ $rat->breeder->owner_name ?? '' }}
+        </p>
+    </div>
+
+    {{-- HEALTH --}}
+    <div class="bg-white p-4 shadow border">
+        <h2 class="font-bold mb-3">Health</h2>
+
+        <p><strong>Records:</strong> {{ $rat->healthRecords->count() }}</p>
+        <p><strong>Deformities:</strong> {{ $rat->deformities ?? 'None' }}</p>
+        <p><strong>Abnormalities:</strong> {{ $rat->abnormalities ?? 'None' }}</p>
+    </div>
+
+    {{-- TEMPERAMENT --}}
+    <div class="bg-white p-4 shadow border">
+        <h2 class="font-bold mb-3">Temperament</h2>
+
+        <p><strong>Assessments:</strong> {{ $rat->temperamentAssessments->count() }}</p>
+        <p class="text-sm text-gray-500">
+            Behavioral tracking history available
+        </p>
+    </div>
+
+</div>
+
+
+{{-- ========================= --}}
+{{-- 🔵 TIMELINE --}}
+{{-- ========================= --}}
+<div class="bg-white p-6 shadow border">
+
+    <h2 class="font-bold text-lg mb-4">Timeline</h2>
+
+    {{-- WEIGHTS --}}
+    @if($rat->weights->count())
+        <h3 class="font-semibold mt-4 mb-2">Weight History</h3>
+        <ul class="space-y-1 text-sm">
+            @foreach($rat->weights->sortByDesc('recorded_at')->take(5) as $weight)
+                <li>
+                    {{ $weight->recorded_at }} — {{ $weight->weight }}g
+                </li>
+            @endforeach
+        </ul>
+    @endif
+
+
+    {{-- HEALTH EVENTS --}}
+    @if($rat->healthRecords->count())
+        <h3 class="font-semibold mt-6 mb-2">Health Events</h3>
+        <ul class="space-y-1 text-sm">
+            @foreach($rat->healthRecords->sortByDesc('onset_date')->take(5) as $record)
+                <li>
+                    {{ $record->onset_date }} — {{ $record->diagnosis }}
+                </li>
+            @endforeach
+        </ul>
+    @endif
+
+
+    {{-- TEMPERAMENT --}}
+    @if($rat->temperamentAssessments->count())
+        <h3 class="font-semibold mt-6 mb-2">Temperament</h3>
+        <ul class="space-y-1 text-sm">
+            @foreach($rat->temperamentAssessments->sortByDesc('date')->take(5) as $t)
+                <li>
+                    {{ $t->date }} — assessment recorded
+                </li>
+            @endforeach
+        </ul>
+    @endif
+
 </div>
 @endsection
