@@ -80,7 +80,7 @@
 
                 <p>
                     <strong>Status:</strong>
-                    {{ $rat->dob ? $rat->dob->format('F j, Y') : 'Unknown' }}
+                    Status here
                 <br/>
 
                     <strong>DOB:</strong>
