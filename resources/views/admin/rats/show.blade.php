@@ -70,7 +70,7 @@
 </div>
 
         {{-- COLUMN 3: STATUS / BREEDER --}}
-        <div>
+        <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
 
             <h2 class="font-semibold text-lg mb-4">
                 Quick Info
