@@ -158,10 +158,6 @@
         </option>
     @endforeach
 </select>
-                    <input type="text"
-                           name="ear_set"
-                           value="{{ old('ear_set', 'Dumbo') }}"
-                           class="w-full border p-2">
                 </div>
 
                 {{-- Breeder --}}
