@@ -120,7 +120,7 @@
                             </p>
                         @endif
 
-                        @if($breeder->url)
+                        @if($breeder->website)
                             <div class="mt-3">
                                 <a
                                     href="{{ $breeder->website }}"
