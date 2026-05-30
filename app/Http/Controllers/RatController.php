@@ -18,8 +18,15 @@ class RatController extends Controller
     public function create()
     {
         return view('admin.rats.create', [
-            'breeders' => RatBreeder::orderBy('rattery')->get()
-        ]);
+        'breeders' => RatBreeder::all(),
+        'sexes' => Rat::sexes(),
+        'varieties' => Rat::varieties(),
+        'colors' => Rat::colors(),
+        'silveredOptions' => Rat::silvered(),
+        'markings' => Rat::markings(),
+        'eyeColors' => Rat::eyeColors(),
+        'earSets' => Rat::earSets(),
+    ]);
     }
 
     public function store(Request $request)
@@ -57,9 +64,16 @@ class RatController extends Controller
     public function edit(Rat $rat)
     {
         return view('admin.rats.edit', [
-            'rat' => $rat,
-            'breeders' => RatBreeder::orderBy('rattery')->get()
-        ]);
+        'rat' => $rat,
+        'breeders' => RatBreeder::all(),
+        'sexes' => Rat::sexes(),
+        'varieties' => Rat::varieties(),
+        'colors' => Rat::colors(),
+        'silveredOptions' => Rat::silvered(),
+        'markings' => Rat::markings(),
+        'eyeColors' => Rat::eyeColors(),
+        'earSets' => Rat::earSets(),
+    ]);
     }
 
     public function update(Request $request, Rat $rat)

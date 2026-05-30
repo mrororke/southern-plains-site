@@ -58,10 +58,13 @@
                 {{-- Sex --}}
                 <div>
                     <label class="block text-sm font-medium">Sex *</label>
-                    <select name="sex" class="w-full border p-2" required>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                    </select>
+                    <select name="sex" class="w-full border p-2">
+    @foreach($sexes as $sex)
+        <option value="{{ $sex }}" @selected(old('sex', $rat->sex ?? '') == $sex)>
+            {{ $sex }}
+        </option>
+    @endforeach
+</select>
                 </div>
 
                 {{-- DOB --}}
@@ -85,10 +88,13 @@
                 {{-- Variety --}}
                 <div>
                     <label class="block text-sm font-medium">Variety *</label>
-                    <input type="text"
-                           name="variety"
-                           value="{{ old('variety', 'Standard') }}"
-                           class="w-full border p-2">
+                    <select name="variety" class="w-full border p-2">
+    @foreach($varieties as $variety)
+        <option value="{{ $variety }}" @selected(old('variety', $rat->variety ?? '') == $variety)>
+            {{ $variety }}
+        </option>
+    @endforeach
+</select>
                 </div>
 
                 {{-- Color --}}
