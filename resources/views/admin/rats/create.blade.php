@@ -1,90 +1,180 @@
 @extends('layouts.admin')
 
-@section('title', 'Dashboard Overview')
-@section('page_title', 'Create New Post')
+@section('title', 'Create Rat')
+@section('page_title', 'Create New Rat')
 
 @section('content')
-<div class="bg-white p-6 rounded-lg shadow-md">
+<div class="bg-white p-6 shadow-md">
 
-@if(session('success'))
-    <p style="color: green;">{{ session('success') }}</p>
-@endif
+    <div class="container mx-auto p-4">
 
-<form method="POST" action="/rats">
-    @csrf
+        {{-- Success Message --}}
+        @if (session('success'))
+        <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-4" role="alert">
+            <p>{{ session('success') }}</p>
+        </div>
+        @endif
 
-    <input name="name" placeholder="Name" required>
+        <div class="mb-6">
+            <a href="{{ route('admin.rats.index') }}"
+               class="text-blue-600 hover:underline">
+                ← Back to Rats
+            </a>
+        </div>
 
-    <input name="registered_name" placeholder="Registered Name">
+        <form method="POST" action="{{ route('admin.rats.store') }}">
+            @csrf
 
-    <input name="breeder_reference" placeholder="Breeder Ref">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-    <select name="sex">
-        <option>Male</option>
-        <option>Female</option>
-    </select>
+                {{-- Name --}}
+                <div>
+                    <label class="block text-sm font-medium">Name *</label>
+                    <input type="text"
+                           name="name"
+                           value="{{ old('name') }}"
+                           class="w-full border p-2"
+                           required>
+                </div>
 
-    <input type="date" name="dob">
-    <input type="date" name="dod">
+                {{-- Registered Name --}}
+                <div>
+                    <label class="block text-sm font-medium">Registered Name</label>
+                    <input type="text"
+                           name="registered_name"
+                           value="{{ old('registered_name') }}"
+                           class="w-full border p-2">
+                </div>
 
-    <select name="variety">
-        <option>Standard</option>
-        <option>Rex</option>
-        <option>Tailless</option>
-        <option>Hairless</option>
-        <option>Satin</option>
-        <option>Dumbo</option>
-        <option>Bristle Coat</option>
-        <option>Velveteen</option>
-        <option>Teddy Rex</option>
-    </select>
+                {{-- Breeder Reference --}}
+                <div>
+                    <label class="block text-sm font-medium">Breeder Reference</label>
+                    <input type="text"
+                           name="breeder_reference"
+                           value="{{ old('breeder_reference') }}"
+                           class="w-full border p-2">
+                </div>
 
-    <select name="color">
-        <option>Black</option>
-        <option>Platinum</option>
-        <option>Agouti</option>
-    </select>
+                {{-- Sex --}}
+                <div>
+                    <label class="block text-sm font-medium">Sex *</label>
+                    <select name="sex" class="w-full border p-2" required>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
 
-    <input name="silvered" placeholder="Silvered">
+                {{-- DOB --}}
+                <div>
+                    <label class="block text-sm font-medium">DOB</label>
+                    <input type="date"
+                           name="dob"
+                           value="{{ old('dob') }}"
+                           class="w-full border p-2">
+                </div>
 
-    <select name="markings">
-        <option>Self</option>
-        <option>Berkshire</option>
-        <option>Hooded</option>
-    </select>
+                {{-- DOD --}}
+                <div>
+                    <label class="block text-sm font-medium">DOD</label>
+                    <input type="date"
+                           name="dod"
+                           value="{{ old('dod') }}"
+                           class="w-full border p-2">
+                </div>
 
-    <select name="eye_color">
-        <option>Black</option>
-        <option>Pink</option>
-        <option>Ruby</option>
-        <option>Odd Eye</option>
-    </select>
+                {{-- Variety --}}
+                <div>
+                    <label class="block text-sm font-medium">Variety *</label>
+                    <input type="text"
+                           name="variety"
+                           value="{{ old('variety', 'Standard') }}"
+                           class="w-full border p-2">
+                </div>
 
-    <select name="ear_set">
-        <option>Dumbo</option>
-        <option>Top</option>
-    </select>
+                {{-- Color --}}
+                <div>
+                    <label class="block text-sm font-medium">Color *</label>
+                    <input type="text"
+                           name="color"
+                           value="{{ old('color', 'Black') }}"
+                           class="w-full border p-2">
+                </div>
 
-    <select name="breeder_id">
-        <option value="">None</option>
-        @foreach($breeders as $breeder)
-            <option value="{{ $breeder->id }}">
-                {{ $breeder->rattery }}
-            </option>
-        @endforeach
-    </select>
+                {{-- Silvered --}}
+                <div>
+                    <label class="block text-sm font-medium">Silvered</label>
+                    <input type="text"
+                           name="silvered"
+                           value="{{ old('silvered') }}"
+                           class="w-full border p-2">
+                </div>
 
-    <label>
-        <input type="checkbox" name="is_owned" checked>
-        Owned
-    </label>
+                {{-- Markings --}}
+                <div>
+                    <label class="block text-sm font-medium">Markings *</label>
+                    <input type="text"
+                           name="markings"
+                           value="{{ old('markings', 'Self') }}"
+                           class="w-full border p-2">
+                </div>
 
-    <label>
-        <input type="checkbox" name="is_pedigree_only">
-        Pedigree Only
-    </label>
+                {{-- Eye Color --}}
+                <div>
+                    <label class="block text-sm font-medium">Eye Color *</label>
+                    <input type="text"
+                           name="eye_color"
+                           value="{{ old('eye_color', 'Black') }}"
+                           class="w-full border p-2">
+                </div>
 
-    <button type="submit">Create Rat</button>
-</form>
+                {{-- Ear Set --}}
+                <div>
+                    <label class="block text-sm font-medium">Ear Set *</label>
+                    <input type="text"
+                           name="ear_set"
+                           value="{{ old('ear_set', 'Dumbo') }}"
+                           class="w-full border p-2">
+                </div>
 
+                {{-- Breeder --}}
+                <div>
+                    <label class="block text-sm font-medium">Breeder</label>
+                    <select name="breeder_id" class="w-full border p-2">
+                        <option value="">None</option>
+                        @foreach($breeders as $breeder)
+                            <option value="{{ $breeder->id }}">
+                                {{ $breeder->rattery }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+
+                {{-- Flags --}}
+                <div class="col-span-2 flex gap-6 mt-4">
+
+                    <label class="flex items-center gap-2">
+                        <input type="checkbox" name="is_owned" checked>
+                        Owned
+                    </label>
+
+                    <label class="flex items-center gap-2">
+                        <input type="checkbox" name="is_pedigree_only">
+                        Pedigree Only
+                    </label>
+
+                </div>
+
+            </div>
+
+            <div class="mt-6">
+                <button type="submit"
+                        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4">
+                    Create Rat
+                </button>
+            </div>
+
+        </form>
+
+    </div>
+</div>
 @endsection
