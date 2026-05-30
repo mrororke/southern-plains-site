@@ -69,7 +69,7 @@
 
                 <p>
                     <strong>Status:</strong>
-                    {{ $rat->dod ? 'Deceased' : 'Alive' }}
+                    {{ $rat->dob ? $rat->dob->format('F j, Y') : 'Unknown' }}
                 <br/>
 
                     <strong>DOB:</strong>
