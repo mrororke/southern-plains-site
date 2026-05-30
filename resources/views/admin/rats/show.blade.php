@@ -8,57 +8,89 @@
 {{-- ========================= --}}
 {{-- HERO SECTION --}}
 {{-- ========================= --}}
+
+@php
+    $primaryImage = $rat->attachments->sortByDesc('created_at')->first();
+    $breeder = $rat->breeder;
+@endphp
+
 <div class="bg-white shadow border p-6 mb-6">
 
-    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
+    <div class="flex flex-col md:flex-row gap-6">
 
-        {{-- Identity --}}
-        <div>
-            <h1 class="text-2xl font-bold">{{ $rat->name }}</h1>
+        {{-- ========================= --}}
+        {{-- IMAGE (LEFT) --}}
+        {{-- ========================= --}}
+        <div class="md:w-1/3">
+            @if($primaryImage)
+                <img
+                    src="{{ asset($primaryImage->file_path) }}"
+                    alt="{{ $primaryImage->caption ?? $rat->name }}"
+                    class="w-full h-72 object-cover border shadow-sm"
+                >
+            @else
+                <div class="w-full h-72 bg-gray-100 border flex items-center justify-center text-gray-400">
+                    No image
+                </div>
+            @endif
+        </div>
 
-            <p class="text-gray-600">
-                {{ $rat->registered_name ?? 'No registered name' }}
-            </p>
+        {{-- ========================= --}}
+        {{-- INFO (RIGHT) --}}
+        {{-- ========================= --}}
+        <div class="md:w-2/3 flex flex-col justify-between">
 
-            <div class="mt-2 text-sm text-gray-700 space-y-1">
-                <p><strong>Sex:</strong> {{ $rat->sex }}</p>
-                <p><strong>Variety:</strong> {{ $rat->variety }}</p>
-                <p><strong>Color:</strong> {{ $rat->color }}</p>
+            <div>
+
+                {{-- NAME --}}
+                <h1 class="text-2xl font-bold">
+                    {{ $rat->name }}
+                </h1>
+
+                {{-- REGISTERED NAME (ONLY IF EXISTS) --}}
+                @if($rat->registered_name)
+                    <p class="text-gray-600">
+                        {{ $rat->registered_name }}
+                    </p>
+                @endif
+
+                {{-- CORE INFO --}}
+                <div class="mt-3 text-sm text-gray-700 space-y-1">
+                    <p><strong>Sex:</strong> {{ $rat->sex }}</p>
+                    <p><strong>Variety:</strong> {{ $rat->variety }}</p>
+                    <p><strong>Color:</strong> {{ $rat->color }}</p>
+                    <p><strong>DOB:</strong> {{ $rat->dob ?? 'Unknown' }}</p>
+                    <p>
+                        <strong>Status:</strong>
+                        {{ $rat->dod ? 'Deceased' : 'Alive' }}
+                    </p>
+                </div>
+
             </div>
-        </div>
 
-        {{-- Meta --}}
-        <div class="text-sm text-right text-gray-600">
-            <p><strong>Breeder:</strong> {{ $rat->breeder->rattery ?? 'Unknown' }}</p>
-            <p><strong>DOB:</strong> {{ $rat->dob ?? 'Unknown' }}</p>
-            <p>
-                <strong>Status:</strong>
-                {{ $rat->dod ? 'Deceased' : 'Alive' }}
-            </p>
-        </div>
+            {{-- ========================= --}}
+            {{-- BREEDER (TOOLTIP + LINK) --}}
+            {{-- ========================= --}}
+            <div class="mt-4 text-sm text-gray-600">
 
+                @if($breeder)
+                    <a href="{{ route('breeders.show', $breeder->id) }}"
+                       class="underline hover:text-black"
+                       title="{{ $breeder->rattery }}
+Owner: {{ $breeder->owner_name ?? 'Unknown' }}
+Location: {{ $breeder->location ?? 'Unknown' }}">
+
+                        Breeder: {{ $breeder->rattery }}
+
+                    </a>
+                @else
+                    <span>Breeder: Unknown</span>
+                @endif
+
+            </div>
+
+        </div>
     </div>
-
-    {{-- ========================= --}}
-    {{-- IMAGE STRIP --}}
-    {{-- ========================= --}}
-    @php
-        $images = $rat->attachments->sortByDesc('created_at');
-    @endphp
-
-    @if($images->count())
-        <div class="mt-5">
-            <div class="flex gap-3 overflow-x-auto pb-2">
-                @foreach($images->take(6) as $img)
-                    <img
-                        src="{{ asset($img->file_path) }}"
-                        class="h-24 w-24 object-cover border shadow-sm flex-shrink-0 hover:scale-105 transition"
-                        alt="{{ $img->caption }}"
-                    >
-                @endforeach
-            </div>
-        </div>
-    @endif
 
 </div>
 
