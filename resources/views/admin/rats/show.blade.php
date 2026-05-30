@@ -47,12 +47,12 @@
 
             <div class="mt-6 space-y-2">
 
-                <p><strong>Sex:</strong> {{ $rat->sex }}</p>
-                <p><strong>Variety:</strong> {{ $rat->variety }}</p>
-                <p><strong>Color:</strong> {{ $rat->color }}</p>
-                <p><strong>Markings:</strong> {{ $rat->markings }}</p>
-                <p><strong>Eye Color:</strong> {{ $rat->eye_color }}</p>
-                <p><strong>Ear Set:</strong> {{ $rat->ear_set }}</p>
+                <p><strong>Sex:</strong> {{ $rat->sex }}<br/>
+                <strong>Variety:</strong> {{ $rat->variety }}<br/>
+                <strong>Color:</strong> {{ $rat->color }}<br/>
+                <strong>Markings:</strong> {{ $rat->markings }}<br/>
+                <strong>Eye Color:</strong> {{ $rat->eye_color }}<br/>
+                <strong>Ear Set:</strong> {{ $rat->ear_set }}</p>
 
             </div>
 
