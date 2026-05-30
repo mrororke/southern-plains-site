@@ -4,34 +4,69 @@
 @section('page_title', 'Rat Profile: ' . $rat->name)
 
 @section('content')
-    @php
-    $images = $rat->attachments->sortByDesc('created_at');
-@endphp
 
 {{-- ========================= --}}
-{{-- 🖼 IMAGE STRIP --}}
+{{-- HERO SECTION --}}
 {{-- ========================= --}}
-@if($images->count())
-    <div class="mb-6">
-        <div class="flex gap-3 overflow-x-auto pb-2">
-            @foreach($images->take(6) as $img)
-                <img
-                    src="{{ asset($img->file_path) }}"
-                    class="h-24 w-24 object-cover border shadow-sm flex-shrink-0 hover:scale-105 transition"
-                    alt="Rat image"
-                >
-            @endforeach
+<div class="bg-white shadow border p-6 mb-6">
+
+    <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
+
+        {{-- Identity --}}
+        <div>
+            <h1 class="text-2xl font-bold">{{ $rat->name }}</h1>
+
+            <p class="text-gray-600">
+                {{ $rat->registered_name ?? 'No registered name' }}
+            </p>
+
+            <div class="mt-2 text-sm text-gray-700 space-y-1">
+                <p><strong>Sex:</strong> {{ $rat->sex }}</p>
+                <p><strong>Variety:</strong> {{ $rat->variety }}</p>
+                <p><strong>Color:</strong> {{ $rat->color }}</p>
+            </div>
         </div>
-    </div>
-@endif
 
+        {{-- Meta --}}
+        <div class="text-sm text-right text-gray-600">
+            <p><strong>Breeder:</strong> {{ $rat->breeder->rattery ?? 'Unknown' }}</p>
+            <p><strong>DOB:</strong> {{ $rat->dob ?? 'Unknown' }}</p>
+            <p>
+                <strong>Status:</strong>
+                {{ $rat->dod ? 'Deceased' : 'Alive' }}
+            </p>
+        </div>
+
+    </div>
+
+    {{-- ========================= --}}
+    {{-- IMAGE STRIP --}}
+    {{-- ========================= --}}
+    @php
+        $images = $rat->attachments->sortByDesc('created_at');
+    @endphp
+
+    @if($images->count())
+        <div class="mt-5">
+            <div class="flex gap-3 overflow-x-auto pb-2">
+                @foreach($images->take(6) as $img)
+                    <img
+                        src="{{ asset($img->file_path) }}"
+                        class="h-24 w-24 object-cover border shadow-sm flex-shrink-0 hover:scale-105 transition"
+                        alt="Rat image"
+                    >
+                @endforeach
+            </div>
+        </div>
+    @endif
+
+</div>
 
 {{-- ========================= --}}
-{{-- 🟢 DASHBOARD CARDS --}}
+{{-- DASHBOARD CARDS --}}
 {{-- ========================= --}}
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
 
-    {{-- BASIC INFO --}}
     <div class="bg-white p-4 shadow border">
         <h2 class="font-bold mb-3">Basic Info</h2>
 
@@ -43,19 +78,13 @@
         <p><strong>Markings:</strong> {{ $rat->markings }}</p>
     </div>
 
-    {{-- LINEAGE --}}
     <div class="bg-white p-4 shadow border">
         <h2 class="font-bold mb-3">Lineage</h2>
 
         <p><strong>Sire:</strong> {{ $rat->sire->name ?? 'Unknown' }}</p>
         <p><strong>Dam:</strong> {{ $rat->dam->name ?? 'Unknown' }}</p>
-
-        @if($rat->sire || $rat->dam)
-            <p class="text-sm text-gray-500 mt-2">Pedigree available</p>
-        @endif
     </div>
 
-    {{-- BREEDER --}}
     <div class="bg-white p-4 shadow border">
         <h2 class="font-bold mb-3">Breeder</h2>
 
@@ -65,7 +94,6 @@
         </p>
     </div>
 
-    {{-- HEALTH --}}
     <div class="bg-white p-4 shadow border">
         <h2 class="font-bold mb-3">Health</h2>
 
@@ -74,27 +102,21 @@
         <p><strong>Abnormalities:</strong> {{ $rat->abnormalities ?? 'None' }}</p>
     </div>
 
-    {{-- TEMPERAMENT --}}
     <div class="bg-white p-4 shadow border">
         <h2 class="font-bold mb-3">Temperament</h2>
 
         <p><strong>Assessments:</strong> {{ $rat->temperamentAssessments->count() }}</p>
-        <p class="text-sm text-gray-500">
-            Behavioral tracking history available
-        </p>
     </div>
 
 </div>
 
-
 {{-- ========================= --}}
-{{-- 🔵 TIMELINE --}}
+{{-- TIMELINE --}}
 {{-- ========================= --}}
 <div class="bg-white p-6 shadow border">
 
     <h2 class="font-bold text-lg mb-4">Timeline</h2>
 
-    {{-- WEIGHTS --}}
     @if($rat->weights->count())
         <h3 class="font-semibold mt-4 mb-2">Weight History</h3>
         <ul class="space-y-1 text-sm">
@@ -106,8 +128,6 @@
         </ul>
     @endif
 
-
-    {{-- HEALTH EVENTS --}}
     @if($rat->healthRecords->count())
         <h3 class="font-semibold mt-6 mb-2">Health Events</h3>
         <ul class="space-y-1 text-sm">
@@ -119,8 +139,6 @@
         </ul>
     @endif
 
-
-    {{-- TEMPERAMENT --}}
     @if($rat->temperamentAssessments->count())
         <h3 class="font-semibold mt-6 mb-2">Temperament</h3>
         <ul class="space-y-1 text-sm">
