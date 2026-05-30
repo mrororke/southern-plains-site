@@ -99,8 +99,8 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('admin/posts', PostController::class)->names('admin.posts');
 
     // Rat Related Routes
-Route::get('admin//rats/create', [RatController::class, 'create']);
-Route::post('/admin/rats', [RatController::class, 'store']);
+    Route::get('admin//rats/create', [RatController::class, 'create']);
+    Route::post('/admin/rats', [RatController::class, 'store']);
 
 });
 
