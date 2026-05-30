@@ -146,15 +146,18 @@
     @endforeach
 </select>
                     
-                    <input type="text"
-                           name="eye_color"
-                           value="{{ old('eye_color', 'Black') }}"
-                           class="w-full border p-2">
                 </div>
 
                 {{-- Ear Set --}}
                 <div>
                     <label class="block text-sm font-medium">Ear Set *</label>
+                    <select name="ear_set" class="w-full border p-2">
+    @foreach($earSet as $ear_set)
+        <option value="{{ $ear_set }}" @selected(old('ear_set', $rat->ear_set ?? '') == $ear_set)>
+            {{ $ear_set }}
+        </option>
+    @endforeach
+</select>
                     <input type="text"
                            name="ear_set"
                            value="{{ old('ear_set', 'Dumbo') }}"
