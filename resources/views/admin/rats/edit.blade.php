@@ -17,7 +17,7 @@
 
         <div class="mb-6">
             <a href="{{ route('admin.rats.index') }}"
-               class="text-blue-600 hover:underline">
+                class="text-blue-600 hover:underline">
                 ← Back to Rats
             </a>
         </div>
@@ -32,27 +32,27 @@
                 <div>
                     <label class="block text-sm font-medium">Name</label>
                     <input type="text"
-                           name="name"
-                           value="{{ old('name', $rat->name) }}"
-                           class="w-full border p-2">
+                        name="name"
+                        value="{{ old('name', $rat->name) }}"
+                        class="w-full border p-2">
                 </div>
 
                 {{-- Registered Name --}}
                 <div>
                     <label class="block text-sm font-medium">Registered Name</label>
                     <input type="text"
-                           name="registered_name"
-                           value="{{ old('registered_name', $rat->registered_name) }}"
-                           class="w-full border p-2">
+                        name="registered_name"
+                        value="{{ old('registered_name', $rat->registered_name) }}"
+                        class="w-full border p-2">
                 </div>
 
                 {{-- Breeder Reference --}}
                 <div>
                     <label class="block text-sm font-medium">Breeder Reference</label>
                     <input type="text"
-                           name="breeder_reference"
-                           value="{{ old('breeder_reference', $rat->breeder_reference) }}"
-                           class="w-full border p-2">
+                        name="breeder_reference"
+                        value="{{ old('breeder_reference', $rat->breeder_reference) }}"
+                        class="w-full border p-2">
                 </div>
 
                 {{-- Sex --}}
@@ -68,18 +68,18 @@
                 <div>
                     <label class="block text-sm font-medium">DOB</label>
                     <input type="date"
-                           name="dob"
-                           value="{{ old('dob', $rat->dob) }}"
-                           class="w-full border p-2">
+                        name="dob"
+                        value="{{ old('dob', $rat->dob) }}"
+                        class="w-full border p-2">
                 </div>
 
                 {{-- DOD --}}
                 <div>
                     <label class="block text-sm font-medium">DOD</label>
                     <input type="date"
-                           name="dod"
-                           value="{{ old('dod', $rat->dod) }}"
-                           class="w-full border p-2">
+                        name="dod"
+                        value="{{ old('dod', $rat->dod) }}"
+                        class="w-full border p-2">
                 </div>
 
                 {{-- Variety --}}
@@ -153,6 +153,7 @@
                         </option>
                         @endforeach
                     </select>
+                </div>
 
                 {{-- Breeder --}}
                 <div>
@@ -160,10 +161,10 @@
                     <select name="breeder_id" class="w-full border p-2">
                         <option value="">None</option>
                         @foreach($breeders as $breeder)
-                            <option value="{{ $breeder->id }}"
-                                @selected($rat->breeder_id == $breeder->id)>
-                                {{ $breeder->rattery }}
-                            </option>
+                        <option value="{{ $breeder->id }}"
+                            @selected($rat->breeder_id == $breeder->id)>
+                            {{ $breeder->rattery }}
+                        </option>
                         @endforeach
                     </select>
                 </div>
@@ -173,15 +174,15 @@
 
                     <label class="flex items-center gap-2">
                         <input type="checkbox"
-                               name="is_owned"
-                               {{ $rat->is_owned ? 'checked' : '' }}>
+                            name="is_owned"
+                            {{ $rat->is_owned ? 'checked' : '' }}>
                         Owned
                     </label>
 
                     <label class="flex items-center gap-2">
                         <input type="checkbox"
-                               name="is_pedigree_only"
-                               {{ $rat->is_pedigree_only ? 'checked' : '' }}>
+                            name="is_pedigree_only"
+                            {{ $rat->is_pedigree_only ? 'checked' : '' }}>
                         Pedigree Only
                     </label>
 
@@ -191,7 +192,7 @@
 
             <div class="mt-6">
                 <button type="submit"
-                        class="bg-emerald-500 hover:bg-emerald-800 text-white font-bold py-2 px-4">
+                    class="bg-emerald-500 hover:bg-emerald-800 text-white font-bold py-2 px-4">
                     Update Rat
                 </button>
             </div>
