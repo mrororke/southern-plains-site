@@ -84,12 +84,7 @@
                     </p>
                 @endif
 
-                @if($rat->breeder_reference)
-                    <p>
-                        <strong>Breeder Reference Number:</strong>
-                        {{ $rat->breeder_reference }}
-                    </p>
-                @endif
+                
 
             </div>
 
@@ -103,6 +98,12 @@
                                 {{ $breeder->owner_name }}
                             </p>
                         @endif
+                        @if($rat->breeder_reference)
+                    <p class="text-xs">
+                        <strong>Breeder Reference Number:</strong>
+                        {{ $rat->breeder_reference }}
+                    </p>
+                @endif
 
                         @if($breeder->location)
                             <p>
