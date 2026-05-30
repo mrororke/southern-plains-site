@@ -8,10 +8,17 @@ use Illuminate\Http\Request;
 
 class RatController extends Controller
 {
+    public function index()
+    {
+        $rats = Rat::with('breeder')->latest()->paginate(20);
+
+        return view('admin.rats.index', compact('rats'));
+    }
+
     public function create()
     {
-        return view('rats.create', [
-            'breeders' => RatBreeder::all()
+        return view('admin.rats.create', [
+            'breeders' => RatBreeder::orderBy('rattery')->get()
         ]);
     }
 
@@ -21,25 +28,92 @@ class RatController extends Controller
             'name' => 'required|string|max:150',
             'registered_name' => 'nullable|string|max:255',
             'breeder_reference' => 'nullable|string|max:10',
+
             'sex' => 'required|in:Male,Female',
             'dob' => 'nullable|date',
             'dod' => 'nullable|date',
-            'variety' => 'required',
-            'color' => 'required',
-            'silvered' => 'nullable',
-            'markings' => 'required',
-            'eye_color' => 'required',
-            'ear_set' => 'required',
+
+            'variety' => 'required|string',
+            'color' => 'required|string',
+            'silvered' => 'nullable|string',
+            'markings' => 'required|string',
+            'eye_color' => 'required|string',
+            'ear_set' => 'required|string',
+
             'breeder_id' => 'nullable|exists:rat_breeders,id',
-            'is_owned' => 'boolean',
-            'is_pedigree_only' => 'boolean',
         ]);
 
-        $validated['is_owned'] = $request->has('is_owned');
-        $validated['is_pedigree_only'] = $request->has('is_pedigree_only');
+        Rat::create([
+            ...$validated,
+            'is_owned' => $request->boolean('is_owned'),
+            'is_pedigree_only' => $request->boolean('is_pedigree_only'),
+        ]);
 
-        Rat::create($validated);
+        return redirect()
+            ->route('admin.rats.index')
+            ->with('success', 'Rat created successfully.');
+    }
 
-        return redirect('/rats/create')->with('success', 'Rat created successfully.');
+    public function edit(Rat $rat)
+    {
+        return view('admin.rats.edit', [
+            'rat' => $rat,
+            'breeders' => RatBreeder::orderBy('rattery')->get()
+        ]);
+    }
+
+    public function update(Request $request, Rat $rat)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:150',
+            'registered_name' => 'nullable|string|max:255',
+            'breeder_reference' => 'nullable|string|max:10',
+
+            'sex' => 'required|in:Male,Female',
+            'dob' => 'nullable|date',
+            'dod' => 'nullable|date',
+
+            'variety' => 'required|string',
+            'color' => 'required|string',
+            'silvered' => 'nullable|string',
+            'markings' => 'required|string',
+            'eye_color' => 'required|string',
+            'ear_set' => 'required|string',
+
+            'breeder_id' => 'nullable|exists:rat_breeders,id',
+        ]);
+
+        $rat->update([
+            ...$validated,
+            'is_owned' => $request->boolean('is_owned'),
+            'is_pedigree_only' => $request->boolean('is_pedigree_only'),
+        ]);
+
+        return redirect()
+            ->route('admin.rats.index')
+            ->with('success', 'Rat updated successfully.');
+    }
+
+    public function show(Rat $rat)
+    {
+        $rat->load([
+            'breeder',
+            'weights',
+            'healthRecords',
+            'temperamentAssessments',
+            'littersAsSire',
+            'littersAsDam'
+        ]);
+
+        return view('admin.rats.show', compact('rat'));
+    }
+
+    public function destroy(Rat $rat)
+    {
+        $rat->delete();
+
+        return redirect()
+            ->route('admin.rats.index')
+            ->with('success', 'Rat deleted successfully.');
     }
 }
