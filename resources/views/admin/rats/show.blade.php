@@ -34,7 +34,7 @@
 
         {{-- COLUMN 2: RAT DETAILS --}}
         <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
-        @if($registered_name)
+        @if($registeredName)
             <h1 class="font-semibold text-xl mb-4">
                 {{ $rat->registered_name }}
             </h1>
