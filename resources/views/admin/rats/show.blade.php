@@ -70,18 +70,16 @@
                 <p>
                     <strong>Status:</strong>
                     {{ $rat->dod ? 'Deceased' : 'Alive' }}
-                </p>
+                <br/>
 
-                <p>
                     <strong>DOB:</strong>
                     {{ $rat->dob ?? 'Unknown' }}
-                </p>
+                <br/>
 
                 @if($rat->dod)
-                    <p>
                         <strong>DOD:</strong>
                         {{ $rat->dod }}
-                    </p>
+                    <br/>
                 @endif
 
                 
