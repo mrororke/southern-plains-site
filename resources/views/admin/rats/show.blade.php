@@ -86,7 +86,7 @@
 
                 @if($rat->breeder_reference)
                     <p>
-                        <strong>Breeder Ref:</strong>
+                        <strong>Breeder Reference Number:</strong>
                         {{ $rat->breeder_reference }}
                     </p>
                 @endif
@@ -96,6 +96,7 @@
             @if($breeder)
 
                 <div class="relative inline-block group mt-6">
+                    <strong>Bred By: </strong>
 
                     <a
                         href="{{ $breeder->url }}"
@@ -105,6 +106,32 @@
                     >
                         {{ $breeder->rattery }}
                     </a>
+                    @if($breeder->owner_name)
+                            <p class="mt-2">
+                                <strong>Owner:</strong>
+                                {{ $breeder->owner_name }}
+                            </p>
+                        @endif
+
+                        @if($breeder->location)
+                            <p>
+                                <strong>Location:</strong>
+                                {{ $breeder->location }}
+                            </p>
+                        @endif
+
+                        @if($breeder->url)
+                            <div class="mt-3">
+                                <a
+                                    href="{{ $breeder->url }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-blue-600 underline"
+                                >
+                                    Visit Website
+                                </a>
+                            </div>
+                        @endif
 
                     <div
                         class="absolute right-0 top-full mt-2 w-72 bg-white border shadow-lg rounded p-4
