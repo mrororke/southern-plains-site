@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Create Rat</title>
-</head>
-<body>
+@extends('layouts.admin')
+
+@section('title', 'Dashboard Overview')
+@section('page_title', 'Create New Post')
+
+@section('content')
+<div class="bg-white p-6 rounded-lg shadow-md">
 
 @if(session('success'))
     <p style="color: green;">{{ session('success') }}</p>
@@ -86,5 +87,4 @@
     <button type="submit">Create Rat</button>
 </form>
 
-</body>
-</html>
+@endsection
