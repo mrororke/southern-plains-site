@@ -68,28 +68,46 @@
 
             </div>
 
-            {{-- ========================= --}}
-            {{-- BREEDER (TOOLTIP + LINK) --}}
-            {{-- ========================= --}}
-            <div class="mt-4 text-sm text-gray-600">
+            {{-- BREEDER HOVER CARD --}}
+<div class="relative inline-block group mt-4 text-sm text-gray-600">
 
-                @if($breeder)
-                    Breeder: <a href="{{ $breeder->url }}"
+    @if($breeder)
+
+        <a href="{{ $breeder->url }}"
            target="_blank"
            rel="noopener noreferrer"
-           class="underline hover:text-black"
-           title="{{ $breeder->rattery }}
-Owner: {{ $breeder->owner_name ?? 'Unknown' }}
-Location: {{ $breeder->location ?? 'Unknown' }}">
+           class="underline hover:text-black">
 
-                        {{ $breeder->rattery }}
+            Breeder: {{ $breeder->rattery }}
 
+        </a>
+
+        {{-- HOVER CARD --}}
+        <div class="absolute left-0 mt-2 w-64 bg-white border shadow-lg p-3 text-xs text-gray-700
+                    opacity-0 invisible group-hover:opacity-100 group-hover:visible transition z-50">
+
+            <p class="font-semibold text-sm mb-1">{{ $breeder->rattery }}</p>
+
+            <p><strong>Owner:</strong> {{ $breeder->owner_name ?? 'Unknown' }}</p>
+            <p><strong>Location:</strong> {{ $breeder->location ?? 'Unknown' }}</p>
+
+            @if($breeder->url)
+                <p class="mt-2">
+                    <a href="{{ $breeder->url }}"
+                       target="_blank"
+                       class="text-blue-600 underline">
+                        Visit Breeder Site
                     </a>
-                @else
-                    <span>Breeder: Unknown</span>
-                @endif
+                </p>
+            @endif
 
-            </div>
+        </div>
+
+    @else
+        <span>Breeder: Unknown</span>
+    @endif
+
+</div>
 
         </div>
     </div>
