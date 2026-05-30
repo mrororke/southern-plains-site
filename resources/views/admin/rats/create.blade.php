@@ -126,9 +126,9 @@
                 <div>
                     <label class="block text-sm font-medium">Markings *</label>
                     <select name="markings" class="w-full border p-2">
-    @foreach($markings as $marking)
-        <option value="{{ $marking }}" @selected(old('marking', $rat->marking ?? '') == $marking)>
-            {{ $marking }}
+    @foreach($markings as $markings)
+        <option value="{{ $markings }}" @selected(old('markings', $rat->markings ?? '') == $markings)>
+            {{ $markings }}
         </option>
     @endforeach
 </select>
@@ -139,7 +139,7 @@
                 <div>
                     <label class="block text-sm font-medium">Eye Color *</label>
                     <select name="eye_color" class="w-full border p-2">
-    @foreach($eye_colors as $eye_color)
+    @foreach($eye_color as $eye_color)
         <option value="{{ $_eyecolor }}" @selected(old('eye_color', $rat->eye_color ?? '') == $eye_color)>
             {{ $color }}
         </option>
