@@ -85,10 +85,13 @@
                 {{-- Variety --}}
                 <div>
                     <label class="block text-sm font-medium">Variety</label>
-                    <input type="text"
-                           name="variety"
-                           value="{{ old('variety', $rat->variety) }}"
-                           class="w-full border p-2">
+                    <select name="variety" class="w-full border p-2">
+                        @foreach($varieties as $variety)
+                        <option value="{{ $variety }}" @selected(old('variety', $rat->variety ?? '') == $variety)>
+                            {{ $variety }}
+                        </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 {{-- Color --}}

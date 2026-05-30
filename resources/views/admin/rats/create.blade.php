@@ -17,7 +17,7 @@
 
         <div class="mb-6">
             <a href="{{ route('admin.rats.index') }}"
-               class="text-blue-600 hover:underline">
+                class="text-blue-600 hover:underline">
                 ← Back to Rats
             </a>
         </div>
@@ -31,133 +31,133 @@
                 <div>
                     <label class="block text-sm font-medium">Name *</label>
                     <input type="text"
-                           name="name"
-                           value="{{ old('name') }}"
-                           class="w-full border p-2"
-                           required>
+                        name="name"
+                        value="{{ old('name') }}"
+                        class="w-full border p-2"
+                        required>
                 </div>
 
                 {{-- Registered Name --}}
                 <div>
                     <label class="block text-sm font-medium">Registered Name</label>
                     <input type="text"
-                           name="registered_name"
-                           value="{{ old('registered_name') }}"
-                           class="w-full border p-2">
+                        name="registered_name"
+                        value="{{ old('registered_name') }}"
+                        class="w-full border p-2">
                 </div>
 
                 {{-- Breeder Reference --}}
                 <div>
                     <label class="block text-sm font-medium">Breeder Reference</label>
                     <input type="text"
-                           name="breeder_reference"
-                           value="{{ old('breeder_reference') }}"
-                           class="w-full border p-2">
+                        name="breeder_reference"
+                        value="{{ old('breeder_reference') }}"
+                        class="w-full border p-2">
                 </div>
 
                 {{-- Sex --}}
                 <div>
                     <label class="block text-sm font-medium">Sex *</label>
                     <select name="sex" class="w-full border p-2">
-    @foreach($sexes as $sex)
-        <option value="{{ $sex }}" @selected(old('sex', $rat->sex ?? '') == $sex)>
-            {{ $sex }}
-        </option>
-    @endforeach
-</select>
+                        @foreach($sexes as $sex)
+                        <option value="{{ $sex }}" @selected(old('sex', $rat->sex ?? '') == $sex)>
+                            {{ $sex }}
+                        </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 {{-- DOB --}}
                 <div>
                     <label class="block text-sm font-medium">DOB</label>
                     <input type="date"
-                           name="dob"
-                           value="{{ old('dob') }}"
-                           class="w-full border p-2">
+                        name="dob"
+                        value="{{ old('dob') }}"
+                        class="w-full border p-2">
                 </div>
 
                 {{-- DOD --}}
                 <div>
                     <label class="block text-sm font-medium">DOD</label>
                     <input type="date"
-                           name="dod"
-                           value="{{ old('dod') }}"
-                           class="w-full border p-2">
+                        name="dod"
+                        value="{{ old('dod') }}"
+                        class="w-full border p-2">
                 </div>
 
                 {{-- Variety --}}
                 <div>
                     <label class="block text-sm font-medium">Variety *</label>
                     <select name="variety" class="w-full border p-2">
-    @foreach($varieties as $variety)
-        <option value="{{ $variety }}" @selected(old('variety', $rat->variety ?? '') == $variety)>
-            {{ $variety }}
-        </option>
-    @endforeach
-</select>
+                        @foreach($varieties as $variety)
+                        <option value="{{ $variety }}" @selected(old('variety', $rat->variety ?? '') == $variety)>
+                            {{ $variety }}
+                        </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 {{-- Color --}}
                 <div>
                     <label class="block text-sm font-medium">Color *</label>
                     <select name="color" class="w-full border p-2">
-    @foreach($colors as $color)
-        <option value="{{ $color }}" @selected(old('color', $rat->color ?? '') == $color)>
-            {{ $color }}
-        </option>
-    @endforeach
-</select>
+                        @foreach($colors as $color)
+                        <option value="{{ $color }}" @selected(old('color', $rat->color ?? '') == $color)>
+                            {{ $color }}
+                        </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 {{-- Silvered --}}
                 <div>
                     <label class="block text-sm font-medium">Silvered</label>
                     <select name="silvered" class="w-full border p-2">
-    <option value="">None</option>
-    @foreach($silveredOptions as $opt)
-        <option value="{{ $opt }}" @selected(old('silvered', $rat->silvered ?? '') == $opt)>
-            {{ $opt }}
-        </option>
-    @endforeach
-</select>
+                        <option value="">None</option>
+                        @foreach($silveredOptions as $opt)
+                        <option value="{{ $opt }}" @selected(old('silvered', $rat->silvered ?? '') == $opt)>
+                            {{ $opt }}
+                        </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 {{-- Markings --}}
                 <div>
                     <label class="block text-sm font-medium">Markings *</label>
                     <select name="markings" class="w-full border p-2">
-    @foreach($markings as $markings)
-        <option value="{{ $markings }}" @selected(old('markings', $rat->markings ?? '') == $markings)>
-            {{ $markings }}
-        </option>
-    @endforeach
-</select>
-                   
+                        @foreach($markings as $markings)
+                        <option value="{{ $markings }}" @selected(old('markings', $rat->markings ?? '') == $markings)>
+                            {{ $markings }}
+                        </option>
+                        @endforeach
+                    </select>
+
                 </div>
 
                 {{-- Eye Color --}}
                 <div>
                     <label class="block text-sm font-medium">Eye Color *</label>
                     <select name="eye_color" class="w-full border p-2">
-    @foreach($eyeColors as $eye_color)
-        <option value="{{ $eye_color }}" @selected(old('eye_color', $rat->eye_color ?? '') == $eye_color)>
-            {{ $eye_color }}
-        </option>
-    @endforeach
-</select>
-                    
+                        @foreach($eyeColors as $eye_color)
+                        <option value="{{ $eye_color }}" @selected(old('eye_color', $rat->eye_color ?? '') == $eye_color)>
+                            {{ $eye_color }}
+                        </option>
+                        @endforeach
+                    </select>
+
                 </div>
 
                 {{-- Ear Set --}}
                 <div>
                     <label class="block text-sm font-medium">Ear Set *</label>
                     <select name="ear_set" class="w-full border p-2">
-    @foreach($earSets as $ear_set)
-        <option value="{{ $ear_set }}" @selected(old('ear_set', $rat->ear_set ?? '') == $ear_set)>
-            {{ $ear_set }}
-        </option>
-    @endforeach
-</select>
+                        @foreach($earSets as $ear_set)
+                        <option value="{{ $ear_set }}" @selected(old('ear_set', $rat->ear_set ?? '') == $ear_set)>
+                            {{ $ear_set }}
+                        </option>
+                        @endforeach
+                    </select>
                 </div>
 
                 {{-- Breeder --}}
@@ -166,9 +166,9 @@
                     <select name="breeder_id" class="w-full border p-2">
                         <option value="">None</option>
                         @foreach($breeders as $breeder)
-                            <option value="{{ $breeder->id }}">
-                                {{ $breeder->rattery }}
-                            </option>
+                        <option value="{{ $breeder->id }}">
+                            {{ $breeder->rattery }}
+                        </option>
                         @endforeach
                     </select>
                 </div>
@@ -192,7 +192,7 @@
 
             <div class="mt-6">
                 <button type="submit"
-                        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4">
+                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4">
                     Create Rat
                 </button>
             </div>
