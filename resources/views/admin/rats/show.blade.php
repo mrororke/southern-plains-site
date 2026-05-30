@@ -74,9 +74,11 @@
             <div class="mt-4 text-sm text-gray-600">
 
                 @if($breeder)
-                    <a href="{{ route('breeders.show', $breeder->id) }}"
-                       class="underline hover:text-black"
-                       title="{{ $breeder->rattery }}
+                    <a href="{{ $breeder->url }}"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="underline hover:text-black"
+           title="{{ $breeder->rattery }}
 Owner: {{ $breeder->owner_name ?? 'Unknown' }}
 Location: {{ $breeder->location ?? 'Unknown' }}">
 
