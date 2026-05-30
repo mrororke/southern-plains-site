@@ -5,6 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\RatBreeder;
+use App\Models\RatLitter;
+use App\Models\RatWeight;
+use App\Models\RatHealthRecord;
+use App\Models\RatTemperamentAssessment;
+use App\Models\RatAttachment;
+use App\Models\RatOutbreak;
+
 class Rat extends Model
 {
     use HasFactory;
@@ -45,11 +53,11 @@ class Rat extends Model
 
     // Breeder
     public function breeder()
-{
-    return $this->belongsTo(\App\Models\RatBreeder::class, 'breeder_id');
-}
+    {
+        return $this->belongsTo(RatBreeder::class, 'breeder_id');
+    }
 
-    // Litter (derived relationship - optional since you did NOT add litter_id)
+    // Litters (derived)
     public function littersAsSire()
     {
         return $this->hasMany(RatLitter::class, 'sire_id');
@@ -82,13 +90,14 @@ class Rat extends Model
         return $this->hasMany(RatAttachment::class);
     }
 
-    // Outbreaks (many-to-many)
+    // Outbreaks
     public function outbreaks()
     {
         return $this->belongsToMany(
             RatOutbreak::class,
-            'rat_outbreak_rat'
+            'rat_outbreak_rat',
+            'rat_id',
+            'rat_outbreak_id'
         );
     }
-
 }
