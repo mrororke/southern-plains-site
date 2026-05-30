@@ -33,10 +33,11 @@
         </div>
 
         {{-- COLUMN 2: RAT DETAILS --}}
-        <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
-            <h2 class="font-semibold text-xl mb-4">
+        <h2 class="font-semibold text-xl mb-4">
                 {{ $rat->name }}
             </h2>
+        <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
+            
 
     <div>
         <div class="text-gray-500 uppercase tracking-wide text-xs">Sex</div>
