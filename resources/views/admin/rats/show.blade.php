@@ -123,10 +123,10 @@
                         @if($breeder->url)
                             <div class="mt-3">
                                 <a
-                                    href="{{ $breeder->url }}"
+                                    href="{{ $breeder->website }}"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    class="text-blue-600 underline"
+                                    class="underline"
                                 >
                                     Visit Website
                                 </a>
