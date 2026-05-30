@@ -33,31 +33,30 @@
         </div>
 
         {{-- COLUMN 2: RAT DETAILS --}}
-        <div class="space-y-2">
+        <div>
 
-    <div class="flex justify-between border-b pb-1">
-        <span class="font-medium text-gray-600">Sex</span>
-        <span>{{ $rat->sex }}</span>
-    </div>
+            <h1 class="text-3xl font-bold">
+                {{ $rat->name }}
+            </h1>
 
-    <div class="flex justify-between border-b pb-1">
-        <span class="font-medium text-gray-600">Date of Birth</span>
-        <span>
-            {{ $rat->dob ? $rat->dob->format('F j, Y') : 'Unknown' }}
-        </span>
-    </div>
+            @if($rat->registered_name)
+                <p class="text-lg text-gray-600">
+                    {{ $rat->registered_name }}
+                </p>
+            @endif
 
-    <div class="flex justify-between border-b pb-1">
-        <span class="font-medium text-gray-600">Variety</span>
-        <span>{{ $rat->variety }}</span>
-    </div>
+            <div class="mt-6 space-y-2">
 
-    <div class="flex justify-between border-b pb-1">
-        <span class="font-medium text-gray-600">Color</span>
-        <span>{{ $rat->color }}</span>
-    </div>
+                <p><strong>Sex:</strong> {{ $rat->sex }}<br/>
+                <strong>Variety:</strong> {{ $rat->variety }}<br/>
+                <strong>Color:</strong> {{ $rat->color }}<br/>
+                <strong>Markings:</strong> {{ $rat->markings }}<br/>
+                <strong>Eye Color:</strong> {{ $rat->eye_color }}<br/>
+                <strong>Ear Set:</strong> {{ $rat->ear_set }}</p>
 
-</div>
+            </div>
+
+        </div>
 
         {{-- COLUMN 3: STATUS / BREEDER --}}
         <div>
