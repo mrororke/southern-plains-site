@@ -53,7 +53,7 @@
                     <img
                         src="{{ asset($img->file_path) }}"
                         class="h-24 w-24 object-cover border shadow-sm flex-shrink-0 hover:scale-105 transition"
-                        alt="Rat image"
+                        alt="{{ $img->caption }}"
                     >
                 @endforeach
             </div>
