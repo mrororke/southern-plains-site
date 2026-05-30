@@ -34,9 +34,15 @@
 
         {{-- COLUMN 2: RAT DETAILS --}}
         <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
-            <h2 class="font-semibold text-xl mb-4">
+        @if($breeder)
+            <h1 class="font-semibold text-xl mb-4">
+                {{ $rat->registered_name }}
+            </h1>
+        @endif
+
+            <h1 class="font-bold text-xl mb-4">
                 {{ $rat->name }}
-            </h2>
+            </h1>
 
     <div>
         <div class="text-gray-500 uppercase tracking-wide text-xs">Sex</div>
