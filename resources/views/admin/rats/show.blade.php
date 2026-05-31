@@ -57,8 +57,6 @@ $breeder = $rat->breeder;
                     <div class="text-gray-500 uppercase tracking-wide text-xs">Date of Birth</div>
                     <div>
                         {{ $rat->dob ? \Carbon\Carbon::parse($rat->dob)->format('F j, Y') : 'Unknown' }}
-                        $age = \Carbon\Carbon::parse($rat->dob);
-                        {{ $age->diffForHumans() }}
                     </div>
                 </div>
 
