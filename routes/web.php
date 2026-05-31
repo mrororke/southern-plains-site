@@ -100,6 +100,8 @@ Route::middleware(['auth', 'admin'])
         Route::resource('posts', PostController::class);
 
         Route::resource('rats', RatController::class);
+        Route::get('rats/{rat}/pedigree', [RatController::class, 'show'])
+            ->name('rats.pedigree');
     });
 
 // Legal Routes
