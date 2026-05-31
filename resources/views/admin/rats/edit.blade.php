@@ -194,7 +194,7 @@
                 {{-- Sire --}}
                 <div>
                     <label class="block text-sm font-medium">Sire</label>
-                    <select name="sire_id">
+                    <select name="sire_id" class="w-full border p-2">
                         @foreach($sires as $sire)
                         <option value="{{ $sire->id }}"
                             @selected(old('sire_id', $rat->sire_id) == $sire->id)
@@ -208,7 +208,7 @@
                 {{-- Dam --}}
                 <div>
                     <label class="block text-sm font-medium">Dam</label>
-                    <select name="dam_id">
+                    <select name="dam_id" class="w-full border p-2">
                         @foreach($dams as $dam)
                         <option value="{{ $dam->id }}"
                             @selected(old('dam_id', $rat->dam_id) == $dam->id)
