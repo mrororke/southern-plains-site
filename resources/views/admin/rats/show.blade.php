@@ -10,8 +10,8 @@ $primaryImage = $rat->attachments->sortByDesc('created_at')->first();
 $breeder = $rat->breeder;
 
 $age = $rat->dob
-        ? \Carbon\Carbon::parse($rat->dob)->diff(now())
-        : null;
+? \Carbon\Carbon::parse($rat->dob)->diff(now())
+: null;
 
 @endphp
 
@@ -51,33 +51,33 @@ $age = $rat->dob
                 <div>
                     {{ $rat->dob ? \Carbon\Carbon::parse($rat->dob)->format('F j, Y') : 'Unknown' }}<br />
                     @if($age)
-                  <span class="text-gray-500 italic">
-                    @php
-                    $parts = [];
+                    <span class="text-gray-500 italic">
+                        @php
+                        $parts = [];
 
-                    if ($age->y) {
-                    $parts[] = $age->y . ' year' . ($age->y != 1 ? 's' : '');
-                    }
-                  
-                    if ($age->m) {
-                    
+                        if ($age->y) {
+                        $parts[] = $age->y . ' year' . ($age->y != 1 ? 's' : '');
+                        }
+
+                        if ($age->m) {
+
                         $parts[] = $age->m . ' month' . ($age->m != 1 ? 's' : '');
-                   
-                    }
 
-                    if (!$age->y && !$age->m) {
-                    $parts[] = 'Under 1 month';
-                    }
-                    @endphp
+                        }
 
-                    {{ implode(', ', $parts) }}
+                        if (!$age->y && !$age->m) {
+                        $parts[] = 'Under 1 month';
+                        }
+                        @endphp
 
-                    @else
+                        {{ implode(', ', $parts) }}
 
-                    Unknown
+                        @else
 
-                    @endif
-                     </span>
+                        Unknown
+
+                        @endif
+                    </span>
                 </div>
             </div>
 
@@ -86,7 +86,7 @@ $age = $rat->dob
                 <div>{{ $rat->sex }}</div>
             </div>
 
-            
+
 
             <div>
                 <div class="text-gray-500 uppercase tracking-wide text-xs">Variety</div>
@@ -95,12 +95,21 @@ $age = $rat->dob
 
             <div>
                 <div class="text-gray-500 uppercase tracking-wide text-xs">Color</div>
-                <div>{{ $rat->colors->pluck('name')->join(', ') }}</div>
+                <div>{{ $rat->colors->isNotEmpty()
+    ? $rat->colors->pluck('name')->join(', ')
+    : 'Unknown'
+}}
+                </div>
             </div>
 
             <div>
                 <div class="text-gray-500 uppercase tracking-wide text-xs">Markings</div>
-                <div>{{ $rat->markings->pluck('name')->join(', ') }}</div>
+                <div>
+                    {{ $rat->markings->isNotEmpty()
+    ? $rat->markings->pluck('name')->join(', ')
+    : 'None'
+}}
+                </div>
             </div>
             <div>
                 <div class="text-gray-500 uppercase tracking-wide text-xs">Status</div>

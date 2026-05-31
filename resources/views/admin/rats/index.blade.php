@@ -18,7 +18,7 @@
         <div class="flex justify-between items-center mb-6">
 
             <a href="{{ route('admin.rats.create') }}"
-               class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 transition duration-150">
+                class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 transition duration-150">
                 + New Rat
             </a>
 
@@ -71,7 +71,7 @@
                         {{-- Name --}}
                         <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                             <a href="{{ route('admin.rats.show', $rat) }}"
-                               class="text-blue-600 hover:underline">
+                                class="text-blue-600 hover:underline">
                                 {{ $rat->name }}
                             </a>
                         </td>
@@ -93,7 +93,10 @@
 
                         {{-- Color --}}
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {{ $rat->colors->pluck('name')->join(', ') }}
+                            {{ $rat->colors->isNotEmpty()
+    ? $rat->colors->pluck('name')->join(', ')
+    : 'Unknown'
+}}
                         </td>
 
                         {{-- Breeder --}}
@@ -105,19 +108,19 @@
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
 
                             <a href="{{ route('admin.rats.edit', $rat) }}"
-                               class="bg-emerald-500 hover:bg-emerald-800 text-white font-bold py-2 px-4 transition duration-150">
+                                class="bg-emerald-500 hover:bg-emerald-800 text-white font-bold py-2 px-4 transition duration-150">
                                 Edit
                             </a>
 
                             <form action="{{ route('admin.rats.destroy', $rat) }}"
-                                  method="POST"
-                                  class="inline-block"
-                                  onsubmit="return confirm('Are you sure you want to delete this rat?');">
+                                method="POST"
+                                class="inline-block"
+                                onsubmit="return confirm('Are you sure you want to delete this rat?');">
                                 @csrf
                                 @method('DELETE')
 
                                 <button type="submit"
-                                        class="text-red-500 hover:text-red-950 ml-2">
+                                    class="text-red-500 hover:text-red-950 ml-2">
                                     Delete
                                 </button>
                             </form>
