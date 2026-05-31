@@ -177,18 +177,18 @@ $age = $rat->dob
         <tr>
             <td rowspan="4" class="border p-2 font-semibold bg-gray-50">
                 Father<br>
-                <span class="font-normal">{{ $rat->sire?->name ?? 'Unknown' }}</span>
+                <span class="font-normal">{{ $rat->ancestor('sire')?->name ?? 'Unknown' }}</span>
             </td>
 
             {{-- Paternal Grandfather --}}
             <td rowspan="2" class="border p-2">
                 Paternal Grandfather<br>
-                {{ $rat->sire?->sire?->name ?? 'Unknown' }}
+                {{ $rat->ancestor('sire.sire')?->name ?? 'Unknown' }}
             </td>
 
             <td class="border p-2">
                 Paternal Great Grandfather 1<br>
-                {{ $rat->sire?->sire?->sire?->name ?? 'Unknown' }}
+                {{ $rat->ancestor('sire.sire.sire')?->name ?? 'Unknown' }}
             </td>
         </tr>
 

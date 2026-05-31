@@ -231,23 +231,18 @@ class Rat extends Model
         );
     }
 
-    public function paternalGrandfather()
+    public function ancestor(string $path)
     {
-        return $this->sire?->sire;
-    }
+        $current = $this;
 
-    public function paternalGrandmother()
-    {
-        return $this->sire?->dam;
-    }
+        foreach (explode('.', $path) as $step) {
+            if (!$current) {
+                return null;
+            }
 
-    public function maternalGrandfather()
-    {
-        return $this->dam?->sire;
-    }
+            $current = $current->{$step};
+        }
 
-    public function maternalGrandmother()
-    {
-        return $this->dam?->dam;
+        return $current;
     }
 }
