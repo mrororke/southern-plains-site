@@ -32,49 +32,52 @@ $breeder = $rat->breeder;
         </div>
 
         {{-- COLUMN 2: RAT DETAILS --}}
-        <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
-            @if($rat->registered_name)
-            <h1 class="font-semibold text-xl mb-4">
-                {{ $rat->registered_name }}
-            </h1>
-            @endif
+        <div>
+            I should be above teh grid
+            <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
+                @if($rat->registered_name)
+                <h1 class="font-semibold text-xl mb-4">
+                    {{ $rat->registered_name }}
+                </h1>
+                @endif
 
-            <h1 class="font-bold text-xl mb-4">
-                {{ $rat->name }}
-            </h1>
+                <h1 class="font-bold text-xl mb-4">
+                    {{ $rat->name }}
+                </h1>
 
-            <div>
-                <div class="text-gray-500 uppercase tracking-wide text-xs">Sex</div>
-                <div>{{ $rat->sex }}</div>
-            </div>
-
-            <div>
-                <div class="text-gray-500 uppercase tracking-wide text-xs">Status</div>
-                <div>{{ $rat->dod ? 'Deceased' : 'Living' }}</div>
-            </div>
-
-            <div>
-                <div class="text-gray-500 uppercase tracking-wide text-xs">Date of Birth</div>
                 <div>
-                    {{ $rat->dob ? \Carbon\Carbon::parse($rat->dob)->format('F j, Y') : 'Unknown' }}
+                    <div class="text-gray-500 uppercase tracking-wide text-xs">Sex</div>
+                    <div>{{ $rat->sex }}</div>
                 </div>
-            </div>
 
-            <div>
-                <div class="text-gray-500 uppercase tracking-wide text-xs">Variety</div>
-                <div>{{ $rat->variety }}</div>
-            </div>
+                <div>
+                    <div class="text-gray-500 uppercase tracking-wide text-xs">Status</div>
+                    <div>{{ $rat->dod ? 'Deceased' : 'Living' }}</div>
+                </div>
 
-            <div>
-                <div class="text-gray-500 uppercase tracking-wide text-xs">Color</div>
-                <div>{{ $rat->color }}</div>
-            </div>
+                <div>
+                    <div class="text-gray-500 uppercase tracking-wide text-xs">Date of Birth</div>
+                    <div>
+                        {{ $rat->dob ? \Carbon\Carbon::parse($rat->dob)->format('F j, Y') : 'Unknown' }}
+                    </div>
+                </div>
 
-            <div>
-                <div class="text-gray-500 uppercase tracking-wide text-xs">Markings</div>
-                <div>{{ $rat->markings }}</div>
-            </div>
+                <div>
+                    <div class="text-gray-500 uppercase tracking-wide text-xs">Variety</div>
+                    <div>{{ $rat->variety }}</div>
+                </div>
 
+                <div>
+                    <div class="text-gray-500 uppercase tracking-wide text-xs">Color</div>
+                    <div>{{ $rat->color }}</div>
+                </div>
+
+                <div>
+                    <div class="text-gray-500 uppercase tracking-wide text-xs">Markings</div>
+                    <div>{{ $rat->markings }}</div>
+                </div>
+
+            </div>
         </div>
 
         {{-- COLUMN 3: STATUS / BREEDER --}}
@@ -88,23 +91,23 @@ $breeder = $rat->breeder;
                     <span class="italic">{{ $breeder->owner_name }}</span><br />
                     @endif
                     @if($breeder->location)
-                    <span class="italic">{{ $breeder->location }}</span><br/>
-                    
+                    <span class="italic">{{ $breeder->location }}</span><br />
+
                     @endif
                     @if($rat->breeder_reference)
                     <span class="text-xs">
-                        <strong>Breeder Number:</strong> {{ $rat->breeder_reference }}</span><br/>
+                        <strong>Breeder Number:</strong> {{ $rat->breeder_reference }}</span><br />
                     @endif
 
 
                     @if($breeder->website)
-                        <a
-                            href="{{ $breeder->website }}"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="underline">
-                            Visit Website
-                        </a>
+                    <a
+                        href="{{ $breeder->website }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="underline">
+                        Visit Website
+                    </a>
                     @endif
 
                     @endif
@@ -113,7 +116,7 @@ $breeder = $rat->breeder;
 
 
 
-            
+
 
         </div>
 
