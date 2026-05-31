@@ -207,11 +207,17 @@ class Rat extends Model
 
     public function colors()
     {
-        return $this->belongsToMany(RatColor::class);
+        return $this->belongsToMany(
+        RatColor::class,
+        'rat_color_rat'
+    );
     }
 
     public function markings()
     {
-        return $this->belongsToMany(RatMarking::class);
+        return $this->belongsToMany(
+        RatMarking::class,
+        'rat_marking_rat'
+    );
     }
 }

@@ -13,6 +13,9 @@ class RatMarking extends Model
 
     public function rats()
     {
-        return $this->belongsToMany(Rat::class);
+        return $this->belongsToMany(
+        Rat::class,
+        'rat_marking_rat'
+    );
     }
 }
