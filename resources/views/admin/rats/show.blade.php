@@ -33,17 +33,17 @@ $breeder = $rat->breeder;
 
         {{-- COLUMN 2: RAT DETAILS --}}
         <div>
-            I should be above teh grid
-            <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
-                @if($rat->registered_name)
+            <h1 class="font-bold text-xl mb-4">
+                    {{ $rat->name }}
+                </h1>
+            @if($rat->registered_name)
                 <h1 class="font-semibold text-xl mb-4">
                     {{ $rat->registered_name }}
                 </h1>
                 @endif
 
-                <h1 class="font-bold text-xl mb-4">
-                    {{ $rat->name }}
-                </h1>
+            <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
+               
 
                 <div>
                     <div class="text-gray-500 uppercase tracking-wide text-xs">Sex</div>
