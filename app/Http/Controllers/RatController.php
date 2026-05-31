@@ -37,6 +37,9 @@ class RatController extends Controller
 
     public function store(Request $request)
     {
+
+    dd($request->only(['sire_id', 'dam_id']));
+
         $validated = $request->validate([
             'name' => 'required|string|max:150',
             'registered_name' => 'nullable|string|max:255',
