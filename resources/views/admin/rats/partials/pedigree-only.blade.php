@@ -19,73 +19,13 @@
             @endif
 
             <div>
-                {{ $rat->sex }} · {{ $rat->variety }}
+                {{ $rat->sex }} · {{ $rat->variety }} · {{ $breeder->rattery }}
             </div>
         </div>
 
     </div>
 
-    {{-- ===================== --}}
-    {{-- BREEDER (MINIMAL) --}}
-    {{-- ===================== --}}
-    <div class="mb-6 text-sm">
-
-        <div class="text-xs uppercase text-gray-500 mb-1">
-            Breeder
-        </div>
-
-        @if($breeder)
-            <div>
-                <strong>{{ $breeder->rattery }}</strong>
-            </div>
-
-            @if($breeder->owner_name)
-                <div class="text-gray-600">
-                    {{ $breeder->owner_name }}
-                </div>
-            @endif
-
-            @if($breeder->website)
-                <a href="{{ $breeder->website }}"
-                   target="_blank"
-                   class="text-blue-600 underline text-xs">
-                    Visit Website
-                </a>
-            @endif
-        @else
-            <div class="text-gray-500">Unknown breeder</div>
-        @endif
-
-    </div>
-
-    {{-- ===================== --}}
-    {{-- IMMEDIATE PARENTS --}}
-    {{-- ===================== --}}
-    <div class="mb-6 text-sm">
-
-        <div class="text-xs uppercase text-gray-500 mb-2">
-            Parents
-        </div>
-
-        <div class="grid grid-cols-2 gap-4">
-
-            <div>
-                <div class="text-gray-500 text-xs">Sire</div>
-                <div>
-                    {{ $rat->sire?->name ?? 'Unknown' }}
-                </div>
-            </div>
-
-            <div>
-                <div class="text-gray-500 text-xs">Dam</div>
-                <div>
-                    {{ $rat->dam?->name ?? 'Unknown' }}
-                </div>
-            </div>
-
-        </div>
-
-    </div>
+    
 
     {{-- ===================== --}}
     {{-- PEDIGREE TABLE --}}
