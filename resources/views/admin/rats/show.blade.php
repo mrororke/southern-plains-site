@@ -12,7 +12,13 @@ $breeder = $rat->breeder;
 
 {{-- HERO --}}
 <div class="bg-white shadow border p-6 mb-6 items-end">
-    I am above teh grid
+    <h1 class="font-bold text-xl mb-4">
+                @if($rat->registered_name)
+                    {{ $rat->registered_name }}, 
+                @endif
+                    {{ $rat->name }}
+                </h1>
+           
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
@@ -32,15 +38,7 @@ $breeder = $rat->breeder;
 
         </div>
 
-        {{-- COLUMN 2: RAT DETAILS --}}
-        <div>
-            <h1 class="font-bold text-xl mb-4">
-                @if($rat->registered_name)
-                    {{ $rat->registered_name }}, 
-                @endif
-                    {{ $rat->name }}
-                </h1>
-           
+        {{-- COLUMN 2: RAT DETAILS --}}            
 
             <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
                
@@ -78,7 +76,6 @@ $breeder = $rat->breeder;
                 </div>
 
             </div>
-        </div>
 
         {{-- COLUMN 3: STATUS / BREEDER --}}
         <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
