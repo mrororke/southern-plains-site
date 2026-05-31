@@ -193,7 +193,9 @@ class RatController extends Controller
         'littersAsDam'
     ]);
 
-    return view($rat->getViewType(), compact('rat'));
+    $mode = $rat->getViewMode();
+
+    return view('admin.rats.show', compact('rat', 'mode'));
 }
 
     public function destroy(Rat $rat)
