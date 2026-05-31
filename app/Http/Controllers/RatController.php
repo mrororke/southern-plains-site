@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\Rat;
 use App\Models\RatBreeder;
+use App\Models\RatColor;
+use App\Models\RatMarking;
+
 use Illuminate\Http\Request;
+
 
 class RatController extends Controller
 {
@@ -21,9 +25,9 @@ class RatController extends Controller
             'breeders' => RatBreeder::all(),
             'sexes' => Rat::sexes(),
             'varieties' => Rat::varieties(),
-            'colors' => Rat::colors(),
+            'colors' => RatColor::all(),
             'silveredOptions' => Rat::silvered(),
-            'markings' => Rat::markings(),
+            'markings' => RatMarking::all(),
             'eyeColors' => Rat::eyeColors(),
             'earSets' => Rat::earSets(),
         ]);
@@ -75,9 +79,9 @@ class RatController extends Controller
             'breeders' => RatBreeder::all(),
             'sexes' => Rat::sexes(),
             'varieties' => Rat::varieties(),
-            'colors' => Rat::colors(),
+            'colors' => RatColor::all(),
             'silveredOptions' => Rat::silvered(),
-            'markings' => Rat::markings(),
+            'markings' => RatMarking::all(),
             'eyeColors' => Rat::eyeColors(),
             'earSets' => Rat::earSets(),
         ]);
