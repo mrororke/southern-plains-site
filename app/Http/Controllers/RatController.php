@@ -12,46 +12,53 @@ use Illuminate\Http\Request;
 
 class RatController extends Controller
 {
-    public function index()
-    {
-        $query = Rat::with(['breeder', 'colors']);
+    public function index(Request $request)
+{
+    $query = Rat::with(['breeder', 'colors']);
 
-        if (request('search')) {
-            $query->where('name', 'like', '%' . request('search') . '%')
-                ->orWhere('registered_name', 'like', '%' . request('search') . '%');
-        }
-
-        // Type filter
-        if ($request->type === 'pedigree') {
-            $query->where('is_pedigree_only', true);
-        }
-
-        if ($request->type === 'full') {
-            $query->where('is_pedigree_only', false);
-        }
-
-        // Sex filter
-        if ($request->filled('sex')) {
-            $query->where('sex', $request->sex);
-        }
-
-        // Status filter
-        if ($request->status === 'living') {
-            $query->whereNull('dod');
-        }
-
-        if ($request->status === 'deceased') {
-            $query->whereNotNull('dod');
-        }
-
-
-        $rats = $query
-            ->orderBy('name')
-            ->paginate(50)
-            ->withQueryString();
-
-        return view('admin.rats.index', compact('rats'));
+    if ($request->filled('search')) {
+        $query->where(function ($q) use ($request) {
+            $q->where('name', 'like', '%' . $request->search . '%')
+              ->orWhere('registered_name', 'like', '%' . $request->search . '%');
+        });
     }
+
+    if ($request->type === 'pedigree') {
+        $query->where('is_pedigree_only', true);
+    }
+
+    if ($request->type === 'full') {
+        $query->where('is_pedigree_only', false);
+    }
+
+    if ($request->filled('sex')) {
+        $query->where('sex', $request->sex);
+    }
+
+    if ($request->filled('breeder_id')) {
+        $query->where('breeder_id', $request->breeder_id);
+    }
+
+    if ($request->status === 'living') {
+        $query->whereNull('dod');
+    }
+
+    if ($request->status === 'deceased') {
+        $query->whereNotNull('dod');
+    }
+
+    $rats = $query
+        ->orderBy('name')
+        ->paginate(50)
+        ->withQueryString();
+
+    $breeders = RatBreeder::orderBy('rattery')->get();
+
+    return view('admin.rats.index', compact(
+        'rats',
+        'breeders'
+    ));
+}
 
     public function create()
     {

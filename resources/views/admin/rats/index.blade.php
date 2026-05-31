@@ -64,6 +64,28 @@
         <strong>{{ $livingRats }}</strong> Living
     </div>
 
+    <div>
+        <select name="breeder_id" class="border p-2">
+    <option value="">All Breeders</option>
+
+    @foreach($breeders as $breeder)
+        <option
+            value="{{ $breeder->id }}"
+            @selected(request('breeder_id') == $breeder->id)
+        >
+            {{ $breeder->rattery }}
+        </option>
+    @endforeach
+</select>
+    </div>
+
+    <div>
+        <a href="{{ route('admin.rats.index') }}"
+   class="px-4 py-2 border">
+    Clear
+</a>
+    </div>
+
 </div>
 
         <div class="shadow overflow-hidden border-b border-gray-200">
