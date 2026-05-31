@@ -122,9 +122,9 @@
                     <label class="block text-sm font-medium">Silvered</label>
                     <select name="silvered" class="w-full border p-2">
                         <option value="">None</option>
-                        @foreach($silvered as $silvered)
-                        <option value="{{ $silvered }}" @selected(old('silvered', $rat->silvered ?? '') == $silvered)>
-                            {{ $silvered }}
+                        @foreach($silvered as $silver)
+                        <option value="{{ $silver }}" @selected(old('silvered', $rat->silver ?? '') == $silver)>
+                            {{ $silver }}
                         </option>
                         @endforeach
                     </select>
