@@ -163,7 +163,7 @@ class Rat extends Model
         ];
     }
 
-    public static function silvered()
+    public static function silveredOptions()
     {
         return [
             'Amber',
