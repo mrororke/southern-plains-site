@@ -174,7 +174,7 @@ class RatController extends Controller
             ->with('success', 'Rat updated successfully.');
     }
 
-    public function show(Rat $rat, Request $request)
+    public function show(Rat $rat)
 {
     $rat->load([
         'breeder',
@@ -193,11 +193,7 @@ class RatController extends Controller
         'littersAsDam'
     ]);
 
-    $mode = $request->routeIs('admin.rats.pedigree')
-        ? 'pedigree'
-        : 'full';
-
-    return view('admin.rats.show', compact('rat', 'mode'));
+    return view($rat->getViewType(), compact('rat'));
 }
 
     public function destroy(Rat $rat)

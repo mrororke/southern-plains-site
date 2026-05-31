@@ -245,4 +245,17 @@ class Rat extends Model
 
         return $current;
     }
+
+    public function getViewType(): string
+{
+    if ($this->is_pedigree_only) {
+        return 'admin.pedigree';
+    }
+
+    if ($this->is_public ?? false) {
+        return 'public.show';
+    }
+
+    return 'admin.full';
+}
 }
