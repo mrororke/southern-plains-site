@@ -170,19 +170,73 @@ $age = $rat->dob
         Pedigree
     </h2>
 
-    <div class="grid grid-cols-2 gap-4">
+    <TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="3">
 
-        <div>
-            <div class="text-sm text-gray-500">Sire</div>
-            <div>{{ $rat->sire->name ?? 'Unknown' }}</div>
-        </div>
+        <TBODY>
 
-        <div>
-            <div class="text-sm text-gray-500">Dam</div>
-            <div>{{ $rat->dam->name ?? 'Unknown' }}</div>
-        </div>
+            <TR>
 
-    </div>
+                <TD rowspan="4" width="29%">Father</TD>
+
+                <TD rowspan="2" width="32%">Paternal Grandfather</TD>
+
+                <TD width="39%">Paternal Great Grandfather 1</TD>
+
+            </TR>
+
+            <TR>
+
+                <TD width="39%">Paternal Great Grandmother 1</TD>
+
+            </TR>
+
+            <TR>
+
+                <TD rowspan="2" width="32%">Paternal Grandmother</TD>
+
+                <TD width="39%">Paternal Great Grandfather 2</TD>
+
+            </TR>
+
+            <TR>
+
+                <TD width="39%">Paternal Great Grandmother 2</TD>
+
+            </TR>
+
+            <TR>
+
+                <TD rowspan="4" width="29%">Mother</TD>
+
+                <TD rowspan="2" width="32%">Maternal Grandfather</TD>
+
+                <TD width="39%">Maternal Great Grandfather 1</TD>
+
+            </TR>
+
+            <TR>
+
+                <TD width="39%">Maternal Great Grandmother 1</TD>
+
+            </TR>
+
+            <TR>
+
+                <TD rowspan="2" width="32%">Maternal Grandmother</TD>
+
+                <TD width="39%">Maternal Great Grandfather 2</TD>
+
+            </TR>
+
+            <TR>
+
+                <TD width="39%">Maternal Great Grandmother 2</TD>
+
+            </TR>
+
+        </TBODY>
+
+    </TABLE>
 
 </div>
 
