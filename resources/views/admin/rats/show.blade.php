@@ -80,31 +80,21 @@
 
         {{-- COLUMN 3: STATUS / BREEDER --}}
         <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
+            <div>
+        <div class="text-gray-500 uppercase tracking-wide text-xs">Breeder Information</div>
+        <div>
+            @if($breeder)
+                {{ $breeder->rattery }}<br/>
+                @if($breeder->owner_name)
+                                <span class="italic">{{ $breeder->owner_name }}</span><br/>
+                            
+                        @endif
 
-            <h2 class="font-semibold text-lg mb-4">
-                Quick Info
-            </h2>
+            @endif
+        </div>
+    </div>
 
-            <div class="space-y-2">
-
-                <p>
-                    <strong>Status:</strong>
-                    Status here
-                <br/>
-
-                    <strong>DOB:</strong>
-                    {{ $rat->dob ?? 'Unknown' }}
-                <br/>
-
-                @if($rat->dod)
-                        <strong>DOD:</strong>
-                        {{ $rat->dod }}
-                    <br/>
-                @endif
-
-                
-
-            </div>
+            
 
             @if($breeder)
 
