@@ -23,8 +23,17 @@ class RatController extends Controller
     {
         return view('admin.rats.create', [
             'breeders' => RatBreeder::all(),
-            'sires' => Rat::where('sex', 'Male')->orderBy('name')->get(),
-            'dams' => Rat::where('sex', 'Female')->orderBy('name')->get(),
+            
+            'sires' => Rat::where('sex', 'Male')
+                ->where('id', '!=', $rat->id)
+                ->orderBy('name')
+                ->get(),
+
+            'dams' => Rat::where('sex', 'Female')
+                ->where('id', '!=', $rat->id)
+                ->orderBy('name')
+                ->get(),
+
             'sexes' => Rat::sexes(),
             'varieties' => Rat::varieties(),
             'colors' => RatColor::all(),
@@ -44,15 +53,8 @@ class RatController extends Controller
             'registered_name' => 'nullable|string|max:255',
             'breeder_reference' => 'nullable|string|max:10',
 
-            'sires' => Rat::where('sex', 'Male')
-                ->where('id', '!=', $rat->id)
-                ->orderBy('name')
-                ->get(),
-
-            'dams' => Rat::where('sex', 'Female')
-                ->where('id', '!=', $rat->id)
-                ->orderBy('name')
-                ->get(),
+            'sire_id' => 'nullable|exists:rats,id',
+            'dam_id' => 'nullable|exists:rats,id',
 
             'sex' => 'required|in:Male,Female',
             'dob' => 'nullable|date',
@@ -134,6 +136,9 @@ class RatController extends Controller
             'name' => 'required|string|max:150',
             'registered_name' => 'nullable|string|max:255',
             'breeder_reference' => 'nullable|string|max:10',
+
+            'sire_id' => $validated['sire_id'] ?? null,
+            'dam_id' => $validated['dam_id'] ?? null,
 
             'sex' => 'required|in:Male,Female',
             'dob' => 'nullable|date',
