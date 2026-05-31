@@ -173,9 +173,10 @@
                     </select>
                 </div>
                 {{-- Sire --}}
+                <div>
                 <label class="block text-sm font-medium">Sire</label>
                 <select name="sire_id" class="w-full border p-2">
-    <option value="" disabled>Please Select</option>
+    <option value="" disabled selected>Please Select</option>
 
     @foreach($sires as $sire)
         <option value="{{ $sire->id }}"
@@ -185,11 +186,13 @@
         </option>
     @endforeach
 </select>
+</div>
 
                 {{-- Dam --}}
+                <div>
                 <label class="block text-sm font-medium">Dam</label>
                 <select name="dam_id" class="w-full border p-2">
-    <option value="" disabled>Please Select</option>
+    <option value="" disabled selected>Please Select</option>
 
     @foreach($dams as $dam)
         <option value="{{ $dam->id }}"
@@ -199,6 +202,7 @@
         </option>
     @endforeach
 </select>
+</div>
 
                 {{-- Flags --}}
                 <div class="col-span-2 flex gap-6 mt-4">
