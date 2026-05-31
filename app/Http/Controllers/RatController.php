@@ -65,13 +65,29 @@ class RatController extends Controller
             'markings.*' => 'exists:rat_markings,id',
         ]);
 
-        dd($validated);
         
         $rat = Rat::create([
-            ...$validated,
-            'is_owned' => $request->boolean('is_owned'),
-            'is_pedigree_only' => $request->boolean('is_pedigree_only'),
-        ]);
+    'name' => $validated['name'],
+    'registered_name' => $validated['registered_name'] ?? null,
+    'breeder_reference' => $validated['breeder_reference'] ?? null,
+
+    'sire_id' => $validated['sire_id'] ?? null,
+    'dam_id' => $validated['dam_id'] ?? null,
+
+    'sex' => $validated['sex'],
+    'dob' => $validated['dob'] ?? null,
+    'dod' => $validated['dod'] ?? null,
+
+    'variety' => $validated['variety'],
+    'silvered' => $validated['silvered'] ?? null,
+    'eye_color' => $validated['eye_color'],
+    'ear_set' => $validated['ear_set'],
+
+    'breeder_id' => $validated['breeder_id'] ?? null,
+
+    'is_owned' => $request->boolean('is_owned'),
+    'is_pedigree_only' => $request->boolean('is_pedigree_only'),
+]);
 
         $rat->colors()->sync($request->colors);
         $rat->markings()->sync($request->markings);
