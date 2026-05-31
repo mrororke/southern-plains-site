@@ -76,15 +76,15 @@ $age = $rat->dob
                     }
 
                     if (!$age->y && !$age->m) {
-                    <span class="italic text-gray-500">$parts[] = 'Under 1 month';</span>
+                    $parts[] = 'Under 1 month';
                     }
                     @endphp
 
-                    <span class="italic text-gray-500">{{ implode(', ', $parts) }}</span>
+                    {{ implode(', ', $parts) }}
 
                     @else
 
-                    <span class="italic text-gray-500">Unknown</span>
+                    Unknown
 
                     @endif
                 </div>
