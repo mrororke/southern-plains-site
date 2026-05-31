@@ -126,6 +126,8 @@
                             {{ $color->name }}
                         </option>
 
+                        
+
                         @endforeach
                     </select>
                 </div>
