@@ -20,29 +20,27 @@ class RatController extends Controller
     }
 
     public function create()
-    {
-        return view('admin.rats.create', [
-            'breeders' => RatBreeder::all(),
-            
-            'sires' => Rat::where('sex', 'Male')
-                ->where('id', '!=', $rat->id)
-                ->orderBy('name')
-                ->get(),
+{
+    return view('admin.rats.create', [
+        'breeders' => RatBreeder::all(),
 
-            'dams' => Rat::where('sex', 'Female')
-                ->where('id', '!=', $rat->id)
-                ->orderBy('name')
-                ->get(),
+        'sires' => Rat::where('sex', 'Male')
+            ->orderBy('name')
+            ->get(),
 
-            'sexes' => Rat::sexes(),
-            'varieties' => Rat::varieties(),
-            'colors' => RatColor::all(),
-            'silvered' => Rat::silveredOptions(),
-            'markings' => RatMarking::all(),
-            'eyeColors' => Rat::eyeColors(),
-            'earSets' => Rat::earSets(),
-        ]);
-    }
+        'dams' => Rat::where('sex', 'Female')
+            ->orderBy('name')
+            ->get(),
+
+        'sexes' => Rat::sexes(),
+        'varieties' => Rat::varieties(),
+        'colors' => RatColor::all(),
+        'silvered' => Rat::silveredOptions(),
+        'markings' => RatMarking::all(),
+        'eyeColors' => Rat::eyeColors(),
+        'earSets' => Rat::earSets(),
+    ]);
+}
 
     public function store(Request $request)
     {
