@@ -46,18 +46,6 @@ $age = $rat->dob
         {{-- COLUMN 2: RAT DETAILS --}}
 
         <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
-
-
-            <div>
-                <div class="text-gray-500 uppercase tracking-wide text-xs">Sex</div>
-                <div>{{ $rat->sex }}</div>
-            </div>
-
-            <div>
-                <div class="text-gray-500 uppercase tracking-wide text-xs">Status</div>
-                <div>{{ $rat->dod ? 'Deceased' : 'Living' }}</div>
-            </div>
-
             <div>
                 <div class="text-gray-500 uppercase tracking-wide text-xs">Date of Birth</div>
                 <div>
@@ -94,6 +82,15 @@ $age = $rat->dob
             </div>
 
             <div>
+                <div class="text-gray-500 uppercase tracking-wide text-xs">Sex</div>
+                <div>{{ $rat->sex }}</div>
+            </div>
+
+            
+
+            
+
+            <div>
                 <div class="text-gray-500 uppercase tracking-wide text-xs">Variety</div>
                 <div>{{ $rat->variety }}</div>
             </div>
@@ -106,6 +103,10 @@ $age = $rat->dob
             <div>
                 <div class="text-gray-500 uppercase tracking-wide text-xs">Markings</div>
                 <div>{{ $rat->markings }}</div>
+            </div>
+            <div>
+                <div class="text-gray-500 uppercase tracking-wide text-xs">Status</div>
+                <div>{{ $rat->dod ? 'Deceased' : 'Living' }}</div>
             </div>
 
         </div>
