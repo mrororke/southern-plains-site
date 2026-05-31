@@ -192,27 +192,33 @@
                 </div>
 
                 {{-- Sire --}}
-                <select name="sire_id">
-@foreach($sires as $sire)
-    <option value="{{ $sire->id }}"
-        @selected(old('sire_id', $rat->sire_id) == $sire->id)
-    >
-        {{ $sire->name }}
-    </option>
-@endforeach
-</select>
+                <div>
+                    <label class="block text-sm font-medium">Sire</label>
+                    <select name="sire_id">
+                        @foreach($sires as $sire)
+                        <option value="{{ $sire->id }}"
+                            @selected(old('sire_id', $rat->sire_id) == $sire->id)
+                            >
+                            {{ $sire->name }}
+                        </option>
+                        @endforeach
+                    </select>
+                </div>
 
                 {{-- Dam --}}
-                <select name="dam_id">
-@foreach($dams as $dam)
-    <option value="{{ $dam->id }}"
-        @selected(old('dam_id', $rat->dam_id) == $dam->id)
-    >
-        {{ $dam->name }}
-    </option>
-@endforeach
-</select>
-                
+                <div>
+                    <label class="block text-sm font-medium">Dam</label>
+                    <select name="dam_id">
+                        @foreach($dams as $dam)
+                        <option value="{{ $dam->id }}"
+                            @selected(old('dam_id', $rat->dam_id) == $dam->id)
+                            >
+                            {{ $dam->name }}
+                        </option>
+                        @endforeach
+                    </select>
+                </div>
+
 
                 {{-- Flags --}}
                 <div class="col-span-2 flex gap-6 mt-4">
