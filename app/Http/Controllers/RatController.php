@@ -23,6 +23,8 @@ class RatController extends Controller
     {
         return view('admin.rats.create', [
             'breeders' => RatBreeder::all(),
+            'sires' => Rat::where('sex', 'Male')->orderBy('name')->get(),
+            'dams' => Rat::where('sex', 'Female')->orderBy('name')->get(),
             'sexes' => Rat::sexes(),
             'varieties' => Rat::varieties(),
             'colors' => RatColor::all(),
@@ -77,6 +79,8 @@ class RatController extends Controller
         return view('admin.rats.edit', [
             'rat' => $rat,
             'breeders' => RatBreeder::all(),
+            'sires' => Rat::where('sex', 'Male')->orderBy('name')->get(),
+            'dams' => Rat::where('sex', 'Female')->orderBy('name')->get(),
             'sexes' => Rat::sexes(),
             'varieties' => Rat::varieties(),
             'colors' => RatColor::all(),
@@ -88,47 +92,47 @@ class RatController extends Controller
     }
 
     public function update(Request $request, Rat $rat)
-{
-    $validated = $request->validate([
-        'name' => 'required|string|max:150',
-        'registered_name' => 'nullable|string|max:255',
-        'breeder_reference' => 'nullable|string|max:10',
+    {
+        $validated = $request->validate([
+            'name' => 'required|string|max:150',
+            'registered_name' => 'nullable|string|max:255',
+            'breeder_reference' => 'nullable|string|max:10',
 
-        'sex' => 'required|in:Male,Female',
-        'dob' => 'nullable|date',
-        'dod' => 'nullable|date',
+            'sex' => 'required|in:Male,Female',
+            'dob' => 'nullable|date',
+            'dod' => 'nullable|date',
 
-        'variety' => 'required|string',
-        'silvered' => 'nullable|string',
-        'eye_color' => 'required|string',
-        'ear_set' => 'required|string',
+            'variety' => 'required|string',
+            'silvered' => 'nullable|string',
+            'eye_color' => 'required|string',
+            'ear_set' => 'required|string',
 
-        'breeder_id' => 'nullable|exists:rat_breeders,id',
+            'breeder_id' => 'nullable|exists:rat_breeders,id',
 
-        'colors' => 'required|array',
-        'colors.*' => 'exists:rat_colors,id',
+            'colors' => 'required|array',
+            'colors.*' => 'exists:rat_colors,id',
 
-        'markings' => 'required|array',
-        'markings.*' => 'exists:rat_markings,id',
-    ]);
+            'markings' => 'required|array',
+            'markings.*' => 'exists:rat_markings,id',
+        ]);
 
-    $ratData = collect($validated)
-        ->except(['colors', 'markings'])
-        ->toArray();
+        $ratData = collect($validated)
+            ->except(['colors', 'markings'])
+            ->toArray();
 
-    $rat->update([
-        ...$ratData,
-        'is_owned' => $request->boolean('is_owned'),
-        'is_pedigree_only' => $request->boolean('is_pedigree_only'),
-    ]);
+        $rat->update([
+            ...$ratData,
+            'is_owned' => $request->boolean('is_owned'),
+            'is_pedigree_only' => $request->boolean('is_pedigree_only'),
+        ]);
 
-    $rat->colors()->sync($request->colors);
-    $rat->markings()->sync($request->markings);
+        $rat->colors()->sync($request->colors);
+        $rat->markings()->sync($request->markings);
 
-    return redirect()
-        ->route('admin.rats.index')
-        ->with('success', 'Rat updated successfully.');
-}
+        return redirect()
+            ->route('admin.rats.index')
+            ->with('success', 'Rat updated successfully.');
+    }
 
     public function show(Rat $rat)
     {

@@ -68,6 +68,16 @@ class Rat extends Model
         return $this->hasMany(RatLitter::class, 'dam_id');
     }
 
+    public function offspringAsSire()
+    {
+        return $this->hasMany(Rat::class, 'sire_id');
+    }
+
+    public function offspringAsDam()
+    {
+        return $this->hasMany(Rat::class, 'dam_id');
+    }
+
     // Time-series data
     public function weights()
     {
@@ -208,16 +218,16 @@ class Rat extends Model
     public function colors()
     {
         return $this->belongsToMany(
-        RatColor::class,
-        'rat_color_rat'
-    );
+            RatColor::class,
+            'rat_color_rat'
+        );
     }
 
     public function markings()
     {
         return $this->belongsToMany(
-        RatMarking::class,
-        'rat_marking_rat'
-    );
+            RatMarking::class,
+            'rat_marking_rat'
+        );
     }
 }
