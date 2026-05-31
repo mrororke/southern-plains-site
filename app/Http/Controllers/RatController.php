@@ -42,6 +42,9 @@ class RatController extends Controller
             'registered_name' => 'nullable|string|max:255',
             'breeder_reference' => 'nullable|string|max:10',
 
+            'sire_id' => 'nullable|exists:rats,id',
+            'dam_id' => 'nullable|exists:rats,id',
+
             'sex' => 'required|in:Male,Female',
             'dob' => 'nullable|date',
             'dod' => 'nullable|date',
