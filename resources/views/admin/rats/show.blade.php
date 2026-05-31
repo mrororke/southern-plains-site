@@ -5,10 +5,12 @@
 
 @section('content')
 
-@include('admin.rats.partials.hero', ['rat' => $rat])
-
-@include('admin.rats.partials.pedigree', ['rat' => $rat])
-
-@include('admin.rats.partials.timeline', ['rat' => $rat])
+@if($mode === 'pedigree')
+    @include('admin.rats.partials.pedigree-only')
+@else
+    @include('admin.rats.partials.hero')
+    @include('admin.rats.partials.pedigree')
+    @include('admin.rats.partials.timeline')
+@endif
 
 @endsection
