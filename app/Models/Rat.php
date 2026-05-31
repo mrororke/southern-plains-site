@@ -230,4 +230,24 @@ class Rat extends Model
             'rat_marking_rat'
         );
     }
+
+    public function paternalGrandfather()
+    {
+        return $this->sire?->sire;
+    }
+
+    public function paternalGrandmother()
+    {
+        return $this->sire?->dam;
+    }
+
+    public function maternalGrandfather()
+    {
+        return $this->dam?->sire;
+    }
+
+    public function maternalGrandmother()
+    {
+        return $this->dam?->dam;
+    }
 }

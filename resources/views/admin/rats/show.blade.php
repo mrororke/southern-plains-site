@@ -164,15 +164,23 @@ $age = $rat->dob
 
 
 {{-- PEDIGREE PLACEHOLDER --}}
-<div class="bg-white shadow border p-6 mb-6">
+<div class="bg-white shadow border p-6">
 
-    <h2 class="text-xl font-semibold mb-4">
+    <h2 class="text-lg font-semibold mb-4">
         Pedigree
     </h2>
 
-    <div class="border-2 border-dashed border-gray-300 p-10 text-center text-gray-500">
+    <div class="grid grid-cols-2 gap-4">
 
-        Pedigree visualization coming soon.
+        <div>
+            <div class="text-sm text-gray-500">Sire</div>
+            <div>{{ $rat->sire->name ?? 'Unknown' }}</div>
+        </div>
+
+        <div>
+            <div class="text-sm text-gray-500">Dam</div>
+            <div>{{ $rat->dam->name ?? 'Unknown' }}</div>
+        </div>
 
     </div>
 
