@@ -26,7 +26,7 @@ class RatController extends Controller
             'sexes' => Rat::sexes(),
             'varieties' => Rat::varieties(),
             'colors' => RatColor::all(),
-            'silveredOptions' => Rat::silveredOptions(),
+            'silvered' => Rat::silveredOptions(),
             'markings' => RatMarking::all(),
             'eyeColors' => Rat::eyeColors(),
             'earSets' => Rat::earSets(),
