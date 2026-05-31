@@ -63,7 +63,7 @@ $age = $rat->dob
                 <div>
                     {{ $rat->dob ? \Carbon\Carbon::parse($rat->dob)->format('F j, Y') : 'Unknown' }}<br />
                     @if($age)
-                  <span class="text-red-500">
+                  <span class="text-gray-500 italic">
                     @php
                     $parts = [];
 
