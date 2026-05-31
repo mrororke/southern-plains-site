@@ -133,30 +133,30 @@ class RatController extends Controller
     public function update(Request $request, Rat $rat)
     {
         $validated = $request->validate([
-            'name' => 'required|string|max:150',
-            'registered_name' => 'nullable|string|max:255',
-            'breeder_reference' => 'nullable|string|max:10',
+    'name' => 'required|string|max:150',
+    'registered_name' => 'nullable|string|max:255',
+    'breeder_reference' => 'nullable|string|max:10',
 
-            'sire_id' => $validated['sire_id'] ?? null,
-            'dam_id' => $validated['dam_id'] ?? null,
+    'sire_id' => 'nullable|exists:rats,id',
+    'dam_id' => 'nullable|exists:rats,id',
 
-            'sex' => 'required|in:Male,Female',
-            'dob' => 'nullable|date',
-            'dod' => 'nullable|date',
+    'sex' => 'required|in:Male,Female',
+    'dob' => 'nullable|date',
+    'dod' => 'nullable|date',
 
-            'variety' => 'required|string',
-            'silvered' => 'nullable|string',
-            'eye_color' => 'required|string',
-            'ear_set' => 'required|string',
+    'variety' => 'required|string',
+    'silvered' => 'nullable|string',
+    'eye_color' => 'required|string',
+    'ear_set' => 'required|string',
 
-            'breeder_id' => 'nullable|exists:rat_breeders,id',
+    'breeder_id' => 'nullable|exists:rat_breeders,id',
 
-            'colors' => 'required|array',
-            'colors.*' => 'exists:rat_colors,id',
+    'colors' => 'required|array',
+    'colors.*' => 'exists:rat_colors,id',
 
-            'markings' => 'required|array',
-            'markings.*' => 'exists:rat_markings,id',
-        ]);
+    'markings' => 'required|array',
+    'markings.*' => 'exists:rat_markings,id',
+]);
 
         $ratData = collect($validated)
             ->except(['colors', 'markings'])
