@@ -104,11 +104,11 @@
                     );
                     @endphp
                     <select name="colors[]" multiple class="w-full border p-2">
-                       @foreach($colors as $color)
+                        @foreach($colors as $colors)
 
                         <option
-                            value="{{ $color->id }}"
-                            @selected(in_array($color->id, $selectedColors))
+                            value="{{ $colors->id }}"
+                            @selected(in_array($colors->id, $selectedColors))
                             >
                             {{ $colors->name }}
                         </option>
