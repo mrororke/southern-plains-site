@@ -12,6 +12,7 @@ $breeder = $rat->breeder;
 
 {{-- HERO --}}
 <div class="bg-white shadow border p-6 mb-6 items-end">
+    I am above teh grid
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
