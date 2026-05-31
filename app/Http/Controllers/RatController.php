@@ -175,18 +175,40 @@ class RatController extends Controller
     }
 
     public function show(Rat $rat)
-    {
-        $rat->load([
-            'breeder',
-            'weights',
-            'healthRecords',
-            'temperamentAssessments',
-            'littersAsSire',
-            'littersAsDam'
-        ]);
+{
+    $rat->load([
+        'breeder',
 
-        return view('admin.rats.show', compact('rat'));
-    }
+        // immediate relationships
+        'sire',
+        'dam',
+
+        // paternal tree (3 generations)
+        'sire.sire',
+        'sire.dam',
+        'sire.sire.sire',
+        'sire.sire.dam',
+        'sire.dam.sire',
+        'sire.dam.dam',
+
+        // maternal tree (3 generations)
+        'dam.sire',
+        'dam.dam',
+        'dam.sire.sire',
+        'dam.sire.dam',
+        'dam.dam.sire',
+        'dam.dam.dam',
+
+        // other sections already used in your view
+        'weights',
+        'healthRecords',
+        'temperamentAssessments',
+        'littersAsSire',
+        'littersAsDam',
+    ]);
+
+    return view('admin.rats.show', compact('rat'));
+}
 
     public function destroy(Rat $rat)
     {
