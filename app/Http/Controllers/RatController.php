@@ -38,7 +38,6 @@ class RatController extends Controller
     public function store(Request $request)
     {
 
-    dd($request->only(['sire_id', 'dam_id']));
 
         $validated = $request->validate([
             'name' => 'required|string|max:150',
@@ -66,6 +65,8 @@ class RatController extends Controller
             'markings.*' => 'exists:rat_markings,id',
         ]);
 
+        dd($validated);
+        
         $rat = Rat::create([
             ...$validated,
             'is_owned' => $request->boolean('is_owned'),
