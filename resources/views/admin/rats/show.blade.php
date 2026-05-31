@@ -34,9 +34,9 @@ $age = $rat->dob
             <img
                 src="{{ asset($primaryImage->file_path) }}"
                 alt="{{ $primaryImage->caption ?? $rat->name }}"
-                class="w-64 h-64 object-cover border shadow-sm rounded">
+                class="w-64 h-64 object-cover border shadow-sm">
             @else
-            <div class="w-64 h-64 bg-gray-100 border flex items-center justify-center text-gray-400 rounded">
+            <div class="w-64 h-64 bg-gray-100 border flex items-center justify-center text-gray-400">
                 No Image Available
             </div>
             @endif
@@ -76,15 +76,15 @@ $age = $rat->dob
                     }
 
                     if (!$age->y && !$age->m) {
-                    $parts[] = 'Under 1 month';
+                    <span class="italic text-gray-500">$parts[] = 'Under 1 month';</span>
                     }
                     @endphp
 
-                    {{ implode(', ', $parts) }}
+                    <span class="italic text-gray-500">{{ implode(', ', $parts) }}</span>
 
                     @else
 
-                    Unknown
+                    <span class="italic text-gray-500">Unknown</span>
 
                     @endif
                 </div>
