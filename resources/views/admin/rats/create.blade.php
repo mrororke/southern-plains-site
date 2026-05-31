@@ -115,7 +115,7 @@
                     <select name="silvered" class="w-full border p-2">
                         <option value="">None</option>
                         @foreach($silvered as $silver)
-                        <option value="{{ $silver }}" @selected(old('silvered', $rat->silvered ?? '') == $silver)>
+                        <option value="{{ $silver }}" @selected(old('silvered') == $silver)>
                             {{ $silver }}
                         </option>
                         @endforeach
@@ -126,7 +126,7 @@
                 <div>
                     <label class="block text-sm font-medium">Markings *</label>
                     <select name="markings[]" multiple class="w-full border p-2">
-                        @foreach($markings as $markings)
+                        @foreach($markings as $marking)
                         <option value="{{ $marking->id }}">
                             {{ $marking->name }}
                         </option>
