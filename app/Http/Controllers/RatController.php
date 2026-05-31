@@ -174,43 +174,30 @@ class RatController extends Controller
             ->with('success', 'Rat updated successfully.');
     }
 
-    public function show(Rat $rat)
+    public function show(Rat $rat, Request $request)
 {
     $rat->load([
         'breeder',
-
-        // immediate relationships
-        'sire',
-        'dam',
-
-        // paternal tree (3 generations)
-        'sire.sire',
-        'sire.dam',
         'sire.sire.sire',
         'sire.sire.dam',
         'sire.dam.sire',
         'sire.dam.dam',
-
-        // maternal tree (3 generations)
-        'dam.sire',
-        'dam.dam',
         'dam.sire.sire',
         'dam.sire.dam',
         'dam.dam.sire',
         'dam.dam.dam',
-
-        // other sections already used in your view
         'weights',
         'healthRecords',
         'temperamentAssessments',
         'littersAsSire',
-        'littersAsDam',
+        'littersAsDam'
     ]);
 
-    return view('admin.rats.show', [
-        'rat' => $rat,
-        'mode' => $rat->is_pedigree_only ? 'pedigree' : 'full',
-    ]);
+    $mode = $request->routeIs('admin.rats.pedigree')
+        ? 'pedigree'
+        : 'full';
+
+    return view('admin.rats.show', compact('rat', 'mode'));
 }
 
     public function destroy(Rat $rat)
