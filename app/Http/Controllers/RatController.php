@@ -84,36 +84,47 @@ class RatController extends Controller
     }
 
     public function update(Request $request, Rat $rat)
-    {
-        $validated = $request->validate([
-            'name' => 'required|string|max:150',
-            'registered_name' => 'nullable|string|max:255',
-            'breeder_reference' => 'nullable|string|max:10',
+{
+    $validated = $request->validate([
+        'name' => 'required|string|max:150',
+        'registered_name' => 'nullable|string|max:255',
+        'breeder_reference' => 'nullable|string|max:10',
 
-            'sex' => 'required|in:Male,Female',
-            'dob' => 'nullable|date',
-            'dod' => 'nullable|date',
+        'sex' => 'required|in:Male,Female',
+        'dob' => 'nullable|date',
+        'dod' => 'nullable|date',
 
-            'variety' => 'required|string',
-            'color' => 'required|string',
-            'silvered' => 'nullable|string',
-            'markings' => 'required|string',
-            'eye_color' => 'required|string',
-            'ear_set' => 'required|string',
+        'variety' => 'required|string',
+        'silvered' => 'nullable|string',
+        'eye_color' => 'required|string',
+        'ear_set' => 'required|string',
 
-            'breeder_id' => 'nullable|exists:rat_breeders,id',
-        ]);
+        'breeder_id' => 'nullable|exists:rat_breeders,id',
 
-        $rat->update([
-            ...$validated,
-            'is_owned' => $request->boolean('is_owned'),
-            'is_pedigree_only' => $request->boolean('is_pedigree_only'),
-        ]);
+        'colors' => 'required|array',
+        'colors.*' => 'exists:rat_colors,id',
 
-        return redirect()
-            ->route('admin.rats.index')
-            ->with('success', 'Rat updated successfully.');
-    }
+        'markings' => 'required|array',
+        'markings.*' => 'exists:rat_markings,id',
+    ]);
+
+    $ratData = collect($validated)
+        ->except(['colors', 'markings'])
+        ->toArray();
+
+    $rat->update([
+        ...$ratData,
+        'is_owned' => $request->boolean('is_owned'),
+        'is_pedigree_only' => $request->boolean('is_pedigree_only'),
+    ]);
+
+    $rat->colors()->sync($request->colors);
+    $rat->markings()->sync($request->markings);
+
+    return redirect()
+        ->route('admin.rats.index')
+        ->with('success', 'Rat updated successfully.');
+}
 
     public function show(Rat $rat)
     {

@@ -100,7 +100,7 @@
                 {{-- Color --}}
                 <div>
                     <label class="block text-sm font-medium">Color *</label>
-                    <select name="markings[]" multiple class="w-full border p-2">
+                    <select name="colors[]" multiple class="w-full border p-2">
                         @foreach($colors as $color)
                         <option value="{{ $color->id }}">
                             {{ $color->name }}
@@ -125,10 +125,10 @@
                 {{-- Markings --}}
                 <div>
                     <label class="block text-sm font-medium">Markings *</label>
-                    <select name="markings" class="w-full border p-2">
+                    <select name="markings[]" multiple class="w-full border p-2">
                         @foreach($markings as $markings)
-                        <option value="{{ $markings }}" @selected(old('markings', $rat->markings ?? '') == $markings)>
-                            {{ $markings }}
+                        <option value="{{ $marking->id }}">
+                            {{ $marking->name }}
                         </option>
                         @endforeach
                     </select>

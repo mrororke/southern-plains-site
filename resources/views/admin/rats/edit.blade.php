@@ -97,7 +97,13 @@
                 {{-- Color --}}
                 <div>
                     <label class="block text-sm font-medium">Color</label>
-                    <select name="color" class="w-full border p-2">
+                    @php
+                    $selectedColors = old(
+                    'colors',
+                    $rat->colors->pluck('id')->toArray()
+                    );
+                    @endphp
+                    <select name="colors[]" multiple class="w-full border p-2">
                         @foreach($colors as $color)
                         <option value="{{ $color }}" @selected(old('color', $rat->color ?? '') == $color)>
                             {{ $color }}
@@ -111,10 +117,15 @@
                     <label class="block text-sm font-medium">Silvered</label>
                     <select name="silvered" class="w-full border p-2">
                         <option value="">None</option>
-                        @foreach($silveredOptions as $opt)
-                        <option value="{{ $opt }}" @selected(old('silvered', $rat->silvered ?? '') == $opt)>
-                            {{ $opt }}
+                        @foreach($colors as $color)
+
+                        <option
+                            value="{{ $color->id }}"
+                            @selected(in_array($color->id, $selectedColors))
+                            >
+                            {{ $color->name }}
                         </option>
+
                         @endforeach
                     </select>
                 </div>
@@ -122,11 +133,22 @@
                 {{-- Markings --}}
                 <div>
                     <label class="block text-sm font-medium">Markings</label>
-                    <select name="markings" class="w-full border p-2">
+                    @php
+                    $selectedMarkings = old(
+                    'markings',
+                    $rat->markings->pluck('id')->toArray()
+                    );
+                    @endphp
+                    <select name="markings[]" multiple class="w-full border p-2">
                         @foreach($markings as $markings)
-                        <option value="{{ $markings }}" @selected(old('markings', $rat->markings ?? '') == $markings)>
-                            {{ $markings }}
+
+                        <option
+                            value="{{ $markings->id }}"
+                            @selected(in_array($markings->id, $selectedMarkings))
+                            >
+                            {{ $markings->name }}
                         </option>
+
                         @endforeach
                     </select>
                 </div>
