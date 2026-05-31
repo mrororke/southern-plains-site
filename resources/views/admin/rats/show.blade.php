@@ -95,12 +95,12 @@ $age = $rat->dob
 
             <div>
                 <div class="text-gray-500 uppercase tracking-wide text-xs">Color</div>
-                <div>{{ $rat->color }}</div>
+                <div>{{ $rat->colors->pluck('name')->join(', ') }}</div>
             </div>
 
             <div>
                 <div class="text-gray-500 uppercase tracking-wide text-xs">Markings</div>
-                <div>{{ $rat->markings }}</div>
+                <div>{{ $rat->markings->pluck('name')->join(', ') }}</div>
             </div>
             <div>
                 <div class="text-gray-500 uppercase tracking-wide text-xs">Status</div>
