@@ -88,8 +88,6 @@ $age = $rat->dob
 
             
 
-            
-
             <div>
                 <div class="text-gray-500 uppercase tracking-wide text-xs">Variety</div>
                 <div>{{ $rat->variety }}</div>

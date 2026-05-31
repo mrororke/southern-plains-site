@@ -121,7 +121,7 @@ class Rat extends Model
         ];
     }
 
-    public static function colors()
+    public static function colorOptions()
     {
         return [
             'Agouti',
@@ -176,7 +176,7 @@ class Rat extends Model
         ];
     }
 
-    public static function markings()
+    public static function markingOptions()
     {
         return [
             'Bareback',
@@ -203,5 +203,15 @@ class Rat extends Model
     public static function earSets()
     {
         return ['Dumbo', 'Top'];
+    }
+
+    public function colors()
+    {
+        return $this->belongsToMany(RatColor::class);
+    }
+
+    public function markings()
+    {
+        return $this->belongsToMany(RatMarking::class);
     }
 }
