@@ -207,6 +207,8 @@ class RatController extends Controller
         'littersAsDam',
     ]);
 
+    $mode = $rat->is_pedigree_only ? 'pedigree' : 'full';
+
     return view('admin.rats.show', compact('rat'));
 }
 
