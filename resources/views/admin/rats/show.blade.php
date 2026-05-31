@@ -70,11 +70,11 @@ $age = $rat->dob
                     if ($age->y) {
                     $parts[] = $age->y . ' year' . ($age->y != 1 ? 's' : '');
                     }
-
-                    if ($age->m) {
                     <span class="text-red-500">
+                    if ($age->m) {
+                    
                         $parts[] = $age->m . ' month' . ($age->m != 1 ? 's' : '');
-                    </span>
+                   
                     }
 
                     if (!$age->y && !$age->m) {
@@ -89,6 +89,7 @@ $age = $rat->dob
                     Unknown
 
                     @endif
+                     </span>
                 </div>
             </div>
 
