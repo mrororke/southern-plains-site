@@ -30,6 +30,42 @@
         </div>
         @else
 
+        <form method="GET" class="mb-4">
+    <input
+        type="text"
+        name="search"
+        value="{{ request('search') }}"
+        placeholder="Search rats..."
+        class="border p-2 w-64"
+    >
+
+    <button
+        type="submit"
+        class="bg-gray-700 text-white px-4 py-2">
+        Search
+    </button>
+</form>
+
+<div class="flex gap-6 mb-6 text-sm text-gray-600">
+
+    <div>
+        <strong>{{ $totalRats }}</strong> Rats
+    </div>
+
+    <div>
+        <strong>{{ $ownedRats }}</strong> Owned
+    </div>
+
+    <div>
+        <strong>{{ $pedigreeRats }}</strong> Pedigree Only
+    </div>
+
+    <div>
+        <strong>{{ $livingRats }}</strong> Living
+    </div>
+
+</div>
+
         <div class="shadow overflow-hidden border-b border-gray-200">
             <table class="min-w-full divide-y divide-gray-200">
 
@@ -94,7 +130,15 @@
 
     {{-- Type --}}
     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-        {{ $rat->is_pedigree_only ? 'Pedigree' : 'Full' }}
+        @if($rat->is_pedigree_only)
+        <span class="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded">
+            Pedigree
+        </span>
+    @else
+        <span class="px-2 py-1 text-xs bg-green-100 text-green-700 rounded">
+            Full
+        </span>
+    @endif
     </td>
 
     {{-- Breeder --}}

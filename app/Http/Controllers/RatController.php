@@ -14,33 +14,67 @@ class RatController extends Controller
 {
     public function index()
     {
-        $rats = Rat::with(['breeder', 'colors'])->orderBy('name')->paginate(20);
+        $query = Rat::with(['breeder', 'colors']);
+
+        if (request('search')) {
+            $query->where('name', 'like', '%' . request('search') . '%')
+                ->orWhere('registered_name', 'like', '%' . request('search') . '%');
+        }
+
+        // Type filter
+        if ($request->type === 'pedigree') {
+            $query->where('is_pedigree_only', true);
+        }
+
+        if ($request->type === 'full') {
+            $query->where('is_pedigree_only', false);
+        }
+
+        // Sex filter
+        if ($request->filled('sex')) {
+            $query->where('sex', $request->sex);
+        }
+
+        // Status filter
+        if ($request->status === 'living') {
+            $query->whereNull('dod');
+        }
+
+        if ($request->status === 'deceased') {
+            $query->whereNotNull('dod');
+        }
+
+
+        $rats = $query
+            ->orderBy('name')
+            ->paginate(50)
+            ->withQueryString();
 
         return view('admin.rats.index', compact('rats'));
     }
 
     public function create()
-{
-    return view('admin.rats.create', [
-        'breeders' => RatBreeder::all(),
+    {
+        return view('admin.rats.create', [
+            'breeders' => RatBreeder::all(),
 
-        'sires' => Rat::where('sex', 'Male')
-            ->orderBy('name')
-            ->get(),
+            'sires' => Rat::where('sex', 'Male')
+                ->orderBy('name')
+                ->get(),
 
-        'dams' => Rat::where('sex', 'Female')
-            ->orderBy('name')
-            ->get(),
+            'dams' => Rat::where('sex', 'Female')
+                ->orderBy('name')
+                ->get(),
 
-        'sexes' => Rat::sexes(),
-        'varieties' => Rat::varieties(),
-        'colors' => RatColor::all(),
-        'silvered' => Rat::silveredOptions(),
-        'markings' => RatMarking::all(),
-        'eyeColors' => Rat::eyeColors(),
-        'earSets' => Rat::earSets(),
-    ]);
-}
+            'sexes' => Rat::sexes(),
+            'varieties' => Rat::varieties(),
+            'colors' => RatColor::all(),
+            'silvered' => Rat::silveredOptions(),
+            'markings' => RatMarking::all(),
+            'eyeColors' => Rat::eyeColors(),
+            'earSets' => Rat::earSets(),
+        ]);
+    }
 
     public function store(Request $request)
     {
@@ -131,30 +165,30 @@ class RatController extends Controller
     public function update(Request $request, Rat $rat)
     {
         $validated = $request->validate([
-    'name' => 'required|string|max:150',
-    'registered_name' => 'nullable|string|max:255',
-    'breeder_reference' => 'nullable|string|max:10',
+            'name' => 'required|string|max:150',
+            'registered_name' => 'nullable|string|max:255',
+            'breeder_reference' => 'nullable|string|max:10',
 
-    'sire_id' => 'nullable|exists:rats,id',
-    'dam_id' => 'nullable|exists:rats,id',
+            'sire_id' => 'nullable|exists:rats,id',
+            'dam_id' => 'nullable|exists:rats,id',
 
-    'sex' => 'required|in:Male,Female',
-    'dob' => 'nullable|date',
-    'dod' => 'nullable|date',
+            'sex' => 'required|in:Male,Female',
+            'dob' => 'nullable|date',
+            'dod' => 'nullable|date',
 
-    'variety' => 'required|string',
-    'silvered' => 'nullable|string',
-    'eye_color' => 'required|string',
-    'ear_set' => 'required|string',
+            'variety' => 'required|string',
+            'silvered' => 'nullable|string',
+            'eye_color' => 'required|string',
+            'ear_set' => 'required|string',
 
-    'breeder_id' => 'nullable|exists:rat_breeders,id',
+            'breeder_id' => 'nullable|exists:rat_breeders,id',
 
-    'colors' => 'required|array',
-    'colors.*' => 'exists:rat_colors,id',
+            'colors' => 'required|array',
+            'colors.*' => 'exists:rat_colors,id',
 
-    'markings' => 'required|array',
-    'markings.*' => 'exists:rat_markings,id',
-]);
+            'markings' => 'required|array',
+            'markings.*' => 'exists:rat_markings,id',
+        ]);
 
         $ratData = collect($validated)
             ->except(['colors', 'markings'])
@@ -175,28 +209,28 @@ class RatController extends Controller
     }
 
     public function show(Rat $rat)
-{
-    $rat->load([
-        'breeder',
-        'sire.sire.sire',
-        'sire.sire.dam',
-        'sire.dam.sire',
-        'sire.dam.dam',
-        'dam.sire.sire',
-        'dam.sire.dam',
-        'dam.dam.sire',
-        'dam.dam.dam',
-        'weights',
-        'healthRecords',
-        'temperamentAssessments',
-        'littersAsSire',
-        'littersAsDam'
-    ]);
+    {
+        $rat->load([
+            'breeder',
+            'sire.sire.sire',
+            'sire.sire.dam',
+            'sire.dam.sire',
+            'sire.dam.dam',
+            'dam.sire.sire',
+            'dam.sire.dam',
+            'dam.dam.sire',
+            'dam.dam.dam',
+            'weights',
+            'healthRecords',
+            'temperamentAssessments',
+            'littersAsSire',
+            'littersAsDam'
+        ]);
 
-    $mode = $rat->getViewMode();
+        $mode = $rat->getViewMode();
 
-    return view('admin.rats.show', compact('rat', 'mode'));
-}
+        return view('admin.rats.show', compact('rat', 'mode'));
+    }
 
     public function destroy(Rat $rat)
     {
