@@ -34,102 +34,102 @@
             <table class="min-w-full divide-y divide-gray-200">
 
                 <thead class="bg-gray-50">
-                    <tr>
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Name
-                        </th>
+<tr>
+    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+        Name
+    </th>
 
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Sex
-                        </th>
+    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+        Sex
+    </th>
 
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            DOB
-                        </th>
+    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+        Age
+    </th>
 
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Variety
-                        </th>
+    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+        Type
+    </th>
 
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Color
-                        </th>
+    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+        Breeder
+    </th>
 
-                        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                            Breeder
-                        </th>
-
-                        <th class="px-6 py-3"></th>
-                    </tr>
-                </thead>
+    <th class="px-6 py-3"></th>
+</tr>
+</thead>
 
                 <tbody class="bg-white divide-y divide-gray-200">
 
-                    @foreach ($rats as $rat)
-                    <tr>
+@foreach ($rats as $rat)
 
-                        {{-- Name --}}
-                        <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                            <a href="{{ route('admin.rats.show', $rat) }}"
-                                class="text-blue-600 hover:underline">
-                                {{ $rat->name }}
-                            </a>
-                        </td>
+@php
+    $age = $rat->dob
+        ? \Carbon\Carbon::parse($rat->dob)->diff(now())
+        : null;
 
-                        {{-- Sex --}}
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {{ $rat->sex }}
-                        </td>
+    $ageText = $age
+        ? ($age->y ? $age->y.'y ' : '').($age->m ? $age->m.'m' : '')
+        : '—';
+@endphp
 
-                        {{-- DOB --}}
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {{ $rat->dob ?? '—' }}
-                        </td>
+<tr>
 
-                        {{-- Variety --}}
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {{ $rat->variety }}
-                        </td>
+    {{-- Name --}}
+    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+        <a href="{{ route('admin.rats.show', $rat) }}" class="text-blue-600 hover:underline">
+            {{ $rat->name }}
+        </a>
+    </td>
 
-                        {{-- Color --}}
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {{ $rat->colors->isNotEmpty()
-    ? $rat->colors->pluck('name')->join(', ')
-    : 'Unknown'
-}}
-                        </td>
+    {{-- Sex --}}
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+        {{ $rat->sex }}
+    </td>
 
-                        {{-- Breeder --}}
-                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                            {{ $rat->breeder?->rattery ?? '—' }}
-                        </td>
+    {{-- Age --}}
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+        {{ $ageText }}
+    </td>
 
-                        {{-- Actions --}}
-                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+    {{-- Type --}}
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+        {{ $rat->is_pedigree_only ? 'Pedigree' : 'Full' }}
+    </td>
 
-                            <a href="{{ route('admin.rats.edit', $rat) }}"
-                                class="bg-emerald-500 hover:bg-emerald-800 text-white font-bold py-2 px-4 transition duration-150">
-                                Edit
-                            </a>
+    {{-- Breeder --}}
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+        {{ $rat->breeder?->rattery ?? '—' }}
+    </td>
 
-                            <form action="{{ route('admin.rats.destroy', $rat) }}"
-                                method="POST"
-                                class="inline-block"
-                                onsubmit="return confirm('Are you sure you want to delete this rat?');">
-                                @csrf
-                                @method('DELETE')
+    {{-- Actions --}}
+    <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
 
-                                <button type="submit"
-                                    class="text-red-500 hover:text-red-950 ml-2">
-                                    Delete
-                                </button>
-                            </form>
+        <a href="{{ route('admin.rats.edit', $rat) }}"
+           class="bg-emerald-500 hover:bg-emerald-800 text-white font-bold py-2 px-4">
+            Edit
+        </a>
 
-                        </td>
-                    </tr>
-                    @endforeach
+        <form action="{{ route('admin.rats.destroy', $rat) }}"
+              method="POST"
+              class="inline-block ml-2"
+              onsubmit="return confirm('Are you sure?');">
+            @csrf
+            @method('DELETE')
 
-                </tbody>
+            <button type="submit"
+                    class="text-red-500 hover:text-red-700">
+                Delete
+            </button>
+        </form>
+
+    </td>
+
+</tr>
+
+@endforeach
+
+</tbody>
             </table>
         </div>
 

@@ -14,7 +14,7 @@ class RatController extends Controller
 {
     public function index()
     {
-        $rats = Rat::with('breeder')->latest()->paginate(20);
+        $rats = Rat::with(['breeder', 'colors'])->orderBy('name')->paginate(20);
 
         return view('admin.rats.index', compact('rats'));
     }
