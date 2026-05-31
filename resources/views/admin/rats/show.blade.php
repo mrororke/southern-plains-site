@@ -5,12 +5,18 @@
 
 @section('content')
 
-@if($mode === 'pedigree')
-    @include('admin.rats.partials.pedigree-only')
+@if(($mode ?? 'full') === 'pedigree')
+
+    @include('admin.rats.partials.pedigree-only', ['rat' => $rat])
+
 @else
-    @include('admin.rats.partials.hero')
-    @include('admin.rats.partials.pedigree')
-    @include('admin.rats.partials.timeline')
+
+    @include('admin.rats.partials.hero', ['rat' => $rat])
+
+    @include('admin.rats.partials.pedigree', ['rat' => $rat])
+
+    @include('admin.rats.partials.timeline', ['rat' => $rat])
+
 @endif
 
 @endsection
