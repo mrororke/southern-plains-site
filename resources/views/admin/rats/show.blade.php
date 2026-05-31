@@ -8,7 +8,11 @@
 @php
 $primaryImage = $rat->attachments->sortByDesc('created_at')->first();
 $breeder = $rat->breeder;
-$age = $rat->dob ? $rat->dob->diff(now()) : null;
+
+$age = $rat->dob
+        ? \Carbon\Carbon::parse($rat->dob)->diff(now())
+        : null;
+
 @endphp
 
 {{-- HERO --}}
