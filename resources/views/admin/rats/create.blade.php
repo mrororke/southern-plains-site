@@ -173,8 +173,9 @@
                     </select>
                 </div>
                 {{-- Sire --}}
+                <label class="block text-sm font-medium">Sire</label>
                 <select name="sire_id" class="w-full border p-2">
-    <option value="">Unknown</option>
+    <option value="" disabled>Please Select</option>
 
     @foreach($sires as $sire)
         <option value="{{ $sire->id }}"
@@ -186,8 +187,9 @@
 </select>
 
                 {{-- Dam --}}
+                <label class="block text-sm font-medium">Dam</label>
                 <select name="dam_id" class="w-full border p-2">
-    <option value="">Unknown</option>
+    <option value="" disabled>Please Select</option>
 
     @foreach($dams as $dam)
         <option value="{{ $dam->id }}"
