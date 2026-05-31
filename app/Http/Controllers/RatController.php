@@ -44,8 +44,15 @@ class RatController extends Controller
             'registered_name' => 'nullable|string|max:255',
             'breeder_reference' => 'nullable|string|max:10',
 
-            'sire_id' => 'nullable|exists:rats,id',
-            'dam_id' => 'nullable|exists:rats,id',
+            'sires' => Rat::where('sex', 'Male')
+                ->where('id', '!=', $rat->id)
+                ->orderBy('name')
+                ->get(),
+
+            'dams' => Rat::where('sex', 'Female')
+                ->where('id', '!=', $rat->id)
+                ->orderBy('name')
+                ->get(),
 
             'sex' => 'required|in:Male,Female',
             'dob' => 'nullable|date',
@@ -65,29 +72,29 @@ class RatController extends Controller
             'markings.*' => 'exists:rat_markings,id',
         ]);
 
-        
+
         $rat = Rat::create([
-    'name' => $validated['name'],
-    'registered_name' => $validated['registered_name'] ?? null,
-    'breeder_reference' => $validated['breeder_reference'] ?? null,
+            'name' => $validated['name'],
+            'registered_name' => $validated['registered_name'] ?? null,
+            'breeder_reference' => $validated['breeder_reference'] ?? null,
 
-    'sire_id' => $validated['sire_id'] ?? null,
-    'dam_id' => $validated['dam_id'] ?? null,
+            'sire_id' => $validated['sire_id'] ?? null,
+            'dam_id' => $validated['dam_id'] ?? null,
 
-    'sex' => $validated['sex'],
-    'dob' => $validated['dob'] ?? null,
-    'dod' => $validated['dod'] ?? null,
+            'sex' => $validated['sex'],
+            'dob' => $validated['dob'] ?? null,
+            'dod' => $validated['dod'] ?? null,
 
-    'variety' => $validated['variety'],
-    'silvered' => $validated['silvered'] ?? null,
-    'eye_color' => $validated['eye_color'],
-    'ear_set' => $validated['ear_set'],
+            'variety' => $validated['variety'],
+            'silvered' => $validated['silvered'] ?? null,
+            'eye_color' => $validated['eye_color'],
+            'ear_set' => $validated['ear_set'],
 
-    'breeder_id' => $validated['breeder_id'] ?? null,
+            'breeder_id' => $validated['breeder_id'] ?? null,
 
-    'is_owned' => $request->boolean('is_owned'),
-    'is_pedigree_only' => $request->boolean('is_pedigree_only'),
-]);
+            'is_owned' => $request->boolean('is_owned'),
+            'is_pedigree_only' => $request->boolean('is_pedigree_only'),
+        ]);
 
         $rat->colors()->sync($request->colors);
         $rat->markings()->sync($request->markings);
@@ -102,8 +109,15 @@ class RatController extends Controller
         return view('admin.rats.edit', [
             'rat' => $rat,
             'breeders' => RatBreeder::all(),
-            'sires' => Rat::where('sex', 'Male')->orderBy('name')->get(),
-            'dams' => Rat::where('sex', 'Female')->orderBy('name')->get(),
+            'sires' => Rat::where('sex', 'Male')
+                ->where('id', '!=', $rat->id)
+                ->orderBy('name')
+                ->get(),
+
+            'dams' => Rat::where('sex', 'Female')
+                ->where('id', '!=', $rat->id)
+                ->orderBy('name')
+                ->get(),
             'sexes' => Rat::sexes(),
             'varieties' => Rat::varieties(),
             'colors' => RatColor::all(),
