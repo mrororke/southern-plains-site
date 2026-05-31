@@ -170,73 +170,102 @@ $age = $rat->dob
         Pedigree
     </h2>
 
-    <TABLE BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="3">
+    <table class="w-full border border-gray-300 text-sm">
+        <tbody>
 
-        <TBODY>
+        {{-- ================= PARENTS ================= --}}
+        <tr>
+            <td rowspan="4" class="border p-2 font-semibold bg-gray-50">
+                Father<br>
+                <span class="font-normal">{{ $rat->sire?->name ?? 'Unknown' }}</span>
+            </td>
 
-            <TR>
+            {{-- Paternal Grandfather --}}
+            <td rowspan="2" class="border p-2">
+                Paternal Grandfather<br>
+                {{ $rat->sire?->sire?->name ?? 'Unknown' }}
+            </td>
 
-                <TD rowspan="4" width="29%">Father</TD>
+            <td class="border p-2">
+                Paternal Great Grandfather 1<br>
+                {{ $rat->sire?->sire?->sire?->name ?? 'Unknown' }}
+            </td>
+        </tr>
 
-                <TD rowspan="2" width="32%">Paternal Grandfather</TD>
+        <tr>
+            <td class="border p-2">
+                Paternal Great Grandmother 1<br>
+                {{ $rat->sire?->sire?->dam?->name ?? 'Unknown' }}
+            </td>
+        </tr>
 
-                <TD width="39%">Paternal Great Grandfather 1</TD>
+        <tr>
+            <td rowspan="2" class="border p-2">
+                Paternal Grandmother<br>
+                {{ $rat->sire?->dam?->name ?? 'Unknown' }}
+            </td>
 
-            </TR>
+            <td class="border p-2">
+                Paternal Great Grandfather 2<br>
+                {{ $rat->sire?->dam?->sire?->name ?? 'Unknown' }}
+            </td>
+        </tr>
 
-            <TR>
+        <tr>
+            <td class="border p-2">
+                Paternal Great Grandmother 2<br>
+                {{ $rat->sire?->dam?->dam?->name ?? 'Unknown' }}
+            </td>
+        </tr>
 
-                <TD width="39%">Paternal Great Grandmother 1</TD>
+        {{-- ================= MOTHER ================= --}}
+        <tr>
+            <td rowspan="4" class="border p-2 font-semibold bg-gray-50">
+                Mother<br>
+                {{ $rat->dam?->name ?? 'Unknown' }}
+            </td>
 
-            </TR>
+            <td rowspan="2" class="border p-2">
+                Maternal Grandfather<br>
+                {{ $rat->dam?->sire?->name ?? 'Unknown' }}
+            </td>
 
-            <TR>
+            <td class="border p-2">
+                Maternal Great Grandfather 1<br>
+                {{ $rat->dam?->sire?->sire?->name ?? 'Unknown' }}
+            </td>
+        </tr>
 
-                <TD rowspan="2" width="32%">Paternal Grandmother</TD>
+        <tr>
+            <td class="border p-2">
+                Maternal Great Grandmother 1<br>
+                {{ $rat->dam?->sire?->dam?->name ?? 'Unknown' }}
+            </td>
+        </tr>
 
-                <TD width="39%">Paternal Great Grandfather 2</TD>
+        <tr>
+            <td rowspan="2" class="border p-2">
+                Maternal Grandmother<br>
+                {{ $rat->dam?->dam?->name ?? 'Unknown' }}
+            </td>
 
-            </TR>
+            <td class="border p-2">
+                Maternal Great Grandfather 2<br>
+                {{ $rat->dam?->dam?->sire?->name ?? 'Unknown' }}
+            </td>
+        </tr>
 
-            <TR>
+        <tr>
+            <td class="border p-2">
+                Maternal Great Grandmother 2<br>
+                {{ $rat->dam?->dam?->dam?->name ?? 'Unknown' }}
+            </td>
+        </tr>
 
-                <TD width="39%">Paternal Great Grandmother 2</TD>
+        </tbody>
+    </table>
 
-            </TR>
-
-            <TR>
-
-                <TD rowspan="4" width="29%">Mother</TD>
-
-                <TD rowspan="2" width="32%">Maternal Grandfather</TD>
-
-                <TD width="39%">Maternal Great Grandfather 1</TD>
-
-            </TR>
-
-            <TR>
-
-                <TD width="39%">Maternal Great Grandmother 1</TD>
-
-            </TR>
-
-            <TR>
-
-                <TD rowspan="2" width="32%">Maternal Grandmother</TD>
-
-                <TD width="39%">Maternal Great Grandfather 2</TD>
-
-            </TR>
-
-            <TR>
-
-                <TD width="39%">Maternal Great Grandmother 2</TD>
-
-            </TR>
-
-        </TBODY>
-
-    </TABLE>
+    
 
 </div>
 
