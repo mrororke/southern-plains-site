@@ -8,17 +8,18 @@
 @php
 $primaryImage = $rat->attachments->sortByDesc('created_at')->first();
 $breeder = $rat->breeder;
+$age = $rat->dob ? $rat->dob->diff(now()) : null;
 @endphp
 
 {{-- HERO --}}
 <div class="bg-white shadow border p-6 mb-6 items-end">
     <h1 class="font-bold text-xl mb-4">
-                @if($rat->registered_name)
-                    {{ $rat->registered_name }}, 
-                @endif
-                    {{ $rat->name }}
-                </h1>
-           
+        @if($rat->registered_name)
+        {{ $rat->registered_name }},
+        @endif
+        {{ $rat->name }}
+    </h1>
+
 
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
@@ -38,44 +39,69 @@ $breeder = $rat->breeder;
 
         </div>
 
-        {{-- COLUMN 2: RAT DETAILS --}}            
+        {{-- COLUMN 2: RAT DETAILS --}}
 
-            <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
-               
+        <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
 
-                <div>
-                    <div class="text-gray-500 uppercase tracking-wide text-xs">Sex</div>
-                    <div>{{ $rat->sex }}</div>
-                </div>
 
-                <div>
-                    <div class="text-gray-500 uppercase tracking-wide text-xs">Status</div>
-                    <div>{{ $rat->dod ? 'Deceased' : 'Living' }}</div>
-                </div>
-
-                <div>
-                    <div class="text-gray-500 uppercase tracking-wide text-xs">Date of Birth</div>
-                    <div>
-                        {{ $rat->dob ? \Carbon\Carbon::parse($rat->dob)->format('F j, Y') : 'Unknown' }}
-                    </div>
-                </div>
-
-                <div>
-                    <div class="text-gray-500 uppercase tracking-wide text-xs">Variety</div>
-                    <div>{{ $rat->variety }}</div>
-                </div>
-
-                <div>
-                    <div class="text-gray-500 uppercase tracking-wide text-xs">Color</div>
-                    <div>{{ $rat->color }}</div>
-                </div>
-
-                <div>
-                    <div class="text-gray-500 uppercase tracking-wide text-xs">Markings</div>
-                    <div>{{ $rat->markings }}</div>
-                </div>
-
+            <div>
+                <div class="text-gray-500 uppercase tracking-wide text-xs">Sex</div>
+                <div>{{ $rat->sex }}</div>
             </div>
+
+            <div>
+                <div class="text-gray-500 uppercase tracking-wide text-xs">Status</div>
+                <div>{{ $rat->dod ? 'Deceased' : 'Living' }}</div>
+            </div>
+
+            <div>
+                <div class="text-gray-500 uppercase tracking-wide text-xs">Date of Birth</div>
+                <div>
+                    {{ $rat->dob ? \Carbon\Carbon::parse($rat->dob)->format('F j, Y') : 'Unknown' }}<br />
+                    @if($age)
+
+                    @php
+                    $parts = [];
+
+                    if ($age->y) {
+                    $parts[] = $age->y . ' year' . ($age->y != 1 ? 's' : '');
+                    }
+
+                    if ($age->m) {
+                    $parts[] = $age->m . ' month' . ($age->m != 1 ? 's' : '');
+                    }
+
+                    if (!$age->y && !$age->m) {
+                    $parts[] = 'Under 1 month';
+                    }
+                    @endphp
+
+                    {{ implode(', ', $parts) }}
+
+                    @else
+
+                    Unknown
+
+                    @endif
+                </div>
+            </div>
+
+            <div>
+                <div class="text-gray-500 uppercase tracking-wide text-xs">Variety</div>
+                <div>{{ $rat->variety }}</div>
+            </div>
+
+            <div>
+                <div class="text-gray-500 uppercase tracking-wide text-xs">Color</div>
+                <div>{{ $rat->color }}</div>
+            </div>
+
+            <div>
+                <div class="text-gray-500 uppercase tracking-wide text-xs">Markings</div>
+                <div>{{ $rat->markings }}</div>
+            </div>
+
+        </div>
 
         {{-- COLUMN 3: STATUS / BREEDER --}}
         <div class="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
