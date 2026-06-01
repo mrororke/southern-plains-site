@@ -3,15 +3,15 @@ $primaryImage = $rat->attachments->sortByDesc('created_at')->first();
 $breeder = $rat->breeder;
 
 $age = $rat->dob
-    ? \Carbon\Carbon::parse($rat->dob)->diff(now())
-    : null;
+? \Carbon\Carbon::parse($rat->dob)->diff(now())
+: null;
 @endphp
 
 <div class="bg-white shadow border p-6 mb-6 items-end">
 
     <h1 class="font-bold text-xl mb-4">
         @if($rat->registered_name)
-            {{ $rat->registered_name }},
+        {{ $rat->registered_name }},
         @endif
         {{ $rat->name }}
     </h1>
@@ -21,14 +21,19 @@ $age = $rat->dob
         {{-- COLUMN 1: IMAGE --}}
         <div>
             @if($primaryImage)
-                <img
-                    src="{{ asset($primaryImage->file_path) }}"
-                    alt="{{ $primaryImage->caption ?? $rat->name }}"
-                    class="w-64 h-64 object-cover border shadow-sm">
+            <img
+                src="{{ asset($primaryImage->file_path) }}"
+                alt="{{ $primaryImage->caption ?? $rat->name }}"
+                class="w-64 h-64 object-cover border shadow-sm">
+            @if($primaryImage->caption)
+            <div class="mt-2 text-sm text-gray-600">
+                {{ $primaryImage->caption }}
+            </div>
+            @endif
             @else
-                <div class="w-64 h-64 bg-gray-100 border flex items-center justify-center text-gray-400">
-                    No Image Available
-                </div>
+            <div class="w-64 h-64 bg-gray-100 border flex items-center justify-center text-gray-400">
+                No Image Available
+            </div>
             @endif
         </div>
 
@@ -44,25 +49,25 @@ $age = $rat->dob
                     <br>
 
                     @if($age)
-                        <span class="text-gray-500 italic">
-                            @php
-                                $parts = [];
+                    <span class="text-gray-500 italic">
+                        @php
+                        $parts = [];
 
-                                if ($age->y) {
-                                    $parts[] = $age->y . ' year' . ($age->y != 1 ? 's' : '');
-                                }
+                        if ($age->y) {
+                        $parts[] = $age->y . ' year' . ($age->y != 1 ? 's' : '');
+                        }
 
-                                if ($age->m) {
-                                    $parts[] = $age->m . ' month' . ($age->m != 1 ? 's' : '');
-                                }
+                        if ($age->m) {
+                        $parts[] = $age->m . ' month' . ($age->m != 1 ? 's' : '');
+                        }
 
-                                if (!$age->y && !$age->m) {
-                                    $parts[] = 'Under 1 month';
-                                }
-                            @endphp
+                        if (!$age->y && !$age->m) {
+                        $parts[] = 'Under 1 month';
+                        }
+                        @endphp
 
-                            {{ implode(', ', $parts) }}
-                        </span>
+                        {{ implode(', ', $parts) }}
+                    </span>
                     @endif
                 </div>
             </div>
@@ -112,29 +117,29 @@ $age = $rat->dob
 
                 <div>
                     @if($breeder)
-                        <strong>{{ $breeder->rattery }}</strong><br>
+                    <strong>{{ $breeder->rattery }}</strong><br>
 
-                        @if($breeder->owner_name)
-                            <span class="italic">{{ $breeder->owner_name }}</span><br>
-                        @endif
+                    @if($breeder->owner_name)
+                    <span class="italic">{{ $breeder->owner_name }}</span><br>
+                    @endif
 
-                        @if($breeder->location)
-                            <span class="italic">{{ $breeder->location }}</span><br>
-                        @endif
+                    @if($breeder->location)
+                    <span class="italic">{{ $breeder->location }}</span><br>
+                    @endif
 
-                        @if($rat->breeder_reference)
-                            <span class="text-xs">
-                                <strong>Breeder Number:</strong> {{ $rat->breeder_reference }}
-                            </span><br>
-                        @endif
+                    @if($rat->breeder_reference)
+                    <span class="text-xs">
+                        <strong>Breeder Number:</strong> {{ $rat->breeder_reference }}
+                    </span><br>
+                    @endif
 
-                        @if($breeder->website)
-                            <a href="{{ $breeder->website }}"
-                               target="_blank"
-                               class="underline">
-                                Visit Website
-                            </a>
-                        @endif
+                    @if($breeder->website)
+                    <a href="{{ $breeder->website }}"
+                        target="_blank"
+                        class="underline">
+                        Visit Website
+                    </a>
+                    @endif
                     @endif
                 </div>
             </div>
