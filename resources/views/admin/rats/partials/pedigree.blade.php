@@ -15,7 +15,7 @@
 
             {{-- PARENTS --}}
             <tr>
-                <td rowspan="4" class="border p-2 {{ $genderClass }}">
+                <td rowspan="4" class="border p-2 bg-blue-50">
                     @php
                     $ancestor = $rat->ancestor('sire');
                     @endphp
