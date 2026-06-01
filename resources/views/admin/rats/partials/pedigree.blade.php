@@ -35,14 +35,14 @@
             </tr>
 
             <tr>
-                <td class=" p-4">
+                <td class=" p-4 bg-pink-50">
                     Paternal Great Grandmother 1<br>
                     {{ $rat->ancestor('sire.sire.dam')?->name ?? 'Unknown' }}
                 </td>
             </tr>
 
             <tr>
-                <td rowspan="2" class=" p-4">
+                <td rowspan="2" class="bg-pink-50 p-4">
                     Paternal Grandmother<br>
                     {{ $rat->ancestor('sire.dam')?->name ?? 'Unknown' }}
                 </td>
@@ -54,7 +54,7 @@
             </tr>
 
             <tr>
-                <td class=" p-4">
+                <td class="bg-pink-50 p-4">
                     Paternal Great Grandmother 2<br>
                     {{ $rat->ancestor('sire.dam.dam')?->name ?? 'Unknown' }}
                 </td>
@@ -62,7 +62,7 @@
 
             {{-- MOTHER --}}
             <tr>
-                <td rowspan="4" class=" p-4 font-semibold bg-gray-50">
+                <td rowspan="4" class="bg-pink-50 p-4">
                     Mother<br>
                     {{ $rat->ancestor('dam')?->name ?? 'Unknown' }}
                 </td>
@@ -79,14 +79,14 @@
             </tr>
 
             <tr>
-                <td class=" p-4">
+                <td class="bg-pink-50 p-4">
                     Maternal Great Grandmother 1<br>
                     {{ $rat->ancestor('dam.sire.dam')?->name ?? 'Unknown' }}
                 </td>
             </tr>
 
             <tr>
-                <td rowspan="2" class=" p-4">
+                <td rowspan="2" class="bg-pink-50 p-4">
                     Maternal Grandmother<br>
                     {{ $rat->ancestor('dam.dam')?->name ?? 'Unknown' }}
                 </td>
@@ -98,7 +98,7 @@
             </tr>
 
             <tr>
-                <td class=" p-4">
+                <td class="bg-pink-50 p-4">
                     Maternal Great Grandmother 2<br>
                     {{ $rat->ancestor('dam.dam.dam')?->name ?? 'Unknown' }}
                 </td>
