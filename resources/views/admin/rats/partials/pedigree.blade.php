@@ -14,7 +14,7 @@
 
                     @if($ancestor)
                     <a href="{{ route('admin.rats.show', $ancestor) }}"
-                        class="hover:underline">
+                        class="font-semibold hover:underline">
                         {{ $ancestor->name }}
                     </a>
                     
@@ -24,8 +24,19 @@
                 </td>
 
                 <td rowspan="2" class=" p-4 bg-blue-50">
-                    Paternal Grandfather<br>
-                    {{ $rat->ancestor('sire.sire')?->name ?? 'Unknown' }}
+                    @php
+                    $ancestor = $rat->ancestor('sire.sire');
+                    @endphp
+
+                    @if($ancestor)
+                    <a href="{{ route('admin.rats.show', $ancestor) }}"
+                        class="font-semibold hover:underline">
+                        {{ $ancestor->name }}
+                    </a>
+                    
+                    @else
+                    <span class="text-red-400 italic">Missing</span>
+                    @endif
                 </td>
 
                 <td class=" p-4 bg-blue-50">
