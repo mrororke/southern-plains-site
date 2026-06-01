@@ -73,11 +73,11 @@
                 <div class="text-xs uppercase text-gray-500">
                     Incomplete Pedigree
                 </div>
-            </div>
-            <div class="text-2xl font-bold">
+                <div class="text-2xl font-bold">
                 {{ $incompletePedigreePercent }}%
             </div>
-        </div>
+            </div>
+            
         <div class="bg-white border shadow-sm p-4">
             <div class="text-xs uppercase text-gray-500">
                 Pedigree Depth
