@@ -89,7 +89,7 @@
 
     </div>
 
-    <form method="GET" class="mb-6 flex flex-wrap gap-3 items-center">
+    <form method="GET" class="mb-6 flex flex-wrap gap-4 items-center">
 
         {{-- Search --}}
         <input
@@ -100,7 +100,7 @@
             class="border p-2">
 
         {{-- Type --}}
-        <select name="type" class="border p-2">
+        <select name="type" class="border p-2 text-xs">
             <option value="">All Types</option>
             <option value="full" @selected(request('type')==='full' )>
                 Full
@@ -111,7 +111,7 @@
         </select>
 
         {{-- Sex --}}
-        <select name="sex" class="border p-2">
+        <select name="sex" class="border p-2 text-xs">
             <option value="">All Sexes</option>
             <option value="Male" @selected(request('sex')==='Male' )>
                 Male
@@ -122,7 +122,7 @@
         </select>
 
         {{-- Status --}}
-        <select name="status" class="border p-2">
+        <select name="status" class="border p-2 text-xs">
             <option value="">All Statuses</option>
             <option value="living" @selected(request('status')==='living' )>
                 Living
@@ -133,7 +133,7 @@
         </select>
 
         {{-- Breeder --}}
-        <select name="breeder_id" class="border p-2">
+        <select name="breeder_id" class="border p-2 text-xs">
             <option value="">All Breeders</option>
 
             @foreach($breeders as $breeder)
@@ -148,13 +148,13 @@
 
         <button
             type="submit"
-            class="bg-gray-700 hover:bg-gray-900 text-white px-4 py-2">
+            class="bg-gray-700 hover:bg-gray-900 text-white px-4 py-2 text-xs">
             Filter
         </button>
 
         <a
             href="{{ route('admin.rats.index') }}"
-            class="border px-4 py-2 hover:bg-gray-50">
+            class="border px-4 py-2 hover:bg-gray-50  text-xs">
             Clear
         </a>
 
