@@ -97,10 +97,10 @@
             name="search"
             value="{{ request('search') }}"
             placeholder="Search name or registered name..."
-            class="border p-2 rounded">
+            class="border p-2">
 
         {{-- Type --}}
-        <select name="type" class="border p-2 rounded">
+        <select name="type" class="border p-2">
             <option value="">All Types</option>
             <option value="full" @selected(request('type')==='full' )>
                 Full
@@ -111,7 +111,7 @@
         </select>
 
         {{-- Sex --}}
-        <select name="sex" class="border p-2 rounded">
+        <select name="sex" class="border p-2">
             <option value="">All Sexes</option>
             <option value="Male" @selected(request('sex')==='Male' )>
                 Male
@@ -122,7 +122,7 @@
         </select>
 
         {{-- Status --}}
-        <select name="status" class="border p-2 rounded">
+        <select name="status" class="border p-2">
             <option value="">All Statuses</option>
             <option value="living" @selected(request('status')==='living' )>
                 Living
@@ -133,7 +133,7 @@
         </select>
 
         {{-- Breeder --}}
-        <select name="breeder_id" class="border p-2 rounded">
+        <select name="breeder_id" class="border p-2">
             <option value="">All Breeders</option>
 
             @foreach($breeders as $breeder)
@@ -148,13 +148,13 @@
 
         <button
             type="submit"
-            class="bg-gray-700 hover:bg-gray-900 text-white px-4 py-2 rounded">
+            class="bg-gray-700 hover:bg-gray-900 text-white px-4 py-2">
             Filter
         </button>
 
         <a
             href="{{ route('admin.rats.index') }}"
-            class="border px-4 py-2 rounded hover:bg-gray-50">
+            class="border px-4 py-2 hover:bg-gray-50">
             Clear
         </a>
 
@@ -249,11 +249,11 @@
                     {{-- Type --}}
                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                         @if($rat->is_pedigree_only)
-                        <span class="px-2 py-1 text-xs bg-gray-100 text-gray-700 rounded">
+                        <span class="px-2 py-1 text-xs bg-gray-100 text-gray-700">
                             Pedigree
                         </span>
                         @else
-                        <span class="px-2 py-1 text-xs bg-green-100 text-green-700 rounded">
+                        <span class="px-2 py-1 text-xs bg-green-100 text-green-700">
                             Full
                         </span>
                         @endif
