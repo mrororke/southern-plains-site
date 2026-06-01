@@ -280,5 +280,13 @@ public function ageText(): string
     return implode(' ', $parts);
 }
 
+public function pedigreeDepth(int $depth = 0): int
+{
+    $sireDepth = $this->sire ? $this->sire->pedigreeDepth($depth + 1) : $depth;
+    $damDepth = $this->dam ? $this->dam->pedigreeDepth($depth + 1) : $depth;
+
+    return max($sireDepth, $damDepth);
+}
+
     
 }
