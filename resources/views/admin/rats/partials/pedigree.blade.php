@@ -2,7 +2,7 @@
 
     <h2 class="text-lg font-semibold mb-4">Pedigree</h2>
 
-    <table class="w-full border border-gray-300 text-sm">
+    <table class="w-full text-sm">
         <tbody>
 
             {{-- PARENTS --}}
