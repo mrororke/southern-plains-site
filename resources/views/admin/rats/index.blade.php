@@ -223,7 +223,6 @@
             ($rat->dam_id ? 1 : 0);
     @endphp
 
-    <td class="px-6 py-4 whitespace-nowrap text-sm">
 
     {{ $rat->sire_id ? '✓' : '—' }}
     {{ $rat->dam_id ? '✓' : '—' }}
