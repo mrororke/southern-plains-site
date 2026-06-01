@@ -128,7 +128,7 @@
 
                 <td class=" p-4 bg-blue-50">
                      @php
-                    $ancestor = $rat->ancestor('sire.dam.dire');
+                    $ancestor = $rat->ancestor('sire.dam.sire');
                     @endphp
 
                     @if($ancestor)
