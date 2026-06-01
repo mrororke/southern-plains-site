@@ -96,7 +96,7 @@
             type="text"
             name="search"
             value="{{ request('search') }}"
-            placeholder="Search name or registered name..."
+            placeholder="Search name..."
             class="border p-2 text-xs">
 
         {{-- Type --}}
