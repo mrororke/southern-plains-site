@@ -17,7 +17,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
 
         {{-- INFO --}}
-        <div class="lg:col-span-3">
+        <div class="col-span-3">
 
             <h1 class="text-2xl font-bold">
                 {{ $rat->registered_name ?? $rat->name }}
