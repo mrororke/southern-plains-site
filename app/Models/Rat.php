@@ -280,10 +280,22 @@ public function ageText(): string
     return implode(' ', $parts);
 }
 
-public function pedigreeDepth(int $depth = 0): int
+public function pedigreeDepth(array $visited = []): int
 {
-    $sireDepth = $this->sire ? $this->sire->pedigreeDepth($depth + 1) : $depth;
-    $damDepth = $this->dam ? $this->dam->pedigreeDepth($depth + 1) : $depth;
+    // Prevent infinite loops
+    if (in_array($this->id, $visited)) {
+        return 0;
+    }
+
+    $visited[] = $this->id;
+
+    $sireDepth = $this->sire
+        ? 1 + $this->sire->pedigreeDepth($visited)
+        : 0;
+
+    $damDepth = $this->dam
+        ? 1 + $this->dam->pedigreeDepth($visited)
+        : 0;
 
     return max($sireDepth, $damDepth);
 }
