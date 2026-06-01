@@ -23,12 +23,12 @@
                     @endif
                 </td>
 
-                <td rowspan="2" class=" p-4">
+                <td rowspan="2" class=" p-4 bg-blue-50">
                     Paternal Grandfather<br>
                     {{ $rat->ancestor('sire.sire')?->name ?? 'Unknown' }}
                 </td>
 
-                <td class=" p-4">
+                <td class=" p-4 bg-blue-50">
                     Paternal Great Grandfather 1<br>
                     {{ $rat->ancestor('sire.sire.sire')?->name ?? 'Unknown' }}
                 </td>
@@ -47,7 +47,7 @@
                     {{ $rat->ancestor('sire.dam')?->name ?? 'Unknown' }}
                 </td>
 
-                <td class=" p-4">
+                <td class=" p-4 bg-blue-50">
                     Paternal Great Grandfather 2<br>
                     {{ $rat->ancestor('sire.dam.sire')?->name ?? 'Unknown' }}
                 </td>
@@ -67,12 +67,12 @@
                     {{ $rat->ancestor('dam')?->name ?? 'Unknown' }}
                 </td>
 
-                <td rowspan="2" class=" p-4">
+                <td rowspan="2" class=" p-4 bg-blue-50">
                     Maternal Grandfather<br>
                     {{ $rat->ancestor('dam.sire')?->name ?? 'Unknown' }}
                 </td>
 
-                <td class=" p-4">
+                <td class=" p-4 bg-blue-50">
                     Maternal Great Grandfather 1<br>
                     {{ $rat->ancestor('dam.sire.sire')?->name ?? 'Unknown' }}
                 </td>
@@ -91,7 +91,7 @@
                     {{ $rat->ancestor('dam.dam')?->name ?? 'Unknown' }}
                 </td>
 
-                <td class=" p-4">
+                <td class=" p-4 bg-blue-50">
                     Maternal Great Grandfather 2<br>
                     {{ $rat->ancestor('dam.dam.sire')?->name ?? 'Unknown' }}
                 </td>
