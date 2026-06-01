@@ -30,63 +30,7 @@
         </div>
         @else
 
-        <form method="GET" class="mb-4">
-    <input
-        type="text"
-        name="search"
-        value="{{ request('search') }}"
-        placeholder="Search rats..."
-        class="border p-2 w-64"
-    >
-
-    <button
-        type="submit"
-        class="bg-gray-700 text-white px-4 py-2">
-        Search
-    </button>
-</form>
-
-<div class="flex gap-6 mb-6 text-sm text-gray-600">
-
-    <div>
-        <strong>{{ $totalRats }}</strong> Rats
-    </div>
-
-    <div>
-        <strong>{{ $ownedRats }}</strong> Owned
-    </div>
-
-    <div>
-        <strong>{{ $pedigreeRats }}</strong> Pedigree Only
-    </div>
-
-    <div>
-        <strong>{{ $livingRats }}</strong> Living
-    </div>
-
-    <div>
-        <select name="breeder_id" class="border p-2">
-    <option value="">All Breeders</option>
-
-    @foreach($breeders as $breeder)
-        <option
-            value="{{ $breeder->id }}"
-            @selected(request('breeder_id') == $breeder->id)
-        >
-            {{ $breeder->rattery }}
-        </option>
-    @endforeach
-</select>
-    </div>
-
-    <div>
-        <a href="{{ route('admin.rats.index') }}"
-   class="px-4 py-2 border">
-    Clear
-</a>
-    </div>
-
-</div>
+        
 
         <div class="shadow overflow-hidden border-b border-gray-200">
             <table class="min-w-full divide-y divide-gray-200">
