@@ -24,6 +24,78 @@
 
         </div>
 
+        <form method="GET" class="mb-6 flex flex-wrap gap-3 items-center">
+
+    {{-- Search --}}
+    <input
+        type="text"
+        name="search"
+        value="{{ request('search') }}"
+        placeholder="Search name or registered name..."
+        class="border p-2 rounded"
+    >
+
+    {{-- Type --}}
+    <select name="type" class="border p-2 rounded">
+        <option value="">All Types</option>
+        <option value="full" @selected(request('type') === 'full')>
+            Full
+        </option>
+        <option value="pedigree" @selected(request('type') === 'pedigree')>
+            Pedigree
+        </option>
+    </select>
+
+    {{-- Sex --}}
+    <select name="sex" class="border p-2 rounded">
+        <option value="">All Sexes</option>
+        <option value="Male" @selected(request('sex') === 'Male')>
+            Male
+        </option>
+        <option value="Female" @selected(request('sex') === 'Female')>
+            Female
+        </option>
+    </select>
+
+    {{-- Status --}}
+    <select name="status" class="border p-2 rounded">
+        <option value="">All Statuses</option>
+        <option value="living" @selected(request('status') === 'living')>
+            Living
+        </option>
+        <option value="deceased" @selected(request('status') === 'deceased')>
+            Deceased
+        </option>
+    </select>
+
+    {{-- Breeder --}}
+    <select name="breeder_id" class="border p-2 rounded">
+        <option value="">All Breeders</option>
+
+        @foreach($breeders as $breeder)
+            <option
+                value="{{ $breeder->id }}"
+                @selected(request('breeder_id') == $breeder->id)
+            >
+                {{ $breeder->rattery }}
+            </option>
+        @endforeach
+    </select>
+
+    <button
+        type="submit"
+        class="bg-gray-700 hover:bg-gray-900 text-white px-4 py-2 rounded">
+        Filter
+    </button>
+
+    <a
+        href="{{ route('admin.rats.index') }}"
+        class="border px-4 py-2 rounded hover:bg-gray-50">
+        Clear
+    </a>
+
+</form>
+
         @if ($rats->isEmpty())
         <div class="bg-yellow-100 border-l-4 border-yellow-500 text-yellow-700 p-4" role="alert">
             <p>No rats have been added yet. Click “New Rat” to add your first record.</p>
@@ -79,9 +151,16 @@
 
     {{-- Name --}}
     <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-        <a href="{{ route('admin.rats.show', $rat) }}" class="text-blue-600 hover:underline">
-            {{ $rat->name }}
-        </a>
+        <a href="{{ route('admin.rats.show', $rat) }}"
+       class="text-blue-600 hover:underline">
+        {{ $rat->name }}
+    </a>
+
+    @if($rat->registered_name)
+        <div class="text-xs text-gray-500">
+            {{ $rat->registered_name }}
+        </div>
+    @endif
     </td>
 
     {{-- Sex --}}
