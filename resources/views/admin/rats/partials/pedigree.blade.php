@@ -1,11 +1,3 @@
-@php
-    $genderClass = match($ancestor?->sex ?? null) {
-        'Male' => 'bg-blue-50',
-        'Female' => 'bg-pink-50',
-        default => 'bg-white',
-    };
-@endphp
-
 <div class="bg-white shadow border p-6">
 
     <h2 class="text-lg font-semibold mb-4">Pedigree</h2>
