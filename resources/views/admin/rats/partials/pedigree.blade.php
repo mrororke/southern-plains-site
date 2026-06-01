@@ -40,22 +40,56 @@
                 </td>
 
                 <td class=" p-4 bg-blue-50">
-                    Paternal Great Grandfather 1<br>
-                    {{ $rat->ancestor('sire.sire.sire')?->name ?? 'Unknown' }}
+                    
+                    @php
+                    $ancestor = $rat->ancestor('sire.sire.sire');
+                    @endphp
+
+                    @if($ancestor)
+                    <a href="{{ route('admin.rats.show', $ancestor) }}"
+                        class="font-semibold hover:underline">
+                        {{ $ancestor->name }}
+                    </a>
+                    
+                    @else
+                    <span class="text-red-400 italic">Missing</span>
+                    @endif
                 </td>
             </tr>
 
             <tr>
                 <td class=" p-4 bg-pink-50">
-                    Paternal Great Grandmother 1<br>
-                    {{ $rat->ancestor('sire.sire.dam')?->name ?? 'Unknown' }}
+                    @php
+                    $ancestor = $rat->ancestor('sire.sire.dam');
+                    @endphp
+
+                    @if($ancestor)
+                    <a href="{{ route('admin.rats.show', $ancestor) }}"
+                        class="font-semibold hover:underline">
+                        {{ $ancestor->name }}
+                    </a>
+                    
+                    @else
+                    <span class="text-red-400 italic">Missing</span>
+                    @endif
                 </td>
             </tr>
 
             <tr>
                 <td rowspan="2" class="bg-pink-50 p-4">
-                    Paternal Grandmother<br>
-                    {{ $rat->ancestor('sire.dam')?->name ?? 'Unknown' }}
+                    @php
+                    $ancestor = $rat->ancestor('sire.dam');
+                    @endphp
+
+                    @if($ancestor)
+                    <a href="{{ route('admin.rats.show', $ancestor) }}"
+                        class="font-semibold hover:underline">
+                        {{ $ancestor->name }}
+                    </a>
+                    
+                    @else
+                    <span class="text-red-400 italic">Missing</span>
+                    @endif
                 </td>
 
                 <td class=" p-4 bg-blue-50">
