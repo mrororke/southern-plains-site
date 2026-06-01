@@ -255,5 +255,30 @@ class Rat extends Model
     return 'full';
 }
 
+public function ageText(): string
+{
+    if (!$this->dob) {
+        return '—';
+    }
+
+    $age = \Carbon\Carbon::parse($this->dob)->diff(now());
+
+    $parts = [];
+
+    if ($age->y) {
+        $parts[] = $age->y . 'y';
+    }
+
+    if ($age->m) {
+        $parts[] = $age->m . 'm';
+    }
+
+    if (empty($parts)) {
+        return '<1m';
+    }
+
+    return implode(' ', $parts);
+}
+
     
 }

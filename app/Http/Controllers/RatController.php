@@ -54,9 +54,20 @@ class RatController extends Controller
 
     $breeders = RatBreeder::orderBy('rattery')->get();
 
+    $totalRats = Rat::count();
+    $ownedRats = Rat::where('is_owned', true)->count();
+    $pedigreeRats = Rat::where('is_pedigree_only', true)->count();
+    $livingRats = Rat::whereNull('dod')->count();
+    $foundationRats = Rat::whereNull('sire_id')->whereNull('dam_id')->count();
+
     return view('admin.rats.index', compact(
         'rats',
-        'breeders'
+        'breeders',
+        'totalRats',
+        'ownedRats',
+        'pedigreeRats',
+        'livingRats',
+        'foundationRats'
     ));
 }
 

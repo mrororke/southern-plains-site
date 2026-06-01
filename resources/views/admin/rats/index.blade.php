@@ -24,6 +24,54 @@
 
         </div>
 
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+
+    <div class="bg-white border shadow-sm p-4">
+        <div class="text-xs uppercase text-gray-500">
+            Total Rats
+        </div>
+        <div class="text-2xl font-bold">
+            {{ $totalRats }}
+        </div>
+    </div>
+
+    <div class="bg-white border shadow-sm p-4">
+        <div class="text-xs uppercase text-gray-500">
+            Owned
+        </div>
+        <div class="text-2xl font-bold">
+            {{ $ownedRats }}
+        </div>
+    </div>
+
+    <div class="bg-white border shadow-sm p-4">
+        <div class="text-xs uppercase text-gray-500">
+            Pedigree Only
+        </div>
+        <div class="text-2xl font-bold">
+            {{ $pedigreeRats }}
+        </div>
+    </div>
+
+    <div class="bg-white border shadow-sm p-4">
+        <div class="text-xs uppercase text-gray-500">
+            Living
+        </div>
+        <div class="text-2xl font-bold">
+            {{ $livingRats }}
+        </div>
+    </div>
+    <div class="bg-white border shadow-sm p-4">
+    <div class="text-xs uppercase text-gray-500">
+        Foundation Rats
+    </div>
+    <div class="text-2xl font-bold">
+        {{ $foundationRats }}
+    </div>
+</div>
+
+</div>
+
         <form method="GET" class="mb-6 flex flex-wrap gap-3 items-center">
 
     {{-- Search --}}
@@ -122,6 +170,10 @@
     </th>
 
     <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
+    Pedigree
+</th>
+
+    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
         Type
     </th>
 
@@ -136,16 +188,6 @@
                 <tbody class="bg-white divide-y divide-gray-200">
 
 @foreach ($rats as $rat)
-
-@php
-    $age = $rat->dob
-        ? \Carbon\Carbon::parse($rat->dob)->diff(now())
-        : null;
-
-    $ageText = $age
-        ? ($age->y ? $age->y.'y ' : '').($age->m ? $age->m.'m' : '')
-        : '—';
-@endphp
 
 <tr>
 
@@ -170,8 +212,25 @@
 
     {{-- Age --}}
     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-        {{ $ageText }}
-    </td>
+    {{ $rat->ageText() }}
+</td>
+    {{-- PEDIGREE --}}
+    <td class="px-6 py-4 whitespace-nowrap text-sm">
+
+    @php
+        $parentCount =
+            ($rat->sire_id ? 1 : 0) +
+            ($rat->dam_id ? 1 : 0);
+    @endphp
+
+    <td class="px-6 py-4 whitespace-nowrap text-sm">
+
+    {{ $rat->sire_id ? '✓' : '—' }}
+    {{ $rat->dam_id ? '✓' : '—' }}
+
+</td>
+
+</td>
 
     {{-- Type --}}
     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
