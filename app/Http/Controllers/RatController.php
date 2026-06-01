@@ -62,7 +62,8 @@ class RatController extends Controller
     $totalWithParents = Rat::count();
     $completePedigree = Rat::whereNotNull('sire_id')->whereNotNull('dam_id')->count();
     $incompletePedigreePercent = $totalWithParents > 0 ? round((($totalWithParents - $completePedigree) / $totalWithParents) * 100, 1) : 0;
-    $maxDepth = Rat::with(['sire', 'dam'])->get()->map(fn ($rat) => $rat->pedigreeDepth())->max() ?? 0;
+    //$maxDepth = Rat::with(['sire', 'dam'])->get()->map(fn ($rat) => $rat->pedigreeDepth())->max() ?? 0;
+    $maxDepth = 0;
 
     return view('admin.rats.index', compact(
         'rats',
