@@ -9,7 +9,7 @@
             <h4 class="uppercase text-xs font-bold">{{ $event->host }}</h4>
             <h1 class="font-heading text-7xl">{{ $event->name }}</h1>
 
-            <p class="text-base mb-2">{{ $event->about }}</p>
+            <p class="text-base mb-2">{!! $event->about !!}</p>
         </div>
         <aside class="w-full lg:w-1/4 pt-4 lg:pt-0">
             {{-- STATIC FILTER/SEARCH AREA --}}

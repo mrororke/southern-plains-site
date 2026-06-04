@@ -35,6 +35,9 @@
                 <a href="{{ route('admin.posts.index') }}" class="block py-2.5 px-4  transition duration-200 hover:bg-gray-700 @if(request()->routeIs('admin.posts.*')) bg-gray-700 @endif">
                     Post Management
                 </a>
+                <a href="{{ route('admin.rats.index') }}" class="block py-2.5 px-4  transition duration-200 hover:bg-gray-700 @if(request()->routeIs('admin.rats.*')) bg-gray-700 @endif">
+                    Rat Management
+                </a>
                 
                 {{-- Add more links here later (e.g., Categories, Tags, Users) --}}
 

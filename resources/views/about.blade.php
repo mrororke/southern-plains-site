@@ -135,7 +135,7 @@ $featuresData = [
     </div>
     <div>
         <p class="text-base mb-2">
-            Furthermore, my dedication to dog sports is reflected in my role as a Judge for the North American Sport Dog Association (NASDA). This includes managing logistics and leading training events that prepare teams for competition. Most notably, in 2025, I was part of the Showcase and Invitational Judging Panel in Wagoner, Oklahoma. The Invitational Championship is the pinnacle of NASDA competition, and panel judging is used in the semi-final and final rounds to ensure fair, consistent scoring—a commitment to accuracy that informs all training I provide.
+            Furthermore, my dedication to dog sports is reflected in my role as a Judge for the North American Sport Dog Association (NASDA). This includes managing logistics and leading training  that prepare teams for competition. Most notably, in 2025, I was part of the Showcase and Invitational Judging Panel in Wagoner, Oklahoma. The Invitational Championship is the pinnacle of NASDA competition, and panel judging is used in the semi-final and final rounds to ensure fair, consistent scoring—a commitment to accuracy that informs all training I provide.
         </p>
 
         <h3 class="font-heading text-5xl mt-6 mb-6">The Teachers: Past &amp; Present</h3>
