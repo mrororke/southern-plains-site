@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\BlogController;
@@ -7,45 +9,100 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HistoryFormController;
 use App\Http\Controllers\TrickEvaluationController;
-
 use App\Http\Controllers\RatController;
 
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| PUBLIC ROUTES
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
 */
 
-// Home Page
-Route::get('/', function () {
-    // This assumes you have renamed your original 'welcome.blade.php' to 'home.blade.php'
-    return view('home');
-})->name('welcome'); // Named 'welcome' for the link, or you can use 'home'
+// Home
+Route::get('/', fn () =>view('home'))->name('home');
 
-// About Page
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
+// About
+Route::get('/about', fn () => view('about'))->name('about');
 
-// PUBLIC BLOG ROUTES
-// Blog Index
-Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+/*
+|--------------------------------------------------------------------------
+| BLOG (PUBLIC)
+|--------------------------------------------------------------------------
+*/
 
-// Filter by Category
-Route::get('/blog/category/{category:slug}', [BlogController::class, 'category'])->name('blog.category');
+Route::prefix('blog')->name('blog.')->group(function (){
+    Route::get('/', [BlogController::class, 'index'])->name('index');
+    Route::get('category/{category:slug}', [BlogController::class, 'category'])->name('category');
+    Route::get('/tag/{tag/slug}', [BlogController::class, 'tag'])->name('tag');
+    Route::get('/{post:slug}', [BlogController::class, 'show'])->name('show');
+});
 
-// Filter by Tag
-Route::get('/blog/tag/{tag:slug}', [BlogController::class, 'tag'])->name('blog.tag');
+/*
+|--------------------------------------------------------------------------
+| EVENTS (PUBLIC)
+|--------------------------------------------------------------------------
+*/
 
-// Single Post View (Using Post:slug for route model binding)
-Route::get('/blog/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
+Route::prefix('events')->name('events.')->group(function (){
+    Route::get('/', [EventController::class, 'index'])->name('index');
+    Route::get('/{event:slug}', [EventController::class, 'show'])->name('show');
+});
+
+/*
+|--------------------------------------------------------------------------
+| CONTACT (PUBLIC)
+|--------------------------------------------------------------------------
+*/
+
+Route::prefix('contact')->name('contact.')->group(function (){
+    Route::get('/', [ContactController::class, 'create'])->name('create');
+    Route::post('/', [ContactController::class, 'store'])->name('store');
+});
+
+/*
+|--------------------------------------------------------------------------
+| FORMS (PUBLIC)
+|--------------------------------------------------------------------------
+*/
+
+Route::prefix('forms')->name('forms.')->group(function (){
+    Route::get('/history', [HistoryFormController::class, 'create'])->name('history.create');
+    Route::post('/history', [HistoryFormController::class, 'store'])->name('history.store');
+    Route::get('/trick-evaluation', [TrickEvaluationController::class, 'create'])->name('trick.create');
+    Route::post('/trick-evaluation', [TrickEvaluationController::class, 'store'])->name('trick.store');
+
+});
+
+
+/*
+|--------------------------------------------------------------------------
+| LEGAL (PUBLIC)
+|--------------------------------------------------------------------------
+*/
+
+Route::prefix('legal')->name('legal.')->group(function (){
+    Route::view('/tos', 'legal.tos')->name('tos');
+    Route::view('/privacy', 'legal.privacy')->name('privacy');
+    Route::view('/cookies', 'legal.cookies')->name('cookies');
+    Route::view('/refund', 'legal.refund')->name('refund');
+    Route::view('/waiver', 'legal.waiver')->name('waiver');
+    Route::view('/conduct', 'legal.conduct')->name('conduct');
+});
+
+/*
+|--------------------------------------------------------------------------
+| AUTHENTICATED BASE ROUTES
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware(['auth'])->ground(function (){
+
+    Route::get('/dashboard', function (){
+        return view('dashboard');})->name('dashboard');
+
+});
+
+
 
 // Training Page
 Route::view('/training', 'training.index')
@@ -56,19 +113,6 @@ Route::get('/league', function () {
     return view('league.index'); // Using the appropriate view name
 })->name('league.index');
 
-// Calendar Routes
-Route::get('/events', [EventController::class, 'index'])->name('events.index');
-Route::get('/events/{event:slug}', [EventController::class, 'show'])->name('events.show');
-
-// Contact Page
-Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
-
-// Form Related Routes
-Route::get('/history/create', [HistoryFormController::class, 'create'])->name('emails.history.create');
-Route::post('/history/store', [HistoryFormController::class, 'store'])->name('emails.history.store');
-Route::get('/trickevaluation/create', [TrickEvaluationController::class, 'create'])->name('emails.trickevaluation.create');
-Route::post('/trickevaluation/store', [TrickEvaluationController::class, 'store'])->name('emails.trickevaluation.store');
 
 // Rat Related Routes
 Route::get('/rats/create', [RatController::class, 'create']);
@@ -103,16 +147,5 @@ Route::middleware(['auth', 'admin'])
         Route::get('rats/{rat}/pedigree', [RatController::class, 'show'])
             ->name('rats.pedigree');
     });
-
-// Legal Routes
-Route::prefix('legal')->name('legal.')->group(function () {
-    Route::get('/tos', function () { return view('legal.tos'); })->name('tos');
-    Route::get('/privacy', function () { return view('legal.privacy'); })->name('privacy');
-    Route::get('/cookies', function () { return view('legal.cookies'); })->name('cookies');
-    Route::get('/refund', function () { return view('legal.refund'); })->name('refund');
-    Route::get('/waiver', function () { return view('legal.waiver'); })->name('waiver');
-    Route::get('/conduct', function () { return view('legal.conduct'); })->name('conduct');
-});
-
 
 require __DIR__ . '/auth.php';
