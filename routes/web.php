@@ -95,7 +95,7 @@ Route::prefix('legal')->name('legal.')->group(function (){
 |--------------------------------------------------------------------------
 */
 
-Route::middleware(['auth'])->ground(function (){
+Route::middleware(['auth'])->group(function (){
 
     Route::get('/dashboard', function (){
         return view('dashboard');})->name('dashboard');
