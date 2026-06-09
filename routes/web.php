@@ -19,7 +19,7 @@ use App\Http\Controllers\RatController;
 */
 
 // Home
-Route::get('/', fn () =>view('home'))->name('home');
+Route::get('/', fn () =>view('welcome'))->name('home');
 
 // About
 Route::get('/about', fn () => view('about'))->name('about');
@@ -100,7 +100,32 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/dashboard', function (){
         return view('dashboard');})->name('dashboard');
 
+    Route::prefix('profile')->name('profile.')->group(function () {
+        Route::get('/', [ProfileController::class, 'edit'])->name('edit');
+        Route::patch('/', [ProfileController::class, 'update'])->name('update');
+        Route::delete('/', [ProfileController::class, 'destroy'])->name('destroy');
+    });
+
 });
+
+/*
+|--------------------------------------------------------------------------
+| ADMIN AREA (RBAC PROTECTED)
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware(['auth', 'role:admin'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function (){
+        Route::get('/dashboard', function(){
+            return view('admin.dashboard');
+        })->name('dashboard');
+
+        Route::resource('posts', PostController::class);
+        Route::resource('rats', RatController::class);
+        Route::get('rats/{rat}/pedigree', [RatController::class, 'show'])->name('rats.pedigree');
+    });
 
 
 
