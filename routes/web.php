@@ -137,6 +137,10 @@ Route::middleware(['auth', 'role:admin'])
         Route::get('rats/{rat}/pedigree', [RatController::class, 'show'])->name('rats.pedigree');
     });
 
+    Route::get('/layout-test', function () {
+    return view('admin.layout-test');
+})->name('layout-test');
+
 
 /*
 |--------------------------------------------------------------------------
