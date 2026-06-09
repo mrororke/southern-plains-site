@@ -19,10 +19,20 @@ use App\Http\Controllers\RatController;
 */
 
 // Home
-Route::get('/', fn () =>view('welcome'))->name('home');
+Route::get('/', fn () =>view('home'))->name('home');
 
 // About
 Route::get('/about', fn () => view('about'))->name('about');
+
+// Training Page
+Route::view('/training', 'training.index')
+    ->name('training.index');
+
+// League Page
+Route::get('/league', function () {
+    return view('league.index'); // Using the appropriate view name
+})->name('league.index');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -129,48 +139,5 @@ Route::middleware(['auth', 'role:admin'])
 
 
 
-// Training Page
-Route::view('/training', 'training.index')
-    ->name('training.index');
-
-// League Page
-Route::get('/league', function () {
-    return view('league.index'); // Using the appropriate view name
-})->name('league.index');
-
-
-// Rat Related Routes
-Route::get('/rats/create', [RatController::class, 'create']);
-Route::post('/rats', [RatController::class, 'store']);
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
-Route::middleware(['auth', 'admin'])
-    ->prefix('admin')
-    ->name('admin.')
-    ->group(function () {
-
-        Route::get('/dashboard', function () {
-            return view('admin.dashboard');
-        })->name('dashboard');
-
-        Route::get('/', function () {
-            return redirect()->route('admin.dashboard');
-        })->name('index');
-
-        Route::resource('posts', PostController::class);
-
-        Route::resource('rats', RatController::class);
-        Route::get('rats/{rat}/pedigree', [RatController::class, 'show'])
-            ->name('rats.pedigree');
-    });
 
 require __DIR__ . '/auth.php';
