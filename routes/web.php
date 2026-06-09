@@ -19,7 +19,7 @@ use App\Http\Controllers\RatController;
 */
 
 // Home
-Route::get('/', fn () =>view('home'))->name('home');
+Route::get('/', fn () => view('home'))->name('home');
 
 // About
 Route::get('/about', fn () => view('about'))->name('about');
@@ -43,7 +43,7 @@ Route::get('/league', function () {
 Route::prefix('blog')->name('blog.')->group(function (){
     Route::get('/', [BlogController::class, 'index'])->name('index');
     Route::get('category/{category:slug}', [BlogController::class, 'category'])->name('category');
-    Route::get('/tag/{tag/slug}', [BlogController::class, 'tag'])->name('tag');
+    Route::get('/tag/{tag:slug}', [BlogController::class, 'tag'])->name('tag');
     Route::get('/{post:slug}', [BlogController::class, 'show'])->name('show');
 });
 
