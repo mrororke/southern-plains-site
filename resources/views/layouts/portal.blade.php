@@ -21,7 +21,7 @@
 
     <div class="flex h-screen">
 
-        <aside class="w-64 bg-black text-white flex flex-col">
+        <aside class="w-64 bg-[#71717A] text-white flex flex-col">
             <div class="text-black lg:text-white mx-auto pt-4">
                 <a href="/admin/dashboard">
                     <x-application-logo class="w-20 h-20 fill-current" />
