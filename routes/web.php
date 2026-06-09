@@ -138,6 +138,28 @@ Route::middleware(['auth', 'role:admin'])
     });
 
 
+/*
+|--------------------------------------------------------------------------
+| FUTURE PORTALS (PLACEHOLDERS)
+|--------------------------------------------------------------------------
+|
+| These will be activated later:
+|
+| Route::middleware(['auth', 'role:client'])
+|     ->prefix('client')
+|     ->group(function () {});
+|
+| Route::middleware(['auth', 'role:staff'])
+|     ->prefix('staff')
+|     ->group(function () {});
+|
+*/
 
+
+/*
+|--------------------------------------------------------------------------
+| AUTH ROUTES (Breeze)
+|--------------------------------------------------------------------------
+*/
 
 require __DIR__ . '/auth.php';
