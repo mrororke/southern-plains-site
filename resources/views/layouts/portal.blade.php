@@ -119,7 +119,7 @@
 
             </nav>
 
-            <div class="p-4 border-t border-gray-700">
+            <div class="p-4 border-t border-white">
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
                     <button type="submit" class="w-full text-left py-2 px-4 text-sm uppercase transition duration-200 hover:bg-club-hover bg-club">
