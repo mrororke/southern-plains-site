@@ -67,10 +67,18 @@
                 {{-- Add more links here later (e.g., Categories, Tags, Users) --}}
                 <details class="group">
                     <summary class="block py-2.5 px-4 cursor-pointer hover:bg-gray-500">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div>Icon</div>
-                            <div>Posts</div>
-                        </div>
+                        <div class="flex middle-align justify-left items-center transition duration-200 uppercase text-sm hover:bg-gray-700 p-4" style="padding: 10px 0 10px 10px; border-top: 1px solid #ffffff; border-bottom:1px solid #ffffff;">
+                    <div>
+                        <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.7227 7C15.7227 7.49219 15.3125 7.875 14.8477 7.875H13.9727L14 12.25C14 12.332 14 12.4141 14 12.4688V12.9062C14 13.5352 13.5078 14 12.9062 14H12.4688C12.4141 14 12.3867 14 12.3594 14C12.332 14 12.2773 14 12.25 14H10.7188C10.0898 14 9.625 13.5352 9.625 12.9062V10.5C9.625 10.0352 9.21484 9.625 8.75 9.625H7C6.50781 9.625 6.125 10.0352 6.125 10.5V12.9062C6.125 13.5352 5.63281 14 5.03125 14H3.5C3.44531 14 3.41797 14 3.36328 14C3.33594 14 3.30859 14 3.28125 14H2.84375C2.21484 14 1.75 13.5352 1.75 12.9062V9.84375C1.75 9.84375 1.75 9.81641 1.75 9.78906V7.875H0.875C0.382812 7.875 0 7.49219 0 7C0 6.75391 0.0820312 6.53516 0.273438 6.34375L7.27344 0.246094C7.46484 0.0546875 7.68359 0 7.875 0C8.06641 0 8.28516 0.0820312 8.44922 0.21875L15.4219 6.34375C15.6406 6.53516 15.75 6.75391 15.7227 7Z" fill="white" />
+                        </svg>
+                    </div>
+                    <div class="col-span-3">
+                        <a href="{{ route('admin.dashboard') }}" class="block py-2.5 px-4  @if(request()->routeIs('admin.dashboard')) bg-gray-700 @endif">
+                            Posts
+                        </a>
+                    </div>
+                </div>
                     </summary>
 
                     <ul class="pl-6 py-2">
