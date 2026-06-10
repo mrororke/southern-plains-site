@@ -68,23 +68,13 @@
                     <ul class="pl-6 py-2">
                         <li>
                             <a href="#" class="block py-2 text-white hover:text-primary">
-                                All Posts
+                                Clients
                             </a>
                         </li>
-                        <li>
-                            <a href="#" class="block py-2 hover:text-primary">
-                                Create Post
-                            </a>
-                        </li>
+                        
                     </ul>
                 </details>
 
-
-
-
-                <a href="{{ route('admin.dashboard') }}" class="block py-2.5 px-4 transition duration-200 hover:bg-gray-500 @if(request()->routeIs('admin.dashboard')) bg-gray-700 @endif">
-                    Dashboard
-                </a>
 
 
 
