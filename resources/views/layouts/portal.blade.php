@@ -52,8 +52,10 @@
                 {{-- Add more links here later (e.g., Categories, Tags, Users) --}}
                 <details class="group">
                     <summary class="block py-2.5 px-4 cursor-pointer hover:bg-gray-500">
+                        <div class="grid grid-cols-2 gap-4">
                         <div>Icon</div>
                         <div>Posts</div>
+</div>
                     </summary>
 
                     <ul class="pl-6 py-2">
