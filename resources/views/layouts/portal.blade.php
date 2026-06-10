@@ -35,7 +35,7 @@
 
 
             <nav class="flex-1 pt-8 space-y-2">
-                <div class="flex middle-align justify-left items-center transition duration-200 uppercase text-sm hover:bg-gray-700 p-4" style="padding: 10px 0 10px 10px; border-top: 1px solid #ffffff; border-bottom:1px solid #ffffff; margin-bottom: 0 !important;">
+                <div class="flex middle-align justify-left items-center transition duration-200 uppercase text-sm hover:bg-gray-700 p-4 border-t border-b border-white" style="padding: 10px 0 10px 10px; margin-bottom: 0 !important;">
 
 
                     <a href="{{ route('admin.dashboard') }}" class="block py-2.5 px-4  @if(request()->routeIs('admin.dashboard')) bg-gray-700 @endif">
