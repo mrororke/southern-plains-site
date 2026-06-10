@@ -31,15 +31,7 @@
 
 
             <nav class="flex-1 p-4 space-y-2">
-      <div class="dropdown dropdown-start w-full">
-        <div tabindex="0" role="button" class="block py-2.5 px-4 transition duration-200 hover:bg-gray-500 @if(request()->routeIs('admin.dashboard')) bg-gray-700 @endif">Dropdown</div>
-        <ul
-          tabindex="-1"
-          class="menu dropdown-content bg-base-200 rounded-box z-1 mt-4 w-52 p-2 shadow-sm">
-          <li><a>Item 1</a></li>
-          <li><a>Item 2</a></li>
-        </ul>
-      </div>
+      
                 <a href="{{ route('admin.dashboard') }}" class="block py-2.5 px-4 transition duration-200 hover:bg-gray-500 @if(request()->routeIs('admin.dashboard')) bg-gray-700 @endif">
                     Dashboard
                 </a>
