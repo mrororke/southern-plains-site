@@ -28,7 +28,7 @@
                 </a>
                 
             </div>
-            <div class="italic text-sm pt-4">
+            <div class="italic text-sm pt-4 mx-auto">
                     {{ Auth::user()->name }}
                 </div>
 
