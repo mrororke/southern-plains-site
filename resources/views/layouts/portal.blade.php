@@ -28,6 +28,9 @@
                 </a>
             </div>
 
+            <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
             <nav class="flex-1 p-4 space-y-2">
                 <a class="btn btn-ghost rounded-field">Button</a>
       <div class="dropdown dropdown-end">
