@@ -67,7 +67,7 @@
 
                     <ul class="py-4">
                         <li>
-                            <a href="#" class="block py-2 text-white hover:text-primary text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 20px 50px;">
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 20px 50px;">
                                 Clients
                             </a>
                         </li>
