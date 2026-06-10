@@ -55,7 +55,7 @@
 
                     <ul>
                         <li>
-                            <a href="{{ route('admin.posts.index') }}"  class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 10px 50px; @if(request()->routeIs('admin.posts.*')) bg-gray-700 @endif">
+                            <a href="{{ route('admin.posts.index') }}" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 10px 50px; @if(request()->routeIs('admin.posts.*')) bg-gray-700 @endif">
                                 Posts
                             </a>
                         </li>
@@ -107,14 +107,208 @@
                     </ul>
                 </details>
 
+                <details class="group" style="margin-top: 0 !important;">
+                    <summary class="block cursor-pointer hover:bg-gray-500">
+                        <div class="flex middle-align justify-left items-center transition duration-200 uppercase text-sm hover:bg-gray-700 p-4 border-b border-white" style="padding: 10px 0 10px 10px;">
+
+                            <a href="{{ route('admin.dashboard') }}" class="block py-2.5 px-4  @if(request()->routeIs('admin.dashboard')) bg-gray-700 @endif">
+                                League
+                            </a>
+                        </div>
+                    </summary>
+
+                    <ul>
+                        <li>
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
+                                Seasons
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
+                                Competitors
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
+                                Scores
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
+                                Rankings
+                            </a>
+                        </li>
+
+                    </ul>
+                </details>
+
+                <details class="group" style="margin-top: 0 !important;">
+                    <summary class="block cursor-pointer hover:bg-gray-500">
+                        <div class="flex middle-align justify-left items-center transition duration-200 uppercase text-sm hover:bg-gray-700 p-4 border-b border-white" style="padding: 10px 0 10px 10px;">
+
+                            <a href="{{ route('admin.dashboard') }}" class="block py-2.5 px-4  @if(request()->routeIs('admin.dashboard')) bg-gray-700 @endif">
+                                Events
+                            </a>
+                        </div>
+                    </summary>
+
+                    <ul>
+                        <li>
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
+                                Events
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
+                                Calendar
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
+                                Registrations
+                            </a>
+                        </li>
 
 
+                    </ul>
+                </details>
 
-                <a href="{{ route('admin.rats.index') }}" class="block py-2.5 px-4  transition duration-200 hover:bg-gray-500 @if(request()->routeIs('admin.rats.*')) bg-gray-700 @endif">
-                    Rat Management
-                </a>
+                <details class="group" style="margin-top: 0 !important;">
+                    <summary class="block cursor-pointer hover:bg-gray-500">
+                        <div class="flex middle-align justify-left items-center transition duration-200 uppercase text-sm hover:bg-gray-700 p-4 border-b border-white" style="padding: 10px 0 10px 10px;">
 
-                {{-- Add more links here later (e.g., Categories, Tags, Users) --}}
+                            <a href="{{ route('admin.dashboard') }}" class="block py-2.5 px-4  @if(request()->routeIs('admin.dashboard')) bg-gray-700 @endif">
+                                CRM
+                            </a>
+                        </div>
+                    </summary>
+
+                    <ul>
+                        <li>
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
+                                Clients
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
+                                Dogs
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
+                                History Forms
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
+                                Evaluations
+                            </a>
+                        </li>
+
+                    </ul>
+                </details>
+
+                <details class="group" style="margin-top: 0 !important;">
+                    <summary class="block cursor-pointer hover:bg-gray-500">
+                        <div class="flex middle-align justify-left items-center transition duration-200 uppercase text-sm hover:bg-gray-700 p-4 border-b border-white" style="padding: 10px 0 10px 10px;">
+
+                            <a href="{{ route('admin.dashboard') }}" class="block py-2.5 px-4  @if(request()->routeIs('admin.dashboard')) bg-gray-700 @endif">
+                                Learning
+                            </a>
+                        </div>
+                    </summary>
+
+                    <ul>
+                        <li>
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
+                                Courses
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
+                                Lessons
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
+                                Resources
+                            </a>
+                        </li>
+                    </ul>
+                </details>
+
+                <details class="group" style="margin-top: 0 !important;">
+                    <summary class="block cursor-pointer hover:bg-gray-500">
+                        <div class="flex middle-align justify-left items-center transition duration-200 uppercase text-sm hover:bg-gray-700 p-4 border-b border-white" style="padding: 10px 0 10px 10px;">
+
+                            <a href="{{ route('admin.dashboard') }}" class="block py-2.5 px-4  @if(request()->routeIs('admin.dashboard')) bg-gray-700 @endif">
+                                Rats
+                            </a>
+                        </div>
+                    </summary>
+
+                    <ul>
+                        <li>
+                            <a href="{{ route('admin.rats.index') }}" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white @if(request()->routeIs('admin.rats.*')) bg-gray-700 @endif" style="padding: 10px 0 10px 50px;">
+                                Rats
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
+                                Litters
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
+                                Pedigrees
+                            </a>
+                        </li>
+
+                    </ul>
+                </details>
+
+                <details class="group" style="margin-top: 0 !important;">
+                    <summary class="block cursor-pointer hover:bg-gray-500">
+                        <div class="flex middle-align justify-left items-center transition duration-200 uppercase text-sm hover:bg-gray-700 p-4 border-b border-white" style="padding: 10px 0 10px 10px;">
+
+                            <a href="{{ route('admin.dashboard') }}" class="block py-2.5 px-4  @if(request()->routeIs('admin.dashboard')) bg-gray-700 @endif">
+                                Administration
+                            </a>
+                        </div>
+                    </summary>
+
+                    <ul>
+                        <li>
+                            <a href="{{ route('admin.rats.index') }}" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white @if(request()->routeIs('admin.rats.*')) bg-gray-700 @endif" style="padding: 10px 0 10px 50px;">
+                                Users
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
+                                Roles
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
+                                Permissions
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
+                                Settings
+                            </a>
+                        </li>
+
+                    </ul>
+                </details>
+
+
 
 
             </nav>
