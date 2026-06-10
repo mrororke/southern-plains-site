@@ -45,7 +45,7 @@
 
                 <details class="group" style="margin-top: 0 !important;">
                     <summary class="block cursor-pointer hover:bg-gray-500">
-                        <div class="flex middle-align justify-left items-center transition duration-200 uppercase text-sm hover:bg-gray-700 p-4" style="padding: 10px 0 10px 10px;  border-bottom:1px solid #ffffff;">
+                        <div class="flex middle-align justify-left items-center transition duration-200 uppercase text-sm hover:bg-gray-700 p-4 border-b border-white" style="padding: 10px 0 10px 10px;">
 
                             <a href="{{ route('admin.dashboard') }}" class="block py-2.5 px-4  @if(request()->routeIs('admin.dashboard')) bg-gray-700 @endif">
                                 Content
@@ -60,12 +60,12 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 10px 50px;">
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
                                 Categories
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 10px 50px;">
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
                                 Tags
                             </a>
                         </li>
@@ -74,7 +74,7 @@
 
                 <details class="group" style="margin-top: 0 !important;">
                     <summary class="block cursor-pointer hover:bg-gray-500">
-                        <div class="flex middle-align justify-left items-center transition duration-200 uppercase text-sm hover:bg-gray-700 p-4" style="padding: 10px 0 10px 10px;  border-bottom:1px solid #ffffff;">
+                        <div class="flex middle-align justify-left items-center transition duration-200 uppercase text-sm hover:bg-gray-700 p-4 border-b border-white" style="padding: 10px 0 10px 10px;">
 
                             <a href="{{ route('admin.dashboard') }}" class="block py-2.5 px-4  @if(request()->routeIs('admin.dashboard')) bg-gray-700 @endif">
                                 Training
@@ -84,22 +84,22 @@
 
                     <ul>
                         <li>
-                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 10px 50px;">
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
                                 Programs
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 10px 50px;">
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
                                 Classes
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 10px 50px;">
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
                                 Workshops
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 10px 50px;">
+                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase border-b border-white" style="padding: 10px 0 10px 50px;">
                                 Private Training
                             </a>
                         </li>
