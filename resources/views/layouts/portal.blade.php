@@ -31,7 +31,7 @@
 
 
             <nav class="flex-1 p-4 space-y-2">
-      
+
                 <a href="{{ route('admin.dashboard') }}" class="block py-2.5 px-4 transition duration-200 hover:bg-gray-500 @if(request()->routeIs('admin.dashboard')) bg-gray-700 @endif">
                     Dashboard
                 </a>
@@ -46,6 +46,24 @@
                 </a>
 
                 {{-- Add more links here later (e.g., Categories, Tags, Users) --}}
+                <details class="group">
+                    <summary class="block py-2.5 px-4 cursor-pointer hover:bg-gray-500">
+                        Posts
+                    </summary>
+
+                    <ul class="pl-6 py-2">
+                        <li>
+                            <a href="#" class="block py-2 text-white hover:text-primary">
+                                All Posts
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="block py-2 hover:text-primary">
+                                Create Post
+                            </a>
+                        </li>
+                    </ul>
+                </details>
 
             </nav>
 
