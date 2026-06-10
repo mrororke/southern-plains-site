@@ -66,7 +66,7 @@
 
                 {{-- Add more links here later (e.g., Categories, Tags, Users) --}}
                 <details class="group">
-                    <summary class="block py-2.5 px-4 cursor-pointer hover:bg-gray-500">
+                    <summary class="block cursor-pointer hover:bg-gray-500">
                         <div class="flex middle-align justify-left items-center transition duration-200 uppercase text-sm hover:bg-gray-700 p-4" style="padding: 10px 0 10px 10px; border-top: 1px solid #ffffff; border-bottom:1px solid #ffffff;">
                     <div>
                         <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
