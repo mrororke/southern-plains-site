@@ -48,7 +48,7 @@
                         <div class="flex middle-align justify-left items-center transition duration-200 uppercase text-sm hover:bg-gray-700 p-4" style="padding: 10px 0 10px 10px;  border-bottom:1px solid #ffffff;">
 
                             <a href="{{ route('admin.dashboard') }}" class="block py-2.5 px-4  @if(request()->routeIs('admin.dashboard')) bg-gray-700 @endif">
-                                People
+                                Content
                             </a>
                         </div>
                     </summary>
@@ -56,32 +56,17 @@
                     <ul>
                         <li>
                             <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 10px 50px;">
-                                Clients
+                                Posts
                             </a>
                         </li>
                         <li>
                             <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 10px 50px;">
-                                Contacts
+                                Categories
                             </a>
                         </li>
                         <li>
                             <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 10px 50px;">
-                                Inquiries
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 10px 50px;">
-                                Members
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 10px 50px;">
-                                Volunteers
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 10px 50px;">
-                                Add a person
+                                Tags
                             </a>
                         </li>
                     </ul>
@@ -92,7 +77,7 @@
                         <div class="flex middle-align justify-left items-center transition duration-200 uppercase text-sm hover:bg-gray-700 p-4" style="padding: 10px 0 10px 10px;  border-bottom:1px solid #ffffff;">
 
                             <a href="{{ route('admin.dashboard') }}" class="block py-2.5 px-4  @if(request()->routeIs('admin.dashboard')) bg-gray-700 @endif">
-                                Dogs
+                                Training
                             </a>
                         </div>
                     </summary>
@@ -100,30 +85,25 @@
                     <ul>
                         <li>
                             <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 10px 50px;">
-                                In Training
+                                Programs
                             </a>
                         </li>
                         <li>
                             <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 10px 50px;">
-                                League
+                                Classes
                             </a>
                         </li>
                         <li>
                             <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 10px 50px;">
-                                Evaluations
+                                Workshops
                             </a>
                         </li>
                         <li>
                             <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 10px 50px;">
-                                Achievements
+                                Private Training
                             </a>
                         </li>
-                        <li>
-                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 10px 50px;">
-                                Add a New Dog
-                            </a>
-                        </li>
-
+                        
 
                     </ul>
                 </details>
