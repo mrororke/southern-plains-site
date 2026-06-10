@@ -48,7 +48,7 @@
                     </div>
                 </div>
 
-                <details class="group">
+                <details class="group" style="margin-top: 0 !important;">
                     <summary class="block cursor-pointer hover:bg-gray-500">
                         <div class="flex middle-align justify-left items-center transition duration-200 uppercase text-sm hover:bg-gray-700 p-4" style="padding: 10px 0 10px 10px;  border-bottom:1px solid #ffffff;">
                             <div>
