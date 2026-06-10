@@ -17,14 +17,12 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js"></script>
 </head>
 
-<input type="checkbox" id="sidebar-toggle" class="hidden peer">
 
 <body class="bg-gray-100 font-sans antialiased">
 
     <div class="flex h-screen">
 
-        <aside class="w-64 bg-[#71717A] text-white flex flex-col transition-transform duration-300
-           peer-checked:-translate-x-full" style="background-color: #71717A;">
+        <aside class="w-64 bg-[#71717A] text-white flex flex-col" style="background-color: #71717A;">
             <div class="text-black lg:text-white mx-auto pt-4">
                 <a href="/admin/dashboard">
                     <x-application-logo class="w-20 h-20 fill-current" />
@@ -328,9 +326,7 @@
 
         <main class="flex-1 overflow-y-auto">
             <header class="bg-white shadow p-4 flex justify-between items-center">
-                <label for="sidebar-toggle" class="btn btn-sm">
-    ☰
-</label>
+               
                 <h2 class="text-xl font-semibold text-gray-800">@yield('page_title', 'Dashboard')</h2>
                 <span class="text-gray-600">Welcome, {{ Auth::user()->name }}</span>
             </header>
