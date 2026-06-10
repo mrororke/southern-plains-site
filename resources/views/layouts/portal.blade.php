@@ -26,10 +26,11 @@
                 <a href="/admin/dashboard">
                     <x-application-logo class="w-20 h-20 fill-current" />
                 </a>
-                <div class="">
+                
+            </div>
+            <div class="italic text-sm">
                     Welcome back, {{ Auth::user()->name }}
                 </div>
-            </div>
 
 
 
