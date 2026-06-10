@@ -23,9 +23,8 @@
 
     <div class="flex h-screen">
 
-        <aside class="w-64 bg-[#71717A] text-white flex flex-col transition-all duration-300
-           peer-checked:w-0
-           overflow-hidden" style="background-color: #71717A;">
+        <aside class="w-64 bg-[#71717A] text-white flex flex-col transition-transform duration-300
+           peer-checked:-translate-x-full" style="background-color: #71717A;">
             <div class="text-black lg:text-white mx-auto pt-4">
                 <a href="/admin/dashboard">
                     <x-application-logo class="w-20 h-20 fill-current" />
