@@ -28,8 +28,8 @@
                 </a>
                 
             </div>
-            <div class="italic text-sm">
-                    Welcome back, {{ Auth::user()->name }}
+            <div class="italic text-sm pt-4">
+                    {{ Auth::user()->name }}
                 </div>
 
 
@@ -84,7 +84,7 @@
         <main class="flex-1 overflow-y-auto">
             <header class="bg-white shadow p-4 flex justify-between items-center">
                 <h2 class="text-xl font-semibold text-gray-800">@yield('page_title', 'Dashboard')</h2>
-                <span class="text-gray-600">Welcome, {{ Auth::user()->firstName }}</span>
+                <span class="text-gray-600">Welcome, {{ Auth::user()->name }}</span>
             </header>
 
             <div class="p-6">
