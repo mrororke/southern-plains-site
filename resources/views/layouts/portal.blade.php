@@ -55,7 +55,7 @@
 
                     <ul>
                         <li>
-                            <a href="#" class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 10px 50px;">
+                            <a href="{{ route('admin.posts.index') }}"  class="block py-2 text-white  hover:bg-gray-700 text-sm uppercase" style="border-bottom: 1px solid #ffffff; padding: 10px 0 10px 50px; @if(request()->routeIs('admin.posts.*')) bg-gray-700 @endif">
                                 Posts
                             </a>
                         </li>
@@ -103,7 +103,6 @@
                                 Private Training
                             </a>
                         </li>
-                        
 
                     </ul>
                 </details>
