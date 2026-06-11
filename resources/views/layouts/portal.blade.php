@@ -334,7 +334,7 @@
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
-        stroke-width="1.5"
+        stroke-width="2"
         stroke="#71717A">
         <path
             stroke-linecap="round"
@@ -345,10 +345,10 @@
 
     <!-- Input -->
     <input
-        type="email"
-        id="email"
-        placeholder="you@example.com"
-        class="w-full border border-gray-300  py-2 px-3 text-gray-900 placeholder-gray-600 focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600"
+        type="search"
+        id="search"
+        placeholder="Search for anything..."
+        class="w-full  py-2 px-3 text-gray-900 placeholder-gray-900 focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600"
     />
 
 </div>
