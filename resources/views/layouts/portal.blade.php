@@ -326,20 +326,20 @@
         <main class="flex-1 overflow-y-auto">
             <header class="bg-white shadow p-4 flex justify-between items-center">
                <div class="relative w-80">
-    
+
     <!-- Icon -->
-    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+    <div class="absolute left-0 top-0 h-full flex items-center pl-3 text-gray-400 pointer-events-none">
         X
     </div>
 
     <!-- Input -->
     <input
         type="email"
-        name="email"
         id="email"
-        class="block w-full rounded-md border-0 py-2 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        class="block w-full border border-gray-300 rounded-md py-2 pl-12 pr-3 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600"
         placeholder="you@example.com"
     />
+
 </div>
                
                 <h2 class="text-xl font-semibold text-gray-800">
