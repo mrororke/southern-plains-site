@@ -325,37 +325,22 @@
 
         <main class="flex-1 overflow-y-auto">
             <header class="bg-white shadow p-4 flex justify-between items-center">
-                <!-- Input Container -->
-  <div class="relative rounded-md shadow-sm w-80">
-    <!-- Leading Icon Container -->
-    <!-- <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-    <svg
-        class="h-5 w-5"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke-width="1.5"
-        stroke="currentColor">
-        <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="m21 21-4.35-4.35m0 0A7.5 7.5 0 1 0 6.15 6.15a7.5 7.5 0 0 0 10.5 10.5Z" />
-    </svg>
-</div> -->
-
-<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-    X
-</div>
+               <div class="relative w-80">
     
-    <!-- Input Field -->
+    <!-- Icon -->
+    <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-gray-400">
+        X
+    </div>
+
+    <!-- Input -->
     <input
-      type="email"
-      name="email"
-      id="email"
-      class="block w-full rounded-md border-0 py-2 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-      placeholder="you@example.com"
+        type="email"
+        name="email"
+        id="email"
+        class="block w-full rounded-md border-0 py-2 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        placeholder="you@example.com"
     />
-  </div>
+</div>
                
                 <h2 class="text-xl font-semibold text-gray-800">
                     @yield('page_title', 'Dashboard')</h2>
