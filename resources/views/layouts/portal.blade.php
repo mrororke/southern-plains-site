@@ -328,7 +328,7 @@
                 <!-- Input Container -->
   <div class="relative rounded-md shadow-sm">
     <!-- Leading Icon Container -->
-    <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
+    <!-- <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
     <svg
         class="h-5 w-5"
         xmlns="http://www.w3.org/2000/svg"
@@ -341,6 +341,10 @@
             stroke-linejoin="round"
             d="m21 21-4.35-4.35m0 0A7.5 7.5 0 1 0 6.15 6.15a7.5 7.5 0 0 0 10.5 10.5Z" />
     </svg>
+</div> -->
+
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+    X
 </div>
     
     <!-- Input Field -->
