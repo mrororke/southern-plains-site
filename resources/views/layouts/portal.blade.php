@@ -328,8 +328,19 @@
                <div class="flex w-80 items-stretch">
 
     <!-- Icon OUTSIDE input -->
-    <div class="flex items-center px-3 border border-gray-300 border-r-0 rounded-l-md bg-white text-gray-400">
-        X
+    <div class="flex items-center px-3 text-gray-400">
+        <svg
+        class="h-5 w-5"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="#71717A">
+        <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m21 21-4.35-4.35m0 0A7.5 7.5 0 1 0 6.15 6.15a7.5 7.5 0 0 0 10.5 10.5Z" />
+    </svg>
     </div>
 
     <!-- Input -->
@@ -337,7 +348,7 @@
         type="email"
         id="email"
         placeholder="you@example.com"
-        class="w-full border border-gray-300 rounded-r-md py-2 px-3 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600"
+        class="w-full border border-gray-300  py-2 px-3 text-gray-900 placeholder-gray-600 focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600"
     />
 
 </div>
