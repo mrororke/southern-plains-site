@@ -8,17 +8,7 @@ $age = $rat->dob
 @endphp
 
 <div class="bg-white shadow border p-6 mb-6 items-end">
-    <pre>
-Selected Image:
-ID: {{ $primaryImage?->id }}
-Path: {{ $primaryImage?->file_path }}
-Created: {{ $primaryImage?->created_at }}
-
-All Attachments:
-@foreach($rat->attachments->sortByDesc('created_at') as $attachment)
-{{ $attachment->id }} | {{ $attachment->file_path }} | {{ $attachment->created_at }}
-@endforeach
-</pre>
+   
 
     <h1 class="font-bold text-xl mb-4">
         @if($rat->registered_name)
