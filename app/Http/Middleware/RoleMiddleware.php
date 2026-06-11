@@ -18,11 +18,11 @@ class RoleMiddleware
         $user = $request->user();
 
         if (!$user){
-            abort(403, 'Unauthenticated');
+            return redirect()->route('login');
         }
 
         if (!$user->roles()->where('slug', $role)->exists()){
-            abort(403,'Unautorised');
+            abort(403,'Unauthorized');
         }
 
         return $next($request);
