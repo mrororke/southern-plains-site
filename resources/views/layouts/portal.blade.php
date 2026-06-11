@@ -326,7 +326,7 @@
         <main class="flex-1 overflow-y-auto">
             <header class="bg-white shadow p-4 flex justify-between items-center">
                 <!-- Input Container -->
-  <div class="relative rounded-md shadow-sm">
+  <div class="relative rounded-md shadow-sm w-80">
     <!-- Leading Icon Container -->
     <!-- <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
     <svg
