@@ -336,7 +336,7 @@
     <input
         type="email"
         id="email"
-        class="block w-full border border-gray-300 rounded-md py-2 pl-12 pr-3 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 bg-red-100"
+        class="block w-full border border-gray-300 rounded-md py-2 pl-8 pr-3 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-indigo-600 focus:border-indigo-600 bg-red-100"
         placeholder="you@example.com"
     />
 
