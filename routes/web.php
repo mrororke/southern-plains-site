@@ -76,10 +76,10 @@ Route::prefix('contact')->name('contact.')->group(function (){
 */
 
 Route::prefix('forms')->name('forms.')->group(function (){
-    Route::get('/history', [HistoryFormController::class, 'create'])->name('history.create');
-    Route::post('/history', [HistoryFormController::class, 'store'])->name('history.store');
-    Route::get('/trick-evaluation', [TrickEvaluationController::class, 'create'])->name('trick.create');
-    Route::post('/trick-evaluation', [TrickEvaluationController::class, 'store'])->name('trick.store');
+    Route::get('/history', [HistoryFormController::class, 'create'])->name('emails.history.create');
+    Route::post('/history', [HistoryFormController::class, 'store'])->name('emails.history.store');
+    Route::get('/trick-evaluation', [TrickEvaluationController::class, 'create'])->name('emails.trick.create');
+    Route::post('/trick-evaluation', [TrickEvaluationController::class, 'store'])->name('emails.trick.store');
 
 });
 
