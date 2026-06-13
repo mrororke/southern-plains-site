@@ -2,7 +2,7 @@
 
     {{-- Home Link: Uses 'welcome' or 'home' route --}}
     @php $isHome = request()->routeIs('welcome') || request()->routeIs('home'); @endphp
-    <a href="{{ route('welcome') }}"
+    <a href="{{ route('home') }}"
         class="px-3 py-2 text-sm font-medium uppercase hover:text-training 
        {{-- 💡 APPLY CUSTOM ACTIVE CLASSES --}}
        {{ $isHome ? 'text-training-active border-b-3 border-training-active' : 'text-black' }}">
