@@ -84,27 +84,30 @@ class RatController extends Controller
     }
 
     public function store(StoreRatRequest $request)
-    {
-        $rat = Rat::create([
-            ...$request->validated(),
-            'is_owned' => $request->boolean('is_owned'),
-            'is_pedigree_only' => $request->boolean('is_pedigree_only'),
-        ]);
+{
+    $rat = Rat::create([
+        ...collect($request->validated())
+            ->except(['colors', 'markings'])
+            ->toArray(),
 
-        $rat->colors()->sync($request->colors);
-        $rat->markings()->sync($request->markings);
+        'is_owned' => $request->boolean('is_owned'),
+        'is_pedigree_only' => $request->boolean('is_pedigree_only'),
+    ]);
 
-        app(AuditService::class)->log(
-            'rat.created',
-            $rat,
-            null,
-            $rat->toArray()
-        );
+    $rat->colors()->sync($request->colors);
+    $rat->markings()->sync($request->markings);
 
-        return redirect()
-            ->route('admin.rats.index')
-            ->with('success', 'Rat created successfully.');
-    }
+    app(AuditService::class)->log(
+        'rat.created',
+        $rat,
+        null,
+        $rat->fresh()->toArray()
+    );
+
+    return redirect()
+        ->route('admin.rats.index')
+        ->with('success', 'Rat created successfully.');
+}
 
     public function update(UpdateRatRequest $request, Rat $rat)
     {
