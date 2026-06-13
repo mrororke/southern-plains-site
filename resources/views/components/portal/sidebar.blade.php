@@ -17,14 +17,28 @@
             :active="request()->routeIs('admin.dashboard')"
         />
 
+        <x-portal.sidebar-link 
+            label="Posts"
+            route="admin.posts.index"
+            :active="requst()->routeIs('admin.posts.*')"
+            nested
+        />
+            <x-portal.sidebar-link
+                label="Categories"
+                route="#"
+                nested
+            />
 
-         <div class="flex middle-align justify-left items-center transition duration-200 uppercase text-sm hover:bg-gray-700 p-4 border-t border-b border-white" style="padding: 10px 0 10px 10px; margin-bottom: 0 !important;">
+            <x-portal.sidebar-link
+                label="Tags"
+                route="#"
+                nested
+            />
+
+        </x-portal.sidebar-section>
 
 
-             <a href="{{ route('admin.dashboard') }}" class="block py-2.5 px-4  @if(request()->routeIs('admin.dashboard')) bg-gray-700 @endif">
-                 Dashboard
-             </a>
-         </div>
+         
 
          <details class="group" style="margin-top: 0 !important;">
              <summary class="block cursor-pointer hover:bg-gray-500">
