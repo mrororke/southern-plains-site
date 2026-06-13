@@ -9,13 +9,13 @@
 @if($topLevel)
 
     <div
-        class="border-t border-b border-white"
-        style="padding: 10px 0 10px 26px;"
+        class="border-t border-b border-white block text-white uppercase text-sm hover:bg-gray-700"
+        style="padding: 10px 0 10px 26px; margin: 0 !important;"
     >
         <a
             href="{{ $route }}"
             @class([
-                'block text-white uppercase text-sm hover:bg-gray-700',
+                '',
                 'bg-gray-700' => $active,
             ])
         >
