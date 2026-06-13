@@ -149,7 +149,7 @@
             <p class="text-sm text-black mb-3">
                 Our private coaching provides personalized instruction tailored to your specific goals, whether you are looking to sharpen advanced sport techniques or build a more reliable foundation for daily life. We offer focused coaching sessions and flexible scheduling designed to work specifically around your unique training environment, helping you and your teammate progress at your own pace.
             </p>
-            <a href="{{ route('emails.history.create') }}"
+            <a href="{{ route('forms.history.create') }}"
                 class="block w-full text-center bg-training text-white py-3 font-bold uppercase tracking-wider 
                   hover:bg-training-blue-hover focus:outline-none focus:ring-4 focus:ring-training focus:ring-opacity-50 transition duration-150">
                 Schedule Your Free 15 Minute Intro Call
@@ -169,7 +169,7 @@
                 Earn recognized Trick Dog titles! Evaluations are available both <strong>online</strong> (via YouTube playlist submission) and <strong>in person</strong> (max ten tricks per title). Payment is only requested after a successful evaluation.
             </p>
             <p class="text-sm font-bold text-black">Cost: $10 per Title</p>
-            <a href="{{ route('emails.trickevaluation.create') }}" class="mt-2 inline-block text-training-blue-default font-semibold text-sm hover:underline">
+            <a href="{{ route('forms.trickevaluation.create') }}" class="mt-2 inline-block text-training-blue-default font-semibold text-sm hover:underline">
                 Submit Evaluation Request
             </a>
         </div>
