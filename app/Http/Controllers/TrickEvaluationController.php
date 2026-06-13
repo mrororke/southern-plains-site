@@ -57,7 +57,7 @@ class TrickEvaluationController extends Controller
 
             // Payment & Totals
             'payment_method'     => 'required|in:Apple Pay,Venmo,PayPal',
-            'total_fee'          => 'required|numeric',
+            'total_fee'          => 'required|numeric|min:0|decimal:0,2',
         ]);
 
         try {

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\AuditService;
+
 use App\Models\Rat;
 use App\Models\RatBreeder;
 use App\Models\RatColor;
@@ -37,8 +39,14 @@ class RatController extends Controller
     {
         return view('admin.rats.create', [
             'breeders' => RatBreeder::all(),
-            'sires' => Rat::where('sex', 'Male')->orderBy('name')->get(),
-            'dams' => Rat::where('sex', 'Female')->orderBy('name')->get(),
+            'sires' => Rat::where('sex', 'Male')
+                ->orderBy('name')
+                ->get(),
+
+            'dams' => Rat::where('sex', 'Female')
+                ->orderBy('name')
+                ->get(),
+
             'sexes' => Rat::sexes(),
             'varieties' => Rat::varieties(),
             'colors' => RatColor::all(),
@@ -50,27 +58,30 @@ class RatController extends Controller
     }
 
     public function edit(Rat $rat)
-{
-    return view('admin.rats.edit', [
-        'rat' => $rat,
-        'breeders' => RatBreeder::all(),
-        'sires' => Rat::where('sex', 'Male')
-            ->where('id', '!=', $rat->id)
-            ->orderBy('name')
-            ->get(),
-        'dams' => Rat::where('sex', 'Female')
-            ->where('id', '!=', $rat->id)
-            ->orderBy('name')
-            ->get(),
-        'sexes' => Rat::sexes(),
-        'varieties' => Rat::varieties(),
-        'colors' => RatColor::all(),
-        'silvered' => Rat::silveredOptions(),
-        'markings' => RatMarking::all(),
-        'eyeColors' => Rat::eyeColors(),
-        'earSets' => Rat::earSets(),
-    ]);
-}
+    {
+        return view('admin.rats.edit', [
+            'rat' => $rat,
+            'breeders' => RatBreeder::all(),
+
+            'sires' => Rat::where('sex', 'Male')
+                ->where('id', '!=', $rat->id)
+                ->orderBy('name')
+                ->get(),
+
+            'dams' => Rat::where('sex', 'Female')
+                ->where('id', '!=', $rat->id)
+                ->orderBy('name')
+                ->get(),
+
+            'sexes' => Rat::sexes(),
+            'varieties' => Rat::varieties(),
+            'colors' => RatColor::all(),
+            'silvered' => Rat::silveredOptions(),
+            'markings' => RatMarking::all(),
+            'eyeColors' => Rat::eyeColors(),
+            'earSets' => Rat::earSets(),
+        ]);
+    }
 
     public function store(StoreRatRequest $request)
     {
@@ -83,6 +94,13 @@ class RatController extends Controller
         $rat->colors()->sync($request->colors);
         $rat->markings()->sync($request->markings);
 
+        app(AuditService::class)->log(
+            'rat.created',
+            $rat,
+            null,
+            $rat->toArray()
+        );
+
         return redirect()
             ->route('admin.rats.index')
             ->with('success', 'Rat created successfully.');
@@ -90,14 +108,25 @@ class RatController extends Controller
 
     public function update(UpdateRatRequest $request, Rat $rat)
     {
+        $old = $rat->getOriginal();
+
         $rat->update([
-            ...collect($request->validated())->except(['colors', 'markings'])->toArray(),
+            ...collect($request->validated())
+                ->except(['colors', 'markings'])
+                ->toArray(),
             'is_owned' => $request->boolean('is_owned'),
             'is_pedigree_only' => $request->boolean('is_pedigree_only'),
         ]);
 
         $rat->colors()->sync($request->colors);
         $rat->markings()->sync($request->markings);
+
+        app(AuditService::class)->log(
+            'rat.updated',
+            $rat,
+            $old,
+            $rat->fresh()->toArray()
+        );
 
         return redirect()
             ->route('admin.rats.index')
@@ -131,6 +160,15 @@ class RatController extends Controller
 
     public function destroy(Rat $rat)
     {
+        $old = $rat->toArray();
+
+        app(AuditService::class)->log(
+            'rat.deleted',
+            $rat,
+            $old,
+            null
+        );
+
         $rat->delete();
 
         return redirect()
