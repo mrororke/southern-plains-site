@@ -353,9 +353,7 @@
 
 </div>
                
-                <h2 class="text-xl font-semibold text-gray-800">
-                    @yield('page_title', 'Dashboard')</h2>
-                <span class="text-gray-600">Welcome, {{ Auth::user()->name }}</span>
+                
             </header>
 
             <div class="p-6">
