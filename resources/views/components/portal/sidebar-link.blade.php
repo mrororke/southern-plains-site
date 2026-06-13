@@ -3,13 +3,13 @@
 'route',
 'active' => false,
 'nested' => false,
-'topLevel' => false.
+'topLevel' => false,
 ])
 
 <li>
 
     <a
-        href="{{ $route }}"
+        href="{{ route($route) }}"
         @class([ 'block text-white hover:bg-gray-700 uppercase' , 'bg-gray-700'=> $active,
         'text-sm border-b border-white',
         ])
