@@ -1,10 +1,17 @@
+<?php
+
+namespace App\Services\Blog;
+
+use App\Models\Post;
+use App\Models\Category;
+use App\Models\Tag;
+use App\Services\Blog\PostVisibilityService;
+
 class PostQueryService
 {
     public function index(array $filters = [])
     {
-        $query = Post::query();
-
-        $this->applyVisibility($query);
+        $query = $this->baseQuery();
 
         if (!empty($filters['search'])) {
             $this->applySearch($query, $filters['search']);
@@ -14,15 +21,16 @@ class PostQueryService
             $this->applyCategory($query, $filters['category']);
         }
 
-        return $query->orderByDesc('published_at')
+        return $query
+            ->orderByDesc('published_at')
             ->paginate(15);
     }
 
     public function byCategory(Category $category)
     {
-        $query = $category->posts();
+        $query = $this->baseQuery();
 
-        $this->applyVisibility($query);
+        $query->where('category_id', $category->id);
 
         return $query
             ->latest('published_at')
@@ -31,13 +39,24 @@ class PostQueryService
 
     public function byTag(Tag $tag, int $perPage = 10)
     {
-        $query = $tag->posts();
+        $query = $this->baseQuery();
 
-        $this->applyVisibility($query);
+        $query->whereHas('tags', function ($q) use ($tag) {
+            $q->where('tags.id', $tag->id);
+        });
 
         return $query
             ->latest('published_at')
             ->paginate($perPage);
+    }
+
+    private function baseQuery()
+    {
+        $query = Post::query();
+
+        $this->applyVisibility($query);
+
+        return $query;
     }
 
     private function applyVisibility($query)
