@@ -15,7 +15,8 @@
              label="Dashboard"
              route="admin.dashboard"
              :active="request()->routeIs('admin.dashboard')"
-             nested />
+             top-level
+            />
 
          <x-portal.sidebar-section title="Content">
 

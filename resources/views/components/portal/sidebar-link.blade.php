@@ -3,6 +3,7 @@
     'route',
     'active' => false,
     'nested' => false,
+    'topLevel' => false.
 ])
 
 <li>
@@ -16,7 +17,12 @@
         ])
         style="
             padding:
-            {{ $nested ? '10px 0 10px 50px' : '10px 0 10px 10px' }};
+            {{ $nested 
+            ? '10px 0 10px 50px'
+            : ($topLevel
+            ? '10px 0 10px 26px'
+            : '10px 0 10px 10px')
+         }};
         "
     >
         {{ $label }}
