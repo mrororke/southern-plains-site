@@ -17,7 +17,7 @@
             :active="request()->routeIs('admin.dashboard')"
         />
 
-        <x-porta.sidebar-section title="Content">
+        <x-portal.sidebar-section title="Content">
 
         <x-portal.sidebar-link 
             label="Posts"
