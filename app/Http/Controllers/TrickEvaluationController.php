@@ -9,7 +9,7 @@ class TrickEvaluationController extends Controller
 {
     public function create()
     {
-        return view('emails.trick.create');
+        return view('forms.trick.create');
     }
 
     public function store(
