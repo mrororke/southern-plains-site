@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Services\TrickEvaluation;
+
+use App\Mail\TrickEvaluationMail;
+use Illuminate\Support\Facades\Mail;
+
+class TrickEvaluationService
+{
+    public function submit(array $data): void
+    {
+        Mail::to('southernplainssportdogclub@gmail.com')
+            ->send(new TrickEvaluationMail($data));
+
+        app(\App\Services\AuditService::class)->log(
+            'form.trick_evaluation.submitted',
+            null,
+            null,
+            $data
+        );
+    }
+}
