@@ -5,18 +5,18 @@
          </a>
 
      </div>
-     <div class="italic text-sm pt-4 mx-auto"> s
+     <div class="italic text-sm pt-4 mx-auto">
          {{ Auth::user()->name }}
      </div>
 
      <nav class="flex-1 pt-8 space-y-2">
 
-         <x-portal.sidebar-link
-             label="Dashboard"
-             route="admin.dashboard"
-             :active="request()->routeIs('admin.dashboard')"
-             top-level
-            />
+        <x-portal.sidebar-link
+            label="Dashboard"
+            :route="route('admin.dashboard')"
+            :active="request()->routeIs('admin.dashboard')"
+            top-level
+        />
 
          <x-portal.sidebar-section title="Content">
 
