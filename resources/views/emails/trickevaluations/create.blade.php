@@ -31,7 +31,7 @@
         </div>
         @endif
 
-        <form action="{{ route('emails.trick.store') }}" method="POST" id="trickDogForm" class="space-y-8 py-8">
+        <form action="{{ route('forms.trick.store') }}" method="POST" id="trickDogForm" class="space-y-8 py-8">
             @csrf
             
             <input type="hidden" name="total_fee" id="total_fee_input" value="10">
