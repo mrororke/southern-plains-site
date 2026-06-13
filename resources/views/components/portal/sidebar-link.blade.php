@@ -10,7 +10,7 @@
 
     <div
         class="border-t border-b border-white block text-white uppercase text-sm hover:bg-gray-700"
-        style="padding: 10px 0 10px 26px; margin: 0 !important;"
+        style="padding: 25px 0 25px 26px; margin: 0 !important;"
     >
         <a
             href="{{ $route }}"
