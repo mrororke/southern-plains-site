@@ -1,11 +1,25 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Models\Post;
+use App\Models\Category;
+use App\Models\Tag;
+use App\Services\Blog\BlogSidebarService;
+use App\Services\Blog\PostQueryService;
+use App\Http\Requests\Blog\BlogIndexRequest;
+
+
 class BlogController extends Controller
 {
-    public function index(Request $request, PostQueryService $posts, BlogSidebarService $sidebar)
-    {
-        $allPostsOnPage = $posts->index($request->only([
-            'search',
-            'category'
-        ]));
+    public function index(
+        BlogIndexRequest $request,
+        PostQueryService $posts,
+        BlogSidebarService $sidebar
+    ) {
+        $allPostsOnPage = $posts->index(
+            $request->filters()
+        );
 
         return view('blog.index', array_merge(
             compact('allPostsOnPage'),
@@ -13,22 +27,28 @@ class BlogController extends Controller
         ));
     }
 
-    public function category(Category $category, PostQueryService $posts, BlogSidebarService $sidebar)
-    {
-        $posts = $posts->byCategory($category);
+    public function category(
+        Category $category,
+        PostQueryService $posts,
+        BlogSidebarService $sidebar
+    ) {
+        $categoryPosts = $posts->byCategory($category);
 
         return view('blog.category-index', array_merge(
-            compact('posts', 'category'),
+            compact('categoryPosts', 'category'),
             $sidebar->get()
         ));
     }
 
-    public function tag(Tag $tag, PostQueryService $posts, BlogSidebarService $sidebar)
-    {
-        $posts = $posts->byTag($tag);
+    public function tag(
+        Tag $tag,
+        PostQueryService $posts,
+        BlogSidebarService $sidebar
+    ) {
+        $tagPosts = $posts->byTag($tag);
 
         return view('blog.tag-index', array_merge(
-            compact('posts', 'tag'),
+            compact('tagPosts', 'tag'),
             $sidebar->get()
         ));
     }
