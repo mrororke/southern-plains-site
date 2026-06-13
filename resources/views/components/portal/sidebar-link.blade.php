@@ -33,7 +33,7 @@
                 'bg-gray-700' => $active,
                 'text-sm border-b border-white',
             ])
-            style="padding: {{ $nested ? '10px 0 10px 50px' : '10px 0 10px 10px' }};"
+            style="padding: {{ $nested ? '10px 0 10px 50px' : '10px 0 10px 10px' }}; margin: 0 !important;"
         >
             {{ $label }}
         </a>
