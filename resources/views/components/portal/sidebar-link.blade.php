@@ -9,7 +9,7 @@
 <li>
 
     <a
-        href="{{ route($route) }}"
+        href="{{ $route }}"
         @class([ 'block text-white hover:bg-gray-700 uppercase' , 'bg-gray-700'=> $active,
         'text-sm border-b border-white',
         ])
