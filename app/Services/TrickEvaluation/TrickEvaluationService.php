@@ -10,13 +10,16 @@ class TrickEvaluationService
 {
     public function submit(array $data): void
     {
-        try {
-            Mail::to('southernplainssportdogclub@gmail.com')
-                ->send(new TrickEvaluationMail($data));
-        } catch (\Exception $e) {
-            Log::error('Trick evaluation submission failed: ' . $e->getMessage());
+        // 1. Send email
+        Mail::to('southernplainssportdogclub@gmail.com')
+            ->send(new TrickEvaluationMail($data));
 
-            throw $e;
-        }
+        // 2. Audit log
+        app(\App\Services\AuditService::class)->log(
+            'trick_evaluation.submitted',
+            null,
+            null,
+            $data
+        );
     }
 }
