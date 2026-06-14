@@ -3,7 +3,7 @@
 @section('title', 'Layout Test')
 
 @section('content')
-<div class="grid grid-cols-5 gap-4">
+<div class="grid grid-cols-5 gap-4 pb-4">
     <div class="bg-club p-4 text-center text-white">
             <h1 class="font-heading text-7xl">42</h1>
             <h4 class="uppercase text-xs font-bold">Active Clients</h4>
@@ -30,7 +30,7 @@
 
 </div>
 
-<div class="grid grid-cols-5 gap-4">
+<div class="grid grid-cols-5 gap-4 pt-4">
   <div class="col-span-4 col-start-1">
     <h2 class="font-heading text-4xl">Recent Updates</h2>
   </div>
