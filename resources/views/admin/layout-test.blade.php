@@ -8,13 +8,13 @@
         <div class="border">
             Column One
         </div>
-        div class="border">
+        <div class="border">
             Column two
         </div>
-        div class="border">
+        <div class="border">
             Column three
         </div>
-        div class="border">
+        <div class="border">
             Column four
         </div>
     </div>
