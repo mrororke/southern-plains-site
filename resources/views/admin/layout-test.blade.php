@@ -31,8 +31,12 @@
 </div>
 
 <div class="grid grid-cols-5 gap-4">
-  <div class="col-span-4 col-start-1">01</div>
-  <div class="col-start-5">04</div>
+  <div class="col-span-4 col-start-1">
+    <h2 class="font-heading text-4xl">Recent Updates</h2>
+  </div>
+  <div class="col-start-5">
+    Further calendar updates
+  </div>
 </div>
 
 <h1>Portal Layout Test</h1>
