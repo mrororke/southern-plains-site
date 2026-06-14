@@ -3,7 +3,7 @@
 @section('title', 'Layout Test')
 
 @section('content')
-<div class="grid grid-flow-col grid-cols-5 gap-4">
+<div class="grid grid-cols-5 gap-4">
     <div class="col-span-4">
         First Column
     </div>
