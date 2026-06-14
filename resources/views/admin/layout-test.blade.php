@@ -4,8 +4,7 @@
 
 @section('content')
 <div class="grid grid-cols-5 gap-4">
-    <div class="grid col-span-4">
-        <div class="border">
+    <div class="border">
             Column One
         </div>
         <div class="border">
@@ -17,7 +16,6 @@
         <div class="border">
             Column four
         </div>
-    </div>
     <div class="col-start-5">
         Calnedar here
     </div>
