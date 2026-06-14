@@ -1,3 +1,5 @@
+// When you make changes, make sure and comment out public/build so that it will get the new compilation files
+
 import defaultTheme from "tailwindcss/defaultTheme";
 import forms from "@tailwindcss/forms";
 
