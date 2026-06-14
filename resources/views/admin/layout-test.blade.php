@@ -4,17 +4,25 @@
 
 @section('content')
 <div class="grid grid-cols-5 gap-4">
-    <div class="border">
-            Column One
+    <div class="bg-[#66FF03] p-4">
+            <h1>42</h1>
+            <h4>Active Clients</h4>
+            <p>+5 this month</p>
         </div>
-        <div class="border">
-            Column two
+        <div class="bg-[#03CCFF] p-4">
+            <h1>42</h1>
+            <h4>Active Clients</h4>
+            <p>+5 this month</p>
         </div>
-        <div class="border">
-            Column three
+        <div class="bg-[#FF0398] p-4">
+            <h1>42</h1>
+            <h4>Active Clients</h4>
+            <p>+5 this month</p>
         </div>
-        <div class="border">
-            Column four
+        <div class="bg-[#71717A] p-4">
+            <h1>42</h1>
+            <h4>Active Clients</h4>
+            <p>+5 this month</p>
         </div>
     <div class="col-start-5">
         Calnedar here
