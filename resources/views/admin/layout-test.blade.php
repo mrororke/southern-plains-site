@@ -14,7 +14,7 @@
             <h4 class="uppercase text-xs font-bold">Active Clients</h4>
             <p>+5 this month</p>
         </div>
-        <div class="bg-league p-4 text-center  text-white>
+        <div class="bg-league p-4 text-center  text-white">
             <h1 class="font-heading text-7xl">42</h1>
             <h4 class="uppercase text-xs font-bold">Active Clients</h4>
             <p>+5 this month</p>
