@@ -32,15 +32,16 @@ export default {
         extend: {
             colors: {
                 // Add your custom brand color here
-                club: "#4CBB17",
+                club: "#66FF03",
                 "club-hover": "#3D9612",
                 "club-active": "#3D9612",
-                league: "#FF0398",
+                "league": "#FF0398",
                 "league-hover": "#CC027A",
                 "league-active": "#CC027A",
                 training: "#03CCFF",
                 "training-hover": "#02A3CC",
                 "training-active": "#02A3CC",
+                "brand-gray" : "#71717A",
             },
             fontFamily: {
                 sans: ["Archivo", ...defaultTheme.fontFamily.sans],
