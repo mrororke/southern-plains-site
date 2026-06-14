@@ -30,11 +30,9 @@
 
 </div>
 
-<<div class="grid grid-cols-6 gap-4">
-  <div class="col-span-4 col-start-2 ...">01</div>
-  <div class="col-start-1 col-end-3 ...">02</div>
-  <div class="col-span-2 col-end-7 ...">03</div>
-  <div class="col-start-1 col-end-7 ...">04</div>
+<div class="grid grid-cols-5 gap-4">
+  <div class="col-span-4 col-start-1">01</div>
+  <div class="col-start-5">04</div>
 </div>
 
 <h1>Portal Layout Test</h1>
