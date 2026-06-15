@@ -40,9 +40,10 @@
 
                 <div>
                     <h4 class="font-semibold text-sm">
-                        {{ $item['action'] }}
-                        —
-                        {{ $item['entity'] ?? ($item['model'] . ' #' . $item['model_id']) }}
+                        {{ $item['entity'] ?? ($item['model'] . ' #' . $item['model_id']) }}    
+                    
+                        — {{ $item['action'] }}
+                        
                     </h4>
 
                     <p class="text-xs text-gray-500">
