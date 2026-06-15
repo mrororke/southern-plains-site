@@ -29,4 +29,12 @@ class TrickEvaluation extends Model
         'scheduled_datetime' => 'datetime',
     ];
 
+    public const STATUS_LABELS = [
+    'new' => 'New',
+    'in_review' => 'In Review',
+    'awaiting_client' => 'Awaiting Client',
+    'completed' => 'Completed',
+    'archived' => 'Archived',
+];
+
 }

@@ -10,9 +10,19 @@
     </h1>
 
     <div class="mt-2">
-        <span class="px-2 py-1 text-xs font-semibold border rounded">
-            {{ strtoupper($submission->status) }}
-        </span>
+        @php
+    $badgeClasses = [
+        'new' => 'bg-club/25',
+        'in_review' => 'bg-training/25',
+        'awaiting_client' => 'bg-league/25',
+        'completed' => 'bg-gray-100',
+        'archived' => 'bg-gray-50 text-gray-500',
+    ];
+@endphp
+
+<span class="px-2 py-1 text-xs font-bold uppercase rounded {{ $badgeClasses[$eval->status] ?? 'bg-gray-100' }}">
+    {{ str_replace('_', ' ', $eval->status) }}
+</span>
     </div>
 
     <p class="text-sm text-gray-500 mt-2">
