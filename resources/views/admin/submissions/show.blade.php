@@ -13,18 +13,18 @@
 
         <div class="mt-2">
             @php
-            $badgeClasses = [
+        $badgeClasses = [
             'new' => 'bg-blue-100 text-blue-800',
             'in_review' => 'bg-yellow-100 text-yellow-800',
             'awaiting_client' => 'bg-purple-100 text-purple-800',
             'completed' => 'bg-gray-100 text-gray-800',
             'archived' => 'bg-gray-100 text-gray-500',
-            ];
-            @endphp
+        ];
+    @endphp
 
-            <span class="px-2 py-1 text-xs font-bold uppercase rounded {{ $badgeClasses[$submission->status] ?? 'bg-gray-100' }}">
-                {{ str_replace('_', ' ', $submission->status) }}
-            </span>
+    <span class="px-2 py-1 text-xs font-bold uppercase rounded {{ $badgeClasses[$submission->status] ?? 'bg-gray-100' }}">
+        {{ \App\Models\TrickEvaluation::STATUS_LABELS[$submission->status] ?? $submission->status }}
+    </span>
 
 
         </div>
