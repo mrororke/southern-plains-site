@@ -114,6 +114,7 @@ class AuditService
 
         // 👇 NEW: human-readable entity label (e.g. "Luka")
         'entity' => $this->resolveEntityLabel($log),
+        'link' => $this->resolveEntityLink($log),
 
         // TL;DR summary
         'summary' => $totalChanges > 0
@@ -212,6 +213,24 @@ private function resolveEventLabel(string $action): string
         str_contains($action, 'trick') => 'Trick Evaluation Submission',
 
         default => ucwords(str_replace(['.', '_'], ' ', $action)),
+    };
+}
+
+public function resolveEntityLink($log): ?string
+{
+    $action = $log->action;
+
+    return match (true) {
+
+        // CONTACT FORM
+        str_contains($action, 'contact') =>
+            route('admin.contacts.show', $log->model_id ?? 0),
+
+        // TRICK EVALUATION
+        str_contains($action, 'trick') =>
+            route('admin.trick-evaluations.show', $log->model_id ?? 0),
+
+        default => null,
     };
 }
 

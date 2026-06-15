@@ -40,10 +40,16 @@
 
                 <div>
                     <h4 class="font-semibold text-sm">
-                        {{ $item['entity'] ?? ($item['model'] . ' #' . $item['model_id']) }}    
-                    
+                        @if(!empty($item['link']) && $item['model_id'])
+                        <a href="{{ $item['link'] }}" class="text-training hover:underline">
+                            {{ $item['entity'] ?? ($item['model'] . ' #' . $item['model_id']) }}
+                        </a>
+                        @else
+                        {{ $item['entity'] ?? ($item['model'] . ' #' . $item['model_id']) }}
+                        @endif
+
                         — {{ $item['action'] }}
-                        
+
                     </h4>
 
                     <p class="text-xs text-gray-500">
