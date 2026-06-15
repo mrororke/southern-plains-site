@@ -32,34 +32,40 @@
 
     <div class="col-span-4 pt-4">
         <h2 class="font-heading text-4xl pb-2">Recent Updates</h2>
-        <h4 class="font-bold pt-4">Updated Rat: Rat Name</h4>
-        <p class="text-base border-b pb-4">"name": "Test Rat", "registered_name": null, "breeder_reference": null, "sex": "Male", "dob": null, "dod": null, "variety": "Standard", "silvered": null, "eye_color": "Black", "ear_set": "Dumbo", "breeder_id": null, "sire_id": null, "dam_id": null, "temperament": null, "deformities": null, "abnormalities": null, "is_owned": 1, "is_pedigree_only": 0<br /> <span class="text-xs">Updated at</span></p>
+       @foreach($recentActivity as $item)
+    <div class="py-4 border-b">
 
-         <h4 class="font-bold pt-4">Updated Rat: Rat Name</h4>
-        <p class="text-base border-b pb-4">"name": "Test Rat", "registered_name": null, "breeder_reference": null, "sex": "Male", "dob": null, "dod": null, "variety": "Standard", "silvered": null, "eye_color": "Black", "ear_set": "Dumbo", "breeder_id": null, "sire_id": null, "dam_id": null, "temperament": null, "deformities": null, "abnormalities": null, "is_owned": 1, "is_pedigree_only": 0<br /> <span class="text-xs">Updated at</span></p>
+        <h4 class="font-bold">
+            {{ $item['label'] }}
+        </h4>
 
-         <h4 class="font-bold pt-4">Updated Rat: Rat Name</h4>
-        <p class="text-base border-b pb-4">"name": "Test Rat", "registered_name": null, "breeder_reference": null, "sex": "Male", "dob": null, "dod": null, "variety": "Standard", "silvered": null, "eye_color": "Black", "ear_set": "Dumbo", "breeder_id": null, "sire_id": null, "dam_id": null, "temperament": null, "deformities": null, "abnormalities": null, "is_owned": 1, "is_pedigree_only": 0<br /> <span class="text-xs">Updated at</span></p>
-
-         <h4 class="font-bold pt-4">Updated Rat: Rat Name</h4>
-        <p class="text-base border-b pb-4">"name": "Test Rat", "registered_name": null, "breeder_reference": null, "sex": "Male", "dob": null, "dod": null, "variety": "Standard", "silvered": null, "eye_color": "Black", "ear_set": "Dumbo", "breeder_id": null, "sire_id": null, "dam_id": null, "temperament": null, "deformities": null, "abnormalities": null, "is_owned": 1, "is_pedigree_only": 0<br /> <span class="text-xs">Updated at</span></p>
-
-        @foreach($recentActivity as $item)
-    <h4 class="font-bold pt-4">
-        {{ $item['label'] }}
-    </h4>
-
-    <p class="text-base border-b pb-4">
-        <span class="font-semibold">
-            {{ $item['action'] }}
-        </span>
-
-        <br>
-
-        <span class="text-xs">
+        <p class="text-xs text-gray-500 mb-2">
             {{ $item['created_at'] }}
-        </span>
-    </p>
+        </p>
+
+        <div class="text-sm space-y-2">
+
+            {{-- NEW VALUES --}}
+            <div>
+                <span class="font-semibold text-green-600">New Values</span>
+                <pre class="bg-green-50 p-2 text-xs overflow-x-auto rounded">
+{{ json_encode($item['new'], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) }}
+                </pre>
+            </div>
+
+            {{-- OLD VALUES --}}
+            @if(!empty($item['old']))
+            <div>
+                <span class="font-semibold text-red-600">Old Values</span>
+                <pre class="bg-red-50 p-2 text-xs overflow-x-auto rounded">
+{{ json_encode($item['old'], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) }}
+                </pre>
+            </div>
+            @endif
+
+        </div>
+
+    </div>
 @endforeach
        
 
