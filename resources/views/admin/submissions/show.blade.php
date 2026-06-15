@@ -1,6 +1,10 @@
 @extends('layouts.portal')
 
 @section('content')
+
+<pre class="text-xs bg-black text-white p-2">
+{{ dd($submission->status) }}
+</pre>
 <div class="grid grid-cols-5 gap-6">
 
     {{-- MAIN CONTENT --}}
