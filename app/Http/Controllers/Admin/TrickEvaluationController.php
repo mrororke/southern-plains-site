@@ -31,6 +31,7 @@ class TrickEvaluationController extends Controller
     {
 
         return view('admin.submissions.show', [
+            'submission' => $trickEvaluation,
             'title' => 'Trick Evaluation — ' . $trickEvaluation->dog_name,
 
             'created_at' => $trickEvaluation->created_at->format('M d, H:i'),

@@ -74,7 +74,7 @@
             <h3 class="font-semibold mb-2">Actions</h3>
 
             <form method="POST"
-                action="{{ route('admin.tricks.status', $trickEvaluation) }}">
+                action="{{ route('admin.tricks.status', $submission) }}">
                 @csrf
                 @method('PATCH')
 
