@@ -139,7 +139,7 @@ Route::middleware(['auth', 'role:admin'])
 
 Route::get('/admin/layout-test', function (AuditService $auditService) {
     return view('admin.layout-test', [
-        'recentActivity' => $auditService->recent(10),
+        'recentActivity' => $auditService->recent(5),
     ]);
 })->name('layout-test');
 
