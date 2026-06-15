@@ -128,20 +128,30 @@ Route::middleware(['auth', 'role:admin'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
+
         Route::get('/dashboard', function () {
             return view('admin.dashboard');
         })->name('dashboard');
 
+        Route::get('/layout-test', function (AuditService $auditService) {
+            return view('admin.layout-test', [
+                'recentActivity' => $auditService->recent(5),
+            ]);
+        })->name('layout-test');
+
         Route::resource('posts', PostController::class);
         Route::resource('rats', RatController::class);
-        Route::get('rats/{rat}/pedigree', [RatController::class, 'show'])->name('rats.pedigree');
-    });
 
-Route::get('/admin/layout-test', function (AuditService $auditService) {
-    return view('admin.layout-test', [
-        'recentActivity' => $auditService->recent(5),
-    ]);
-})->name('layout-test');
+        Route::get('rats/{rat}/pedigree', [RatController::class, 'show'])
+            ->name('rats.pedigree');
+
+        // 🔥 ADD THIS (Step 2)
+        Route::get('/tricks/{trickEvaluation}', [
+            \App\Http\Controllers\Admin\TrickEvaluationController::class,
+            'show'
+        ])->name('tricks.show');
+
+    });
 
 
 /*

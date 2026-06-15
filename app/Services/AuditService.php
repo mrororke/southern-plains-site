@@ -222,11 +222,16 @@ public function resolveEntityLink($log): ?string
 
     return match (true) {
 
-    str_contains($action, 'trick') => null,
+    // Trick Evaluations (only link if record exists)
+        str_contains($action, 'trick') && $log->model_id
+            => route('admin.tricks.show', $log->model_id),
 
-    str_contains($action, 'contact') => null,
+        // Contact submissions (future-safe, only if model exists later)
+        str_contains($action, 'contact') && $log->model_id
+            => null, // placeholder until admin.contact.show exists
 
-    default => null,
+        // Rat / other models handled via model_type already
+        default => null,
 };
 }
 
