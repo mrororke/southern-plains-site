@@ -1,5 +1,5 @@
 <header class="bg-white shadow p-4 flex justify-between items-center">
-               <div class="flex w-80 items-stretch">
+               <div class="flex w-full items-stretch">
 
     <!-- Icon OUTSIDE input -->
     <div class="flex items-center px-3 text-gray-400">
