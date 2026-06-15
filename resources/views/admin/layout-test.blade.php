@@ -26,10 +26,10 @@
         <h4 class="uppercase text-xs font-bold">Published Posts</h4>
         <p>+5 this month</p>
     </div>
-    <div class="col-start-5 row-span-2">
+    <div class="col-start-5 row-span-2 bg-[#03CCFF]/25">
         Calnedar here
     </div>
-    
+
     <div class="col-span-4">
         <h2 class="font-heading text-4xl">Recent Updates</h2>
         <h4 class="font-bold">Updated Rat: Rat Name</h4>
