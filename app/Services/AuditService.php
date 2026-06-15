@@ -228,7 +228,7 @@ public function resolveEntityLink($log): ?string
 
         // TRICK EVALUATION
         str_contains($action, 'trick') =>
-            route('admin.trick-evaluations.show', $log->model_id ?? 0),
+            route('admin.tricks.show', $log->model_id ?? 0),
 
         default => null,
     };
