@@ -11,12 +11,8 @@ class AuditService
     /**
      * Write an audit log entry
      */
-    public function log(
-        string $action,
-        $model = null,
-        array $old = null,
-        array $new = null
-    ): void {
+    public function log(string $action, $model = null, array $old = null, array $new = null): void
+    {
         AuditLog::create([
             'user_id' => Auth::id(),
             'action' => $action,
@@ -30,60 +26,43 @@ class AuditService
     }
 
     /**
-     * Get recent activity feed (ready for UI)
+     * Get recent audit entries formatted for UI
      */
-    public function recent(int $limit = 10)
+    public function recent(int $limit = 10): array
     {
-        return AuditLog::query()
-            ->latest()
+        return AuditLog::latest()
             ->limit($limit)
             ->get()
-            ->map(fn($log) => $this->format($log));
+            ->map(function ($log) {
+                return $this->format($log);
+            })
+            ->toArray();
     }
 
     /**
-     * Normalize audit log for UI consumption
+     * Format a single audit log entry
      */
-    public function format(AuditLog $log): array
+    public function format($log): array
     {
         return [
             'id' => $log->id,
             'action' => $log->action,
-            'label' => $this->buildLabel($log),
-
-            'model_type' => $log->model_type,
+            'model' => $log->model_type ? class_basename($log->model_type) : null,
             'model_id' => $log->model_id,
+            'created_at' => optional($log->created_at)->format('Y-m-d H:i:s'),
 
-            'old' => $log->old_values ?? [],
-            'new' => $log->new_values ?? [],
-
-            'user_id' => $log->user_id,
-
-            'ip_address' => $log->ip_address,
-            'user_agent' => $log->user_agent,
-
-            'created_at' => $log->created_at,
+            'diff' => $this->diff(
+                $log->old_values ?? [],
+                $log->new_values ?? []
+            ),
         ];
     }
 
     /**
-     * Human-readable action label for UI
+     * Build field-level diff between old and new values
      */
-    private function buildLabel(AuditLog $log): string
+    public function diff(array $old = [], array $new = []): array
     {
-        $parts = explode('.', $log->action);
-
-        $model = ucfirst($parts[0] ?? 'Item');
-        $verb = ucfirst($parts[1] ?? 'updated');
-
-        return "{$verb} {$model}";
-    }
-
-    public function diff(array|null $old, array|null $new): array
-    {
-        $old = $old ?? [];
-        $new = $new ?? [];
-
         $allKeys = array_unique(array_merge(array_keys($old), array_keys($new)));
 
         $diff = [];
@@ -92,7 +71,7 @@ class AuditService
             $oldValue = $old[$key] ?? null;
             $newValue = $new[$key] ?? null;
 
-            // Skip if nothing changed
+            // Skip unchanged values
             if ($oldValue === $newValue) {
                 continue;
             }
@@ -106,29 +85,4 @@ class AuditService
 
         return $diff;
     }
-
-    public function formatForDisplay($log): array
-    {
-        return [
-            'id' => $log->id,
-            'action' => $log->action,
-            'model' => class_basename($log->model_type),
-            'model_id' => $log->model_id,
-            'created_at' => $log->created_at->format('Y-m-d H:i:s'),
-
-            'diff' => $this->diff(
-                $log->old_values,
-                $log->new_values
-            ),
-        ];
-    }
-
-    public function recent(int $limit = 10): array
-{
-    return AuditLog::latest()
-        ->limit($limit)
-        ->get()
-        ->map(fn ($log) => $this->formatForDisplay($log))
-        ->toArray();
-}
 }
