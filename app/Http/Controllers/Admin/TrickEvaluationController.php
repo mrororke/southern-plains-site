@@ -48,6 +48,7 @@ class TrickEvaluationController extends Controller
                 'Scheduled' => $trickEvaluation->scheduled_datetime,
                 'Payment Method' => $trickEvaluation->payment_method,
                 'Total Fee' => $trickEvaluation->total_fee,
+                'Status' => $trickEvaluation->status,
             ],
 
             'diff' => [],
@@ -59,6 +60,13 @@ class TrickEvaluationController extends Controller
     TrickEvaluation $trickEvaluation,
     AuditService $auditService
 ) {
+    $request->validate([
+    'status' => [
+        'required',
+        'in:new,in_review,awaiting_client,completed,archived',
+    ],
+]);
+
     $oldStatus = $trickEvaluation->status;
 
     $trickEvaluation->update([
