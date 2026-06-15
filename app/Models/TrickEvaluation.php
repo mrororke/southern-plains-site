@@ -37,4 +37,22 @@ class TrickEvaluation extends Model
     'archived' => 'Archived',
 ];
 
+public const STATUS_COLORS = [
+    'new' => 'bg-blue-100 text-blue-800',
+    'in_review' => 'bg-yellow-100 text-yellow-800',
+    'awaiting_client' => 'bg-purple-100 text-purple-800',
+    'completed' => 'bg-gray-100 text-gray-800',
+    'archived' => 'bg-gray-100 text-gray-500',
+];
+
+public static function label(string $status): string
+{
+    return self::STATUS_LABELS[$status] ?? $status;
+}
+
+public static function color(string $status): string
+{
+    return self::STATUS_COLORS[$status] ?? 'bg-gray-100 text-gray-800';
+}
+
 }

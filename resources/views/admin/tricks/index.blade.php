@@ -99,8 +99,8 @@
                         — {{ $eval->trick_level }}
                     </span>
                 </h2>
-                <span class="px-2 py-1 text-xs font-bold uppercase border rounded">
-    {{ \App\Models\TrickEvaluation::STATUS_LABELS[$eval->status] ?? $eval->status }}
+                <span class="px-2 py-1 text-xs font-bold uppercase border rounded {{ \App\Models\TrickEvaluation::color($eval->status) }}">
+    {{ \App\Models\TrickEvaluation::label($eval->status) }}
 </span>
                 <p class="text-xs text-gray-500">
                     {{ $eval->owner_name }} • {{ $eval->email }}
