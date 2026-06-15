@@ -27,6 +27,8 @@ export default {
         // Safelist the hover backgrounds for dark themes (bg-transparent is usually fine, but safe to include)
         "hover:bg-transparent",
         "hover:border-white",
+        "col-span-4",
+        "col-span-5",
         // --- End Safelist ---
     ],
 
