@@ -32,7 +32,7 @@
 
     <div class="col-span-4 pt-4">
         <h2 class="font-heading text-4xl pb-2">Recent Updates</h2>
-       @foreach($recentActivity as $item)
+     @foreach($recentActivity as $item)
     <div class="py-3 border-b">
 
         {{-- HEADER --}}
@@ -50,48 +50,44 @@
 
         </div>
 
-        {{-- TLDR --}}
-        <p class="text-sm mt-1 text-gray-700">
+        {{-- TL;DR SUMMARY --}}
+        <p class="text-sm mt-1 text-gray-800">
             {{ $item['summary'] }}
         </p>
 
         {{-- EXPANDABLE DETAILS --}}
-        <details class="mt-2">
-            <summary class="text-xs text-blue-600 cursor-pointer">
-                View full changes
-            </summary>
+        @if(!empty($item['diff']))
+            <details class="mt-2">
+                <summary class="text-xs text-blue-600 cursor-pointer">
+                    View full changes
+                </summary>
 
-            <div class="mt-2 space-y-2">
+                <div class="mt-2 space-y-2">
 
-                @foreach($item['diff'] as $change)
-                    <div class="text-xs bg-gray-50 p-2 rounded">
+                    @foreach($item['diff'] as $change)
+                        <div class="text-xs bg-gray-50 p-2 rounded">
 
-                        <span class="font-semibold">
-                            {{ $change['field'] }}
-                        </span>
+                            <div class="font-semibold text-gray-700">
+                                {{ $change['field'] }}
+                            </div>
 
-                        <div class="text-gray-600">
-                            <span class="text-red-600">
-                                {{ json_encode($change['old']) }}
-                            </span>
-                            →
-                            <span class="text-green-600">
-                                {{ json_encode($change['new']) }}
-                            </span>
+                            <div class="text-gray-600 mt-1">
+                                <span class="text-red-600">
+                                    {{ is_null($change['old']) ? 'null' : json_encode($change['old']) }}
+                                </span>
+
+                                <span class="mx-2">→</span>
+
+                                <span class="text-green-600">
+                                    {{ is_null($change['new']) ? 'null' : json_encode($change['new']) }}
+                                </span>
+                            </div>
+
                         </div>
+                    @endforeach
 
-                    </div>
-                @endforeach
-
-            </div>
-        </details>
-
-    </div>
-@endforeach
-
-            </div>
-        @else
-            <p class="text-xs text-gray-400">No field changes detected</p>
+                </div>
+            </details>
         @endif
 
     </div>

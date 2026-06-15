@@ -91,15 +91,18 @@ class AuditService
         $log->new_values ?? []
     );
 
-    // Build short change summary
-    $changes = collect($diff)
-        ->take(3) // limit noise
-        ->map(function ($change) {
-            return $change['field'];
-        })
-        ->implode(', ');
-
     $totalChanges = count($diff);
+
+    $summary = collect($diff)
+        ->map(function ($change) {
+            return $this->describeChange(
+                $change['field'] ?? '',
+                $change['old'] ?? null,
+                $change['new'] ?? null
+            );
+        })
+        ->take(3)
+        ->implode(', ');
 
     return [
         'id' => $log->id,
@@ -108,12 +111,61 @@ class AuditService
         'model_id' => $log->model_id,
         'created_at' => optional($log->created_at)->format('M d, H:i'),
 
-        'summary' => $totalChanges
-            ? "{$totalChanges} change(s): {$changes}"
-            : 'No field changes',
+        'summary' => $totalChanges > 0
+            ? $summary
+            : 'No changes recorded',
 
         'diff' => $diff,
     ];
+}
+
+public function fieldLabel(string $field): string
+{
+    return match ($field) {
+
+        // Core Rat fields
+        'name' => 'name',
+        'registered_name' => 'registered name',
+        'breeder_reference' => 'breeder reference',
+        'sex' => 'sex',
+        'dob' => 'date of birth',
+        'dod' => 'date of death',
+        'variety' => 'variety',
+        'eye_color' => 'eye color',
+        'ear_set' => 'ear set',
+        'silvered' => 'silvering',
+        'is_owned' => 'ownership',
+        'is_pedigree_only' => 'pedigree status',
+
+        // Default fallback
+        default => str_replace('_', ' ', $field),
+    };
+}
+
+public function describeChange(string $field, $old, $new): string
+{
+    $label = $this->fieldLabel($field);
+
+    // Booleans
+    if (is_bool($old) || is_bool($new)) {
+        if ($new) {
+            return "enabled {$label}";
+        }
+        return "disabled {$label}";
+    }
+
+    // Null → value
+    if (is_null($old) && !is_null($new)) {
+        return "set {$label}";
+    }
+
+    // Value → null
+    if (!is_null($old) && is_null($new)) {
+        return "cleared {$label}";
+    }
+
+    // Default change
+    return "updated {$label}";
 }
 
 
