@@ -58,7 +58,7 @@
         {{-- EXPANDABLE DETAILS --}}
         @if(!empty($item['diff']))
             <details class="mt-2">
-                <summary class="text-xs text-blue-600 cursor-pointer">
+                <summary class="text-xs text-training cursor-pointer">
                     View full changes
                 </summary>
 
