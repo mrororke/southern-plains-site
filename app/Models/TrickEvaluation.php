@@ -21,6 +21,7 @@ class TrickEvaluation extends Model
         'additional_dogs',
         'payment_method',
         'total_fee',
+        'status',
     ];
 
     protected $casts = [

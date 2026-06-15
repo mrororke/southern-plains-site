@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\TrickEvaluation;
+use App\Services\AuditService;
 use Illuminate\Http\Request;
 
 class TrickEvaluationController extends Controller
@@ -12,7 +13,18 @@ class TrickEvaluationController extends Controller
     {
         $evaluations = TrickEvaluation::latest()->paginate(20);
 
-        return view('admin.tricks.index', compact('evaluations'));
+        $stats = [
+        'new' => TrickEvaluation::where('status', 'new')->count(),
+        'in_review' => TrickEvaluation::where('status', 'in_review')->count(),
+        'awaiting_client' => TrickEvaluation::where('status', 'awaiting_client')->count(),
+        'completed' => TrickEvaluation::where('status', 'completed')->count(),
+    ];
+
+    return view('admin.tricks.index', compact(
+        'evaluations',
+        'stats'
+    ));
+
     }
 
     public function show(TrickEvaluation $trickEvaluation)
@@ -40,4 +52,26 @@ class TrickEvaluationController extends Controller
             'diff' => [],
         ]);
     }
+
+    public function updateStatus(
+    Request $request,
+    TrickEvaluation $trickEvaluation,
+    AuditService $auditService
+) {
+    $oldStatus = $trickEvaluation->status;
+
+    $trickEvaluation->update([
+        'status' => $request->status,
+    ]);
+
+    $auditService->log(
+        'trick_evaluation.status_changed',
+        $trickEvaluation,
+        ['status' => $oldStatus],
+        ['status' => $request->status]
+    );
+
+    return back();
+}
+
 }

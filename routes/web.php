@@ -154,6 +154,10 @@ Route::middleware(['auth', 'role:admin'])
             \App\Http\Controllers\Admin\TrickEvaluationController::class,
             'show'
         ])->name('tricks.show');
+        Route::patch(
+            '/tricks/{trickEvaluation}/status',
+            [TrickEvaluationController::class, 'updateStatus']
+        )->name('tricks.status');
     });
 
 
