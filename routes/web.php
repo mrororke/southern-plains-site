@@ -145,12 +145,15 @@ Route::middleware(['auth', 'role:admin'])
         Route::get('rats/{rat}/pedigree', [RatController::class, 'show'])
             ->name('rats.pedigree');
 
-        // 🔥 ADD THIS (Step 2)
+        // Tricks Submissions
+        Route::get('/tricks', [
+            \App\Http\Controllers\Admin\TrickEvaluationController::class,
+            'index'
+        ])->name('tricks.index');
         Route::get('/tricks/{trickEvaluation}', [
             \App\Http\Controllers\Admin\TrickEvaluationController::class,
             'show'
         ])->name('tricks.show');
-
     });
 
 
