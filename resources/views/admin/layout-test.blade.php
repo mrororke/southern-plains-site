@@ -33,7 +33,7 @@
 </div>
 
 <div class="grid grid-cols-5 gap-4 pt-4">
-  <div style="grid-column: span 4 / span 4;" class="bg-red-500">
+  <div class="bg-red-500 col-span-4">
     <h2 class="font-heading text-4xl">Recent Updates</h2>
     <h4 class="text-bold">Updated Rat: Rat Name</h4>
     <p class="text-base">"name": "Test Rat", "registered_name": null, "breeder_reference": null, "sex": "Male", "dob": null, "dod": null, "variety": "Standard", "silvered": null, "eye_color": "Black", "ear_set": "Dumbo", "breeder_id": null, "sire_id": null, "dam_id": null, "temperament": null, "deformities": null, "abnormalities": null, "is_owned": 1, "is_pedigree_only": 0<br/> <span class="text-xs">Updated at</span></p>
