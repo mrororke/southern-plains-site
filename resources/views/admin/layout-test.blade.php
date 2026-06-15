@@ -26,7 +26,7 @@
         <h4 class="uppercase text-xs font-bold">Published Posts</h4>
         <p>+5 this month</p>
     </div>
-    <div class="col-start-5 row-span-2 bg-[#03CCFF]/25">
+    <div class="col-start-5 row-span-2 bg-[#03CCFF]/25 p-4">
        <h2 class="font-heading text-2xl pb-2">At a Glance</h2>
     </div>
 
