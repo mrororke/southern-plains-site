@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\AuditLog;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Str;
 
 class AuditService
 {
@@ -111,10 +112,15 @@ class AuditService
         'model_id' => $log->model_id,
         'created_at' => optional($log->created_at)->format('M d, H:i'),
 
+        // 👇 NEW: human-readable entity label (e.g. "Luka")
+        'entity' => $this->resolveEntityLabel($log),
+
+        // TL;DR summary
         'summary' => $totalChanges > 0
             ? $summary
             : 'No changes recorded',
 
+        // Full diff for expandable UI
         'diff' => $diff,
     ];
 }
@@ -166,6 +172,42 @@ public function describeChange(string $field, $old, $new): string
 
     // Default change
     return "updated {$label}";
+}
+
+public function resolveEntityLabel($log): ?string
+{
+    if (!$log->model_type || !$log->model_id) {
+        return null;
+    }
+
+    try {
+        $class = $log->model_type;
+
+        if (!class_exists($class)) {
+            return null;
+        }
+
+        $model = $class::find($log->model_id);
+
+        if (!$model) {
+            return null;
+        }
+
+        // Try common naming patterns safely
+        if (isset($model->name)) {
+            return $model->name;
+        }
+
+        if (isset($model->registered_name) && $model->registered_name) {
+            return $model->registered_name;
+        }
+
+        // fallback to ID
+        return class_basename($class) . ' #' . $model->id;
+
+    } catch (\Throwable $e) {
+        return null;
+    }
 }
 
 
