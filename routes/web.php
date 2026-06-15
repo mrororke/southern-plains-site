@@ -10,6 +10,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HistoryFormController;
 use App\Http\Controllers\TrickEvaluationController;
 use App\Http\Controllers\RatController;
+use App\Services\AuditService;
 
 
 /*
@@ -19,10 +20,10 @@ use App\Http\Controllers\RatController;
 */
 
 // Home
-Route::get('/', fn () => view('home'))->name('home');
+Route::get('/', fn() => view('home'))->name('home');
 
 // About
-Route::get('/about', fn () => view('about'))->name('about');
+Route::get('/about', fn() => view('about'))->name('about');
 
 // Training Page
 Route::view('/training', 'training.index')
@@ -40,7 +41,7 @@ Route::get('/league', function () {
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('blog')->name('blog.')->group(function (){
+Route::prefix('blog')->name('blog.')->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('index');
     Route::get('category/{category:slug}', [BlogController::class, 'category'])->name('category');
     Route::get('/tag/{tag:slug}', [BlogController::class, 'tag'])->name('tag');
@@ -53,7 +54,7 @@ Route::prefix('blog')->name('blog.')->group(function (){
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('events')->name('events.')->group(function (){
+Route::prefix('events')->name('events.')->group(function () {
     Route::get('/', [EventController::class, 'index'])->name('index');
     Route::get('/{event:slug}', [EventController::class, 'show'])->name('show');
 });
@@ -64,7 +65,7 @@ Route::prefix('events')->name('events.')->group(function (){
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('contact')->name('contact.')->group(function (){
+Route::prefix('contact')->name('contact.')->group(function () {
     Route::get('/', [ContactController::class, 'create'])->name('create');
     Route::post('/', [ContactController::class, 'store'])->name('store');
 });
@@ -75,12 +76,11 @@ Route::prefix('contact')->name('contact.')->group(function (){
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('forms')->name('forms.')->group(function (){
+Route::prefix('forms')->name('forms.')->group(function () {
     Route::get('/history', [HistoryFormController::class, 'create'])->name('history.create');
     Route::post('/history', [HistoryFormController::class, 'store'])->name('history.store');
     Route::get('/trick-evaluation', [TrickEvaluationController::class, 'create'])->name('trick.create');
     Route::post('/trick-evaluation', [TrickEvaluationController::class, 'store'])->name('trick.store');
-
 });
 
 
@@ -90,7 +90,7 @@ Route::prefix('forms')->name('forms.')->group(function (){
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('legal')->name('legal.')->group(function (){
+Route::prefix('legal')->name('legal.')->group(function () {
     Route::view('/tos', 'legal.tos')->name('tos');
     Route::view('/privacy', 'legal.privacy')->name('privacy');
     Route::view('/cookies', 'legal.cookies')->name('cookies');
@@ -105,17 +105,17 @@ Route::prefix('legal')->name('legal.')->group(function (){
 |--------------------------------------------------------------------------
 */
 
-Route::middleware(['auth'])->group(function (){
+Route::middleware(['auth'])->group(function () {
 
-    Route::get('/dashboard', function (){
-        return view('dashboard');})->name('dashboard');
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 
     Route::prefix('profile')->name('profile.')->group(function () {
         Route::get('/', [ProfileController::class, 'edit'])->name('edit');
         Route::patch('/', [ProfileController::class, 'update'])->name('update');
         Route::delete('/', [ProfileController::class, 'destroy'])->name('destroy');
     });
-
 });
 
 /*
@@ -127,8 +127,8 @@ Route::middleware(['auth'])->group(function (){
 Route::middleware(['auth', 'role:admin'])
     ->prefix('admin')
     ->name('admin.')
-    ->group(function (){
-        Route::get('/dashboard', function(){
+    ->group(function () {
+        Route::get('/dashboard', function () {
             return view('admin.dashboard');
         })->name('dashboard');
 
@@ -137,8 +137,10 @@ Route::middleware(['auth', 'role:admin'])
         Route::get('rats/{rat}/pedigree', [RatController::class, 'show'])->name('rats.pedigree');
     });
 
-    Route::get('/admin/layout-test', function () {
-    return view('admin.layout-test');
+Route::get('/admin/layout-test', function (AuditService $auditService) {
+    return view('admin.layout-test', [
+        'recentActivity' => $auditService->recent(10),
+    ]);
 })->name('layout-test');
 
 

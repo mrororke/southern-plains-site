@@ -43,6 +43,24 @@
 
          <h4 class="font-bold pt-4">Updated Rat: Rat Name</h4>
         <p class="text-base border-b pb-4">"name": "Test Rat", "registered_name": null, "breeder_reference": null, "sex": "Male", "dob": null, "dod": null, "variety": "Standard", "silvered": null, "eye_color": "Black", "ear_set": "Dumbo", "breeder_id": null, "sire_id": null, "dam_id": null, "temperament": null, "deformities": null, "abnormalities": null, "is_owned": 1, "is_pedigree_only": 0<br /> <span class="text-xs">Updated at</span></p>
+
+        @foreach($recentActivity as $item)
+    <h4 class="font-bold pt-4">
+        {{ $item['label'] }}
+    </h4>
+
+    <p class="text-base border-b pb-4">
+        <span class="font-semibold">
+            {{ $item['action'] }}
+        </span>
+
+        <br>
+
+        <span class="text-xs">
+            {{ $item['created_at'] }}
+        </span>
+    </p>
+@endforeach
        
 
          
