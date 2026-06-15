@@ -72,7 +72,7 @@ class TrickEvaluationController extends Controller
         ['status' => $request->status]
     );
 
-    return back();
+    return back()->with('success', 'Status updated.');
 }
 
 }
