@@ -38,7 +38,7 @@ class AuditService
             ->latest()
             ->limit($limit)
             ->get()
-            ->map(fn ($log) => $this->format($log));
+            ->map(fn($log) => $this->format($log));
     }
 
     /**
@@ -78,4 +78,57 @@ class AuditService
 
         return "{$verb} {$model}";
     }
+
+    public function diff(array|null $old, array|null $new): array
+    {
+        $old = $old ?? [];
+        $new = $new ?? [];
+
+        $allKeys = array_unique(array_merge(array_keys($old), array_keys($new)));
+
+        $diff = [];
+
+        foreach ($allKeys as $key) {
+            $oldValue = $old[$key] ?? null;
+            $newValue = $new[$key] ?? null;
+
+            // Skip if nothing changed
+            if ($oldValue === $newValue) {
+                continue;
+            }
+
+            $diff[] = [
+                'field' => $key,
+                'old' => $oldValue,
+                'new' => $newValue,
+            ];
+        }
+
+        return $diff;
+    }
+
+    public function formatForDisplay($log): array
+    {
+        return [
+            'id' => $log->id,
+            'action' => $log->action,
+            'model' => class_basename($log->model_type),
+            'model_id' => $log->model_id,
+            'created_at' => $log->created_at->format('Y-m-d H:i:s'),
+
+            'diff' => $this->diff(
+                $log->old_values,
+                $log->new_values
+            ),
+        ];
+    }
+
+    public function recent(int $limit = 10): array
+{
+    return AuditLog::latest()
+        ->limit($limit)
+        ->get()
+        ->map(fn ($log) => $this->formatForDisplay($log))
+        ->toArray();
+}
 }

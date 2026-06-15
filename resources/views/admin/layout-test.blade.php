@@ -36,34 +36,42 @@
     <div class="py-4 border-b">
 
         <h4 class="font-bold">
-            {{ $item['label'] }}
+            {{ $item['action'] }} — {{ $item['model'] }} #{{ $item['model_id'] }}
         </h4>
 
-        <p class="text-xs text-gray-500 mb-2">
+        <p class="text-xs text-gray-500 mb-3">
             {{ $item['created_at'] }}
         </p>
 
-        <div class="text-sm space-y-2">
+        @if(!empty($item['diff']))
+            <div class="space-y-2 text-sm">
 
-            {{-- NEW VALUES --}}
-            <div>
-                <span class="font-semibold text-green-600">New Values</span>
-                <pre class="bg-green-50 p-2 text-xs overflow-x-auto rounded">
-{{ json_encode($item['new'], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) }}
-                </pre>
+                @foreach($item['diff'] as $change)
+                    <div class="bg-gray-50 p-2 rounded">
+
+                        <span class="font-semibold">
+                            {{ $change['field'] }}
+                        </span>
+
+                        <div class="text-xs mt-1">
+                            <span class="text-red-600">
+                                {{ is_null($change['old']) ? 'null' : json_encode($change['old']) }}
+                            </span>
+
+                            <span class="mx-2">→</span>
+
+                            <span class="text-green-600">
+                                {{ is_null($change['new']) ? 'null' : json_encode($change['new']) }}
+                            </span>
+                        </div>
+
+                    </div>
+                @endforeach
+
             </div>
-
-            {{-- OLD VALUES --}}
-            @if(!empty($item['old']))
-            <div>
-                <span class="font-semibold text-red-600">Old Values</span>
-                <pre class="bg-red-50 p-2 text-xs overflow-x-auto rounded">
-{{ json_encode($item['old'], JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) }}
-                </pre>
-            </div>
-            @endif
-
-        </div>
+        @else
+            <p class="text-xs text-gray-400">No field changes detected</p>
+        @endif
 
     </div>
 @endforeach
