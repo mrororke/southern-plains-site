@@ -29,15 +29,13 @@ class AuditService
      * Get recent audit entries formatted for UI
      */
     public function recent(int $limit = 10): array
-    {
-        return AuditLog::latest()
-            ->limit($limit)
-            ->get()
-            ->map(function ($log) {
-                return $this->format($log);
-            })
-            ->toArray();
-    }
+{
+    return AuditLog::latest()
+        ->limit($limit)
+        ->get()
+        ->map(fn ($log) => $this->tldr($log))
+        ->toArray();
+}
 
     /**
      * Format a single audit log entry
@@ -85,4 +83,38 @@ class AuditService
 
         return $diff;
     }
+
+    public function tldr($log): array
+{
+    $diff = $this->diff(
+        $log->old_values ?? [],
+        $log->new_values ?? []
+    );
+
+    // Build short change summary
+    $changes = collect($diff)
+        ->take(3) // limit noise
+        ->map(function ($change) {
+            return $change['field'];
+        })
+        ->implode(', ');
+
+    $totalChanges = count($diff);
+
+    return [
+        'id' => $log->id,
+        'action' => $log->action,
+        'model' => class_basename($log->model_type),
+        'model_id' => $log->model_id,
+        'created_at' => optional($log->created_at)->format('M d, H:i'),
+
+        'summary' => $totalChanges
+            ? "{$totalChanges} change(s): {$changes}"
+            : 'No field changes',
+
+        'diff' => $diff,
+    ];
+}
+
+
 }
