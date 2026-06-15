@@ -26,7 +26,7 @@
             <h4 class="uppercase text-xs font-bold">Published Posts</h4>
             <p>+5 this month</p>
         </div>
-    <div class="col-start-5">
+    <div class="col-start-5 row-span-2">
         Calnedar here
     </div>
 
