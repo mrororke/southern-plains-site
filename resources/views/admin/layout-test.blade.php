@@ -27,38 +27,38 @@
         <p>+5 this month</p>
     </div>
     <div class="col-start-5 row-span-2 bg-[#03CCFF]/25 p-4">
-       <h2 class="font-heading text-2xl pb-2">At a Glance</h2>
+        <h2 class="font-heading text-2xl pb-2">At a Glance</h2>
     </div>
 
     <div class="col-span-4 pt-4">
         <h2 class="font-heading text-4xl pb-2">Recent Updates</h2>
-     @foreach($recentActivity as $item)
-    <div class="py-3 border-b">
+        @foreach($recentActivity as $item)
+        <div class="py-3 border-b">
 
-        {{-- HEADER --}}
-        <div class="flex justify-between items-start gap-4">
+            {{-- HEADER --}}
+            <div class="flex justify-between items-start gap-4">
 
-            <div>
-                <h4 class="font-semibold text-sm">
-                    {{ $item['action'] }}
-—
-{{ $item['entity'] ?? ($item['model'] . ' #' . $item['model_id']) }}
-                </h4>
+                <div>
+                    <h4 class="font-semibold text-sm">
+                        {{ $item['action'] }}
+                        —
+                        {{ $item['entity'] ?? ($item['model'] . ' #' . $item['model_id']) }}
+                    </h4>
 
-                <p class="text-xs text-gray-500">
-                    {{ $item['created_at'] }}
-                </p>
+                    <p class="text-xs text-gray-500">
+                        {{ $item['created_at'] }}
+                    </p>
+                </div>
+
             </div>
 
-        </div>
+            {{-- TL;DR SUMMARY --}}
+            <p class="text-sm mt-1 text-gray-800">
+                {{ $item['summary'] }}
+            </p>
 
-        {{-- TL;DR SUMMARY --}}
-        <p class="text-sm mt-1 text-gray-800">
-            {{ $item['summary'] }}
-        </p>
-
-        {{-- EXPANDABLE DETAILS --}}
-        @if(!empty($item['diff']))
+            {{-- EXPANDABLE DETAILS --}}
+            @if(!empty($item['diff']))
             <details class="mt-2">
                 <summary class="text-xs text-training cursor-pointer">
                     View full changes
@@ -67,38 +67,38 @@
                 <div class="mt-2 space-y-2">
 
                     @foreach($item['diff'] as $change)
-                        <div class="text-xs bg-gray-50 p-2 rounded">
+                    <div class="text-xs bg-gray-50 p-2 rounded">
 
-                            <div class="font-semibold text-gray-700">
-                                {{ $change['field'] }}
-                            </div>
-
-                            <div class="text-gray-600 mt-1">
-                                <span class="text-red-600">
-                                    {{ is_null($change['old']) ? 'null' : json_encode($change['old']) }}
-                                </span>
-
-                                <span class="mx-2">→</span>
-
-                                <span class="text-green-600">
-                                    {{ is_null($change['new']) ? 'null' : json_encode($change['new']) }}
-                                </span>
-                            </div>
-
+                        <div class="font-semibold text-gray-700">
+                            {{ $change['field'] }}
                         </div>
+
+                        <div class="text-gray-600 mt-1">
+                            <span class="text-red-600">
+                                {{ is_null($change['old']) ? 'null' : json_encode($change['old']) }}
+                            </span>
+
+                            <span class="mx-2">→</span>
+
+                            <span class="text-green-600">
+                                {{ is_null($change['new']) ? 'null' : json_encode($change['new']) }}
+                            </span>
+                        </div>
+
+                    </div>
                     @endforeach
 
                 </div>
             </details>
-        @endif
+            @endif
+
+        </div>
+        @endforeach
+
+
 
     </div>
-@endforeach
-       
 
-         
-    </div>
-    
 
 </div>
 

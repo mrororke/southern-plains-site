@@ -176,8 +176,9 @@ public function describeChange(string $field, $old, $new): string
 
 public function resolveEntityLabel($log): ?string
 {
+    // If no model_id, treat as event-based log
     if (!$log->model_type || !$log->model_id) {
-        return null;
+        return $this->resolveEventLabel($log->action);
     }
 
     try {
@@ -190,24 +191,28 @@ public function resolveEntityLabel($log): ?string
         $model = $class::find($log->model_id);
 
         if (!$model) {
-            return null;
+            return class_basename($class) . ' #' . $log->model_id;
         }
 
-        // Try common naming patterns safely
-        if (isset($model->name)) {
-            return $model->name;
-        }
-
-        if (isset($model->registered_name) && $model->registered_name) {
-            return $model->registered_name;
-        }
-
-        // fallback to ID
-        return class_basename($class) . ' #' . $model->id;
+        return $model->registered_name
+            ?? $model->name
+            ?? (class_basename($class) . ' #' . $model->id);
 
     } catch (\Throwable $e) {
         return null;
     }
+}
+
+private function resolveEventLabel(string $action): string
+{
+    return match (true) {
+
+        str_contains($action, 'contact') => 'Contact Form Submission',
+        str_contains($action, 'history') => 'Training History Submission',
+        str_contains($action, 'trick') => 'Trick Evaluation Submission',
+
+        default => ucwords(str_replace(['.', '_'], ' ', $action)),
+    };
 }
 
 
