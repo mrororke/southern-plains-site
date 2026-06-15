@@ -33,20 +33,9 @@
     <div class="col-span-4">
         <h2 class="font-heading text-4xl pb-2">Recent Updates</h2>
         <h4 class="font-bold pt-4">Updated Rat: Rat Name</h4>
-        <p class="text-base">"name": "Test Rat", "registered_name": null, "breeder_reference": null, "sex": "Male", "dob": null, "dod": null, "variety": "Standard", "silvered": null, "eye_color": "Black", "ear_set": "Dumbo", "breeder_id": null, "sire_id": null, "dam_id": null, "temperament": null, "deformities": null, "abnormalities": null, "is_owned": 1, "is_pedigree_only": 0<br /> <span class="text-xs pb-4">Updated at</span></p>
-        <hr />
+        <p class="text-base border-b">"name": "Test Rat", "registered_name": null, "breeder_reference": null, "sex": "Male", "dob": null, "dod": null, "variety": "Standard", "silvered": null, "eye_color": "Black", "ear_set": "Dumbo", "breeder_id": null, "sire_id": null, "dam_id": null, "temperament": null, "deformities": null, "abnormalities": null, "is_owned": 1, "is_pedigree_only": 0<br /> <span class="text-xs pb-4">Updated at</span></p>
+       
 
-        <h4 class="font-bold pt-4">Updated Rat: Rat Name</h4>
-        <p class="text-base">"name": "Test Rat", "registered_name": null, "breeder_reference": null, "sex": "Male", "dob": null, "dod": null, "variety": "Standard", "silvered": null, "eye_color": "Black", "ear_set": "Dumbo", "breeder_id": null, "sire_id": null, "dam_id": null, "temperament": null, "deformities": null, "abnormalities": null, "is_owned": 1, "is_pedigree_only": 0<br /> <span class="text-xs pb-4">Updated at</span></p>
-        <hr />
-
-        <h4 class="font-bold pt-4">Updated Rat: Rat Name</h4>
-        <p class="text-base">"name": "Test Rat", "registered_name": null, "breeder_reference": null, "sex": "Male", "dob": null, "dod": null, "variety": "Standard", "silvered": null, "eye_color": "Black", "ear_set": "Dumbo", "breeder_id": null, "sire_id": null, "dam_id": null, "temperament": null, "deformities": null, "abnormalities": null, "is_owned": 1, "is_pedigree_only": 0<br /> <span class="text-xs pb-4">Updated at</span></p>
-        <hr />
-
-        <h4 class="font-bold pt-4">Updated Rat: Rat Name</h4>
-        <p class="text-base">"name": "Test Rat", "registered_name": null, "breeder_reference": null, "sex": "Male", "dob": null, "dod": null, "variety": "Standard", "silvered": null, "eye_color": "Black", "ear_set": "Dumbo", "breeder_id": null, "sire_id": null, "dam_id": null, "temperament": null, "deformities": null, "abnormalities": null, "is_owned": 1, "is_pedigree_only": 0<br /> <span class="text-xs pb-4">Updated at</span></p>
-        <hr />
          
     </div>
     
