@@ -222,16 +222,12 @@ public function resolveEntityLink($log): ?string
 
     return match (true) {
 
-        // CONTACT FORM
-        str_contains($action, 'contact') =>
-            route('admin.contacts.show', $log->model_id ?? 0),
+    str_contains($action, 'trick') => null,
 
-        // TRICK EVALUATION
-        str_contains($action, 'trick') =>
-            route('admin.tricks.show', $log->model_id ?? 0),
+    str_contains($action, 'contact') => null,
 
-        default => null,
-    };
+    default => null,
+};
 }
 
 
