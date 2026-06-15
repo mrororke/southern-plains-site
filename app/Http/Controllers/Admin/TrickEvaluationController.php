@@ -9,15 +9,33 @@ use Illuminate\Http\Request;
 
 class TrickEvaluationController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $evaluations = TrickEvaluation::latest()->paginate(20);
+        $query = TrickEvaluation::query();
 
+if ($request->filled('status')) {
+    $query->where('status', $request->status);
+}
+
+$evaluations = $query
+    ->orderByRaw("
+        CASE status
+            WHEN 'new' THEN 1
+            WHEN 'in_review' THEN 2
+            WHEN 'awaiting_client' THEN 3
+            WHEN 'completed' THEN 4
+            WHEN 'archived' THEN 5
+        END
+    ")
+    ->latest('created_at')
+    ->paginate(20)
+    ->withQueryString();
         $stats = [
         'new' => TrickEvaluation::where('status', 'new')->count(),
         'in_review' => TrickEvaluation::where('status', 'in_review')->count(),
         'awaiting_client' => TrickEvaluation::where('status', 'awaiting_client')->count(),
         'completed' => TrickEvaluation::where('status', 'completed')->count(),
+        'archived' => TrickEvaluation::where('status', 'archived')->count(),
     ];
 
     return view('admin.tricks.index', compact(
