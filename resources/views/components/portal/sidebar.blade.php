@@ -22,7 +22,7 @@
 
              <x-portal.sidebar-link
                  label="Posts"
-                 route="admin.posts.index"
+                 :route="route('admin.posts.index')"
                  :active="request()->routeIs('admin.posts.*')"
                  nested />
              <x-portal.sidebar-link
