@@ -9,6 +9,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HistoryFormController;
 use App\Http\Controllers\TrickEvaluationController;
+use App\Http\Controllers\Admin\TrickEvaluationController as AdminTrickEvaluationController;
 use App\Http\Controllers\RatController;
 use App\Services\AuditService;
 
@@ -147,22 +148,19 @@ Route::middleware(['auth', 'role:admin'])
 
         // Tricks Submissions
         Route::get('/tricks', [
-            \App\Http\Controllers\Admin\TrickEvaluationController::class,
-            'index'
-        ])->name('tricks.index');
-        Route::get('/tricks/{trickEvaluation}', [
-            \App\Http\Controllers\Admin\TrickEvaluationController::class,
-            'show'
-        ])->name('tricks.show');
-        Route::patch(
-            '/tricks/{trickEvaluation}/status',
-            [\App\Http\Controllers\Admin\TrickEvaluationController::class, 'updateStatus']
-        )->name('tricks.status');
-    });
-    Route::post('tricks/{trickEvaluation}/notes', [
-    TrickEvaluationController::class,
-    'storeNote'
-])->name('tricks.notes.store');
+    AdminTrickEvaluationController::class,
+    'index'
+])->name('tricks.index');
+
+Route::get('/tricks/{trickEvaluation}', [
+    AdminTrickEvaluationController::class,
+    'show'
+])->name('tricks.show');
+
+Route::patch('/tricks/{trickEvaluation}/status', [
+    AdminTrickEvaluationController::class,
+    'updateStatus'
+])->name('tricks.status');
 
 
 /*
