@@ -56,4 +56,33 @@ class ContactController extends Controller
 
         return back()->with('success', 'Status updated.');
     }
+
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'subject' => 'nullable|string',
+            'message' => 'required|string',
+        ]);
+
+        // 1. SAVE TO DATABASE (THIS IS THE CRITICAL PART)
+        $contact = ContactSubmission::create([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'subject' => $validated['subject'] ?? null,
+            'message' => $validated['message'],
+            'status' => 'new',
+        ]);
+
+        // 2. AUDIT LOG (secondary, NOT storage)
+        app(\App\Services\AuditService::class)->log(
+            'contact.submitted',
+            $contact,
+            null,
+            $contact->toArray()
+        );
+
+        return back()->with('success', 'Message sent.');
+    }
 }
