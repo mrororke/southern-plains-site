@@ -10,14 +10,14 @@ class ContactService
 {
     public function send(array $data): ContactSubmission
     {
-        // 1. SAVE TO DATABASE (THIS WAS MISSING)
-        $contact = ContactSubmission::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'subject' => $data['subject'] ?? null,
-            'message' => $data['message'],
-            'status' => 'new',
-        ]);
+        // 1. SAVE TO DATABASE
+        $contact = \App\Models\ContactSubmission::create([
+        'name' => trim(($data['first_name'] ?? '') . ' ' . ($data['last_name'] ?? '')),
+        'email' => $data['email'],
+        'subject' => $data['subject'] ?? null,
+        'message' => $data['message'],
+        'status' => 'new',
+    ]);
 
         // 2. SEND EMAIL
         Mail::to('southernplainssportdogclub@gmail.com')
