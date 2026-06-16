@@ -58,22 +58,19 @@ class TrickEvaluationController extends Controller
             );
     }
 
-    public function storeNote(
-    Request $request,
-    TrickEvaluation $trickEvaluation,
-    AuditService $auditService
-) {
+    public function storeNote(Request $request, TrickEvaluation $trickEvaluation)
+{
     $request->validate([
         'body' => 'required|string',
     ]);
 
     $note = $trickEvaluation->notes()->create([
         'body' => $request->body,
-        'user_id' => Auth::id(),
+        'user_id' => auth()->id(),
     ]);
 
-    $auditService->log(
-        'trick_evaluation.note_added',
+    app(\App\Services\AuditService::class)->log(
+        \App\Support\Audit\ActivityType::TRICK_NOTE_ADDED,
         $trickEvaluation,
         null,
         [
