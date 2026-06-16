@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class ContactController extends Controller
 {
-    public function index ()
+    public function index()
     {
         $contacts = Contact::latest()->paginate(20);
 
@@ -18,10 +18,9 @@ class ContactController extends Controller
     public function show(Contact $contact)
     {
         return view('admin.contacts.show', compact('contact'));
-
     }
 
-    public function updatedStatus(Request $request, Contact $contact)
+    public function updateStatus(Request $request, Contact $contact)
     {
         $validated = $request->validate([
             'status' => 'required|string',
