@@ -64,32 +64,34 @@ class AdminDashboardService
     |--------------------------------------------------------------------------
     */
     public function inbox(): array
-    {
-        $tricks = TrickEvaluation::orderByDesc('created_at')
-            ->take(10)
-            ->get()
-            ->map(function (TrickEvaluation $evaluation) {
+{
+    $tricks = TrickEvaluation::orderByDesc('created_at')
+        ->take(10)
+        ->get()
+        ->map(function (TrickEvaluation $evaluation) {
 
-                return [
-                    'title' => $evaluation->dog_name . ' — ' . $evaluation->owner_name,
-                    'subtitle' => 'Level: ' . $evaluation->trick_level,
+            return [
+                'type' => 'trick',
 
-                    'status' => $evaluation->status,
-                    'status_label' => TrickEvaluation::label($evaluation->status),
-                    'status_color' => TrickEvaluation::color($evaluation->status),
+                'title' => $evaluation->dog_name . ' — ' . $evaluation->owner_name,
+                'subtitle' => 'Level: ' . $evaluation->trick_level,
 
-                    'created_at' => optional($evaluation->created_at)
-                        ->format('M d, H:i'),
+                'status' => $evaluation->status,
+                'status_label' => TrickEvaluation::label($evaluation->status),
+                'status_color' => TrickEvaluation::color($evaluation->status),
 
-                    'link' => route('admin.tricks.show', $evaluation),
-                ];
-            })
-            ->toArray();
+                'created_at' => optional($evaluation->created_at)
+                    ->format('M d, H:i'),
 
-        $contacts = $this->contactsInbox();
+                'link' => route('admin.tricks.show', $evaluation),
+            ];
+        })
+        ->toArray();
 
-        return array_merge($tricks, $contacts);
-    }
+    $contacts = $this->contactsInbox();
+
+    return array_merge($tricks, $contacts);
+}
 
     /*
     |--------------------------------------------------------------------------
@@ -104,6 +106,8 @@ class AdminDashboardService
         ->map(function (ContactSubmission $contact) {
 
             return [
+                'type' => 'contact',
+
                 'title' => $contact->name . ' — ' . $contact->email,
                 'subtitle' => $contact->subject ?? 'Contact Form Submission',
 
