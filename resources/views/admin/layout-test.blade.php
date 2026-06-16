@@ -5,14 +5,6 @@
 @section('content')
 
 <div class="grid grid-cols-5 gap-4">
-    <div class="bg-red-500 p-4">1</div>
-    <div class="bg-blue-500 p-4">2</div>
-    <div class="bg-green-500 p-4">3</div>
-    <div class="bg-yellow-500 p-4">4</div>
-    <div class="bg-purple-500 p-4">5</div>
-</div>
-
-<!-- <div class="grid grid-cols-5 gap-4">
 
     <div class="bg-club p-4 text-center text-white">
         <h1 class="font-heading text-7xl">42</h1>
@@ -115,7 +107,7 @@
     </div>
 
 
-</div> -->
+</div>
 
 
 
