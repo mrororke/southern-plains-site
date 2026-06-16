@@ -2,10 +2,9 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
-use Carbon\Carbon;
 
 class TrickEvaluation extends Model
 {
@@ -32,101 +31,119 @@ class TrickEvaluation extends Model
     ];
 
     public const STATUS_LABELS = [
-    'new' => 'New',
-    'in_review' => 'In Review',
-    'awaiting_client' => 'Awaiting Client',
-    'completed' => 'Completed',
-    'archived' => 'Archived',
-];
+        'new' => 'New',
+        'in_review' => 'In Review',
+        'awaiting_client' => 'Awaiting Client',
+        'completed' => 'Completed',
+        'archived' => 'Archived',
+    ];
 
-public const STATUS_COLORS = [
-    'new' => 'bg-blue-100 text-blue-800',
-    'in_review' => 'bg-yellow-100 text-yellow-800',
-    'awaiting_client' => 'bg-purple-100 text-purple-800',
-    'completed' => 'bg-gray-100 text-gray-800',
-    'archived' => 'bg-gray-100 text-gray-500',
-];
+    public const STATUS_COLORS = [
+        'new' => 'bg-blue-100 text-blue-800',
+        'in_review' => 'bg-yellow-100 text-yellow-800',
+        'awaiting_client' => 'bg-purple-100 text-purple-800',
+        'completed' => 'bg-gray-100 text-gray-800',
+        'archived' => 'bg-gray-100 text-gray-500',
+    ];
 
-public const TRANSITIONS = [
-    'new' => ['in_review'],
-    'in_review' => ['awaiting_client', 'completed'],
-    'awaiting_client' => ['in_review', 'completed'],
-    'completed' => ['archived'],
-    'archived' => ['completed'],
-];
+    public const TRANSITIONS = [
+        'new' => ['in_review'],
+        'in_review' => ['awaiting_client', 'completed'],
+        'awaiting_client' => ['in_review', 'completed'],
+        'completed' => ['archived'],
+        'archived' => ['completed'],
+    ];
 
-public static function label(string $status): string
-{
-    return self::STATUS_LABELS[$status] ?? $status;
-}
+    /*
+    |--------------------------------------------------------------------------
+    | Status Helpers
+    |--------------------------------------------------------------------------
+    */
 
-public static function color(string $status): string
-{
-    return self::STATUS_COLORS[$status] ?? 'bg-gray-100 text-gray-800';
-}
-
-public static function allowedTransitions(string $status): array
-{
-    return self::TRANSITIONS[$status] ?? [];
-}
-
-public function timeInStatus(): string
-{
-    // assumes you have updated_at representing last change
-    $minutes = Carbon::parse($this->updated_at)->diffInMinutes(now());
-
-    if ($minutes < 60) {
-        return $minutes . ' min';
+    public static function label(string $status): string
+    {
+        return self::STATUS_LABELS[$status] ?? $status;
     }
 
-    $hours = floor($minutes / 60);
-
-    if ($hours < 24) {
-        return $hours . ' hr';
+    public static function color(string $status): string
+    {
+        return self::STATUS_COLORS[$status] ?? 'bg-gray-100 text-gray-800';
     }
 
-    $days = floor($hours / 24);
+    public static function allowedTransitions(string $status): array
+    {
+        return self::TRANSITIONS[$status] ?? [];
+    }
 
-    return $days . ' day' . ($days > 1 ? 's' : '');
-}
+    /*
+    |--------------------------------------------------------------------------
+    | Workflow Intelligence
+    |--------------------------------------------------------------------------
+    */
 
-public function recommendedAction(): ?string
-{
-    return match ($this->status) {
+    public function timeInStatus(): string
+    {
+        $minutes = Carbon::parse($this->updated_at)
+            ->diffInMinutes(now());
 
-        'new' => 'Move to In Review',
+        if ($minutes < 60) {
+            return $minutes . ' min';
+        }
 
-        'in_review' => 'Review submission or request client input',
+        $hours = floor($minutes / 60);
 
-        'awaiting_client' => 'Follow up with client',
+        if ($hours < 24) {
+            return $hours . ' hr';
+        }
 
-        'completed' => 'Archive or finalize record',
+        $days = floor($hours / 24);
 
-        'archived' => null,
+        return $days . ' day' . ($days > 1 ? 's' : '');
+    }
 
-        default => null,
-    };
-}
+    public function recommendedAction(): ?string
+    {
+        return match ($this->status) {
+            'new' => 'Move to In Review',
 
-public function isStuck(): bool
-{
-    return match ($this->status) {
+            'in_review' => 'Review submission or request client input',
 
-        'new' => Carbon::parse($this->updated_at)->diffInHours(now()) > 24,
+            'awaiting_client' => 'Follow up with client',
 
-        'in_review' => Carbon::parse($this->updated_at)->diffInDays(now()) > 2,
+            'completed' => 'Archive or finalize record',
 
-        'awaiting_client' => Carbon::parse($this->updated_at)->diffInDays(now()) > 3,
+            'archived' => null,
 
-        default => false,
-    };
-}
+            default => null,
+        };
+    }
 
-public function notes()
-{
-    return $this->hasMany(TrickEvaluationNote::class);
-}
+    public function isStuck(): bool
+    {
+        return match ($this->status) {
 
+            'new' => Carbon::parse($this->updated_at)
+                ->diffInHours(now()) > 24,
 
+            'in_review' => Carbon::parse($this->updated_at)
+                ->diffInDays(now()) > 2,
 
+            'awaiting_client' => Carbon::parse($this->updated_at)
+                ->diffInDays(now()) > 3,
+
+            default => false,
+        };
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Relationships
+    |--------------------------------------------------------------------------
+    */
+
+    public function notes()
+    {
+        return $this->hasMany(TrickEvaluationNote::class)
+            ->latest();
+    }
 }

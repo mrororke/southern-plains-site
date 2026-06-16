@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\TrickEvaluation\StoreTrickEvaluationRequest;
 use App\Services\TrickEvaluation\TrickEvaluationService;
-use App\Models\TrickEvaluation;
-use App\Models\TrickEvaluationNote;
 use App\Services\AuditService;
+use App\Models\TrickEvaluation;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TrickEvaluationController extends Controller
 {
@@ -21,9 +22,7 @@ class TrickEvaluationController extends Controller
     ) {
         $data = $request->validated();
 
-        $submission = TrickEvaluation::with('notes.user')->findOrFail($id);
-
-        // 1. STORE submission (new)
+        // Store submission
         $evaluation = TrickEvaluation::create([
             'owner_name' => $data['owner_name'],
             'email' => $data['email'],
@@ -40,7 +39,7 @@ class TrickEvaluationController extends Controller
             'total_fee' => $data['total_fee'] ?? null,
         ]);
 
-        // 2. AUDIT LOG (now model-backed)
+        // Audit log
         app(AuditService::class)->log(
             'trick_evaluation.submitted',
             $evaluation,
@@ -48,25 +47,30 @@ class TrickEvaluationController extends Controller
             $data
         );
 
-        // 3. KEEP EXISTING EMAIL FLOW (unchanged)
+        // Existing email workflow
         $service->submit($data);
 
         return redirect()
             ->back()
-            ->with('success', 'Thank you! Your evaluation request has been submitted successfully.');
+            ->with(
+                'success',
+                'Thank you! Your evaluation request has been submitted successfully.'
+            );
     }
 
-    public function storeNote(Request $request, TrickEvaluation $trickEvaluation)
-{
-    $request->validate([
-        'body' => 'required|string',
-    ]);
+    public function storeNote(
+        Request $request,
+        TrickEvaluation $trickEvaluation
+    ) {
+        $request->validate([
+            'body' => 'required|string',
+        ]);
 
-    $trickEvaluation->notes()->create([
-        'body' => $request->body,
-        'user_id' => Auth::id(),
-    ]);
+        $trickEvaluation->notes()->create([
+            'body' => $request->body,
+            'user_id' => Auth::id(),
+        ]);
 
-    return back();
-}
+        return back();
+    }
 }

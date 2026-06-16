@@ -118,6 +118,51 @@
             </details>
         @endif
 
+        {{-- NOTES --}}
+<div class="bg-white border p-4">
+
+    <h3 class="font-semibold mb-3">Notes</h3>
+
+    {{-- LIST --}}
+    <div class="space-y-3 mb-4">
+
+        @forelse($submission->notes as $note)
+
+            <div class="border p-2 text-sm bg-gray-50">
+                <div class="text-xs text-gray-500 mb-1">
+                    {{ $note->user->name ?? 'System' }}
+                    • {{ $note->created_at->format('M d, H:i') }}
+                </div>
+
+                <div class="text-gray-800">
+                    {{ $note->body }}
+                </div>
+            </div>
+
+        @empty
+
+            <p class="text-xs text-gray-500">No notes yet.</p>
+
+        @endforelse
+
+    </div>
+
+    {{-- FORM --}}
+    <form method="POST" action="{{ route('admin.tricks.notes.store', $submission) }}">
+        @csrf
+
+        <textarea name="body"
+                  class="w-full border p-2 text-sm"
+                  rows="3"
+                  placeholder="Add a note..."></textarea>
+
+        <button class="mt-2 border px-3 py-1 text-sm hover:bg-gray-50">
+            Add Note
+        </button>
+    </form>
+
+</div>
+
     </div>
 
     {{-- SIDEBAR --}}
