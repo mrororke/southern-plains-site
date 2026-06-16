@@ -12,9 +12,9 @@
         </h1>
 
         <div class="mt-2">
-            <span class="px-2 py-1 text-xs font-bold uppercase border rounded {{ \App\Models\TrickEvaluation::color($submission->status) }}">
-                {{ \App\Models\TrickEvaluation::label($submission->status) }}
-            </span>
+        <span class="px-2 py-1 text-xs font-bold uppercase border rounded {{ \App\Models\TrickEvaluation::color($submission->status) }}">
+    {{ \App\Models\TrickEvaluation::label($submission->status) }}
+</span>
 
 
         </div>
@@ -92,19 +92,19 @@
         <div class="space-y-2">
             @foreach(\App\Models\TrickEvaluation::allowedTransitions($eval->status) as $nextStatus)
 
-            <form method="POST" action="{{ route('admin.tricks.status', $eval) }}">
-                @csrf
-                @method('PATCH')
+    <form method="POST" action="{{ route('admin.tricks.status', $eval) }}">
+        @csrf
+        @method('PATCH')
 
-                <input type="hidden" name="status" value="{{ $nextStatus }}">
+        <input type="hidden" name="status" value="{{ $nextStatus }}">
 
-                <button class="w-full border p-2 text-left hover:bg-gray-50">
-                    Move to {{ \App\Models\TrickEvaluation::label($nextStatus) }}
-                </button>
-            </form>
+        <button class="w-full border p-2 text-left hover:bg-gray-50">
+            Move to {{ \App\Models\TrickEvaluation::label($nextStatus) }}
+        </button>
+    </form>
 
-            @endforeach
-
+@endforeach
+            
 
         </div>
 
