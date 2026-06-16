@@ -78,44 +78,66 @@
     {{-- SIDEBAR --}}
     <div class="col-span-1 space-y-4">
 
-        <div class="border p-4">
+    <div class="border p-4">
 
-            {{-- STATUS --}}
-            <h3 class="font-semibold mb-4">Status</h3>
+        {{-- STATUS --}}
+        <h3 class="font-semibold mb-2">Status</h3>
 
-            <div class="mb-4">
-                <span class="inline-block px-3 py-1 text-xs font-bold uppercase border rounded {{ \App\Models\TrickEvaluation::color($submission->status) }}">
-                    {{ \App\Models\TrickEvaluation::label($submission->status) }}
-                </span>
+        <span class="inline-block px-3 py-1 text-xs font-bold uppercase border rounded {{ \App\Models\TrickEvaluation::color($submission->status) }}">
+            {{ \App\Models\TrickEvaluation::label($submission->status) }}
+        </span>
+
+        {{-- TIME IN STATUS --}}
+        <div class="mt-3 text-xs text-gray-500">
+            In status: {{ $submission->timeInStatus() }}
+        </div>
+
+        {{-- STUCK WARNING --}}
+        @if($submission->isStuck())
+            <div class="mt-2 text-xs text-red-600 font-semibold">
+                ⚠ This item may need attention
             </div>
+        @endif
 
-            {{-- ACTIONS --}}
-            <h3 class="font-semibold mb-2">Actions</h3>
+        {{-- RECOMMENDED ACTION --}}
+        @if($submission->recommendedAction())
+            <div class="mt-4">
+                <h4 class="text-xs font-semibold text-gray-600 mb-1">
+                    Suggested next step
+                </h4>
 
-            <div class="space-y-2">
-
-                @foreach(\App\Models\TrickEvaluation::allowedTransitions($submission->status) as $nextStatus)
-
-                    <form method="POST" action="{{ route('admin.tricks.status', $submission) }}">
-                        @csrf
-                        @method('PATCH')
-
-                        <input type="hidden" name="status" value="{{ $nextStatus }}">
-
-                        <button type="submit"
-                            class="w-full border p-2 text-left hover:bg-gray-50">
-                            Move to {{ \App\Models\TrickEvaluation::label($nextStatus) }}
-                        </button>
-                    </form>
-
-                @endforeach
-
+                <p class="text-sm text-gray-800">
+                    {{ $submission->recommendedAction() }}
+                </p>
             </div>
+        @endif
+
+        {{-- ACTIONS --}}
+        <h3 class="font-semibold mt-4 mb-2">Actions</h3>
+
+        <div class="space-y-2">
+
+            @foreach(\App\Models\TrickEvaluation::allowedTransitions($submission->status) as $nextStatus)
+
+                <form method="POST" action="{{ route('admin.tricks.status', $submission) }}">
+                    @csrf
+                    @method('PATCH')
+
+                    <input type="hidden" name="status" value="{{ $nextStatus }}">
+
+                    <button type="submit"
+                        class="w-full border p-2 text-left hover:bg-gray-50">
+                        Move to {{ \App\Models\TrickEvaluation::label($nextStatus) }}
+                    </button>
+                </form>
+
+            @endforeach
 
         </div>
 
     </div>
 
+</div>
 </div>
 
 @endsection

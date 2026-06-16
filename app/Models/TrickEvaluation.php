@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+use Carbon\Carbon;
+
 class TrickEvaluation extends Model
 {
     use HasFactory;
@@ -67,5 +69,59 @@ public static function allowedTransitions(string $status): array
 {
     return self::TRANSITIONS[$status] ?? [];
 }
+
+public function timeInStatus(): string
+{
+    // assumes you have updated_at representing last change
+    $minutes = Carbon::parse($this->updated_at)->diffInMinutes(now());
+
+    if ($minutes < 60) {
+        return $minutes . ' min';
+    }
+
+    $hours = floor($minutes / 60);
+
+    if ($hours < 24) {
+        return $hours . ' hr';
+    }
+
+    $days = floor($hours / 24);
+
+    return $days . ' day' . ($days > 1 ? 's' : '');
+}
+
+public function recommendedAction(): ?string
+{
+    return match ($this->status) {
+
+        'new' => 'Move to In Review',
+
+        'in_review' => 'Review submission or request client input',
+
+        'awaiting_client' => 'Follow up with client',
+
+        'completed' => 'Archive or finalize record',
+
+        'archived' => null,
+
+        default => null,
+    };
+}
+
+public function isStuck(): bool
+{
+    return match ($this->status) {
+
+        'new' => Carbon::parse($this->updated_at)->diffInHours(now()) > 24,
+
+        'in_review' => Carbon::parse($this->updated_at)->diffInDays(now()) > 2,
+
+        'awaiting_client' => Carbon::parse($this->updated_at)->diffInDays(now()) > 3,
+
+        default => false,
+    };
+}
+
+
 
 }
