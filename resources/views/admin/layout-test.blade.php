@@ -4,7 +4,11 @@
 
 @section('content')
 
-<div class="grid grid-cols-5 gap-4">
+<div class="p-6">
+    TEST PAGE WORKING
+</div>
+
+<!-- <div class="grid grid-cols-5 gap-4">
 
     <div class="bg-club p-4 text-center text-white">
         <h1 class="font-heading text-7xl">42</h1>
@@ -107,7 +111,7 @@
     </div>
 
 
-</div>
+</div> -->
 
 
 
