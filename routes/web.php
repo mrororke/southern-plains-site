@@ -147,7 +147,9 @@ Route::middleware(['auth', 'role:admin'])
             ->name('rats.pedigree');
 
         // Tricks Submissions
-        Route::get('/tricks', [
+        // Trick Evaluations
+
+Route::get('/tricks', [
     AdminTrickEvaluationController::class,
     'index'
 ])->name('tricks.index');
@@ -162,6 +164,12 @@ Route::patch('/tricks/{trickEvaluation}/status', [
     'updateStatus'
 ])->name('tricks.status');
 
+Route::post('/tricks/{trickEvaluation}/notes', [
+    TrickEvaluationController::class,
+    'storeNote'
+])->name('tricks.notes.store');
+
+}); // <-- CLOSE ADMIN GROUP HERE
 
 /*
 |--------------------------------------------------------------------------
