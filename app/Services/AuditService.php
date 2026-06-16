@@ -5,15 +5,18 @@ namespace App\Services;
 use App\Models\AuditLog;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
-use Illuminate\Support\Str;
 
 class AuditService
 {
     /**
      * Write an audit log entry
      */
-    public function log(string $action, $model = null, array $old = null, array $new = null): void
-    {
+    public function log(
+        string $action,
+        $model = null,
+        array $old = null,
+        array $new = null
+    ): void {
         AuditLog::create([
             'user_id' => Auth::id(),
             'action' => $action,
@@ -30,31 +33,12 @@ class AuditService
      * Get recent audit entries formatted for UI
      */
     public function recent(int $limit = 10): array
-{
-    return AuditLog::latest()
-        ->limit($limit)
-        ->get()
-        ->map(fn ($log) => $this->tldr($log))
-        ->toArray();
-}
-
-    /**
-     * Format a single audit log entry
-     */
-    public function format($log): array
     {
-        return [
-            'id' => $log->id,
-            'action' => $log->action,
-            'model' => $log->model_type ? class_basename($log->model_type) : null,
-            'model_id' => $log->model_id,
-            'created_at' => optional($log->created_at)->format('Y-m-d H:i:s'),
-
-            'diff' => $this->diff(
-                $log->old_values ?? [],
-                $log->new_values ?? []
-            ),
-        ];
+        return AuditLog::latest()
+            ->limit($limit)
+            ->get()
+            ->map(fn ($log) => $this->tldr($log))
+            ->toArray();
     }
 
     /**
@@ -62,7 +46,10 @@ class AuditService
      */
     public function diff(array $old = [], array $new = []): array
     {
-        $allKeys = array_unique(array_merge(array_keys($old), array_keys($new)));
+        $allKeys = array_unique(array_merge(
+            array_keys($old),
+            array_keys($new)
+        ));
 
         $diff = [];
 
@@ -70,7 +57,6 @@ class AuditService
             $oldValue = $old[$key] ?? null;
             $newValue = $new[$key] ?? null;
 
-            // Skip unchanged values
             if ($oldValue === $newValue) {
                 continue;
             }
@@ -85,155 +71,185 @@ class AuditService
         return $diff;
     }
 
+    /**
+     * TL;DR formatted activity entry
+     */
     public function tldr($log): array
-{
-    $diff = $this->diff(
-        $log->old_values ?? [],
-        $log->new_values ?? []
-    );
+    {
+        /*
+        |--------------------------------------------------------------------------
+        | EVENT-BASED LOGS (no diff)
+        |--------------------------------------------------------------------------
+        */
 
-    $totalChanges = count($diff);
+        if ($log->action === 'trick_evaluation.note_added') {
+            return [
+                'id' => $log->id,
+                'action' => $log->action,
+                'model' => class_basename($log->model_type),
+                'model_id' => $log->model_id,
+                'created_at' => optional($log->created_at)->format('M d, H:i'),
 
-    $summary = collect($diff)
-        ->map(function ($change) {
-            return $this->describeChange(
-                $change['field'] ?? '',
-                $change['old'] ?? null,
-                $change['new'] ?? null
-            );
-        })
-        ->take(3)
-        ->implode(', ');
+                'entity' => $this->resolveEntityLabel($log),
+                'link' => $this->resolveEntityLink($log),
 
-    return [
-        'id' => $log->id,
-        'action' => $log->action,
-        'model' => class_basename($log->model_type),
-        'model_id' => $log->model_id,
-        'created_at' => optional($log->created_at)->format('M d, H:i'),
+                'summary' =>
+                    'Added note: ' .
+                    ($log->new_values['note_preview'] ?? ''),
 
-        // 👇 NEW: human-readable entity label (e.g. "Luka")
-        'entity' => $this->resolveEntityLabel($log),
-        'link' => $this->resolveEntityLink($log),
-
-        // TL;DR summary
-        'summary' => $totalChanges > 0
-            ? $summary
-            : 'No changes recorded',
-
-        // Full diff for expandable UI
-        'diff' => $diff,
-    ];
-}
-
-public function fieldLabel(string $field): string
-{
-    return match ($field) {
-
-        // Core Rat fields
-        'name' => 'name',
-        'registered_name' => 'registered name',
-        'breeder_reference' => 'breeder reference',
-        'sex' => 'sex',
-        'dob' => 'date of birth',
-        'dod' => 'date of death',
-        'variety' => 'variety',
-        'eye_color' => 'eye color',
-        'ear_set' => 'ear set',
-        'silvered' => 'silvering',
-        'is_owned' => 'ownership',
-        'is_pedigree_only' => 'pedigree status',
-
-        // Default fallback
-        default => str_replace('_', ' ', $field),
-    };
-}
-
-public function describeChange(string $field, $old, $new): string
-{
-    $label = $this->fieldLabel($field);
-
-    // Booleans
-    if (is_bool($old) || is_bool($new)) {
-        if ($new) {
-            return "enabled {$label}";
+                'diff' => [],
+            ];
         }
-        return "disabled {$label}";
+
+        /*
+        |--------------------------------------------------------------------------
+        | STANDARD DIFF-BASED LOGS
+        |--------------------------------------------------------------------------
+        */
+
+        $diff = $this->diff(
+            $log->old_values ?? [],
+            $log->new_values ?? []
+        );
+
+        $summary = collect($diff)
+            ->map(function ($change) {
+                return $this->describeChange(
+                    $change['field'] ?? '',
+                    $change['old'] ?? null,
+                    $change['new'] ?? null
+                );
+            })
+            ->take(3)
+            ->implode(', ');
+
+        return [
+            'id' => $log->id,
+            'action' => $log->action,
+            'model' => $log->model_type ? class_basename($log->model_type) : null,
+            'model_id' => $log->model_id,
+            'created_at' => optional($log->created_at)->format('M d, H:i'),
+
+            'entity' => $this->resolveEntityLabel($log),
+            'link' => $this->resolveEntityLink($log),
+
+            'summary' => $diff
+                ? $summary
+                : 'No changes recorded',
+
+            'diff' => $diff,
+        ];
     }
 
-    // Null → value
-    if (is_null($old) && !is_null($new)) {
-        return "set {$label}";
+    /**
+     * Human-readable field labels
+     */
+    public function fieldLabel(string $field): string
+    {
+        return match ($field) {
+            'name' => 'name',
+            'registered_name' => 'registered name',
+            'breeder_reference' => 'breeder reference',
+            'sex' => 'sex',
+            'dob' => 'date of birth',
+            'dod' => 'date of death',
+            'variety' => 'variety',
+            'eye_color' => 'eye color',
+            'ear_set' => 'ear set',
+            'silvered' => 'silvering',
+            'is_owned' => 'ownership',
+            'is_pedigree_only' => 'pedigree status',
+            default => str_replace('_', ' ', $field),
+        };
     }
 
-    // Value → null
-    if (!is_null($old) && is_null($new)) {
-        return "cleared {$label}";
+    /**
+     * Convert raw diff into readable sentence
+     */
+    public function describeChange(string $field, $old, $new): string
+    {
+        $label = $this->fieldLabel($field);
+
+        if (is_bool($old) || is_bool($new)) {
+            return $new ? "enabled {$label}" : "disabled {$label}";
+        }
+
+        if (is_null($old) && !is_null($new)) {
+            return "set {$label}";
+        }
+
+        if (!is_null($old) && is_null($new)) {
+            return "cleared {$label}";
+        }
+
+        return "updated {$label}";
     }
 
-    // Default change
-    return "updated {$label}";
-}
+    /**
+     * Resolve human entity label
+     */
+    public function resolveEntityLabel($log): ?string
+    {
+        if (!$log->model_type || !$log->model_id) {
+            return $this->resolveEventLabel($log->action);
+        }
 
-public function resolveEntityLabel($log): ?string
-{
-    // If no model_id, treat as event-based log
-    if (!$log->model_type || !$log->model_id) {
-        return $this->resolveEventLabel($log->action);
-    }
+        try {
+            $class = $log->model_type;
 
-    try {
-        $class = $log->model_type;
+            if (!class_exists($class)) {
+                return null;
+            }
 
-        if (!class_exists($class)) {
+            $model = $class::find($log->model_id);
+
+            if (!$model) {
+                return class_basename($class) . ' #' . $log->model_id;
+            }
+
+            return $model->registered_name
+                ?? $model->name
+                ?? class_basename($class) . ' #' . $model->id;
+
+        } catch (\Throwable $e) {
             return null;
         }
-
-        $model = $class::find($log->model_id);
-
-        if (!$model) {
-            return class_basename($class) . ' #' . $log->model_id;
-        }
-
-        return $model->registered_name
-            ?? $model->name
-            ?? (class_basename($class) . ' #' . $model->id);
-
-    } catch (\Throwable $e) {
-        return null;
     }
-}
 
-private function resolveEventLabel(string $action): string
-{
-    return match (true) {
+    /**
+     * Event label mapping
+     */
+    private function resolveEventLabel(string $action): string
+    {
+        return match (true) {
+            str_contains($action, 'contact')
+                => 'Contact Form Submission',
 
-        str_contains($action, 'contact') => 'Contact Form Submission',
-        str_contains($action, 'history') => 'Training History Submission',
-        str_contains($action, 'trick') => 'Trick Evaluation Submission',
+            str_contains($action, 'history')
+                => 'Training History Submission',
 
-        default => ucwords(str_replace(['.', '_'], ' ', $action)),
-    };
-}
+            str_contains($action, 'trick')
+                => 'Trick Evaluation Submission',
 
-public function resolveEntityLink($log): ?string
-{
-    $action = $log->action;
+            default
+                => ucwords(str_replace(['.', '_'], ' ', $action)),
+        };
+    }
 
-    return match (true) {
+    /**
+     * Resolve clickable entity link
+     */
+    public function resolveEntityLink($log): ?string
+    {
+        return match (true) {
 
-    // Trick Evaluations (only link if record exists)
-        str_contains($action, 'trick') && $log->model_id
-            => route('admin.tricks.show', $log->model_id),
+            str_contains($log->action, 'trick') && $log->model_id
+                => route('admin.tricks.show', $log->model_id),
 
-        // Contact submissions (future-safe, only if model exists later)
-        str_contains($action, 'contact') && $log->model_id
-            => null, // placeholder until admin.contact.show exists
+            str_contains($log->action, 'contact') && $log->model_id
+                => null,
 
-        // Rat / other models handled via model_type already
-        default => null,
-};
-}
-
-
+            default => null,
+        };
+    }
 }
