@@ -38,6 +38,38 @@
 
     {{-- MAIN COLUMN --}}
     <div class="col-span-4 pt-4 space-y-10">
+        {{-- INBOX --}}
+        <div>
+            <h2 class="font-heading text-4xl pb-2">Inbox</h2>
+
+            @foreach($inbox as $inboxItem)
+                <a href="{{ $inboxItem['link'] }}" class="block border p-3 mb-2">
+
+                    <div class="flex justify-between">
+
+                        <div class="font-semibold">
+                            {{ $inboxItem['title'] }}
+                        </div>
+
+                        <span class="text-xs px-2 py-1 rounded {{ $inboxItem['status_color'] }}">
+                            {{ $inboxItem['status_label'] }}
+                        </span>
+
+                    </div>
+
+                    @if(!empty($inboxItem['subtitle']))
+                        <div class="text-sm text-gray-500">
+                            {{ $inboxItem['subtitle'] }}
+                        </div>
+                    @endif
+
+                    <div class="text-xs text-gray-400 mt-1">
+                        {{ $inboxItem['created_at'] }}
+                    </div>
+
+                </a>
+            @endforeach
+        </div>
 
         {{-- RECENT ACTIVITY --}}
         <div>
@@ -112,38 +144,7 @@
             @endforeach
         </div>
 
-        {{-- INBOX --}}
-        <div>
-            <h2 class="font-heading text-4xl pb-2">Inbox</h2>
-
-            @foreach($inbox as $inboxItem)
-                <a href="{{ $inboxItem['link'] }}" class="block border p-3 mb-2">
-
-                    <div class="flex justify-between">
-
-                        <div class="font-semibold">
-                            {{ $inboxItem['title'] }}
-                        </div>
-
-                        <span class="text-xs px-2 py-1 rounded {{ $inboxItem['status_color'] }}">
-                            {{ $inboxItem['status_label'] }}
-                        </span>
-
-                    </div>
-
-                    @if(!empty($inboxItem['subtitle']))
-                        <div class="text-sm text-gray-500">
-                            {{ $inboxItem['subtitle'] }}
-                        </div>
-                    @endif
-
-                    <div class="text-xs text-gray-400 mt-1">
-                        {{ $inboxItem['created_at'] }}
-                    </div>
-
-                </a>
-            @endforeach
-        </div>
+        
 
     </div>
 
