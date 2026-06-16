@@ -132,11 +132,11 @@ Route::middleware(['auth', 'role:admin'])
     ->group(function () {
 
         Route::get('/dashboard', function () {
-            return view('admin.dashboard');
+            return view('admin.adminDashboard');
         })->name('dashboard');
 
         Route::get('/layout-test', function (AuditService $auditService) {
-            return view('admin.layout-test', [
+            return view('admin.adminDashboard', [
                 'recentActivity' => $auditService->recent(5),
             ]);
         })->name('layout-test');
