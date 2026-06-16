@@ -10,4 +10,12 @@ class ContactSubmission extends Model
     use HasFactory;
 
     protected $table = 'contact_submissions';
+
+    protected $fillable = [
+        'name',
+        'email',
+        'subject',
+        'message',
+        'status',
+    ];
 }
