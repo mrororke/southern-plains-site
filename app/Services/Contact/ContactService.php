@@ -2,24 +2,35 @@
 
 namespace App\Services\Contact;
 
+use App\Models\ContactSubmission;
 use App\Mail\ContactFormMail;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Log;
 
 class ContactService
 {
-    public function send(array $data): void
+    public function send(array $data): ContactSubmission
     {
-        // 1. Send email
+        // 1. SAVE TO DATABASE (THIS WAS MISSING)
+        $contact = ContactSubmission::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'subject' => $data['subject'] ?? null,
+            'message' => $data['message'],
+            'status' => 'new',
+        ]);
+
+        // 2. SEND EMAIL
         Mail::to('southernplainssportdogclub@gmail.com')
             ->send(new ContactFormMail($data));
 
-        // 2. Audit log
+        // 3. AUDIT LOG
         app(\App\Services\AuditService::class)->log(
             'form.contact.submitted',
+            $contact,
             null,
-            null,
-            $data
+            $contact->toArray()
         );
+
+        return $contact;
     }
 }
