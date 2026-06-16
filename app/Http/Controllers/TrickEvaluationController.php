@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\TrickEvaluation\StoreTrickEvaluationRequest;
 use App\Services\TrickEvaluation\TrickEvaluationService;
 use App\Models\TrickEvaluation;
+use App\Models\TrickEvaluationNote;
 use App\Services\AuditService;
 
 class TrickEvaluationController extends Controller
@@ -19,6 +20,8 @@ class TrickEvaluationController extends Controller
         TrickEvaluationService $service
     ) {
         $data = $request->validated();
+
+        $submission = TrickEvaluation::with('notes.user')->findOrFail($id);
 
         // 1. STORE submission (new)
         $evaluation = TrickEvaluation::create([
@@ -52,4 +55,18 @@ class TrickEvaluationController extends Controller
             ->back()
             ->with('success', 'Thank you! Your evaluation request has been submitted successfully.');
     }
+
+    public function storeNote(Request $request, TrickEvaluation $trickEvaluation)
+{
+    $request->validate([
+        'body' => 'required|string',
+    ]);
+
+    $trickEvaluation->notes()->create([
+        'body' => $request->body,
+        'user_id' => Auth::id(),
+    ]);
+
+    return back();
+}
 }

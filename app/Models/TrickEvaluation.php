@@ -122,6 +122,11 @@ public function isStuck(): bool
     };
 }
 
+public function notes()
+{
+    return $this->hasMany(TrickEvaluationNote::class);
+}
+
 
 
 }

@@ -159,6 +159,10 @@ Route::middleware(['auth', 'role:admin'])
             [\App\Http\Controllers\Admin\TrickEvaluationController::class, 'updateStatus']
         )->name('tricks.status');
     });
+    Route::post('tricks/{trickEvaluation}/notes', [
+    TrickEvaluationController::class,
+    'storeNote'
+])->name('tricks.notes.store');
 
 
 /*
