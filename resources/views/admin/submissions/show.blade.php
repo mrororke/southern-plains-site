@@ -12,9 +12,9 @@
         </h1>
 
         <div class="mt-2">
-        <span class="px-2 py-1 text-xs font-bold uppercase border rounded {{ \App\Models\TrickEvaluation::color($submission->status) }}">
-    {{ \App\Models\TrickEvaluation::label($submission->status) }}
-</span>
+            <span class="px-2 py-1 text-xs font-bold uppercase border rounded {{ \App\Models\TrickEvaluation::color($submission->status) }}">
+                {{ \App\Models\TrickEvaluation::label($submission->status) }}
+            </span>
 
 
         </div>
@@ -90,110 +90,21 @@
         <h3 class="font-semibold mb-2">Actions</h3>
 
         <div class="space-y-2">
+            @foreach(\App\Models\TrickEvaluation::allowedTransitions($eval->status) as $nextStatus)
 
-            @if($submission->status === 'new')
-
-            <form method="POST" action="{{ route('admin.tricks.status', $submission) }}">
+            <form method="POST" action="{{ route('admin.tricks.status', $eval) }}">
                 @csrf
                 @method('PATCH')
 
-                <input type="hidden" name="status" value="in_review">
+                <input type="hidden" name="status" value="{{ $nextStatus }}">
 
-                <button type="submit"
-                    class="w-full border p-2 text-left hover:bg-gray-50">
-                    Mark In Review
+                <button class="w-full border p-2 text-left hover:bg-gray-50">
+                    Move to {{ \App\Models\TrickEvaluation::label($nextStatus) }}
                 </button>
             </form>
 
-            @endif
+            @endforeach
 
-            @if($submission->status === 'in_review')
-
-            <form method="POST" action="{{ route('admin.tricks.status', $submission) }}">
-                @csrf
-                @method('PATCH')
-
-                <input type="hidden" name="status" value="awaiting_client">
-
-                <button type="submit"
-                    class="w-full border p-2 text-left hover:bg-gray-50">
-                    Await Client Response
-                </button>
-            </form>
-
-            <form method="POST" action="{{ route('admin.tricks.status', $submission) }}">
-                @csrf
-                @method('PATCH')
-
-                <input type="hidden" name="status" value="completed">
-
-                <button type="submit"
-                    class="w-full border p-2 text-left hover:bg-gray-50">
-                    Mark Completed
-                </button>
-            </form>
-
-            @endif
-
-            @if($submission->status === 'awaiting_client')
-
-            <form method="POST" action="{{ route('admin.tricks.status', $submission) }}">
-                @csrf
-                @method('PATCH')
-
-                <input type="hidden" name="status" value="in_review">
-
-                <button type="submit"
-                    class="w-full border p-2 text-left hover:bg-gray-50">
-                    Resume Review
-                </button>
-            </form>
-
-            <form method="POST" action="{{ route('admin.tricks.status', $submission) }}">
-                @csrf
-                @method('PATCH')
-
-                <input type="hidden" name="status" value="completed">
-
-                <button type="submit"
-                    class="w-full border p-2 text-left hover:bg-gray-50">
-                    Mark Completed
-                </button>
-            </form>
-
-            @endif
-
-            @if($submission->status === 'completed')
-
-            <form method="POST" action="{{ route('admin.tricks.status', $submission) }}">
-                @csrf
-                @method('PATCH')
-
-                <input type="hidden" name="status" value="archived">
-
-                <button type="submit"
-                    class="w-full border p-2 text-left hover:bg-gray-50">
-                    Archive
-                </button>
-            </form>
-
-            @endif
-
-            @if($submission->status === 'archived')
-
-            <form method="POST" action="{{ route('admin.tricks.status', $submission) }}">
-                @csrf
-                @method('PATCH')
-
-                <input type="hidden" name="status" value="completed">
-
-                <button type="submit"
-                    class="w-full border p-2 text-left hover:bg-gray-50">
-                    Restore
-                </button>
-            </form>
-
-            @endif
 
         </div>
 

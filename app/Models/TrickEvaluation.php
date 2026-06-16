@@ -45,6 +45,14 @@ public const STATUS_COLORS = [
     'archived' => 'bg-gray-100 text-gray-500',
 ];
 
+public const TRANSITIONS = [
+    'new' => ['in_review'],
+    'in_review' => ['awaiting_client', 'completed'],
+    'awaiting_client' => ['in_review', 'completed'],
+    'completed' => ['archived'],
+    'archived' => ['completed'],
+];
+
 public static function label(string $status): string
 {
     return self::STATUS_LABELS[$status] ?? $status;
@@ -53,6 +61,11 @@ public static function label(string $status): string
 public static function color(string $status): string
 {
     return self::STATUS_COLORS[$status] ?? 'bg-gray-100 text-gray-800';
+}
+
+public static function allowedTransitions(string $status): array
+{
+    return self::TRANSITIONS[$status] ?? [];
 }
 
 }
