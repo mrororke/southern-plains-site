@@ -124,7 +124,7 @@ Route::middleware(['auth', 'role:admin'])
     ->group(function () {
 
         /*
-        | Dashboard (FIXED - single source of truth)
+        | Dashboard
         */
         Route::get('/dashboard', function (AdminDashboardService $service) {
             return view('admin.dashboard', $service->data());

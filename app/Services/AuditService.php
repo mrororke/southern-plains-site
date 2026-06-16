@@ -37,7 +37,7 @@ class AuditService
     | RECENT FEED
     |--------------------------------------------------------------------------
     */
-    public function recent(int $limit = 10): array
+    public function recent(int $limit = 5): array
     {
         return AuditLog::latest()
             ->limit($limit)
