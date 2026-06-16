@@ -10,7 +10,7 @@ class AdminDashboardController extends Controller
 {
     public function __invoke(InboxService $inbox)
 {
-    return view('admin.dashboard', [
+    return view('admin.adminDashboard', [
         'inbox' => $inbox->all(),
     ]);
 }
