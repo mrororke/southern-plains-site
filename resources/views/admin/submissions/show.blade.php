@@ -2,109 +2,115 @@
 
 @section('content')
 
-
 <div class="grid grid-cols-5 gap-6">
 
     {{-- MAIN CONTENT --}}
-    <div class="border-b pb-4">
-        <h1 class="text-2xl font-bold">
-            {{ $title }}
-        </h1>
+    <div class="col-span-4 space-y-6">
 
-        <div class="mt-2">
-            <span class="px-2 py-1 text-xs font-bold uppercase border rounded {{ \App\Models\TrickEvaluation::color($submission->status) }}">
-                {{ \App\Models\TrickEvaluation::label($submission->status) }}
-            </span>
+        {{-- HEADER --}}
+        <div class="border-b pb-4">
+            <h1 class="text-2xl font-bold">
+                {{ $title }}
+            </h1>
 
+            <div class="mt-2">
+                <span class="inline-block px-3 py-1 text-xs font-bold uppercase border rounded {{ \App\Models\TrickEvaluation::color($submission->status) }}">
+                    {{ \App\Models\TrickEvaluation::label($submission->status) }}
+                </span>
+            </div>
 
+            <p class="text-sm text-gray-500 mt-2">
+                Submitted: {{ $created_at }}
+            </p>
         </div>
 
-        <p class="text-sm text-gray-500 mt-2">
-            Submitted: {{ $created_at }}
-        </p>
-    </div>
+        {{-- SUMMARY BLOCK --}}
+        <div class="bg-gray-50 border p-4">
+            <h2 class="font-semibold mb-2">Summary</h2>
+            <p class="text-sm">{{ $summary }}</p>
+        </div>
 
-    {{-- SUMMARY BLOCK --}}
-    <div class="bg-gray-50 border p-4">
-        <h2 class="font-semibold mb-2">Summary</h2>
-        <p class="text-sm">{{ $summary }}</p>
-    </div>
+        {{-- DETAILS --}}
+        <div class="bg-white border p-4">
+            <h2 class="font-semibold mb-4">Details</h2>
 
-    {{-- DETAILS --}}
-    <div class="bg-white border p-4">
-        <h2 class="font-semibold mb-4">Details</h2>
+            <dl class="grid grid-cols-2 gap-4 text-sm">
+                @foreach($fields as $label => $value)
+                    <div>
+                        <dt class="font-semibold text-gray-600">{{ $label }}</dt>
+                        <dd class="text-gray-900">
+                            {{ is_array($value) ? json_encode($value) : $value }}
+                        </dd>
+                    </div>
+                @endforeach
+            </dl>
+        </div>
 
-        <dl class="grid grid-cols-2 gap-4 text-sm">
-            @foreach($fields as $label => $value)
-            <div>
-                <dt class="font-semibold text-gray-600">{{ $label }}</dt>
-                <dd class="text-gray-900">
-                    {{ is_array($value) ? json_encode($value) : $value }}
-                </dd>
-            </div>
-            @endforeach
-        </dl>
-    </div>
+        {{-- RAW DIFF --}}
+        @if(!empty($diff))
+            <details class="border p-4">
+                <summary class="cursor-pointer text-sm text-training">
+                    View change history
+                </summary>
 
-    {{-- RAW DIFF (optional debug) --}}
-    @if(!empty($diff))
-    <details class="border p-4">
-        <summary class="cursor-pointer text-sm text-training">
-            View change history
-        </summary>
+                <div class="mt-3 space-y-2 text-xs">
+                    @foreach($diff as $change)
+                        <div class="border p-2 bg-gray-50">
+                            <div class="font-semibold">{{ $change['field'] }}</div>
 
-        <div class="mt-3 space-y-2 text-xs">
-            @foreach($diff as $change)
-            <div class="border p-2 bg-gray-50">
-                <div class="font-semibold">{{ $change['field'] }}</div>
-                <div>
-                    <span class="text-red-600">
-                        {{ json_encode($change['old']) }}
-                    </span>
-                    →
-                    <span class="text-green-600">
-                        {{ json_encode($change['new']) }}
-                    </span>
+                            <div>
+                                <span class="text-red-600">
+                                    {{ json_encode($change['old']) }}
+                                </span>
+                                →
+                                <span class="text-green-600">
+                                    {{ json_encode($change['new']) }}
+                                </span>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
+            </details>
+        @endif
+
+    </div>
+
+    {{-- SIDEBAR --}}
+    <div class="col-span-1 space-y-4">
+
+        <div class="border p-4">
+
+            {{-- STATUS --}}
+            <h3 class="font-semibold mb-4">Status</h3>
+
+            <div class="mb-4">
+                <span class="inline-block px-3 py-1 text-xs font-bold uppercase border rounded {{ \App\Models\TrickEvaluation::color($submission->status) }}">
+                    {{ \App\Models\TrickEvaluation::label($submission->status) }}
+                </span>
             </div>
-            @endforeach
-        </div>
-    </details>
-    @endif
 
-</div>
+            {{-- ACTIONS --}}
+            <h3 class="font-semibold mb-2">Actions</h3>
 
-{{-- SIDEBAR --}}
-<div class="col-span-1 space-y-4">
+            <div class="space-y-2">
 
-    <div class="border p-4">
+                @foreach(\App\Models\TrickEvaluation::allowedTransitions($submission->status) as $nextStatus)
 
-        <h3 class="font-semibold mb-4">Status</h3>
+                    <form method="POST" action="{{ route('admin.tricks.status', $submission) }}">
+                        @csrf
+                        @method('PATCH')
 
-        <div class="mb-4">
-            <span class="inline-block px-3 py-1 text-xs font-bold uppercase border rounded">
-                {{ str_replace('_', ' ', $submission->status) }}
-            </span>
-        </div>
+                        <input type="hidden" name="status" value="{{ $nextStatus }}">
 
-        <h3 class="font-semibold mb-2">Actions</h3>
+                        <button type="submit"
+                            class="w-full border p-2 text-left hover:bg-gray-50">
+                            Move to {{ \App\Models\TrickEvaluation::label($nextStatus) }}
+                        </button>
+                    </form>
 
-        <div class="space-y-2">
-            <!-- @foreach(\App\Models\TrickEvaluation::allowedTransitions($eval->status) as $nextStatus)
+                @endforeach
 
-            <form method="POST" action="{{ route('admin.tricks.status', $eval) }}">
-                @csrf
-                @method('PATCH')
-
-                <input type="hidden" name="status" value="{{ $nextStatus }}">
-
-                <button class="w-full border p-2 text-left hover:bg-gray-50">
-                    Move to {{ \App\Models\TrickEvaluation::label($nextStatus) }}
-                </button>
-            </form>
-
-            @endforeach -->
-
+            </div>
 
         </div>
 
@@ -112,5 +118,4 @@
 
 </div>
 
-</div>
 @endsection
