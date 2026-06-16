@@ -3,14 +3,17 @@
 namespace App\Services;
 
 use App\Models\AuditLog;
+use App\Support\Audit\ActivityType;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
 
 class AuditService
 {
-    /**
-     * Write an audit log entry
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | WRITE LOG
+    |--------------------------------------------------------------------------
+    */
     public function log(
         string $action,
         $model = null,
@@ -29,9 +32,11 @@ class AuditService
         ]);
     }
 
-    /**
-     * Get recent audit entries formatted for UI
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | RECENT FEED
+    |--------------------------------------------------------------------------
+    */
     public function recent(int $limit = 10): array
     {
         return AuditLog::latest()
@@ -41,19 +46,21 @@ class AuditService
             ->toArray();
     }
 
-    /**
-     * Build field-level diff between old and new values
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | DIFF ENGINE
+    |--------------------------------------------------------------------------
+    */
     public function diff(array $old = [], array $new = []): array
     {
-        $allKeys = array_unique(array_merge(
+        $keys = array_unique(array_merge(
             array_keys($old),
             array_keys($new)
         ));
 
         $diff = [];
 
-        foreach ($allKeys as $key) {
+        foreach ($keys as $key) {
             $oldValue = $old[$key] ?? null;
             $newValue = $new[$key] ?? null;
 
@@ -71,55 +78,57 @@ class AuditService
         return $diff;
     }
 
-    /**
-     * TL;DR formatted activity entry
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | TL;DR FORMATTER
+    |--------------------------------------------------------------------------
+    */
     public function tldr($log): array
     {
         /*
-        |--------------------------------------------------------------------------
-        | EVENT-BASED LOGS (no diff)
-        |--------------------------------------------------------------------------
+        |------------------------------------------
+        | EVENT LOGS (non-diff actions)
+        |------------------------------------------
         */
+        if (in_array($log->action, [
+            ActivityType::TRICK_NOTE_ADDED,
+            ActivityType::TRICK_SUBMITTED,
+            ActivityType::CONTACT_SUBMITTED,
+            ActivityType::HISTORY_SUBMITTED,
+        ], true)) {
 
-        if ($log->action === 'trick_evaluation.note_added') {
             return [
                 'id' => $log->id,
                 'action' => $log->action,
-                'model' => class_basename($log->model_type),
+                'model' => $log->model_type ? class_basename($log->model_type) : null,
                 'model_id' => $log->model_id,
                 'created_at' => optional($log->created_at)->format('M d, H:i'),
 
                 'entity' => $this->resolveEntityLabel($log),
                 'link' => $this->resolveEntityLink($log),
 
-                'summary' =>
-                    'Added note: ' .
-                    ($log->new_values['note_preview'] ?? ''),
+                'summary' => $this->resolveEventSummary($log),
 
                 'diff' => [],
             ];
         }
 
         /*
-        |--------------------------------------------------------------------------
-        | STANDARD DIFF-BASED LOGS
-        |--------------------------------------------------------------------------
+        |------------------------------------------
+        | DIFF-BASED LOGS
+        |------------------------------------------
         */
-
         $diff = $this->diff(
             $log->old_values ?? [],
             $log->new_values ?? []
         );
 
         $summary = collect($diff)
-            ->map(function ($change) {
-                return $this->describeChange(
-                    $change['field'] ?? '',
-                    $change['old'] ?? null,
-                    $change['new'] ?? null
-                );
-            })
+            ->map(fn ($change) => $this->describeChange(
+                $change['field'] ?? '',
+                $change['old'] ?? null,
+                $change['new'] ?? null
+            ))
             ->take(3)
             ->implode(', ');
 
@@ -141,9 +150,37 @@ class AuditService
         ];
     }
 
-    /**
-     * Human-readable field labels
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | EVENT SUMMARIES (ONLY SOURCE OF TRUTH)
+    |--------------------------------------------------------------------------
+    */
+    private function resolveEventSummary($log): string
+    {
+        return match ($log->action) {
+
+            ActivityType::TRICK_NOTE_ADDED
+                => 'Added note: ' .
+                    ($log->new_values['note_preview'] ?? ''),
+
+            ActivityType::TRICK_SUBMITTED
+                => 'Submitted trick evaluation',
+
+            ActivityType::CONTACT_SUBMITTED
+                => 'Submitted contact form',
+
+            ActivityType::HISTORY_SUBMITTED
+                => 'Submitted training history',
+
+            default => 'Activity recorded',
+        };
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | FIELD LABELS
+    |--------------------------------------------------------------------------
+    */
     public function fieldLabel(string $field): string
     {
         return match ($field) {
@@ -163,9 +200,11 @@ class AuditService
         };
     }
 
-    /**
-     * Convert raw diff into readable sentence
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | CHANGE DESCRIPTIONS
+    |--------------------------------------------------------------------------
+    */
     public function describeChange(string $field, $old, $new): string
     {
         $label = $this->fieldLabel($field);
@@ -185,13 +224,15 @@ class AuditService
         return "updated {$label}";
     }
 
-    /**
-     * Resolve human entity label
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | ENTITY LABELS
+    |--------------------------------------------------------------------------
+    */
     public function resolveEntityLabel($log): ?string
     {
         if (!$log->model_type || !$log->model_id) {
-            return $this->resolveEventLabel($log->action);
+            return $this->resolveEventSummary($log);
         }
 
         try {
@@ -216,37 +257,23 @@ class AuditService
         }
     }
 
-    /**
-     * Event label mapping
-     */
-    private function resolveEventLabel(string $action): string
-    {
-        return match (true) {
-            str_contains($action, 'contact')
-                => 'Contact Form Submission',
-
-            str_contains($action, 'history')
-                => 'Training History Submission',
-
-            str_contains($action, 'trick')
-                => 'Trick Evaluation Submission',
-
-            default
-                => ucwords(str_replace(['.', '_'], ' ', $action)),
-        };
-    }
-
-    /**
-     * Resolve clickable entity link
-     */
+    /*
+    |--------------------------------------------------------------------------
+    | ENTITY LINKS (STEP 5 CLEANED)
+    |--------------------------------------------------------------------------
+    */
     public function resolveEntityLink($log): ?string
     {
-        return match (true) {
+        return match ($log->action) {
 
-            str_contains($log->action, 'trick') && $log->model_id
-                => route('admin.tricks.show', $log->model_id),
+            ActivityType::TRICK_NOTE_ADDED,
+            ActivityType::TRICK_SUBMITTED
+                => $log->model_id
+                    ? route('admin.tricks.show', $log->model_id)
+                    : null,
 
-            str_contains($log->action, 'contact') && $log->model_id
+            ActivityType::CONTACT_SUBMITTED,
+            ActivityType::HISTORY_SUBMITTED
                 => null,
 
             default => null,
