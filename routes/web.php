@@ -10,6 +10,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HistoryFormController;
 use App\Http\Controllers\TrickEvaluationController;
 use App\Http\Controllers\Admin\TrickEvaluationController as AdminTrickEvaluationController;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\RatController;
 use App\Services\AuditService;
 
@@ -146,28 +147,31 @@ Route::middleware(['auth', 'role:admin'])
         Route::get('rats/{rat}/pedigree', [RatController::class, 'show'])
             ->name('rats.pedigree');
 
-        // Tricks Submissions
         // Trick Evaluations
+        Route::get('/tricks', [
+            AdminTrickEvaluationController::class,
+            'index'
+        ])->name('tricks.index');
 
-Route::get('/tricks', [
-    AdminTrickEvaluationController::class,
-    'index'
-])->name('tricks.index');
+        Route::get('/tricks/{trickEvaluation}', [
+            AdminTrickEvaluationController::class,
+            'show'
+        ])->name('tricks.show');
 
-Route::get('/tricks/{trickEvaluation}', [
-    AdminTrickEvaluationController::class,
-    'show'
-])->name('tricks.show');
+        Route::patch('/tricks/{trickEvaluation}/status', [
+            AdminTrickEvaluationController::class,
+            'updateStatus'
+        ])->name('tricks.status');
 
-Route::patch('/tricks/{trickEvaluation}/status', [
-    AdminTrickEvaluationController::class,
-    'updateStatus'
-])->name('tricks.status');
+        Route::post('/tricks/{trickEvaluation}/notes', [
+            TrickEvaluationController::class,
+            'storeNote'
+        ])->name('tricks.notes.store');
 
-Route::post('/tricks/{trickEvaluation}/notes', [
-    TrickEvaluationController::class,
-    'storeNote'
-])->name('tricks.notes.store');
+        // Contact Form Submissions
+        Route::get('/contacts', [AdminContactController::class, 'index'])->name('contacts.index');
+        Route::get('/contacts/{contact}', [AdminContactController::class, 'show'])->name('contacts.show');
+        Route::patch('/contacts/{contact}/status', [AdminContactController::class, 'updateStatus'])->name('contact.status');
 
 }); // <-- CLOSE ADMIN GROUP HERE
 
