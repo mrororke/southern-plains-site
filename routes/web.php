@@ -12,6 +12,7 @@ use App\Http\Controllers\TrickEvaluationController;
 use App\Http\Controllers\Admin\TrickEvaluationController as AdminTrickEvaluationController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
 use App\Http\Controllers\RatController;
+use App\Services\AdminDashboardService;
 use App\Services\AuditService;
 
 
@@ -135,11 +136,9 @@ Route::middleware(['auth', 'role:admin'])
             return view('admin.dashboard');
         })->name('dashboard');
 
-        Route::get('/layout-test', function (AuditService $auditService) {
-            return view('admin.dashboard', [
-                'recentActivity' => $auditService->recent(5),
-            ]);
-        })->name('dashboard');
+        Route::get('/dashboard', function (AdminDashboardService $service) {
+            return view('admin.dashboard', $service->data());
+        });
 
         Route::resource('posts', PostController::class);
         Route::resource('rats', RatController::class);
