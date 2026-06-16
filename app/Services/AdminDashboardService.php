@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Services\AuditService;
 use App\Models\TrickEvaluation;
-use App\Models\Contact;
+use App\Models\ContactSubmission;
 
 class AdminDashboardService
 {
@@ -97,31 +97,31 @@ class AdminDashboardService
     |--------------------------------------------------------------------------
     */
     public function contactsInbox(): array
-    {
-        return Contact::latest()
-            ->take(10)
-            ->get()
-            ->map(function (Contact $contact) {
+{
+    return ContactSubmission::latest()
+        ->take(10)
+        ->get()
+        ->map(function (ContactSubmission $contact) {
 
-                return [
-                    'title' => $contact->name . ' — ' . $contact->email,
-                    'subtitle' => $contact->subject ?? 'Contact Form Submission',
+            return [
+                'title' => $contact->name . ' — ' . $contact->email,
+                'subtitle' => $contact->subject ?? 'Contact Form Submission',
 
-                    'status' => $contact->status,
-                    'status_label' => ucfirst($contact->status),
-                    'status_color' => match ($contact->status) {
-                        'new' => 'bg-blue-500',
-                        'in_progress' => 'bg-yellow-500',
-                        'resolved' => 'bg-green-500',
-                        default => 'bg-gray-400',
-                    },
+                'status' => $contact->status,
+                'status_label' => ucfirst($contact->status),
+                'status_color' => match ($contact->status) {
+                    'new' => 'bg-blue-500',
+                    'in_progress' => 'bg-yellow-500',
+                    'resolved' => 'bg-green-500',
+                    default => 'bg-gray-400',
+                },
 
-                    'created_at' => optional($contact->created_at)
-                        ->format('M d, H:i'),
+                'created_at' => optional($contact->created_at)
+                    ->format('M d, H:i'),
 
-                    'link' => route('admin.contacts.show', $contact),
-                ];
-            })
-            ->toArray();
-    }
+                'link' => route('admin.contacts.show', $contact),
+            ];
+        })
+        ->toArray();
+}
 }

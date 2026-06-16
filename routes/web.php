@@ -9,8 +9,10 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HistoryFormController;
 use App\Http\Controllers\TrickEvaluationController;
+
 use App\Http\Controllers\Admin\TrickEvaluationController as AdminTrickEvaluationController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
+
 use App\Http\Controllers\RatController;
 use App\Services\AdminDashboardService;
 
@@ -25,9 +27,7 @@ Route::get('/about', fn() => view('about'))->name('about');
 
 Route::view('/training', 'training.index')->name('training.index');
 
-Route::get('/league', function () {
-    return view('league.index');
-})->name('league.index');
+Route::get('/league', fn() => view('league.index'))->name('league.index');
 
 /*
 |--------------------------------------------------------------------------
@@ -38,8 +38,8 @@ Route::get('/league', function () {
 Route::prefix('blog')->name('blog.')->group(function () {
     Route::get('/', [BlogController::class, 'index'])->name('index');
     Route::get('category/{category:slug}', [BlogController::class, 'category'])->name('category');
-    Route::get('/tag/{tag:slug}', [BlogController::class, 'tag'])->name('tag');
-    Route::get('/{post:slug}', [BlogController::class, 'show'])->name('show');
+    Route::get('tag/{tag:slug}', [BlogController::class, 'tag'])->name('tag');
+    Route::get('{post:slug}', [BlogController::class, 'show'])->name('show');
 });
 
 /*
@@ -50,7 +50,7 @@ Route::prefix('blog')->name('blog.')->group(function () {
 
 Route::prefix('events')->name('events.')->group(function () {
     Route::get('/', [EventController::class, 'index'])->name('index');
-    Route::get('/{event:slug}', [EventController::class, 'show'])->name('show');
+    Route::get('{event:slug}', [EventController::class, 'show'])->name('show');
 });
 
 /*
@@ -101,9 +101,7 @@ Route::prefix('legal')->name('legal.')->group(function () {
 
 Route::middleware(['auth'])->group(function () {
 
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+    Route::get('/dashboard', fn() => view('dashboard'))->name('dashboard');
 
     Route::prefix('profile')->name('profile.')->group(function () {
         Route::get('/', [ProfileController::class, 'edit'])->name('edit');
