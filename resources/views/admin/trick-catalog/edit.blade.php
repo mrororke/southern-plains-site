@@ -180,12 +180,10 @@
 
 
 
-@endsection<script>
-    let videoIndex = {
-        {
-            $trick - > videos - > count()
-        }
-    };
+@endsection
+
+<script>
+    let videoIndex = {{ $trick->videos->count() }};
 
 
     function addVideoRow() {
@@ -288,8 +286,7 @@
         }
 
 
-        fetch('{{ route('
-                admin.trick - catalog.check - video ') }}', {
+        fetch('{{ route('admin.trick-catalog.check-video') }}', {
 
                     method: 'POST',
 
