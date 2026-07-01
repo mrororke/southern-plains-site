@@ -22,7 +22,7 @@ class TrickCatalogController extends Controller
 
     public function create()
     {
-        return view('admin.trick-catalog.create');
+        dd('CREATE METHOD HIT');
     }
 
     public function store(Request $request)
