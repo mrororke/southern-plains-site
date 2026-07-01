@@ -50,7 +50,7 @@
 
                     <button type="button"
                             onclick="openTrickModal({{ $trick->id }})"
-                            class="inline-flex items-center px-4 py-2 font-semibold text-xs uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150 border-2 border-transparent bg-club text-white hover:bg-club-hover active:bg-club border-transparent focus:ring-club  ms-4">
+                            class="inline-flex items-center px-4 py-2 font-semibold text-xs uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150 border-2 border-transparent bg-training text-white hover:bg-training-hover active:bg-training border-transparent ms-4">
                         View
                     </button>
                 </td>
