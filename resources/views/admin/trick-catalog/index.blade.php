@@ -28,15 +28,15 @@
         <tbody>
             @foreach($tricks as $trick)
             <tr class="border-b border-black">
-                <td class="p-3 font-semibold">
+                <td class="p-3 font-semibold text-sm">
                     {{ $trick->name }}
                 </td>
 
-                <td class="p-3">
+                <td class="p-3  text-sm">
                     {{ ucfirst(str_replace('_', ' ', $trick->level)) }}
                 </td>
 
-                <td class="p-3">
+                <td class="p-3  text-sm">
                     {{ $trick->videos->count() }}
                 </td>
 
