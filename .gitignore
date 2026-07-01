@@ -1,7 +1,7 @@
 /.phpunit.cache
 /node_modules
 # When you make changes, make sure and comment out public/build so that it will get the new compilation files
-/public/build
+# /public/build
 /public/hot
 /public/storage
 /storage/*.key
