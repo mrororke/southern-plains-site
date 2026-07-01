@@ -120,33 +120,75 @@ function openTrickModal(id)
 
             document.getElementById('modalTitle').innerText = data.name;
 
-            let html = `
-                <div class="space-y-2">
-                    <p><strong>Level:</strong> ${data.level}</p>
-                    <p><strong>Notes:</strong> ${data.notes ?? ''}</p>
+            const preferred = data.videos.find(v => v.is_preferred);
 
-                    <div class="mt-4">
-                        <h4 class="font-semibold">Videos</h4>
-                        <ul class="space-y-2">
+            let embedHtml = '';
+
+            if (preferred) {
+
+                const embedUrl = getYouTubeEmbedUrl(preferred.url);
+
+                if (embedUrl) {
+                    embedHtml = `
+                        <div class="mb-4">
+                            <h4 class="font-semibold mb-2">Preferred Video</h4>
+
+                            <div class="aspect-video">
+                                <iframe
+                                    class="w-full h-full rounded"
+                                    src="${embedUrl}"
+                                    frameborder="0"
+                                    allowfullscreen>
+                                </iframe>
+                            </div>
+
+                            <p class="text-xs text-gray-500 mt-1">
+                                ${preferred.creator ?? 'Unknown creator'} (${preferred.platform})
+                            </p>
+                        </div>
+                    `;
+                }
+
+            }
+
+            let videoList = `
+                <div class="mt-4">
+                    <h4 class="font-semibold mb-2">All Videos</h4>
+                    <ul class="space-y-2">
             `;
 
             data.videos.forEach(v => {
-                html += `
-                    <li class="text-sm">
-                        <a href="${v.url}" target="_blank" class="text-training hover:underline">
+
+                videoList += `
+                    <li class="flex justify-between items-center text-sm border-b py-1">
+
+                        <a href="${v.url}" target="_blank" class="text-blue-600 hover:underline">
                             ${v.platform} - ${v.creator ?? 'Unknown'}
                         </a>
+
                     </li>
                 `;
             });
 
-            html += `
-                        </ul>
-                    </div>
-                </div>
-            `;
+            videoList += `</ul></div>`;
 
-            body.innerHTML = html;
+            body.innerHTML = `
+
+                ${embedHtml}
+
+                <div class="flex justify-end mb-3">
+                    <button
+                        onclick="copyTrainingLink(${data.id})"
+                        class="bg-black text-white px-3 py-1 rounded text-sm">
+
+                        Copy Training Link
+
+                    </button>
+                </div>
+
+                ${videoList}
+
+            `;
         });
 }
 
@@ -154,6 +196,19 @@ function closeTrickModal()
 {
     document.getElementById('trickModal')
         .classList.add('hidden');
+}
+
+function getYouTubeEmbedUrl(url)
+{
+    if (!url) return null;
+
+    let match = url.match(
+        /(?:youtu\.be\/|youtube\.com.*v=)([^&]+)/ 
+    );
+
+    return match
+        ? `https://www.youtube.com/embed/${match[1]}`
+        : null;
 }
 
 </script>

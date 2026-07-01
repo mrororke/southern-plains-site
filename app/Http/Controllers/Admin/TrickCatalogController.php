@@ -282,13 +282,16 @@ public function destroy(Trick $trick_catalog)
 public function showData(Trick $trick_catalog)
 {
     return response()->json([
+        'id' => $trick_catalog->id,
         'name' => $trick_catalog->name,
         'level' => $trick_catalog->level,
         'notes' => $trick_catalog->notes,
+
         'videos' => $trick_catalog->videos()->get([
             'url',
             'platform',
-            'creator'
+            'creator',
+            'is_preferred',
         ]),
     ]);
 }
