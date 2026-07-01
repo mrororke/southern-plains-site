@@ -197,7 +197,7 @@
             'beforeend',
             `
 
-        <div class="border rounded p-3 bg-gray-50">
+        <div class="border rounded p-3 bg-gray-50 video-row">
 
             <input
                 name="videos[${videoIndex}][url]"
@@ -255,6 +255,15 @@
     Preferred
 
 </label>
+
+<button
+    type="button"
+    onclick="removeVideoRow(this)"
+    class="mt-2 text-sm text-red-600 hover:underline">
+
+    Remove Video
+
+</button>
 
 
         </div>
@@ -324,4 +333,9 @@
             });
 
     }
+
+    function removeVideoRow(button)
+{
+    button.closest('.video-row').remove();
+}
 </script>
