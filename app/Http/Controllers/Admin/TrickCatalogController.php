@@ -45,7 +45,7 @@ class TrickCatalogController extends Controller
 
         if (empty($video['url'])) continue;
 
-        $url = TrickVideo::normalizeUrl($video['url']);
+        $url = TrickVideoService::normalizeUrl($video['url']);
 
         // duplicate prevention per trick
         $exists = TrickVideo::where('trick_id', $trick->id)
