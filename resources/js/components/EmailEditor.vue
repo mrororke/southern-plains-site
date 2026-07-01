@@ -2,43 +2,18 @@
 import { EditorContent, useEditor } from '@tiptap/vue-3'
 import StarterKit from '@tiptap/starter-kit'
 
-const props = defineProps({
-    modelValue: {
-        type: String,
-        default: ''
-    }
-})
-
-const emit = defineEmits([
-    'update:modelValue'
-])
-
 const editor = useEditor({
-
-    content: props.modelValue,
-
     extensions: [
         StarterKit,
     ],
 
-    onUpdate({ editor }) {
-
-        emit(
-            'update:modelValue',
-            editor.getHTML()
-        )
-
-    }
+    content: '',
 
 })
 </script>
 
-
 <template>
-
-<div class="border rounded p-4">
-
-    <div class="mb-4 space-x-2">
+    <div class="border rounded p-4">
 
         <button
             type="button"
@@ -47,14 +22,7 @@ const editor = useEditor({
             Bold
         </button>
 
+        <EditorContent :editor="editor" />
+
     </div>
-
-
-    <EditorContent
-        v-if="editor"
-        :editor="editor"
-    />
-
-</div>
-
 </template>
