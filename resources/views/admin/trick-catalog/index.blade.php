@@ -76,7 +76,7 @@
         <div class="w-full max-w-2xl bg-white shadow">
 
             <div class="flex items-center justify-between p-4 border-b">
-                <h3 id="modalTitle" class="text-lg font-semibold"></h3>
+                <h3 id="modalTitle" class="text-lg font-heading pb-2"></h3>
 
                 <button type="button"
                     onclick="closeTrickModal()">
@@ -116,7 +116,11 @@
                     <div>
                         <div class="text-sm font-semibold">Level</div>
                         <div class="text-sm">
-                            ${data.level ? data.level.replaceAll('_', ' ') : 'unknown'}
+                            ${data.level
+                                ? data.level
+                                .replaceAll('_', ' ')
+                                .replace(/\b\w/g, c => c.toUpperCase())
+                                : 'Unknown'}
                         </div>
 
                         <div class="mt-2 text-sm font-semibold">Notes</div>
