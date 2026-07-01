@@ -278,4 +278,18 @@ public function destroy(Trick $trick_catalog)
         ->route('admin.trick-catalog.index')
         ->with('success', 'Trick deleted.');
 }
+
+public function showData(Trick $trick_catalog)
+{
+    return response()->json([
+        'name' => $trick_catalog->name,
+        'level' => $trick_catalog->level,
+        'notes' => $trick_catalog->notes,
+        'videos' => $trick_catalog->videos()->get([
+            'url',
+            'platform',
+            'creator'
+        ]),
+    ]);
+}
 }
