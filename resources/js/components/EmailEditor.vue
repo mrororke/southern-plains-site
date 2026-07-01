@@ -1,14 +1,17 @@
 <script setup>
 import { EditorContent, useEditor } from '@tiptap/vue-3'
 import StarterKit from '@tiptap/starter-kit'
+import { onMounted } from 'vue'
+
+onMounted(() => {
+    console.log('🔥 EmailEditor mounted')
+})
 
 const editor = useEditor({
     extensions: [
         StarterKit,
     ],
-
     content: '',
-
 })
 </script>
 
@@ -23,6 +26,5 @@ const editor = useEditor({
         </button>
 
         <EditorContent :editor="editor" />
-
     </div>
 </template>
