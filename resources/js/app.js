@@ -1,3 +1,4 @@
+console.log('🔥 APP.JS IS RUNNING');
 import './bootstrap'
 
 import Alpine from 'alpinejs'
