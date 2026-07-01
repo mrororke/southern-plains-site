@@ -125,6 +125,28 @@
         </div>
     `;
 }
+
+function renderPlatformBadge(platform)
+{
+    const p = (platform || 'unknown').toLowerCase();
+
+    const map = {
+        youtube: 'bg-red-600 text-white',
+        tiktok: 'bg-black text-white',
+        instagram: 'bg-pink-500 text-white',
+        facebook: 'bg-blue-600 text-white',
+        unknown: 'bg-gray-400 text-black'
+    };
+
+    const label = p.charAt(0).toUpperCase() + p.slice(1);
+    const color = map[p] ?? map.unknown;
+
+    return `
+        <span class="inline-flex items-center px-2 py-1 text-xs font-semibold ${color}">
+            ${label}
+        </span>
+    `;
+}
     function openTrickModal(id) {
         const modal = document.getElementById('trickModal');
         const body = document.getElementById('modalBody');
@@ -163,36 +185,52 @@
 
                 data.videos.forEach(v => {
 
-                    html += `
-                    <li class="flex justify-between items-center text-sm border-b py-2">
+    const isPreferred = v.is_preferred ? 'bg-gray-100' : '';
 
-                        <div class="min-w-0">
-                            <div class="font-medium">
-                                ${v.platform ?? 'unknown'}
-                            </div>
+    html += `
+        <li class="flex justify-between items-center text-sm border-b py-2 ${isPreferred}">
 
-                            <div class="text-xs text-gray-500 truncate">
-                                ${v.creator ?? 'Unknown'}
-                            </div>
-                        </div>
+            <div class="min-w-0 space-y-1">
 
-                        <div class="flex gap-3 items-center">
+                <div>
+                    ${renderPlatformBadge(v.platform)}
+                </div>
 
-                            <a href="${v.url}" target="_blank" class="text-blue-600 text-xs hover:underline">
-                                Open
-                            </a>
+                <div class="text-xs text-gray-600 truncate">
+                    ${v.creator ?? 'Unknown'}
+                </div>
 
-                            <button type="button"
-                                    onclick="copyToClipboard('${v.url}')"
-                                    class="text-xs underline">
-                                Copy
-                            </button>
+                ${v.is_preferred ? `
+                    <div class="text-xs font-semibold text-black">
+                        ★ Preferred
+                    </div>
+                ` : ''}
 
-                        </div>
+            </div>
 
-                    </li>
-                `;
-                });
+            <div class="flex gap-2 items-center">
+
+                <a href="${v.url}"
+                   target="_blank"
+                   class="inline-flex items-center px-2 py-1 text-xs bg-black text-white">
+
+                    ↗ Open
+
+                </a>
+
+                <button type="button"
+                        onclick="copyToClipboard('${v.url}')"
+                        class="inline-flex items-center px-2 py-1 text-xs bg-gray-200">
+
+                    📋 Copy
+
+                </button>
+
+            </div>
+
+        </li>
+    `;
+});
 
                 html += `</ul></div>`;
 
