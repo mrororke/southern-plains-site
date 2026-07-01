@@ -7,8 +7,8 @@ window.Alpine = Alpine;
 Alpine.start();
 
 
-import { createApp } from 'vue';
-import EmailEditor from './components/EmailEditor.vue';
+import { createApp } from 'vue'
+import EmailEditor from './components/EmailEditor.vue'
 
 
 const app = createApp({});
