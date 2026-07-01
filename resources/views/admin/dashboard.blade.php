@@ -85,9 +85,7 @@ console.log('VUE APP LOADED');
         </div>
 
         {{-- RECENT ACTIVITY --}}
-        <div id="app">
-    <email-editor></email-editor>
-</div>
+        <div id="app"></div>
 
         <h2 class="font-heading text-4xl pb-2">Recent Updates</h2>
 
