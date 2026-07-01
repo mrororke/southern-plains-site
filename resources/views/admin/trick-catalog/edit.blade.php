@@ -234,6 +234,17 @@ function addVideoRow()
 
             </select>
 
+            <label class="ml-4 text-sm">
+
+    <input
+        type="checkbox"
+        name="videos[${videoIndex}][is_preferred]"
+    >
+
+    Preferred
+
+</label>
+
 
         </div>
 
