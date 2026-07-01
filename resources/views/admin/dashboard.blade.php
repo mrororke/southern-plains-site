@@ -86,9 +86,7 @@ console.log('VUE APP LOADED');
 
         {{-- RECENT ACTIVITY --}}
         <div class="py-3 border-b">
-            <div id="app">
-                <email-editor></email-editor>
-            </div>
+            <div id="email-editor"></div>
         </div>
 
         <h2 class="font-heading text-4xl pb-2">Recent Updates</h2>
