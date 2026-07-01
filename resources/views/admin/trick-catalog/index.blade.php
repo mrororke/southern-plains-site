@@ -49,10 +49,6 @@
                         Edit
 
                     </a>
-                    <a href="{{ route('admin.trick-catalog.edit', $trick) }}"
-                        class="text-blue-600 hover:underline">
-                        Edit
-                    </a>
 
                     <button type="button"
                         onclick="openTrickModal({{ $trick->id }})"
