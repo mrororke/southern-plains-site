@@ -144,8 +144,8 @@
                     <div class="flex justify-between items-start gap-4">
 
                         <div class="flex-1">
-                        <div class="text-sm font-semibold">Notes</div>
-                        <div class="text-sm whitespace-pre-line">
+                        <div class="text-base font-semibold">Notes</div>
+                        <div class="text-base whitespace-pre-line">
                             ${data.notes ?? 'No notes'}
                         </div>
                     </div>
