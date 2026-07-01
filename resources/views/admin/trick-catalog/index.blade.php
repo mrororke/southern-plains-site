@@ -183,54 +183,52 @@ function renderPlatformBadge(platform)
                     <ul class="space-y-2">
             `;
 
-                data.videos.forEach(v => {
+                html += `
+    <li class="grid grid-cols-12 items-center text-sm border-b py-2 ${v.is_preferred ? 'bg-gray-100' : ''}">
 
-    const isPreferred = v.is_preferred ? 'bg-gray-100' : '';
+        <!-- LEFT: PLATFORM -->
+        <div class="col-span-3">
+            ${renderPlatformBadge(v.platform)}
+        </div>
 
-    html += `
-        <li class="flex justify-between items-center text-sm border-b py-2 ${isPreferred}">
+        <!-- MIDDLE: CREATOR + PREFERRED -->
+        <div class="col-span-6 space-y-1 min-w-0">
 
-            <div class="min-w-0 space-y-1">
-
-                <div>
-                    ${renderPlatformBadge(v.platform)}
-                </div>
-
-                <div class="text-xs text-gray-600 truncate">
-                    ${v.creator ?? 'Unknown'}
-                </div>
-
-                ${v.is_preferred ? `
-                    <div class="text-xs font-semibold text-black">
-                        ★ Preferred
-                    </div>
-                ` : ''}
-
+            <div class="truncate text-sm">
+                ${v.creator ?? 'Unknown creator'}
             </div>
 
-            <div class="flex gap-2 items-center">
+            ${v.is_preferred ? `
+                <div class="text-xs font-semibold">
+                    ★ Preferred
+                </div>
+            ` : ''}
 
-                <a href="${v.url}"
-                   target="_blank"
-                   class="inline-flex items-center px-2 py-1 text-xs bg-black text-white">
+        </div>
 
-                    ↗ Open
+        <!-- RIGHT: ACTIONS -->
+        <div class="col-span-3 flex justify-end gap-2">
 
-                </a>
+            <a href="${v.url}"
+               target="_blank"
+               class="inline-flex items-center px-2 py-1 text-xs bg-black text-white">
 
-                <button type="button"
-                        onclick="copyToClipboard('${v.url}')"
-                        class="inline-flex items-center px-2 py-1 text-xs bg-gray-200">
+                ↗ Open
 
-                    📋 Copy
+            </a>
 
-                </button>
+            <button type="button"
+                    onclick="copyToClipboard('${v.url}')"
+                    class="inline-flex items-center px-2 py-1 text-xs bg-gray-200">
 
-            </div>
+                📋 Copy
 
-        </li>
-    `;
-});
+            </button>
+
+        </div>
+
+    </li>
+`;
 
                 html += `</ul></div>`;
 
