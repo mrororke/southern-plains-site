@@ -69,28 +69,7 @@
     {{ $tricks->links() }}
 </div>
 
-<div id="trickModal"
-     class="hidden fixed inset-0 z-50 items-center justify-center bg-black/60 opacity-0 transition-opacity duration-200">
 
-    <div class="w-full max-w-2xl bg-white shadow-lg"
-         id="trickModalPanel">
-
-        <div class="flex items-center justify-between p-4 border-b">
-            <h3 id="modalTitle" class="text-lg font-semibold"></h3>
-
-            <button type="button"
-                    onclick="closeTrickModal()"
-                    class="text-gray-500 hover:text-black">
-                ✕
-            </button>
-        </div>
-
-        <div class="p-4">
-            <div id="modalBody">Loading...</div>
-        </div>
-
-    </div>
-</div>
 
 @endsection
 
@@ -104,7 +83,27 @@ function openTrickModal(id)
     modal.classList.remove('hidden');
 
     // force reflow so transition triggers
-    requestAnimationFrame(() => {
+    requestAnimationFrame(() => {<div id="trickModal"
+     class="hidden fixed inset-0 z-[9999] bg-black/60">
+
+    <div class="flex items-center justify-center w-full h-full p-4">
+
+        <div class="w-full max-w-2xl bg-white shadow-lg">
+
+            <div class="flex items-center justify-between p-4 border-b">
+                <h3 id="modalTitle" class="text-lg font-semibold"></h3>
+
+                <button onclick="closeTrickModal()">✕</button>
+            </div>
+
+            <div class="p-4">
+                <div id="modalBody">Loading...</div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
         modal.classList.remove('opacity-0');
         modal.classList.add('opacity-100');
     });
