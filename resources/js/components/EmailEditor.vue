@@ -44,6 +44,29 @@ const editor = useEditor({
   extensions: [StarterKit],
 })
 
+const btnClass =
+  'px-3 py-1 text-sm border rounded hover:bg-gray-100'
+
+const toggleBold = () => {
+  editor.value?.chain().focus().toggleBold().run()
+}
+
+const toggleItalic = () => {
+  editor.value?.chain().focus().toggleItalic().run()
+}
+
+const toggleHeading = () => {
+  editor.value?.chain().focus().toggleHeading({ level: 2 }).run()
+}
+
+const toggleBulletList = () => {
+  editor.value?.chain().focus().toggleBulletList().run()
+}
+
+const setParagraph = () => {
+  editor.value?.chain().focus().setParagraph().run()
+}
+
 onBeforeUnmount(() => {
   editor?.destroy()
 })
