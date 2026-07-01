@@ -11,8 +11,8 @@ import { createApp } from 'vue';
 import EmailEditor from './components/EmailEditor.vue';
 
 
-createApp({
-    components: {
-        EmailEditor,
-    },
-}).mount('#app');
+const app = createApp({});
+
+app.component('email-editor', EmailEditor);
+
+app.mount('#app');

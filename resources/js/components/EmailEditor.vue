@@ -14,6 +14,7 @@ const emit = defineEmits([
 ])
 
 const editor = useEditor({
+
     content: props.modelValue,
 
     extensions: [
@@ -21,29 +22,39 @@ const editor = useEditor({
     ],
 
     onUpdate({ editor }) {
+
         emit(
             'update:modelValue',
             editor.getHTML()
         )
+
     }
+
 })
 </script>
 
 
 <template>
-    <div class="border rounded p-4">
 
-        <div class="mb-4 space-x-2">
-            <button
-                type="button"
-                @click="editor.chain().focus().toggleBold().run()"
-            >
-                Bold
-            </button>
-        </div>
+<div class="border rounded p-4">
 
+    <div class="mb-4 space-x-2">
 
-        <EditorContent :editor="editor" />
+        <button
+            type="button"
+            @click="editor?.chain().focus().toggleBold().run()"
+        >
+            Bold
+        </button>
 
     </div>
+
+
+    <EditorContent
+        v-if="editor"
+        :editor="editor"
+    />
+
+</div>
+
 </template>
