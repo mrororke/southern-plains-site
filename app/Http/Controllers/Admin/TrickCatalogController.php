@@ -14,7 +14,7 @@ class TrickCatalogController extends Controller
     {
         $tricks = Trick::query()
             ->with(['videos'])
-            ->latest()
+            ->orderByRaw('LOWER(name) asc')
             ->paginate(25);
 
         return view('admin.trick-catalog.index', compact('tricks'));
