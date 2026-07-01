@@ -7,6 +7,7 @@ use App\Models\Trick;
 use App\Models\TrickVideo;
 use App\Services\TrickVideoService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TrickCatalogController extends Controller
 {
@@ -65,6 +66,189 @@ class TrickCatalogController extends Controller
     }
 
     return redirect()->route('admin.trick-catalog.index');
+    }
+
+    public function update(Request $request, Trick $trick_catalog)
+{
+    $validated = $request->validate([
+        'name' => 'required|string',
+        'level' => 'required|in:novice,intermediate,advanced,performer,performer_elite',
+        'notes' => 'nullable|string',
+
+        'videos' => 'array',
+
+        'videos.*.id' => 'nullable|exists:trick_videos,id',
+        'videos.*.url' => 'nullable|string',
+        'videos.*.platform' => 'nullable|string',
+        'videos.*.creator' => 'nullable|string',
+        'videos.*.is_preferred' => 'nullable',
+    ]);
+
+
+    DB::transaction(function () use ($request, $trick_catalog) {
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Update Trick
+        |--------------------------------------------------------------------------
+        */
+
+        $trick_catalog->update([
+
+            'name' => $request->name,
+
+            'level' => $request->level,
+
+            'notes' => $request->notes,
+
+            'updated_by' => auth()->id(),
+
+        ]);
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Track submitted video IDs
+        |--------------------------------------------------------------------------
+        */
+
+        $submittedVideoIds = [];
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Update / Create Videos
+        |--------------------------------------------------------------------------
+        */
+
+        foreach ($request->videos ?? [] as $video) {
+
+
+            if (empty($video['url'])) {
+                continue;
+            }
+
+
+            $url = TrickVideoService::normalizeUrl($video['url']);
+
+
+
+            /*
+            Existing video
+            */
+
+            if (!empty($video['id'])) {
+
+
+                $record = TrickVideo::find($video['id']);
+
+
+                if ($record) {
+
+                    $record->update([
+
+                        'url' => $url,
+
+                        'platform' => $video['platform'] ?? 'unknown',
+
+                        'creator' => $video['creator'] ?? null,
+
+                        'is_preferred' =>
+                            !empty($video['is_preferred']),
+
+                        'updated_by' => auth()->id(),
+
+                    ]);
+
+
+                    $submittedVideoIds[] = $record->id;
+
+                }
+
+
+            }
+
+
+            /*
+            New video
+            */
+
+            else {
+
+
+                $duplicate = TrickVideo::where('trick_id', $trick_catalog->id)
+                    ->where('url', $url)
+                    ->exists();
+
+
+                if ($duplicate) {
+                    continue;
+                }
+
+
+
+                $newVideo = TrickVideo::create([
+
+                    'trick_id' => $trick_catalog->id,
+
+                    'url' => $url,
+
+                    'platform' =>
+                        $video['platform'] ?? 'unknown',
+
+                    'creator' =>
+                        $video['creator'] ?? null,
+
+                    'is_preferred' =>
+                        !empty($video['is_preferred']),
+
+                    'created_by' => auth()->id(),
+
+                ]);
+
+
+                $submittedVideoIds[] = $newVideo->id;
+
+            }
+
+        }
+
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Remove deleted videos
+        |--------------------------------------------------------------------------
+        */
+
+        TrickVideo::where('trick_id', $trick_catalog->id)
+
+            ->whereNotIn('id', $submittedVideoIds)
+
+            ->delete();
+
+
+    });
+
+
+
+    return redirect()
+
+        ->route('admin.trick-catalog.index')
+
+        ->with('success', 'Trick updated.');
+
+}
+
+    public function edit(Trick $trick_catalog){
+        $trick_catalog->load('videos');
+        return view(
+            'admin.trick-catalog.edit', ['trick' => $trick_catalog]
+        );
     }
 
     public function checkVideo(Request $request)
