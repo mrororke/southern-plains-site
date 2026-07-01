@@ -20,21 +20,14 @@
                 Edit Trick
             </h2>
 
-            <form method="POST"
-      action="{{ route('admin.trick-catalog.destroy', $trick) }}">
+            <button type="button"
+        onclick="confirmDeleteTrick()"
+        class="bg-red-600 text-white px-4 py-2 rounded">
 
-    @csrf
-    @method('DELETE')
+    Delete Trick
 
-    <button type="submit"
-            onclick="return confirm('Are you sure you want to delete this trick? This cannot be undone.')"
-            class="bg-red-600 text-white px-4 py-2 rounded">
-
-        Delete Trick
-
-    </button>
-
-</form>
+</button>
+           
 
 
             <div>
@@ -192,7 +185,15 @@
 
 </div>
 
+<form id="delete-form"
+      method="POST"
+      action="{{ route('admin.trick-catalog.destroy', $trick) }}"
+      class="hidden">
 
+    @csrf
+    @method('DELETE')
+
+</form>
 
 
 
@@ -350,5 +351,12 @@
     function removeVideoRow(button)
 {
     button.closest('.video-row').remove();
+}
+
+function confirmDeleteTrick()
+{
+    if (confirm('Are you sure you want to delete this trick? This cannot be undone.')) {
+        document.getElementById('delete-form').submit();
+    }
 }
 </script>
