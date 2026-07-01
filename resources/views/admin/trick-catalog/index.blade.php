@@ -8,7 +8,7 @@
     <h1 class="text-2xl font-bold">Trick Catalog</h1>
 
     <a href="{{ route('admin.trick-catalog.create') }}"
-        class="bg-black text-white px-4 py-2">
+       class="bg-black text-white px-4 py-2">
         + New Trick
     </a>
 </div>
@@ -21,8 +21,8 @@
                 <th class="p-3">Name</th>
                 <th class="p-3">Level</th>
                 <th class="p-3">Videos</th>
-                <th class="p-3">Preferred</th>
-                <th class="p-3"></th>
+                <th class="p-3">View</th>
+                <th class="p-3 text-right">Actions</th>
             </tr>
         </thead>
 
@@ -42,19 +42,16 @@
                 </td>
 
                 <td class="p-3">
-                    <button
-                        type="button"
-                        onclick="openTrickModal({{ $trick->id }})"
-                        class="text-training hover:underline text-sm">
-
+                    <button type="button"
+                            onclick="openTrickModal({{ $trick->id }})"
+                            class="text-blue-600 hover:underline text-sm">
                         View
-
                     </button>
                 </td>
 
                 <td class="p-3 text-right">
                     <a href="{{ route('admin.trick-catalog.edit', $trick) }}"
-                        class="text-blue-600 hover:underline">
+                       class="text-blue-600 hover:underline">
                         Edit
                     </a>
                 </td>
@@ -69,31 +66,21 @@
     {{ $tricks->links() }}
 </div>
 
-
-
-@endsection
-
-<script>
-
-function openTrickModal(id)
-{
-    const modal = document.getElementById('trickModal');
-    const body = document.getElementById('modalBody');
-
-    modal.classList.remove('hidden');
-
-    // force reflow so transition triggers
-    requestAnimationFrame(() => {<div id="trickModal"
+{{-- MODAL (IMPORTANT: OUTSIDE SCRIPT) --}}
+<div id="trickModal"
      class="hidden fixed inset-0 z-[9999] bg-black/60">
 
     <div class="flex items-center justify-center w-full h-full p-4">
 
-        <div class="w-full max-w-2xl bg-white shadow-lg">
+        <div class="w-full max-w-2xl bg-white shadow">
 
             <div class="flex items-center justify-between p-4 border-b">
                 <h3 id="modalTitle" class="text-lg font-semibold"></h3>
 
-                <button onclick="closeTrickModal()">✕</button>
+                <button type="button"
+                        onclick="closeTrickModal()">
+                    ✕
+                </button>
             </div>
 
             <div class="p-4">
@@ -104,10 +91,18 @@ function openTrickModal(id)
 
     </div>
 </div>
-        modal.classList.remove('opacity-0');
-        modal.classList.add('opacity-100');
-    });
 
+@endsection
+
+
+<script>
+
+function openTrickModal(id)
+{
+    const modal = document.getElementById('trickModal');
+    const body = document.getElementById('modalBody');
+
+    modal.classList.remove('hidden');
     body.innerHTML = 'Loading...';
 
     fetch(`/admin/trick-catalog/${id}/show-data`)
@@ -116,10 +111,22 @@ function openTrickModal(id)
 
             document.getElementById('modalTitle').innerText = data.name;
 
-            let videoList = `
-                <div class="space-y-3">
+            let html = `
+                <div class="space-y-4">
 
-                    <div class="flex justify-end mb-3">
+                    <div>
+                        <div class="text-sm font-semibold">Level</div>
+                        <div class="text-sm">
+                            ${data.level ? data.level.replaceAll('_', ' ') : 'unknown'}
+                        </div>
+
+                        <div class="mt-2 text-sm font-semibold">Notes</div>
+                        <div class="text-sm whitespace-pre-line">
+                            ${data.notes ?? 'No notes'}
+                        </div>
+                    </div>
+
+                    <div class="flex justify-end">
                         <button
                             type="button"
                             onclick="copyToClipboard('${window.location.origin}/admin/trick-catalog/${id}')"
@@ -130,18 +137,6 @@ function openTrickModal(id)
                         </button>
                     </div>
 
-                    <div class="mb-3">
-                        <div class="text-sm font-semibold">Level</div>
-                        <div class="text-sm text-gray-700">
-                            ${data.level ? data.level.replaceAll('_', ' ') : 'unknown'}
-                        </div>
-
-                        <div class="mt-2 text-sm font-semibold">Notes</div>
-                        <div class="text-sm text-gray-700 whitespace-pre-line">
-                            ${data.notes ?? 'No notes added.'}
-                        </div>
-                    </div>
-
                     <h4 class="font-semibold">Videos</h4>
 
                     <ul class="space-y-2">
@@ -149,7 +144,7 @@ function openTrickModal(id)
 
             data.videos.forEach(v => {
 
-                videoList += `
+                html += `
                     <li class="flex justify-between items-center text-sm border-b py-2">
 
                         <div class="min-w-0">
@@ -164,21 +159,14 @@ function openTrickModal(id)
 
                         <div class="flex gap-3 items-center">
 
-                            <a href="${v.url}"
-                               target="_blank"
-                               class="text-blue-600 hover:underline text-xs">
-
+                            <a href="${v.url}" target="_blank" class="text-blue-600 text-xs hover:underline">
                                 Open
-
                             </a>
 
-                            <button
-                                type="button"
-                                onclick="copyToClipboard('${v.url}')"
-                                class="text-black underline text-xs">
-
+                            <button type="button"
+                                    onclick="copyToClipboard('${v.url}')"
+                                    class="text-xs underline">
                                 Copy
-
                             </button>
 
                         </div>
@@ -187,22 +175,23 @@ function openTrickModal(id)
                 `;
             });
 
-            videoList += `</ul></div>`;
+            html += `</ul></div>`;
 
-            body.innerHTML = videoList;
+            body.innerHTML = html;
         });
 }
 
 function closeTrickModal()
 {
-    const modal = document.getElementById('trickModal');
+    document.getElementById('trickModal')
+        .classList.add('hidden');
+}
 
-    modal.classList.remove('opacity-100');
-    modal.classList.add('opacity-0');
-
-    setTimeout(() => {
-        modal.classList.add('hidden');
-    }, 200);
+function copyToClipboard(text)
+{
+    navigator.clipboard.writeText(text)
+        .then(() => alert('Copied'))
+        .catch(console.error);
 }
 
 document.addEventListener('keydown', function(e) {
@@ -211,21 +200,11 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-function copyToClipboard(text)
-{
-    navigator.clipboard.writeText(text)
-        .then(() => {
-            alert('Copied to clipboard');
-        })
-        .catch(err => {
-            console.error('Copy failed:', err);
-        });
-}
-
-document.getElementById('trickModal').addEventListener('click', function(e) {
-    if (e.target === this) {
-        closeTrickModal();
-    }
-});
+document.getElementById('trickModal')
+    .addEventListener('click', function(e) {
+        if (e.target === this) {
+            closeTrickModal();
+        }
+    });
 
 </script>
