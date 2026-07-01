@@ -168,7 +168,10 @@
 </div>
 
 
-<script>
+
+
+
+@endsection<script>
 
 let videoIndex = {{ $trick->videos->count() }};
 
@@ -188,6 +191,7 @@ function addVideoRow()
             <input
                 name="videos[${videoIndex}][url]"
                 placeholder="Video URL"
+                onblur="detectPlatform(this, ${videoIndex})"
                 class="w-full border p-2 rounded mb-2">
 
 
@@ -198,12 +202,35 @@ function addVideoRow()
 
 
             <select
+                id="platform-${videoIndex}"
                 name="videos[${videoIndex}][platform]"
                 class="border p-2 rounded">
+
+
+                <option value="instagram">
+                    Instagram
+                </option>
+
+
+                <option value="facebook">
+                    Facebook
+                </option>
+
+
+                <option value="tiktok">
+                    TikTok
+                </option>
+
+
+                <option value="youtube">
+                    YouTube
+                </option>
+
 
                 <option value="unknown">
                     Unknown
                 </option>
+
 
             </select>
 
@@ -218,7 +245,63 @@ function addVideoRow()
 
 }
 
+
+
+function detectPlatform(input, index)
+{
+
+    let url = input.value;
+
+
+    if (!url) {
+        return;
+    }
+
+
+    fetch('{{ route('admin.trick-catalog.check-video') }}', {
+
+        method: 'POST',
+
+        headers: {
+
+            'Content-Type': 'application/json',
+
+            'X-CSRF-TOKEN':
+                '{{ csrf_token() }}'
+
+        },
+
+
+        body: JSON.stringify({
+
+            url: url
+
+        })
+
+    })
+
+
+    .then(response => response.json())
+
+
+    .then(data => {
+
+
+        let select =
+            document.getElementById(
+                `platform-${index}`
+            );
+
+
+        if (select && data.platform) {
+
+            select.value = data.platform;
+
+        }
+
+
+    });
+
+}
+
 </script>
-
-
-@endsection
