@@ -21,15 +21,17 @@
             </h2>
 
             <form method="POST"
-      action="{{ route('admin.trick-catalog.destroy', $trick) }}"
-      onsubmit="return confirm('Delete this trick? This cannot be undone.')">
+      action="{{ route('admin.trick-catalog.destroy', $trick) }}">
 
     @csrf
     @method('DELETE')
 
     <button type="submit"
+            onclick="return confirm('Are you sure you want to delete this trick? This cannot be undone.')"
             class="bg-red-600 text-white px-4 py-2 rounded">
+
         Delete Trick
+
     </button>
 
 </form>
