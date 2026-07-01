@@ -86,6 +86,7 @@
         {{-- RECENT ACTIVITY --}}
         <div class="py-3 border-b">
             <div id="app">
+                Email Editor should be below:
                 <email-editor></email-editor>
             </div>
 
