@@ -7,4 +7,7 @@ import EmailEditor from './components/EmailEditor.vue'
 window.Alpine = Alpine
 Alpine.start()
 
+// register globally
+app.component('admin-editor', AdminEditor)
+
 createApp(EmailEditor).mount('#app')
