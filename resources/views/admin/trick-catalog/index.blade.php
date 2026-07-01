@@ -70,33 +70,23 @@
 </div>
 
 <div id="trickModal"
-     tabindex="-1"
-     class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
+     class="hidden fixed inset-0 z-50 items-center justify-center bg-black/60 opacity-0 transition-opacity duration-200">
 
-    <div class="relative w-full max-w-xl">
+    <div class="w-full max-w-2xl bg-white shadow-lg"
+         id="trickModalPanel">
 
-        <div class="relative bg-white shadow-lg">
+        <div class="flex items-center justify-between p-4 border-b">
+            <h3 id="modalTitle" class="text-lg font-semibold"></h3>
 
-            <div class="flex items-center justify-between p-4 border-b">
-                <h3 id="modalTitle" class="text-lg font-semibold">
-                    Trick Details
-                </h3>
+            <button type="button"
+                    onclick="closeTrickModal()"
+                    class="text-gray-500 hover:text-black">
+                ✕
+            </button>
+        </div>
 
-                <button type="button"
-                        class="text-gray-400 hover:text-black"
-                        onclick="closeTrickModal()">
-                    ✕
-                </button>
-            </div>
-
-            <div class="p-4 space-y-4">
-
-                <div id="modalBody">
-                    Loading...
-                </div>
-
-            </div>
-
+        <div class="p-4">
+            <div id="modalBody">Loading...</div>
         </div>
 
     </div>
@@ -112,6 +102,13 @@ function openTrickModal(id)
     const body = document.getElementById('modalBody');
 
     modal.classList.remove('hidden');
+
+    // force reflow so transition triggers
+    requestAnimationFrame(() => {
+        modal.classList.remove('opacity-0');
+        modal.classList.add('opacity-100');
+    });
+
     body.innerHTML = 'Loading...';
 
     fetch(`/admin/trick-catalog/${id}/show-data`)
@@ -123,15 +120,27 @@ function openTrickModal(id)
             let videoList = `
                 <div class="space-y-3">
 
-                    <div class="flex mb-3">
-                    <div class="mt-2 text-sm">
-                <div class="font-semibold">Notes</div>
+                    <div class="flex justify-end mb-3">
+                        <button
+                            type="button"
+                            onclick="copyToClipboard('${window.location.origin}/admin/trick-catalog/${id}')"
+                            class="bg-black text-white px-3 py-1 text-sm">
 
-                <div class="text-gray-700 whitespace-pre-line">
-                    ${data.notes ? data.notes : 'No notes added.'}
-                </div>
-            </div>
-                        
+                            Copy Admin Link
+
+                        </button>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="text-sm font-semibold">Level</div>
+                        <div class="text-sm text-gray-700">
+                            ${data.level ? data.level.replaceAll('_', ' ') : 'unknown'}
+                        </div>
+
+                        <div class="mt-2 text-sm font-semibold">Notes</div>
+                        <div class="text-sm text-gray-700 whitespace-pre-line">
+                            ${data.notes ?? 'No notes added.'}
+                        </div>
                     </div>
 
                     <h4 class="font-semibold">Videos</h4>
@@ -179,24 +188,29 @@ function openTrickModal(id)
                 `;
             });
 
-            videoList += `
-                    </ul>
-                </div>
-            `;
+            videoList += `</ul></div>`;
 
             body.innerHTML = videoList;
-        })
-        .catch(err => {
-            console.error(err);
-            body.innerHTML = '<p class="text-red-600 text-sm">Failed to load trick data.</p>';
         });
 }
 
 function closeTrickModal()
 {
-    document.getElementById('trickModal')
-        .classList.add('hidden');
+    const modal = document.getElementById('trickModal');
+
+    modal.classList.remove('opacity-100');
+    modal.classList.add('opacity-0');
+
+    setTimeout(() => {
+        modal.classList.add('hidden');
+    }, 200);
 }
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeTrickModal();
+    }
+});
 
 function copyToClipboard(text)
 {
