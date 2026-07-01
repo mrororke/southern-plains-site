@@ -20,6 +20,20 @@
                 Edit Trick
             </h2>
 
+            <form method="POST"
+      action="{{ route('admin.trick-catalog.destroy', $trick) }}"
+      onsubmit="return confirm('Delete this trick? This cannot be undone.')">
+
+    @csrf
+    @method('DELETE')
+
+    <button type="submit"
+            class="bg-red-600 text-white px-4 py-2 rounded">
+        Delete Trick
+    </button>
+
+</form>
+
 
             <div>
                 <label class="text-sm font-semibold">

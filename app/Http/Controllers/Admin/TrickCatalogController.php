@@ -263,4 +263,19 @@ class TrickCatalogController extends Controller
         'platform' => TrickVideoService::detectPlatform($url),
     ]);
 }
+
+public function destroy(Trick $trick_catalog)
+{
+    $trick_catalog->load('videos');
+
+    // delete related videos first (safe explicit control)
+    $trick_catalog->videos()->delete();
+
+    // delete trick
+    $trick_catalog->delete();
+
+    return redirect()
+        ->route('admin.trick-catalog.index')
+        ->with('success', 'Trick deleted.');
+}
 }
