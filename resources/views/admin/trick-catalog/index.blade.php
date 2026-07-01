@@ -8,7 +8,7 @@
     <h1 class="font-heading text-4xl pb-2">Trick Catalog</h1>
 
     <a href="{{ route('admin.trick-catalog.create') }}"
-       class="inline-flex items-center px-4 py-2 font-semibold text-xs uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150 border-2 border-transparent bg-club text-gray-500 hover:bg-club-hover ms-4">
+       class="inline-flex items-center px-4 py-2 font-semibold text-xs uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150 border-2 border-transparent bg-club text-white hover:bg-club-hover ms-4">
         + New Trick
     </a>
 </div>
@@ -43,6 +43,11 @@
                 
 
                 <td class="p-3 ">
+                    <button type="button"
+                            href=""
+                            class="inline-flex items-center px-4 py-2 font-semibold text-xs uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150 border-2 border-transparent bg-training text-white hover:bg-training-hover ms-4">
+
+                    </button>
                     <a href="{{ route('admin.trick-catalog.edit', $trick) }}"
                        class="text-blue-600 hover:underline">
                         Edit
@@ -50,7 +55,7 @@
 
                     <button type="button"
                             onclick="openTrickModal({{ $trick->id }})"
-                            class="inline-flex items-center px-4 py-2 font-semibold text-xs uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150 border-2 border-transparent bg-club text-gray-500 hover:bg-club-hover ms-4">
+                            class="inline-flex items-center px-4 py-2 font-semibold text-xs uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150 border-2 border-transparent bg-club text-white hover:bg-club-hover ms-4">
                         View
                     </button>
                 </td>
