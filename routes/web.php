@@ -145,6 +145,7 @@ Route::middleware(['auth', 'role:admin'])
         Route::resource('trick-catalog', TrickController::class);
         Route::get('trick-catalog', [TrickCatalogController::class, 'index'])->name('trick-catalog.index');
         Route::resource('trick-catalog', TrickCatalogController::class)->except(['show']);
+        Route::post('trick-catalog/check-video', [TrickCatalogController::class, 'checkVideo'])->name('trick-catalog.check-video');
 
         /*
         | Trick Evaluations

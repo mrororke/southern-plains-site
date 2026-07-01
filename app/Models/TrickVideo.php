@@ -44,4 +44,15 @@ class TrickVideo extends Model
         return $query->where('platform', $platform);
     }
 
+    public static function detectPlatform(string $url): string
+{
+    return match (true) {
+        str_contains($url, 'tiktok') => 'tiktok',
+        str_contains($url, 'instagram') => 'instagram',
+        str_contains($url, 'facebook') => 'facebook',
+        str_contains($url, 'youtube') => 'youtube',
+        default => 'unknown',
+    };
+}
+
 }
