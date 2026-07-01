@@ -183,7 +183,11 @@ function renderPlatformBadge(platform)
                     <ul class="space-y-2">
             `;
 
-                html += `
+                data.videos.forEach(v => {
+
+    const isPreferred = v.is_preferred ? 'bg-gray-100' : '';
+
+    html += `
     <li class="grid grid-cols-12 items-center text-sm border-b py-2 ${v.is_preferred ? 'bg-gray-100' : ''}">
 
         <!-- LEFT: PLATFORM -->
