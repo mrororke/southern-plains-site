@@ -1,20 +1,36 @@
 <template>
-  <div class="border rounded p-4">
-    <div v-if="editor">
-      <button
-        type="button"
-        @click="editor.chain().focus().toggleBold().run()"
-        class="border px-2 py-1 mr-2"
-      >
+  <div class="border rounded-lg bg-white">
+
+    <!-- Toolbar -->
+    <div class="flex flex-wrap gap-2 p-3 border-b bg-gray-50">
+
+      <button @click="toggleBold" :class="btnClass">
         Bold
       </button>
 
+      <button @click="toggleItalic" :class="btnClass">
+        Italic
+      </button>
+
+      <button @click="toggleHeading" :class="btnClass">
+        H2
+      </button>
+
+      <button @click="toggleBulletList" :class="btnClass">
+        List
+      </button>
+
+      <button @click="setParagraph" :class="btnClass">
+        P
+      </button>
+
+    </div>
+
+    <!-- Editor -->
+    <div class="p-4 min-h-[200px]">
       <EditorContent :editor="editor" />
     </div>
 
-    <div v-else>
-      Loading editor...
-    </div>
   </div>
 </template>
 
