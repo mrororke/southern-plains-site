@@ -8,12 +8,12 @@
     <h1 class="text-2xl font-bold">Trick Catalog</h1>
 
     <a href="{{ route('admin.trick-catalog.create') }}"
-        class="bg-black text-white px-4 py-2 rounded">
+        class="bg-black text-white px-4 py-2">
         + New Trick
     </a>
 </div>
 
-<div class="bg-white shadow rounded overflow-hidden">
+<div class="bg-white shadow overflow-hidden">
 
     <table class="w-full text-sm">
         <thead class="bg-gray-100 text-left">
@@ -71,11 +71,11 @@
 
 <div id="trickModal"
      tabindex="-1"
-     class="hidden fixed top-0 left-0 right-0 z-50 w-full p-4 overflow-x-hidden overflow-y-auto h-modal h-full">
+     class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
 
-    <div class="relative w-full max-w-3xl mx-auto">
+    <div class="relative w-full max-w-xl">
 
-        <div class="relative bg-white rounded-lg shadow">
+        <div class="relative bg-white shadow-lg">
 
             <div class="flex items-center justify-between p-4 border-b">
                 <h3 id="modalTitle" class="text-lg font-semibold">
@@ -127,7 +127,7 @@ function openTrickModal(id)
                         <button
                             type="button"
                             onclick="copyToClipboard('${window.location.origin}/admin/trick-catalog/${id}')"
-                            class="bg-black text-white px-3 py-1 rounded text-sm">
+                            class="bg-black text-white px-3 py-1 text-sm">
 
                             Copy Admin Link
 
@@ -185,6 +185,10 @@ function openTrickModal(id)
             `;
 
             body.innerHTML = videoList;
+        })
+        .catch(err => {
+            console.error(err);
+            body.innerHTML = '<p class="text-red-600 text-sm">Failed to load trick data.</p>';
         });
 }
 
@@ -199,6 +203,9 @@ function copyToClipboard(text)
     navigator.clipboard.writeText(text)
         .then(() => {
             alert('Copied to clipboard');
+        })
+        .catch(err => {
+            console.error('Copy failed:', err);
         });
 }
 
