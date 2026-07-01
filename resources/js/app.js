@@ -8,6 +8,4 @@ window.Alpine = Alpine
 Alpine.start()
 
 // register globally
-app.component('admin-editor', AdminEditor)
-
-createApp(EmailEditor).mount('#app')
+createApp(AdminEditor).mount('#app')
