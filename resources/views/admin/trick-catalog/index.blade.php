@@ -144,8 +144,8 @@
                     <div class="flex justify-between items-start gap-4">
 
                         <div class="flex-1">
-                        <div class="text-base font-semibold">Notes</div>
-                        <div class="text-base whitespace-pre-line">
+                        <div class="font-bold text-md text-black mb-2">Notes</div>
+                        <div class="text-base text-black mb-6">
                             ${data.notes ?? 'No notes'}
                         </div>
                     </div>
@@ -156,7 +156,7 @@
 
                     
 
-                    <h4 class="font-semibold">Videos</h4>
+                    <h4 class="font-bold text-md text-black mb-2">Videos</h4>
 
                     <ul class="space-y-2">
             `;
