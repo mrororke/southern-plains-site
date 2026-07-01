@@ -126,16 +126,7 @@ function openTrickModal(id)
                         </div>
                     </div>
 
-                    <div class="flex justify-end">
-                        <button
-                            type="button"
-                            onclick="copyToClipboard('${window.location.origin}/admin/trick-catalog/${id}')"
-                            class="bg-black text-white px-3 py-1 text-sm">
-
-                            Copy Admin Link
-
-                        </button>
-                    </div>
+                    
 
                     <h4 class="font-semibold">Videos</h4>
 
