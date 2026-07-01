@@ -9,6 +9,8 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HistoryFormController;
 use App\Http\Controllers\TrickEvaluationController;
+use App\Http\Controllers\TrickController;
+use App\Http\Controllers\Admin\TrickCatalogController;
 
 use App\Http\Controllers\Admin\TrickEvaluationController as AdminTrickEvaluationController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
@@ -136,6 +138,13 @@ Route::middleware(['auth', 'role:admin'])
 
         Route::get('rats/{rat}/pedigree', [RatController::class, 'show'])
             ->name('rats.pedigree');
+
+        /*
+        | Tricks Catalog
+        */
+        Route::resource('trick-catalog', TrickController::class);
+        Route::get('trick-catalog', [TrickCatalogController::class, 'index'])->name('trick-catalog.index');
+        Route::resource('trick-catalog', TrickCatalogController::class)->except(['show']);
 
         /*
         | Trick Evaluations
