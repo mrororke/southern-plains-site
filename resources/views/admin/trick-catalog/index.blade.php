@@ -97,70 +97,68 @@
 
 
 <script>
+    function renderLevelBadge(level) {
+        if (!level) level = 'unknown';
 
-    function renderLevelBadge(level)
-{
-    if (!level) level = 'unknown';
+        const formatted = level
+            .replaceAll('_', ' ')
+            .replace(/\b\w/g, c => c.toUpperCase());
 
-    const formatted = level
-        .replaceAll('_', ' ')
-        .replace(/\b\w/g, c => c.toUpperCase());
+        const styles = {
+            novice: 'bg-gray-500 text-white',
+            intermediate: 'bg-blue-500 text-white',
+            advanced: 'bg-purple-500 text-white',
+            performer: 'bg-pink-500 text-white',
+            performer_elite: 'bg-black text-white',
+            unknown: 'bg-gray-300 text-black'
+        };
 
-    const styles = {
-        novice: 'bg-gray-500 text-white',
-        intermediate: 'bg-blue-500 text-white',
-        advanced: 'bg-purple-500 text-white',
-        performer: 'bg-pink-500 text-white',
-        performer_elite: 'bg-black text-white',
-        unknown: 'bg-gray-300 text-black'
-    };
+        const colorClass = styles[level] ?? styles.unknown;
 
-    const colorClass = styles[level] ?? styles.unknown;
-
-    return `
+        return `
         <div class="flex-shrink-0">
             <span class="inline-flex items-center px-2 py-1 text-xs font-semibold ${colorClass}">
                 ${formatted}
             </span>
         </div>
     `;
-}
+    }
 
-function renderPlatformBadge(platform)
-{
-    const p = (platform || 'unknown').toLowerCase();
+    function renderPlatformBadge(platform) {
+        const p = (platform || 'unknown').toLowerCase();
 
-    const map = {
-        youtube: 'bg-red-600 text-white',
-        tiktok: 'bg-black text-white',
-        instagram: 'bg-pink-500 text-white',
-        facebook: 'bg-blue-600 text-white',
-        unknown: 'bg-gray-400 text-black'
-    };
+        const map = {
+            youtube: 'bg-red-600 text-white',
+            tiktok: 'bg-black text-white',
+            instagram: 'bg-pink-500 text-white',
+            facebook: 'bg-blue-600 text-white',
+            unknown: 'bg-gray-400 text-black'
+        };
 
-    const label = p.charAt(0).toUpperCase() + p.slice(1);
-    const color = map[p] ?? map.unknown;
+        const label = p.charAt(0).toUpperCase() + p.slice(1);
+        const color = map[p] ?? map.unknown;
 
-    return `
+        return `
         <span class="inline-flex items-center px-2 py-1 text-xs font-semibold ${color}">
             ${label}
         </span>
     `;
-}
+    }
+
     function openTrickModal(id) {
-    const modal = document.getElementById('trickModal');
-    const body = document.getElementById('modalBody');
+        const modal = document.getElementById('trickModal');
+        const body = document.getElementById('modalBody');
 
-    modal.classList.remove('hidden');
-    body.innerHTML = 'Loading...';
+        modal.classList.remove('hidden');
+        body.innerHTML = 'Loading...';
 
-    fetch(`/admin/trick-catalog/${id}/show-data`)
-        .then(res => res.json())
-        .then(data => {
+        fetch(`/admin/trick-catalog/${id}/show-data`)
+            .then(res => res.json())
+            .then(data => {
 
-            document.getElementById('modalTitle').innerText = data.name;
+                document.getElementById('modalTitle').innerText = data.name;
 
-            let html = `
+                let html = `
                 <div class="space-y-4">
 
                     <div class="flex justify-between items-start gap-4">
@@ -181,61 +179,59 @@ function renderPlatformBadge(platform)
                     <ul class="space-y-2">
             `;
 
-            data.videos.forEach(v => {
+                data.videos.forEach(v => {
+
+                    data.videos.sort((a, b) => {
+                        return (b.is_preferred === true) - (a.is_preferred === true);
+                    });
+
+                    html += `
+    <li class="flex items-center justify-between text-sm border-b py-2
+        ${v.is_preferred ? 'border-l-4 border-l-black pl-2' : ''}">
+
+        <!-- LEFT: PLATFORM -->
+        <div class="w-1/5">
+            ${renderPlatformBadge(v.platform)}
+        </div>
+
+        <!-- MIDDLE: CREATOR -->
+        <div class="w-2/5 truncate">
+            ${v.creator ?? 'Unknown creator'}
+        </div>
+
+        <!-- RIGHT: ACTIONS -->
+        <div class="w-2/5 flex justify-end gap-2">
+
+            <a href="${v.url}"
+               target="_blank"
+               class="inline-flex items-center px-2 py-1 text-xs bg-black text-white">
+
+                ↗ Open
+
+            </a>
+
+            <button type="button"
+                    onclick="copyToClipboard('${v.url}')"
+                    class="inline-flex items-center px-2 py-1 text-xs bg-gray-200">
+
+                📋 Copy
+
+            </button>
+
+        </div>
+
+    </li>
+`;
+                });
 
                 html += `
-                    <li class="grid grid-cols-12 items-center text-sm border-b py-2 ${v.is_preferred ? 'bg-gray-100' : ''}">
-
-                        <div class="col-span-3">
-                            ${renderPlatformBadge(v.platform)}
-                        </div>
-
-                        <div class="col-span-6 space-y-1 min-w-0">
-
-                            <div class="truncate text-sm">
-                                ${v.creator ?? 'Unknown creator'}
-                            </div>
-
-                            ${v.is_preferred ? `
-                                <div class="text-xs font-semibold">
-                                    ★ Preferred
-                                </div>
-                            ` : ''}
-
-                        </div>
-
-                        <div class="col-span-3 flex justify-end gap-2">
-
-                            <a href="${v.url}"
-                               target="_blank"
-                               class="inline-flex items-center px-2 py-1 text-xs bg-black text-white">
-
-                                ↗ Open
-
-                            </a>
-
-                            <button type="button"
-                                    onclick="copyToClipboard('${v.url}')"
-                                    class="inline-flex items-center px-2 py-1 text-xs bg-gray-200">
-
-                                📋 Copy
-
-                            </button>
-
-                        </div>
-
-                    </li>
-                `;
-            });
-
-            html += `
                     </ul>
                 </div>
             `;
 
-            body.innerHTML = html;
-        });
-}
+                body.innerHTML = html;
+            });
+    }
 
     function closeTrickModal() {
         document.getElementById('trickModal')
