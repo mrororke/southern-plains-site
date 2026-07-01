@@ -71,7 +71,7 @@
 
 <div id="trickModal"
      tabindex="-1"
-     class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/40 p-4">
+     class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
 
     <div class="relative w-full max-w-xl">
 
@@ -123,15 +123,15 @@ function openTrickModal(id)
             let videoList = `
                 <div class="space-y-3">
 
-                    <div class="flex justify-end mb-3">
-                        <button
-                            type="button"
-                            onclick="copyToClipboard('${window.location.origin}/admin/trick-catalog/${id}')"
-                            class="bg-black text-white px-3 py-1 text-sm">
+                    <div class="flex mb-3">
+                    <div class="mt-2 text-sm">
+                <div class="font-semibold">Notes</div>
 
-                            Copy Admin Link
-
-                        </button>
+                <div class="text-gray-700 whitespace-pre-line">
+                    ${data.notes ? data.notes : 'No notes added.'}
+                </div>
+            </div>
+                        
                     </div>
 
                     <h4 class="font-semibold">Videos</h4>
