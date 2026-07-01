@@ -148,97 +148,94 @@ function renderPlatformBadge(platform)
     `;
 }
     function openTrickModal(id) {
-        const modal = document.getElementById('trickModal');
-        const body = document.getElementById('modalBody');
+    const modal = document.getElementById('trickModal');
+    const body = document.getElementById('modalBody');
 
-        modal.classList.remove('hidden');
-        body.innerHTML = 'Loading...';
+    modal.classList.remove('hidden');
+    body.innerHTML = 'Loading...';
 
-        fetch(`/admin/trick-catalog/${id}/show-data`)
-            .then(res => res.json())
-            .then(data => {
+    fetch(`/admin/trick-catalog/${id}/show-data`)
+        .then(res => res.json())
+        .then(data => {
 
-                document.getElementById('modalTitle').innerText = data.name;
+            document.getElementById('modalTitle').innerText = data.name;
 
-                let html = `
+            let html = `
                 <div class="space-y-4">
 
                     <div class="flex justify-between items-start gap-4">
 
                         <div class="flex-1">
-                        <div class="font-bold text-md text-black mb-2">Notes</div>
-                        <div class="text-base text-black mb-6">
-                            ${data.notes ?? 'No notes'}
+                            <div class="font-bold text-md text-black mb-2">Notes</div>
+                            <div class="text-base text-black mb-6">
+                                ${data.notes ?? 'No notes'}
+                            </div>
                         </div>
+
+                        ${renderLevelBadge(data.level)}
+
                     </div>
-
-                ${renderLevelBadge(data.level)}
-
-                </div>
-
-                    
 
                     <h4 class="font-bold text-md text-black mb-2">Videos</h4>
 
                     <ul class="space-y-2">
             `;
 
-                data.videos.forEach(v => {
+            data.videos.forEach(v => {
 
-    const isPreferred = v.is_preferred ? 'bg-gray-100' : '';
+                html += `
+                    <li class="grid grid-cols-12 items-center text-sm border-b py-2 ${v.is_preferred ? 'bg-gray-100' : ''}">
 
-    html += `
-    <li class="grid grid-cols-12 items-center text-sm border-b py-2 ${v.is_preferred ? 'bg-gray-100' : ''}">
+                        <div class="col-span-3">
+                            ${renderPlatformBadge(v.platform)}
+                        </div>
 
-        <!-- LEFT: PLATFORM -->
-        <div class="col-span-3">
-            ${renderPlatformBadge(v.platform)}
-        </div>
+                        <div class="col-span-6 space-y-1 min-w-0">
 
-        <!-- MIDDLE: CREATOR + PREFERRED -->
-        <div class="col-span-6 space-y-1 min-w-0">
+                            <div class="truncate text-sm">
+                                ${v.creator ?? 'Unknown creator'}
+                            </div>
 
-            <div class="truncate text-sm">
-                ${v.creator ?? 'Unknown creator'}
-            </div>
+                            ${v.is_preferred ? `
+                                <div class="text-xs font-semibold">
+                                    ★ Preferred
+                                </div>
+                            ` : ''}
 
-            ${v.is_preferred ? `
-                <div class="text-xs font-semibold">
-                    ★ Preferred
-                </div>
-            ` : ''}
+                        </div>
 
-        </div>
+                        <div class="col-span-3 flex justify-end gap-2">
 
-        <!-- RIGHT: ACTIONS -->
-        <div class="col-span-3 flex justify-end gap-2">
+                            <a href="${v.url}"
+                               target="_blank"
+                               class="inline-flex items-center px-2 py-1 text-xs bg-black text-white">
 
-            <a href="${v.url}"
-               target="_blank"
-               class="inline-flex items-center px-2 py-1 text-xs bg-black text-white">
+                                ↗ Open
 
-                ↗ Open
+                            </a>
 
-            </a>
+                            <button type="button"
+                                    onclick="copyToClipboard('${v.url}')"
+                                    class="inline-flex items-center px-2 py-1 text-xs bg-gray-200">
 
-            <button type="button"
-                    onclick="copyToClipboard('${v.url}')"
-                    class="inline-flex items-center px-2 py-1 text-xs bg-gray-200">
+                                📋 Copy
 
-                📋 Copy
+                            </button>
 
-            </button>
+                        </div>
 
-        </div>
-
-    </li>
-`;
-
-                html += `</ul></div>`;
-
-                body.innerHTML = html;
+                    </li>
+                `;
             });
-    }
+
+            html += `
+                    </ul>
+                </div>
+            `;
+
+            body.innerHTML = html;
+        });
+}
 
     function closeTrickModal() {
         document.getElementById('trickModal')
