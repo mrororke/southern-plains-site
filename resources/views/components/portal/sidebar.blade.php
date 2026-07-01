@@ -26,12 +26,36 @@
                  :active="request()->routeIs('admin.posts.*')"
                  nested />
              <x-portal.sidebar-link
-                 label="Categories"
+                 label="Add Trick"
                  route="#"
                  nested />
 
              <x-portal.sidebar-link
                  label="Tags"
+                 route="#"
+                 nested />
+
+         </x-portal.sidebar-section>
+
+         <x-portal.sidebar-section title="Emails">
+
+             <x-portal.sidebar-link
+                 label="Archive"
+                 :route="route('admin.posts.index')"
+                 :active="request()->routeIs('admin.posts.*')"
+                 nested />
+             <x-portal.sidebar-link
+                 label="Create Email"
+                 route="#"
+                 nested />
+
+             <x-portal.sidebar-link
+                 label="Drafts"
+                 route="#"
+                 nested />
+
+                 <x-portal.sidebar-link
+                 label="Scheduled"
                  route="#"
                  nested />
 
