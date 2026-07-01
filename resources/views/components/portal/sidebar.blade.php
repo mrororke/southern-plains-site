@@ -18,6 +18,25 @@
             top-level
         />
 
+        <x-portal.sidebar-section title="Tricks">
+
+             <x-portal.sidebar-link
+                 label="Catalog"
+                 :route="route('admin.posts.index')"
+                 :active="request()->routeIs('admin.posts.*')"
+                 nested />
+             <x-portal.sidebar-link
+                 label="Categories"
+                 route="#"
+                 nested />
+
+             <x-portal.sidebar-link
+                 label="Tags"
+                 route="#"
+                 nested />
+
+         </x-portal.sidebar-section>
+
          <x-portal.sidebar-section title="Content">
 
              <x-portal.sidebar-link
