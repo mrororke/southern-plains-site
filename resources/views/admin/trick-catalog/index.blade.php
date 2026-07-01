@@ -120,75 +120,71 @@ function openTrickModal(id)
 
             document.getElementById('modalTitle').innerText = data.name;
 
-            const preferred = data.videos.find(v => v.is_preferred);
-
-            let embedHtml = '';
-
-            if (preferred) {
-
-                const embedUrl = getYouTubeEmbedUrl(preferred.url);
-
-                if (embedUrl) {
-                    embedHtml = `
-                        <div class="mb-4">
-                            <h4 class="font-semibold mb-2">Preferred Video</h4>
-
-                            <div class="aspect-video">
-                                <iframe
-                                    class="w-full h-full rounded"
-                                    src="${embedUrl}"
-                                    frameborder="0"
-                                    allowfullscreen>
-                                </iframe>
-                            </div>
-
-                            <p class="text-xs text-gray-500 mt-1">
-                                ${preferred.creator ?? 'Unknown creator'} (${preferred.platform})
-                            </p>
-                        </div>
-                    `;
-                }
-
-            }
-
             let videoList = `
-                <div class="mt-4">
-                    <h4 class="font-semibold mb-2">All Videos</h4>
+                <div class="space-y-3">
+
+                    <div class="flex justify-end mb-3">
+                        <button
+                            type="button"
+                            onclick="copyToClipboard('${window.location.origin}/admin/trick-catalog/${id}')"
+                            class="bg-black text-white px-3 py-1 rounded text-sm">
+
+                            Copy Admin Link
+
+                        </button>
+                    </div>
+
+                    <h4 class="font-semibold">Videos</h4>
+
                     <ul class="space-y-2">
             `;
 
             data.videos.forEach(v => {
 
                 videoList += `
-                    <li class="flex justify-between items-center text-sm border-b py-1">
+                    <li class="flex justify-between items-center text-sm border-b py-2">
 
-                        <a href="${v.url}" target="_blank" class="text-blue-600 hover:underline">
-                            ${v.platform} - ${v.creator ?? 'Unknown'}
-                        </a>
+                        <div class="min-w-0">
+                            <div class="font-medium">
+                                ${v.platform ?? 'unknown'}
+                            </div>
+
+                            <div class="text-xs text-gray-500 truncate">
+                                ${v.creator ?? 'Unknown'}
+                            </div>
+                        </div>
+
+                        <div class="flex gap-3 items-center">
+
+                            <a href="${v.url}"
+                               target="_blank"
+                               class="text-blue-600 hover:underline text-xs">
+
+                                Open
+
+                            </a>
+
+                            <button
+                                type="button"
+                                onclick="copyToClipboard('${v.url}')"
+                                class="text-black underline text-xs">
+
+                                Copy
+
+                            </button>
+
+                        </div>
 
                     </li>
                 `;
             });
 
-            videoList += `</ul></div>`;
-
-            body.innerHTML = `
-
-                ${embedHtml}
-
-                <div class="flex justify-end mb-3">
-                    <button
-                        onclick="copyTrainingLink(${data.id})"
-                        class="bg-black text-white px-3 py-1 rounded text-sm">
-
-                        Copy Training Link
-
-                    </button>
+            videoList += `
+                    </ul>
                 </div>
-
-                ${videoList}
-
             `;
+
+            body.innerHTML = videoList;
         });
 }
 
@@ -198,17 +194,12 @@ function closeTrickModal()
         .classList.add('hidden');
 }
 
-function getYouTubeEmbedUrl(url)
+function copyToClipboard(text)
 {
-    if (!url) return null;
-
-    let match = url.match(
-        /(?:youtu\.be\/|youtube\.com.*v=)([^&]+)/ 
-    );
-
-    return match
-        ? `https://www.youtube.com/embed/${match[1]}`
-        : null;
+    navigator.clipboard.writeText(text)
+        .then(() => {
+            alert('Copied to clipboard');
+        });
 }
 
 </script>
