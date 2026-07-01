@@ -209,4 +209,10 @@ function copyToClipboard(text)
         });
 }
 
+document.getElementById('trickModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeTrickModal();
+    }
+});
+
 </script>
