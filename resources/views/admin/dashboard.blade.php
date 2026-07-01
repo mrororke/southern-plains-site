@@ -83,10 +83,7 @@
 </div>
 
         {{-- RECENT ACTIVITY --}}
-        <div>
-            <div id="app">
-    <email-editor></email-editor>
-</div>
+        
             <h2 class="font-heading text-4xl pb-2">Recent Updates</h2>
 
             @foreach($recentActivity as $activity)
