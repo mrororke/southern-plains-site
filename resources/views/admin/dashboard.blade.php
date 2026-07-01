@@ -84,9 +84,7 @@
         </div>
 
         {{-- RECENT ACTIVITY --}}
-        <div id="app">
-    <admin-editor></admin-editor>
-</div>
+        <div id="app"></div>
 
         <h2 class="font-heading text-4xl pb-2">Recent Updates</h2>
 
