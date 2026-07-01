@@ -97,6 +97,34 @@
 
 
 <script>
+
+    function renderLevelBadge(level)
+{
+    if (!level) level = 'unknown';
+
+    const formatted = level
+        .replaceAll('_', ' ')
+        .replace(/\b\w/g, c => c.toUpperCase());
+
+    const styles = {
+        novice: 'bg-gray-500 text-white',
+        intermediate: 'bg-blue-500 text-white',
+        advanced: 'bg-purple-500 text-white',
+        performer: 'bg-pink-500 text-white',
+        performer_elite: 'bg-black text-white',
+        unknown: 'bg-gray-300 text-black'
+    };
+
+    const colorClass = styles[level] ?? styles.unknown;
+
+    return `
+        <div class="flex-shrink-0">
+            <span class="inline-flex items-center px-2 py-1 text-xs font-semibold ${colorClass}">
+                ${formatted}
+            </span>
+        </div>
+    `;
+}
     function openTrickModal(id) {
         const modal = document.getElementById('trickModal');
         const body = document.getElementById('modalBody');
@@ -113,20 +141,18 @@
                 let html = `
                 <div class="space-y-4">
 
-                    <div>
-                        <div class="mt-2">
-    <span class="inline-flex items-center px-2 py-1 text-xs font-semibold border border-black">
-        ${data.level
-            ? data.level.replaceAll('_', ' ').replace(/\b\w/g, c => c.toUpperCase())
-            : 'Unknown'}
-    </span>
-</div>
+                    <div class="flex justify-between items-start gap-4">
 
-                        <div class="mt-2 text-sm font-semibold">Notes</div>
+                        <div class="flex-1">
+                        <div class="text-sm font-semibold">Notes</div>
                         <div class="text-sm whitespace-pre-line">
                             ${data.notes ?? 'No notes'}
                         </div>
                     </div>
+
+                ${renderLevelBadge(data.level)}
+
+                </div>
 
                     
 
