@@ -1,5 +1,6 @@
 @extends('layouts.portal')
 @vite(['resources/css/app.css', 'resources/js/app.js'])
+console.log('VUE APP LOADED');
 
 @section('title', 'Admin Dashboard')
 
