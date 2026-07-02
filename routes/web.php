@@ -114,7 +114,25 @@ Route::middleware(['auth'])->group(function () {
 
 /*
 |--------------------------------------------------------------------------
-| ADMIN AREA
+| INSTRUCTOR AREA 
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware(['auth', 'role:instructor'])
+    ->prefix('instructor')
+    ->name('instructor.')
+    ->group(function () {
+
+        Route::get('/dashboard', function () {
+            return redirect()->route('admin.trick-catalog.index');
+        })->name('dashboard');
+
+    });
+
+
+/*
+|--------------------------------------------------------------------------
+| ADMIN AREA (ADMIN ONLY)
 |--------------------------------------------------------------------------
 */
 
@@ -124,14 +142,18 @@ Route::middleware(['auth', 'role:admin'])
     ->group(function () {
 
         /*
+        |--------------------------------------------------------------------------
         | Dashboard
+        |--------------------------------------------------------------------------
         */
         Route::get('/dashboard', function (AdminDashboardService $service) {
             return view('admin.dashboard', $service->data());
         })->name('dashboard');
 
         /*
+        |--------------------------------------------------------------------------
         | Content
+        |--------------------------------------------------------------------------
         */
         Route::resource('posts', PostController::class);
         Route::resource('rats', RatController::class);
@@ -140,34 +162,9 @@ Route::middleware(['auth', 'role:admin'])
             ->name('rats.pedigree');
 
         /*
-|--------------------------------------------------------------------------
-| Tricks Catalog
-|--------------------------------------------------------------------------
-*/
-
-Route::resource('trick-catalog', TrickCatalogController::class)
-    ->except(['show']);
-
-
-Route::post(
-    'trick-catalog/check-video',
-    [TrickCatalogController::class, 'checkVideo']
-)->name('trick-catalog.check-video');
-
-
-Route::get(
-    'trick-catalog/{trick_catalog}/show-data',
-    [TrickCatalogController::class, 'showData']
-)->name('trick-catalog.show-data');
-
-Route::get('trick-catalog/video-row', function () {
-    return view('admin.trick-catalog.partials.video-row', [
-        'index' => request('index')
-    ]);
-});
-
-        /*
+        |--------------------------------------------------------------------------
         | Trick Evaluations
+        |--------------------------------------------------------------------------
         */
         Route::get('/tricks', [AdminTrickEvaluationController::class, 'index'])
             ->name('tricks.index');
@@ -182,7 +179,9 @@ Route::get('trick-catalog/video-row', function () {
             ->name('tricks.notes.store');
 
         /*
+        |--------------------------------------------------------------------------
         | Contacts
+        |--------------------------------------------------------------------------
         */
         Route::get('/contacts', [AdminContactController::class, 'index'])
             ->name('contacts.index');
@@ -192,6 +191,38 @@ Route::get('trick-catalog/video-row', function () {
 
         Route::patch('/contacts/{contact}/status', [AdminContactController::class, 'updateStatus'])
             ->name('contacts.status');
+    });
+
+/*
+|--------------------------------------------------------------------------
+| TRICK CATALOG (ADMIN + INSTRUCTOR)
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware(['auth', 'role:instructor'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+
+        Route::resource('trick-catalog', App\Http\Controllers\Admin\TrickCatalogController::class)
+            ->except(['show']);
+
+        Route::post(
+            'trick-catalog/check-video',
+            [App\Http\Controllers\Admin\TrickCatalogController::class, 'checkVideo']
+        )->name('trick-catalog.check-video');
+
+        Route::get(
+            'trick-catalog/{trick_catalog}/show-data',
+            [App\Http\Controllers\Admin\TrickCatalogController::class, 'showData']
+        )->name('trick-catalog.show-data');
+
+        Route::get('trick-catalog/video-row', function () {
+            return view('admin.trick-catalog.partials.video-row', [
+                'index' => request('index')
+            ]);
+        });
+
     });
 
 /*
