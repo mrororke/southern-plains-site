@@ -33,9 +33,15 @@ class Trick extends Model
         return $this->hasOne(TrickVideo::class)->where('is_preferred', true);
     }
 
-    public function levels(){
-        return $this->belongsToMany(TrickLevel::class, 'trick_level');
-    }
+    public function levels()
+{
+    return $this->belongsToMany(
+        TrickLevel::class,
+        'trick_level',
+        'trick_id',
+        'trick_level_id'
+    );
+}
 
      /*
     |---------------------------------

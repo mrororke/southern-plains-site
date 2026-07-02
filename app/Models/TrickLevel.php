@@ -14,7 +14,12 @@ class TrickLevel extends Model
     ];
 
     public function tricks()
-    {
-        return $this->belongsToMany(Trick::class);
-    }
+{
+    return $this->belongsToMany(
+        Trick::class,
+        'trick_level',
+        'trick_level_id',
+        'trick_id'
+    );
+}
 }

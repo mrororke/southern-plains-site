@@ -13,8 +13,15 @@ return new class extends Migration
     {
         Schema::create('trick_level', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('trick_id')->constrained()->onDelete('cascade');
-            $table->string('level');
+
+            $table->foreignId('trick_id')
+        ->constrained()
+        ->cascadeOnDelete();
+
+    $table->foreignId('trick_level_id')
+        ->constrained('trick_levels')
+        ->cascadeOnDelete();
+
             $table->timestamps();
         });
     }
