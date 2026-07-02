@@ -196,6 +196,10 @@ document.addEventListener('click', (e) => {
     }
 });
 
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeTrickModal();
+});
+
 document.addEventListener('click', (e) => {
     const btn = e.target.closest('.js-copy-email');
     if (!btn) return;
