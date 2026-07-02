@@ -119,7 +119,9 @@ async function openTrickModal(id) {
                 </div>
 
                 <div>
-                    ${renderLevelBadge(data.level)}
+                    ${(data.levels ?? [])
+                        .map(l => renderLevelBadge(l.name))
+                        .join('')}
                 </div>
             </div>
 
@@ -129,7 +131,6 @@ async function openTrickModal(id) {
     `;
 
     data.videos.forEach(v => {
-
         html += `
         <li class="flex justify-between items-center text-sm border-b py-2 px-2
             ${v.is_preferred ? 'bg-gray-50 border-l-4 border-black' : ''}">
