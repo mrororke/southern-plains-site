@@ -93,6 +93,20 @@ function copyToClipboard(text, btn) {
     });
 }
 
+function normalizeVideoData(videos) {
+    return (videos || []).map(v => ({
+        ...v,
+        is_preferred: Number(v.is_preferred || 0)
+    }));
+}
+
+function normalizeLevels(levels) {
+    return (levels || []).map(l => ({
+        ...l,
+        name: l.name ?? 'unknown'
+    }));
+}
+
 async function openTrickModal(id) {
     const modal = document.getElementById('trickModal');
     const body = document.getElementById('modalBody');
@@ -105,7 +119,11 @@ async function openTrickModal(id) {
 
     document.getElementById('modalTitle').innerText = data.name;
 
-    data.videos.sort((a, b) => (b.is_preferred === true) - (a.is_preferred === true));
+    // NORMALIZE HERE
+    data.videos = normalizeVideoData(data.videos);
+    data.levels = normalizeLevels(data.levels);
+
+    data.videos.sort((a, b) => b.is_preferred - a.is_preferred);
 
     let html = `
         <div class="space-y-4">
@@ -131,6 +149,7 @@ async function openTrickModal(id) {
     `;
 
     data.videos.forEach(v => {
+
         html += `
         <li class="flex justify-between items-center text-sm border-b py-2 px-2
             ${v.is_preferred ? 'bg-gray-50 border-l-4 border-black' : ''}">
