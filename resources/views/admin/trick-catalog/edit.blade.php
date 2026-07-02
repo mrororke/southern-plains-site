@@ -1,3 +1,5 @@
+@vite('resources/js/admin/trick-catalog/edit.js')
+
 @extends('layouts.portal')
 
 @section('title', 'Edit Trick')

@@ -1,3 +1,4 @@
+@vite('resources/js/admin/trick-catalog/create.js')
 @extends('layouts.portal')
 
 @section('title', 'Create Trick')

@@ -4,6 +4,24 @@
     "src": "resources/css/app.css",
     "isEntry": true
   },
+  "resources/js/admin/trick-catalog/create.js": {
+    "file": "assets/create-CoCC6rtg.js",
+    "name": "create",
+    "src": "resources/js/admin/trick-catalog/create.js",
+    "isEntry": true
+  },
+  "resources/js/admin/trick-catalog/edit.js": {
+    "file": "assets/edit-CBRU0e7_.js",
+    "name": "edit",
+    "src": "resources/js/admin/trick-catalog/edit.js",
+    "isEntry": true
+  },
+  "resources/js/admin/trick-catalog/index.js": {
+    "file": "assets/index-CQBoZOrG.js",
+    "name": "index",
+    "src": "resources/js/admin/trick-catalog/index.js",
+    "isEntry": true
+  },
   "resources/js/app.js": {
     "file": "assets/app-CFqqUC50.js",
     "name": "app",

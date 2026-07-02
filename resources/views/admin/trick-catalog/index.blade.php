@@ -1,3 +1,5 @@
+@vite('resources/js/admin/trick-catalog/index.js')
+
 @extends('layouts.portal')
 
 @section('title', 'Trick Catalog')
@@ -91,7 +93,3 @@
 </div>
 
 @endsection
-
-@push('scripts')
-    <script src="{{ asset('js/admin/trick-catalog/index.js') }}"></script>
-@endpush
