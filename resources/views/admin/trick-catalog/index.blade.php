@@ -211,8 +211,11 @@
                 </td>
 
                 <td class="p-3 text-sm">
-                    {{ $trick->levels->pluck('name')->map(fn($l) => ucfirst($l))->join(', ') }}
-                </td>
+    {{ $trick->levels
+        ->pluck('name')
+        ->map(fn($l) => ucwords(str_replace('_', ' ', $l)))
+        ->join(', ') }}
+</td>
 
                 <td class="p-3 text-sm">
                     {{ $trick->videos->count() }}
