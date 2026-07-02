@@ -8,7 +8,7 @@
     <h1 class="font-heading text-4xl pb-2">Trick Catalog</h1>
 
     <a href="{{ route('admin.trick-catalog.create') }}"
-       class="inline-flex items-center px-4 py-2 font-semibold text-xs uppercase tracking-widest border-2 border-transparent bg-club text-white hover:bg-club-hover ms-4">
+        class="inline-flex items-center px-4 py-2 font-semibold text-xs uppercase tracking-widest border-2 border-transparent bg-club text-white hover:bg-club-hover ms-4">
 
         + New Trick
     </a>
@@ -32,20 +32,22 @@
             <tr class="border-b border-black">
                 <td class="p-3 font-semibold text-sm">{{ $trick->name }}</td>
                 <td class="p-3 text-sm">
-                    {{ ucfirst(str_replace('_', ' ', $trick->level)) }}
+                    $trick->levels->pluck('level')->map(fn($l) =>
+                    ucfirst(str_replace('_',' ', $l))
+                    )->join(', ')
                 </td>
                 <td class="p-3 text-sm">{{ $trick->videos->count() }}</td>
 
                 <td class="p-3">
                     <a href="{{ route('admin.trick-catalog.edit', $trick) }}"
-                       class="inline-flex items-center px-4 py-2 text-xs uppercase bg-training text-white">
+                        class="inline-flex items-center px-4 py-2 text-xs uppercase bg-training text-white">
 
                         Edit
                     </a>
 
                     <button type="button"
-                            onclick="openTrickModal({{ $trick->id }})"
-                            class="inline-flex items-center px-4 py-2 text-xs uppercase bg-club text-white">
+                        onclick="openTrickModal({{ $trick->id }})"
+                        class="inline-flex items-center px-4 py-2 text-xs uppercase bg-club text-white">
 
                         View
                     </button>
@@ -64,7 +66,7 @@
 
 {{-- MODAL --}}
 <div id="trickModal"
-     class="hidden fixed inset-0 z-[9999] bg-black/60">
+    class="hidden fixed inset-0 z-[9999] bg-black/60">
 
     <div class="flex items-center justify-center w-full h-full p-4">
 
@@ -90,74 +92,70 @@
 @endsection
 
 <script>
+    function renderLevelBadge(level) {
+        if (!level) level = 'unknown';
 
-function renderLevelBadge(level)
-{
-    if (!level) level = 'unknown';
+        const formatted = level
+            .replaceAll('_', ' ')
+            .replace(/\b\w/g, c => c.toUpperCase());
 
-    const formatted = level
-        .replaceAll('_', ' ')
-        .replace(/\b\w/g, c => c.toUpperCase());
+        const styles = {
+            novice: 'bg-gray-500 text-white',
+            intermediate: 'bg-blue-500 text-white',
+            advanced: 'bg-purple-500 text-white',
+            performer: 'bg-pink-500 text-white',
+            performer_elite: 'bg-black text-white',
+            unknown: 'bg-gray-300 text-black'
+        };
 
-    const styles = {
-        novice: 'bg-gray-500 text-white',
-        intermediate: 'bg-blue-500 text-white',
-        advanced: 'bg-purple-500 text-white',
-        performer: 'bg-pink-500 text-white',
-        performer_elite: 'bg-black text-white',
-        unknown: 'bg-gray-300 text-black'
-    };
+        const colorClass = styles[level] ?? styles.unknown;
 
-    const colorClass = styles[level] ?? styles.unknown;
-
-    return `
+        return `
         <div>
             <span class="inline-flex items-center px-2 py-1 text-xs font-semibold ${colorClass}">
                 ${formatted}
             </span>
         </div>
     `;
-}
+    }
 
-function renderPlatformIcon(platform)
-{
-    const p = (platform || 'unknown').toLowerCase();
+    function renderPlatformIcon(platform) {
+        const p = (platform || 'unknown').toLowerCase();
 
-    const icons = {
-        youtube: `
+        const icons = {
+            youtube: `
             <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M23.5 6.2a2.8 2.8 0 0 0-2-2C19.7 3.6 12 3.6 12 3.6s-7.7 0-9.5.6a2.8 2.8 0 0 0-2 2A29 29 0 0 0 0 12a29 29 0 0 0 .5 5.8 2.8 2.8 0 0 0 2 2c1.8.6 9.5.6 9.5.6s7.7 0 9.5-.6a2.8 2.8 0 0 0 2-2A29 29 0 0 0 24 12a29 29 0 0 0-.5-5.8zM9.6 15.5v-7L15.8 12l-6.2 3.5z"/>
             </svg>
         `,
-        tiktok: `
+            tiktok: `
             <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 2v10.2a4.2 4.2 0 1 0 3.8 4.2V9.8a6.7 6.7 0 0 0 4 1.3V7.7a4.7 4.7 0 0 1-4-4.7h-3.8z"/>
             </svg>
         `,
-        instagram: `
+            instagram: `
             <svg class="w-6 h-6 text-pink-500" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 6a4 4 0 1 0 0 8 4 4 0 0 0 0-8zm5.5-.9a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2z"/>
             </svg>
         `,
-        facebook: `
+            facebook: `
             <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M22 12a10 10 0 1 0-11.6 9.9v-7h-2v-3h2V9.5c0-2 1.2-3.1 3-3.1.9 0 1.8.2 1.8.2v2h-1c-1 0-1.3.6-1.3 1.2V12h2.3l-.4 3h-1.9v7A10 10 0 0 0 22 12z"/>
             </svg>
         `,
-        unknown: `
+            unknown: `
             <svg class="w-6 h-6 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <circle cx="12" cy="12" r="10"/>
                 <path d="M12 8v4m0 4h.01"/>
             </svg>
         `
-    };
+        };
 
-    return icons[p] ?? icons.unknown;
-}
+        return icons[p] ?? icons.unknown;
+    }
 
-function renderOpenIcon()
-{
-    return `
+    function renderOpenIcon() {
+        return `
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round"
                   d="M13 7h6m0 0v6m0-6L10 16" />
@@ -165,39 +163,46 @@ function renderOpenIcon()
                   d="M5 5h4v4H5z" />
         </svg>
     `;
+    }
+
+    function renderLevelBadges(levels)
+{
+    if (!levels || !levels.length) {
+        return renderLevelBadge('unknown');
+    }
+
+    return levels.map(level => renderLevelBadge(level)).join('');
 }
 
-function renderCopyIcon()
-{
-    return `
+    function renderCopyIcon() {
+        return `
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round"
                   d="M8 7h9a2 2 0 0 1 2 2v9" />
             <rect x="5" y="5" width="10" height="10" rx="2" />
         </svg>
     `;
-}
+    }
 
-function openTrickModal(id)
-{
-    const modal = document.getElementById('trickModal');
-    const body = document.getElementById('modalBody');
+    function openTrickModal(id) {
+        const modal = document.getElementById('trickModal');
+        const body = document.getElementById('modalBody');
 
-    modal.classList.remove('hidden');
-    body.innerHTML = 'Loading...';
+        modal.classList.remove('hidden');
+        body.innerHTML = 'Loading...';
 
-    fetch(`/admin/trick-catalog/${id}/show-data`)
-        .then(res => res.json())
-        .then(data => {
+        fetch(`/admin/trick-catalog/${id}/show-data`)
+            .then(res => res.json())
+            .then(data => {
 
-            document.getElementById('modalTitle').innerText = data.name;
+                document.getElementById('modalTitle').innerText = data.name;
 
-            // SORT ONCE (IMPORTANT)
-            data.videos.sort((a, b) =>
-                (b.is_preferred === true) - (a.is_preferred === true)
-            );
+                // SORT ONCE (IMPORTANT)
+                data.videos.sort((a, b) =>
+                    (b.is_preferred === true) - (a.is_preferred === true)
+                );
 
-            let html = `
+                let html = `
                 <div class="space-y-4">
 
                     <div class="flex justify-between items-start gap-4">
@@ -209,7 +214,7 @@ function openTrickModal(id)
                             </div>
                         </div>
 
-                        ${renderLevelBadge(data.level)}
+                        ${renderLevelBadge(data.levels)}
 
                     </div>
 
@@ -218,9 +223,9 @@ function openTrickModal(id)
                     <ul class="space-y-2">
             `;
 
-            data.videos.forEach(v => {
+                data.videos.forEach(v => {
 
-                html += `
+                    html += `
                     <li class="flex items-center justify-between text-sm border-b py-2 px-2
                         ${v.is_preferred
                             ? 'border-l-4 border-l-black bg-gray-50'
@@ -267,58 +272,55 @@ function openTrickModal(id)
 
                     </li>
                 `;
-            });
+                });
 
-            html += `
+                html += `
                     </ul>
                 </div>
             `;
 
-            body.innerHTML = html;
-        });
-}
-
-function closeTrickModal()
-{
-    document.getElementById('trickModal')
-        .classList.add('hidden');
-}
-
-function copyToClipboard(text, button)
-{
-    navigator.clipboard.writeText(text)
-        .then(() => {
-
-            if (!button) return;
-
-            const label = button.querySelector('.copy-label');
-            if (!label) return;
-
-            const original = label.innerText;
-
-            label.innerText = 'Copied ✓';
-            button.classList.add('bg-gray-300');
-
-            setTimeout(() => {
-                label.innerText = original;
-                button.classList.remove('bg-gray-300');
-            }, 3000);
-
-        })
-        .catch(err => console.error('Copy failed:', err));
-}
-
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeTrickModal();
+                body.innerHTML = html;
+            });
     }
-});
 
-document.getElementById('trickModal')
-    .addEventListener('click', function(e) {
-        if (e.target === this) {
+    function closeTrickModal() {
+        document.getElementById('trickModal')
+            .classList.add('hidden');
+    }
+
+    function copyToClipboard(text, button) {
+        navigator.clipboard.writeText(text)
+            .then(() => {
+
+                if (!button) return;
+
+                const label = button.querySelector('.copy-label');
+                if (!label) return;
+
+                const original = label.innerText;
+
+                label.innerText = 'Copied ✓';
+                button.classList.add('bg-gray-300');
+
+                setTimeout(() => {
+                    label.innerText = original;
+                    button.classList.remove('bg-gray-300');
+                }, 3000);
+
+            })
+            .catch(err => console.error('Copy failed:', err));
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
             closeTrickModal();
         }
     });
 
+    document.getElementById('trickModal')
+        .addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeTrickModal();
+            }
+        });
 </script>

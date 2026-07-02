@@ -27,28 +27,31 @@ class TrickCatalogController extends Controller
     }
 
     public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'name' => 'required|string',
-            'level' => 'required|in:novice,intermediate,advanced,performer,performer_elite',
-            'notes' => 'nullable|string',
-            'videos' => 'array',
-        ]);
+{
+    $validated = $request->validate([
+        'name' => 'required|string',
+        'levels' => 'nullable|array',
+        'levels.*' => 'in:novice,intermediate,advanced,performer,performer_elite',
+        'notes' => 'nullable|string',
+        'videos' => 'array',
+    ]);
 
-        $trick = Trick::create([
-            'name' => $validated['name'],
-            'level' => $validated['level'],
-            'notes' => $validated['notes'] ?? null,
-            'created_by' => auth()->id(),
-        ]);
+    $trick = Trick::create([
+        'name' => $validated['name'],
+        'notes' => $validated['notes'] ?? null,
+        'created_by' => auth()->id(),
+    ]);
 
-        foreach ($request->videos ?? [] as $video) {
+    // attach levels (many-to-many)
+    $trick->levels()->sync($validated['levels'] ?? []);
+
+    // videos
+    foreach ($request->videos ?? [] as $video) {
 
         if (empty($video['url'])) continue;
 
-        $url = TrickVideoService::normalizeUrl($video['url']);
+        $url = TrickVideo::normalizeUrl($video['url']);
 
-        // duplicate prevention per trick
         $exists = TrickVideo::where('trick_id', $trick->id)
             ->where('url', $url)
             ->exists();
@@ -66,13 +69,17 @@ class TrickCatalogController extends Controller
     }
 
     return redirect()->route('admin.trick-catalog.index');
-    }
+}
 
     public function update(Request $request, Trick $trick_catalog)
 {
     $validated = $request->validate([
         'name' => 'required|string',
-        'level' => 'required|in:novice,intermediate,advanced,performer,performer_elite',
+
+        // CHANGED: single level → multiple levels
+        'levels' => 'nullable|array',
+        'levels.*' => 'in:novice,intermediate,advanced,performer,performer_elite',
+
         'notes' => 'nullable|string',
 
         'videos' => 'array',
@@ -98,13 +105,16 @@ class TrickCatalogController extends Controller
 
             'name' => $request->name,
 
-            'level' => $request->level,
+            // REMOVED: 'level'
 
             'notes' => $request->notes,
 
             'updated_by' => auth()->id(),
-
         ]);
+
+
+        // NEW: sync levels safely (does not affect videos)
+        $trick_catalog->levels()->sync($validated['levels'] ?? []);
 
 
 
@@ -117,7 +127,6 @@ class TrickCatalogController extends Controller
         $submittedVideoIds = [];
 
 
-
         /*
         |--------------------------------------------------------------------------
         | Update / Create Videos
@@ -126,11 +135,9 @@ class TrickCatalogController extends Controller
 
         foreach ($request->videos ?? [] as $video) {
 
-
             if (empty($video['url'])) {
                 continue;
             }
-
 
             $url = TrickVideoService::normalizeUrl($video['url']);
 
@@ -139,83 +146,51 @@ class TrickCatalogController extends Controller
             /*
             Existing video
             */
-
             if (!empty($video['id'])) {
 
-
                 $record = TrickVideo::find($video['id']);
-
 
                 if ($record) {
 
                     $record->update([
-
                         'url' => $url,
-
                         'platform' => $video['platform'] ?? 'unknown',
-
                         'creator' => $video['creator'] ?? null,
-
-                        'is_preferred' =>
-                            !empty($video['is_preferred']),
-
+                        'is_preferred' => !empty($video['is_preferred']),
                         'updated_by' => auth()->id(),
-
                     ]);
 
-
                     $submittedVideoIds[] = $record->id;
-
                 }
-
-
             }
+
 
 
             /*
             New video
             */
-
             else {
-
 
                 $duplicate = TrickVideo::where('trick_id', $trick_catalog->id)
                     ->where('url', $url)
                     ->exists();
 
-
                 if ($duplicate) {
                     continue;
                 }
 
-
-
                 $newVideo = TrickVideo::create([
-
                     'trick_id' => $trick_catalog->id,
-
                     'url' => $url,
-
-                    'platform' =>
-                        $video['platform'] ?? 'unknown',
-
-                    'creator' =>
-                        $video['creator'] ?? null,
-
-                    'is_preferred' =>
-                        !empty($video['is_preferred']),
-
+                    'platform' => $video['platform'] ?? 'unknown',
+                    'creator' => $video['creator'] ?? null,
+                    'is_preferred' => !empty($video['is_preferred']),
                     'created_by' => auth()->id(),
-
                 ]);
 
-
                 $submittedVideoIds[] = $newVideo->id;
-
             }
-
         }
-
 
 
 
@@ -226,22 +201,14 @@ class TrickCatalogController extends Controller
         */
 
         TrickVideo::where('trick_id', $trick_catalog->id)
-
             ->whereNotIn('id', $submittedVideoIds)
-
             ->delete();
-
-
     });
 
 
-
     return redirect()
-
         ->route('admin.trick-catalog.index')
-
         ->with('success', 'Trick updated.');
-
 }
 
     public function edit(Trick $trick_catalog){
@@ -284,7 +251,6 @@ public function showData(Trick $trick_catalog)
     return response()->json([
         'id' => $trick_catalog->id,
         'name' => $trick_catalog->name,
-        'level' => $trick_catalog->level,
         'notes' => $trick_catalog->notes,
 
         'videos' => $trick_catalog->videos()->get([

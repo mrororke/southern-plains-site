@@ -21,13 +21,13 @@
             </h2>
 
             <button type="button"
-        onclick="confirmDeleteTrick()"
-        class="bg-red-600 text-white px-4 py-2 rounded">
+                onclick="confirmDeleteTrick()"
+                class="bg-red-600 text-white px-4 py-2 rounded">
 
-    Delete Trick
+                Delete Trick
 
-</button>
-           
+            </button>
+
 
 
             <div>
@@ -48,8 +48,7 @@
                     Level
                 </label>
 
-                <select name="level"
-                    class="w-full border p-2 rounded">
+                <select name="levels[]" multiple class="w-full border p-2 rounded">
 
                     @foreach([
                     'novice',
@@ -60,7 +59,7 @@
                     ] as $level)
 
                     <option value="{{ $level }}"
-                        @selected($trick->level === $level)>
+                        @selected($trick->levels->contains($level))>
                         {{ ucfirst(str_replace('_',' ', $level)) }}
                     </option>
 
@@ -186,9 +185,9 @@
 </div>
 
 <form id="delete-form"
-      method="POST"
-      action="{{ route('admin.trick-catalog.destroy', $trick) }}"
-      class="hidden">
+    method="POST"
+    action="{{ route('admin.trick-catalog.destroy', $trick) }}"
+    class="hidden">
 
     @csrf
     @method('DELETE')
@@ -200,7 +199,11 @@
 @endsection
 
 <script>
-    let videoIndex = {{ $trick->videos->count() }};
+    let videoIndex = {
+        {
+            $trick - > videos - > count()
+        }
+    };
 
 
     function addVideoRow() {
@@ -303,7 +306,8 @@
         }
 
 
-        fetch('{{ route('admin.trick-catalog.check-video') }}', {
+        fetch('{{ route('
+                admin.trick - catalog.check - video ') }}', {
 
                     method: 'POST',
 
@@ -348,15 +352,13 @@
 
     }
 
-    function removeVideoRow(button)
-{
-    button.closest('.video-row').remove();
-}
-
-function confirmDeleteTrick()
-{
-    if (confirm('Are you sure you want to delete this trick? This cannot be undone.')) {
-        document.getElementById('delete-form').submit();
+    function removeVideoRow(button) {
+        button.closest('.video-row').remove();
     }
-}
+
+    function confirmDeleteTrick() {
+        if (confirm('Are you sure you want to delete this trick? This cannot be undone.')) {
+            document.getElementById('delete-form').submit();
+        }
+    }
 </script>
