@@ -22,18 +22,15 @@
 
              <x-portal.sidebar-link
                  label="Catalog"
-                 :route="route('admin.posts.index')"
-                 :active="request()->routeIs('admin.posts.*')"
+                 :route="route('admin.trick-catalog.index')"
+                 :active="request()->routeIs('admin.catalog.*')"
                  nested />
              <x-portal.sidebar-link
                  label="Add Trick"
-                 route="#"
+                 :route="route('admin.trick-catalog.create')"
+                 :active="request()->routeIs('admin.trick-catalog.*')"
                  nested />
 
-             <x-portal.sidebar-link
-                 label="Tags"
-                 route="#"
-                 nested />
 
          </x-portal.sidebar-section>
 
