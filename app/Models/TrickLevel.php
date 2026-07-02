@@ -20,6 +20,6 @@ class TrickLevel extends Model
         'trick_level',
         'trick_level_id',
         'trick_id'
-    );
+    )->withTimestamps();
 }
 }

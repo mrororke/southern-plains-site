@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Trick;
 use App\Models\TrickVideo;
+use App\Models\TrickLevel;
 use App\Services\TrickVideoService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -23,7 +24,9 @@ class TrickCatalogController extends Controller
 
     public function create()
     {
-        return view('admin.trick-catalog.create');
+        return view('admin.trick-catalog.create', [
+        'levels' => TrickLevel::orderBy('sort_order')->get(),
+    ]);
     }
 
     public function store(Request $request)
@@ -112,7 +115,7 @@ class TrickCatalogController extends Controller
             'updated_by' => auth()->id(),
         ]);
 
-
+        dd($request->levels);
         // NEW: sync levels safely (does not affect videos)
         $trick_catalog->levels()->sync($validated['levels'] ?? []);
 

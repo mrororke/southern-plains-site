@@ -24,20 +24,19 @@
             </div>
 
             <div>
-    <label class="text-sm font-semibold">Level</label>
+    <label class="text-sm font-semibold">
+        Levels
+    </label>
 
-    <select name="levels[]" multiple class="w-full border p-2 rounded">
+    <select
+        name="levels[]"
+        multiple
+        class="w-full border p-2">
 
-        @foreach([
-            'novice',
-            'intermediate',
-            'advanced',
-            'performer',
-            'performer_elite'
-        ] as $level)
+        @foreach($levels as $level)
 
-            <option value="{{ $level }}">
-                {{ ucfirst(str_replace('_',' ', $level)) }}
+            <option value="{{ $level->id }}">
+                {{ $level->name }}
             </option>
 
         @endforeach

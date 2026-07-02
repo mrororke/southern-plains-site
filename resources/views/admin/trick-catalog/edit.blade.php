@@ -48,23 +48,15 @@
                     Level
                 </label>
 
-                <select name="levels[]" multiple class="w-full border p-2 rounded">
-
-                    @foreach([
-                    'novice',
-                    'intermediate',
-                    'advanced',
-                    'performer',
-                    'performer_elite'
-                    ] as $level)
-
-                    <option value="{{ $level }}"
-                        @selected($trick->levels->contains($level))>
-                        {{ ucfirst(str_replace('_',' ', $level)) }}
+                <select name="levels[]" multiple class="w-full border p-2">
+                    @foreach($levels as $level)
+                    <option
+                        value="{{ $level->id }}"
+                        @selected($trick->levels->contains('id', $level->id))
+                        >
+                        {{ $level->name }}
                     </option>
-
                     @endforeach
-
                 </select>
             </div>
 
@@ -306,7 +298,7 @@
         }
 
 
-        fetch('{{ route('admin.trick-catalog.check-video') }}', {
+        fetch('{{ route('admin.trick - catalog.check - video ') }}', {
 
                     method: 'POST',
 
