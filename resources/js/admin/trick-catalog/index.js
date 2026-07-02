@@ -115,6 +115,8 @@ async function openTrickModal(id) {
     body.innerHTML = 'Loading...';
 
     const res = await fetch(`/admin/trick-catalog/${id}/show-data`);
+    window.__CURRENT_TRICK = data.name;
+    window.__CURRENT_VIDEOS = data.videos;
     const data = await res.json();
 
     document.getElementById('modalTitle').innerText = data.name;

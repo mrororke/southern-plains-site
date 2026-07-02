@@ -1,8 +1,8 @@
-function c(e){e||(e="unknown");const t=e.replaceAll("_"," ").replace(/\b\w/g,n=>n.toUpperCase()),o={novice:"bg-gray-500 text-white",intermediate:"bg-blue-500 text-white",advanced:"bg-purple-500 text-white",performer:"bg-pink-500 text-white",performer_elite:"bg-black text-white",unknown:"bg-gray-300 text-black"};return`
-        <span class="inline-flex items-center px-2 py-1 text-xs font-semibold ${o[e]??o.unknown}">
-            ${t}
+function c(e){e||(e="unknown");const n=e.replaceAll("_"," ").replace(/\b\w/g,t=>t.toUpperCase()),s={novice:"bg-gray-500 text-white",intermediate:"bg-blue-500 text-white",advanced:"bg-purple-500 text-white",performer:"bg-pink-500 text-white",performer_elite:"bg-black text-white",unknown:"bg-gray-300 text-black"};return`
+        <span class="inline-flex items-center px-2 py-1 text-xs font-semibold ${s[e]??s.unknown}">
+            ${n}
         </span>
-    `}function d(e){const t=(e||"unknown").toLowerCase(),o={youtube:`
+    `}function d(e){const n=(e||"unknown").toLowerCase(),s={youtube:`
             <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M23.5 6.2a2.8 2.8 0 0 0-2-2C19.7 3.6 12 3.6 12 3.6s-7.7 0-9.5.6a2.8 2.8 0 0 0-2 2A29 29 0 0 0 0 12a29 29 0 0 0 .5 5.8 2.8 2.8 0 0 0 2 2c1.8.6 9.5.6 9.5.6s7.7 0 9.5-.6a2.8 2.8 0 0 0 2-2A29 29 0 0 0 24 12a29 29 0 0 0-.5-5.8zM9.6 15.5v-7L15.8 12l-6.2 3.5z"/>
             </svg>
@@ -23,7 +23,7 @@ function c(e){e||(e="unknown");const t=e.replaceAll("_"," ").replace(/\b\w/g,n=>
                 <circle cx="12" cy="12" r="10"/>
                 <path d="M12 8v4m0 4h.01"/>
             </svg>
-        `};return o[t]??o.unknown}function p(){return`
+        `};return s[n]??s.unknown}function p(){return`
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round"
                   d="M13 7h6m0 0v6m0-6L10 16" />
@@ -35,47 +35,47 @@ function c(e){e||(e="unknown");const t=e.replaceAll("_"," ").replace(/\b\w/g,n=>
             <rect x="9" y="9" width="10" height="10" rx="2" />
             <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
         </svg>
-    `}function u(e){return(e||[]).map(t=>({...t,is_preferred:Number(t.is_preferred||0)}))}function m(e){return(e||[]).map(t=>({...t,name:t.name??"unknown"}))}async function h(e){const t=document.getElementById("trickModal"),o=document.getElementById("modalBody");t.classList.remove("hidden"),o.innerHTML="Loading...";const n=await(await fetch(`/admin/trick-catalog/${e}/show-data`)).json();document.getElementById("modalTitle").innerText=n.name,n.videos=u(n.videos),n.levels=m(n.levels),n.videos.sort((s,l)=>l.is_preferred-s.is_preferred);let a=`
+    `}function u(e){return(e||[]).map(n=>({...n,is_preferred:Number(n.is_preferred||0)}))}function m(e){return(e||[]).map(n=>({...n,name:n.name??"unknown"}))}async function h(e){const n=document.getElementById("trickModal"),s=document.getElementById("modalBody");n.classList.remove("hidden"),s.innerHTML="Loading...";const r=await fetch(`/admin/trick-catalog/${e}/show-data`);window.__CURRENT_TRICK=t.name,window.__CURRENT_VIDEOS=t.videos;const t=await r.json();document.getElementById("modalTitle").innerText=t.name,t.videos=u(t.videos),t.levels=m(t.levels),t.videos.sort((o,l)=>l.is_preferred-o.is_preferred);let a=`
         <div class="space-y-4">
 
             <div class="flex justify-between gap-4">
                 <div class="flex-1">
                     <div class="font-bold mb-2">Notes</div>
                     <div class="text-sm mb-4">
-                        ${n.notes??"No notes"}
+                        ${t.notes??"No notes"}
                     </div>
                 </div>
 
                 <div>
-                    ${(n.levels??[]).map(s=>c(s.name)).join("")}
+                    ${(t.levels??[]).map(o=>c(o.name)).join("")}
                 </div>
             </div>
 
             <div class="font-bold">Videos</div>
 
             <ul class="space-y-2">
-    `;n.videos.forEach(s=>{a+=`
+    `;t.videos.forEach(o=>{a+=`
         <li class="flex justify-between items-center text-sm border-b py-2 px-2
-            ${s.is_preferred?"bg-gray-50 border-l-4 border-black":""}">
+            ${o.is_preferred?"bg-gray-50 border-l-4 border-black":""}">
 
             <div class="w-1/5 text-xl">
-                ${d(s.platform)}
+                ${d(o.platform)}
             </div>
 
             <div class="w-2/5 truncate">
-                ${s.creator??"Unknown"}
+                ${o.creator??"Unknown"}
             </div>
 
             <div class="w-2/5 flex justify-end gap-2">
 
-                <a href="${s.url}" target="_blank"
+                <a href="${o.url}" target="_blank"
                    class="inline-flex items-center gap-1 px-2 py-1 text-xs bg-black text-white">
                     ${p()}
                     Open
                 </a>
 
                 <button type="button"
-                        onclick="copyToClipboard('${s.url}', this)"
+                        onclick="copyToClipboard('${o.url}', this)"
                         class="inline-flex items-center gap-1 px-2 py-1 text-xs bg-gray-200">
                     <span>${v()}</span>
                     <span class="copy-label">Copy</span>
@@ -83,4 +83,4 @@ function c(e){e||(e="unknown");const t=e.replaceAll("_"," ").replace(/\b\w/g,n=>
 
             </div>
 
-        </li>`}),a+="</ul></div>",o.innerHTML=a}function r(){document.getElementById("trickModal").classList.add("hidden")}document.addEventListener("click",e=>{e.target.matches("[data-close-modal]")&&r(),e.target.classList.contains("js-open-trick-modal")&&h(e.target.dataset.id)});document.addEventListener("keydown",e=>{e.key==="Escape"&&r()});
+        </li>`}),a+="</ul></div>",s.innerHTML=a}function i(){document.getElementById("trickModal").classList.add("hidden")}document.addEventListener("click",e=>{e.target.matches("[data-close-modal]")&&i(),e.target.classList.contains("js-open-trick-modal")&&h(e.target.dataset.id)});document.addEventListener("keydown",e=>{e.key==="Escape"&&i()});

@@ -75,13 +75,43 @@
 
         <div class="w-full max-w-2xl bg-white shadow">
 
-            <div class="flex justify-between items-center p-4 border-b">
-                <h3 id="modalTitle" class="text-2xl font-heading"></h3>
+            <div class="flex justify-between items-start p-4 border-b gap-4">
 
-                <button type="button" data-close-modal>
-                    ✕
-                </button>
-            </div>
+    <h3 id="modalTitle" class="text-2xl font-heading"></h3>
+
+    <div class="flex gap-2">
+
+        <!-- SIMPLE EMAIL -->
+        <button
+            type="button"
+            class="inline-flex items-center px-3 py-1 text-xs bg-gray-200"
+            onclick="TrickCatalogEmail.copyEmail(
+                TrickCatalogEmail.buildEmailSimple(window.__CURRENT_TRICK, window.__CURRENT_VIDEOS),
+                this
+            )"
+        >
+            Copy Simple
+        </button>
+
+        <!-- PREFERRED ONLY -->
+        <button
+            type="button"
+            class="inline-flex items-center px-3 py-1 text-xs bg-black text-white"
+            onclick="TrickCatalogEmail.copyEmail(
+                TrickCatalogEmail.buildEmailPreferredOnly(window.__CURRENT_TRICK, window.__CURRENT_VIDEOS),
+                this
+            )"
+        >
+            Copy Preferred
+        </button>
+
+        <!-- CLOSE (keep your existing SVG button here) -->
+        <button type="button" data-close-modal class="px-2">
+            <!-- keep your existing close SVG -->
+        </button>
+
+    </div>
+</div>
 
             <div class="p-4">
                 <div id="modalBody">Loading...</div>
