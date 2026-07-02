@@ -84,7 +84,6 @@ function copyToClipboard(text, btn) {
         if (!label) return;
 
         const original = label.innerText;
-
         label.innerText = 'Copied ✓';
 
         setTimeout(() => {
@@ -100,13 +99,6 @@ function normalizeVideoData(videos) {
     }));
 }
 
-function normalizeLevels(levels) {
-    return (levels || []).map(l => ({
-        ...l,
-        name: l.name ?? 'unknown'
-    }));
-}
-
 async function openTrickModal(id) {
     const modal = document.getElementById('trickModal');
     const body = document.getElementById('modalBody');
@@ -115,16 +107,15 @@ async function openTrickModal(id) {
     body.innerHTML = 'Loading...';
 
     const res = await fetch(`/admin/trick-catalog/${id}/show-data`);
+    const data = await res.json();
+
+    // 🔥 FIX: set AFTER data exists
     window.__CURRENT_TRICK = data.name;
     window.__CURRENT_VIDEOS = data.videos;
-    const data = await res.json();
 
     document.getElementById('modalTitle').innerText = data.name;
 
-    // NORMALIZE HERE
     data.videos = normalizeVideoData(data.videos);
-    data.levels = normalizeLevels(data.levels);
-
     data.videos.sort((a, b) => b.is_preferred - a.is_preferred);
 
     let html = `
@@ -151,7 +142,6 @@ async function openTrickModal(id) {
     `;
 
     data.videos.forEach(v => {
-
         html += `
         <li class="flex justify-between items-center text-sm border-b py-2 px-2
             ${v.is_preferred ? 'bg-gray-50 border-l-4 border-black' : ''}">
@@ -185,7 +175,6 @@ async function openTrickModal(id) {
     });
 
     html += `</ul></div>`;
-
     body.innerHTML = html;
 }
 
@@ -194,9 +183,7 @@ function closeTrickModal() {
 }
 
 document.addEventListener('click', (e) => {
-    if (e.target.matches('[data-close-modal]')) {
-        closeTrickModal();
-    }
+    if (e.target.matches('[data-close-modal]')) closeTrickModal();
 
     if (e.target.classList.contains('js-open-trick-modal')) {
         openTrickModal(e.target.dataset.id);
@@ -204,7 +191,5 @@ document.addEventListener('click', (e) => {
 });
 
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        closeTrickModal();
-    }
+    if (e.key === 'Escape') closeTrickModal();
 });
