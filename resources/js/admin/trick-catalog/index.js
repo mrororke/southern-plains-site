@@ -154,8 +154,8 @@ if (preferredBtn) {
 
     data.videos.forEach(v => {
         html += `
-        <li class="flex justify-between items-center text-sm border-b py-2 px-2
-            ${v.is_preferred ? 'bg-gray-50 border-l-4 border-black' : ''}">
+        <li class="flex justify-between items-center text-sm py-2 px-2
+            ${v.is_preferred ? 'bg-gray-200 border-l-4 border-black' : ''}">
 
             <div class="w-1/5 text-xl">
                 ${renderPlatformIcon(v.platform)}
