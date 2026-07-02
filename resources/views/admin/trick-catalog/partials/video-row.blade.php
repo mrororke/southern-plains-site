@@ -1,4 +1,4 @@
-<div class="border rounded p-3 space-y-2 bg-gray-50 video-row" data-index="{{ $index }}">
+<div class="border p-3 space-y-2 bg-gray-50 video-row" data-index="{{ $index }}">
 
     <div class="duplicate-warning text-sm text-red-600"></div>
 
@@ -10,13 +10,13 @@
         name="videos[{{ $index }}][url]"
         value="{{ $url ?? '' }}"
         placeholder="Paste video URL"
-        class="w-full border p-2 rounded video-url"
+        class="mt-1 block w-full border-gray-300 shadow-sm focus:border-club focus:ring-club video-url"
         oninput="window.TrickCatalogEdit.autoDetectVideo(this, {{ $index }})">
 
     <div class="grid grid-cols-3 gap-2">
 
         <select name="videos[{{ $index }}][platform]"
-                class="border p-2 rounded">
+                class="mt-1 block border-gray-300 shadow-sm focus:border-club focus:ring-club">
 
             @foreach(['tiktok','instagram','facebook','youtube','unknown'] as $platform)
                 <option value="{{ $platform }}"
@@ -31,7 +31,7 @@
             name="videos[{{ $index }}][creator]"
             value="{{ $creator ?? '' }}"
             placeholder="Creator"
-            class="border p-2 rounded">
+            class="mt-1 block  border-gray-300 shadow-sm focus:border-club focus:ring-club">
 
         <label class="flex items-center gap-2 text-sm">
             <input type="checkbox"

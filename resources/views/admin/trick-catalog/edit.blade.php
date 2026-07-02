@@ -59,14 +59,14 @@
         </div>
 
         {{-- VIDEOS --}}
-        <div class="bg-white p-4 rounded shadow">
+        <div class="bg-white p-4 shadow">
 
             <div class="flex justify-between mb-4">
-                <h2 class="font-semibold text-lg">Videos</h2>
+                <h2 class="font-bold mb-2">Videos</h2>
 
                 <button type="button"
                     id="add-video-btn"
-                    class="bg-black text-white px-3 py-1 rounded">
+                    class="inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-club text-white hover:bg-club-hover  ms-4">
                     + Add Video
                 </button>
             </div>
@@ -91,7 +91,7 @@
         </div>
 
         <div class="mt-6">
-            <button class="bg-green-600 text-white px-5 py-2 rounded">
+            <button class="inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-club text-white hover:bg-club-hover  ms-4">
                 Save Changes
             </button>
         </div>
