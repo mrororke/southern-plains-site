@@ -34,14 +34,9 @@ class Trick extends Model
     }
 
     public function levels()
-    {
-        return $this->belongsToMany(
-            TrickLevel::class,
-            'trick_level',
-            'trick_id',
-            'trick_level_id'
-        )->withTimestamps();
-    }
+{
+    return $this->belongsToMany(TrickLevel::class, 'trick_level');
+}
 
     /*
     |--------------------------------------------------------------------------

@@ -254,7 +254,7 @@ class TrickCatalogController extends Controller
             'name' => $trick_catalog->name,
             'notes' => $trick_catalog->notes,
 
-            'levels' => $trick_catalog->levels()->get(['id', 'name']),
+            'levels' => $trick_catalog->levels()->get(),
 
             'videos' => $trick_catalog->videos()
                 ->get(['id', 'url', 'platform', 'creator', 'is_preferred']),
