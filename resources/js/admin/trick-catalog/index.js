@@ -1,4 +1,4 @@
-
+import './email';
 
 function renderLevelBadge(level) {
     if (!level) level = 'unknown';
