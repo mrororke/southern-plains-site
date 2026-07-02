@@ -89,6 +89,7 @@ function buildEmailPreferredOnly(trickName, videos) {
 function copyEmail(text, btn) {
 
     navigator.clipboard.writeText(text).then(() => {
+        console.log('COPY EMAIL FIRED', btn);
 
         const label = btn.querySelector('.copy-label');
         if (!label) return;
