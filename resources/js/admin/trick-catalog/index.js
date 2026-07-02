@@ -116,6 +116,14 @@ async function openTrickModal(id) {
     window.__CURRENT_TRICK = data.name;
     window.__CURRENT_VIDEOS = data.videos;
 
+    const hasPreferred = data.videos?.some(v => Number(v.is_preferred) === 1);
+
+const preferredBtn = document.querySelector('.js-copy-email-preferred');
+
+if (preferredBtn) {
+    preferredBtn.classList.toggle('hidden', !hasPreferred);
+}
+
     document.getElementById('modalTitle').innerText = data.name;
 
     data.videos = normalizeVideoData(data.videos);
