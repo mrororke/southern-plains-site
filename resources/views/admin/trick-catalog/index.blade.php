@@ -155,6 +155,29 @@ function renderPlatformIcon(platform)
     return icons[p] ?? icons.unknown;
 }
 
+function renderOpenIcon()
+{
+    return `
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M13 7h6m0 0v6m0-6L10 16" />
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M5 5h4v4H5z" />
+        </svg>
+    `;
+}
+
+function renderCopyIcon()
+{
+    return `
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M8 7h9a2 2 0 0 1 2 2v9" />
+            <rect x="5" y="5" width="10" height="10" rx="2" />
+        </svg>
+    `;
+}
+
 function openTrickModal(id)
 {
     const modal = document.getElementById('trickModal');
@@ -214,21 +237,29 @@ function openTrickModal(id)
 
                         <div class="w-2/5 flex justify-end gap-2">
 
-                            <a href="${v.url}"
-                               target="_blank"
-                               class="inline-flex items-center px-2 py-1 text-xs bg-black text-white">
+                            <div class="flex gap-2">
 
-                                ↗ Open
+    <!-- OPEN -->
+    <a href="${v.url}"
+       target="_blank"
+       class="inline-flex items-center justify-center w-8 h-8 bg-black text-white"
+       title="Open video">
 
-                            </a>
+        ${renderOpenIcon()}
 
-                            <button type="button"
-                                    onclick="copyToClipboard('${v.url}')"
-                                    class="inline-flex items-center px-2 py-1 text-xs bg-gray-200">
+    </a>
 
-                                📋 Copy
+    <!-- COPY -->
+    <button type="button"
+            onclick="copyToClipboard('${v.url}')"
+            class="inline-flex items-center justify-center w-8 h-8 bg-gray-200"
+            title="Copy link">
 
-                            </button>
+        ${renderCopyIcon()}
+
+    </button>
+
+</div>
 
                         </div>
 
