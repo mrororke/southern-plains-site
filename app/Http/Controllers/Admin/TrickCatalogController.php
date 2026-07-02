@@ -17,14 +17,110 @@ class TrickCatalogController extends Controller
     | INDEX
     |--------------------------------------------------------------------------
     */
-    public function index()
-    {
-        $tricks = Trick::query()
-            ->with(['videos', 'levels'])
-            ->orderByRaw('LOWER(name) asc')
-            ->paginate(25);
 
-        return view('admin.trick-catalog.index', compact('tricks'));
+    public function index(Request $request)
+    {
+        $levels = TrickLevel::orderByRaw('LOWER(name)')->get();
+
+        $query = Trick::query()
+            ->with(['videos', 'levels']);
+
+        // Search
+        if ($request->filled('search')) {
+
+            $search = trim($request->search);
+
+            $query->where(function ($q) use ($search) {
+
+                $q->where('name', 'like', "%{$search}%")
+                    ->orWhere('notes', 'like', "%{$search}%")
+                    ->orWhereHas('videos', function ($video) use ($search) {
+
+                        $video->where('creator', 'like', "%{$search}%");
+                    });
+            });
+        }
+
+        // Level Filter
+        if ($request->filled('level')) {
+
+            $query->whereHas('levels', function ($q) use ($request) {
+
+                $q->where('levels.id', $request->level);
+            });
+        }
+
+        // Platform Filter
+        if ($request->filled('platform')) {
+
+            $query->whereHas('videos', function ($q) use ($request) {
+
+                $q->where('platform', $request->platform);
+            });
+        }
+
+        // Preferred Video Filter
+        if ($request->preferred === 'yes') {
+
+            $query->whereHas('videos', function ($q) {
+
+                $q->where('is_preferred', true);
+            });
+        } elseif ($request->preferred === 'no') {
+
+            $query->whereDoesntHave('videos', function ($q) {
+
+                $q->where('is_preferred', true);
+            });
+        }
+
+        // Notes Filter
+        if ($request->notes === 'has') {
+
+            $query->whereNotNull('notes')
+                ->where('notes', '!=', '');
+        } elseif ($request->notes === 'missing') {
+
+            $query->where(function ($q) {
+
+                $q->whereNull('notes')
+                    ->orWhere('notes', '');
+            });
+        }
+
+        // Sorting
+        switch ($request->sort) {
+
+            case 'name_desc':
+                $query->orderByRaw('LOWER(name) DESC');
+                break;
+
+            case 'newest':
+                $query->latest();
+                break;
+
+            case 'oldest':
+                $query->oldest();
+                break;
+
+            case 'videos':
+                $query->withCount('videos')
+                    ->orderByDesc('videos_count');
+                break;
+
+            default:
+                $query->orderByRaw('LOWER(name) ASC');
+                break;
+        }
+
+        $tricks = $query
+            ->paginate(25)
+            ->withQueryString();
+
+        return view('admin.trick-catalog.index', [
+            'tricks' => $tricks,
+            'levels' => $levels,
+        ]);
     }
 
     /*

@@ -1,4 +1,5 @@
 import './email';
+import './index-filters';
 
 function renderLevelBadge(level) {
     if (!level) level = 'unknown';
