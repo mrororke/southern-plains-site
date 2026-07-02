@@ -2,12 +2,27 @@ const TrickCatalogCreate = (() => {
 
     let videoIndex = 0;
 
+    /*
+    |--------------------------------------------------------------------------
+    | INIT
+    |--------------------------------------------------------------------------
+    */
+
     function init() {
+
         const btn = document.getElementById('add-video-btn');
         if (btn) {
             btn.addEventListener('click', addVideoRow);
         }
+
+        initAutoDetect();
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | ADD VIDEO ROW
+    |--------------------------------------------------------------------------
+    */
 
     function addVideoRow() {
 
@@ -21,36 +36,56 @@ const TrickCatalogCreate = (() => {
                 const row = html.replaceAll('__INDEX__', index);
 
                 container.insertAdjacentHTML('beforeend', row);
-
-            });
+            })
+            .catch(console.error);
     }
 
-    function autoDetectVideo(input, index) {
+    /*
+    |--------------------------------------------------------------------------
+    | AUTO DETECT PLATFORM (DELEGATED)
+    |--------------------------------------------------------------------------
+    */
 
-        const url = input.value;
-        if (!url) return;
+    function initAutoDetect() {
 
-        const platformField =
-            document.querySelector(`select[name="videos[${index}][platform]"]`);
+        document.addEventListener('input', (e) => {
 
-        if (!platformField) return;
+            if (!e.target.matches('input[name*="[url]"]')) return;
 
-        if (url.includes('tiktok')) {
-            platformField.value = 'tiktok';
-        } else if (url.includes('instagram')) {
-            platformField.value = 'instagram';
-        } else if (url.includes('facebook')) {
-            platformField.value = 'facebook';
-        } else if (url.includes('youtu')) {
-            platformField.value = 'youtube';
-        } else {
-            platformField.value = 'unknown';
-        }
+            const input = e.target;
+            const row = input.closest('.video-row');
 
-        checkDuplicate(url, index);
+            if (!row) return;
+
+            const select = row.querySelector('select[name*="[platform]"]');
+            if (!select) return;
+
+            const url = input.value;
+            if (!url) return;
+
+            if (url.includes('tiktok')) {
+                select.value = 'tiktok';
+            } else if (url.includes('instagram')) {
+                select.value = 'instagram';
+            } else if (url.includes('facebook')) {
+                select.value = 'facebook';
+            } else if (url.includes('youtu')) {
+                select.value = 'youtube';
+            } else {
+                select.value = 'unknown';
+            }
+
+            checkDuplicate(url, row);
+        });
     }
 
-    function checkDuplicate(url, index) {
+    /*
+    |--------------------------------------------------------------------------
+    | DUPLICATE CHECK
+    |--------------------------------------------------------------------------
+    */
+
+    function checkDuplicate(url, row) {
 
         fetch("/admin/trick-catalog/check-video", {
             method: "POST",
@@ -63,23 +98,25 @@ const TrickCatalogCreate = (() => {
         .then(res => res.json())
         .then(data => {
 
-            const row = document.querySelector(`.video-row[data-index="${index}"]`);
-            if (!row) return;
-
             const warning = row.querySelector('.duplicate-warning');
+            if (!warning) return;
 
             warning.innerHTML = data.exists
                 ? `⚠ Already exists in trick: <strong>${data.trick}</strong>`
                 : '';
-
         })
         .catch(console.error);
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | EXPORT
+    |--------------------------------------------------------------------------
+    */
+
     return {
         init,
-        addVideoRow,
-        autoDetectVideo
+        addVideoRow
     };
 
 })();

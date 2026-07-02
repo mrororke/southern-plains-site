@@ -2,12 +2,29 @@ const TrickCatalogEdit = (() => {
 
     let videoIndex = 0;
 
+    /*
+    |--------------------------------------------------------------------------
+    | INIT
+    |--------------------------------------------------------------------------
+    */
+
     function init() {
+
         videoIndex = document.querySelectorAll('.video-row').length;
 
         const btn = document.getElementById('add-video-btn');
-        if (btn) btn.addEventListener('click', addVideoRow);
+        if (btn) {
+            btn.addEventListener('click', addVideoRow);
+        }
+
+        initAutoDetect();
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | ADD ROW
+    |--------------------------------------------------------------------------
+    */
 
     function addVideoRow() {
 
@@ -17,31 +34,60 @@ const TrickCatalogEdit = (() => {
         fetch(`/admin/trick-catalog/video-row?index=${index}`)
             .then(r => r.text())
             .then(html => {
-                container.insertAdjacentHTML('beforeend', html.replaceAll('__INDEX__', index));
+
+                container.insertAdjacentHTML(
+                    'beforeend',
+                    html.replaceAll('__INDEX__', index)
+                );
             });
     }
 
-    function autoDetectVideo(input, index) {
+    /*
+    |--------------------------------------------------------------------------
+    | AUTO DETECT (DELEGATED)
+    |--------------------------------------------------------------------------
+    */
 
-        const url = input.value;
-        if (!url) return;
+    function initAutoDetect() {
 
-        const select = document.querySelector(
-            `select[name="videos[${index}][platform]"]`
-        );
+        document.addEventListener('input', (e) => {
 
-        if (!select) return;
+            if (!e.target.matches('input[name*="[url]"]')) return;
 
-        if (url.includes('tiktok')) select.value = 'tiktok';
-        else if (url.includes('instagram')) select.value = 'instagram';
-        else if (url.includes('facebook')) select.value = 'facebook';
-        else if (url.includes('youtu')) select.value = 'youtube';
-        else select.value = 'unknown';
+            const input = e.target;
+            const row = input.closest('.video-row');
 
-        checkDuplicate(url, index);
+            if (!row) return;
+
+            const select = row.querySelector('select[name*="[platform]"]');
+            if (!select) return;
+
+            const url = input.value;
+            if (!url) return;
+
+            if (url.includes('tiktok')) {
+                select.value = 'tiktok';
+            } else if (url.includes('instagram')) {
+                select.value = 'instagram';
+            } else if (url.includes('facebook')) {
+                select.value = 'facebook';
+            } else if (url.includes('youtu')) {
+                select.value = 'youtube';
+            } else {
+                select.value = 'unknown';
+            }
+
+            checkDuplicate(url, row);
+        });
     }
 
-    function checkDuplicate(url, index) {
+    /*
+    |--------------------------------------------------------------------------
+    | DUPLICATE CHECK
+    |--------------------------------------------------------------------------
+    */
+
+    function checkDuplicate(url, row) {
 
         fetch("/admin/trick-catalog/check-video", {
             method: "POST",
@@ -54,22 +100,25 @@ const TrickCatalogEdit = (() => {
         .then(r => r.json())
         .then(data => {
 
-            const row = document.querySelectorAll('.video-row')[index];
-            if (!row) return;
-
             const warn = row.querySelector('.duplicate-warning');
+            if (!warn) return;
 
             warn.innerHTML = data.exists
                 ? `⚠ Already exists in trick: <strong>${data.trick}</strong>`
                 : '';
-
-        });
+        })
+        .catch(console.error);
     }
+
+    /*
+    |--------------------------------------------------------------------------
+    | EXPORT
+    |--------------------------------------------------------------------------
+    */
 
     return {
         init,
-        addVideoRow,
-        autoDetectVideo
+        addVideoRow
     };
 
 })();
