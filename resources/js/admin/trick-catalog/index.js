@@ -195,3 +195,29 @@ document.addEventListener('click', (e) => {
         openTrickModal(openBtn.dataset.id);
     }
 });
+
+document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.js-copy-email');
+    if (!btn) return;
+
+    const type = btn.dataset.type;
+
+    const trick = window.__CURRENT_TRICK;
+    const videos = window.__CURRENT_VIDEOS;
+
+    let text = '';
+
+    if (type === 'simple') {
+        text = TrickCatalogEmail.buildEmailSimple(trick, videos);
+    }
+
+    if (type === 'grouped') {
+        text = TrickCatalogEmail.buildEmailGrouped(trick, videos);
+    }
+
+    if (type === 'preferred') {
+        text = TrickCatalogEmail.buildEmailPreferredOnly(trick, videos);
+    }
+
+    TrickCatalogEmail.copyEmail(text, btn);
+});

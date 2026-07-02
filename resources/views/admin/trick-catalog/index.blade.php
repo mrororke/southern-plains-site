@@ -80,39 +80,27 @@
                 <h3 id="modalTitle" class="text-2xl font-heading"></h3>
 
                 <div class="flex gap-2">
-
-                    <!-- SIMPLE EMAIL -->
                     <button
                         type="button"
-                        class="inline-flex items-center px-3 py-1 text-xs bg-gray-200"
-                        onclick="TrickCatalogEmail.copyEmail(
-                TrickCatalogEmail.buildEmailSimple(window.__CURRENT_TRICK, window.__CURRENT_VIDEOS),
-                this
-            )">
-                        Copy Simple
+                        class="js-copy-email inline-flex items-center px-3 py-1 text-xs bg-gray-200"
+                        data-type="simple">
+                        <span class="copy-label">Copy Simple</span>
                     </button>
 
-                    <!-- GROUPED EMAIL -->
                     <button
                         type="button"
-                        class="inline-flex items-center px-3 py-1 text-xs bg-blue-600 text-white"
-                        onclick="TrickCatalogEmail.copyEmail(
-                TrickCatalogEmail.buildEmailGrouped(window.__CURRENT_TRICK, window.__CURRENT_VIDEOS),
-                this
-            )">
-                        Copy Grouped
+                        class="js-copy-email inline-flex items-center px-3 py-1 text-xs bg-blue-600 text-white"
+                        data-type="grouped">
+                        <span class="copy-label">Copy Grouped</span>
                     </button>
 
-                    <!-- PREFERRED ONLY -->
                     <button
                         type="button"
-                        class="inline-flex items-center px-3 py-1 text-xs bg-black text-white"
-                        onclick="TrickCatalogEmail.copyEmail(
-                TrickCatalogEmail.buildEmailPreferredOnly(window.__CURRENT_TRICK, window.__CURRENT_VIDEOS),
-                this
-            )">
-                        Copy Preferred
+                        class="js-copy-email inline-flex items-center px-3 py-1 text-xs bg-black text-white"
+                        data-type="preferred">
+                        <span class="copy-label">Copy Preferred</span>
                     </button>
+
 
                     <!-- CLOSE -->
                     <button type="button" data-close-modal class="px-2 text-black hover:opacity-70">

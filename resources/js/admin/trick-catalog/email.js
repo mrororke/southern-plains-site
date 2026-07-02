@@ -91,23 +91,31 @@ function buildEmailPreferredOnly(trickName, videos) {
 function copyEmail(text, btn) {
 
     navigator.clipboard.writeText(text).then(() => {
-        console.log('COPY EMAIL FIRED', btn);
 
         const label = btn.querySelector('.copy-label');
-        if (!label) return;
 
-        const original = label.innerText;
+        if (label) {
+            const original = label.innerText;
+            label.innerText = 'Copied ✓';
 
-        // swap text only (keep your SVG intact)
-        label.innerText = 'Copied';
+            btn.classList.add('opacity-70');
 
-        // optional: visual state
-        btn.classList.add('opacity-70');
+            setTimeout(() => {
+                label.innerText = original;
+                btn.classList.remove('opacity-70');
+            }, 1500);
+        }
 
-        setTimeout(() => {
-            label.innerText = original;
-            btn.classList.remove('opacity-70');
-        }, 1500);
+    }).catch(() => {
+
+        const label = btn.querySelector('.copy-label');
+
+        if (label) {
+            label.innerText = 'Failed';
+            setTimeout(() => {
+                label.innerText = 'Copy';
+            }, 1500);
+        }
     });
 }
 
