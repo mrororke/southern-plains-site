@@ -82,14 +82,14 @@
                 <div class="flex gap-2">
                     <button
                         type="button"
-                        class="js-copy-email inline-flex items-center px-4 py-2 font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 border-2 border-transparent bg-club text-white hover:bg-club-hover  ms-4"
+                        class="js-copy-email inline-flex items-center px-2 py-1 text-xs uppercase tracking-widest transition ease-in-out duration-150 border-2 border-transparent bg-club text-white hover:bg-club-hover  ms-4"
                         data-type="simple">
                         <span class="copy-label">Copy Simple</span>
                     </button>
 
                     <button
                         type="button"
-                        class="js-copy-email inline-flex items-center px-4 py-2 font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 border-2 border-transparent bg-training text-white hover:bg-club-training  ms-4"
+                        class="js-copy-email inline-flex items-center px-2 py-1 text-xs uppercase tracking-widest transition ease-in-out duration-150 border-2 border-transparent bg-training text-white hover:bg-club-training  ms-4"
                         data-type="simple"
                         data-type="grouped">
                         <span class="copy-label">Copy Grouped</span>
@@ -97,7 +97,7 @@
 
                     <button
                         type="button"
-                        class="js-copy-email-preferred inline-flex items-center px-4 py-2 font-semibold text-xs uppercase tracking-widest transition ease-in-out duration-150 border-2 border-transparent bg-league text-white hover:bg-club-league  ms-4"
+                        class="js-copy-email-preferred inline-flex items-center px-2 py-1 text-xs uppercase tracking-widest transition ease-in-out duration-150 border-2 border-transparent bg-league text-white hover:bg-club-league  ms-4"
                         data-type="simple">
                         <span class="copy-label">Copy Preferred</span>
                     </button>
