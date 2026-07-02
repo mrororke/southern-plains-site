@@ -106,6 +106,7 @@ async function openTrickModal(id) {
     const body = document.getElementById('modalBody');
 
     modal.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
     body.innerHTML = 'Loading...';
 
     const res = await fetch(`/admin/trick-catalog/${id}/show-data`);
@@ -182,6 +183,7 @@ async function openTrickModal(id) {
 
 function closeTrickModal() {
     document.getElementById('trickModal').classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
 }
 
 document.addEventListener('click', (e) => {
