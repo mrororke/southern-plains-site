@@ -124,7 +124,7 @@ Route::middleware(['auth', 'role:instructor'])
     ->group(function () {
 
         Route::get('/dashboard', function () {
-            return redirect()->route('admin.trick-catalog.index');
+            return view('instructor.dashboard');
         })->name('dashboard');
 
     });
