@@ -223,7 +223,7 @@ function openTrickModal(id)
                 html += `
                     <li class="flex items-center justify-between text-sm border-b py-2 px-2
                         ${v.is_preferred
-                            ? 'border-l-4 border-l-black'
+                            ? 'border-l-4 border-l-black bg-gray-50'
                             : 'border-l-4 border-transparent'}
                         hover:bg-gray-50 transition-colors">
 
