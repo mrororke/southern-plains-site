@@ -306,8 +306,7 @@
         }
 
 
-        fetch('{{ route('
-                admin.trick - catalog.check - video ') }}', {
+        fetch('{{ route('admin.trick-catalog.check-video') }}', {
 
                     method: 'POST',
 
