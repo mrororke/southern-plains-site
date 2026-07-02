@@ -37,7 +37,7 @@
         {{-- Level --}}
         <div>
             <label class="block text-xs font-semibold uppercase mb-1">
-                Level
+                Category
             </label>
 
             <select
