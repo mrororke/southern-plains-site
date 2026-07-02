@@ -16,7 +16,7 @@
 </div>
 
 <form id="catalog-filter-form" method="GET" action="{{ route('admin.trick-catalog.index') }}"
-      class="mb-6 border border-black bg-white p-4">
+    class="mb-6 border border-black bg-white p-4">
 
     <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
 
@@ -45,13 +45,16 @@
                 class="w-full border-gray-300 shadow-sm focus:border-club focus:ring-club">
 
                 <option value="">All Categories</option>
+                <option value="none" @selected(request('level')==='none' )>
+                    No Category
+                </option>
 
                 @foreach($levels as $level)
-                    <option
-                        value="{{ $level->id }}"
-                        @selected(request('level') == $level->id)>
-                        {{ ucwords(str_replace('_', ' ', $level->name)) }}
-                    </option>
+                <option
+                    value="{{ $level->id }}"
+                    @selected(request('level')==$level->id)>
+                    {{ ucwords(str_replace('_', ' ', $level->name)) }}
+                </option>
                 @endforeach
 
             </select>
@@ -68,11 +71,11 @@
                 class="w-full border-gray-300 shadow-sm focus:border-club focus:ring-club">
 
                 <option value="">All Platforms</option>
-                <option value="youtube" @selected(request('platform') == 'youtube')>YouTube</option>
-                <option value="tiktok" @selected(request('platform') == 'tiktok')>TikTok</option>
-                <option value="instagram" @selected(request('platform') == 'instagram')>Instagram</option>
-                <option value="facebook" @selected(request('platform') == 'facebook')>Facebook</option>
-                <option value="unknown" @selected(request('platform') == 'unknown')>Unknown</option>
+                <option value="youtube" @selected(request('platform')=='youtube' )>YouTube</option>
+                <option value="tiktok" @selected(request('platform')=='tiktok' )>TikTok</option>
+                <option value="instagram" @selected(request('platform')=='instagram' )>Instagram</option>
+                <option value="facebook" @selected(request('platform')=='facebook' )>Facebook</option>
+                <option value="unknown" @selected(request('platform')=='unknown' )>Unknown</option>
 
             </select>
         </div>
@@ -88,10 +91,10 @@
                 class="w-full border-gray-300 shadow-sm focus:border-club focus:ring-club">
 
                 <option value="">Name (A–Z)</option>
-                <option value="name_desc" @selected(request('sort') == 'name_desc')>Name (Z–A)</option>
-                <option value="newest" @selected(request('sort') == 'newest')>Newest</option>
-                <option value="oldest" @selected(request('sort') == 'oldest')>Oldest</option>
-                <option value="videos" @selected(request('sort') == 'videos')>Most Videos</option>
+                <option value="name_desc" @selected(request('sort')=='name_desc' )>Name (Z–A)</option>
+                <option value="newest" @selected(request('sort')=='newest' )>Newest</option>
+                <option value="oldest" @selected(request('sort')=='oldest' )>Oldest</option>
+                <option value="videos" @selected(request('sort')=='videos' )>Most Videos</option>
 
             </select>
         </div>
@@ -111,8 +114,8 @@
                 class="w-full border-gray-300 shadow-sm focus:border-club focus:ring-club">
 
                 <option value="">All</option>
-                <option value="yes" @selected(request('preferred') == 'yes')>Has Preferred Video</option>
-                <option value="no" @selected(request('preferred') == 'no')>Missing Preferred Video</option>
+                <option value="yes" @selected(request('preferred')=='yes' )>Has Preferred Video</option>
+                <option value="no" @selected(request('preferred')=='no' )>Missing Preferred Video</option>
 
             </select>
         </div>
@@ -128,8 +131,8 @@
                 class="w-full border-gray-300 shadow-sm focus:border-club focus:ring-club">
 
                 <option value="">All</option>
-                <option value="has" @selected(request('notes') == 'has')>Has Notes</option>
-                <option value="missing" @selected(request('notes') == 'missing')>Missing Notes</option>
+                <option value="has" @selected(request('notes')=='has' )>Has Notes</option>
+                <option value="missing" @selected(request('notes')=='missing' )>Missing Notes</option>
 
             </select>
         </div>
@@ -146,19 +149,19 @@
             </button>
 
             @if(request()->filled('search')
-                || request()->filled('level')
-                || request()->filled('platform')
-                || request()->filled('preferred')
-                || request()->filled('notes')
-                || request()->filled('sort'))
+            || request()->filled('level')
+            || request()->filled('platform')
+            || request()->filled('preferred')
+            || request()->filled('notes')
+            || request()->filled('sort'))
 
-                <a
-                    href="{{ route('admin.trick-catalog.index') }}"
-                    class="px-4 py-2 bg-gray-200 text-xs uppercase">
+            <a
+                href="{{ route('admin.trick-catalog.index') }}"
+                class="px-4 py-2 bg-gray-200 text-xs uppercase">
 
-                    Clear
+                Clear
 
-                </a>
+            </a>
 
             @endif
 
@@ -211,11 +214,11 @@
                 </td>
 
                 <td class="p-3 text-sm">
-    {{ $trick->levels
+                    {{ $trick->levels
         ->pluck('name')
         ->map(fn($l) => ucwords(str_replace('_', ' ', $l)))
         ->join(', ') }}
-</td>
+                </td>
 
                 <td class="p-3 text-sm">
                     {{ $trick->videos->count() }}

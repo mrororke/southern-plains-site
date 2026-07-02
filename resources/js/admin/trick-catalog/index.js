@@ -2,7 +2,7 @@ import './email';
 import './index-filters';
 
 function renderLevelBadge(level) {
-    if (!level) level = 'unknown';
+    if (!level) level = 'unknown';s
 
     const formatted = level
         .replaceAll('_', ' ')
