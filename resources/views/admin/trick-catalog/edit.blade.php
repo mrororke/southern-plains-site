@@ -66,7 +66,7 @@
 
                 <button type="button"
                     id="add-video-btn"
-                    class="inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-club text-white hover:bg-club-hover  ms-4">
+                    class="inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-club-hover text-white  ms-4">
                     + Add Video
                 </button>
             </div>
@@ -91,7 +91,7 @@
         </div>
 
         <div class="mt-6">
-            <button class="inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-club text-white hover:bg-club-hover  ms-4">
+            <button class="inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-club-hover text-white  ms-4">
                 Save Changes
             </button>
         </div>
