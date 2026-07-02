@@ -9,11 +9,12 @@ function renderLevelBadge(level) {
         .replace(/\b\w/g, c => c.toUpperCase());
 
     const styles = {
-        novice: 'bg-gray-500 text-white',
-        intermediate: 'bg-blue-500 text-white',
-        advanced: 'bg-purple-500 text-white',
-        performer: 'bg-pink-500 text-white',
-        performer_elite: 'bg-black text-white',
+        novice: 'bg-rose-500 text-white',
+        intermediate: 'bg-pink-500 text-white',
+        advanced: 'bg-fuchsia-500 text-white',
+        performer: 'bg-purple-500 text-white',
+        performer_elite: 'bg-violet-500 text-white',
+        impulse_control: 'bg-indigo-500 text-white',
         unknown: 'bg-gray-300 text-black'
     };
 

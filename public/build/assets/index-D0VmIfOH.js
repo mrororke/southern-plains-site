@@ -9,7 +9,7 @@ ${t}`}function m(e,o){const t={};l(o).forEach(n=>{if(!n.url)return;const i=g(n.p
 `}),r.trim()}function h(e,o){const r=l(o).filter(n=>n.is_preferred===1).map(n=>n.url).filter(Boolean).join(`
 `);return`We've found these preferred resources to help you teach your dog ${e}:
 
-${r}`}function v(e,o){navigator.clipboard.writeText(e).then(()=>{const t=o.querySelector(".copy-label");if(t){const r=t.innerText;t.innerText="Copied ✓",o.classList.add("opacity-70"),setTimeout(()=>{t.innerText=r,o.classList.remove("opacity-70")},1500)}}).catch(()=>{const t=o.querySelector(".copy-label");t&&(t.innerText="Failed",setTimeout(()=>{t.innerText="Copy"},1500))})}function g(e){return e?e.charAt(0).toUpperCase()+e.slice(1):"Unknown"}window.TrickCatalogEmail={buildEmailSimple:f,buildEmailGrouped:m,buildEmailPreferredOnly:h,copyEmail:v};const y=(()=>{let e;function o(){const t=document.getElementById("catalog-filter-form");if(!t)return;const r=t.querySelector('input[name="search"]');t.querySelectorAll("select").forEach(n=>{n.addEventListener("change",()=>{t.submit()})}),r&&(r.addEventListener("input",()=>{clearTimeout(e),e=setTimeout(()=>{t.submit()},350)}),r.addEventListener("keydown",n=>{if(n.key==="Escape"){if(r.value.length===0)return;r.value="",clearTimeout(e),t.submit()}}))}return{init:o}})();document.addEventListener("DOMContentLoaded",()=>{y.init()});function w(e){e||(e="unknown");const o=e.replaceAll("_"," ").replace(/\b\w/g,n=>n.toUpperCase()),t={novice:"bg-gray-500 text-white",intermediate:"bg-blue-500 text-white",advanced:"bg-purple-500 text-white",performer:"bg-pink-500 text-white",performer_elite:"bg-black text-white",unknown:"bg-gray-300 text-black"};return`
+${r}`}function v(e,o){navigator.clipboard.writeText(e).then(()=>{const t=o.querySelector(".copy-label");if(t){const r=t.innerText;t.innerText="Copied ✓",o.classList.add("opacity-70"),setTimeout(()=>{t.innerText=r,o.classList.remove("opacity-70")},1500)}}).catch(()=>{const t=o.querySelector(".copy-label");t&&(t.innerText="Failed",setTimeout(()=>{t.innerText="Copy"},1500))})}function g(e){return e?e.charAt(0).toUpperCase()+e.slice(1):"Unknown"}window.TrickCatalogEmail={buildEmailSimple:f,buildEmailGrouped:m,buildEmailPreferredOnly:h,copyEmail:v};const y=(()=>{let e;function o(){const t=document.getElementById("catalog-filter-form");if(!t)return;const r=t.querySelector('input[name="search"]');t.querySelectorAll("select").forEach(n=>{n.addEventListener("change",()=>{t.submit()})}),r&&(r.addEventListener("input",()=>{clearTimeout(e),e=setTimeout(()=>{t.submit()},350)}),r.addEventListener("keydown",n=>{if(n.key==="Escape"){if(r.value.length===0)return;r.value="",clearTimeout(e),t.submit()}}))}return{init:o}})();document.addEventListener("DOMContentLoaded",()=>{y.init()});function w(e){e||(e="unknown");const o=e.replaceAll("_"," ").replace(/\b\w/g,n=>n.toUpperCase()),t={novice:"bg-rose-500 text-white",intermediate:"bg-pink-500 text-white",advanced:"bg-fuchsia-500 text-white",performer:"bg-purple-500 text-white",performer_elite:"bg-violet-500 text-white",impulse_control:"bg-indigo-500 text-white",unknown:"bg-gray-300 text-black"};return`
         <span class="inline-flex items-center px-2 py-1 text-xs font-semibold ${t[e]??t.unknown}">
             ${o}
         </span>
@@ -46,7 +46,7 @@ ${r}`}function v(e,o){navigator.clipboard.writeText(e).then(()=>{const t=o.query
             <rect x="9" y="9" width="10" height="10" rx="2" />
             <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
         </svg>
-    `}function E(e){return(e||[]).map(o=>({...o,is_preferred:Number(o.is_preferred||0)}))}async function C(e){var u;const o=document.getElementById("trickModal"),t=document.getElementById("modalBody");o.classList.remove("hidden"),document.body.classList.add("overflow-hidden"),t.innerHTML="Loading...";const n=await(await fetch(`/admin/trick-catalog/${e}/show-data`)).json();window.__CURRENT_TRICK=n.name,window.__CURRENT_VIDEOS=n.videos;const i=(u=n.videos)==null?void 0:u.some(a=>Number(a.is_preferred)===1),d=document.querySelector(".js-copy-email-preferred");d&&d.classList.toggle("hidden",!i),document.getElementById("modalTitle").innerText=n.name,n.videos=E(n.videos),n.videos.sort((a,p)=>p.is_preferred-a.is_preferred);let s=`
+    `}function E(e){return(e||[]).map(o=>({...o,is_preferred:Number(o.is_preferred||0)}))}async function C(e){var u;const o=document.getElementById("trickModal"),t=document.getElementById("modalBody");o.classList.remove("hidden"),document.body.classList.add("overflow-hidden"),t.innerHTML="Loading...";const n=await(await fetch(`/admin/trick-catalog/${e}/show-data`)).json();window.__CURRENT_TRICK=n.name,window.__CURRENT_VIDEOS=n.videos;const i=(u=n.videos)==null?void 0:u.some(s=>Number(s.is_preferred)===1),d=document.querySelector(".js-copy-email-preferred");d&&d.classList.toggle("hidden",!i),document.getElementById("modalTitle").innerText=n.name,n.videos=E(n.videos),n.videos.sort((s,p)=>p.is_preferred-s.is_preferred);let a=`
         <div class="space-y-4">
 
             <div class="flex justify-between gap-4">
@@ -58,35 +58,35 @@ ${r}`}function v(e,o){navigator.clipboard.writeText(e).then(()=>{const t=o.query
                 </div>
 
                 <div>
-                    ${(n.levels??[]).map(a=>w(a.name)).join("")}
+                    ${(n.levels??[]).map(s=>w(s.name)).join("")}
                 </div>
             </div>
 
             <div class="font-bold">Videos</div>
 
             <ul class="space-y-2">
-    `;n.videos.forEach(a=>{s+=`
+    `;n.videos.forEach(s=>{a+=`
         <li class="flex justify-between items-center text-sm py-2 px-2
-            ${a.is_preferred?"bg-gray-200 border-l-4 border-black":""}">
+            ${s.is_preferred?"bg-gray-200 border-l-4 border-black":""}">
 
             <div class="w-1/5 text-xl">
-                ${k(a.platform)}
+                ${k(s.platform)}
             </div>
 
             <div class="w-2/5 truncate">
-                ${a.creator??"Unknown"}
+                ${s.creator??"Unknown"}
             </div>
 
             <div class="w-2/5 flex justify-end gap-2">
 
-                <a href="${a.url}" target="_blank"
+                <a href="${s.url}" target="_blank"
                    class="inline-flex items-center gap-1 px-2 py-1 text-xs bg-black text-white">
                     ${b()}
                     Open
                 </a>
 
                 <button type="button"
-                        onclick="copyToClipboard('${a.url}', this)"
+                        onclick="copyToClipboard('${s.url}', this)"
                         class="inline-flex items-center gap-1 px-2 py-1 text-xs bg-gray-200">
                     <span>${x()}</span>
                     <span class="copy-label">Copy</span>
@@ -94,4 +94,4 @@ ${r}`}function v(e,o){navigator.clipboard.writeText(e).then(()=>{const t=o.query
 
             </div>
 
-        </li>`}),s+="</ul></div>",t.innerHTML=s}function c(){document.getElementById("trickModal").classList.add("hidden"),document.body.classList.remove("overflow-hidden")}document.addEventListener("click",e=>{e.target.closest("[data-close-modal]")&&c();const o=e.target.closest(".js-open-trick-modal");o&&C(o.dataset.id)});document.addEventListener("keydown",e=>{e.key==="Escape"&&c()});document.addEventListener("click",e=>{const o=e.target.closest(".js-copy-email");if(!o)return;const t=o.dataset.type,r=window.__CURRENT_TRICK,n=window.__CURRENT_VIDEOS;let i="";t==="simple"&&(i=TrickCatalogEmail.buildEmailSimple(r,n)),t==="grouped"&&(i=TrickCatalogEmail.buildEmailGrouped(r,n)),t==="preferred"&&(i=TrickCatalogEmail.buildEmailPreferredOnly(r,n)),TrickCatalogEmail.copyEmail(i,o)});document.getElementById("trickModal").addEventListener("click",e=>{e.target===e.currentTarget&&c()});
+        </li>`}),a+="</ul></div>",t.innerHTML=a}function c(){document.getElementById("trickModal").classList.add("hidden"),document.body.classList.remove("overflow-hidden")}document.addEventListener("click",e=>{e.target.closest("[data-close-modal]")&&c();const o=e.target.closest(".js-open-trick-modal");o&&C(o.dataset.id)});document.addEventListener("keydown",e=>{e.key==="Escape"&&c()});document.addEventListener("click",e=>{const o=e.target.closest(".js-copy-email");if(!o)return;const t=o.dataset.type,r=window.__CURRENT_TRICK,n=window.__CURRENT_VIDEOS;let i="";t==="simple"&&(i=TrickCatalogEmail.buildEmailSimple(r,n)),t==="grouped"&&(i=TrickCatalogEmail.buildEmailGrouped(r,n)),t==="preferred"&&(i=TrickCatalogEmail.buildEmailPreferredOnly(r,n)),TrickCatalogEmail.copyEmail(i,o)});document.getElementById("trickModal").addEventListener("click",e=>{e.target===e.currentTarget&&c()});
