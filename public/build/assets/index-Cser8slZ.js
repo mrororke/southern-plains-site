@@ -41,12 +41,12 @@ ${r}`}function g(e,t){navigator.clipboard.writeText(e).then(()=>{const o=t.query
             <path stroke-linecap="round" stroke-linejoin="round"
                   d="M5 5h4v4H5z" />
         </svg>
-    `}function b(){return`
+    `}function x(){return`
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <rect x="9" y="9" width="10" height="10" rx="2" />
             <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
         </svg>
-    `}function x(e){return(e||[]).map(t=>({...t,is_preferred:Number(t.is_preferred||0)}))}async function E(e){var u;const t=document.getElementById("trickModal"),o=document.getElementById("modalBody");t.classList.remove("hidden"),document.body.classList.add("overflow-hidden"),o.innerHTML="Loading...";const n=await(await fetch(`/admin/trick-catalog/${e}/show-data`)).json();window.__CURRENT_TRICK=n.name,window.__CURRENT_VIDEOS=n.videos;const i=(u=n.videos)==null?void 0:u.some(s=>Number(s.is_preferred)===1),d=document.querySelector(".js-copy-email-preferred");d&&d.classList.toggle("hidden",!i),document.getElementById("modalTitle").innerText=n.name,n.videos=x(n.videos),n.videos.sort((s,p)=>p.is_preferred-s.is_preferred);let a=`
+    `}function b(e){return(e||[]).map(t=>({...t,is_preferred:Number(t.is_preferred||0)}))}async function E(e){var u;const t=document.getElementById("trickModal"),o=document.getElementById("modalBody");t.classList.remove("hidden"),document.body.classList.add("overflow-hidden"),o.innerHTML="Loading...";const n=await(await fetch(`/admin/trick-catalog/${e}/show-data`)).json();window.__CURRENT_TRICK=n.name,window.__CURRENT_VIDEOS=n.videos;const i=(u=n.videos)==null?void 0:u.some(s=>Number(s.is_preferred)===1),d=document.querySelector(".js-copy-email-preferred");d&&d.classList.toggle("hidden",!i),document.getElementById("modalTitle").innerText=n.name,n.videos=b(n.videos),n.videos.sort((s,p)=>p.is_preferred-s.is_preferred);let a=`
         <div class="space-y-4">
 
             <div class="flex justify-between gap-4">
@@ -66,8 +66,8 @@ ${r}`}function g(e,t){navigator.clipboard.writeText(e).then(()=>{const o=t.query
 
             <ul class="space-y-2">
     `;n.videos.forEach(s=>{a+=`
-        <li class="flex justify-between items-center text-sm border-b py-2 px-2
-            ${s.is_preferred?"bg-gray-50 border-l-4 border-black":""}">
+        <li class="flex justify-between items-center text-sm py-2 px-2
+            ${s.is_preferred?"bg-gray-200 border-l-4 border-black":""}">
 
             <div class="w-1/5 text-xl">
                 ${w(s.platform)}
@@ -88,7 +88,7 @@ ${r}`}function g(e,t){navigator.clipboard.writeText(e).then(()=>{const o=t.query
                 <button type="button"
                         onclick="copyToClipboard('${s.url}', this)"
                         class="inline-flex items-center gap-1 px-2 py-1 text-xs bg-gray-200">
-                    <span>${b()}</span>
+                    <span>${x()}</span>
                     <span class="copy-label">Copy</span>
                 </button>
 
