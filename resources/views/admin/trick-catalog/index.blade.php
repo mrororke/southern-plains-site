@@ -242,11 +242,11 @@ function openTrickModal(id)
     <!-- OPEN -->
     <a href="${v.url}"
        target="_blank"
-       class="inline-flex items-center justify-center w-8 h-8 bg-black text-white hover:opacity-80 transition-opacity"
+       class="inline-flex items-center gap-1 px-2 py-1 text-xs bg-black text-white"
        title="Open video">
 
         ${renderOpenIcon()}
-        <span>Open Video</span>
+        <span>Open</span>
 
     </a>
 
