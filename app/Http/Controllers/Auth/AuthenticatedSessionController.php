@@ -29,7 +29,17 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        $user = auth()->user();
+
+if ($user->isAdmin()) {
+    return redirect()->route('admin.dashboard');
+}
+
+if ($user->roles()->where('slug', 'instructor')->exists()) {
+    return redirect()->route('admin.trick-catalog.index');
+}
+
+return redirect()->route('dashboard');
     }
 
     /**
