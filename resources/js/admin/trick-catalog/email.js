@@ -1,3 +1,5 @@
+console.log('EMAIL MODULE LOADED');
+
 function normalizeVideos(videos) {
     return (videos || []).map(v => ({
         ...v,
