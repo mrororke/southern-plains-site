@@ -160,6 +160,12 @@ Route::get(
     [TrickCatalogController::class, 'showData']
 )->name('trick-catalog.show-data');
 
+Route::get('trick-catalog/video-row', function () {
+    return view('admin.trick-catalog.partials.video-row', [
+        'index' => request('index')
+    ]);
+});
+
         /*
         | Trick Evaluations
         */

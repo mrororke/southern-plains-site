@@ -7,349 +7,103 @@
 <div class="max-w-4xl">
 
     <form method="POST"
-        action="{{ route('admin.trick-catalog.update', $trick) }}">
+          action="{{ route('admin.trick-catalog.update', $trick) }}">
 
         @csrf
         @method('PUT')
 
-
         {{-- TRICK INFO --}}
         <div class="bg-white p-4 rounded shadow space-y-4 mb-6">
 
-            <h2 class="font-semibold text-lg">
-                Edit Trick
-            </h2>
+            <h2 class="font-semibold text-lg">Edit Trick</h2>
 
             <button type="button"
-                onclick="confirmDeleteTrick()"
-                class="bg-red-600 text-white px-4 py-2 rounded">
-
+                    onclick="confirmDeleteTrick()"
+                    class="bg-red-600 text-white px-4 py-2 rounded">
                 Delete Trick
-
             </button>
 
-
-
             <div>
-                <label class="text-sm font-semibold">
-                    Name
-                </label>
-
-                <input
-                    name="name"
-                    value="{{ old('name', $trick->name) }}"
-                    class="w-full border p-2 rounded"
-                    required>
+                <label class="text-sm font-semibold">Name</label>
+                <input name="name"
+                       value="{{ old('name', $trick->name) }}"
+                       class="w-full border p-2 rounded"
+                       required>
             </div>
 
-
             <div>
-                <label class="text-sm font-semibold">
-                    Level
-                </label>
+                <label class="text-sm font-semibold">Levels</label>
 
-                <select name="levels[]" multiple class="w-full border p-2">
+                <select name="levels[]" multiple class="w-full border p-2 rounded">
+
                     @foreach($levels as $level)
-                    <option
-                        value="{{ $level->id }}"
-                        @selected($trick->levels->contains('id', $level->id))
-                        >
-                        {{ $level->name }}
-                    </option>
+                        <option value="{{ $level->id }}"
+                            @selected($trick->levels->contains('id', $level->id))>
+                            {{ $level->name }}
+                        </option>
                     @endforeach
+
                 </select>
             </div>
 
-
             <div>
-
-                <label class="text-sm font-semibold">
-                    Notes
-                </label>
-
-                <textarea
-                    name="notes"
-                    class="w-full border p-2 rounded">{{ old('notes', $trick->notes) }}</textarea>
-
+                <label class="text-sm font-semibold">Notes</label>
+                <textarea name="notes"
+                          class="w-full border p-2 rounded">{{ old('notes', $trick->notes) }}</textarea>
             </div>
 
         </div>
-
 
         {{-- VIDEOS --}}
         <div class="bg-white p-4 rounded shadow">
 
             <div class="flex justify-between mb-4">
-
-                <h2 class="font-semibold text-lg">
-                    Videos
-                </h2>
-
+                <h2 class="font-semibold text-lg">Videos</h2>
 
                 <button type="button"
-                    onclick="addVideoRow()"
-                    class="bg-black text-white px-3 py-1 rounded">
+                        id="add-video-btn"
+                        class="bg-black text-white px-3 py-1 rounded">
                     + Add Video
                 </button>
-
             </div>
 
-
-            <div id="video-container"
-                class="space-y-3">
-
+            <div id="video-container" class="space-y-3">
 
                 @foreach($trick->videos as $index => $video)
 
-                <div class="border rounded p-3 bg-gray-50 video-row">
-
-                    <input type="hidden"
-                        name="videos[{{ $index }}][id]"
-                        value="{{ $video->id }}">
-
-
-                    <input
-                        name="videos[{{ $index }}][url]"
-                        value="{{ $video->url }}"
-                        class="w-full border p-2 rounded mb-2">
-
-
-                    <input
-                        name="videos[{{ $index }}][creator]"
-                        value="{{ $video->creator }}"
-                        class="w-full border p-2 rounded mb-2">
-
-
-                    <select
-                        name="videos[{{ $index }}][platform]"
-                        class="border p-2 rounded">
-
-                        @foreach(['tiktok','instagram','facebook','youtube','unknown'] as $platform)
-
-                        <option value="{{ $platform }}"
-                            @selected($video->platform === $platform)>
-                            {{ ucfirst($platform) }}
-                        </option>
-
-                        @endforeach
-
-                    </select>
-
-
-                    <label class="ml-4 text-sm">
-
-                        <input type="checkbox"
-                            name="videos[{{ $index }}][is_preferred]"
-                            @checked($video->is_preferred)>
-
-                        Preferred
-
-                    </label>
-
-                    <button
-                        type="button"
-                        onclick="removeVideoRow(this)"
-                        class="mt-2 text-sm text-red-600 hover:underline">
-
-                        Remove Video
-
-                    </button>
-
-
-                </div>
+                    @include('admin.trick-catalog.partials.video-row', [
+                        'index' => $index,
+                        'videoId' => $video->id,
+                        'url' => $video->url,
+                        'creator' => $video->creator,
+                        'currentPlatform' => $video->platform,
+                        'isPreferred' => $video->is_preferred,
+                    ])
 
                 @endforeach
 
-
             </div>
-
 
         </div>
 
-
-        <button class="mt-6 bg-green-600 text-white px-5 py-2 rounded">
-            Save Changes
-        </button>
-
+        <div class="mt-6">
+            <button class="bg-green-600 text-white px-5 py-2 rounded">
+                Save Changes
+            </button>
+        </div>
 
     </form>
 
 </div>
 
 <form id="delete-form"
-    method="POST"
-    action="{{ route('admin.trick-catalog.destroy', $trick) }}"
-    class="hidden">
+      method="POST"
+      action="{{ route('admin.trick-catalog.destroy', $trick) }}"
+      class="hidden">
 
     @csrf
     @method('DELETE')
 
 </form>
 
-
-
 @endsection
-
-<script>
-    let videoIndex = {
-        {
-            $trick - > videos - > count()
-        }
-    };
-
-
-    function addVideoRow() {
-
-        let container = document.getElementById('video-container');
-
-
-        container.insertAdjacentHTML(
-            'beforeend',
-            `
-
-        <div class="border rounded p-3 bg-gray-50 video-row">
-
-            <input
-                name="videos[${videoIndex}][url]"
-                placeholder="Video URL"
-                onblur="detectPlatform(this, ${videoIndex})"
-                class="w-full border p-2 rounded mb-2">
-
-
-            <input
-                name="videos[${videoIndex}][creator]"
-                placeholder="Creator"
-                class="w-full border p-2 rounded mb-2">
-
-
-            <select
-                id="platform-${videoIndex}"
-                name="videos[${videoIndex}][platform]"
-                class="border p-2 rounded">
-
-
-                <option value="instagram">
-                    Instagram
-                </option>
-
-
-                <option value="facebook">
-                    Facebook
-                </option>
-
-
-                <option value="tiktok">
-                    TikTok
-                </option>
-
-
-                <option value="youtube">
-                    YouTube
-                </option>
-
-
-                <option value="unknown">
-                    Unknown
-                </option>
-
-
-            </select>
-
-            <label class="ml-4 text-sm">
-
-    <input
-        type="checkbox"
-        name="videos[${videoIndex}][is_preferred]"
-    >
-
-    Preferred
-
-</label>
-
-<button
-    type="button"
-    onclick="removeVideoRow(this)"
-    class="mt-2 text-sm text-red-600 hover:underline">
-
-    Remove Video
-
-</button>
-
-
-        </div>
-
-        `
-        );
-
-
-        videoIndex++;
-
-    }
-
-
-
-    function detectPlatform(input, index) {
-
-        let url = input.value;
-
-
-        if (!url) {
-            return;
-        }
-
-
-        fetch('{{ route('admin.trick - catalog.check - video ') }}', {
-
-                    method: 'POST',
-
-                    headers: {
-
-                        'Content-Type': 'application/json',
-
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-
-                    },
-
-
-                    body: JSON.stringify({
-
-                        url: url
-
-                    })
-
-                })
-
-
-            .then(response => response.json())
-
-
-            .then(data => {
-
-
-                let select =
-                    document.getElementById(
-                        `platform-${index}`
-                    );
-
-
-                if (select && data.platform) {
-
-                    select.value = data.platform;
-
-                }
-
-
-            });
-
-    }
-
-    function removeVideoRow(button) {
-        button.closest('.video-row').remove();
-    }
-
-    function confirmDeleteTrick() {
-        if (confirm('Are you sure you want to delete this trick? This cannot be undone.')) {
-            document.getElementById('delete-form').submit();
-        }
-    }
-</script>

@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\TrickLevel;
-
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,47 +11,51 @@ class Trick extends Model
 
     protected $fillable = [
         'name',
-        'level',
         'notes',
         'created_by',
-        'updated_by'
+        'updated_by',
     ];
 
     /*
-    |---------------------------------
-    RELATIONSHIPS
-    |---------------------------------
+    |--------------------------------------------------------------------------
+    | Relationships
+    |--------------------------------------------------------------------------
     */
 
-    public function videos(){
+    public function videos()
+    {
         return $this->hasMany(TrickVideo::class);
     }
 
-    public function preferredVideo(){
-        return $this->hasOne(TrickVideo::class)->where('is_preferred', true);
+    public function preferredVideo()
+    {
+        return $this->hasOne(TrickVideo::class)
+            ->where('is_preferred', true);
     }
 
     public function levels()
-{
-    return $this->belongsToMany(
-        TrickLevel::class,
-        'trick_level',
-        'trick_id',
-        'trick_level_id'
-    )->withTimestamps();
-}
+    {
+        return $this->belongsToMany(
+            TrickLevel::class,
+            'trick_level',
+            'trick_id',
+            'trick_level_id'
+        )->withTimestamps();
+    }
 
-     /*
-    |---------------------------------
-    USERS
-    |---------------------------------
+    /*
+    |--------------------------------------------------------------------------
+    | Users
+    |--------------------------------------------------------------------------
     */
 
-    public function creator(){
+    public function creator()
+    {
         return $this->belongsTo(User::class, 'created_by');
     }
 
-    public function updater(){
+    public function updater()
+    {
         return $this->belongsTo(User::class, 'updated_by');
     }
 }
