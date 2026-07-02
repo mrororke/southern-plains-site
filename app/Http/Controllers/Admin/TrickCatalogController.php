@@ -44,11 +44,13 @@ class TrickCatalogController extends Controller
         // Level Filter
         if ($request->filled('level')) {
 
-            $query->whereHas('levels', function ($q) use ($request) {
+    $query->whereHas('levels', function ($q) use ($request) {
 
-                $q->where('levels.id', $request->level);
-            });
-        }
+        $q->whereKey($request->level);
+
+    });
+
+}
 
         // Platform Filter
         if ($request->filled('platform')) {
