@@ -43,7 +43,7 @@
                     @foreach($levels as $level)
                     <option value="{{ $level->id }}"
                         @selected($trick->levels->contains('id', $level->id))>
-                        {{ $level->name }}
+                        {{ ucwords(str_replace('_', ' ', $level->name)) }}
                     </option>
                     @endforeach
 
