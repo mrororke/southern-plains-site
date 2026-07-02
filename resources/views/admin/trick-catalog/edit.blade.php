@@ -9,28 +9,30 @@
 <div class="max-w-4xl">
 
     <form method="POST"
-          action="{{ route('admin.trick-catalog.update', $trick) }}">
+        action="{{ route('admin.trick-catalog.update', $trick) }}">
 
         @csrf
         @method('PUT')
 
         {{-- TRICK INFO --}}
-        <div class="bg-white p-4 rounded shadow space-y-4 mb-6">
+        <div class="bg-white p-4 shadow space-y-4 mb-6">
 
-            <h2 class="font-semibold text-lg">Edit Trick</h2>
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="font-heading text-4xl pb-2">Edit Trick</h2>
 
-            <button type="button"
+                <button type="button"
                     onclick="confirmDeleteTrick()"
                     class="bg-red-600 text-white px-4 py-2 rounded">
-                Delete Trick
-            </button>
+                    Delete Trick
+                </button>
+            </div>
 
             <div>
                 <label class="text-sm font-semibold">Name</label>
                 <input name="name"
-                       value="{{ old('name', $trick->name) }}"
-                       class="mt-1 block w-full border-gray-300 shadow-sm focus:border-club focus:ring-club"
-                       required>
+                    value="{{ old('name', $trick->name) }}"
+                    class="mt-1 block w-full border-gray-300 shadow-sm focus:border-club focus:ring-club"
+                    required>
             </div>
 
             <div>
@@ -39,10 +41,10 @@
                 <select name="levels[]" multiple class="w-full border p-2 rounded">
 
                     @foreach($levels as $level)
-                        <option value="{{ $level->id }}"
-                            @selected($trick->levels->contains('id', $level->id))>
-                            {{ $level->name }}
-                        </option>
+                    <option value="{{ $level->id }}"
+                        @selected($trick->levels->contains('id', $level->id))>
+                        {{ $level->name }}
+                    </option>
                     @endforeach
 
                 </select>
@@ -51,7 +53,7 @@
             <div>
                 <label class="text-sm font-semibold">Notes</label>
                 <textarea name="notes"
-                          class="w-full border p-2 rounded">{{ old('notes', $trick->notes) }}</textarea>
+                    class="w-full border p-2 rounded">{{ old('notes', $trick->notes) }}</textarea>
             </div>
 
         </div>
@@ -63,8 +65,8 @@
                 <h2 class="font-semibold text-lg">Videos</h2>
 
                 <button type="button"
-                        id="add-video-btn"
-                        class="bg-black text-white px-3 py-1 rounded">
+                    id="add-video-btn"
+                    class="bg-black text-white px-3 py-1 rounded">
                     + Add Video
                 </button>
             </div>
@@ -73,14 +75,14 @@
 
                 @foreach($trick->videos as $index => $video)
 
-                    @include('admin.trick-catalog.partials.video-row', [
-                        'index' => $index,
-                        'videoId' => $video->id,
-                        'url' => $video->url,
-                        'creator' => $video->creator,
-                        'currentPlatform' => $video->platform,
-                        'isPreferred' => $video->is_preferred,
-                    ])
+                @include('admin.trick-catalog.partials.video-row', [
+                'index' => $index,
+                'videoId' => $video->id,
+                'url' => $video->url,
+                'creator' => $video->creator,
+                'currentPlatform' => $video->platform,
+                'isPreferred' => $video->is_preferred,
+                ])
 
                 @endforeach
 
@@ -99,9 +101,9 @@
 </div>
 
 <form id="delete-form"
-      method="POST"
-      action="{{ route('admin.trick-catalog.destroy', $trick) }}"
-      class="hidden">
+    method="POST"
+    action="{{ route('admin.trick-catalog.destroy', $trick) }}"
+    class="hidden">
 
     @csrf
     @method('DELETE')
