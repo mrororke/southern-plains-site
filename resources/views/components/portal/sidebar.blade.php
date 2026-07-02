@@ -18,17 +18,16 @@
             top-level
         />
 
-        <x-portal.sidebar-section title="Tricks">
+        <x-portal.sidebar-section title="Tricks"
+        :active="request()->routeIs('admin.trick-catalog.*')">
 
              <x-portal.sidebar-link
                  label="Catalog"
                  :route="route('admin.trick-catalog.index')"
-                 :active="request()->routeIs('admin.catalog.*')"
                  nested />
              <x-portal.sidebar-link
                  label="Add Trick"
                  :route="route('admin.trick-catalog.create')"
-                 :active="request()->routeIs('admin.trick-catalog.*')"
                  nested />
 
 
