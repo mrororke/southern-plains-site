@@ -44,7 +44,7 @@
                 name="level"
                 class="w-full border-gray-300 shadow-sm focus:border-club focus:ring-club">
 
-                <option value="">All Levels</option>
+                <option value="">All Categories</option>
 
                 @foreach($levels as $level)
                     <option
@@ -197,7 +197,7 @@
         <thead>
             <tr class="bg-black border-b border-black">
                 <th class="p-3 text-left text-white text-xs uppercase">Name</th>
-                <th class="p-3 text-left text-white text-xs uppercase">Level</th>
+                <th class="p-3 text-left text-white text-xs uppercase">Category</th>
                 <th class="p-3 text-left text-white text-xs uppercase">Videos</th>
                 <th class="p-3 text-left text-white text-xs uppercase">Actions</th>
             </tr>
