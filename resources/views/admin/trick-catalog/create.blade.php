@@ -13,23 +13,23 @@
         {{-- TRICK INFO --}}
         <div class="bg-white p-4 rounded shadow space-y-4 mb-6">
 
-            <h2 class="font-semibold text-lg">Create Trick</h2>
+            <h2 class="font-heading text-4xl pb-2">Create Trick</h2>
 
             <div>
                 <label class="text-sm font-semibold">Name</label>
                 <input name="name"
-                    class="w-full border p-2 rounded"
+                    class="mt-1 block w-full border-gray-300 shadow-sm focus:border-club focus:ring-club"
                     required>
             </div>
 
             <div>
                 <label class="text-sm font-semibold">Levels</label>
 
-                <select name="levels[]" multiple class="w-full border p-2 rounded">
+                <select name="levels[]" multiple class="mt-1 block w-full border-gray-300 shadow-sm focus:border-club focus:ring-club">
                     @foreach($levels as $level)
-                        <option value="{{ $level->id }}">
-                            {{ $level->name }}
-                        </option>
+                    <option value="{{ $level->id }}">
+                        {{ ucwords(str_replace('_', ' ', $level->name)) }}
+                    </option>
                     @endforeach
                 </select>
             </div>
@@ -37,7 +37,7 @@
             <div>
                 <label class="text-sm font-semibold">Notes</label>
                 <textarea name="notes"
-                    class="w-full border p-2 rounded"></textarea>
+                    class="mt-1 block w-full border-gray-300 shadow-sm focus:border-club focus:ring-club"></textarea>
             </div>
 
         </div>
@@ -50,7 +50,7 @@
 
                 <button type="button"
                     id="add-video-btn"
-                    class="bg-black text-white px-3 py-1 rounded text-sm">
+                    class="inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-club hover:bg-club-hover text-white  ms-4">
                     + Add Video
                 </button>
             </div>
@@ -61,7 +61,7 @@
 
         {{-- SUBMIT --}}
         <div class="mt-6">
-            <button class="bg-green-600 text-white px-5 py-2 rounded">
+            <button class="inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-club hover:bg-club-hover text-white  ms-4">
                 Save Trick
             </button>
         </div>
