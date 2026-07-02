@@ -124,25 +124,35 @@
     `;
     }
 
-    function renderPlatformBadge(platform) {
-        const p = (platform || 'unknown').toLowerCase();
+    function renderPlatformBadge(platform)
+{
+    const p = (platform || 'unknown').toLowerCase();
 
-        const map = {
-            youtube: 'bg-red-600 text-white',
-            tiktok: 'bg-black text-white',
-            instagram: 'bg-pink-500 text-white',
-            facebook: 'bg-blue-600 text-white',
-            unknown: 'bg-gray-400 text-black'
-        };
+    const icons = {
+        youtube: '▶️',
+        tiktok: '🎵',
+        instagram: '📸',
+        facebook: '📘',
+        unknown: '🔗'
+    };
 
-        const label = p.charAt(0).toUpperCase() + p.slice(1);
-        const color = map[p] ?? map.unknown;
+    const colors = {
+        youtube: 'text-red-600',
+        tiktok: 'text-black',
+        instagram: 'text-pink-500',
+        facebook: 'text-blue-600',
+        unknown: 'text-gray-500'
+    };
 
-        return `
-        <span class="inline-flex items-center px-2 py-1 text-xs font-semibold ${color}">
-            ${label}
-        </span>
+    const icon = icons[p] ?? icons.unknown;
+    const color = colors[p] ?? colors.unknown;
+
+    return `
+        <div class="text-lg ${color} flex items-center gap-1">
+            <span>${icon}</span>
+        </div>
     `;
+}
     }
 
     function openTrickModal(id) {
@@ -187,7 +197,10 @@
 
                     html += `
     <li class="flex items-center justify-between text-sm border-b py-2
-        ${v.is_preferred ? 'border-l-4 border-l-black pl-2' : ''}">
+        ${v.is_preferred
+            ? 'bg-gray-100 border-l-4 border-l-black pl-2'
+            : ''}
+        hover:bg-gray-50 transition-colors">
 
         <!-- LEFT: PLATFORM -->
         <div class="w-1/5">
