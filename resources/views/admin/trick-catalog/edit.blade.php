@@ -22,7 +22,7 @@
 
                 <button type="button"
                     onclick="confirmDeleteTrick()"
-                    class="bg-red-600 text-white px-4 py-2 rounded">
+                    class="bg-red-600 text-white inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150">
                     Delete Trick
                 </button>
             </div>
@@ -38,7 +38,7 @@
             <div>
                 <label class="text-sm font-semibold">Levels</label>
 
-                <select name="levels[]" multiple class="w-full border p-2 rounded">
+                <select name="levels[]" multiple class="w-full mt-1 block border-gray-300 shadow-sm focus:border-club focus:ring-club">
 
                     @foreach($levels as $level)
                     <option value="{{ $level->id }}"
@@ -53,7 +53,7 @@
             <div>
                 <label class="text-sm font-semibold">Notes</label>
                 <textarea name="notes"
-                    class="w-full border p-2 rounded">{{ old('notes', $trick->notes) }}</textarea>
+                    class="mt-1 block w-full border-gray-300 shadow-sm focus:border-club focus:ring-club">{{ old('notes', $trick->notes) }}</textarea>
             </div>
 
         </div>
