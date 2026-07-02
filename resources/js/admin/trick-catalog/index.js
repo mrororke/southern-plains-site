@@ -1,4 +1,4 @@
-import './email';
+
 
 function renderLevelBadge(level) {
     if (!level) level = 'unknown';
@@ -185,13 +185,13 @@ function closeTrickModal() {
 }
 
 document.addEventListener('click', (e) => {
-    if (e.target.matches('[data-close-modal]')) closeTrickModal();
 
-    if (e.target.classList.contains('js-open-trick-modal')) {
-        openTrickModal(e.target.dataset.id);
+    if (e.target.closest('[data-close-modal]')) {
+        closeTrickModal();
     }
-});
 
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeTrickModal();
+    const openBtn = e.target.closest('.js-open-trick-modal');
+    if (openBtn) {
+        openTrickModal(openBtn.dataset.id);
+    }
 });

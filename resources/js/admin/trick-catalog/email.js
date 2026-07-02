@@ -95,11 +95,16 @@ function copyEmail(text, btn) {
 
         const original = label.innerText;
 
+        // swap text only (keep your SVG intact)
         label.innerText = 'Copied';
+
+        // optional: visual state
+        btn.classList.add('opacity-70');
 
         setTimeout(() => {
             label.innerText = original;
-        }, 2000);
+            btn.classList.remove('opacity-70');
+        }, 1500);
     });
 }
 
