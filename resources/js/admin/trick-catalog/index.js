@@ -227,3 +227,9 @@ document.addEventListener('click', (e) => {
 
     TrickCatalogEmail.copyEmail(text, btn);
 });
+
+document.getElementById('trickModal').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) {
+        closeTrickModal();
+    }
+});

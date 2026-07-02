@@ -94,12 +94,22 @@
                         <span class="copy-label">Copy Grouped</span>
                     </button>
 
+                    @php
+                    $hasPreferred = $trick->videos->contains('is_preferred', 1);
+                    @endphp
+
+                    @if ($hasPreferred)
+                    <!-- PREFERRED ONLY -->
                     <button
                         type="button"
-                        class="js-copy-email inline-flex items-center px-3 py-1 text-xs bg-black text-white"
-                        data-type="preferred">
-                        <span class="copy-label">Copy Preferred</span>
+                        class="inline-flex items-center px-3 py-1 text-xs bg-black text-white"
+                        onclick="TrickCatalogEmail.copyEmail(
+            TrickCatalogEmail.buildEmailPreferredOnly(window.__CURRENT_TRICK, window.__CURRENT_VIDEOS),
+            this
+        )">
+                        Copy Preferred
                     </button>
+                    @endif
 
 
                     <!-- CLOSE -->
