@@ -13,7 +13,7 @@ ${r}`}function f(e,t){navigator.clipboard.writeText(e).then(()=>{const o=t.query
         <span class="inline-flex items-center px-2 py-1 text-xs font-semibold ${o[e]??o.unknown}">
             ${t}
         </span>
-    `}function g(e){const t=(e||"unknown").toLowerCase(),o={youtube:`
+    `}function v(e){const t=(e||"unknown").toLowerCase(),o={youtube:`
             <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M23.5 6.2a2.8 2.8 0 0 0-2-2C19.7 3.6 12 3.6 12 3.6s-7.7 0-9.5.6a2.8 2.8 0 0 0-2 2A29 29 0 0 0 0 12a29 29 0 0 0 .5 5.8 2.8 2.8 0 0 0 2 2c1.8.6 9.5.6 9.5.6s7.7 0 9.5-.6a2.8 2.8 0 0 0 2-2A29 29 0 0 0 24 12a29 29 0 0 0-.5-5.8zM9.6 15.5v-7L15.8 12l-6.2 3.5z"/>
             </svg>
@@ -34,7 +34,7 @@ ${r}`}function f(e,t){navigator.clipboard.writeText(e).then(()=>{const o=t.query
                 <circle cx="12" cy="12" r="10"/>
                 <path d="M12 8v4m0 4h.01"/>
             </svg>
-        `};return o[t]??o.unknown}function v(){return`
+        `};return o[t]??o.unknown}function g(){return`
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round"
                   d="M13 7h6m0 0v6m0-6L10 16" />
@@ -46,7 +46,7 @@ ${r}`}function f(e,t){navigator.clipboard.writeText(e).then(()=>{const o=t.query
             <rect x="9" y="9" width="10" height="10" rx="2" />
             <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
         </svg>
-    `}function y(e){return(e||[]).map(t=>({...t,is_preferred:Number(t.is_preferred||0)}))}async function k(e){const t=document.getElementById("trickModal"),o=document.getElementById("modalBody");t.classList.remove("hidden"),o.innerHTML="Loading...";const n=await(await fetch(`/admin/trick-catalog/${e}/show-data`)).json();window.__CURRENT_TRICK=n.name,window.__CURRENT_VIDEOS=n.videos,document.getElementById("modalTitle").innerText=n.name,n.videos=y(n.videos),n.videos.sort((a,c)=>c.is_preferred-a.is_preferred);let i=`
+    `}function y(e){return(e||[]).map(t=>({...t,is_preferred:Number(t.is_preferred||0)}))}async function b(e){const t=document.getElementById("trickModal"),o=document.getElementById("modalBody");t.classList.remove("hidden"),document.body.classList.add("overflow-hidden"),o.innerHTML="Loading...";const n=await(await fetch(`/admin/trick-catalog/${e}/show-data`)).json();window.__CURRENT_TRICK=n.name,window.__CURRENT_VIDEOS=n.videos,document.getElementById("modalTitle").innerText=n.name,n.videos=y(n.videos),n.videos.sort((a,c)=>c.is_preferred-a.is_preferred);let i=`
         <div class="space-y-4">
 
             <div class="flex justify-between gap-4">
@@ -70,7 +70,7 @@ ${r}`}function f(e,t){navigator.clipboard.writeText(e).then(()=>{const o=t.query
             ${a.is_preferred?"bg-gray-50 border-l-4 border-black":""}">
 
             <div class="w-1/5 text-xl">
-                ${g(a.platform)}
+                ${v(a.platform)}
             </div>
 
             <div class="w-2/5 truncate">
@@ -81,7 +81,7 @@ ${r}`}function f(e,t){navigator.clipboard.writeText(e).then(()=>{const o=t.query
 
                 <a href="${a.url}" target="_blank"
                    class="inline-flex items-center gap-1 px-2 py-1 text-xs bg-black text-white">
-                    ${v()}
+                    ${g()}
                     Open
                 </a>
 
@@ -94,4 +94,4 @@ ${r}`}function f(e,t){navigator.clipboard.writeText(e).then(()=>{const o=t.query
 
             </div>
 
-        </li>`}),i+="</ul></div>",o.innerHTML=i}function l(){document.getElementById("trickModal").classList.add("hidden")}document.addEventListener("click",e=>{e.target.closest("[data-close-modal]")&&l();const t=e.target.closest(".js-open-trick-modal");t&&k(t.dataset.id)});document.addEventListener("keydown",e=>{e.key==="Escape"&&l()});document.addEventListener("click",e=>{const t=e.target.closest(".js-copy-email");if(!t)return;const o=t.dataset.type,r=window.__CURRENT_TRICK,n=window.__CURRENT_VIDEOS;let i="";o==="simple"&&(i=TrickCatalogEmail.buildEmailSimple(r,n)),o==="grouped"&&(i=TrickCatalogEmail.buildEmailGrouped(r,n)),o==="preferred"&&(i=TrickCatalogEmail.buildEmailPreferredOnly(r,n)),TrickCatalogEmail.copyEmail(i,t)});
+        </li>`}),i+="</ul></div>",o.innerHTML=i}function l(){document.getElementById("trickModal").classList.add("hidden"),document.body.classList.remove("overflow-hidden")}document.addEventListener("click",e=>{e.target.closest("[data-close-modal]")&&l();const t=e.target.closest(".js-open-trick-modal");t&&b(t.dataset.id)});document.addEventListener("keydown",e=>{e.key==="Escape"&&l()});document.addEventListener("click",e=>{const t=e.target.closest(".js-copy-email");if(!t)return;const o=t.dataset.type,r=window.__CURRENT_TRICK,n=window.__CURRENT_VIDEOS;let i="";o==="simple"&&(i=TrickCatalogEmail.buildEmailSimple(r,n)),o==="grouped"&&(i=TrickCatalogEmail.buildEmailGrouped(r,n)),o==="preferred"&&(i=TrickCatalogEmail.buildEmailPreferredOnly(r,n)),TrickCatalogEmail.copyEmail(i,t)});
