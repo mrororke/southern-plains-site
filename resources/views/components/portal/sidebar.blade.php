@@ -15,7 +15,7 @@
         : route('admin.trick-catalog.index');
 @endphp
 
-<a href="{{ $homeRoute }}">
+<a href="/admin/trick-catalog">
     <x-application-logo class="w-20 h-20 fill-current" />
 </a>
     </div>
