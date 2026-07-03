@@ -123,7 +123,7 @@ Route::middleware(['auth'])->group(function () {
 |
 */
 
-Route::middleware(['auth', 'role:admin,instructor'])
+Route::middleware(['auth'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
