@@ -333,15 +333,24 @@ class TrickCatalogController extends Controller
     |--------------------------------------------------------------------------
     */
     public function destroy(Trick $trick_catalog)
-    {
-        $trick_catalog->videos()->delete();
-        $trick_catalog->levels()->detach();
-        $trick_catalog->delete();
+{
+    $user = auth()->user();
 
-        return redirect()
-            ->route('admin.trick-catalog.index')
-            ->with('success', 'Trick deleted.');
+    $isInstructor = $user->roles()->where('slug', 'instructor')->exists();
+
+    // Admin OR Instructor allowed
+    if (!$user->isAdmin() && !$isInstructor) {
+        abort(403, 'Unauthorized');
     }
+
+    $trick_catalog->videos()->delete();
+    $trick_catalog->levels()->detach();
+    $trick_catalog->delete();
+
+    return redirect()
+        ->route('admin.trick-catalog.index')
+        ->with('success', 'Trick deleted.');
+}
 
     /*
     |--------------------------------------------------------------------------
