@@ -128,3 +128,21 @@ window.TrickCatalogEdit = TrickCatalogEdit;
 document.addEventListener('DOMContentLoaded', () => {
     TrickCatalogEdit.init();
 });
+
+function confirmDeleteTrick() {
+
+    if (!confirm('Are you sure you want to delete this trick?')) {
+        return;
+    }
+
+    const form = document.getElementById('delete-form');
+
+    if (!form) {
+        console.error('Delete form not found');
+        return;
+    }
+
+    form.submit();
+}
+
+window.confirmDeleteTrick = confirmDeleteTrick;
