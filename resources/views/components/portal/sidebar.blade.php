@@ -7,12 +7,12 @@
 
 <aside class="w-64 bg-[#71717A] text-white flex flex-col" style="background-color: #71717A;">
     <div class="text-black lg:text-white mx-auto pt-4">
-        @php
+   @php
     $user = auth()->user();
 
     $homeRoute = $user?->isAdmin()
         ? route('admin.dashboard')
-        : route('instructor.dashboard');
+        : route('admin.trick-catalog.index');
 @endphp
 
 <a href="{{ $homeRoute }}">
