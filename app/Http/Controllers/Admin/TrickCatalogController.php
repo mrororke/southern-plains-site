@@ -44,18 +44,16 @@ class TrickCatalogController extends Controller
         // Level Filter
         if ($request->filled('level')) {
 
-    if ($request->level === 'none') {
+            if ($request->level === 'none') {
 
-        $query->doesntHave('levels');
+                $query->doesntHave('levels');
+            } else {
 
-    } else {
-
-        $query->whereHas('levels', function ($q) use ($request) {
-            $q->where('trick_levels.id', $request->level);
-        });
-
-    }
-}
+                $query->whereHas('levels', function ($q) use ($request) {
+                    $q->where('trick_levels.id', $request->level);
+                });
+            }
+        }
 
         // Platform Filter
         if ($request->filled('platform')) {

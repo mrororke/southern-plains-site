@@ -11,7 +11,10 @@ class RoleMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * Supports single or multiple roles:
+     * role:admin
+     * role:instructor
+     * role:admin,instructor
      */
     public function handle(Request $request, Closure $next, string $role): Response
     {
@@ -21,10 +24,16 @@ class RoleMiddleware
             return redirect()->route('login');
         }
 
-        if (
-            !$user->isAdmin() &&
-            !$user->roles()->where('slug', $role)->exists()
-        ) {
+        // Admin always bypasses role checks
+        if ($user->isAdmin()) {
+            return $next($request);
+        }
+
+        // Support multiple roles via comma-separated string
+        $roles = array_map('trim', explode(',', $role));
+
+        // Check if user has ANY of the allowed roles
+        if (! $user->roles()->whereIn('slug', $roles)->exists()) {
             abort(403, 'Unauthorized');
         }
 
