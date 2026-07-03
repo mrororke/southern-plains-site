@@ -7,9 +7,17 @@
 
 <aside class="w-64 bg-[#71717A] text-white flex flex-col" style="background-color: #71717A;">
     <div class="text-black lg:text-white mx-auto pt-4">
-        <a href="/admin/dashboard">
-            <x-application-logo class="w-20 h-20 fill-current" />
-        </a>
+        @php
+    $user = auth()->user();
+
+    $homeRoute = $user?->isAdmin()
+        ? route('admin.dashboard')
+        : route('instructor.dashboard');
+@endphp
+
+<a href="{{ $homeRoute }}">
+    <x-application-logo class="w-20 h-20 fill-current" />
+</a>
     </div>
 
     <div class="italic text-sm pt-4 mx-auto">

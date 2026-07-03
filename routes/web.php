@@ -114,29 +114,16 @@ Route::middleware(['auth'])->group(function () {
 
 /*
 |--------------------------------------------------------------------------
-| INSTRUCTOR AREA 
+| ADMIN AREA (ADMIN + INSTRUCTOR ACCESS)
 |--------------------------------------------------------------------------
+|
+| NOTE:
+| Admin has full access.
+| Instructor has limited access controlled inside controllers/policies.
+|
 */
 
-Route::middleware(['auth', 'role:instructor'])
-    ->prefix('instructor')
-    ->name('instructor.')
-    ->group(function () {
-
-        Route::get('/dashboard', function () {
-            return view('instructor.dashboard');
-        })->name('dashboard');
-
-    });
-
-
-/*
-|--------------------------------------------------------------------------
-| ADMIN AREA (ADMIN ONLY)
-|--------------------------------------------------------------------------
-*/
-
-Route::middleware(['auth', 'role:admin'])
+Route::middleware(['auth', 'role:admin,instructor'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
@@ -152,7 +139,7 @@ Route::middleware(['auth', 'role:admin'])
 
         /*
         |--------------------------------------------------------------------------
-        | Content
+        | Content (ADMIN ONLY LOGIC SHOULD BE ENFORCED LATER IN POLICIES)
         |--------------------------------------------------------------------------
         */
         Route::resource('posts', PostController::class);
@@ -163,7 +150,7 @@ Route::middleware(['auth', 'role:admin'])
 
         /*
         |--------------------------------------------------------------------------
-        | Trick Evaluations
+        | TRICK EVALUATIONS
         |--------------------------------------------------------------------------
         */
         Route::get('/tricks', [AdminTrickEvaluationController::class, 'index'])
@@ -180,7 +167,7 @@ Route::middleware(['auth', 'role:admin'])
 
         /*
         |--------------------------------------------------------------------------
-        | Contacts
+        | CONTACTS
         |--------------------------------------------------------------------------
         */
         Route::get('/contacts', [AdminContactController::class, 'index'])
@@ -191,30 +178,24 @@ Route::middleware(['auth', 'role:admin'])
 
         Route::patch('/contacts/{contact}/status', [AdminContactController::class, 'updateStatus'])
             ->name('contacts.status');
-    });
 
-/*
-|--------------------------------------------------------------------------
-| TRICK CATALOG (ADMIN + INSTRUCTOR)
-|--------------------------------------------------------------------------
-*/
+        /*
+        |--------------------------------------------------------------------------
+        | TRICK CATALOG (SHARED: ADMIN + INSTRUCTOR)
+        |--------------------------------------------------------------------------
+        */
 
-Route::middleware(['auth', 'role:instructor'])
-    ->prefix('admin')
-    ->name('admin.')
-    ->group(function () {
-
-        Route::resource('trick-catalog', App\Http\Controllers\Admin\TrickCatalogController::class)
+        Route::resource('trick-catalog', TrickCatalogController::class)
             ->except(['show']);
 
         Route::post(
             'trick-catalog/check-video',
-            [App\Http\Controllers\Admin\TrickCatalogController::class, 'checkVideo']
+            [TrickCatalogController::class, 'checkVideo']
         )->name('trick-catalog.check-video');
 
         Route::get(
             'trick-catalog/{trick_catalog}/show-data',
-            [App\Http\Controllers\Admin\TrickCatalogController::class, 'showData']
+            [TrickCatalogController::class, 'showData']
         )->name('trick-catalog.show-data');
 
         Route::get('trick-catalog/video-row', function () {
