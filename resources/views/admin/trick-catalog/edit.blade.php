@@ -21,7 +21,7 @@
                 <h2 class="font-heading text-4xl pb-2">Edit Trick</h2>
 
                 <button type="button"
-                    onclick="alert('clicked')"
+                    onclick="confirmDeleteTrick()"
                     class="bg-red-600 text-white inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150">
                     Delete Trick
                 </button>
