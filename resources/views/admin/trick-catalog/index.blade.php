@@ -167,7 +167,7 @@
 
             <a href="{{ route('admin.trick-catalog.print-all') }}"
    target="_blank"
-   class="bg-black text-white inline-flex items-center px-2 py-1 text-xs uppercase">
+   class="px-4 py-2 bg-club text-white text-xs uppercase">
     Print All
 </a>
 
