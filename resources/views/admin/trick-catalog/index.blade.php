@@ -12,7 +12,7 @@
     <h1 class="font-heading text-4xl pb-2">Trick Catalog</h1>
 
     <a href="{{ route('admin.trick-catalog.create') }}"
-        class="inline-flex items-center px-4 py-2 text-xs uppercase bg-club text-white">
+        class="inline-flex items-center px-4 py-2 text-xs uppercase bg-training text-white">
         + New Trick
     </a>
 </div>
@@ -144,7 +144,7 @@
 
             <button
                 type="submit"
-                class="px-4 py-2 bg-club text-white text-xs uppercase">
+                class="px-4 py-2 bg-training text-white text-xs uppercase">
 
                 Apply Filters
 
@@ -169,7 +169,7 @@
 
             <a href="{{ route('admin.trick-catalog.print-all') }}"
    target="_blank"
-   class="px-4 py-2 bg-club text-white text-xs uppercase">
+   class="px-4 py-2 bg-training text-white text-xs uppercase">
     Print All
 </a>
 
@@ -234,12 +234,12 @@
 
                 <td class="p-3 flex gap-2">
                     <a href="{{ route('admin.trick-catalog.edit', $trick) }}"
-                        class="inline-flex items-center px-3 py-1 text-xs bg-training text-white">
+                        class="inline-flex items-center px-3 py-1 text-xs bg-league text-white">
                         Edit
                     </a>
 
                     <button type="button"
-                        class="js-open-trick-modal inline-flex items-center px-3 py-1 text-xs bg-club text-white"
+                        class="js-open-trick-modal inline-flex items-center px-3 py-1 text-xs bg-training text-white"
                         data-id="{{ $trick->id }}">
                         View
                     </button>
@@ -271,14 +271,14 @@
                 <div class="flex">
                     <button
                         type="button"
-                        class="js-copy-email inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-club text-white hover:bg-club-hover  ms-4"
+                        class="js-copy-email inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-training text-white hover:bg-training-hover  ms-4"
                         data-type="simple">
                         <span class="copy-label">Copy Simple</span>
                     </button>
 
                     <button
                         type="button"
-                        class="js-copy-email inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-training text-white hover:bg-club-training  ms-4"
+                        class="js-copy-email inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-league text-white hover:bg-training-training  ms-4"
                         data-type="simple"
                         data-type="grouped">
                         <span class="copy-label">Copy Grouped</span>
@@ -286,7 +286,7 @@
 
                     <button
                         type="button"
-                        class="js-copy-email-preferred inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-league text-white hover:bg-club-league  ms-4"
+                        class="js-copy-email-preferred inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-league text-white hover:bg-training-league  ms-4"
                         data-type="simple">
                         <span class="copy-label">Copy Preferred</span>
                     </button>
