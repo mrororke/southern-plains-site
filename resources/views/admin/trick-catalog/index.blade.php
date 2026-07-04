@@ -165,6 +165,12 @@
 
             @endif
 
+            <a href="{{ route('admin.trick-catalog.print-all') }}"
+   target="_blank"
+   class="bg-black text-white inline-flex items-center px-2 py-1 text-xs uppercase">
+    Print All
+</a>
+
         </div>
 
     </div>

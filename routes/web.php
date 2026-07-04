@@ -202,8 +202,11 @@ Route::middleware(['auth'])
             return view('admin.trick-catalog.partials.video-row', [
                 'index' => request('index')
             ]);
-        });
 
+            Route::get(
+    'trick-catalog/print',
+    [TrickCatalogController::class, 'printAll']
+)->name('trick-catalog.print-all');
     });
 
 /*

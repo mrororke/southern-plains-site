@@ -388,4 +388,21 @@ class TrickCatalogController extends Controller
             'platform' => TrickVideoService::detectPlatform($url),
         ]);
     }
+    /*
+    |--------------------------------------------------------------------------
+    | PRINTABLE
+    |--------------------------------------------------------------------------
+    */
+
+    public function printAll()
+{
+    $tricks = \App\Models\Trick::with(['levels', 'videos'])
+        ->orderBy('name')
+        ->get();
+
+    return view('admin.trick-catalog.print-all', [
+        'tricks' => $tricks,
+    ]);
+}
+
 }
