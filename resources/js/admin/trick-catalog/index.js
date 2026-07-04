@@ -22,6 +22,7 @@ function renderLevelBadge(level) {
         tke_videos: 'bg-emerald-500 text-white',
         foundations: 'bg-green-500 text-white',
         cooperative_care: 'bg-lime-500 text-white',
+        movement_puzzle: 'bg-yellow-500 text-white',
         unknown: 'bg-gray-300 text-black'
     };
 
