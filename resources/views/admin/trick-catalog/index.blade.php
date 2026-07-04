@@ -6,6 +6,10 @@
 
 @section('content')
 
+<div class="bg-club text-white p-4">
+    TEST CLUB COLOR
+</div>
+
 <div class="flex justify-between items-center mb-6">
     <h1 class="font-heading text-4xl pb-2">Trick Catalog</h1>
 
