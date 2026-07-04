@@ -19,6 +19,7 @@ function renderLevelBadge(level) {
         enrichment: 'bg-sky-500 text-white',
         nose_work: 'bg-cyan-500 text-white',
         products: 'bg-teal-500 text-white',
+        tke_videos: 'bg-emerald-500 text-white',
         unknown: 'bg-gray-300 text-black'
     };
 
