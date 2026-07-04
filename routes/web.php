@@ -116,11 +116,6 @@ Route::middleware(['auth'])->group(function () {
 |--------------------------------------------------------------------------
 | ADMIN AREA (ADMIN + INSTRUCTOR ACCESS)
 |--------------------------------------------------------------------------
-|
-| NOTE:
-| Admin has full access.
-| Instructor has limited access controlled inside controllers/policies.
-|
 */
 
 Route::middleware(['auth'])
@@ -139,7 +134,7 @@ Route::middleware(['auth'])
 
         /*
         |--------------------------------------------------------------------------
-        | Content (ADMIN ONLY LOGIC SHOULD BE ENFORCED LATER IN POLICIES)
+        | Content
         |--------------------------------------------------------------------------
         */
         Route::resource('posts', PostController::class);
@@ -181,7 +176,7 @@ Route::middleware(['auth'])
 
         /*
         |--------------------------------------------------------------------------
-        | TRICK CATALOG (SHARED: ADMIN + INSTRUCTOR)
+        | TRICK CATALOG (ADMIN + INSTRUCTOR)
         |--------------------------------------------------------------------------
         */
 
@@ -189,9 +184,9 @@ Route::middleware(['auth'])
             ->except(['show']);
 
         Route::get(
-    'trick-catalog/print',
-    [TrickCatalogController::class, 'printAll']
-)->name('trick-catalog.print-all');
+            'trick-catalog/print',
+            [TrickCatalogController::class, 'printAll']
+        )->name('trick-catalog.print-all');
 
         Route::post(
             'trick-catalog/check-video',
@@ -207,7 +202,7 @@ Route::middleware(['auth'])
             return view('admin.trick-catalog.partials.video-row', [
                 'index' => request('index')
             ]);
-
+        });
 
     });
 
