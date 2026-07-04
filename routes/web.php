@@ -188,6 +188,11 @@ Route::middleware(['auth'])
         Route::resource('trick-catalog', TrickCatalogController::class)
             ->except(['show']);
 
+        Route::get(
+    'trick-catalog/print',
+    [TrickCatalogController::class, 'printAll']
+)->name('trick-catalog.print-all');
+
         Route::post(
             'trick-catalog/check-video',
             [TrickCatalogController::class, 'checkVideo']
@@ -203,10 +208,7 @@ Route::middleware(['auth'])
                 'index' => request('index')
             ]);
 
-            Route::get(
-    'trick-catalog/print',
-    [TrickCatalogController::class, 'printAll']
-)->name('trick-catalog.print-all');
+
     });
 
 /*
