@@ -9,11 +9,11 @@ ${t}`}function f(e,o){const t={};l(o).forEach(n=>{if(!n.url)return;const i=v(n.p
 `}),r.trim()}function h(e,o){const r=l(o).filter(n=>n.is_preferred===1).map(n=>n.url).filter(Boolean).join(`
 `);return`We've found these preferred resources to help you teach your dog ${e}:
 
-${r}`}function g(e,o){navigator.clipboard.writeText(e).then(()=>{const t=o.querySelector(".copy-label");if(t){const r=t.innerText;t.innerText="Copied ✓",o.classList.add("opacity-70"),setTimeout(()=>{t.innerText=r,o.classList.remove("opacity-70")},1500)}}).catch(()=>{const t=o.querySelector(".copy-label");t&&(t.innerText="Failed",setTimeout(()=>{t.innerText="Copy"},1500))})}function v(e){return e?e.charAt(0).toUpperCase()+e.slice(1):"Unknown"}window.TrickCatalogEmail={buildEmailSimple:m,buildEmailGrouped:f,buildEmailPreferredOnly:h,copyEmail:g};const y=(()=>{let e;function o(){const t=document.getElementById("catalog-filter-form");if(!t)return;const r=t.querySelector('input[name="search"]');t.querySelectorAll("select").forEach(n=>{n.addEventListener("change",()=>{t.submit()})}),r&&(r.addEventListener("input",()=>{clearTimeout(e),e=setTimeout(()=>{t.submit()},350)}),r.addEventListener("keydown",n=>{if(n.key==="Escape"){if(r.value.length===0)return;r.value="",clearTimeout(e),t.submit()}}))}return{init:o}})();document.addEventListener("DOMContentLoaded",()=>{y.init()});function w(e){e||(e="unknown");const o=e.replaceAll("_"," ").replace(/\b\w/g,n=>n.toUpperCase()),t={novice:"bg-rose-500 text-white",intermediate:"bg-pink-500 text-white",advanced:"bg-fuchsia-500 text-white",performer:"bg-purple-500 text-white",performer_elite:"bg-violet-500 text-white",impulse_control:"bg-indigo-500 text-white",enrichment:"bg-blue-500 text-white",unknown:"bg-gray-300 text-black"};return`
+${r}`}function g(e,o){navigator.clipboard.writeText(e).then(()=>{const t=o.querySelector(".copy-label");if(t){const r=t.innerText;t.innerText="Copied ✓",o.classList.add("opacity-70"),setTimeout(()=>{t.innerText=r,o.classList.remove("opacity-70")},1500)}}).catch(()=>{const t=o.querySelector(".copy-label");t&&(t.innerText="Failed",setTimeout(()=>{t.innerText="Copy"},1500))})}function v(e){return e?e.charAt(0).toUpperCase()+e.slice(1):"Unknown"}window.TrickCatalogEmail={buildEmailSimple:m,buildEmailGrouped:f,buildEmailPreferredOnly:h,copyEmail:g};const w=(()=>{let e;function o(){const t=document.getElementById("catalog-filter-form");if(!t)return;const r=t.querySelector('input[name="search"]');t.querySelectorAll("select").forEach(n=>{n.addEventListener("change",()=>{t.submit()})}),r&&(r.addEventListener("input",()=>{clearTimeout(e),e=setTimeout(()=>{t.submit()},350)}),r.addEventListener("keydown",n=>{if(n.key==="Escape"){if(r.value.length===0)return;r.value="",clearTimeout(e),t.submit()}}))}return{init:o}})();document.addEventListener("DOMContentLoaded",()=>{w.init()});function y(e){e||(e="unknown");const o=e.replaceAll("_"," ").replace(/\b\w/g,n=>n.toUpperCase()),t={novice:"bg-rose-500 text-white",intermediate:"bg-pink-500 text-white",advanced:"bg-fuchsia-500 text-white",performer:"bg-purple-500 text-white",performer_elite:"bg-violet-500 text-white",impulse_control:"bg-indigo-500 text-white",body_awareness:"bg-blue-500 text-white",enrichment:"bg-sky-500 text-white",nose_work:"bg-cyan-500 text-white",products:"bg-teal-500 text-white",unknown:"bg-gray-300 text-black"};return`
         <span class="inline-flex items-center px-2 py-1 text-xs font-semibold ${t[e]??t.unknown}">
             ${o}
         </span>
-    `}function k(e){const o=(e||"unknown").toLowerCase(),t={youtube:`
+    `}function b(e){const o=(e||"unknown").toLowerCase(),t={youtube:`
             <svg class="w-6 h-6 text-red-600" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M23.5 6.2a2.8 2.8 0 0 0-2-2C19.7 3.6 12 3.6 12 3.6s-7.7 0-9.5.6a2.8 2.8 0 0 0-2 2A29 29 0 0 0 0 12a29 29 0 0 0 .5 5.8 2.8 2.8 0 0 0 2 2c1.8.6 9.5.6 9.5.6s7.7 0 9.5-.6a2.8 2.8 0 0 0 2-2A29 29 0 0 0 24 12a29 29 0 0 0-.5-5.8zM9.6 15.5v-7L15.8 12l-6.2 3.5z"/>
             </svg>
@@ -34,7 +34,7 @@ ${r}`}function g(e,o){navigator.clipboard.writeText(e).then(()=>{const t=o.query
                 <circle cx="12" cy="12" r="10"/>
                 <path d="M12 8v4m0 4h.01"/>
             </svg>
-        `};return t[o]??t.unknown}function b(){return`
+        `};return t[o]??t.unknown}function k(){return`
         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round"
                   d="M13 7h6m0 0v6m0-6L10 16" />
@@ -58,7 +58,7 @@ ${r}`}function g(e,o){navigator.clipboard.writeText(e).then(()=>{const t=o.query
                 </div>
 
                 <div>
-                    ${(n.levels??[]).map(s=>w(s.name)).join("")}
+                    ${(n.levels??[]).map(s=>y(s.name)).join("")}
                 </div>
             </div>
 
@@ -70,7 +70,7 @@ ${r}`}function g(e,o){navigator.clipboard.writeText(e).then(()=>{const t=o.query
             ${s.is_preferred?"bg-gray-200 border-l-4 border-black":""}">
 
             <div class="w-1/5 text-xl">
-                ${k(s.platform)}
+                ${b(s.platform)}
             </div>
 
             <div class="w-2/5 truncate">
@@ -81,7 +81,7 @@ ${r}`}function g(e,o){navigator.clipboard.writeText(e).then(()=>{const t=o.query
 
                 <a href="${s.url}" target="_blank"
                    class="inline-flex items-center gap-1 px-2 py-1 text-xs bg-black text-white">
-                    ${b()}
+                    ${k()}
                     Open
                 </a>
 

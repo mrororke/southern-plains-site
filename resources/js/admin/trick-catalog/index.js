@@ -15,7 +15,10 @@ function renderLevelBadge(level) {
         performer: 'bg-purple-500 text-white',
         performer_elite: 'bg-violet-500 text-white',
         impulse_control: 'bg-indigo-500 text-white',
-        enrichment: 'bg-blue-500 text-white',
+        body_awareness: 'bg-blue-500 text-white',
+        enrichment: 'bg-sky-500 text-white',
+        nose_work: 'bg-cyan-500 text-white',
+        products: 'bg-teal-500 text-white',
         unknown: 'bg-gray-300 text-black'
     };
 
