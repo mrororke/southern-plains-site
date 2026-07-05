@@ -36,8 +36,9 @@
 
             <div>
                 <label class="text-sm font-semibold">Notes</label>
-                <textarea name="notes"
-                    class="mt-1 block w-full border-gray-300 shadow-sm focus:border-club focus:ring-club"></textarea>
+                <admin-editor
+                    name="notes"
+                    :value="old('notes')" />
             </div>
 
         </div>

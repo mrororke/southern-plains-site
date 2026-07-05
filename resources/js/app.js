@@ -1,4 +1,5 @@
 import './bootstrap'
+import '../css/app.css'
 
 import Alpine from 'alpinejs'
 import { createApp } from 'vue'
@@ -18,12 +19,17 @@ Alpine.start()
 |--------------------------------------------------------------------------
 | Vue
 |--------------------------------------------------------------------------
-| Only mount if the element exists (prevents errors on non-Vue pages)
+| Register reusable Vue components
 |--------------------------------------------------------------------------
 */
 
-const vueMount = document.getElementById('app')
+const vueMount = document.getElementById('admin-app')
 
 if (vueMount) {
-    createApp(AdminEditor).mount('#app')
+
+    const app = createApp({})
+
+    app.component('admin-editor', AdminEditor)
+
+    app.mount('#admin-app')
 }
