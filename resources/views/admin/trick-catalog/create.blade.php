@@ -4,7 +4,7 @@
 @section('title', 'Create Trick')
 
 @section('content')
-
+<div id="editor-root">
 <div class="max-w-4xl">
 
     <form method="POST" action="{{ route('admin.trick-catalog.store') }}">
@@ -72,6 +72,7 @@
 
     </form>
 
+</div>
 </div>
 
 @endsection
