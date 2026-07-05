@@ -1,11 +1,11 @@
 <template>
-    <div class="border rounded p-3 bg-white">
-        <div class="text-sm font-bold mb-2">Editor Loaded</div>
+    <div class="border rounded-lg bg-white p-3">
+        <label class="text-sm font-bold block mb-2">Notes</label>
 
         <textarea
-            :name="name"
             v-model="content"
-            class="w-full border p-2"
+            class="w-full border rounded p-2 min-h-[200px]"
+            :name="name"
         ></textarea>
     </div>
 </template>
@@ -14,9 +14,15 @@
 import { ref } from 'vue'
 
 const props = defineProps({
-    name: String,
-    value: String
+    name: {
+        type: String,
+        default: 'notes'
+    },
+    value: {
+        type: String,
+        default: ''
+    }
 })
 
-const content = ref(props.value || '')
+const content = ref(props.value)
 </script>

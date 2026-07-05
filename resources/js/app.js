@@ -23,12 +23,9 @@ Alpine.start()
 |--------------------------------------------------------------------------
 */
 
-const el = document.getElementById('editor-root')
+
+const el = document.getElementById('notes-editor')
 
 if (el) {
-    const app = createApp({})
-
-    app.component('admin-editor', AdminEditor)
-
-    app.mount(el)
+    createApp(AdminEditor).mount(el)
 }

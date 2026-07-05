@@ -4,7 +4,7 @@
 @section('title', 'Create Trick')
 
 @section('content')
-<div id="editor-root">
+
 <div class="max-w-4xl">
 
     <form method="POST" action="{{ route('admin.trick-catalog.store') }}">
@@ -34,6 +34,9 @@
                 </select>
             </div>
 
+            <div>
+                <label class="text-sm font-semibold">Notes</label>
+                <div id="notes-editor"></div>
             </div>
 
         </div>
@@ -64,7 +67,6 @@
 
     </form>
 
-</div>
 </div>
 
 @endsection
