@@ -35,7 +35,10 @@
             </div>
 
             <div>
-                <div id="notes-editor"></div>
+                <div
+    id="notes-editor"
+    data-value="{{ old('notes') }}"
+></div>
             </div>
 
         </div>

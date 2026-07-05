@@ -27,5 +27,7 @@ Alpine.start()
 const el = document.getElementById('notes-editor')
 
 if (el) {
-    createApp(AdminEditor).mount(el)
+    createApp(AdminEditor, {
+        value: el.dataset.value
+    }).mount(el)
 }
