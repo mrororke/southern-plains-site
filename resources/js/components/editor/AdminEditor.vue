@@ -1,10 +1,10 @@
 <template>
-    <div class="border rounded-lg bg-white p-3">
+    <div>
         <label class="text-sm font-bold block mb-2">Notes</label>
 
         <textarea
             v-model="content"
-            class="w-full border rounded p-2 min-h-[200px]"
+            class="w-full border p-2 min-h-[200px]"
             :name="name"
         ></textarea>
     </div>

@@ -35,7 +35,6 @@
             </div>
 
             <div>
-                <label class="text-sm font-semibold">Notes</label>
                 <div id="notes-editor"></div>
             </div>
 
