@@ -1,6 +1,6 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-cujRuToX.css",
+    "file": "assets/app-CSvnrOjg.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -17,18 +17,18 @@
     "isEntry": true
   },
   "resources/js/admin/trick-catalog/index.js": {
-    "file": "assets/index-CIIWfzaz.js",
+    "file": "assets/index-BqxhcL3C.js",
     "name": "index",
     "src": "resources/js/admin/trick-catalog/index.js",
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-dQvqk1vr.js",
+    "file": "assets/app-CXSSGUyq.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-cujRuToX.css"
+      "assets/app-CSvnrOjg.css"
     ]
   }
 }
