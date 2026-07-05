@@ -7,7 +7,10 @@
             <button
                 type="button"
                 @click="toggleHeading"
-                class="px-3 py-1 text-xs uppercase border border-gray-300 hover:bg-gray-100"
+                :class="[
+                    'px-3 py-1 text-xs uppercase border border-gray-300 hover:bg-gray-100',
+                    isActive('heading', { level: 2 }) ? 'bg-gray-200' : ''
+                ]"
             >
                 H2
             </button>
@@ -15,7 +18,10 @@
             <button
                 type="button"
                 @click="toggleBold"
-                class="px-3 py-1 text-xs uppercase border border-gray-300 hover:bg-gray-100"
+                :class="[
+                    'px-3 py-1 text-xs uppercase border border-gray-300 hover:bg-gray-100',
+                    isActive('bold') ? 'bg-gray-200' : ''
+                ]"
             >
                 Bold
             </button>
@@ -23,7 +29,10 @@
             <button
                 type="button"
                 @click="toggleItalic"
-                class="px-3 py-1 text-xs uppercase border border-gray-300 hover:bg-gray-100"
+                :class="[
+                    'px-3 py-1 text-xs uppercase border border-gray-300 hover:bg-gray-100',
+                    isActive('italic') ? 'bg-gray-200' : ''
+                ]"
             >
                 Italic
             </button>
@@ -31,7 +40,10 @@
             <button
                 type="button"
                 @click="toggleList"
-                class="px-3 py-1 text-xs uppercase border border-gray-300 hover:bg-gray-100"
+                :class="[
+                    'px-3 py-1 text-xs uppercase border border-gray-300 hover:bg-gray-100',
+                    isActive('bulletList') ? 'bg-gray-200' : ''
+                ]"
             >
                 List
             </button>
@@ -67,11 +79,18 @@ const editor = useEditor({
     },
 });
 
+const isActive = (type, options = {}) =>
+    editor.value?.isActive(type, options);
+
 const toggleBold = () => editor.value?.chain().focus().toggleBold().run();
+
 const toggleItalic = () => editor.value?.chain().focus().toggleItalic().run();
-const toggleH2 = () =>
+
+const toggleHeading = () =>
     editor.value?.chain().focus().toggleHeading({ level: 2 }).run();
-const toggleList = () => editor.value?.chain().focus().toggleBulletList().run();
+
+const toggleList = () =>
+    editor.value?.chain().focus().toggleBulletList().run();
 
 onBeforeUnmount(() => {
     editor?.destroy();
