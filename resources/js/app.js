@@ -23,12 +23,14 @@ Alpine.start()
 |--------------------------------------------------------------------------
 */
 
-const mountEl = document.getElementById('admin-app')
+const el = document.getElementById('admin-app')
 
-if (mountEl) {
-    const app = createApp({})
+if (el) {
+    const app = createApp({
+        components: {
+            AdminEditor
+        }
+    })
 
-    app.component('AdminEditor', AdminEditor)
-
-    app.mount(mountEl)
+    app.mount(el)
 }

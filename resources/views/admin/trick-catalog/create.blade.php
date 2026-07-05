@@ -34,13 +34,13 @@
                 </select>
             </div>
 
-            <div>
-                <label class="text-sm font-semibold">Notes</label>
-                <div>
-    <AdminEditor
-        name="notes"
-        :value="{{ json_encode(old('notes')) }}"
-    />
+            <div id="admin-app">
+    <div>
+        <admin-editor
+            name="notes"
+            :value="{{ json_encode(old('notes')) }}"
+        ></admin-editor>
+    </div>
 </div>
             </div>
 
