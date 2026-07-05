@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Trick Catalog - Print</title>
+    <title>Behavior Catalog - Print</title>
 
     <style>
         body {
@@ -55,7 +55,7 @@
         <button onclick="window.print()">Print All Tricks</button>
     </div>
 
-    <h1>Trick Catalog</h1>
+    <h1>Behavior Catalog</h1>
 
     @foreach($tricks as $trick)
         <div class="trick">

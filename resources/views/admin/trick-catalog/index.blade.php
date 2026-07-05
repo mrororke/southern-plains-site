@@ -2,18 +2,18 @@
 
 @extends('layouts.portal')
 
-@section('title', 'Trick Catalog')
+@section('title', 'Behavior Catalog')
 
 @section('content')
 
 
 
 <div class="flex justify-between items-center mb-6">
-    <h1 class="font-heading text-4xl pb-2">Trick Catalog</h1>
+    <h1 class="font-heading text-4xl pb-2">Behavior Catalog</h1>
 
     <a href="{{ route('admin.trick-catalog.create') }}"
         class="inline-flex items-center px-4 py-2 text-xs uppercase bg-training text-white">
-        + New Trick
+        + New Behavior
     </a>
 </div>
 
@@ -195,7 +195,7 @@
 
         <strong>{{ $tricks->total() }}</strong>
 
-        tricks
+        behaviors
 
     </p>
 

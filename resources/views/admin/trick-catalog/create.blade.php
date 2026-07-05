@@ -13,7 +13,7 @@
         {{-- TRICK INFO --}}
         <div class="bg-white p-4 rounded shadow space-y-4 mb-6">
 
-            <h2 class="font-heading text-4xl pb-2">Create Trick</h2>
+            <h2 class="font-heading text-4xl pb-2">Create Behavior</h2>
 
             <div>
                 <label class="text-sm font-semibold">Name</label>
@@ -23,7 +23,7 @@
             </div>
 
             <div>
-                <label class="text-sm font-semibold">Levels</label>
+                <label class="text-sm font-semibold">Categories</label>
 
                 <select name="levels[]" multiple class="mt-1 block w-full border-gray-300 shadow-sm focus:border-club focus:ring-club">
                     @foreach($levels as $level)
@@ -63,7 +63,7 @@
         {{-- SUBMIT --}}
         <div class="mt-6">
             <button class="inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-club hover:bg-club-hover text-white  ms-4">
-                Save Trick
+                Save Behavior
             </button>
         </div>
 

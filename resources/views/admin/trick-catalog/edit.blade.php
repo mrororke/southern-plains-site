@@ -18,12 +18,12 @@
         <div class="bg-white p-4 shadow space-y-4 mb-6">
 
             <div class="flex items-center justify-between mb-4">
-                <h2 class="font-heading text-4xl pb-2">Edit Trick</h2>
+                <h2 class="font-heading text-4xl pb-2">Edit Behavior</h2>
 
                 <button type="button"
                     onclick="confirmDeleteTrick()"
                     class="bg-red-600 text-white inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150">
-                    Delete Trick
+                    Delete Behavior
                 </button>
             </div>
 
@@ -36,7 +36,7 @@
             </div>
 
             <div>
-                <label class="text-sm font-semibold">Levels</label>
+                <label class="text-sm font-semibold">Categories</label>
 
                 <select name="levels[]" multiple class="w-full mt-1 block border-gray-300 shadow-sm focus:border-club focus:ring-club">
 
@@ -93,7 +93,7 @@
 
         <div class="mt-6">
             <button class="inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-club text-white hover:bg-club-hover  ms-4">
-                Save Changes
+                Update Behavior
             </button>
         </div>
 
