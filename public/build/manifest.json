@@ -23,12 +23,13 @@
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-CDUwV2DM.js",
+    "file": "assets/app-BbNGnMK7.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-BeC0tHXQ.css"
+      "assets/app-CuKpanjK.css",
+      "assets/app-DV9zsnLz.css"
     ]
   }
 }

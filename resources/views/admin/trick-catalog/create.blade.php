@@ -36,9 +36,12 @@
 
             <div>
                 <label class="text-sm font-semibold">Notes</label>
-                <admin-editor
-                    name="notes"
-                    :value="old('notes')" />
+                <div>
+    <AdminEditor
+        name="notes"
+        :value="{{ json_encode(old('notes')) }}"
+    />
+</div>
             </div>
 
         </div>
