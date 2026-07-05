@@ -31,6 +31,7 @@ function renderLevelBadge(level) {
         movement_puzzle: 'bg-amber-500 text-white',
         reactivity: 'bg-orange-500 text-white',
         targeting: 'bg-red-500 text-white',
+        diy: 'bg-taupe-500 text-white',
         unknown: 'bg-gray-300 text-black'
     };
 
