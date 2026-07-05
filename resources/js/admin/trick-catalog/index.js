@@ -21,6 +21,7 @@ function renderLevelBadge(level) {
         fit_dog_two: 'bg-olive-400 text-white',
         fit_dog_three: 'bg-olive-600 text-white',
         foundations: 'bg-green-500 text-white',
+        handler_mechanics: 'bg-rose-300 text-white',
         impulse_control: 'bg-indigo-500 text-white',
         intermediate: 'bg-pink-500 text-white',
         movement_puzzle: 'bg-amber-500 text-white',
