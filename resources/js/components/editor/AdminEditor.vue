@@ -3,11 +3,38 @@
         <label class="text-sm font-bold block mb-2">Notes</label>
 
         <!-- Toolbar -->
-        <div class="flex gap-2 mb-2">
-            <button type="button" @click="toggleH2">H2</button>
-            <button type="button" @click="toggleBold">Bold</button>
-            <button type="button" @click="toggleItalic">Italic</button>
-            <button type="button" @click="toggleList">List</button>
+        <div class="flex gap-2 mb-3 border-b border-gray-200 pb-2">
+            <button
+                type="button"
+                @click="toggleHeading"
+                class="px-3 py-1 text-xs uppercase border border-gray-300 hover:bg-gray-100"
+            >
+                H2
+            </button>
+
+            <button
+                type="button"
+                @click="toggleBold"
+                class="px-3 py-1 text-xs uppercase border border-gray-300 hover:bg-gray-100"
+            >
+                Bold
+            </button>
+
+            <button
+                type="button"
+                @click="toggleItalic"
+                class="px-3 py-1 text-xs uppercase border border-gray-300 hover:bg-gray-100"
+            >
+                Italic
+            </button>
+
+            <button
+                type="button"
+                @click="toggleList"
+                class="px-3 py-1 text-xs uppercase border border-gray-300 hover:bg-gray-100"
+            >
+                List
+            </button>
         </div>
 
         <!-- Editor -->
@@ -21,31 +48,32 @@
 </template>
 
 <script setup>
-import { ref, onBeforeUnmount } from 'vue'
-import { useEditor, EditorContent } from '@tiptap/vue-3'
-import StarterKit from '@tiptap/starter-kit'
+import { ref, onBeforeUnmount } from "vue";
+import { useEditor, EditorContent } from "@tiptap/vue-3";
+import StarterKit from "@tiptap/starter-kit";
 
 const props = defineProps({
     name: String,
-    value: String
-})
+    value: String,
+});
 
-const html = ref(props.value || '')
+const html = ref(props.value || "");
 
 const editor = useEditor({
-    content: props.value || '',
+    content: props.value || "",
     extensions: [StarterKit],
     onUpdate: ({ editor }) => {
-        html.value = editor.getHTML()
-    }
-})
+        html.value = editor.getHTML();
+    },
+});
 
-const toggleBold = () => editor.value?.chain().focus().toggleBold().run()
-const toggleItalic = () => editor.value?.chain().focus().toggleItalic().run()
-const toggleH2 = () => editor.value?.chain().focus().toggleHeading({ level: 2 }).run()
-const toggleList = () => editor.value?.chain().focus().toggleBulletList().run()
+const toggleBold = () => editor.value?.chain().focus().toggleBold().run();
+const toggleItalic = () => editor.value?.chain().focus().toggleItalic().run();
+const toggleH2 = () =>
+    editor.value?.chain().focus().toggleHeading({ level: 2 }).run();
+const toggleList = () => editor.value?.chain().focus().toggleBulletList().run();
 
 onBeforeUnmount(() => {
-    editor?.destroy()
-})
+    editor?.destroy();
+});
 </script>
