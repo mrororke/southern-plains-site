@@ -51,7 +51,6 @@
             </div>
 
             <div>
-                <label class="text-sm font-semibold">Notes</label>
                 <div
     id="notes-editor"
     data-value="{{ old('notes', $trick->notes) }}"
