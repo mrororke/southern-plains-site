@@ -23,12 +23,12 @@ Alpine.start()
 |--------------------------------------------------------------------------
 */
 
-const vueMount = document.getElementById('admin-app')
+const mountEl = document.getElementById('admin-app')
 
-if (el) {
+if (mountEl) {
     const app = createApp({})
 
     app.component('AdminEditor', AdminEditor)
 
-    app.mount('#admin-app')
+    app.mount(mountEl)
 }
