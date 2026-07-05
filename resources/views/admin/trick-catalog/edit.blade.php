@@ -52,8 +52,9 @@
 
             <div>
                 <label class="text-sm font-semibold">Notes</label>
-                <textarea name="notes"
-                    class="mt-1 block w-full border-gray-300 shadow-sm focus:border-club focus:ring-club">{{ old('notes', $trick->notes) }}</textarea>
+                <admin-editor
+    value="{{ old('notes', $trick->notes) }}"
+></admin-editor>
             </div>
 
         </div>
