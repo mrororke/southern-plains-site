@@ -52,9 +52,9 @@
 
             <div>
                 <label class="text-sm font-semibold">Notes</label>
-                <admin-editor
+                <notes-editor
     value="{{ old('notes', $trick->notes) }}"
-></admin-editor>
+></notes-editor>
             </div>
 
         </div>
