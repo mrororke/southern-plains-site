@@ -30,7 +30,7 @@
             <x-portal.header />
 
             {{-- PAGE CONTENT --}}
-            <div id="admin-app" class="p-6">
+            <div class="p-6">
                 @yield('content')
             </div>
 
