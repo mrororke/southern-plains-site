@@ -75,8 +75,18 @@ const editor = useEditor({
     content: props.value || "",
     extensions: [StarterKit],
     onUpdate: ({ editor }) => {
-        html.value = editor.getHTML();
-    },
+    const content = editor.getHTML()
+
+    // Normalize empty content
+    const cleaned =
+        content === '<p></p>' ||
+        content === '<p><br></p>' ||
+        content === '<p><br class="ProseMirror-trailingBreak"></p>'
+            ? ''
+            : content
+
+    html.value = cleaned
+},
 });
 
 const isActive = (type, options = {}) =>
