@@ -16,7 +16,7 @@
         </div>
 
         <!-- Hidden input for Laravel -->
-        <input type="hidden" :name="name" :value="html" />
+        <input type="hidden" name="notes" :value="html" />
     </div>
 </template>
 
