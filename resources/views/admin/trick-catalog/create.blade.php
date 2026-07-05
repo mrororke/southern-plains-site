@@ -37,9 +37,9 @@
             <div id="admin-app">
     <div>
         <admin-editor
-            name="notes"
-            :value="{{ json_encode(old('notes')) }}"
-        ></admin-editor>
+    name="notes"
+    value="{{ old('notes') }}"
+></admin-editor>
     </div>
 </div>
             </div>
