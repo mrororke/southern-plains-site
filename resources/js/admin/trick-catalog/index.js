@@ -36,6 +36,7 @@ function renderLevelBadge(level) {
         shaping: 'bg-mauve-500 text-white',
         targeting: 'bg-red-500 text-white',
         tke_videos: 'bg-emerald-500 text-white',
+        treat_recipes: 'bg-emerald-400 text-white',
         unknown: 'bg-gray-300 text-black'
     };
 
