@@ -37,17 +37,32 @@
         {{-- =========================
             TRICKS (ADMIN + INSTRUCTOR)
         ========================= --}}
-        <x-portal.sidebar-section title="Behaviors"
+        <x-portal.sidebar-section title="Teaching Library"
             :active="request()->routeIs('admin.trick-catalog.*')">
 
             <x-portal.sidebar-link
-                label="Catalog"
+                label="Behaviors"
+                :route="route('admin.trick-catalog.index')"
+                nested />
+
+            <x-portal.sidebar-link
+                label="Resources"
                 :route="route('admin.trick-catalog.index')"
                 nested />
 
             <x-portal.sidebar-link
                 label="Add Behavior"
                 :route="route('admin.trick-catalog.create')"
+                nested />
+
+            <x-portal.sidebar-link
+                label="Categories"
+                :route="route('admin.trick-catalog.index')"
+                nested />
+
+            <x-portal.sidebar-link
+                label="Tags"
+                :route="route('admin.trick-catalog.index')"
                 nested />
 
         </x-portal.sidebar-section>
