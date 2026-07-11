@@ -62,7 +62,7 @@
 
                 <div class="text-right text-xs">
 
-                    <a href="{{ route('admin.teaching-library.audiences.edit', $category) }}"
+                    <a href="{{ route('admin.teaching-library.audiences.edit', $audience) }}"
                         class="inline-flex items-center px-3 py-1 text-xs bg-league text-white">
                         Edit
                     </a>
