@@ -9,7 +9,7 @@
         <input
             name="name"
             value="{{ old('name', $category->name ?? '') }}"
-            class="mt-1 block w-full border-gray-300 shadow-sm focus:border-trainingfocus:ring-club"
+            class="mt-1 block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training"
             required>
 
     </div>
@@ -23,7 +23,7 @@
         <textarea
             name="description"
             rows="4"
-            class="mt-1 block w-full border-gray-300 shadow-sm focus:border-trainingfocus:ring-club">{{ old('description', $category->description ?? '') }}</textarea>
+            class="mt-1 block w-full border-gray-300 shadow-sm focus:border-trainingfocus:ring-training">{{ old('description', $category->description ?? '') }}</textarea>
 
     </div>
 
@@ -32,7 +32,7 @@
 <div class="mt-6">
 
     <button
-        class="inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-traininghover:bg-club-hover text-white">
+        class="inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-training hover:bg-training-hover text-white">
 
         Save Category
 
