@@ -19,7 +19,7 @@ class ResourceTagController extends Controller
     {
         $categories = ResourceTag::orderBy('name')->get();
 
-        return view('admin.teaching-library.categories.index', compact('categories'));
+        return view('admin.teaching-library.tags.index', compact('categories'));
     }
 
     /**
@@ -27,7 +27,7 @@ class ResourceTagController extends Controller
      */
     public function create()
     {
-        return view('admin.teaching-library.categories.create');
+        return view('admin.teaching-library.tags.create');
     }
 
     /**
@@ -37,7 +37,7 @@ class ResourceTagController extends Controller
     {
         ResourceTag::create($request->validated());
 
-        return redirect()->route('admin.teaching-library.categories.index')->with('success', 'Tag created successfully.');
+        return redirect()->route('admin.teaching-library.tags.index')->with('success', 'Tag created successfully.');
     }
 
     /**
@@ -53,7 +53,7 @@ class ResourceTagController extends Controller
      */
     public function edit(ResourceTag $Tag)
     {
-        return view('admin.teaching-library.categories.edit', compact('Tag'));
+        return view('admin.teaching-library.tags.edit', compact('tag'));
     }
 
     /**
@@ -63,7 +63,7 @@ class ResourceTagController extends Controller
     {
         $Tag->update($request->validated());
 
-        return redirect ()->route('admin.teaching-library.categories.index')->with('success', 'Tag updated successfully.');
+        return redirect ()->route('admin.teaching-library.tags.index')->with('success', 'Tag updated successfully.');
     }
 
     /**
@@ -77,6 +77,6 @@ class ResourceTagController extends Controller
 
         $Tag->delete();
 
-        return redirect()->route('admin.teaching-library.categories.index')->with('success', 'Tag deleted successfully.');
+        return redirect()->route('admin.teaching-library.tags.index')->with('success', 'Tag deleted successfully.');
     }
 }
