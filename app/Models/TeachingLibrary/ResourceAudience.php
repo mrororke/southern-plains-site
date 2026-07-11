@@ -15,4 +15,15 @@ class ResourceAudience extends Model
         'slug',
         'description',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::saving(function ($audience) {
+
+            $audience->slug = Str::slug($audience->name);
+
+        });
+    }
 }
