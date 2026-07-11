@@ -212,15 +212,15 @@ Route::middleware(['auth'])
 |--------------------------------------------------------------------------
 */
 
-    Route::resource(
-    'teaching-library/categories',
-    ResourceCategoryController::class
-)->names('teaching-library.categories');
+    Route::prefix('teaching-library')
+    ->name('teaching-library.')
+    ->group(function () {
 
-Route::resource(
-    'teaching-library/tags',
-    ResourceTagController::class
-)->names('teaching-library.tags');
+        Route::resource('categories', ResourceCategoryController::class);
+
+        Route::resource('tags', ResourceTagController::class);
+
+    });
 
 });   // <-- closes the admin route group
 
