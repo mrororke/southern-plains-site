@@ -9,7 +9,7 @@
     <div class="flex justify-between items-center mb-6">
 
         <div>
-            <h1 class="text-2xl font-bold">
+            <h1 class="font-heading text-4xl pb-2">
                 Teaching Library Categories
             </h1>
 
@@ -63,7 +63,7 @@
                 <div class="text-right text-xs">
 
                     <a href="{{ route('admin.teaching-library.categories.edit', $category) }}"
-                        class="border px-3 py-1">
+                        class="class="inline-flex items-center px-3 py-1 text-xs bg-league text-white"">
                         Edit
                     </a>
 

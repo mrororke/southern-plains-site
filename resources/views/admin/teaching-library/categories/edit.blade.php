@@ -8,7 +8,7 @@
 
     <div class="flex items-center justify-between mb-6">
 
-    <h1 class="text-2xl font-bold">
+    <h1 class="font-heading text-4xl pb-2">
         Edit Category
     </h1>
 
