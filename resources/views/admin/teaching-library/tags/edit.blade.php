@@ -57,7 +57,7 @@
 <form
     id="delete-tag-form"
     method="POST"
-    action="{{ route('admin.teaching-library.tags.destroy', $category) }}"
+    action="{{ route('admin.teaching-library.tags.destroy', $tag) }}"
     class="hidden">
 
     @csrf
