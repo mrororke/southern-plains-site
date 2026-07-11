@@ -18,7 +18,7 @@
             </p>
         </div>
 
-        <a href="{{ route('teaching-library.categories.create') }}"
+        <a href="{{ route('admin.teaching-library.categories.create') }}"
             class="inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-club hover:bg-club-hover text-white">
             Add Category
         </a>
@@ -62,7 +62,7 @@
 
                 <div class="text-right text-xs">
 
-                    <a href="{{ route('teaching-library.categories.edit', $category) }}"
+                    <a href="{{ route('admin.teaching-library.categories.edit', $category) }}"
                         class="border px-3 py-1">
                         Edit
                     </a>
