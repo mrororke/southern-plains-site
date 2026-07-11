@@ -43,7 +43,7 @@
 
     <form
         method="POST"
-        action="{{ route('admin.teaching-library.audiences.update', $category) }}">
+        action="{{ route('admin.teaching-library.audiences.update', $audience) }}">
 
         @csrf
         @method('PUT')
