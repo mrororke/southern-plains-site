@@ -222,6 +222,8 @@ Route::resource(
     ResourceTagController::class
 )->names('teaching-library.tags');
 
+});   // <-- closes the admin route group
+
 /*
 |--------------------------------------------------------------------------
 | AUTH ROUTES
