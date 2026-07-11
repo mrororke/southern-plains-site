@@ -6,11 +6,22 @@
 
 <div class="p-6">
 
-    <div class="mb-6">
-        <h1 class="text-2xl font-bold">
-            Edit Category
-        </h1>
-    </div>
+    <div class="flex items-center justify-between mb-6">
+
+    <h1 class="text-2xl font-bold">
+        Edit Category
+    </h1>
+
+    <button
+        type="button"
+        onclick="confirmDeleteCategory()"
+        class="bg-red-600 text-white inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150">
+
+        Delete Category
+
+    </button>
+
+</div>
 
     @if($errors->any())
 
@@ -82,4 +93,35 @@
 
 </div>
 
+<form
+    id="delete-category-form"
+    method="POST"
+    action="{{ route('admin.teaching-library.categories.destroy', $category) }}"
+    class="hidden">
+
+    @csrf
+    @method('DELETE')
+
+</form>
+
 @endsection
+
+@push('scripts')
+
+<script>
+
+function confirmDeleteCategory() {
+
+    if (!confirm('Are you sure you want to delete this category?')) {
+        return;
+    }
+
+    document.getElementById('delete-category-form').submit();
+
+}
+
+window.confirmDeleteCategory = confirmDeleteCategory;
+
+</script>
+
+@endpush
