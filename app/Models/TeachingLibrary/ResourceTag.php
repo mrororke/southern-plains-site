@@ -13,4 +13,23 @@ class ResourceTag extends Model
         'name',
         'slug',
     ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::creating(function ($tag) {
+
+            $tag->slug = Str::slug($tag->name);
+
+        });
+
+        static::updating(function ($tag) {
+
+            if ($tag->isDirty('name')) {
+                $tag->slug = Str::slug($tag->name);
+            }
+
+        });
+    }
 }
