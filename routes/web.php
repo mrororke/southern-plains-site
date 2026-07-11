@@ -12,6 +12,7 @@ use App\Http\Controllers\TrickEvaluationController;
 use App\Http\Controllers\TrickController;
 use App\Http\Controllers\Admin\TrickCatalogController;
 use App\Http\Controllers\Admin\TeachingLibrary\ResourceCategoryController;
+use App\Http\Controllers\Admin\TeachingLibrary\ResourceTagController;
 
 use App\Http\Controllers\Admin\TrickEvaluationController as AdminTrickEvaluationController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
@@ -211,10 +212,15 @@ Route::middleware(['auth'])
 |--------------------------------------------------------------------------
 */
 
-Route::resource('teaching-library/categories', ResourceCategoryController::class)
-    ->names('teaching-library.categories');
+    Route::resource(
+    'teaching-library/categories',
+    ResourceCategoryController::class
+)->names('teaching-library.categories');
 
-    });
+Route::resource(
+    'teaching-library/tags',
+    ResourceTagController::class
+)->names('teaching-library.tags');
 
 /*
 |--------------------------------------------------------------------------
