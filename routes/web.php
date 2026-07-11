@@ -11,6 +11,7 @@ use App\Http\Controllers\HistoryFormController;
 use App\Http\Controllers\TrickEvaluationController;
 use App\Http\Controllers\TrickController;
 use App\Http\Controllers\Admin\TrickCatalogController;
+use App\Http\Controllers\Admin\TeachingLibrary\ResourceCategoryController;
 
 use App\Http\Controllers\Admin\TrickEvaluationController as AdminTrickEvaluationController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
@@ -203,6 +204,15 @@ Route::middleware(['auth'])
                 'index' => request('index')
             ]);
         });
+
+        /*
+|--------------------------------------------------------------------------
+| TEACHING LIBRARY
+|--------------------------------------------------------------------------
+*/
+
+Route::resource('teaching-library/categories', ResourceCategoryController::class)
+    ->names('teaching-library.categories');
 
     });
 
