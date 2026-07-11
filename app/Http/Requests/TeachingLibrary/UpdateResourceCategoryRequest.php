@@ -21,7 +21,7 @@ class UpdateResourceCategoryRequest extends FormRequest
                 'required',
                 'string',
                 'max:255',
-                Rule::unique('resource_categories', 'name') -> ignore($this->category),
+                Rule::unique('resource_categories', 'name')->ignore($this->category),
             ],
             'description' => [
                 'nullable',

@@ -19,7 +19,7 @@ class ResourceTagController extends Controller
     {
         $tags = ResourceTag::orderBy('name')->get();
 
-        return view('admin.teaching-library.tags.index', compact('categories'));
+        return view('admin.teaching-library.tags.index', compact('tags'));
     }
 
     /**
@@ -51,7 +51,7 @@ class ResourceTagController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(ResourceTag $Tag)
+    public function edit(ResourceTag $tag)
     {
         return view('admin.teaching-library.tags.edit', compact('tag'));
     }
@@ -59,9 +59,9 @@ class ResourceTagController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateResourceTagRequest $request, ResourceTag $Tag)
+    public function update(UpdateResourceTagRequest $request, ResourceTag $tag)
     {
-        $Tag->update($request->validated());
+        $tag->update($request->validated());
 
         return redirect ()->route('admin.teaching-library.tags.index')->with('success', 'Tag updated successfully.');
     }
@@ -69,13 +69,13 @@ class ResourceTagController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(ResourceTag $Tag)
+    public function destroy(ResourceTag $tag)
     {
-        // TODO:  Prevent deleting categories currently in use
+        // TODO:  Prevent deleting tags currently in use
         // Resource relationship will be added once Resources exist.
         // For now, allow deletion
 
-        $Tag->delete();
+        $tag->delete();
 
         return redirect()->route('admin.teaching-library.tags.index')->with('success', 'Tag deleted successfully.');
     }
