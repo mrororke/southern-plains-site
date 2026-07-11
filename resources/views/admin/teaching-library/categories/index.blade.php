@@ -19,7 +19,7 @@
         </div>
 
         <a href="{{ route('admin.teaching-library.categories.create') }}"
-            class="inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-club hover:bg-club-hover text-white">
+            class="inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-training hover:bg-training-hover text-white">
             Add Category
         </a>
 
