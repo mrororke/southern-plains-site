@@ -63,7 +63,7 @@
                 <div class="text-right text-xs">
 
                     <a href="{{ route('admin.teaching-library.categories.edit', $category) }}"
-                        class="class="inline-flex items-center px-3 py-1 text-xs bg-league text-white"">
+                        class="inline-flex items-center px-3 py-1 text-xs bg-league text-white">
                         Edit
                     </a>
 
