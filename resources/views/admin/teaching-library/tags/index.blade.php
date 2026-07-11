@@ -49,14 +49,6 @@
                         {{ $tag->name }}
                     </h2>
 
-                    @if($tag->description)
-
-                    <p class="text-sm text-gray-600 mt-1">
-                        {{ $tag->description }}
-                    </p>
-
-                    @endif
-
                 </div>
 
 

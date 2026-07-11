@@ -17,7 +17,7 @@ class ResourceTagController extends Controller
      */
     public function index()
     {
-        $categories = ResourceTag::orderBy('name')->get();
+        $tags = ResourceTag::orderBy('name')->get();
 
         return view('admin.teaching-library.tags.index', compact('categories'));
     }
