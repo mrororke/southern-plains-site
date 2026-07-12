@@ -1,3 +1,21 @@
+@if ($errors->any())
+
+<div class="border p-4 mb-4 text-sm">
+
+    <ul class="list-disc pl-5">
+
+        @foreach ($errors->all() as $error)
+
+            <li>{{ $error }}</li>
+
+        @endforeach
+
+    </ul>
+
+</div>
+
+@endif
+
 <div>
 
     <label class="text-sm font-semibold">
