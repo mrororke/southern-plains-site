@@ -6,7 +6,7 @@
 
 @section('content')
 
-<div class="max-w-4xl">
+<div class="max-w-6xl">
 
     <form method="POST"
         action="{{ route('admin.teaching-library.resources.store') }}">

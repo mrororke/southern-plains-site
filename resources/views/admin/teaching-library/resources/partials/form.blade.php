@@ -1,24 +1,24 @@
 @if ($errors->any())
 
-    <div class="border p-4 mb-6 text-sm">
+<div class="border p-4 mb-6 text-sm">
 
-        <div class="font-semibold mb-2">
-            Please correct the following errors:
-        </div>
-
-        <ul class="list-disc pl-5">
-
-            @foreach ($errors->all() as $error)
-
-                <li>
-                    {{ $error }}
-                </li>
-
-            @endforeach
-
-        </ul>
-
+    <div class="font-semibold mb-2">
+        Please correct the following errors:
     </div>
+
+    <ul class="list-disc pl-5">
+
+        @foreach ($errors->all() as $error)
+
+        <li>
+            {{ $error }}
+        </li>
+
+        @endforeach
+
+    </ul>
+
+</div>
 
 @endif
 
@@ -26,42 +26,38 @@
 @push('scripts')
 
 <script>
+    function searchableCheckboxList(items, selected = []) {
+        return {
 
-function searchableCheckboxList(items, selected = [])
-{
-    return {
+            search: '',
 
-        search: '',
+            items: items,
 
-        items: items,
-
-        selected: selected.map(String),
+            selected: selected.map(String),
 
 
-        filtered()
-        {
-            if (!this.search) {
+            filtered() {
+                if (!this.search) {
 
-                return this.items;
+                    return this.items;
 
-            }
+                }
 
 
-            return this.items.filter(item =>
+                return this.items.filter(item =>
 
-                item.name
+                    item.name
                     .toLowerCase()
                     .includes(
                         this.search.toLowerCase()
                     )
 
-            );
+                );
+
+            }
 
         }
-
     }
-}
-
 </script>
 
 @endpush
@@ -100,9 +96,9 @@ function searchableCheckboxList(items, selected = [])
 
                 @error('internal_title')
 
-                    <p class="text-sm text-red-600 mt-1">
-                        {{ $message }}
-                    </p>
+                <p class="text-sm text-red-600 mt-1">
+                    {{ $message }}
+                </p>
 
                 @enderror
 
@@ -129,9 +125,9 @@ function searchableCheckboxList(items, selected = [])
 
                 @error('email_subject')
 
-                    <p class="text-sm text-red-600 mt-1">
-                        {{ $message }}
-                    </p>
+                <p class="text-sm text-red-600 mt-1">
+                    {{ $message }}
+                </p>
 
                 @enderror
 
@@ -146,15 +142,14 @@ function searchableCheckboxList(items, selected = [])
 
                 <div
                     id="body-editor"
-                    data-value="{{ old('body', $resource->body) }}"
-                ></div>
+                    data-value="{{ old('body', $resource->body) }}"></div>
 
 
                 @error('body')
 
-                    <p class="text-sm text-red-600 mt-1">
-                        {{ $message }}
-                    </p>
+                <p class="text-sm text-red-600 mt-1">
+                    {{ $message }}
+                </p>
 
                 @enderror
 
@@ -211,18 +206,17 @@ function searchableCheckboxList(items, selected = [])
 
                     @foreach($categories as $category)
 
-                        <option
-                            value="{{ $category->id }}"
-                            @selected(
-                                old(
-                                    'resource_category_id',
-                                    $resource->resource_category_id
-                                ) == $category->id
-                            )>
+                    <option
+                        value="{{ $category->id }}"
+                        @selected(
+                        old( 'resource_category_id' ,
+                        $resource->resource_category_id
+                        ) == $category->id
+                        )>
 
-                            {{ $category->name }}
+                        {{ $category->name }}
 
-                        </option>
+                    </option>
 
                     @endforeach
 
@@ -324,8 +318,7 @@ function searchableCheckboxList(items, selected = [])
                         $resource->audiences->pluck('id')->toArray()
                     )
                 )
-            )"
-        >
+            )">
 
 
             <h2 class="font-semibold mb-4">
@@ -339,7 +332,10 @@ function searchableCheckboxList(items, selected = [])
                 placeholder="Search audiences..."
                 class="block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training mb-3">
 
-
+            <div class="text-xs text-gray-500 mb-2">
+                <span x-text="filtered().length"></span>
+                audiences found
+            </div>
             <div class="border p-3 max-h-48 overflow-y-auto space-y-2">
 
 
@@ -395,8 +391,7 @@ function searchableCheckboxList(items, selected = [])
                         $resource->tricks->pluck('id')->toArray()
                     )
                 )
-            )"
-        >
+            )">
 
 
             <h2 class="font-semibold mb-4">
@@ -409,7 +404,10 @@ function searchableCheckboxList(items, selected = [])
                 x-model="search"
                 placeholder="Search behaviors..."
                 class="block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training mb-3">
-
+            <div class="text-xs text-gray-500 mb-2">
+                <span x-text="filtered().length"></span>
+                behaviors found
+            </div>
 
             <div class="border p-3 max-h-[400] overflow-y-auto space-y-2">
 
@@ -467,8 +465,7 @@ function searchableCheckboxList(items, selected = [])
                         $resource->tags->pluck('id')->toArray()
                     )
                 )
-            )"
-        >
+            )">
 
 
             <h2 class="font-semibold mb-4">
@@ -482,6 +479,10 @@ function searchableCheckboxList(items, selected = [])
                 placeholder="Search tags..."
                 class="block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training mb-3">
 
+            <div class="text-xs text-gray-500 mb-2">
+                <span x-text="filtered().length"></span>
+                tags found
+            </div>
 
             <div class="border p-3 max-h-48 overflow-y-auto space-y-2">
 

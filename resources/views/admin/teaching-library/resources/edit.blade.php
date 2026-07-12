@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="p-6">
+<div class="max-w-6xl">
 
     <div class="flex items-center justify-between mb-6">
 
