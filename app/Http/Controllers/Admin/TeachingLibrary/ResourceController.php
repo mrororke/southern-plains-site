@@ -88,8 +88,12 @@ class ResourceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Resource $resource)
     {
-        //
+        $resource->delete();
+
+        return redirect()
+            ->route('admin.teaching-library.resources.index')
+            ->with('success', 'Resource deleted successfully.');
     }
 }
