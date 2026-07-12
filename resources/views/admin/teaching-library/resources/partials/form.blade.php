@@ -303,71 +303,16 @@
 
         {{-- AUDIENCES --}}
 
-        <div
-            class="bg-white shadow p-4"
-            x-data="searchableCheckboxList(
-                @js(
-                    $audiences->map(fn($audience) => [
-                        'id' => $audience->id,
-                        'name' => $audience->name
-                    ])
-                ),
-                @js(
-                    old(
-                        'audiences',
-                        $resource->audiences->pluck('id')->toArray()
-                    )
-                )
-            )">
-
-
-            <h2 class="font-semibold mb-4">
-                Audiences
-            </h2>
-
-
-            <input
-                type="text"
-                x-model="search"
-                placeholder="Search audiences..."
-                class="block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training mb-3">
-
-            <div class="text-xs text-gray-500 mb-2">
-                <span x-text="filtered().length"></span>
-                audiences found
-            </div>
-            <div class="border p-3 max-h-48 overflow-y-auto space-y-2">
-
-
-                <template x-for="item in filtered()" :key="item.id">
-
-
-                    <label class="flex items-center">
-
-
-                        <input
-                            type="checkbox"
-                            name="audiences[]"
-                            :value="item.id"
-                            x-model="selected"
-                            class="border-gray-300">
-
-
-                        <span class="ml-2 text-sm"
-                            x-text="item.name">
-                        </span>
-
-
-                    </label>
-
-
-                </template>
-
-
-            </div>
-
-
-        </div>
+        <x-portal.searchable-checkbox-list
+    title="Audiences"
+    search-placeholder="Search audiences..."
+    name="audiences"
+    :items="$audiences"
+    :selected="old(
+        'audiences',
+        $resource->audiences->pluck('id')->toArray()
+    )"
+/>
 
 
 
@@ -376,71 +321,16 @@
 
         {{-- BEHAVIORS --}}
 
-        <div
-            class="bg-white shadow p-4"
-            x-data="searchableCheckboxList(
-                @js(
-                    $tricks->map(fn($trick) => [
-                        'id' => $trick->id,
-                        'name' => $trick->name
-                    ])
-                ),
-                @js(
-                    old(
-                        'tricks',
-                        $resource->tricks->pluck('id')->toArray()
-                    )
-                )
-            )">
-
-
-            <h2 class="font-semibold mb-4">
-                Related Behaviors
-            </h2>
-
-
-            <input
-                type="text"
-                x-model="search"
-                placeholder="Search behaviors..."
-                class="block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training mb-3">
-            <div class="text-xs text-gray-500 mb-2">
-                <span x-text="filtered().length"></span>
-                behaviors found
-            </div>
-
-            <div class="border p-3 max-h-80 overflow-y-auto space-y-2">
-
-
-                <template x-for="item in filtered()" :key="item.id">
-
-
-                    <label class="flex items-center">
-
-
-                        <input
-                            type="checkbox"
-                            name="tricks[]"
-                            :value="item.id"
-                            x-model="selected"
-                            class="border-gray-300">
-
-
-                        <span class="ml-2 text-sm"
-                            x-text="item.name">
-                        </span>
-
-
-                    </label>
-
-
-                </template>
-
-
-            </div>
-
-
-        </div>
+        <x-portal.searchable-checkbox-list
+    title="Related Behaviors"
+    search-placeholder="Search behaviors..."
+    name="tricks"
+    :items="$tricks"
+    :selected="old(
+        'tricks',
+        $resource->tricks->pluck('id')->toArray()
+    )"
+/>
 
 
 
@@ -563,72 +453,16 @@
 
         {{-- TAGS --}}
 
-        <div
-            class="bg-white shadow p-4"
-            x-data="searchableCheckboxList(
-                @js(
-                    $tags->map(fn($tag) => [
-                        'id' => $tag->id,
-                        'name' => $tag->name
-                    ])
-                ),
-                @js(
-                    old(
-                        'tags',
-                        $resource->tags->pluck('id')->toArray()
-                    )
-                )
-            )">
-
-
-            <h2 class="font-semibold mb-4">
-                Tags
-            </h2>
-
-
-            <input
-                type="text"
-                x-model="search"
-                placeholder="Search tags..."
-                class="block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training mb-3">
-
-            <div class="text-xs text-gray-500 mb-2">
-                <span x-text="filtered().length"></span>
-                tags found
-            </div>
-
-            <div class="border p-3 max-h-48 overflow-y-auto space-y-2">
-
-
-                <template x-for="item in filtered()" :key="item.id">
-
-
-                    <label class="flex items-center">
-
-
-                        <input
-                            type="checkbox"
-                            name="tags[]"
-                            :value="item.id"
-                            x-model="selected"
-                            class="border-gray-300">
-
-
-                        <span class="ml-2 text-sm"
-                            x-text="item.name">
-                        </span>
-
-
-                    </label>
-
-
-                </template>
-
-
-            </div>
-
-
-        </div>
+        <x-portal.searchable-checkbox-list
+    title="Tags"
+    search-placeholder="Search tags..."
+    name="tags"
+    :items="$tags"
+    :selected="old(
+        'tags',
+        $resource->tags->pluck('id')->toArray()
+    )"
+/>
 
 
 
