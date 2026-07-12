@@ -163,7 +163,9 @@ class ResourceController extends Controller
         $categories = ResourceCategory::orderBy('name')->get();
         $tags = ResourceTag::orderBy('name')->get();
         $audiences = ResourceAudience::orderBy('name')->get();
-        $tricks = Trick::orderBy('name')->get();
+        $tricks = Trick::with('videos')
+    ->orderBy('name')
+    ->get();
 
         return view(
             'admin.teaching-library.resources.create',
@@ -229,7 +231,9 @@ class ResourceController extends Controller
         $categories = ResourceCategory::orderBy('name')->get();
         $tags = ResourceTag::orderBy('name')->get();
         $audiences = ResourceAudience::orderBy('name')->get();
-        $tricks = Trick::orderBy('name')->get();
+        $tricks = Trick::with('videos')
+    ->orderBy('name')
+    ->get();
 
         $resource->load([
             'tags',

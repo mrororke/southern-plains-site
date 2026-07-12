@@ -1,5 +1,6 @@
 import './bootstrap'
 import '../css/app.css'
+import searchableCheckboxList from './alpine/searchableCheckboxList'
 
 import Alpine from 'alpinejs'
 
@@ -14,6 +15,12 @@ import ResourceEditor from './components/editor/ResourceEditor.vue'
 */
 
 window.Alpine = Alpine
+
+Alpine.data(
+    'searchableCheckboxList',
+    searchableCheckboxList
+)
+ 
 Alpine.start()
 
 /*
