@@ -120,4 +120,32 @@ class Resource extends Model
         +
         $this->audiences()->count();
     }
+
+    public function relatedResources()
+{
+    return Resource::where('id', '!=', $this->id)
+        ->where(function ($query) {
+
+            $query->where('resource_category_id', $this->resource_category_id)
+
+                ->orWhereHas('tags', function ($q) {
+
+                    $q->whereIn(
+                        'resource_tags.id',
+                        $this->tags->pluck('id')
+                    );
+
+                })
+
+                ->orWhereHas('tricks', function ($q) {
+
+                    $q->whereIn(
+                        'tricks.id',
+                        $this->tricks->pluck('id')
+                    );
+
+                });
+
+        });
+}
 }

@@ -165,15 +165,15 @@
 
                         @forelse($resource->tags as $tag)
 
-                            <div>
-                                {{ $tag->name }}
-                            </div>
+                        <div>
+                            {{ $tag->name }}
+                        </div>
 
                         @empty
 
-                            <div class="text-gray-400">
-                                None
-                            </div>
+                        <div class="text-gray-400">
+                            None
+                        </div>
 
                         @endforelse
 
@@ -190,15 +190,15 @@
 
                         @forelse($resource->audiences as $audience)
 
-                            <div>
-                                {{ $audience->name }}
-                            </div>
+                        <div>
+                            {{ $audience->name }}
+                        </div>
 
                         @empty
 
-                            <div class="text-gray-400">
-                                None
-                            </div>
+                        <div class="text-gray-400">
+                            None
+                        </div>
 
                         @endforelse
 
@@ -215,15 +215,15 @@
 
                         @forelse($resource->tricks as $trick)
 
-                            <div>
-                                {{ $trick->name }}
-                            </div>
+                        <div>
+                            {{ $trick->name }}
+                        </div>
 
                         @empty
 
-                            <div class="text-gray-400">
-                                None
-                            </div>
+                        <div class="text-gray-400">
+                            None
+                        </div>
 
                         @endforelse
 
@@ -272,9 +272,24 @@
                 </h2>
 
 
-                <div class="text-gray-400">
-                    Coming soon.
+                @forelse($relatedResources as $related)
+
+                <div>
+                    <a href="{{ route('admin.teaching-library.resources.show', $related) }}"
+                        class="hover:underline">
+
+                        {{ $related->internal_title }}
+
+                    </a>
                 </div>
+
+                @empty
+
+                <div class="text-gray-400">
+                    None
+                </div>
+
+                @endforelse
 
 
             </div>
@@ -290,8 +305,59 @@
                 </h2>
 
 
-                <div class="text-gray-400">
-                    Coming soon.
+                <div class="space-y-3">
+
+
+                    <div>
+
+                        <div class="text-xs uppercase text-gray-500 mb-2">
+                            Behaviors
+                        </div>
+
+
+                        @forelse($resource->tricks as $trick)
+
+                        <div>
+                            {{ $trick->name }}
+                        </div>
+
+                        @empty
+
+                        <div class="text-gray-400">
+                            None
+                        </div>
+
+                        @endforelse
+
+                    </div>
+
+
+                    <div>
+
+                        <div class="text-xs uppercase text-gray-500">
+                            Lessons
+                        </div>
+
+                        <div class="text-gray-400">
+                            Coming soon.
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        <div class="text-xs uppercase text-gray-500">
+                            Emails
+                        </div>
+
+                        <div class="text-gray-400">
+                            Coming soon.
+                        </div>
+
+                    </div>
+
+
                 </div>
 
 

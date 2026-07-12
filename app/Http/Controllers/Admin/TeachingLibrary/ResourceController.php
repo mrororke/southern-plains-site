@@ -207,9 +207,17 @@ class ResourceController extends Controller
             'updatedBy',
         ]);
 
+        $relatedResources = $resource
+            ->relatedResources()
+            ->limit(5)
+            ->get();
+
         return view(
             'admin.teaching-library.resources.show',
-            compact('resource')
+            compact(
+                'resource',
+                'relatedResources'
+                )
         );
     }
 
