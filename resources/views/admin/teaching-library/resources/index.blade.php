@@ -37,7 +37,7 @@
 
         <table class="w-full text-sm">
 
-            <thead class="border-b bg-gray-50 uppercase text-xs">
+            <thead class="border-b bg-black text-white uppercase text-xs">
 
                 <tr>
 
