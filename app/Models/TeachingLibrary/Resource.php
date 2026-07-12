@@ -89,6 +89,14 @@ class Resource extends Model
         return $this->belongsTo(ResourceCategory::class, 'resource_category_id');
     }
 
+    public function tags(){
+        return $this->belongsToMany(ResourceTag::class);
+    }
+
+    public function audiences(){
+        return $this->belongstoMany(ResourceAudience::class);
+    }
+
     public function author()
     {
         return $this->belongsTo(User::class, 'author_id');

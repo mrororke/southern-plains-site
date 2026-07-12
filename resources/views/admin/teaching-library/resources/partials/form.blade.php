@@ -129,6 +129,104 @@
 
     </div>
 
+    {{-- TAGS --}}
+
+<div>
+
+    <label class="text-sm font-semibold">
+        Tags
+    </label>
+
+    <select
+        name="tags[]"
+        multiple
+        class="mt-1 block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training">
+
+        @foreach($tags as $tag)
+
+            <option
+                value="{{ $tag->id }}"
+                @selected(
+                    in_array(
+                        $tag->id,
+                        old(
+                            'tags',
+                            $resource->tags->pluck('id')->toArray()
+                        )
+                    )
+                )>
+
+                {{ $tag->name }}
+
+            </option>
+
+        @endforeach
+
+    </select>
+
+    <p class="text-xs text-gray-500 mt-1">
+        Hold CTRL/CMD to select multiple tags.
+    </p>
+
+    @error('tags')
+
+        <p class="text-sm text-red-600 mt-1">
+            {{ $message }}
+        </p>
+
+    @enderror
+
+</div>
+
+{{-- AUDIENCES --}}
+
+<div>
+
+    <label class="text-sm font-semibold">
+        Audiences
+    </label>
+
+    <select
+        name="audiences[]"
+        multiple
+        class="mt-1 block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training">
+
+        @foreach($audiences as $audience)
+
+            <option
+                value="{{ $audience->id }}"
+                @selected(
+                    in_array(
+                        $audience->id,
+                        old(
+                            'audiences',
+                            $resource->audiences->pluck('id')->toArray()
+                        )
+                    )
+                )>
+
+                {{ $audience->name }}
+
+            </option>
+
+        @endforeach
+
+    </select>
+
+    <p class="text-xs text-gray-500 mt-1">
+        Hold CTRL/CMD to select multiple audiences.
+    </p>
+
+    @error('audiences')
+
+        <p class="text-sm text-red-600 mt-1">
+            {{ $message }}
+        </p>
+
+    @enderror
+
+</div>
+
 
 
 

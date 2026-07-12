@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin\TeachingLibrary;
 
 use App\Models\TeachingLibrary\Resource;
 use App\Models\TeachingLibrary\ResourceCategory;
+use App\Models\TeachingLibrary\ResourceTag;
+use App\Models\TeachingLibrary\ResourceAudience;
 
 use App\Http\Requests\TeachingLibrary\StoreResourceRequest;
 use App\Http\Requests\TeachingLibrary\UpdateResourceRequest;
@@ -33,10 +35,17 @@ class ResourceController extends Controller
     public function create()
     {
         $categories = ResourceCategory::orderBy('name')->get();
+        $tags = ResourceTag::orderBy('name')->get();
+        $audiences = ResourceAudience::orderBy('name')->get();
 
         return view (
             'admin.teaching-library.resources.create',
-            compact('categories')
+            compact(
+                'categories',
+                'tags',
+                'audiences',
+
+            )
         );
     }
 
@@ -45,7 +54,10 @@ class ResourceController extends Controller
      */
     public function store(StoreResourceRequest $request)
     {
-        Resource::create($request->validated());
+        $resource = Resource::create($request->validated());
+
+        $resource->tags()->sync($request->tags ?? []);
+        $resource->audiences()->sync($request->audiences ?? []);
 
         return redirect()
         ->route('admin.teaching-library.resources.index')
@@ -67,10 +79,24 @@ class ResourceController extends Controller
     {
         $categories = ResourceCategory::orderBy('name')->get();
 
-        return view(
-            'admin.teaching-library.resources.edit',
-            compact('resource', 'categories')
-        );
+    $tags = ResourceTag::orderBy('name')->get();
+
+    $audiences = ResourceAudience::orderBy('name')->get();
+
+    $resource->load([
+        'tags',
+        'audiences'
+    ]);
+
+    return view(
+        'admin.teaching-library.resources.edit',
+        compact(
+            'resource',
+            'categories',
+            'tags',
+            'audiences'
+        )
+    );
     }
 
     /**
@@ -80,7 +106,11 @@ class ResourceController extends Controller
     {
         $resource->update($request->validated());
 
-        return redirect()
+    $resource->tags()->sync($request->tags ?? []);
+
+    $resource->audiences()->sync($request->audiences ?? []);
+
+    return redirect()
         ->route('admin.teaching-library.resources.index')
         ->with('success', 'Resource updated successfully.');
     }

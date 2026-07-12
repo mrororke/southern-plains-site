@@ -2,6 +2,8 @@
 
 namespace App\Models\TeachingLibrary;
 
+use App\Models\TeachingLibrary\Resource;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -32,5 +34,9 @@ class ResourceTag extends Model
             }
 
         });
+    }
+
+    public function resources(){
+        return $this->belongsToMany(Resource::class);
     }
 }
