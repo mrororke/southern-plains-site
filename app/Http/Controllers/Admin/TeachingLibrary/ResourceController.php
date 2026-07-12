@@ -204,7 +204,8 @@ class ResourceController extends Controller
             'category',
             'tags',
             'audiences',
-            'tricks',
+            'tricks.levels',
+            'tricks.videos',
             'author',
             'updatedBy',
         ]);

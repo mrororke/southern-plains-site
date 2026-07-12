@@ -77,6 +77,105 @@
 
             </div>
 
+            {{-- RELATED BEHAVIORS --}}
+
+<div class="bg-white shadow p-6 mt-6">
+
+    <div class="flex justify-between items-center mb-4">
+
+        <h2 class="font-semibold">
+            Related Behaviors
+        </h2>
+
+        <span class="text-xs text-gray-500">
+            {{ $resource->tricks->count() }} behaviors
+        </span>
+
+    </div>
+
+
+    <div class="space-y-4">
+
+        @forelse($resource->tricks as $trick)
+
+        <div class="border bg-gray-50 p-4">
+
+            <div class="flex justify-between items-start">
+
+                <div>
+
+                    <h3 class="font-semibold">
+                        {{ $trick->name }}
+                    </h3>
+
+
+                    <div class="text-sm text-gray-600 mt-1">
+
+                        @foreach($trick->levels as $level)
+
+                            {{ ucwords(str_replace('_', ' ', $level->name)) }}
+
+                            @if(!$loop->last)
+                                ,
+                            @endif
+
+                        @endforeach
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="inline-flex items-center px-2 py-1 text-xs uppercase bg-training text-white">
+
+                    Copy For Email
+
+                </button>
+
+            </div>
+
+
+            @if($trick->notes)
+
+            <details class="mt-4">
+
+                <summary class="cursor-pointer text-xs uppercase text-training">
+
+                    Show Notes
+
+                </summary>
+
+
+                <div class="mt-3 text-sm border-t pt-3">
+
+                    {!! $trick->notes !!}
+
+                </div>
+
+
+            </details>
+
+            @endif
+
+
+        </div>
+
+
+        @empty
+
+        <div class="text-gray-400">
+            No behaviors linked.
+        </div>
+
+        @endforelse
+
+
+    </div>
+
+</div>
+
 
         </div>
 
