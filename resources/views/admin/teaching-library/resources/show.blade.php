@@ -127,12 +127,16 @@
 
 
                 <button
-                    type="button"
-                    class="inline-flex items-center px-2 py-1 text-xs uppercase bg-training text-white">
+    type="button"
+    class="js-copy-resource-email inline-flex items-center px-2 py-1 text-xs uppercase bg-training text-white"
+    data-name="{{ $trick->name }}"
+    data-videos='@json($trick->videos)'>
 
-                    Copy For Email
+    <span class="copy-label">
+        Copy For Email
+    </span>
 
-                </button>
+</button>
 
             </div>
 
@@ -471,5 +475,41 @@
 
 
 </div>
+
+@push('scripts')
+
+<script>
+
+document.addEventListener('click', function(e) {
+
+    const button = e.target.closest('.js-copy-resource-email');
+
+    if (!button) {
+        return;
+    }
+
+
+    const name = button.dataset.name;
+
+    const videos = JSON.parse(button.dataset.videos);
+
+
+    const text =
+        ResourceEmailFormatter.buildBehaviorEmail(
+            name,
+            videos
+        );
+
+
+    ResourceEmailFormatter.copyResourceEmail(
+        text,
+        button
+    );
+
+});
+
+</script>
+
+@endpush
 
 @endsection
