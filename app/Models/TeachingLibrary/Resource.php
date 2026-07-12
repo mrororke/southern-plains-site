@@ -3,6 +3,7 @@
 namespace App\Models\TeachingLibrary;
 
 use App\Models\User;
+use App\Models\Trick;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -95,6 +96,10 @@ class Resource extends Model
 
     public function audiences(){
         return $this->belongstoMany(ResourceAudience::class);
+    }
+
+    public function tricks(){
+        return $this->belongsToMany(Trick::class);
     }
 
     public function author()

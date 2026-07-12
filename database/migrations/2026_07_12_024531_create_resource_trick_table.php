@@ -11,10 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('resource_resource_audience', function (Blueprint $table) {
+        Schema::create('resource_trick', function (Blueprint $table) {
             $table->id();
 
             $table->foreignId('resource_id')
+            ->constrained()
+            ->cascadeOnDelete();
+
+            $table->foreignId('trick_id')
             ->constrained()
             ->cascadeOnDelete();
 
@@ -22,7 +26,7 @@ return new class extends Migration
 
             $table->unique([
                 'resource_id',
-                'resource_audience_id'
+                'trick_id'
             ]);
         });
     }
@@ -32,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('resource_resource_audience');
+        Schema::dropIfExists('resource_trick');
     }
 };
