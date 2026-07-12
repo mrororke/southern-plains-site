@@ -38,7 +38,9 @@ export default function behaviorPreview() {
                 ),
             )
                 .then((data) => {
-                    this.behaviors = data;
+                    this.behaviors = data.sort((a, b) =>
+                        a.name.localeCompare(b.name),
+                    );
                 })
                 .catch((error) => {
                     console.error("Unable to load behavior preview", error);

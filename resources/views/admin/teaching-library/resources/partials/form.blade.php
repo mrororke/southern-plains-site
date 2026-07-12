@@ -452,6 +452,10 @@
 
             <h2 class="font-semibold mb-4">
                 Behavior Preview
+                <span
+        class="text-sm font-normal text-gray-500"
+        x-text="'(' + behaviors.length + ')'">
+    </span>
             </h2>
 
 
@@ -508,7 +512,7 @@
                                 class="inline-flex items-center px-2 py-1 text-xs uppercase bg-training text-white">
 
                                 <span class="copy-label">
-                                    Copy Grouped Email
+                                    Copy For Email
                                 </span>
 
                             </button>
