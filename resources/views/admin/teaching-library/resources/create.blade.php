@@ -17,7 +17,12 @@
                 Create Resource
             </h1>
 
-            @include('admin.teaching-library.resources.partials.form')
+            @include('admin.teaching-library.resources.partials.form',
+            [
+                'resource' => new \App\Models\TeachingLibrary\Resource(),
+                'categories' => $categories
+            ]
+            )
 
         </div>
 

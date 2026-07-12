@@ -63,17 +63,26 @@ class ResourceController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Resource $resource)
     {
-        //
+        $categories = ResourceCategory::orderBy('name')->get();
+
+        return view(
+            'admin.teaching-library.resources.edit',
+            compact('resource', 'categories')
+        );
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(UpdateResourceRequest $request, Resource $resource)
     {
-        //
+        $resource->update($request->validated());
+
+        return redirect()
+        ->route('admin.teaching-library.resources.index')
+        ->with('success', 'Resource updated successfully.');
     }
 
     /**
