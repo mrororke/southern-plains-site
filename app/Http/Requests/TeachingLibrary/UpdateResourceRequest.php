@@ -11,18 +11,44 @@ class UpdateResourceRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
     public function rules(): array
     {
         return [
-            //
+            'internal_title' => [
+                'required',
+                'string',
+                'max:255',
+            ],
+
+            'email_subject' => [
+                'required',
+                'string',
+                'max:255',
+                'different:internal_title',
+            ],
+
+            'resource_category_id' => [
+                'required',
+                'exists:resource_categories,id',
+            ],
+
+            'status' => [
+                'required',
+                'in:draft,published,archived',
+            ],
+
+            'is_template' => [
+                'nullable',
+                'boolean',
+            ],
+
+            'body' => [
+                'nullable',
+                'string',
+            ],
         ];
     }
 }

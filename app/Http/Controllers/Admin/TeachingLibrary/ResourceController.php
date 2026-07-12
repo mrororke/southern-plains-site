@@ -9,7 +9,6 @@ use App\Http\Requests\TeachingLibrary\StoreResourceRequest;
 use App\Http\Requests\TeachingLibrary\UpdateResourceRequest;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 
 class ResourceController extends Controller
 {
@@ -33,15 +32,24 @@ class ResourceController extends Controller
      */
     public function create()
     {
-        //
+        $categories = ResourceCategory::orderBy('name')->get();
+
+        return view (
+            'admin.teaching-library.resources.create',
+            compact('categories')
+        );
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreResourceRequest $request)
     {
-        //
+        Resource::create($request->validated());
+
+        return redirect()
+        ->route('admin.teaching-library.resources.index')
+        ->with('success', 'Resource created successfully.');
     }
 
     /**
