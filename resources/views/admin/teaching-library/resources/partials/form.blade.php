@@ -486,23 +486,32 @@
                             <div>
 
                                 <h3
-                                    class="font-semibold text-lg"
+                                    class="font-semibold"
                                     x-text="behavior.name">
                                 </h3>
-
 
                                 <div
                                     class="text-sm text-gray-600 mt-1"
                                     x-text="
-        'Categories: ' +
-        behavior.levels
-            .map(level => formatLevel(level.name))
-            .join(', ')
-    ">
+                'Level: ' +
+                behavior.levels
+                    .map(level => formatLevel(level.name))
+                    .join(', ')
+            ">
                                 </div>
 
                             </div>
 
+                            <button
+                                type="button"
+                                @click="copyGroupedEmail(behavior, $event.currentTarget)"
+                                class="inline-flex items-center px-2 py-1 text-xs uppercase bg-training text-white">
+
+                                <span class="copy-label">
+                                    Copy Grouped Email
+                                </span>
+
+                            </button>
 
                         </div>
 
