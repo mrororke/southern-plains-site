@@ -444,7 +444,32 @@
 
 
 
+        {{-- BEHAVIOR PREVIEW --}}
 
+<div
+    class="bg-white shadow p-4"
+    x-data="behaviorPreview()">
+
+    <h2 class="font-semibold mb-4">
+        Behavior Preview
+    </h2>
+
+
+    <div x-show="loading" class="text-sm text-gray-500">
+        Loading behaviors...
+    </div>
+
+
+    <div
+        x-show="!loading && behaviors.length === 0"
+        class="text-sm text-gray-500">
+
+        Select behaviors above to preview them here.
+
+    </div>
+
+
+</div>
 
 
 

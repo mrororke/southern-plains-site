@@ -1,6 +1,7 @@
 import './bootstrap'
 import '../css/app.css'
 import searchableCheckboxList from './alpine/searchableCheckboxList'
+import behaviorPreview from './alpine/behaviorPreview'
 
 import Alpine from 'alpinejs'
 
@@ -19,6 +20,11 @@ window.Alpine = Alpine
 Alpine.data(
     'searchableCheckboxList',
     searchableCheckboxList
+)
+
+Alpine.data(
+    'behaviorPreview',
+    behaviorPreview
 )
  
 Alpine.start()
