@@ -72,9 +72,21 @@ class ResourceController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Resource $resource)
     {
-        //
+        $resource->load([
+            'category',
+            'tags',
+            'audiences',
+            'tricks',
+            'author',
+            'updatedBy',
+        ]);
+
+        return view (
+            'admin.teaching-library.resources.show',
+            compact('resource')
+        );
     }
 
     /**
