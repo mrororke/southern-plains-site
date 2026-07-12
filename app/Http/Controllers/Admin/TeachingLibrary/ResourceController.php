@@ -206,7 +206,7 @@ class ResourceController extends Controller
             'audiences',
             'tricks.levels',
             'tricks.videos',
-            'tricks.videos.preferredVideo',
+            'tricks.preferredVideo',
             'author',
             'updatedBy',
         ]);
