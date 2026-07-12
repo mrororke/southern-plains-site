@@ -409,7 +409,7 @@
                 behaviors found
             </div>
 
-            <div class="border p-3 max-h-[400] overflow-y-auto space-y-2">
+            <div class="border p-3 max-h-[200] overflow-y-auto space-y-2">
 
 
                 <template x-for="item in filtered()" :key="item.id">
