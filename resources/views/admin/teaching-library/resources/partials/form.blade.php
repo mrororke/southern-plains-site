@@ -68,14 +68,14 @@ function searchableCheckboxList(items, selected = [])
 
 
 
-<div class="grid grid-cols-12 gap-6">
+<div class="grid grid-cols-12 gap-6 items-start">
 
 
     {{-- =========================================================
         MAIN CONTENT
     ========================================================== --}}
 
-    <div class="col-span-8">
+    <div class="col-span-7">
 
 
         <div class="bg-white shadow p-6 space-y-6">
@@ -174,7 +174,7 @@ function searchableCheckboxList(items, selected = [])
         SIDEBAR
     ========================================================== --}}
 
-    <div class="col-span-4 space-y-6">
+    <div class="col-span-5 space-y-6">
 
 
 
@@ -411,7 +411,7 @@ function searchableCheckboxList(items, selected = [])
                 class="block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training mb-3">
 
 
-            <div class="border p-3 max-h-64 overflow-y-auto space-y-2">
+            <div class="border p-3 max-h-[400] overflow-y-auto space-y-2">
 
 
                 <template x-for="item in filtered()" :key="item.id">
