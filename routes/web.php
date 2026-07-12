@@ -222,7 +222,7 @@ Route::middleware(['auth'])
         Route::resource('categories', ResourceCategoryController::class);
         Route::resource('tags', ResourceTagController::class);
         Route::resource('audiences', ResourceAudienceController::class);
-        Route::resource('resource', ResourceController::class);
+        Route::resource('resources', ResourceController::class);
 
     });
 
