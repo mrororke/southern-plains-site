@@ -470,29 +470,84 @@
 
 
     <div
-        x-show="!loading && behaviors.length > 0"
-        class="space-y-3">
+    x-show="!loading && behaviors.length > 0"
+    class="space-y-4">
 
 
-        <template x-for="behavior in behaviors" :key="behavior.id">
+    <template x-for="behavior in behaviors" :key="behavior.id">
 
-            <div class="border p-3">
+        <div class="border bg-gray-50 p-4">
 
-                <div class="font-semibold"
-                    x-text="behavior.name">
+
+            {{-- HEADER --}}
+
+            <div class="flex justify-between items-start">
+
+                <div>
+
+                    <h3
+                        class="font-semibold text-lg"
+                        x-text="behavior.name">
+                    </h3>
+
+
+                    <div class="text-sm text-gray-600 mt-1">
+
+                        <template
+                            x-for="level in behavior.levels"
+                            :key="level.id">
+
+                            <span
+                                class="mr-2"
+                                x-text="level.name">
+                            </span>
+
+                        </template>
+
+                    </div>
+
                 </div>
 
-
-                <div class="text-xs text-gray-500 mt-1">
-                    Loaded successfully
-                </div>
 
             </div>
 
-        </template>
+
+            {{-- NOTES --}}
+
+            <div
+                x-data="{ open: false }"
+                class="mt-4">
 
 
-    </div>
+                <button
+                    type="button"
+                    @click="open = !open"
+                    class="text-xs uppercase text-training">
+
+                    <span x-text="open ? 'Hide Notes' : 'Show Notes'"></span>
+
+                </button>
+
+
+                <div
+                    x-show="open"
+                    x-transition
+                    class="mt-2 text-sm border-t pt-3"
+                    x-html="behavior.notes || 'No notes available.'">
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </template>
+
+
+</div>
 
 </div>
 
