@@ -214,31 +214,24 @@
 
 
 
-    {{-- BODY --}}
+   {{-- BODY --}}
 
-    <div>
+<div>
 
-        <label class="text-sm font-semibold">
-            Body
-        </label>
+    <div
+        id="body-editor"
+        data-value="{{ old('body', $resource->body) }}"
+    ></div>
 
+    @error('body')
 
-        <textarea
-            name="body"
-            rows="12"
-            class="mt-1 block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training">{{ old('body', $resource->body) }}</textarea>
+        <p class="text-sm text-red-600 mt-1">
+            {{ $message }}
+        </p>
 
+    @enderror
 
-        @error('body')
-
-            <p class="text-sm text-red-600 mt-1">
-                {{ $message }}
-            </p>
-
-        @enderror
-
-
-    </div>
+</div>
 
 
     {{-- SUBMIT BUTTON --}}
