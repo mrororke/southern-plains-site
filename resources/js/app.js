@@ -11,6 +11,7 @@ import ResourceEditor from './components/editor/ResourceEditor.vue'
 
 import {
     buildBehaviorEmail,
+    buildResourceEmail,
     copyResourceEmail
 } from './utils/resourceEmailFormatter'
 
@@ -62,5 +63,6 @@ if (resourceEditor) {
 // RESOURCE EMAIL FORMATTER
 window.ResourceEmailFormatter = {
     buildBehaviorEmail,
+    buildResourceEmail,
     copyResourceEmail
 }

@@ -23,13 +23,30 @@
         </div>
 
 
-        <a
-            href="{{ route('admin.teaching-library.resources.edit', $resource) }}"
-            class="inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-league text-white">
+        <div class="flex gap-2">
 
-            Edit Resource
+    <button
+        type="button"
+        class="js-copy-resource-email inline-flex items-center px-2 py-1 text-xs uppercase bg-training text-white"
+        data-title="{{ $resource->internal_title }}"
+        data-behaviors='@json($resource->tricks)'>
 
-        </a>
+        <span class="copy-label">
+            Copy Resource Email
+        </span>
+
+    </button>
+
+
+    <a
+        href="{{ route('admin.teaching-library.resources.edit', $resource) }}"
+        class="inline-flex items-center px-2 py-1 text-xs uppercase bg-league text-white">
+
+        Edit Resource
+
+    </a>
+
+</div>
 
     </div>
 

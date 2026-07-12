@@ -97,7 +97,73 @@ function copyResourceEmail(text, button) {
 }
 
 
+
+function buildResourceEmail(resourceTitle, behaviors) {
+
+    let output =
+        `We've found these resources to help you with ${resourceTitle}:\n\n`;
+
+
+    behaviors.forEach(behavior => {
+
+        output += `${behavior.name}\n`;
+
+        output += `${'-'.repeat(behavior.name.length)}\n`;
+
+
+        const grouped = {};
+
+
+        normalizeVideos(behavior.videos)
+            .forEach(video => {
+
+                if (!video.url) {
+                    return;
+                }
+
+
+                const platform = capitalize(video.platform);
+
+
+                if (!grouped[platform]) {
+
+                    grouped[platform] = [];
+
+                }
+
+
+                grouped[platform].push(video.url);
+
+            });
+
+
+
+        Object.keys(grouped).forEach(platform => {
+
+            output += `${platform}:\n`;
+
+            grouped[platform].forEach(url => {
+
+                output += `${url}\n`;
+
+            });
+
+            output += `\n`;
+
+        });
+
+
+        output += `\n`;
+
+    });
+
+
+    return output.trim();
+
+}
+
 export {
     buildBehaviorEmail,
+    buildResourceEmail,
     copyResourceEmail
 };
