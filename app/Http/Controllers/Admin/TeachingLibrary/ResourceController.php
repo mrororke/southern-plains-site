@@ -9,6 +9,7 @@ use App\Models\TeachingLibrary\ResourceCategory;
 use App\Models\TeachingLibrary\ResourceTag;
 use App\Models\TeachingLibrary\ResourceAudience;
 
+use Illuminate\Http\Request;
 use App\Http\Requests\TeachingLibrary\StoreResourceRequest;
 use App\Http\Requests\TeachingLibrary\UpdateResourceRequest;
 
@@ -19,15 +20,138 @@ class ResourceController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $resources = Resource::with('category')
-        ->latest()
-        ->paginate(25);
+        $query = Resource::with([
+            'category',
+            'tags',
+            'tricks',
+        ])
+            ->withCount('tricks');
 
-        return view (
+        /*
+    |--------------------------------------------------------------------------
+    | Search
+    |--------------------------------------------------------------------------
+    */
+
+        if ($request->filled('search')) {
+
+            $search = $request->search;
+
+            $query->where(function ($q) use ($search) {
+
+                $q->where('internal_title', 'like', "%{$search}%")
+                    ->orWhere('email_subject', 'like', "%{$search}%")
+                    ->orWhere('summary', 'like', "%{$search}%");
+            });
+        }
+
+
+        /*
+    |--------------------------------------------------------------------------
+    | Category Filter
+    |--------------------------------------------------------------------------
+    */
+
+        if ($request->filled('category')) {
+
+            $query->where(
+                'resource_category_id',
+                $request->category
+            );
+        }
+
+
+        /*
+    |--------------------------------------------------------------------------
+    | Status Filter
+    |--------------------------------------------------------------------------
+    */
+
+        if ($request->filled('status')) {
+
+            $query->where(
+                'status',
+                $request->status
+            );
+        }
+
+
+        /*
+    |--------------------------------------------------------------------------
+    | Template Filter
+    |--------------------------------------------------------------------------
+    */
+
+        if ($request->boolean('template')) {
+
+            $query->where('is_template', true);
+        }
+
+
+        /*
+|--------------------------------------------------------------------------
+| Sorting
+|--------------------------------------------------------------------------
+*/
+
+        switch ($request->get('sort')) {
+
+            case 'oldest':
+                $query->orderBy('updated_at', 'asc');
+                break;
+
+
+            case 'alpha':
+                $query->orderBy('internal_title', 'asc');
+                break;
+
+
+            case 'alpha_desc':
+                $query->orderBy('internal_title', 'desc');
+                break;
+
+
+            case 'behaviors':
+                $query->orderBy('tricks_count', 'desc');
+                break;
+
+
+            case 'created':
+                $query->orderBy('created_at', 'desc');
+                break;
+
+
+            default:
+                $query->orderBy('updated_at', 'desc');
+                break;
+        }
+
+
+        $resources = $query
+            ->paginate(25)
+            ->withQueryString();
+
+
+        $categories = ResourceCategory::orderBy('name')->get();
+
+
+        $stats = [
+            'total' => Resource::count(),
+            'drafts' => Resource::where('status', 'draft')->count(),
+            'published' => Resource::where('status', 'published')->count(),
+            'templates' => Resource::where('is_template', true)->count(),
+        ];
+
+
+        return view(
             'admin.teaching-library.resources.index',
-            compact('resources')
+            compact(
+                'resources',
+                'categories',
+                'stats'
+            )
         );
     }
 
@@ -41,7 +165,7 @@ class ResourceController extends Controller
         $audiences = ResourceAudience::orderBy('name')->get();
         $tricks = Trick::orderBy('name')->get();
 
-        return view (
+        return view(
             'admin.teaching-library.resources.create',
             compact(
                 'categories',
@@ -65,8 +189,8 @@ class ResourceController extends Controller
         $resource->audiences()->sync($request->audiences ?? []);
 
         return redirect()
-        ->route('admin.teaching-library.resources.index')
-        ->with('success', 'Resource created successfully.');
+            ->route('admin.teaching-library.resources.index')
+            ->with('success', 'Resource created successfully.');
     }
 
     /**
@@ -83,7 +207,7 @@ class ResourceController extends Controller
             'updatedBy',
         ]);
 
-        return view (
+        return view(
             'admin.teaching-library.resources.show',
             compact('resource')
         );
@@ -99,22 +223,22 @@ class ResourceController extends Controller
         $audiences = ResourceAudience::orderBy('name')->get();
         $tricks = Trick::orderBy('name')->get();
 
-    $resource->load([
-        'tags',
-        'audiences',
-        'tricks'
-    ]);
-
-    return view(
-        'admin.teaching-library.resources.edit',
-        compact(
-            'resource',
-            'categories',
+        $resource->load([
             'tags',
             'audiences',
             'tricks'
-        )
-    );
+        ]);
+
+        return view(
+            'admin.teaching-library.resources.edit',
+            compact(
+                'resource',
+                'categories',
+                'tags',
+                'audiences',
+                'tricks'
+            )
+        );
     }
 
     /**
@@ -127,9 +251,9 @@ class ResourceController extends Controller
         $resource->tags()->sync($request->tags ?? []);
         $resource->audiences()->sync($request->audiences ?? []);
 
-    return redirect()
-        ->route('admin.teaching-library.resources.index')
-        ->with('success', 'Resource updated successfully.');
+        return redirect()
+            ->route('admin.teaching-library.resources.index')
+            ->with('success', 'Resource updated successfully.');
     }
 
     /**
