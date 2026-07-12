@@ -21,6 +21,19 @@ export default function behaviorPreview() {
         },
 
 
+        formatLevel(value) {
+
+            if (!value) {
+                return ''
+            }
+
+            return value
+                .replaceAll('_', ' ')
+                .replace(/\b\w/g, letter => letter.toUpperCase())
+
+        },
+
+
         loadBehaviors(ids) {
 
             if (!ids.length) {
