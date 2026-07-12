@@ -96,11 +96,17 @@
 
     <div class="space-y-4">
 
+
         @forelse($resource->tricks as $trick)
+
 
         <div class="border bg-gray-50 p-4">
 
-            <div class="flex justify-between items-start">
+
+            {{-- HEADER --}}
+
+            <div class="flex justify-between items-start gap-4">
+
 
                 <div>
 
@@ -109,15 +115,15 @@
                     </h3>
 
 
-                    <div class="text-sm text-gray-600 mt-1">
+                    <div class="flex flex-wrap gap-2 mt-2">
 
                         @foreach($trick->levels as $level)
 
+                        <span class="inline-flex items-center px-2 py-1 text-xs bg-gray-200">
+
                             {{ ucwords(str_replace('_', ' ', $level->name)) }}
 
-                            @if(!$loop->last)
-                                ,
-                            @endif
+                        </span>
 
                         @endforeach
 
@@ -126,24 +132,78 @@
                 </div>
 
 
+
                 <button
-    type="button"
-    class="js-copy-resource-email inline-flex items-center px-2 py-1 text-xs uppercase bg-training text-white"
-    data-name="{{ $trick->name }}"
-    data-videos='@json($trick->videos)'>
+                    type="button"
+                    class="js-copy-resource-email inline-flex items-center px-2 py-1 text-xs uppercase bg-training text-white"
+                    data-name="{{ $trick->name }}"
+                    data-videos='@json($trick->videos)'>
 
-    <span class="copy-label">
-        Copy For Email
-    </span>
+                    <span class="copy-label">
+                        Copy For Email
+                    </span>
 
-</button>
+                </button>
+
 
             </div>
+
+
+
+            {{-- VIDEO SUMMARY --}}
+
+            <div class="flex items-center gap-4 mt-4 text-sm text-gray-600">
+
+
+                <span>
+                    {{ $trick->videos->count() }}
+                    {{ Str::plural('video', $trick->videos->count()) }}
+                </span>
+
+
+
+                @php
+                    $platforms = $trick->videos
+                        ->pluck('platform')
+                        ->unique();
+                @endphp
+
+
+                @foreach($platforms as $platform)
+
+                <span class="uppercase text-xs border px-2 py-1">
+
+                    {{ $platform }}
+
+                </span>
+
+                @endforeach
+
+
+
+                @if($trick->preferredVideo)
+
+                <span class="text-xs font-semibold">
+
+                    Preferred Available
+
+                </span>
+
+                @endif
+
+
+            </div>
+
+
+
+
+            {{-- NOTES --}}
 
 
             @if($trick->notes)
 
             <details class="mt-4">
+
 
                 <summary class="cursor-pointer text-xs uppercase text-training">
 
@@ -152,7 +212,8 @@
                 </summary>
 
 
-                <div class="mt-3 text-sm border-t pt-3">
+
+                <div class="mt-3 border-t pt-3 text-sm">
 
                     {!! $trick->notes !!}
 
@@ -164,14 +225,17 @@
             @endif
 
 
+
         </div>
 
 
         @empty
 
+
         <div class="text-gray-400">
             No behaviors linked.
         </div>
+
 
         @endforelse
 
@@ -179,9 +243,6 @@
     </div>
 
 </div>
-
-
-        </div>
 
 
 
