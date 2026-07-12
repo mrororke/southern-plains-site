@@ -50,7 +50,7 @@
         </div>
 
         <!-- Editor -->
-        <div class="border p-3 min-h-[200px]">
+        <div class="border p-3 min-h-[500px]">
             <EditorContent :editor="editor" />
         </div>
 
