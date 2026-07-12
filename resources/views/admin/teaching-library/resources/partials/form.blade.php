@@ -494,7 +494,7 @@
                                 <div
                                     class="text-sm text-gray-600 mt-1"
                                     x-text="
-        'Level: ' +
+        'Categories: ' +
         behavior.levels
             .map(level => formatLevel(level.name))
             .join(', ')
