@@ -568,15 +568,17 @@ document.addEventListener('click', function(e) {
     }
 
 
-    const name = button.dataset.name;
+    const title = button.dataset.title;
 
-    const videos = JSON.parse(button.dataset.videos);
+    const behaviors =
+        JSON.parse(button.dataset.behaviors);
+
 
 
     const text =
-        ResourceEmailFormatter.buildBehaviorEmail(
-            name,
-            videos
+        ResourceEmailFormatter.buildResourceEmail(
+            title,
+            behaviors
         );
 
 
