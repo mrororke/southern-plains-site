@@ -23,375 +23,523 @@
 @endif
 
 
-<div class="space-y-6">
+@push('scripts')
+
+<script>
+
+function searchableCheckboxList(items, selected = [])
+{
+    return {
+
+        search: '',
+
+        items: items,
+
+        selected: selected.map(String),
 
 
-    {{-- INTERNAL TITLE --}}
+        filtered()
+        {
+            if (!this.search) {
 
-    <div>
+                return this.items;
 
-        <label class="text-sm font-semibold">
-            Internal Title
-        </label>
-
-        <input
-            type="text"
-            name="internal_title"
-            value="{{ old('internal_title', $resource->internal_title) }}"
-            class="mt-1 block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training"
-            required>
-
-        @error('internal_title')
-
-            <p class="text-sm text-red-600 mt-1">
-                {{ $message }}
-            </p>
-
-        @enderror
-
-    </div>
+            }
 
 
+            return this.items.filter(item =>
 
-    {{-- EMAIL SUBJECT --}}
-
-    <div>
-
-        <label class="text-sm font-semibold">
-            Email Subject
-        </label>
-
-        <input
-            type="text"
-            name="email_subject"
-            value="{{ old('email_subject', $resource->email_subject) }}"
-            class="mt-1 block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training"
-            required>
-
-        @error('email_subject')
-
-            <p class="text-sm text-red-600 mt-1">
-                {{ $message }}
-            </p>
-
-        @enderror
-
-    </div>
-
-
-
-    {{-- CATEGORY --}}
-
-    <div>
-
-        <label class="text-sm font-semibold">
-            Category
-        </label>
-
-        <select
-            name="resource_category_id"
-            class="mt-1 block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training"
-            required>
-
-            <option value="">
-                Select Category
-            </option>
-
-
-            @foreach($categories as $category)
-
-                <option
-                    value="{{ $category->id }}"
-                    @selected(
-                        old(
-                            'resource_category_id',
-                            $resource->resource_category_id
-                        ) == $category->id
-                    )>
-
-                    {{ $category->name }}
-
-                </option>
-
-            @endforeach
-
-
-        </select>
-
-
-        @error('resource_category_id')
-
-            <p class="text-sm text-red-600 mt-1">
-                {{ $message }}
-            </p>
-
-        @enderror
-
-    </div>
-
-    {{-- TAGS --}}
-
-<div>
-
-    <label class="text-sm font-semibold">
-        Tags
-    </label>
-
-    <select
-        name="tags[]"
-        multiple
-        class="mt-1 block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training">
-
-        @foreach($tags as $tag)
-
-            <option
-                value="{{ $tag->id }}"
-                @selected(
-                    in_array(
-                        $tag->id,
-                        old(
-                            'tags',
-                            $resource->tags->pluck('id')->toArray()
-                        )
+                item.name
+                    .toLowerCase()
+                    .includes(
+                        this.search.toLowerCase()
                     )
-                )>
 
-                {{ $tag->name }}
+            );
 
-            </option>
+        }
 
-        @endforeach
+    }
+}
 
-    </select>
+</script>
 
-    <p class="text-xs text-gray-500 mt-1">
-        Hold CTRL/CMD to select multiple tags.
-    </p>
+@endpush
 
-    @error('tags')
 
-        <p class="text-sm text-red-600 mt-1">
-            {{ $message }}
-        </p>
 
-    @enderror
+<div class="grid grid-cols-12 gap-6">
 
-</div>
 
-{{-- AUDIENCES --}}
+    {{-- =========================================================
+        MAIN CONTENT
+    ========================================================== --}}
 
-<div>
+    <div class="col-span-8">
 
-    <label class="text-sm font-semibold">
-        Audiences
-    </label>
 
-    <select
-        name="audiences[]"
-        multiple
-        class="mt-1 block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training">
+        <div class="bg-white shadow p-6 space-y-6">
 
-        @foreach($audiences as $audience)
 
-            <option
-                value="{{ $audience->id }}"
-                @selected(
-                    in_array(
-                        $audience->id,
-                        old(
-                            'audiences',
-                            $resource->audiences->pluck('id')->toArray()
-                        )
-                    )
-                )>
+            {{-- INTERNAL TITLE --}}
 
-                {{ $audience->name }}
+            <div>
 
-            </option>
+                <label class="text-sm font-semibold">
+                    Internal Title
+                </label>
 
-        @endforeach
 
-    </select>
+                <input
+                    type="text"
+                    name="internal_title"
+                    value="{{ old('internal_title', $resource->internal_title) }}"
+                    class="mt-1 block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training"
+                    required>
 
-    <p class="text-xs text-gray-500 mt-1">
-        Hold CTRL/CMD to select multiple audiences.
-    </p>
 
-    @error('audiences')
+                @error('internal_title')
 
-        <p class="text-sm text-red-600 mt-1">
-            {{ $message }}
-        </p>
+                    <p class="text-sm text-red-600 mt-1">
+                        {{ $message }}
+                    </p>
 
-    @enderror
+                @enderror
 
-</div>
+            </div>
 
-{{-- BEHAVIORS --}}
 
-<div>
 
-    <label class="text-sm font-semibold">
-        Related Behaviors
-    </label>
+            {{-- EMAIL SUBJECT --}}
 
-    <select
-        name="tricks[]"
-        multiple
-        class="mt-1 block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training">
+            <div>
 
-        @foreach($tricks as $trick)
+                <label class="text-sm font-semibold">
+                    Email Subject
+                </label>
 
-            <option
-                value="{{ $trick->id }}"
-                @selected(
-                    in_array(
-                        $trick->id,
-                        old(
-                            'tricks',
-                            $resource->tricks->pluck('id')->toArray()
-                        )
-                    )
-                )>
 
-                {{ $trick->name }}
+                <input
+                    type="text"
+                    name="email_subject"
+                    value="{{ old('email_subject', $resource->email_subject) }}"
+                    class="mt-1 block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training"
+                    required>
 
-            </option>
 
-        @endforeach
+                @error('email_subject')
 
-    </select>
+                    <p class="text-sm text-red-600 mt-1">
+                        {{ $message }}
+                    </p>
 
-    <p class="text-xs text-gray-500 mt-1">
-        Hold CTRL/CMD to select multiple behaviors.
-    </p>
+                @enderror
 
-    @error('tricks')
-        <p class="text-sm text-red-600 mt-1">
-            {{ $message }}
-        </p>
-    @enderror
-
-</div>
+            </div>
 
 
 
 
-    {{-- STATUS --}}
+            {{-- BODY --}}
 
-    <div>
+            <div>
 
-        <label class="text-sm font-semibold">
-            Status
-        </label>
-
-        <select
-            name="status"
-            class="mt-1 block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training">
+                <div
+                    id="body-editor"
+                    data-value="{{ old('body', $resource->body) }}"
+                ></div>
 
 
-            <option
-                value="draft"
-                @selected(old('status', $resource->status ?? 'draft') === 'draft')>
+                @error('body')
 
-                Draft
+                    <p class="text-sm text-red-600 mt-1">
+                        {{ $message }}
+                    </p>
 
-            </option>
+                @enderror
 
-
-            <option
-                value="published"
-                @selected(old('status', $resource->status) === 'published')>
-
-                Published
-
-            </option>
+            </div>
 
 
-            <option
-                value="archived"
-                @selected(old('status', $resource->status) === 'archived')>
+        </div>
 
-                Archived
-
-            </option>
-
-
-        </select>
-
-
-        @error('status')
-
-            <p class="text-sm text-red-600 mt-1">
-                {{ $message }}
-            </p>
-
-        @enderror
 
     </div>
 
 
 
 
-    {{-- TEMPLATE FLAG --}}
 
-    <div>
+    {{-- =========================================================
+        SIDEBAR
+    ========================================================== --}}
 
-        <label class="inline-flex items-center">
+    <div class="col-span-4 space-y-6">
+
+
+
+        {{-- RESOURCE DETAILS --}}
+
+        <div class="bg-white shadow p-4">
+
+
+            <h2 class="font-semibold mb-4">
+                Resource Details
+            </h2>
+
+
+
+            {{-- CATEGORY --}}
+
+            <div class="mb-5">
+
+                <label class="text-sm font-semibold">
+                    Category
+                </label>
+
+
+                <select
+                    name="resource_category_id"
+                    class="mt-1 block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training"
+                    required>
+
+
+                    <option value="">
+                        Select Category
+                    </option>
+
+
+                    @foreach($categories as $category)
+
+                        <option
+                            value="{{ $category->id }}"
+                            @selected(
+                                old(
+                                    'resource_category_id',
+                                    $resource->resource_category_id
+                                ) == $category->id
+                            )>
+
+                            {{ $category->name }}
+
+                        </option>
+
+                    @endforeach
+
+
+                </select>
+
+
+            </div>
+
+
+
+
+            {{-- STATUS --}}
+
+            <div class="mb-5">
+
+                <label class="text-sm font-semibold">
+                    Status
+                </label>
+
+
+                <select
+                    name="status"
+                    class="mt-1 block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training">
+
+
+                    <option value="draft"
+                        @selected(old('status', $resource->status ?? 'draft') === 'draft')>
+
+                        Draft
+
+                    </option>
+
+
+                    <option value="published"
+                        @selected(old('status', $resource->status) === 'published')>
+
+                        Published
+
+                    </option>
+
+
+                    <option value="archived"
+                        @selected(old('status', $resource->status) === 'archived')>
+
+                        Archived
+
+                    </option>
+
+
+                </select>
+
+            </div>
+
+
+
+            {{-- TEMPLATE --}}
+
+            <label class="inline-flex items-center">
+
+
+                <input
+                    type="checkbox"
+                    name="is_template"
+                    value="1"
+                    class="border-gray-300"
+                    @checked(old('is_template', $resource->is_template))>
+
+
+                <span class="ml-2 text-sm">
+                    Save as Template
+                </span>
+
+
+            </label>
+
+
+        </div>
+
+
+
+
+
+
+        {{-- AUDIENCES --}}
+
+        <div
+            class="bg-white shadow p-4"
+            x-data="searchableCheckboxList(
+                @js(
+                    $audiences->map(fn($audience) => [
+                        'id' => $audience->id,
+                        'name' => $audience->name
+                    ])
+                ),
+                @js(
+                    old(
+                        'audiences',
+                        $resource->audiences->pluck('id')->toArray()
+                    )
+                )
+            )"
+        >
+
+
+            <h2 class="font-semibold mb-4">
+                Audiences
+            </h2>
+
 
             <input
-                type="checkbox"
-                name="is_template"
-                value="1"
-                class="border-gray-300"
-                @checked(old('is_template', $resource->is_template))>
+                type="text"
+                x-model="search"
+                placeholder="Search audiences..."
+                class="block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training mb-3">
 
 
-            <span class="ml-2 text-sm">
-                Save as Template
-            </span>
+            <div class="border p-3 max-h-48 overflow-y-auto space-y-2">
 
 
-        </label>
+                <template x-for="item in filtered()" :key="item.id">
+
+
+                    <label class="flex items-center">
+
+
+                        <input
+                            type="checkbox"
+                            name="audiences[]"
+                            :value="item.id"
+                            x-model="selected"
+                            class="border-gray-300">
+
+
+                        <span class="ml-2 text-sm"
+                            x-text="item.name">
+                        </span>
+
+
+                    </label>
+
+
+                </template>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+        {{-- BEHAVIORS --}}
+
+        <div
+            class="bg-white shadow p-4"
+            x-data="searchableCheckboxList(
+                @js(
+                    $tricks->map(fn($trick) => [
+                        'id' => $trick->id,
+                        'name' => $trick->name
+                    ])
+                ),
+                @js(
+                    old(
+                        'tricks',
+                        $resource->tricks->pluck('id')->toArray()
+                    )
+                )
+            )"
+        >
+
+
+            <h2 class="font-semibold mb-4">
+                Related Behaviors
+            </h2>
+
+
+            <input
+                type="text"
+                x-model="search"
+                placeholder="Search behaviors..."
+                class="block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training mb-3">
+
+
+            <div class="border p-3 max-h-64 overflow-y-auto space-y-2">
+
+
+                <template x-for="item in filtered()" :key="item.id">
+
+
+                    <label class="flex items-center">
+
+
+                        <input
+                            type="checkbox"
+                            name="tricks[]"
+                            :value="item.id"
+                            x-model="selected"
+                            class="border-gray-300">
+
+
+                        <span class="ml-2 text-sm"
+                            x-text="item.name">
+                        </span>
+
+
+                    </label>
+
+
+                </template>
+
+
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+
+        {{-- TAGS --}}
+
+        <div
+            class="bg-white shadow p-4"
+            x-data="searchableCheckboxList(
+                @js(
+                    $tags->map(fn($tag) => [
+                        'id' => $tag->id,
+                        'name' => $tag->name
+                    ])
+                ),
+                @js(
+                    old(
+                        'tags',
+                        $resource->tags->pluck('id')->toArray()
+                    )
+                )
+            )"
+        >
+
+
+            <h2 class="font-semibold mb-4">
+                Tags
+            </h2>
+
+
+            <input
+                type="text"
+                x-model="search"
+                placeholder="Search tags..."
+                class="block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training mb-3">
+
+
+            <div class="border p-3 max-h-48 overflow-y-auto space-y-2">
+
+
+                <template x-for="item in filtered()" :key="item.id">
+
+
+                    <label class="flex items-center">
+
+
+                        <input
+                            type="checkbox"
+                            name="tags[]"
+                            :value="item.id"
+                            x-model="selected"
+                            class="border-gray-300">
+
+
+                        <span class="ml-2 text-sm"
+                            x-text="item.name">
+                        </span>
+
+
+                    </label>
+
+
+                </template>
+
+
+            </div>
+
+
+        </div>
+
+
 
     </div>
 
-
-
-
-   {{-- BODY --}}
-
-<div>
-
-    <div
-        id="body-editor"
-        data-value="{{ old('body', $resource->body) }}"
-    ></div>
-
-    @error('body')
-
-        <p class="text-sm text-red-600 mt-1">
-            {{ $message }}
-        </p>
-
-    @enderror
 
 </div>
 
 
-    {{-- SUBMIT BUTTON --}}
 
-    <div class="pt-4">
 
-        <button
-            type="submit"
-            class="inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-training hover:bg-training-hover text-white">
 
-            {{ $resource->exists ? 'Update Resource' : 'Save Resource' }}
+{{-- SUBMIT BUTTON --}}
 
-        </button>
+<div class="mt-6">
 
-    </div>
+    <button
+        type="submit"
+        class="inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-training hover:bg-training-hover text-white">
+
+
+        {{ $resource->exists ? 'Update Resource' : 'Save Resource' }}
+
+
+    </button>
 
 
 </div>
