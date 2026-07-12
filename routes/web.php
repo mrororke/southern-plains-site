@@ -11,9 +11,11 @@ use App\Http\Controllers\HistoryFormController;
 use App\Http\Controllers\TrickEvaluationController;
 use App\Http\Controllers\TrickController;
 use App\Http\Controllers\Admin\TrickCatalogController;
+
 use App\Http\Controllers\Admin\TeachingLibrary\ResourceCategoryController;
 use App\Http\Controllers\Admin\TeachingLibrary\ResourceTagController;
 use App\Http\Controllers\Admin\TeachingLibrary\ResourceAudienceController;
+use App\Http\Controllers\Admin\TeachingLibrary\ResourceController;
 
 use App\Http\Controllers\Admin\TrickEvaluationController as AdminTrickEvaluationController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
@@ -220,6 +222,7 @@ Route::middleware(['auth'])
         Route::resource('categories', ResourceCategoryController::class);
         Route::resource('tags', ResourceTagController::class);
         Route::resource('audiences', ResourceAudienceController::class);
+        Route::resource('resource', ResourceController::class);
 
     });
 
