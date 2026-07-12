@@ -469,6 +469,31 @@
     </div>
 
 
+    <div
+        x-show="!loading && behaviors.length > 0"
+        class="space-y-3">
+
+
+        <template x-for="behavior in behaviors" :key="behavior.id">
+
+            <div class="border p-3">
+
+                <div class="font-semibold"
+                    x-text="behavior.name">
+                </div>
+
+
+                <div class="text-xs text-gray-500 mt-1">
+                    Loaded successfully
+                </div>
+
+            </div>
+
+        </template>
+
+
+    </div>
+
 </div>
 
 
