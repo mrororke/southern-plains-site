@@ -4,7 +4,9 @@
 
 @section('content')
 
-<div class="max-w-5xl">
+<div class="max-w-7xl">
+
+    {{-- HEADER --}}
 
     <div class="flex justify-between items-center mb-6">
 
@@ -20,6 +22,7 @@
 
         </div>
 
+
         <a
             href="{{ route('admin.teaching-library.resources.edit', $resource) }}"
             class="inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-league text-white">
@@ -29,177 +32,278 @@
         </a>
 
     </div>
-    <div class="bg-white shadow p-6 mb-6">
 
-    <dl class="grid grid-cols-2 gap-6">
 
-        <div>
-            <dt class="text-xs uppercase text-gray-500">
-                Email Subject
-            </dt>
+    {{-- MAIN LAYOUT --}}
 
-            <dd class="mt-1">
-                {{ $resource->email_subject }}
-            </dd>
-        </div>
+    <div class="grid grid-cols-12 gap-6">
 
-        <div>
-            <dt class="text-xs uppercase text-gray-500">
-                Category
-            </dt>
 
-            <dd class="mt-1">
-                {{ $resource->category->name }}
-            </dd>
-        </div>
+        {{-- RESOURCE CONTENT --}}
 
-        <div>
-            <dt class="text-xs uppercase text-gray-500">
-                Status
-            </dt>
+        <div class="col-span-9">
 
-            <dd class="mt-1 capitalize">
-                {{ $resource->status }}
-            </dd>
-        </div>
 
-        <div>
-            <dt class="text-xs uppercase text-gray-500">
-                Template
-            </dt>
+            {{-- EMAIL SUBJECT --}}
 
-            <dd class="mt-1">
-                {{ $resource->is_template ? 'Yes' : 'No' }}
-            </dd>
-        </div>
+            <div class="bg-white shadow p-6 mb-6">
 
-        <div>
-            <dt class="text-xs uppercase text-gray-500">
-                Author
-            </dt>
+                <h2 class="font-semibold mb-3">
+                    Email Subject
+                </h2>
 
-            <dd class="mt-1">
-                {{ $resource->author?->name }}
-            </dd>
-        </div>
+                <p>
+                    {{ $resource->email_subject }}
+                </p>
 
-        <div>
-            <dt class="text-xs uppercase text-gray-500">
-                Last Updated By
-            </dt>
-
-            <dd class="mt-1">
-                {{ $resource->updatedBy?->name }}
-            </dd>
-        </div>
-
-        <div>
-            <dt class="text-xs uppercase text-gray-500">
-                Created
-            </dt>
-
-            <dd class="mt-1">
-                {{ $resource->created_at->format('M j, Y g:i A') }}
-            </dd>
-        </div>
-
-        <div>
-            <dt class="text-xs uppercase text-gray-500">
-                Updated
-            </dt>
-
-            <dd class="mt-1">
-                {{ $resource->updated_at->format('M j, Y g:i A') }}
-            </dd>
-        </div>
-
-    </dl>
-
-</div>
-<div class="bg-white shadow p-6 mb-6">
-
-    <h2 class="font-semibold mb-4">
-        Organization
-    </h2>
-
-    <div class="space-y-5">
-
-        <div>
-
-            <div class="text-xs uppercase text-gray-500 mb-2">
-                Tags
             </div>
 
-            @forelse($resource->tags as $tag)
 
-                <div>{{ $tag->name }}</div>
 
-            @empty
+            {{-- BODY --}}
 
-                <div class="text-gray-500">
-                    None
+            <div class="bg-white shadow p-6">
+
+                <h2 class="font-semibold mb-4">
+                    Resource Content
+                </h2>
+
+
+                <div class="prose max-w-none">
+
+                    {!! $resource->body !!}
+
                 </div>
 
-            @endforelse
-
-        </div>
-
-        <div>
-
-            <div class="text-xs uppercase text-gray-500 mb-2">
-                Audiences
             </div>
 
-            @forelse($resource->audiences as $audience)
-
-                <div>{{ $audience->name }}</div>
-
-            @empty
-
-                <div class="text-gray-500">
-                    None
-                </div>
-
-            @endforelse
 
         </div>
 
-        <div>
 
-            <div class="text-xs uppercase text-gray-500 mb-2">
-                Related Behaviors
+
+        {{-- RESOURCE DETAILS --}}
+
+        <aside class="col-span-3">
+
+
+            {{-- DETAILS --}}
+
+            <div class="bg-white shadow p-4 mb-6">
+
+                <h2 class="font-semibold mb-4">
+                    Resource Details
+                </h2>
+
+
+                <div class="space-y-4">
+
+
+                    <div>
+
+                        <div class="text-xs uppercase text-gray-500">
+                            Category
+                        </div>
+
+                        <div class="mt-1">
+                            {{ $resource->category->name }}
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        <div class="text-xs uppercase text-gray-500">
+                            Status
+                        </div>
+
+                        <div class="mt-1 capitalize">
+                            {{ $resource->status }}
+                        </div>
+
+                    </div>
+
+
+                    <div>
+
+                        <div class="text-xs uppercase text-gray-500">
+                            Template
+                        </div>
+
+                        <div class="mt-1">
+                            {{ $resource->is_template ? 'Yes' : 'No' }}
+                        </div>
+
+                    </div>
+
+
+                </div>
+
             </div>
 
-            @forelse($resource->tricks as $trick)
 
-                <div>{{ $trick->name }}</div>
 
-            @empty
+            {{-- ORGANIZATION --}}
 
-                <div class="text-gray-500">
-                    None
+            <div class="bg-white shadow p-4 mb-6">
+
+
+                <h2 class="font-semibold mb-4">
+                    Organization
+                </h2>
+
+
+                <div class="space-y-4">
+
+
+                    <div>
+
+                        <div class="text-xs uppercase text-gray-500 mb-2">
+                            Tags
+                        </div>
+
+                        @forelse($resource->tags as $tag)
+
+                            <div>
+                                {{ $tag->name }}
+                            </div>
+
+                        @empty
+
+                            <div class="text-gray-400">
+                                None
+                            </div>
+
+                        @endforelse
+
+                    </div>
+
+
+
+                    <div>
+
+                        <div class="text-xs uppercase text-gray-500 mb-2">
+                            Audiences
+                        </div>
+
+
+                        @forelse($resource->audiences as $audience)
+
+                            <div>
+                                {{ $audience->name }}
+                            </div>
+
+                        @empty
+
+                            <div class="text-gray-400">
+                                None
+                            </div>
+
+                        @endforelse
+
+                    </div>
+
+
+
+                    <div>
+
+                        <div class="text-xs uppercase text-gray-500 mb-2">
+                            Behaviors
+                        </div>
+
+
+                        @forelse($resource->tricks as $trick)
+
+                            <div>
+                                {{ $trick->name }}
+                            </div>
+
+                        @empty
+
+                            <div class="text-gray-400">
+                                None
+                            </div>
+
+                        @endforelse
+
+                    </div>
+
+
                 </div>
 
-            @endforelse
 
-        </div>
+            </div>
+
+
+
+            {{-- USAGE --}}
+
+            <div class="bg-white shadow p-4 mb-6">
+
+                <h2 class="font-semibold mb-4">
+                    Usage
+                </h2>
+
+
+                <div>
+
+                    <div class="text-xs uppercase text-gray-500">
+                        Usage Count
+                    </div>
+
+                    <div class="mt-1">
+                        —
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            {{-- RELATED RESOURCES --}}
+
+            <div class="bg-white shadow p-4 mb-6">
+
+                <h2 class="font-semibold mb-4">
+                    Related Resources
+                </h2>
+
+
+                <div class="text-gray-400">
+                    Coming soon.
+                </div>
+
+
+            </div>
+
+
+
+            {{-- REFERENCED BY --}}
+
+            <div class="bg-white shadow p-4">
+
+                <h2 class="font-semibold mb-4">
+                    Referenced By
+                </h2>
+
+
+                <div class="text-gray-400">
+                    Coming soon.
+                </div>
+
+
+            </div>
+
+
+
+        </aside>
+
 
     </div>
 
-</div>
-<div class="bg-white shadow p-6">
-
-    <h2 class="font-semibold mb-4">
-        Resource Content
-    </h2>
-
-    <div class="prose max-w-none">
-
-        {!! $resource->body !!}
-
-    </div>
-
-</div>
 
 </div>
 
