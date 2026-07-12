@@ -241,4 +241,19 @@
     </div>
 
 
+    {{-- SUBMIT BUTTON --}}
+
+    <div class="pt-4">
+
+        <button
+            type="submit"
+            class="inline-flex items-center px-2 py-1 text-xs uppercase transition ease-in-out duration-150 border-2 border-transparent bg-training hover:bg-training-hover text-white">
+
+            {{ $resource->exists ? 'Update Resource' : 'Save Resource' }}
+
+        </button>
+
+    </div>
+
+
 </div>
