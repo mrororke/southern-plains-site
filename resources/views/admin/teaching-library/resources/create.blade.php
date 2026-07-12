@@ -1,3 +1,5 @@
+@vite('resources/js/app.js')
+
 @extends('layouts.portal')
 
 @section('title', 'Create Resource')
