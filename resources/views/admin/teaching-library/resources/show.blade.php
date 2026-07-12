@@ -253,7 +253,7 @@
                     </div>
 
                     <div class="mt-1">
-                        —
+                        {{ $resource->usage_count }}
                     </div>
 
                 </div>

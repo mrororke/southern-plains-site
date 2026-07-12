@@ -111,4 +111,13 @@ class Resource extends Model
     {
         return $this->belongsTo(User::class, 'updated_by');
     }
+
+    public function getUsageCountAttribute(){
+        return
+        $this->tricks()->count()
+        +
+        $this->tags()->count()
+        +
+        $this->audiences()->count();
+    }
 }
