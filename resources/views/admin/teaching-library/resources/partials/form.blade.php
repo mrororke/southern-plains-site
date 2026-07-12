@@ -227,6 +227,53 @@
 
 </div>
 
+{{-- BEHAVIORS --}}
+
+<div>
+
+    <label class="text-sm font-semibold">
+        Related Behaviors
+    </label>
+
+    <select
+        name="tricks[]"
+        multiple
+        class="mt-1 block w-full border-gray-300 shadow-sm focus:border-training focus:ring-training">
+
+        @foreach($tricks as $trick)
+
+            <option
+                value="{{ $trick->id }}"
+                @selected(
+                    in_array(
+                        $trick->id,
+                        old(
+                            'tricks',
+                            $resource->tricks->pluck('id')->toArray()
+                        )
+                    )
+                )>
+
+                {{ $trick->name }}
+
+            </option>
+
+        @endforeach
+
+    </select>
+
+    <p class="text-xs text-gray-500 mt-1">
+        Hold CTRL/CMD to select multiple behaviors.
+    </p>
+
+    @error('tricks')
+        <p class="text-sm text-red-600 mt-1">
+            {{ $message }}
+        </p>
+    @enderror
+
+</div>
+
 
 
 

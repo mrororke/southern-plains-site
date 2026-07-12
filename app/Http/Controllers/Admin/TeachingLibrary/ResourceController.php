@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Admin\TeachingLibrary;
 
+use App\Models\Trick;
+
 use App\Models\TeachingLibrary\Resource;
 use App\Models\TeachingLibrary\ResourceCategory;
 use App\Models\TeachingLibrary\ResourceTag;
@@ -37,6 +39,7 @@ class ResourceController extends Controller
         $categories = ResourceCategory::orderBy('name')->get();
         $tags = ResourceTag::orderBy('name')->get();
         $audiences = ResourceAudience::orderBy('name')->get();
+        $tricks = Trick::orderBy('name')->get();
 
         return view (
             'admin.teaching-library.resources.create',
@@ -44,6 +47,7 @@ class ResourceController extends Controller
                 'categories',
                 'tags',
                 'audiences',
+                'tricks'
 
             )
         );
@@ -56,6 +60,7 @@ class ResourceController extends Controller
     {
         $resource = Resource::create($request->validated());
 
+        $resource->tricks()->sync($request->tricks ?? []);
         $resource->tags()->sync($request->tags ?? []);
         $resource->audiences()->sync($request->audiences ?? []);
 
@@ -78,14 +83,14 @@ class ResourceController extends Controller
     public function edit(Resource $resource)
     {
         $categories = ResourceCategory::orderBy('name')->get();
-
-    $tags = ResourceTag::orderBy('name')->get();
-
-    $audiences = ResourceAudience::orderBy('name')->get();
+        $tags = ResourceTag::orderBy('name')->get();
+        $audiences = ResourceAudience::orderBy('name')->get();
+        $tricks = Trick::orderBy('name')->get();
 
     $resource->load([
         'tags',
-        'audiences'
+        'audiences',
+        'tricks'
     ]);
 
     return view(
@@ -94,7 +99,8 @@ class ResourceController extends Controller
             'resource',
             'categories',
             'tags',
-            'audiences'
+            'audiences',
+            'tricks'
         )
     );
     }
@@ -105,10 +111,9 @@ class ResourceController extends Controller
     public function update(UpdateResourceRequest $request, Resource $resource)
     {
         $resource->update($request->validated());
-
-    $resource->tags()->sync($request->tags ?? []);
-
-    $resource->audiences()->sync($request->audiences ?? []);
+        $resource->tricks()->sync($request->tricks ?? []);
+        $resource->tags()->sync($request->tags ?? []);
+        $resource->audiences()->sync($request->audiences ?? []);
 
     return redirect()
         ->route('admin.teaching-library.resources.index')
