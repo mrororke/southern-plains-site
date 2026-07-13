@@ -10,6 +10,7 @@ use App\Models\TeachingLibrary\ResourceTag;
 use App\Models\TeachingLibrary\ResourceAudience;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\TeachingLibrary\StoreResourceRequest;
 use App\Http\Requests\TeachingLibrary\UpdateResourceRequest;
 
@@ -179,23 +180,38 @@ class ResourceController extends Controller
         );
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    // /**
+    //  * Store a newly created resource in storage.
+    //  */
+    // public function store(StoreResourceRequest $request)
+    // {
+    //     dd($request->all());
+
+    //     $resource = Resource::create($request->validated());
+
+    //     $resource->tricks()->sync($request->tricks ?? []);
+    //     $resource->tags()->sync($request->tags ?? []);
+    //     $resource->audiences()->sync($request->audiences ?? []);
+
+    //     return redirect()
+    //         ->route('admin.teaching-library.resources.index')
+    //         ->with('success', 'Resource created successfully.');
+    // }
+
     public function store(StoreResourceRequest $request)
-    {
-        dd($request->all());
-        
-        $resource = Resource::create($request->validated());
+{
+    $resource = Resource::create($request->validated());
 
-        $resource->tricks()->sync($request->tricks ?? []);
-        $resource->tags()->sync($request->tags ?? []);
-        $resource->audiences()->sync($request->audiences ?? []);
+    $resource->tricks()->sync($request->tricks);
 
-        return redirect()
-            ->route('admin.teaching-library.resources.index')
-            ->with('success', 'Resource created successfully.');
-    }
+    dd([
+        'submitted' => $request->tricks,
+        'attached' => $resource->tricks()->pluck('tricks.id'),
+        'pivot' => DB::table('resource_trick')
+            ->where('resource_id', $resource->id)
+            ->get(),
+    ]);
+}
 
     /**
      * Display the specified resource.
