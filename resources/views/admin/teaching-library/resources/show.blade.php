@@ -591,24 +591,32 @@ document.addEventListener('click', function (e) {
 
 
 
-        const behaviorText =
+        /*
+        |--------------------------------------------------------------------------
+        | Build HTML + Plain Text Versions
+        |--------------------------------------------------------------------------
+        */
+
+        const html =
+            ResourceEmailFormatter.buildResourceHtml(
+                resource,
+                behaviors
+            );
+
+
+        const text =
             ResourceEmailFormatter.buildResourceEmail(
                 resource.title,
                 behaviors
             );
 
 
-        const html =
-            ResourceEmailFormatter.buildResourceHtml(
-                resource,
-                behaviorText
-            );
 
-
-        const text =
-            ResourceEmailFormatter.stripHtml(html);
-
-
+        /*
+        |--------------------------------------------------------------------------
+        | Copy Both Formats
+        |--------------------------------------------------------------------------
+        */
 
         ResourceEmailFormatter.copyResourceEmail(
             html,
