@@ -184,6 +184,8 @@ class ResourceController extends Controller
      */
     public function store(StoreResourceRequest $request)
     {
+        dd($request->all());
+        
         $resource = Resource::create($request->validated());
 
         $resource->tricks()->sync($request->tricks ?? []);
