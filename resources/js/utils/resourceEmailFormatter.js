@@ -129,7 +129,7 @@ function buildBehaviorHtml(behavior) {
         html += `
 
             <div style="
-                margin-top:4px;
+                margin-top:0;
                 font-size:14px;
                 line-height:1.5;
             ">
@@ -138,10 +138,8 @@ function buildBehaviorHtml(behavior) {
                     font-size:14px;
                     font-weight:700;
                 ">
-                    ${platform}
+                    ${platform}:
                 </strong>
-
-                <br>
 
         `;
 
@@ -150,6 +148,8 @@ function buildBehaviorHtml(behavior) {
 
 
             html += `
+
+                <br>
 
                 <a
                     href="${url}"
@@ -160,8 +160,6 @@ function buildBehaviorHtml(behavior) {
                 >
                     ${url}
                 </a>
-
-                <br>
 
             `;
 

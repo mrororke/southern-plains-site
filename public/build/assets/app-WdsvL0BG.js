@@ -209,7 +209,7 @@ ${n}
     `;const n={};return DS(t.videos).forEach(r=>{if(!r.url)return;const s=PS(r.platform);n[s]||(n[s]=[]),n[s].push(r.url)}),Object.keys(n).forEach(r=>{e+=`
 
             <div style="
-                margin-top:4px;
+                margin-top:0;
                 font-size:14px;
                 line-height:1.5;
             ">
@@ -218,12 +218,12 @@ ${n}
                     font-size:14px;
                     font-weight:700;
                 ">
-                    ${r}
+                    ${r}:
                 </strong>
 
-                <br>
-
         `,n[r].forEach(s=>{e+=`
+
+                <br>
 
                 <a
                     href="${s}"
@@ -234,8 +234,6 @@ ${n}
                 >
                     ${s}
                 </a>
-
-                <br>
 
             `}),e+=`
 
