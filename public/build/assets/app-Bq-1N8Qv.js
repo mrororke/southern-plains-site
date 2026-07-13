@@ -192,15 +192,15 @@ ${n}
 `}),r.trim()}function ID(t){let e=`
 
         <div style="
-            margin-top:14px;
+            margin-top:10px;
             font-family:Arial, sans-serif;
             font-size:14px;
-            line-height:1.6;
+            line-height:1.5;
         ">
 
             <h3 style="
                 font-size:15px;
-                margin:0 0 6px 0;
+                margin:0 0 2px 0;
                 font-weight:700;
             ">
                 ${t.name}
@@ -209,7 +209,7 @@ ${n}
     `;const n={};return DS(t.videos).forEach(r=>{if(!r.url)return;const s=PS(r.platform);n[s]||(n[s]=[]),n[s].push(r.url)}),Object.keys(n).forEach(r=>{e+=`
 
             <div style="
-                margin-top:10px;
+                margin-top:4px;
                 font-size:14px;
                 line-height:1.5;
             ">
@@ -257,12 +257,12 @@ ${n}
         <div style="
             font-family:Arial, sans-serif;
             font-size:14px;
-            line-height:1.6;
+            line-height:1.5;
         ">
 
             <h2 style="
                 font-size:18px;
-                margin:0 0 16px 0;
+                margin:0 0 14px 0;
                 font-weight:700;
             ">
                 ${t.title}
@@ -271,7 +271,7 @@ ${n}
 
             <div style="
                 font-size:14px;
-                line-height:1.6;
+                line-height:1.5;
             ">
 
                 ${t.body}
@@ -280,13 +280,13 @@ ${n}
 
 
             <div style="
-                margin-top:18px;
+                margin-top:14px;
             ">
 
 
                 <h2 style="
                     font-size:16px;
-                    margin:0 0 10px 0;
+                    margin:0 0 8px 0;
                     font-weight:700;
                 ">
                     Related Behavior Resources
