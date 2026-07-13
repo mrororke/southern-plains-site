@@ -153,7 +153,7 @@
 
                 <button
                     type="button"
-                    class="js-copy-resource-email inline-flex items-center px-2 py-1 text-xs uppercase bg-training text-white"
+                    class="js-copy-behavior-email inline-flex items-center px-2 py-1 text-xs uppercase bg-training text-white"
                     data-name="{{ $trick->name }}"
                     data-videos='@json($trick->videos)'>
 
