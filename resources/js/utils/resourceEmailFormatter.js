@@ -80,9 +80,18 @@ function buildBehaviorHtml(behavior) {
 
     let html = `
 
-        <div style="margin-top:20px;">
+        <div style="
+            margin-top:20px;
+            font-family:Arial, sans-serif;
+            font-size:14px;
+            line-height:1.6;
+        ">
 
-            <h3>
+            <h3 style="
+                font-size:16px;
+                margin:0 0 8px 0;
+                font-weight:700;
+            ">
                 ${behavior.name}
             </h3>
 
@@ -119,9 +128,20 @@ function buildBehaviorHtml(behavior) {
 
         html += `
 
-            <p>
+            <div style="
+                margin-top:12px;
+                font-size:14px;
+                line-height:1.5;
+            ">
 
-                <strong>${platform}</strong><br>
+                <strong style="
+                    font-size:14px;
+                    font-weight:700;
+                ">
+                    ${platform}
+                </strong>
+
+                <br>
 
         `;
 
@@ -131,9 +151,16 @@ function buildBehaviorHtml(behavior) {
 
             html += `
 
-                <a href="${url}">
+                <a
+                    href="${url}"
+                    style="
+                        font-size:14px;
+                        line-height:1.5;
+                    "
+                >
                     ${url}
                 </a>
+
                 <br>
 
             `;
@@ -144,7 +171,7 @@ function buildBehaviorHtml(behavior) {
 
         html += `
 
-            </p>
+            </div>
 
         `;
 
@@ -166,7 +193,7 @@ function buildBehaviorHtml(behavior) {
 
 /*
 |--------------------------------------------------------------------------
-| RESOURCE TEXT EMAIL
+| RESOURCE PLAIN TEXT FORMAT
 |--------------------------------------------------------------------------
 */
 
@@ -202,7 +229,7 @@ function buildResourceEmail(resourceTitle, behaviors) {
 
 /*
 |--------------------------------------------------------------------------
-| RESOURCE HTML EMAIL
+| RESOURCE HTML FORMAT
 |--------------------------------------------------------------------------
 */
 
@@ -210,29 +237,51 @@ function buildResourceHtml(resource, behaviors) {
 
     return `
 
-        <div>
+        <div style="
+            font-family:Arial, sans-serif;
+            font-size:14px;
+            line-height:1.6;
+        ">
 
-            <h2>
+            <h2 style="
+                font-size:18px;
+                margin:0 0 16px 0;
+                font-weight:700;
+            ">
                 ${resource.title}
             </h2>
 
 
-            <div>
+            <div style="
+                font-size:14px;
+                line-height:1.6;
+            ">
 
                 ${resource.body}
 
             </div>
 
 
-            <hr>
+            <div style="
+                margin-top:24px;
+                border-top:1px solid #ddd;
+                padding-top:16px;
+            ">
 
 
-            <h2>
-                Related Behavior Resources
-            </h2>
+                <h2 style="
+                    font-size:16px;
+                    margin:0 0 12px 0;
+                    font-weight:700;
+                ">
+                    Related Behavior Resources
+                </h2>
 
 
-            ${behaviors.map(buildBehaviorHtml).join('')}
+                ${behaviors.map(buildBehaviorHtml).join('')}
+
+
+            </div>
 
 
         </div>
@@ -244,7 +293,7 @@ function buildResourceHtml(resource, behaviors) {
 
 /*
 |--------------------------------------------------------------------------
-| COPY
+| COPY RESOURCE EMAIL
 |--------------------------------------------------------------------------
 */
 
@@ -253,7 +302,6 @@ async function copyResourceEmail(html, text, button) {
     try {
 
         if (navigator.clipboard && window.ClipboardItem) {
-
 
             const blobHtml = new Blob(
                 [html],
@@ -315,6 +363,12 @@ async function copyResourceEmail(html, text, button) {
 
 }
 
+
+/*
+|--------------------------------------------------------------------------
+| UTILITIES
+|--------------------------------------------------------------------------
+*/
 
 function stripHtml(html) {
 

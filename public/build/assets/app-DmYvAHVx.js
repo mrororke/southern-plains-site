@@ -191,28 +191,55 @@ ${n}
 `}),r+=`
 `}),r.trim()}function ID(t){let e=`
 
-        <div style="margin-top:20px;">
+        <div style="
+            margin-top:20px;
+            font-family:Arial, sans-serif;
+            font-size:14px;
+            line-height:1.6;
+        ">
 
-            <h3>
+            <h3 style="
+                font-size:16px;
+                margin:0 0 8px 0;
+                font-weight:700;
+            ">
                 ${t.name}
             </h3>
 
     `;const n={};return DS(t.videos).forEach(r=>{if(!r.url)return;const s=PS(r.platform);n[s]||(n[s]=[]),n[s].push(r.url)}),Object.keys(n).forEach(r=>{e+=`
 
-            <p>
+            <div style="
+                margin-top:12px;
+                font-size:14px;
+                line-height:1.5;
+            ">
 
-                <strong>${r}</strong><br>
+                <strong style="
+                    font-size:14px;
+                    font-weight:700;
+                ">
+                    ${r}
+                </strong>
+
+                <br>
 
         `,n[r].forEach(s=>{e+=`
 
-                <a href="${s}">
+                <a
+                    href="${s}"
+                    style="
+                        font-size:14px;
+                        line-height:1.5;
+                    "
+                >
                     ${s}
                 </a>
+
                 <br>
 
             `}),e+=`
 
-            </p>
+            </div>
 
         `}),e+=`
 
@@ -227,29 +254,51 @@ ${n}
 
 `}),n.trim()}function PD(t,e){return`
 
-        <div>
+        <div style="
+            font-family:Arial, sans-serif;
+            font-size:14px;
+            line-height:1.6;
+        ">
 
-            <h2>
+            <h2 style="
+                font-size:18px;
+                margin:0 0 16px 0;
+                font-weight:700;
+            ">
                 ${t.title}
             </h2>
 
 
-            <div>
+            <div style="
+                font-size:14px;
+                line-height:1.6;
+            ">
 
                 ${t.body}
 
             </div>
 
 
-            <hr>
+            <div style="
+                margin-top:24px;
+                border-top:1px solid #ddd;
+                padding-top:16px;
+            ">
 
 
-            <h2>
-                Related Behavior Resources
-            </h2>
+                <h2 style="
+                    font-size:16px;
+                    margin:0 0 12px 0;
+                    font-weight:700;
+                ">
+                    Related Behavior Resources
+                </h2>
 
 
-            ${e.map(ID).join("")}
+                ${e.map(ID).join("")}
+
+
+            </div>
 
 
         </div>
