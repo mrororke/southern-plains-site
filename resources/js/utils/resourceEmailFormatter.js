@@ -81,15 +81,15 @@ function buildBehaviorHtml(behavior) {
     let html = `
 
         <div style="
-            margin-top:20px;
+            margin-top:14px;
             font-family:Arial, sans-serif;
             font-size:14px;
             line-height:1.6;
         ">
 
             <h3 style="
-                font-size:16px;
-                margin:0 0 8px 0;
+                font-size:15px;
+                margin:0 0 6px 0;
                 font-weight:700;
             ">
                 ${behavior.name}
@@ -129,7 +129,7 @@ function buildBehaviorHtml(behavior) {
         html += `
 
             <div style="
-                margin-top:12px;
+                margin-top:10px;
                 font-size:14px;
                 line-height:1.5;
             ">
@@ -263,15 +263,13 @@ function buildResourceHtml(resource, behaviors) {
 
 
             <div style="
-                margin-top:24px;
-                border-top:1px solid #ddd;
-                padding-top:16px;
+                margin-top:18px;
             ">
 
 
                 <h2 style="
                     font-size:16px;
-                    margin:0 0 12px 0;
+                    margin:0 0 10px 0;
                     font-weight:700;
                 ">
                     Related Behavior Resources
