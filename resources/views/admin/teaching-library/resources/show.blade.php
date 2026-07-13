@@ -26,10 +26,11 @@
         <div class="flex gap-2">
 
     <button
-        type="button"
-        class="js-copy-resource-email inline-flex items-center px-2 py-1 text-xs uppercase bg-training text-white"
-        data-title="{{ $resource->internal_title }}"
-        data-behaviors='@json($resource->tricks)'>
+    type="button"
+    class="js-copy-resource-email inline-flex items-center px-2 py-1 text-xs uppercase bg-training text-white"
+    data-title="{{ $resource->internal_title }}"
+    data-body='@json($resource->body)'
+    data-behaviors='@json($resource->tricks)'>
 
         <span class="copy-label">
             Copy Resource Email
@@ -559,35 +560,43 @@
 
 <script>
 
-document.addEventListener('click', function(e) {
+const resource = {
 
-    const button = e.target.closest('.js-copy-resource-email');
+    title: button.dataset.title,
 
-    if (!button) {
-        return;
-    }
+    body: JSON.parse(button.dataset.body)
 
-
-    const title = button.dataset.title;
-
-    const behaviors =
-        JSON.parse(button.dataset.behaviors);
+};
 
 
-
-    const text =
-        ResourceEmailFormatter.buildResourceEmail(
-            title,
-            behaviors
-        );
+const behaviors =
+    JSON.parse(button.dataset.behaviors);
 
 
-    ResourceEmailFormatter.copyResourceEmail(
-        text,
-        button
+const behaviorText =
+    ResourceEmailFormatter.buildResourceEmail(
+        resource.title,
+        behaviors
     );
 
-});
+
+const html =
+    ResourceEmailFormatter.buildResourceHtml(
+        resource,
+        behaviorText
+    );
+
+
+const text =
+    ResourceEmailFormatter.stripHtml(html);
+
+
+
+ResourceEmailFormatter.copyResourceEmail(
+    html,
+    text,
+    button
+);
 
 </script>
 

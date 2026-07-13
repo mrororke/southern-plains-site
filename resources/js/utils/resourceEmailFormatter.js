@@ -69,17 +69,49 @@ function buildBehaviorEmail(trickName, videos) {
 }
 
 
-function copyResourceEmail(text, button) {
+async function copyResourceEmail(html, text, button) {
 
-    navigator.clipboard.writeText(text)
-        .then(() => {
+    try {
 
-            const label = button.querySelector('.copy-label');
+        if (navigator.clipboard && window.ClipboardItem) {
 
-            if (!label) {
-                return;
-            }
+            const blobHtml = new Blob(
+                [html],
+                {
+                    type: 'text/html'
+                }
+            );
 
+
+            const blobText = new Blob(
+                [text],
+                {
+                    type: 'text/plain'
+                }
+            );
+
+
+            await navigator.clipboard.write(
+                [
+                    new ClipboardItem({
+                        'text/html': blobHtml,
+                        'text/plain': blobText
+                    })
+                ]
+            );
+
+
+        } else {
+
+            await navigator.clipboard.writeText(text);
+
+        }
+
+
+        const label = button.querySelector('.copy-label');
+
+
+        if (label) {
 
             const original = label.innerText;
 
@@ -92,7 +124,46 @@ function copyResourceEmail(text, button) {
 
             }, 1500);
 
-        });
+        }
+
+
+    } catch(error) {
+
+        console.error(error);
+
+    }
+
+}
+
+function buildResourceHtml(resource, behaviorsHtml) {
+
+    return `
+        <div>
+
+            <h2>
+                ${resource.title}
+            </h2>
+
+
+            <div>
+                ${resource.body}
+            </div>
+
+
+            ${behaviorsHtml}
+
+        </div>
+    `;
+
+}
+
+function stripHtml(html) {
+
+    const div = document.createElement('div');
+
+    div.innerHTML = html;
+
+    return div.innerText;
 
 }
 
@@ -165,5 +236,7 @@ function buildResourceEmail(resourceTitle, behaviors) {
 export {
     buildBehaviorEmail,
     buildResourceEmail,
+    buildResourceHtml,
+    stripHtml,
     copyResourceEmail
 };
