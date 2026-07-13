@@ -560,43 +560,66 @@
 
 <script>
 
-const resource = {
+document.addEventListener('click', function (e) {
 
-    title: button.dataset.title,
+    const button = e.target.closest('.js-copy-resource-email');
 
-    body: JSON.parse(button.dataset.body)
-
-};
-
-
-const behaviors =
-    JSON.parse(button.dataset.behaviors);
+    if (!button) {
+        return;
+    }
 
 
-const behaviorText =
-    ResourceEmailFormatter.buildResourceEmail(
-        resource.title,
-        behaviors
-    );
+    /*
+    |--------------------------------------------------------------------------
+    | Full Resource Copy
+    |--------------------------------------------------------------------------
+    */
+
+    if (button.dataset.title) {
+
+        const resource = {
+
+            title: button.dataset.title,
+
+            body: JSON.parse(button.dataset.body)
+
+        };
 
 
-const html =
-    ResourceEmailFormatter.buildResourceHtml(
-        resource,
-        behaviorText
-    );
-
-
-const text =
-    ResourceEmailFormatter.stripHtml(html);
+        const behaviors =
+            JSON.parse(button.dataset.behaviors);
 
 
 
-ResourceEmailFormatter.copyResourceEmail(
-    html,
-    text,
-    button
-);
+        const behaviorText =
+            ResourceEmailFormatter.buildResourceEmail(
+                resource.title,
+                behaviors
+            );
+
+
+        const html =
+            ResourceEmailFormatter.buildResourceHtml(
+                resource,
+                behaviorText
+            );
+
+
+        const text =
+            ResourceEmailFormatter.stripHtml(html);
+
+
+
+        ResourceEmailFormatter.copyResourceEmail(
+            html,
+            text,
+            button
+        );
+
+    }
+
+
+});
 
 </script>
 
