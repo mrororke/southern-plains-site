@@ -299,14 +299,23 @@ class ResourceController extends Controller
     $after = $resource->tricks()->pluck('tricks.id');
 
     dd([
-        'submitted' => $request->tricks,
-        'before' => $before,
-        'sync_result' => $syncResult,
-        'after' => $after,
-        'pivot' => DB::table('resource_trick')
-            ->where('resource_id', $resource->id)
-            ->get(),
-    ]);
+    'resource_id' => $resource->id,
+
+    'submitted' => $request->tricks,
+
+    'before' => $before->toArray(),
+
+    'sync_attached' => $syncResult['attached'],
+    'sync_detached' => $syncResult['detached'],
+    'sync_updated' => $syncResult['updated'],
+
+    'after' => $after->toArray(),
+
+    'pivot' => DB::table('resource_trick')
+        ->where('resource_id', $resource->id)
+        ->pluck('trick_id')
+        ->toArray(),
+]);
 }
 
     /**
