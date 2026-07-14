@@ -19,7 +19,9 @@ import {
 
 import { createIcons } from 'lucide';
 
-createIcons();
+document.addEventListener('DOMContentLoaded', () => {
+    createIcons();
+});
 
 /*
 |--------------------------------------------------------------------------
