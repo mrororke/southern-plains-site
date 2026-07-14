@@ -276,17 +276,27 @@ class ResourceController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateResourceRequest $request, Resource $resource)
-    {
-        $resource->update($request->validated());
-        $resource->tricks()->sync($request->tricks ?? []);
-        $resource->tags()->sync($request->tags ?? []);
-        $resource->audiences()->sync($request->audiences ?? []);
+    // public function update(UpdateResourceRequest $request, Resource $resource)
+    // {
+    //     $resource->update($request->validated());
+    //     $resource->tricks()->sync($request->tricks ?? []);
+    //     $resource->tags()->sync($request->tags ?? []);
+    //     $resource->audiences()->sync($request->audiences ?? []);
 
-        return redirect()
-            ->route('admin.teaching-library.resources.index')
-            ->with('success', 'Resource updated successfully.');
-    }
+    //     return redirect()
+    //         ->route('admin.teaching-library.resources.index')
+    //         ->with('success', 'Resource updated successfully.');
+    // }
+
+    public function update(UpdateResourceRequest $request, Resource $resource)
+{
+    dd([
+        'all' => $request->all(),
+        'tricks' => $request->tricks,
+        'validated' => $request->validated(),
+        'existing' => $resource->tricks->pluck('id'),
+    ]);
+}
 
     /**
      * Remove the specified resource from storage.
