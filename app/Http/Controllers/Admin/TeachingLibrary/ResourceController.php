@@ -290,11 +290,22 @@ class ResourceController extends Controller
 
     public function update(UpdateResourceRequest $request, Resource $resource)
 {
+    $before = $resource->tricks()->pluck('tricks.id');
+
+    $resource->update($request->validated());
+
+    $syncResult = $resource->tricks()->sync($request->tricks ?? []);
+
+    $after = $resource->tricks()->pluck('tricks.id');
+
     dd([
-        'all' => $request->all(),
-        'tricks' => $request->tricks,
-        'validated' => $request->validated(),
-        'existing' => $resource->tricks->pluck('id'),
+        'submitted' => $request->tricks,
+        'before' => $before,
+        'sync_result' => $syncResult,
+        'after' => $after,
+        'pivot' => DB::table('resource_trick')
+            ->where('resource_id', $resource->id)
+            ->get(),
     ]);
 }
 
