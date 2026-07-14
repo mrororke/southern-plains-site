@@ -17,11 +17,7 @@ import {
     copyResourceEmail
 } from './utils/resourceEmailFormatter'
 
-import { createIcons } from 'lucide';
 
-document.addEventListener('DOMContentLoaded', () => {
-    createIcons();
-});
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +38,15 @@ Alpine.data(
 )
  
 Alpine.start()
+
+/*
+LUCIDE ICONS
+*/
+import { createIcons, icons } from 'lucide';
+
+document.addEventListener('DOMContentLoaded', () => {
+    createIcons({ icons });
+});
 
 /*
 |--------------------------------------------------------------------------
