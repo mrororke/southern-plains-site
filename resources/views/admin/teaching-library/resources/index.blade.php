@@ -9,6 +9,10 @@
     <div class="flex justify-between items-center mb-6">
 
         <div>
+            <i 
+    data-lucide="dog"
+    class="h-6 w-6 text-teal-600">
+</i>
 
             <h1 class="font-heading text-4xl pb-2">
                 Teaching Library

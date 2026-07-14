@@ -17,6 +17,10 @@ import {
     copyResourceEmail
 } from './utils/resourceEmailFormatter'
 
+import { createIcons } from 'lucide';
+
+createIcons();
+
 /*
 |--------------------------------------------------------------------------
 | Alpine
