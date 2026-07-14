@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers\Admin\TeachingLibrary;
 
+use App\Http\Controllers\Controller;
+
+use App\Http\Requests\TeachingLibrary\StoreResourceRequest;
+use App\Http\Requests\TeachingLibrary\UpdateResourceRequest;
+
 use App\Models\Trick;
 
 use App\Models\TeachingLibrary\Resource;
@@ -10,10 +15,7 @@ use App\Models\TeachingLibrary\ResourceTag;
 use App\Models\TeachingLibrary\ResourceAudience;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\TeachingLibrary\StoreResourceRequest;
-use App\Http\Requests\TeachingLibrary\UpdateResourceRequest;
 
-use App\Http\Controllers\Controller;
 
 class ResourceController extends Controller
 {
@@ -29,11 +31,6 @@ class ResourceController extends Controller
         ])
             ->withCount('tricks');
 
-        /*
-    |--------------------------------------------------------------------------
-    | Search
-    |--------------------------------------------------------------------------
-    */
 
         if ($request->filled('search')) {
 
@@ -44,15 +41,11 @@ class ResourceController extends Controller
                 $q->where('internal_title', 'like', "%{$search}%")
                     ->orWhere('email_subject', 'like', "%{$search}%")
                     ->orWhere('summary', 'like', "%{$search}%");
+
             });
+
         }
 
-
-        /*
-    |--------------------------------------------------------------------------
-    | Category Filter
-    |--------------------------------------------------------------------------
-    */
 
         if ($request->filled('category')) {
 
@@ -60,14 +53,9 @@ class ResourceController extends Controller
                 'resource_category_id',
                 $request->category
             );
+
         }
 
-
-        /*
-    |--------------------------------------------------------------------------
-    | Status Filter
-    |--------------------------------------------------------------------------
-    */
 
         if ($request->filled('status')) {
 
@@ -75,57 +63,60 @@ class ResourceController extends Controller
                 'status',
                 $request->status
             );
+
         }
 
-
-        /*
-    |--------------------------------------------------------------------------
-    | Template Filter
-    |--------------------------------------------------------------------------
-    */
 
         if ($request->boolean('template')) {
 
             $query->where('is_template', true);
+
         }
 
-
-        /*
-|--------------------------------------------------------------------------
-| Sorting
-|--------------------------------------------------------------------------
-*/
 
         switch ($request->get('sort')) {
 
             case 'oldest':
+
                 $query->orderBy('updated_at', 'asc');
+
                 break;
 
 
             case 'alpha':
+
                 $query->orderBy('internal_title', 'asc');
+
                 break;
 
 
             case 'alpha_desc':
+
                 $query->orderBy('internal_title', 'desc');
+
                 break;
 
 
             case 'behaviors':
+
                 $query->orderBy('tricks_count', 'desc');
+
                 break;
 
 
             case 'created':
+
                 $query->orderBy('created_at', 'desc');
+
                 break;
 
 
             default:
+
                 $query->orderBy('updated_at', 'desc');
+
                 break;
+
         }
 
 
@@ -155,17 +146,22 @@ class ResourceController extends Controller
         );
     }
 
+
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
         $categories = ResourceCategory::orderBy('name')->get();
+
         $tags = ResourceTag::orderBy('name')->get();
+
         $audiences = ResourceAudience::orderBy('name')->get();
+
         $tricks = Trick::with('videos')
-    ->orderBy('name')
-    ->get();
+            ->orderBy('name')
+            ->get();
+
 
         return view(
             'admin.teaching-library.resources.create',
@@ -174,26 +170,41 @@ class ResourceController extends Controller
                 'tags',
                 'audiences',
                 'tricks'
-
             )
         );
     }
 
-    // /**
-    //  * Store a newly created resource in storage.
-    //  */
+
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(StoreResourceRequest $request)
-{
-    $resource = Resource::create($request->validated());
+    {
+        $resource = Resource::create(
+            $request->validated()
+        );
 
-    $resource->tricks()->sync($request->tricks ?? []);
-    $resource->tags()->sync($request->tags ?? []);
-    $resource->audiences()->sync($request->audiences ?? []);
 
-    return redirect()
-        ->route('admin.teaching-library.resources.index')
-        ->with('success', 'Resource created successfully.');
-}
+        $resource->tricks()->sync(
+            $request->tricks ?? []
+        );
+
+
+        $resource->tags()->sync(
+            $request->tags ?? []
+        );
+
+
+        $resource->audiences()->sync(
+            $request->audiences ?? []
+        );
+
+
+        return redirect()
+            ->route('admin.teaching-library.resources.index')
+            ->with('success', 'Resource created successfully.');
+    }
+
 
     /**
      * Display the specified resource.
@@ -211,19 +222,22 @@ class ResourceController extends Controller
             'updatedBy',
         ]);
 
+
         $relatedResources = $resource
             ->relatedResources()
             ->limit(5)
             ->get();
+
 
         return view(
             'admin.teaching-library.resources.show',
             compact(
                 'resource',
                 'relatedResources'
-                )
+            )
         );
     }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -231,17 +245,22 @@ class ResourceController extends Controller
     public function edit(Resource $resource)
     {
         $categories = ResourceCategory::orderBy('name')->get();
+
         $tags = ResourceTag::orderBy('name')->get();
+
         $audiences = ResourceAudience::orderBy('name')->get();
+
         $tricks = Trick::with('videos')
-    ->orderBy('name')
-    ->get();
+            ->orderBy('name')
+            ->get();
+
 
         $resource->load([
             'tags',
             'audiences',
             'tricks'
         ]);
+
 
         return view(
             'admin.teaching-library.resources.edit',
@@ -255,21 +274,37 @@ class ResourceController extends Controller
         );
     }
 
+
     /**
      * Update the specified resource in storage.
      */
     public function update(UpdateResourceRequest $request, Resource $resource)
-{
-    $resource->update($request->validated());
+    {
+        $resource->update(
+            $request->validated()
+        );
 
-    $resource->tricks()->sync($request->tricks ?? []);
-    $resource->tags()->sync($request->tags ?? []);
-    $resource->audiences()->sync($request->audiences ?? []);
 
-    return redirect()
-        ->route('admin.teaching-library.resources.index')
-        ->with('success', 'Resource updated successfully.');
-}
+        $resource->tricks()->sync(
+            $request->tricks ?? []
+        );
+
+
+        $resource->tags()->sync(
+            $request->tags ?? []
+        );
+
+
+        $resource->audiences()->sync(
+            $request->audiences ?? []
+        );
+
+
+        return redirect()
+            ->route('admin.teaching-library.resources.index')
+            ->with('success', 'Resource updated successfully.');
+    }
+
 
     /**
      * Remove the specified resource from storage.
@@ -277,6 +312,7 @@ class ResourceController extends Controller
     public function destroy(Resource $resource)
     {
         $resource->delete();
+
 
         return redirect()
             ->route('admin.teaching-library.resources.index')
