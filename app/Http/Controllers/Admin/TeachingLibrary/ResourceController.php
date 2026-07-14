@@ -261,10 +261,10 @@ class ResourceController extends Controller
             'tricks'
         ]);
 
-        dd([
-    'resource' => $resource->id,
-    'loaded_tricks' => $resource->tricks->pluck('id')->toArray(),
-]);
+//         dd([
+//     'resource' => $resource->id,
+//     'loaded_tricks' => $resource->tricks->pluck('id')->toArray(),
+// ]);
 
         return view(
             'admin.teaching-library.resources.edit',
