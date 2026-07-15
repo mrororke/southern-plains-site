@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "./dashboard-v2/sidebar.css";
+@import "./dashboard-v2/topbar.css";
+@import "./dashboard-v2/cards.css";
+@import "./dashboard-v2/queue.css";
+@import "./dashboard-v2/colors.css";
