@@ -6,6 +6,7 @@ export default defineConfig({
     plugins: [
         laravel({
             input: ['resources/css/app.css',
+                'resources/css/desktop-v2.css',
                 'resources/js/app.js',
                 'resources/js/admin/trick-catalog/index.js',
                 'resources/js/admin/trick-catalog/create.js',

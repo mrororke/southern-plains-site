@@ -22,9 +22,9 @@
         Dock Will be Here
     </aside>
 
-    <navbar>
+    <nav>
         Search bar and profile info here
-    </navbar>
+</nav>
 
     <div>
         Content area<br/>
