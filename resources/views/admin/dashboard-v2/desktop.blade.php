@@ -40,14 +40,14 @@
     <div class="col-span-11 grid grid-rows-[auto_1fr] h-full">
 
         <nav class="bg-sp-alloyGray grid grid-cols-12">
-            <div class="col-span-19 p-2">
+            <div class="col-span-9 p-2">
                 <!-- TODO: This should be global search; When you search, it shouldn't disappear. It should remain there. -->
                 <input
                     type="text"
                     name="globalSearch"
                     value=""
                     placeholder="Search anything..."
-                    class="mt-1 block border border-sp-alloyGray rounded-md focus:border-sp-deepGranite placeholder:italic placeholder:text-md placeholder:text-sp-deepGranite ">
+                    class="mt-1 block border border-sp-alloyGray rounded-md bg-transparent focus:border-sp-deepGranite placeholder:italic placeholder:text-md placeholder:text-sp-deepGranite w-full ">
             </div>
             <div class="col-span-3">
                 Profile Here
