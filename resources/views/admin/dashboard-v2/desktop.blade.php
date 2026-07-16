@@ -25,7 +25,7 @@
             <x-icons.admin-logo class="transition-colors group-hover:text-sp-controlledLime" />
         </a>
             <a href="{{ route('admin.dashboard') }}"
-            class="group flex pt-4 justify-center">
+            class="group flex pt-12 justify-center">
             <x-icons.dashboard class="transition-colors group-hover:text-sp-controlledLime" />
         </a>
     </aside>
