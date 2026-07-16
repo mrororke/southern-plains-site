@@ -32,8 +32,8 @@
     <x-icons.dashboard
         @class([
             'transition-colors',
-            'text-sp-controlledLime' => request()->routeIs('admin.dashboard'),
-            'text-sp-softWhite group-hover:text-sp-controlledLime' => !request()->routeIs('admin.dashboard'),
+            'text-sp-controlledLime' => request()->routeIs('admin.dashboard-v2'),
+            'text-sp-softWhite group-hover:text-sp-controlledLime' => !request()->routeIs('admin.dashboard-v2'),
         ]) />
 
 </a>
