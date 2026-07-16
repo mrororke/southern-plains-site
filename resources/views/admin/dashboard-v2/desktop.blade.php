@@ -21,9 +21,9 @@
 
     <aside class="grid grid-cols-1 bg-sp-deepGranite text-sp-softWhite">
         <a href="{{ route('admin.dashboard') }}"
-            class="group flex h-12 w-12 items-center justify-center rounded-lg text-sp-softWhite hover:bg-sp-alloyGray transition-colors">
+            class="group flex pt-4 justify-center rounded-lg text-sp-softWhite hover:bg-sp-alloyGray transition-colors">
 
-            <x-icons.admin-logo class="h-6 w-6 transition-colors group-hover:text-sp-lime" />
+            <x-icons.admin-logo class="transition-colors group-hover:text-sp-controlledLime" />
 
         </a>
     </aside>
