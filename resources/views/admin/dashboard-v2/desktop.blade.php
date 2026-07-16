@@ -17,17 +17,19 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js" defer></script>
 </head>
 
-<body class="bg-sp-softWhite font-sans antialiased grid grid-cols-12">
+<body class="bg-sp-softWhite font-sans antialiased grid grid-cols-12 h-screen">
     
     <aside class="grid grid-cols-1 bg-sp-deepGranite text-sp-softWhite">
         Dock Will be Here
     </aside>
 
+    <div class="col-span-10 grid grid-rows-[auto_1fr]">
     <nav class="grid grid-cols-11 bg-sp-alloyGray">
         Search bar and profile info here
     </nav>
 
     <div>
         Content area<br/>
+    </div>
     </div>
 </body>
