@@ -21,11 +21,15 @@
 
     <aside class="grid grid-cols-1 bg-sp-deepGranite text-sp-softWhite">
         <a href="{{ route('admin.dashboard') }}"
-            class="group flex pt-4 justify-center rounded-lg text-sp-softWhite hover:bg-sp-alloyGray transition-colors">
-
+            class="group flex pt-4 justify-center">
             <x-icons.admin-logo class="transition-colors group-hover:text-sp-controlledLime" />
-
         </a>
+        <div style="border: red 1px solid;">
+            <a href="{{ route('admin.dashboard') }}"
+            class="group flex pt-4 justify-center">
+            <x-icons.dashbaord class="transition-colors group-hover:text-sp-controlledLime" />
+        </a>
+        </div>
     </aside>
 
     <div class="col-span-11 grid grid-rows-[auto_1fr] h-full">
