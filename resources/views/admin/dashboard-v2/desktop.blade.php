@@ -27,23 +27,27 @@
 
         <!-- TODO Create 'dock-item' component to keep things clean. -->
         <a href="{{ route('admin.dashboard') }}"
-    class="group flex justify-center pt-12">
+            class="group flex justify-center pt-12">
 
-    <x-icons.dashboard
-        @class([
-            'transition-colors',
-            'text-sp-controlledLime' => request()->routeIs('admin.dashboard-v2'),
-            'text-sp-softWhite group-hover:text-sp-controlledLime' => !request()->routeIs('admin.dashboard-v2'),
-        ]) />
+            <x-icons.dashboard
+                @class([ 'transition-colors' , 'text-sp-controlledLime'=> request()->routeIs('admin.dashboard-v2'),
+                'text-sp-softWhite group-hover:text-sp-controlledLime' => !request()->routeIs('admin.dashboard-v2'),
+                ]) />
 
-</a>
+        </a>
     </aside>
 
     <div class="col-span-11 grid grid-rows-[auto_1fr] h-full">
 
         <nav class="bg-sp-alloyGray grid grid-cols-12">
-            <div class="col-span-10" style="1px solid red;">
-                Search Bar
+            <div class="col-span-10 p-2">
+                <!-- TODO: This should be global search; When you search, it shouldn't disappear. It should remain there. -->
+                <input
+                    type="text"
+                    name="globalSearch"
+                    value=""
+                    placeholder="Search anything..."
+                    class="mt-1 block border-sp-alloyGray rounded-sm focus:border-sp-deepGranite">
             </div>
             <div class="col-span-2">
                 Profile Here
