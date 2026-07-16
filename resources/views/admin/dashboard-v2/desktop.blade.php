@@ -24,10 +24,19 @@
             class="group flex pt-4 justify-center">
             <x-icons.admin-logo class="transition-colors group-hover:text-sp-controlledLime" />
         </a>
-            <a href="{{ route('admin.dashboard') }}"
-            class="group flex pt-12 justify-center">
-            <x-icons.dashboard class="transition-colors group-hover:text-sp-controlledLime" />
-        </a>
+
+        // TODO Create 'dock-item' component to keep things clean.
+        <a href="{{ route('admin.dashboard') }}"
+    class="group flex justify-center pt-12">
+
+    <x-icons.dashboard
+        @class([
+            'transition-colors',
+            'text-sp-controlledLime' => request()->routeIs('admin.dashboard'),
+            'text-sp-softWhite group-hover:text-sp-controlledLime' => !request()->routeIs('admin.dashboard'),
+        ]) />
+
+</a>
     </aside>
 
     <div class="col-span-11 grid grid-rows-[auto_1fr] h-full">
