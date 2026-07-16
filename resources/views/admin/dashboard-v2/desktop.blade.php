@@ -58,7 +58,7 @@
         <button
             @click="open = !open"
             @click.outside="open = false"
-            class="flex items-center gap-2 text-sp-softWhite">
+            class="flex items-center gap-2 text-sp-darkGranite">
 
             <span>{{ Auth::user()->name }}</span>
 
@@ -72,7 +72,7 @@
         <div
             x-show="open"
             x-transition
-            class="absolute right-0 mt-3 w-56 rounded-lg bg-white shadow-lg">
+            class="absolute right-0 mt-3 w-56 rounded-md bg-sp-alloyGray">
 
             <a href="{{ route('profile.edit') }}"
                 class="block px-4 py-3 hover:bg-gray-100">
