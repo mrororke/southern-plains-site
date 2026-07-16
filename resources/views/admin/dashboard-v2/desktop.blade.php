@@ -23,23 +23,11 @@
         Dock Will be Here
     </aside>
 
-    <nav>
+    <nav class="grid grid-cols-11 bg-sp-alloyGray">
         Search bar and profile info here
-</nav>
+    </nav>
 
     <div>
         Content area<br/>
-        <b>Admin Shell</b><br/>
-        <ul>
-            <li>Sidebar Collapsed</li>
-            <li>Sidebar hover animation</li>
-            <li>mobile drawer <- on mobile build, not desktop</li>
-            <li>breadcrumbs</li>
-            <li>hero</li>
-            <li>global search</li>
-            <li>desktop content container</li>
-            <li>mobile content container <- on mobile build, not desktop</li>
-
-        </ul>
     </div>
 </body>
