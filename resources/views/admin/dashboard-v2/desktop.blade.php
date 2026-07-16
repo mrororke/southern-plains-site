@@ -41,7 +41,13 @@
 
     <div class="col-span-11 grid grid-rows-[auto_1fr] h-full">
 
-        <nav class="bg-sp-alloyGray">
+        <nav class="bg-sp-alloyGray grid grid-cols-12">
+            <div class="col-span-10">
+                Search Bar
+            </div>
+            <div class="col-span-2">
+                Search Bar
+            </div>
             Search bar and profile info here
         </nav>
 
