@@ -42,7 +42,7 @@
     <div class="col-span-11 grid grid-rows-[auto_1fr] h-full">
 
         <nav class="bg-sp-alloyGray grid grid-cols-12">
-            <div class="col-span-10">
+            <div class="col-span-10" style="1px solid red;">
                 Search Bar
             </div>
             <div class="col-span-2">
