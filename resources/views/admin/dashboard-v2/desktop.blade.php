@@ -27,7 +27,7 @@
         <div style="border: red 1px solid;">
             <a href="{{ route('admin.dashboard') }}"
             class="group flex pt-4 justify-center">
-            <x-icons.dashbaord class="transition-colors group-hover:text-sp-controlledLime" />
+            <x-icons.dashboard class="transition-colors group-hover:text-sp-controlledLime" />
         </a>
         </div>
     </aside>
