@@ -46,9 +46,8 @@
                 Search Bar
             </div>
             <div class="col-span-2">
-                Search Bar
+                Profile Here
             </div>
-            Search bar and profile info here
         </nav>
 
         <main>
