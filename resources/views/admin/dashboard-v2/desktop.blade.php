@@ -4,7 +4,7 @@
         Dock Will be Here
     </aside>
 
-    <div class="col-span-11 grid grid-rows-[auto_1fr]">
+    <div class="col-span-11 grid grid-rows-[auto_1fr] h-full">
 
         <nav class="bg-sp-alloyGray">
             Search bar and profile info here
