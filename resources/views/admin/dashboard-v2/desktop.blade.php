@@ -17,9 +17,9 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js" defer></script>
 </head>
 
-<body class="bg-sp-softWhite font-sans antialiased">
+<body class="bg-sp-softWhite font-sans antialiased grid grid-cols-12">
     
-    <aside>
+    <aside class="grid grid-cols-1 bg-sp-deepGranite text-sp-softWhite">
         Dock Will be Here
     </aside>
 
