@@ -25,7 +25,7 @@
             <x-icons.admin-logo class="transition-colors group-hover:text-sp-controlledLime" />
         </a>
 
-        // TODO Create 'dock-item' component to keep things clean.
+        <!-- TODO Create 'dock-item' component to keep things clean. -->
         <a href="{{ route('admin.dashboard') }}"
     class="group flex justify-center pt-12">
 
