@@ -17,7 +17,8 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js" defer></script>
 </head>
 
-<body>
+<body class="bg-softWhite font-sans antialiased">
+    
     <aside>
         Dock Will be Here
     </aside>

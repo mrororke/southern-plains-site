@@ -57,6 +57,15 @@ export default {
                 "training-active": "#02A3CC",
 
                 "brand-gray": "#71717A",
+
+                sp: {
+                    deepGranite: "#252A2E",
+                    softWhite: "#F8F8F5",
+                    alloyGray: "#D8DDE0",
+                    deepTeal: "#006B73",
+                    controlledLime: "#8CCB3F",
+                    vibrantCoral: "#E85D45",
+                }
             },
 
             fontFamily: {
