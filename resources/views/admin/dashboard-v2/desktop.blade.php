@@ -51,6 +51,54 @@
             </div>
             <div class="col-span-3">
                 Profile Here
+                 <div
+        x-data="{ open: false }"
+        class="relative">
+
+        <button
+            @click="open = !open"
+            @click.outside="open = false"
+            class="flex items-center gap-2 text-sp-softWhite">
+
+            <span>{{ Auth::user()->name }}</span>
+
+            <svg class="w-4 h-4 transition-transform"
+                 :class="{ 'rotate-180': open }">
+                ...
+            </svg>
+
+        </button>
+
+        <div
+            x-show="open"
+            x-transition
+            class="absolute right-0 mt-3 w-56 rounded-lg bg-white shadow-lg">
+
+            <a href="{{ route('profile.edit') }}"
+                class="block px-4 py-3 hover:bg-gray-100">
+                Profile
+            </a>
+
+            <button
+                class="block w-full text-left px-4 py-3 hover:bg-gray-100">
+                Settings
+            </button>
+
+            <hr>
+
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+
+                <button
+                    class="block w-full text-left px-4 py-3 hover:bg-gray-100">
+                    Log Out
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
             </div>
         </nav>
 
