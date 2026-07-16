@@ -11,7 +11,7 @@
         </nav>
 
         <main>
-            Content area
+            Content area g
         </main>
 
     </div>
