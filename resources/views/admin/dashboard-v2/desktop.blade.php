@@ -19,17 +19,15 @@
 
 <body class="bg-sp-softWhite font-sans antialiased grid grid-cols-12 h-screen">
 
-    <aside class="grid grid-cols-1 bg-sp-deepGranite text-sp-softWhite">
+    <aside class="flex flex-col bg-sp-deepGranite text-sp-softWhite">
         <a href="{{ route('admin.dashboard') }}"
             class="group flex pt-4 justify-center">
             <x-icons.admin-logo class="transition-colors group-hover:text-sp-controlledLime" />
         </a>
-        <div style="border: red 1px solid;">
             <a href="{{ route('admin.dashboard') }}"
             class="group flex pt-4 justify-center">
             <x-icons.dashboard class="transition-colors group-hover:text-sp-controlledLime" />
         </a>
-        </div>
     </aside>
 
     <div class="col-span-11 grid grid-rows-[auto_1fr] h-full">
