@@ -103,7 +103,7 @@
         </nav>
 
         <main class="p-4">
-            {{ \Diglactic\Breadcrumbs\Breadcrumbs::render() }}
+            {{ Breadcrumbs::render() }}
             Content area
         </main>
 
