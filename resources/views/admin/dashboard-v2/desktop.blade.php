@@ -108,61 +108,64 @@
                 <img src="{{ asset('images/headers/dashboard.png') }}" alt="Dashboard Header" class="rounded-md">
             </div>
 
-            <div class="bg-white rounded-lg shadow">
+            <div 
+    x-data="{ tab: 'overview' }"
+    class="bg-white rounded-lg shadow"
+>
 
-                <!-- Card Header / Tabs -->
-                <div class="border-b border-sp-alloyGray">
-                    <nav class="flex gap-6 px-6" x-data="{ tab: 'overview' }">
+    <!-- Card Header / Tabs -->
+    <div class="border-b border-sp-alloyGray">
+        <nav class="flex gap-6 px-6">
 
-                        <button
-                            @click="tab = 'overview'"
-                            :class="tab === 'overview' 
+            <button
+                @click="tab = 'overview'"
+                :class="tab === 'overview' 
                     ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite' 
                     : 'text-gray-500'"
-                            class="py-4">
-                            Overview
-                        </button>
+                class="py-4">
+                Overview
+            </button>
 
-                        <button
-                            @click="tab = 'activity'"
-                            :class="tab === 'activity' 
+            <button
+                @click="tab = 'activity'"
+                :class="tab === 'activity' 
                     ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite' 
                     : 'text-gray-500'"
-                            class="py-4">
-                            Activity
-                        </button>
+                class="py-4">
+                Activity
+            </button>
 
-                        <button
-                            @click="tab = 'settings'"
-                            :class="tab === 'settings' 
+            <button
+                @click="tab = 'settings'"
+                :class="tab === 'settings' 
                     ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite' 
                     : 'text-gray-500'"
-                            class="py-4">
-                            Settings
-                        </button>
+                class="py-4">
+                Settings
+            </button>
 
-                    </nav>
-                </div>
+        </nav>
+    </div>
 
 
-                <!-- Card Content -->
-                <div class="p-6" x-data="{ tab: 'overview' }">
+    <!-- Card Content -->
+    <div class="p-6">
 
-                    <div x-show="tab === 'overview'">
-                        Overview content
-                    </div>
+        <div x-show="tab === 'overview'">
+            Overview content
+        </div>
 
-                    <div x-show="tab === 'activity'">
-                        Activity content
-                    </div>
+        <div x-show="tab === 'activity'">
+            Activity content
+        </div>
 
-                    <div x-show="tab === 'settings'">
-                        Settings content
-                    </div>
+        <div x-show="tab === 'settings'">
+            Settings content
+        </div>
 
-                </div>
+    </div>
 
-            </div>
+</div>
         </main>
 
     </div>
