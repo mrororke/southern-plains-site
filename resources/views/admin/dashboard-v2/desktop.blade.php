@@ -48,6 +48,7 @@
 
 <!-- EXPANDED SIDEBAR -->
 <div
+    x-cloak
     @mouseenter="sidebarOpen = true"
     @mouseleave="sidebarOpen = false"
     :class="sidebarOpen 
