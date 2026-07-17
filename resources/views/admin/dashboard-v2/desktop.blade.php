@@ -123,7 +123,7 @@
                     ? 'border-b-4 border-sp-controlledLime bg-sp-controlledLime text-sp-deepGranite' 
                     : 'text-gray-500'"
                 class="py-4">
-                Overview
+                All
             </button>
 
             <button
@@ -151,8 +151,8 @@
     <!-- Card Content -->
     <div class="p-6">
 
-        <div x-show="tab === 'overview'">
-            Overview content
+        <div x-show="tab === 'all'">
+            All content
         </div>
 
         <div x-show="tab === 'activity'">
