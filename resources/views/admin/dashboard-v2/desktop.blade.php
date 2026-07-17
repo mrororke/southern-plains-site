@@ -27,23 +27,7 @@
             <x-icons.admin-logo class="transition-colors group-hover:text-sp-controlledLime" />
         </a>
 
-        <!-- TODO Create 'dock-item' component to keep things clean. -->
-        <a href="{{ route('admin.dashboard') }}"
-            class="group flex justify-center pt-12 px-4 gap-4">
-
-            <x-icons.dashboard
-                @class([ 'transition-colors shrink-0' , 'text-sp-controlledLime'=> request()->routeIs('admin.dashboard-v2'),
-                'text-sp-softWhite group-hover:text-sp-controlledLime' => !request()->routeIs('admin.dashboard-v2'),
-                ]) />
-
-                <span
-                    x-show="sidebarOpen"
-                    x-transition
-                    class="uppercase text-xs tracking-wide whitespace-nowrap">
-                    Dashboard
-                </span>
-
-        </a>
+        <!-- TODO Create 'dock-item' component to keep things clean. --> <a href="{{ route('admin.dashboard') }}" class="group flex justify-center pt-12"> <x-icons.dashboard @class([ 'transition-colors' , 'text-sp-controlledLime'=> request()->routeIs('admin.dashboard-v2'), 'text-sp-softWhite group-hover:text-sp-controlledLime' => !request()->routeIs('admin.dashboard-v2'), ]) /> </a>
     </aside>
 
     <div class="col-span-11 grid grid-rows-[auto_1fr] h-full">
