@@ -104,7 +104,9 @@
 
         <main class="p-4">
             {{ Breadcrumbs::render() }}
-            <img src="{{ asset('images/headers/dashboard.png') }}" alt="Dashboard Header" class="rounded-md py-4">
+            <div class="py-4">
+                <img src="{{ asset('images/headers/dashboard.png') }}" alt="Dashboard Header" class="rounded-md">
+            </div>
             Content area
         </main>
 
