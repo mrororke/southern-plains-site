@@ -22,14 +22,10 @@
     class="bg-sp-softWhite font-sans antialiased grid grid-cols-12 h-screen">
 
     <aside
-        @mouseenter="sidebarOpen = true"
-        @mouseleave="sidebarOpen = false"
-        : class="sidebarOpen ? 'w-48' : 'w-16'"
-        class="class=" absolute left-0 top-0 h-screen flex flex-col bg-sp-deepGranite text-sp-softWhite z-50 transition-all duration-300 overflow-hidden">
-        <a href="{{ route('admin.dashboard') }}"
-            class="group flex pt-4 justify-center">
-            <x-icons.admin-logo class="transition-colors group-hover:text-sp-controlledLime" />
-        </a>
+    @mouseenter="sidebarOpen = true"
+    @mouseleave="sidebarOpen = false"
+    :class="sidebarOpen ? 'w-48' : 'w-16'"
+    class="absolute left-0 top-0 h-screen flex flex-col bg-sp-deepGranite text-sp-softWhite z-50 transition-all duration-300 overflow-hidden">
 
         <!-- TODO Create 'dock-item' component to keep things clean. -->
         <a href="{{ route('admin.dashboard') }}"
