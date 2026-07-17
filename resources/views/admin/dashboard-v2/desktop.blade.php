@@ -58,8 +58,8 @@
     @mouseenter="sidebarOpen = true"
     @mouseleave="sidebarOpen = false"
     :class="sidebarOpen 
-    ? 'translate-x-0 pointer-events-auto' 
-    : '-translate-x-full pointer-events-none'"
+        ? 'translate-x-0 pointer-events-auto' 
+        : '-translate-x-full pointer-events-none'"
     class="absolute top-0 left-0 h-screen w-64 bg-sp-deepGranite text-sp-softWhite z-50 transform transition-transform duration-300 ease-in-out">
 
     <a href="{{ route('admin.dashboard') }}"
