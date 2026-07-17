@@ -72,7 +72,7 @@
                     <div
                         x-show="open"
                         x-transition
-                        class="absolute right-0 mt-3 w-56 rounded-md bg-sp-alloyGray">
+                        class="absolute right-0 mt-3 w-56 rounded-md bg-sp-alloyGray border border-b">
 
                         <a href="{{ route('profile.edit') }}"
                             class="block px-4 py-3 hover:bg-gray-100">
@@ -110,7 +110,7 @@
 
             <div 
     x-data="{ tab: 'all' }"
-    class="bg-sp-softWhite rounded-md"
+    class="border-b-2 border-sp-alloyGray text-sp-deepGranite rounded-md"
 >
 
     <!-- Card Header / Tabs -->
