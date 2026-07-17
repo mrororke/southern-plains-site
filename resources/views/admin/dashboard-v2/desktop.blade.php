@@ -110,7 +110,7 @@
 
             <div 
     x-data="{ tab: 'all' }"
-    class="border-2 border-sp-alloyGray text-sp-deepGranite rounded-md"
+    class="border-2 border-sp-alloyGray text-sp-deepGranite rounded-md my-4"
 >
 
     <!-- Card Header / Tabs -->
