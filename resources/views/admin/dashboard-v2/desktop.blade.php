@@ -120,28 +120,28 @@
             <button
                 @click="tab = 'all'"
                 :class="tab === 'all' 
-                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite' 
-                    : 'text-gray-500'"
+                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs' 
+                    : 'text-sp-deepGranite uppercase text-xs'"
                 class="py-4">
-                All
+                All (Count)
             </button>
 
             <button
                 @click="tab = 'trickEvals'"
                 :class="tab === 'trickEvals' 
-                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite' 
-                    : 'text-gray-500'"
+                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs' 
+                    : 'text-sp-deepGranite uppercase text-xs'"
                 class="py-4">
-                Activity
+                Trick Evaluations
             </button>
 
             <button
                 @click="tab = 'contactMessages'"
                 :class="tab === 'contactMessages' 
-                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite' 
-                    : 'text-gray-500'"
+                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs' 
+                    : 'text-sp-deepGranite uppercase text-xs'"
                 class="py-4">
-                Settings
+                Contact Messages
             </button>
 
         </nav>
