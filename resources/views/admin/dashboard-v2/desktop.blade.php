@@ -118,9 +118,9 @@
         <nav class="flex gap-6 px-6">
 
             <button
-                @click="tab = 'overview'"
-                :class="tab === 'overview' 
-                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite' 
+                @click="tab = 'all'"
+                :class="tab === 'all' 
+                    ? 'border-b-5 border-sp-controlledLime bg-sp-controlledLime text-sp-deepGranite' 
                     : 'text-gray-500'"
                 class="py-4">
                 Overview
