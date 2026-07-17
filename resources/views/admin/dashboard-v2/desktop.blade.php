@@ -55,11 +55,10 @@
 
 <!-- EXPANDED SIDEBAR -->
 <div
-    x-show="sidebarOpen"
-    x-transition
     @mouseenter="sidebarOpen = true"
     @mouseleave="sidebarOpen = false"
-    class="absolute top-0 left-0 h-screen w-64 bg-sp-deepGranite text-sp-softWhite z-50">
+    :class="sidebarOpen ? 'translate-x-0' : '-translate-x-full'"
+    class="absolute top-0 left-0 h-screen w-64 bg-sp-deepGranite text-sp-softWhite z-50 transform transition-transform duration-300 ease-in-out">
 
     <a href="{{ route('admin.dashboard') }}"
         class="group flex pt-4 justify-center">
@@ -70,9 +69,15 @@
         class="group flex items-center gap-4 pt-12 px-6">
 
         <x-icons.dashboard
-            class="text-sp-softWhite transition-colors group-hover:text-sp-controlledLime" />
+            @class([
+                'transition-colors',
+                'text-sp-controlledLime' => request()->routeIs('admin.dashboard-v2'),
+                'text-sp-softWhite group-hover:text-sp-controlledLime' => !request()->routeIs('admin.dashboard-v2'),
+            ]) />
 
-        <span class="uppercase text-xs tracking-wide">
+        <span
+            class="uppercase text-xs tracking-wide transition-colors
+            text-sp-softWhite group-hover:text-sp-controlledLime">
             Dashboard
         </span>
 
