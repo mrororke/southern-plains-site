@@ -120,7 +120,7 @@
             <button
                 @click="tab = 'all'"
                 :class="tab === 'all' 
-                    ? 'border-b-5 border-sp-controlledLime bg-sp-controlledLime text-sp-deepGranite' 
+                    ? 'border-b-4 border-sp-controlledLime bg-sp-controlledLime text-sp-deepGranite' 
                     : 'text-gray-500'"
                 class="py-4">
                 Overview
