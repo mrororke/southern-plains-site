@@ -17,15 +17,10 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js" defer></script>
 </head>
 
-<body
-    x-data="{ sidebarOpen: false }"
-    class="bg-sp-softWhite font-sans antialiased grid grid-cols-12 h-screen">
 
-    <aside
-    @mouseenter="sidebarOpen = true"
-    @mouseleave="sidebarOpen = false"
-    :class="sidebarOpen ? 'w-48' : ''"
-    class="absolute left-0 top-0 h-screen flex flex-col bg-sp-deepGranite text-sp-softWhite z-50 transition-all duration-300 overflow-hidden">
+    <body class="bg-sp-softWhite font-sans antialiased grid grid-cols-12 h-screen">
+
+    <aside class="flex flex-col bg-sp-deepGranite text-sp-softWhite">
         
     <a href="{{ route('admin.dashboard') }}"
             class="group flex pt-4 justify-center">
