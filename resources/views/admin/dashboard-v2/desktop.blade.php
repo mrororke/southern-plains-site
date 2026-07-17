@@ -102,7 +102,8 @@
             </div>
         </nav>
 
-        <main>
+        <main class="p-4">
+            {{ Breadcrumbs::render() }}
             Content area
         </main>
 
