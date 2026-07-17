@@ -107,7 +107,62 @@
             <div class="py-4">
                 <img src="{{ asset('images/headers/dashboard.png') }}" alt="Dashboard Header" class="rounded-md">
             </div>
-            Content area
+
+            <div class="bg-white rounded-lg shadow">
+
+                <!-- Card Header / Tabs -->
+                <div class="border-b border-sp-alloyGray">
+                    <nav class="flex gap-6 px-6" x-data="{ tab: 'overview' }">
+
+                        <button
+                            @click="tab = 'overview'"
+                            :class="tab === 'overview' 
+                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite' 
+                    : 'text-gray-500'"
+                            class="py-4">
+                            Overview
+                        </button>
+
+                        <button
+                            @click="tab = 'activity'"
+                            :class="tab === 'activity' 
+                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite' 
+                    : 'text-gray-500'"
+                            class="py-4">
+                            Activity
+                        </button>
+
+                        <button
+                            @click="tab = 'settings'"
+                            :class="tab === 'settings' 
+                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite' 
+                    : 'text-gray-500'"
+                            class="py-4">
+                            Settings
+                        </button>
+
+                    </nav>
+                </div>
+
+
+                <!-- Card Content -->
+                <div class="p-6" x-data="{ tab: 'overview' }">
+
+                    <div x-show="tab === 'overview'">
+                        Overview content
+                    </div>
+
+                    <div x-show="tab === 'activity'">
+                        Activity content
+                    </div>
+
+                    <div x-show="tab === 'settings'">
+                        Settings content
+                    </div>
+
+                </div>
+
+            </div>
         </main>
 
     </div>
