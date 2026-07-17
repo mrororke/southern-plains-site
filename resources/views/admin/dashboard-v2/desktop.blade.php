@@ -120,15 +120,15 @@
             <button
                 @click="tab = 'all'"
                 :class="tab === 'all' 
-                    ? 'border-b-4 border-sp-controlledLime bg-sp-controlledLime text-sp-deepGranite' 
+                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite' 
                     : 'text-gray-500'"
                 class="py-4">
                 All
             </button>
 
             <button
-                @click="tab = 'activity'"
-                :class="tab === 'activity' 
+                @click="tab = 'trickEvals'"
+                :class="tab === 'trickEvals' 
                     ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite' 
                     : 'text-gray-500'"
                 class="py-4">
@@ -136,8 +136,8 @@
             </button>
 
             <button
-                @click="tab = 'settings'"
-                :class="tab === 'settings' 
+                @click="tab = 'contactMessages'"
+                :class="tab === 'contactMessages' 
                     ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite' 
                     : 'text-gray-500'"
                 class="py-4">
@@ -155,12 +155,12 @@
             All content
         </div>
 
-        <div x-show="tab === 'activity'">
-            Activity content
+        <div x-show="tab === 'trickEvals'">
+            Trick Evaluations
         </div>
 
-        <div x-show="tab === 'settings'">
-            Settings content
+        <div x-show="tab === 'contactMessages'">
+            Contact Messages
         </div>
 
     </div>
