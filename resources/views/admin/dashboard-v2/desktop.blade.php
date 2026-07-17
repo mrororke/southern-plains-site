@@ -17,9 +17,15 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js" defer></script>
 </head>
 
-<body class="bg-sp-softWhite font-sans antialiased grid grid-cols-12 h-screen">
+<body
+    x-data="{ sidebarOpen: false }"
+    class="bg-sp-softWhite font-sans antialiased grid grid-cols-12 h-screen">
 
-    <aside class="flex flex-col bg-sp-deepGranite text-sp-softWhite">
+    <aside
+        @mouseenter="sidebarOpen = true"
+        @mouseleave="sidebarOpen = false"
+        : class="sidebarOpen ? 'w-48' : 'w-16'"
+        class="class=" absolute left-0 top-0 h-screen flex flex-col bg-sp-deepGranite text-sp-softWhite z-50 transition-all duration-300 overflow-hidden">
         <a href="{{ route('admin.dashboard') }}"
             class="group flex pt-4 justify-center">
             <x-icons.admin-logo class="transition-colors group-hover:text-sp-controlledLime" />
@@ -27,12 +33,19 @@
 
         <!-- TODO Create 'dock-item' component to keep things clean. -->
         <a href="{{ route('admin.dashboard') }}"
-            class="group flex justify-center pt-12">
+            class="group flex justify-center pt-12 px-4 gap-4">
 
             <x-icons.dashboard
-                @class([ 'transition-colors' , 'text-sp-controlledLime'=> request()->routeIs('admin.dashboard-v2'),
+                @class([ 'transition-colors shrink-0' , 'text-sp-controlledLime'=> request()->routeIs('admin.dashboard-v2'),
                 'text-sp-softWhite group-hover:text-sp-controlledLime' => !request()->routeIs('admin.dashboard-v2'),
                 ]) />
+
+                <span
+                    x-show="sidebarOpen"
+                    x-transition
+                    class="uppercase text-xs tracking-wide whitespace-nowrap">
+                    Dashboard
+                </span>
 
         </a>
     </aside>
@@ -108,64 +121,63 @@
                 <img src="{{ asset('images/headers/dashboard.png') }}" alt="Dashboard Header" class="rounded-md">
             </div>
 
-            <div 
-    x-data="{ tab: 'all' }"
-    class="border-2 border-sp-alloyGray text-sp-deepGranite rounded-md my-4"
->
+            <div
+                x-data="{ tab: 'all' }"
+                class="border-2 border-sp-alloyGray text-sp-deepGranite rounded-md my-4">
 
-    <!-- Card Header / Tabs -->
-    <div class="border-b border-sp-alloyGray">
-        <nav class="flex gap-6 px-6">
+                <!-- Card Header / Tabs -->
+                <div class="border-b border-sp-alloyGray">
+                    <nav class="flex gap-6 px-6">
 
-            <button
-                @click="tab = 'all'"
-                :class="tab === 'all' 
+                        <button
+                            @click="tab = 'all'"
+                            :class="tab === 'all' 
                     ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs tracking-wide' 
                     : 'text-sp-deepGranite uppercase text-xs tracking-wide'"
-                class="py-4">
-                All (Count)
-            </button>
+                            class="py-4">
+                            All (Count)
+                        </button>
 
-            <button
-                @click="tab = 'trickEvals'"
-                :class="tab === 'trickEvals' 
+                        <button
+                            @click="tab = 'trickEvals'"
+                            :class="tab === 'trickEvals' 
                     ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs tracking-wide' 
                     : 'text-sp-deepGranite uppercase text-xs tracking-wide'"
-                class="py-4">
-                Trick Evaluations
-            </button>
+                            class="py-4">
+                            Trick Evaluations
+                        </button>
 
-            <button
-                @click="tab = 'contactMessages'"
-                :class="tab === 'contactMessages' 
+                        <button
+                            @click="tab = 'contactMessages'"
+                            :class="tab === 'contactMessages' 
                     ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs tracking-wide' 
                     : 'text-sp-deepGranite uppercase text-xs tracking-wide'"
-                class="py-4">
-                Contact Messages
-            </button>
+                            class="py-4">
+                            Contact Messages
+                        </button>
 
-        </nav>
-    </div>
+                    </nav>
+                </div>
 
 
-    <!-- Card Content -->
-    <div class="p-6">
+                <!-- Card Content -->
+                <div class="p-6">
 
-        <div x-show="tab === 'all'">
-            All content
-        </div>
+                    <div x-show="tab === 'all'">
+                        All content
+                    </div>
 
-        <div x-show="tab === 'trickEvals'">
-            Trick Evaluations
-        </div>
+                    <div x-show="tab === 'trickEvals'">
+                        Trick Evaluations
+                    </div>
 
-        <div x-show="tab === 'contactMessages'">
-            Contact Messages
-        </div>
+                    <div x-show="tab === 'contactMessages'">
+                        Contact Messages
+                    </div>
 
-    </div>
+                </div>
 
-</div>
+            </div>
         </main>
 
     </div>
