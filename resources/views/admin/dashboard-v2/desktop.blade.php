@@ -34,7 +34,7 @@
 
         <!-- TODO Create 'dock-item' component to keep things clean. -->
          <a href="{{ route('admin.dashboard') }}"
-    class="group flex items-center justify-center gap-4 pt-12">
+    class="group flex justify-center pt-12">
 
     <x-icons.dashboard
         @class([
