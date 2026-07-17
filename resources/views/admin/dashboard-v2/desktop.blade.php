@@ -18,16 +18,40 @@
 </head>
 
 
-    <body class="bg-sp-softWhite font-sans antialiased grid grid-cols-12 h-screen">
+    <body 
+    x-data="{ sidebarOpen: false }"
+    class="bg-sp-softWhite font-sans antialiased grid grid-cols-12 h-screen">
 
-    <aside class="flex flex-col bg-sp-deepGranite text-sp-softWhite">
+    <aside
+    @mouseenter="sidebarOpen = true"
+    @mouseleave="sidebarOpen = false"
+    :class="sidebarOpen ? 'col-span-2' : 'col-span-1'"
+    class="flex flex-col bg-sp-deepGranite text-sp-softWhite">
         
     <a href="{{ route('admin.dashboard') }}"
             class="group flex pt-4 justify-center">
             <x-icons.admin-logo class="transition-colors group-hover:text-sp-controlledLime" />
         </a>
 
-        <!-- TODO Create 'dock-item' component to keep things clean. --> <a href="{{ route('admin.dashboard') }}" class="group flex justify-center pt-12"> <x-icons.dashboard @class([ 'transition-colors' , 'text-sp-controlledLime'=> request()->routeIs('admin.dashboard-v2'), 'text-sp-softWhite group-hover:text-sp-controlledLime' => !request()->routeIs('admin.dashboard-v2'), ]) /> </a>
+        <!-- TODO Create 'dock-item' component to keep things clean. -->
+         <a href="{{ route('admin.dashboard') }}"
+    class="group flex items-center justify-center gap-4 pt-12">
+
+    <x-icons.dashboard
+        @class([
+            'transition-colors',
+            'text-sp-controlledLime'=> request()->routeIs('admin.dashboard-v2'),
+            'text-sp-softWhite group-hover:text-sp-controlledLime' => !request()->routeIs('admin.dashboard-v2'),
+        ]) />
+
+    <span
+        x-show="sidebarOpen"
+        x-transition
+        class="uppercase text-xs tracking-wide whitespace-nowrap">
+        Dashboard
+    </span>
+
+</a>
     </aside>
 
     <div class="col-span-11 grid grid-rows-[auto_1fr] h-full">
