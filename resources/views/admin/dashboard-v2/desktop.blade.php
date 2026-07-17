@@ -40,7 +40,7 @@
     <div class="col-span-11 grid grid-rows-[auto_1fr] h-full">
 
         <nav class="bg-sp-alloyGray grid grid-cols-12 items-center">
-            <div class="col-span-10 pr-8 p-2">
+            <div class="col-span-10 pr-8 p-4">
                 <!-- TODO: This should be global search; When you search, it shouldn't disappear. It should remain there. -->
                 <input
                     type="text"
