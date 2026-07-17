@@ -109,8 +109,8 @@
             </div>
 
             <div 
-    x-data="{ tab: 'overview' }"
-    class="bg-white rounded-lg shadow"
+    x-data="{ tab: 'all' }"
+    class="bg-sp-softWhite rounded-md"
 >
 
     <!-- Card Header / Tabs -->
