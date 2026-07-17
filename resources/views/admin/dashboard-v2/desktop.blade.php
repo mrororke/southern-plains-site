@@ -25,7 +25,6 @@
     <aside
     @mouseenter="sidebarOpen = true"
     @mouseleave="sidebarOpen = false"
-    :class="sidebarOpen ? 'col-span-2' : 'col-span-1'"
     class="flex flex-col bg-sp-deepGranite text-sp-softWhite">
         
     <a href="{{ route('admin.dashboard') }}"
@@ -53,6 +52,33 @@
 
 </a>
     </aside>
+
+<!-- EXPANDED SIDEBAR -->
+<div
+    x-show="sidebarOpen"
+    x-transition
+    @mouseenter="sidebarOpen = true"
+    @mouseleave="sidebarOpen = false"
+    class="absolute top-0 left-0 h-screen w-64 bg-sp-deepGranite text-sp-softWhite z-50">
+
+    <a href="{{ route('admin.dashboard') }}"
+        class="group flex pt-4 justify-center">
+        <x-icons.admin-logo class="transition-colors group-hover:text-sp-controlledLime" />
+    </a>
+
+    <a href="{{ route('admin.dashboard') }}"
+        class="group flex items-center gap-4 pt-12 px-6">
+
+        <x-icons.dashboard
+            class="text-sp-softWhite transition-colors group-hover:text-sp-controlledLime" />
+
+        <span class="uppercase text-xs tracking-wide">
+            Dashboard
+        </span>
+
+    </a>
+
+</div>
 
     <div class="col-span-11 grid grid-rows-[auto_1fr] h-full">
 
