@@ -120,8 +120,8 @@
             <button
                 @click="tab = 'all'"
                 :class="tab === 'all' 
-                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs' 
-                    : 'text-sp-deepGranite uppercase text-xs'"
+                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs tracking-wide' 
+                    : 'text-sp-deepGranite uppercase text-xs tracking-wide'"
                 class="py-4">
                 All (Count)
             </button>
@@ -129,8 +129,8 @@
             <button
                 @click="tab = 'trickEvals'"
                 :class="tab === 'trickEvals' 
-                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs' 
-                    : 'text-sp-deepGranite uppercase text-xs'"
+                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs tracking-wide' 
+                    : 'text-sp-deepGranite uppercase text-xs tracking-wide'"
                 class="py-4">
                 Trick Evaluations
             </button>
@@ -138,8 +138,8 @@
             <button
                 @click="tab = 'contactMessages'"
                 :class="tab === 'contactMessages' 
-                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs' 
-                    : 'text-sp-deepGranite uppercase text-xs'"
+                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs tracking-wide' 
+                    : 'text-sp-deepGranite uppercase text-xs tracking-wide'"
                 class="py-4">
                 Contact Messages
             </button>
