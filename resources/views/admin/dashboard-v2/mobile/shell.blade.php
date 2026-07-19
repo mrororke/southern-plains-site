@@ -18,6 +18,6 @@
 </head>
 
 
-    <body>
-        I am the mobile Shell
-    </body>
+    <body >
+
+</body>
