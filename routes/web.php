@@ -245,6 +245,17 @@ Route::middleware(['auth'])
 
     });
 
+
+Route::middleware(['auth'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+
+        Route::view('/mobile-shell', 'admin.mobile.shell')
+            ->name('mobile-shell');
+
+    });
+
 /*
 |--------------------------------------------------------------------------
 | AUTH ROUTES
