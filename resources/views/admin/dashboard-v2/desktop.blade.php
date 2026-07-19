@@ -215,6 +215,14 @@
                             class="py-4">
                             Resource Requests
                         </button>
+                        <button
+                            @click="tab = 'trackingSport'"
+                            :class="tab === 'trackingSport' 
+                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs tracking-wide' 
+                    : 'text-sp-deepGranite uppercase text-xs tracking-wide'"
+                            class="py-4">
+                            Tracking Sport Feedback
+                        </button>
 
                     </nav>
                 </div>
@@ -243,6 +251,9 @@
                     </div>
                     <div x-show="tab === 'resourceRquests'">
                         Resource Requests
+                    </div>
+                    <div x-show="tab === 'trackingSport'">
+                        Tracking Sport Feedback
                     </div>
                 </div>
 
