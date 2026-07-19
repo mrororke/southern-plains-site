@@ -191,6 +191,30 @@
                             class="py-4">
                             Contact Messages
                         </button>
+                        <button
+                            @click="tab = 'formSubmissions'"
+                            :class="tab === 'formSubmissions' 
+                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs tracking-wide' 
+                    : 'text-sp-deepGranite uppercase text-xs tracking-wide'"
+                            class="py-4">
+                            Form Submissions
+                        </button>
+                        <button
+                            @click="tab = 'onlineEvaluations'"
+                            :class="tab === 'onlineEvaluations' 
+                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs tracking-wide' 
+                    : 'text-sp-deepGranite uppercase text-xs tracking-wide'"
+                            class="py-4">
+                            Online Evaluations
+                        </button>
+                        <button
+                            @click="tab = 'resourceRequests'"
+                            :class="tab === 'resourceRequests' 
+                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs tracking-wide' 
+                    : 'text-sp-deepGranite uppercase text-xs tracking-wide'"
+                            class="py-4">
+                            Resource Requests
+                        </button>
 
                     </nav>
                 </div>
@@ -211,6 +235,15 @@
                         Contact Messages
                     </div>
 
+                    <div x-show="tab === 'formSubmissions'">
+                        Form Submissions
+                    </div>
+                    <div x-show="tab === 'onlineEvaluations'">
+                        Online Evaluations
+                    </div>
+                    <div x-show="tab === 'resourceRquests'">
+                        Resource Requests
+                    </div>
                 </div>
 
             </div>
