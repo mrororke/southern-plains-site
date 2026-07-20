@@ -68,7 +68,7 @@
             viewBox="0 0 24 24"
             stroke-width="2"
             stroke="currentColor"
-            class="h-7 w-7 text-sp-deepGranite">
+            class="h-7 w-7 text-sp-softWhite">
 
             <path
                 stroke-linecap="round"
