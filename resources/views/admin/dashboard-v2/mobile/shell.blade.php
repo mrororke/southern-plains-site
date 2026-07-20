@@ -117,7 +117,7 @@
                 Resource Library
             </a>
             <a href="{{ route('profile.edit') }}"
-                class="block px-4 py-3 hover:bg-gray-100">
+                class="block px-6 py-4 text-sp-darkGranite border-b border-sp-alloyGray">
                 Profile
             </a>
 
