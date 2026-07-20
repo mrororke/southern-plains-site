@@ -128,7 +128,11 @@
 
         <!-- This Week Card -->
         <div class="bg-sp-alloyGray px-6 py-4 mt-4 rounded-md">
-            Here is this week!
+            <div class="flex items-center justify-between">
+                <h1 class="font-heading text-7xl">This Week</h1>
+                <span>button</span>
+            </div>
+            
         </div>
 
     </main>
