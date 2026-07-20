@@ -98,7 +98,7 @@
                     name="globalSearch"
                     value=""
                     placeholder="Search anything..."
-                    class="mt-1 block border border-sp-deepGranite rounded-md px-6 py-4 focus:border-sp-deepGranite placeholder:italic placeholder:text-md placeholder:text-sp-deepGranite w-full ">
+                    class="mt-1 p-4 block border border-sp-deepGranite rounded-md px-6 py-4 focus:border-sp-deepGranite placeholder:italic placeholder:text-md placeholder:text-sp-deepGranite w-full ">
 
     <a href="#"
         class="block px-6 py-4 text-sp-darkGranite border-b border-sp-alloyGray">
