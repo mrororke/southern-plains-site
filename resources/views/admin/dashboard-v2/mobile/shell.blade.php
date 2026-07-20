@@ -18,6 +18,50 @@
 </head>
 
 
-    <body >
-    The mobile shell
+    <body class="bg-sp-softWhite font-sans antialiased min-h-screen">
+
+    <!-- Mobile Header -->
+    <header class="flex items-center justify-between bg-sp-deepGranite px-4 py-3">
+
+        <!-- Logo -->
+        <a href="{{ route('admin.mobile-shell') }}"
+            class="group">
+            <x-icons.admin-logo 
+                class="h-8 w-auto text-sp-softWhite transition-colors group-hover:text-sp-controlledLime" />
+        </a>
+
+        <!-- Hamburger -->
+        <button
+            type="button"
+            class="text-sp-softWhite transition-colors hover:text-sp-controlledLime">
+
+            <svg 
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="h-7 w-7">
+
+                <path 
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+
+            </svg>
+
+        </button>
+
+    </header>
+
+
+    <!-- Page Content -->
+    <main class="p-4">
+
+        Mobile content goes here.
+
+    </main>
+
 </body>
+
+</html>
