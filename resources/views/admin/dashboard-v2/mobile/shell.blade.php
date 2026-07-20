@@ -127,7 +127,7 @@
                     class="mt-1 mb-1 block border border-sp-deepGranite rounded-md bg-transparent focus:border-sp-deepGranite placeholder:italic placeholder:text-md placeholder:text-sp-deepGranite w-full ">
 
         <!-- This Week Card -->
-        <div class="bg-sp-alloyGray px-6">
+        <div class="bg-sp-alloyGray px-6 py-4 mt-4 rounded-md">
             Here is this week!
         </div>
 
