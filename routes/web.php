@@ -251,7 +251,7 @@ Route::middleware(['auth'])
     ->name('admin.')
     ->group(function () {
 
-        Route::view('/mobile-shell', 'admin.dashboard.mobile.shell')
+        Route::view('/mobile-shell', 'admin.dashboard-v2.mobile.shell')
             ->name('mobile-shell');
 
     });
