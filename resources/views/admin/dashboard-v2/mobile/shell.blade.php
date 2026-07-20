@@ -130,17 +130,17 @@
             <!-- This Week Card -->
             <div class="bg-sp-alloyGray px-6 py-4 mt-4 rounded-md">
                 <div class="flex items-center justify-between">
-                    <h1 class="font-heading text-7xl">This Week</h1>
+                    <h1 class="font-heading text-4xl">This Week</h1>
                     <button
                         class="inline-flex items-center justify-center rounded-md
-           bg-sp-deepGranite
+            bg-sp-deepGranite
            px-4 py-2
            text-sm font-medium text-sp-softWhite
            transition-colors duration-200
            hover:bg-sp-darkGranite
            focus:outline-none focus:ring-2 focus:ring-sp-controlledLime
            disabled:opacity-50 disabled:cursor-not-allowed">
-                        Button
+                        Open Plan
                     </button>
                 </div>
 
