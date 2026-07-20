@@ -99,7 +99,7 @@
                     name="globalSearch"
                     value=""
                     placeholder="Search anything..."
-                    class="block border border-sp-deepGranite rounded-md focus:border-sp-deepGranite placeholder:italic placeholder:text-md placeholder:text-sp-deepGranite ">
+                    class="block border border-sp-deepGranite rounded-md focus:border-sp-deepGranite placeholder:italic placeholder:text-md placeholder:text-sp-deepGranite w-full bg-transparent">
 </div>
 
     <a href="#"
