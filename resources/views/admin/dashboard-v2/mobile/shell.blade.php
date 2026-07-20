@@ -98,7 +98,7 @@
                     name="globalSearch"
                     value=""
                     placeholder="Search anything..."
-                    class="mt-1 block border border-sp-deepGranite rounded-md bg-transparent focus:border-sp-deepGranite placeholder:italic placeholder:text-md placeholder:text-sp-deepGranite w-full ">
+                    class="mt-1 block border border-sp-deepGranite rounded-md px-6 py-4 focus:border-sp-deepGranite placeholder:italic placeholder:text-md placeholder:text-sp-deepGranite w-full ">
 
     <a href="#"
         class="block px-6 py-4 text-sp-darkGranite border-b border-sp-alloyGray">
@@ -115,6 +115,13 @@
 
     <!-- Page Content -->
     <main class="p-4">
+         <!-- TODO: This should be global search; When you search, it shouldn't disappear. It should remain there. -->
+                <input
+                    type="text"
+                    name="globalSearch"
+                    value=""
+                    placeholder="Search anything..."
+                    class="mt-1 block border border-sp-deepGranite rounded-md bg-transparent focus:border-sp-deepGranite placeholder:italic placeholder:text-md placeholder:text-sp-deepGranite w-full ">
 
         Mobile content goes here.
 
