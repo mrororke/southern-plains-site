@@ -92,6 +92,13 @@
     x-transition:leave-start="translate-y-0"
     x-transition:leave-end="-translate-y-full"
     class="absolute top-0 left-0 w-full bg-sp-softWhite z-40 pt-20 shadow-md">
+     <!-- TODO: This should be global search; When you search, it shouldn't disappear. It should remain there. -->
+                <input
+                    type="text"
+                    name="globalSearch"
+                    value=""
+                    placeholder="Search anything..."
+                    class="mt-1 block border border-sp-deepGranite rounded-md bg-transparent focus:border-sp-deepGranite placeholder:italic placeholder:text-md placeholder:text-sp-deepGranite w-full ">
 
     <a href="#"
         class="block px-6 py-4 text-sp-darkGranite border-b border-sp-alloyGray">
