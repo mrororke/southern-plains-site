@@ -117,7 +117,7 @@
 
     <!-- Page Content -->
     <main class="p-4">
-        <p class="text-sp-darkGranite text-md">{{ Auth::user()->name }}</p>
+        <p class="text-sp-darkGranite text-md text-center">Good morning, {{ Auth::user()->name }}!</p>
          <!-- TODO: This should be global search; When you search, it shouldn't disappear. It should remain there. -->
                 <input
                     type="text"
@@ -126,7 +126,10 @@
                     placeholder="Search anything..."
                     class="mt-1 mb-1 block border border-sp-deepGranite rounded-md bg-transparent focus:border-sp-deepGranite placeholder:italic placeholder:text-md placeholder:text-sp-deepGranite w-full ">
 
-        Mobile content goes here.
+        <!-- This Week Card -->
+        <div class="bg-sp-alloyGray px-6">
+            Here is this week!
+        </div>
 
     </main>
 
