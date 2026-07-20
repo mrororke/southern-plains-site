@@ -21,38 +21,89 @@
     <body class="bg-sp-softWhite font-sans antialiased min-h-screen">
 
     <!-- Mobile Header -->
-    <header class="flex items-center justify-between bg-sp-deepGranite px-4 py-3">
+    <!-- Mobile Header -->
+<body 
+    x-data="{ menuOpen: false }"
+    class="bg-sp-softWhite font-sans antialiased min-h-screen">
 
-        <!-- Logo -->
-        <a href="{{ route('admin.mobile-shell') }}"
-            class="group">
-            <x-icons.admin-logo 
-                class="h-8 w-auto text-sp-softWhite transition-colors group-hover:text-sp-controlledLime" />
-        </a>
+<header class="flex items-center justify-between bg-sp-deepGranite px-4 py-3 relative z-50">
 
-        <!-- Hamburger -->
-        <button
-            type="button"
-            class="text-sp-softWhite transition-colors hover:text-sp-controlledLime">
+    <!-- Logo -->
+    <a href="{{ route('admin.mobile-shell') }}"
+        class="group">
 
-            <svg 
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                class="h-7 w-7">
+        <x-icons.admin-logo 
+            class="h-8 w-auto text-sp-softWhite transition-colors group-hover:text-sp-controlledLime" />
 
-                <path 
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+    </a>
 
-            </svg>
 
-        </button>
+    <!-- Hamburger / Close Button -->
+    <button
+        type="button"
+        @click="menuOpen = !menuOpen"
+        class="text-sp-softWhite transition-colors hover:text-sp-controlledLime">
 
-    </header>
+        <svg
+            x-show="!menuOpen"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            class="h-7 w-7">
+
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+
+        </svg>
+
+
+        <svg
+            x-show="menuOpen"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+            class="h-7 w-7 text-sp-deepGranite">
+
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 18 18 6M6 6l12 12" />
+
+        </svg>
+
+    </button>
+
+</header>
+
+
+<!-- Slide Down Menu -->
+<nav
+    x-show="menuOpen"
+    x-transition:enter="transition ease-out duration-300"
+    x-transition:enter-start="-translate-y-full"
+    x-transition:enter-end="translate-y-0"
+    x-transition:leave="transition ease-in duration-200"
+    x-transition:leave-start="translate-y-0"
+    x-transition:leave-end="-translate-y-full"
+    class="absolute top-0 left-0 w-full bg-sp-softWhite z-40 pt-20 shadow-md">
+
+    <a href="#"
+        class="block px-6 py-4 text-sp-darkGranite border-b border-sp-alloyGray">
+        Dashboard
+    </a>
+
+    <a href="#"
+        class="block px-6 py-4 text-sp-darkGranite border-b border-sp-alloyGray">
+        Behavior Library
+    </a>
+
+</nav>
 
 
     <!-- Page Content -->
