@@ -18,125 +18,136 @@
 </head>
 
 
-    <body class="bg-sp-softWhite font-sans antialiased min-h-screen">
+<body class="bg-sp-softWhite font-sans antialiased min-h-screen">
 
     <!-- Mobile Header -->
     <!-- Mobile Header -->
-<body 
-    x-data="{ menuOpen: false }"
-    class="bg-sp-softWhite font-sans antialiased min-h-screen">
 
-<header class="flex items-center justify-between bg-sp-deepGranite px-4 py-3 relative z-50">
+    <body
+        x-data="{ menuOpen: false }"
+        class="bg-sp-softWhite font-sans antialiased min-h-screen">
 
-    <!-- Logo -->
-    <a href="{{ route('admin.mobile-shell') }}"
-        class="group">
+        <header class="flex items-center justify-between bg-sp-deepGranite px-4 py-3 relative z-50">
 
-        <x-icons.admin-logo 
-            class="h-8 w-auto text-sp-softWhite transition-colors group-hover:text-sp-controlledLime" />
+            <!-- Logo -->
+            <a href="{{ route('admin.mobile-shell') }}"
+                class="group">
 
-    </a>
+                <x-icons.admin-logo
+                    class="h-8 w-auto text-sp-softWhite transition-colors group-hover:text-sp-controlledLime" />
 
-
-    <!-- Hamburger / Close Button -->
-    <button
-        type="button"
-        @click="menuOpen = !menuOpen"
-        class="text-sp-softWhite transition-colors hover:text-sp-controlledLime">
-
-        <svg
-            x-show="!menuOpen"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            class="h-7 w-7">
-
-            <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-
-        </svg>
+            </a>
 
 
-        <svg
+            <!-- Hamburger / Close Button -->
+            <button
+                type="button"
+                @click="menuOpen = !menuOpen"
+                class="text-sp-softWhite transition-colors hover:text-sp-controlledLime">
+
+                <svg
+                    x-show="!menuOpen"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="h-7 w-7">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+
+                </svg>
+
+
+                <svg
+                    x-show="menuOpen"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="h-7 w-7 text-sp-softWhite">
+
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6 18 18 6M6 6l12 12" />
+
+                </svg>
+
+            </button>
+
+        </header>
+
+
+        <!-- Slide Down Menu -->
+        <nav
             x-show="menuOpen"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="2"
-            stroke="currentColor"
-            class="h-7 w-7 text-sp-softWhite">
-
-            <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6 18 18 6M6 6l12 12" />
-
-        </svg>
-
-    </button>
-
-</header>
-
-
-<!-- Slide Down Menu -->
-<nav
-    x-show="menuOpen"
-    x-transition:enter="transition ease-out duration-300"
-    x-transition:enter-start="-translate-y-full"
-    x-transition:enter-end="translate-y-0"
-    x-transition:leave="transition ease-in duration-200"
-    x-transition:leave-start="translate-y-0"
-    x-transition:leave-end="-translate-y-full"
-    class="absolute top-0 left-0 w-full bg-sp-softWhite z-40 pt-20 shadow-md">
-    <div class="px-6 py-4">
-     <!-- TODO: This should be global search; When you search, it shouldn't disappear. It should remain there. -->
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="-translate-y-full"
+            x-transition:enter-end="translate-y-0"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="translate-y-0"
+            x-transition:leave-end="-translate-y-full"
+            class="absolute top-0 left-0 w-full bg-sp-softWhite z-40 pt-20 shadow-md">
+            <div class="px-6 py-4">
+                <!-- TODO: This should be global search; When you search, it shouldn't disappear. It should remain there. -->
                 <input
                     type="text"
                     name="globalSearch"
                     value=""
                     placeholder="Search anything..."
                     class="block border border-sp-deepGranite rounded-md focus:border-sp-deepGranite placeholder:italic placeholder:text-md placeholder:text-sp-deepGranite w-full bg-transparent">
-</div>
-
-    <a href="#"
-        class="block px-6 py-4 text-sp-darkGranite border-b border-sp-alloyGray">
-        Dashboard
-    </a>
-
-    <a href="#"
-        class="block px-6 py-4 text-sp-darkGranite border-b border-sp-alloyGray">
-        Behavior Library
-    </a>
-
-</nav>
-
-
-    <!-- Page Content -->
-    <main class="p-4">
-        <p class="text-sp-darkGranite text-md text-center">Good morning, {{ Auth::user()->name }}!</p>
-         <!-- TODO: This should be global search; When you search, it shouldn't disappear. It should remain there. -->
-                <input
-                    type="text"
-                    name="globalSearch"
-                    value=""
-                    placeholder="Search anything..."
-                    class="mt-1 mb-1 block border border-sp-deepGranite rounded-md bg-transparent focus:border-sp-deepGranite placeholder:italic placeholder:text-md placeholder:text-sp-deepGranite w-full ">
-
-        <!-- This Week Card -->
-        <div class="bg-sp-alloyGray px-6 py-4 mt-4 rounded-md">
-            <div class="flex items-center justify-between">
-                <h1 class="font-heading text-7xl">This Week</h1>
-                <span>button</span>
             </div>
-            
-        </div>
 
-    </main>
+            <a href="#"
+                class="block px-6 py-4 text-sp-darkGranite border-b border-sp-alloyGray">
+                Dashboard
+            </a>
 
-</body>
+            <a href="#"
+                class="block px-6 py-4 text-sp-darkGranite border-b border-sp-alloyGray">
+                Behavior Library
+            </a>
+
+        </nav>
+
+
+        <!-- Page Content -->
+        <main class="p-4">
+            <p class="text-sp-darkGranite text-md text-center">Good morning, {{ Auth::user()->name }}!</p>
+            <!-- TODO: This should be global search; When you search, it shouldn't disappear. It should remain there. -->
+            <input
+                type="text"
+                name="globalSearch"
+                value=""
+                placeholder="Search anything..."
+                class="mt-1 mb-1 block border border-sp-deepGranite rounded-md bg-transparent focus:border-sp-deepGranite placeholder:italic placeholder:text-md placeholder:text-sp-deepGranite w-full ">
+
+            <!-- This Week Card -->
+            <div class="bg-sp-alloyGray px-6 py-4 mt-4 rounded-md">
+                <div class="flex items-center justify-between">
+                    <h1 class="font-heading text-7xl">This Week</h1>
+                    <button
+                        class="inline-flex items-center justify-center rounded-md
+           bg-sp-deepGranite
+           px-4 py-2
+           text-sm font-medium text-sp-softWhite
+           transition-colors duration-200
+           hover:bg-sp-darkGranite
+           focus:outline-none focus:ring-2 focus:ring-sp-controlledLime
+           disabled:opacity-50 disabled:cursor-not-allowed">
+                        Button
+                    </button>
+                </div>
+
+            </div>
+
+        </main>
+
+    </body>
 
 </html>
