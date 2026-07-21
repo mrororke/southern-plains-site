@@ -12,6 +12,7 @@ function renderLevelBadge(level) {
         advanced: 'bg-fuchsia-500 text-white',
         body_awareness: 'bg-blue-500 text-white',
         clicker_training: 'bg-neutral-500 text-white',
+        cool_tools: 'bg-sky-400 text-white',
         cooperative_care: 'bg-lime-500 text-white',
         diy: 'bg-taupe-500 text-white',
         engagement: 'bg-stone-500 text-white',
