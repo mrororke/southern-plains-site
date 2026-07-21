@@ -10,7 +10,7 @@ class AdminNavigation
             [
                 'label' => 'Dashboard',
                 'icon' => 'dashboard',
-                'route' => 'admin.dashboard-v2',
+                'route' => 'admin.dashboard',
             ],
         ];
     }
