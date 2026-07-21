@@ -16,7 +16,7 @@ class AdminNavigation
 
             [
                 'label' => 'Behaviors',
-                'icon' => 'book-open',
+                'icon' => 'dashboard',
                 'route' => 'admin.trick-catalog.index',
                 'activeRoute' => 'admin.trick-catalog.*',
                 'roles' => ['admin', 'instructor'],
@@ -24,7 +24,7 @@ class AdminNavigation
 
             [
                 'label' => 'Resources',
-                'icon' => 'folder',
+                'icon' => 'dashboard',
                 'route' => 'admin.trick-catalog.index',
                 'activeRoute' => 'admin.trick-catalog.*',
                 'roles' => ['admin', 'instructor'],
@@ -32,7 +32,7 @@ class AdminNavigation
 
             [
                 'label' => 'Add Behavior',
-                'icon' => 'plus',
+                'icon' => 'dashboard',
                 'route' => 'admin.trick-catalog.create',
                 'activeRoute' => 'admin.trick-catalog.create',
                 'roles' => ['admin', 'instructor'],
@@ -40,7 +40,7 @@ class AdminNavigation
 
             [
                 'label' => 'League',
-                'icon' => 'trophy',
+                'icon' => 'dashboard',
                 'route' => '#',
                 'activeRoute' => 'admin.league.*',
                 'status' => 'coming-soon',
@@ -49,7 +49,7 @@ class AdminNavigation
 
             [
                 'label' => 'Users',
-                'icon' => 'users',
+                'icon' => 'dashboard',
                 'route' => '#',
                 'activeRoute' => 'admin.users.*',
                 'status' => 'coming-soon',
