@@ -4,7 +4,7 @@
     'icon',
 ])
 
-<a href="{{ route('$route') }}"
+<a href="{{ route($route) }}"
     class="group flex justify-center pt-12">
 
     <x-dynamic-component
