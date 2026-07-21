@@ -139,7 +139,7 @@
             <div class="bg-sp-alloyGray px-6 py-4 mt-4 rounded-md">
                 <div class="items-center">
                     <h1 class="font-heading text-3xl">Newest Behaviors</h1>
-                    We will have filters with teh search bar, and here will be the five most recently added behaviors to the catalog.
+                    We will have filters with the search bar, and here will be the five most recently added behaviors to the catalog.
                 </div>
 
             </div>
