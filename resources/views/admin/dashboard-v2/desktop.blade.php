@@ -17,6 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js" defer></script>
 </head>
 
+{{ dd($navigation) }}
 
     <body 
     x-data="{ sidebarOpen: false }"
