@@ -11,8 +11,8 @@
         :component="'icons.'. $icon"
             @class([
             'transition-colors',
-            'text-sp-controlledLime'=> request()->routeIs('$activeRoute'),
-            'text-sp-softWhite group-hover:text-sp-controlledLime' => !request()->routeIs('$activeRoute'),
+            'text-sp-controlledLime'=> request()->routeIs($activeRoute),
+            'text-sp-softWhite group-hover:text-sp-controlledLime' => !request()->routeIs($activeRoute),
     ]) />
 
 </a>
