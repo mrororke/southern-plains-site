@@ -9,8 +9,8 @@
         </a>
 
         <x-admin.sidebar.dock-link
-            route="admin.dashboard"
-            active="admin.dashboard-v2"
+            route="admin.dashboard-v2"
+            activeRoute="admin.dashboard-v2"
             icon="dashboard" />
 
     </aside>
