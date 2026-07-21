@@ -3,23 +3,16 @@
     @mouseleave="sidebarOpen = false"
     class="flex flex-col bg-sp-deepGranite text-sp-softWhite">
         
-    <a href="{{ route('admin.dashboard') }}"
+        <a href="{{ route('admin.dashboard') }}"
             class="group flex pt-4 justify-center">
             <x-icons.admin-logo class="transition-colors group-hover:text-sp-controlledLime" />
         </a>
 
-        <!-- TODO Create 'dock-item' component to keep things clean. -->
-         <a href="{{ route('admin.dashboard') }}"
-            class="group flex justify-center pt-12">
+        <x-admin.sidebar.dock-link
+            route="admin.dashboard"
+            active="admin.dashboard-v2"
+            icon="dashboard" />
 
-    <x-icons.dashboard
-        @class([
-            'transition-colors',
-            'text-sp-controlledLime'=> request()->routeIs('admin.dashboard-v2'),
-            'text-sp-softWhite group-hover:text-sp-controlledLime' => !request()->routeIs('admin.dashboard-v2'),
-        ]) />
-
-</a>
     </aside>
 
 <!-- EXPANDED SIDEBAR -->
