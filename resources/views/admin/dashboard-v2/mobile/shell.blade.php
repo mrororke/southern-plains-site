@@ -116,10 +116,6 @@
                 class="block px-6 py-4 text-sp-darkGranite border-b border-sp-alloyGray">
                 Resource Library
             </a>
-            <a href="#"
-                class="block px-6 py-4 text-sp-darkGranite border-b border-sp-alloyGray">
-                Resource Library
-            </a>
             <a href="{{ route('profile.edit') }}"
                 class="block px-6 py-4 text-sp-darkGranite border-b border-sp-alloyGray">
                 Profile
