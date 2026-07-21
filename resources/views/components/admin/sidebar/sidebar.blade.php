@@ -30,27 +30,10 @@
         <x-icons.admin-logo class="transition-colors duration-300 group-hover:text-sp-controlledLime" />
     </a>
 
-    <a href="{{ route('admin.dashboard') }}"
-        class="group flex items-center gap-4 pt-12 px-6">
-
-        <x-icons.dashboard
-            @class([
-                'transition-colors',
-                'text-sp-controlledLime' => request()->routeIs('admin.dashboard-v2'),
-                'text-sp-softWhite group-hover:text-sp-controlledLime' => !request()->routeIs('admin.dashboard-v2'),
-            ]) />
-
-        <span
-            x-show="sidebarOpen"
-            x-transition.delay.150ms
-            @class([
-            'uppercase text-xs tracking-wide whitespace-nowrap transition-colors',
-            'text-sp-controlledLime' => request()->routeIs('admin.dashboard-v2'),
-            'text-sp-softWhite group-hover:text-sp-controlledLime' => !request()->routeIs('admin.dashboard-v2'),
-        ])>
-            Dashboard
-        </span>
-
-    </a>
+    <x-admin.sidebar.nav-link
+    route="admin.dashboard-v2"
+    active-route="admin.dashboard-v2"
+    icon="dashboard"
+    label="Dashboard" />
 
 </div>
