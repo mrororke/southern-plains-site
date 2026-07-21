@@ -1,3 +1,7 @@
+@props([
+    'navigation'
+])
+
 <aside
     @mouseenter="sidebarOpen = true"
     @mouseleave="sidebarOpen = false"

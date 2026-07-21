@@ -22,7 +22,7 @@
     x-data="{ sidebarOpen: false }"
     class="bg-sp-softWhite font-sans antialiased grid grid-cols-12 h-screen">
 
-    <x-admin.sidebar.sidebar />
+    <x-admin.sidebar.sidebar :navigation="$navigation" />
 
     <div class="col-span-11 grid grid-rows-[auto_1fr] h-full">
 
