@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Navigation\AdminNavigation;
+
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\BlogController;
@@ -233,17 +235,24 @@ Route::middleware(['auth'])
 | ADMIN DASHBOARD V2 SANDBOX
 |--------------------------------------------------------------------------
 */
+Route::get('/dashboard-v2', function () {
+    return view('admin.dashboard-v2.desktop', [
+        'navigation' => AdminNavigation::items(),
+    ]);
+})->name('dashboard-v2');
 
-Route::middleware(['auth'])
-    ->prefix('admin')
-    ->name('admin.')
-    ->group(function () {
 
-        Route::get('/dashboard-v2', function () {
-            return view('admin.dashboard-v2.desktop');
-        })->name('dashboard-v2');
 
-    });
+// Route::middleware(['auth'])
+//     ->prefix('admin')
+//     ->name('admin.')
+//     ->group(function () {
+
+//         Route::get('/dashboard-v2', function () {
+//             return view('admin.dashboard-v2.desktop');
+//         })->name('dashboard-v2');
+
+//     });
 
 
 Route::middleware(['auth'])
