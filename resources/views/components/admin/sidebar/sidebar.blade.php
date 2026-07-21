@@ -8,10 +8,14 @@
             <x-icons.admin-logo class="transition-colors group-hover:text-sp-controlledLime" />
         </a>
 
-        <x-admin.sidebar.dock-link
-            route="admin.dashboard-v2"
-            activeRoute="admin.dashboard-v2"
-            icon="dashboard" />
+        @foreach($navigation as $item)
+
+            <x-admin.sidebar.dock-link
+                :route="$item['route']"
+                :activeRoute="$item['activeRoute']"
+                :icon="$item['icon']" />
+
+        @endforeach
 
     </aside>
 
@@ -30,10 +34,14 @@
         <x-icons.admin-logo class="transition-colors duration-300 group-hover:text-sp-controlledLime" />
     </a>
 
+    @foreach($navigation as $item)
+
     <x-admin.sidebar.nav-link
-    route="admin.dashboard-v2"
-    active-route="admin.dashboard-v2"
-    icon="dashboard"
-    label="Dashboard" />
+        :route="$item['route']"
+        :activeRoute="$item['activeRoute']"
+        :icon="$item['icon']"
+        :label="$item['label']" />
+
+    @endforeach
 
 </div>

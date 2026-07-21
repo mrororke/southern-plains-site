@@ -11,6 +11,7 @@ class AdminNavigation
                 'label' => 'Dashboard',
                 'icon' => 'dashboard',
                 'route' => 'admin.dashboard',
+                'activeRoute' => 'admin.dashboard',
             ],
         ];
     }
