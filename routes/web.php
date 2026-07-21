@@ -236,7 +236,7 @@ Route::middleware(['auth'])
 |--------------------------------------------------------------------------
 */
 Route::get('/dashboard-v2', function () {
-    return view('admin.dashboard-v2.desktop', [
+    return view(''admin.dashboard-v2.desktop'', [
         'navigation' => AdminNavigation::items(),
     ]);
 })->name('dashboard-v2');
