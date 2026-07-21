@@ -235,11 +235,18 @@ Route::middleware(['auth'])
 | ADMIN DASHBOARD V2 SANDBOX
 |--------------------------------------------------------------------------
 */
-Route::get('/dashboard-v2', function () {
-    return view('admin.dashboard-v2.desktop', [
-        'navigation' => AdminNavigation::items(),
-    ]);
-})->name('dashboard-v2');
+Route::middleware(['auth'])
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
+
+        Route::get('/dashboard', function () {
+            return view('admin.dashboard-v2.desktop', [
+                'navigation' => \App\Navigation\AdminNavigation::items(),
+            ]);
+        })->name('dashboard');
+
+    });
 
 
 
