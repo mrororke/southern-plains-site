@@ -7,54 +7,103 @@ class AdminNavigation
     public static function items()
     {
         $items = [
+
             [
                 'label' => 'Dashboard',
                 'icon' => 'dashboard',
                 'route' => 'admin.dashboard',
                 'activeRoute' => 'admin.dashboard',
+                'roles' => ['admin'],
+                'status' => 'active',
             ],
 
             [
-                'label' => 'Behaviors',
+                'label' => 'Teaching Library',
                 'icon' => 'dashboard',
-                'route' => 'admin.trick-catalog.index',
-                'activeRoute' => 'admin.trick-catalog.*',
                 'roles' => ['admin', 'instructor'],
-            ],
+                'status' => 'active',
 
-            [
-                'label' => 'Resources',
-                'icon' => 'dashboard',
-                'route' => 'admin.trick-catalog.index',
-                'activeRoute' => 'admin.trick-catalog.*',
-                'roles' => ['admin', 'instructor'],
-            ],
+                'children' => [
 
-            [
-                'label' => 'Add Behavior',
-                'icon' => 'dashboard',
-                'route' => 'admin.trick-catalog.create',
-                'activeRoute' => 'admin.trick-catalog.create',
-                'roles' => ['admin', 'instructor'],
+                    [
+                        'label' => 'Behaviors',
+                        'icon' => 'dashboard',
+                        'route' => 'admin.trick-catalog.index',
+                        'activeRoute' => 'admin.trick-catalog.*',
+                        'status' => 'active',
+                    ],
+
+                    [
+                        'label' => 'Resources',
+                        'icon' => 'dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.resources.*',
+                        'status' => 'coming-soon',
+                    ],
+
+                    [
+                        'label' => 'Add Behavior',
+                        'icon' => 'dashboard',
+                        'route' => 'admin.trick-catalog.create',
+                        'activeRoute' => 'admin.trick-catalog.create',
+                        'status' => 'active',
+                    ],
+
+                    [
+                        'label' => 'Categories',
+                        'icon' => 'dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.trick-catalog.categories',
+                        'status' => 'coming-soon',
+                    ],
+
+                    [
+                        'label' => 'Tags',
+                        'icon' => 'dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.trick-catalog.tags',
+                        'status' => 'coming-soon',
+                    ],
+
+                ],
             ],
 
             [
                 'label' => 'League',
                 'icon' => 'dashboard',
-                'route' => '#',
+                'route' => 'admin.dashboard',
                 'activeRoute' => 'admin.league.*',
-                'status' => 'coming-soon',
                 'roles' => ['admin'],
+                'status' => 'coming-soon',
             ],
 
             [
-                'label' => 'Users',
+                'label' => 'Events',
                 'icon' => 'dashboard',
-                'route' => '#',
-                'activeRoute' => 'admin.users.*',
-                'status' => 'coming-soon',
+                'route' => 'admin.dashboard',
+                'activeRoute' => 'admin.events.*',
                 'roles' => ['admin'],
+                'status' => 'coming-soon',
             ],
+
+            [
+                'label' => 'CRM',
+                'icon' => 'dashboard',
+                'route' => 'admin.dashboard',
+                'activeRoute' => 'admin.crm.*',
+                'roles' => ['admin'],
+                'status' => 'coming-soon',
+            ],
+
+            [
+                'label' => 'Admin',
+                'icon' => 'dashboard',
+                'route' => 'admin.dashboard',
+                'activeRoute' => 'admin.settings.*',
+                'roles' => ['admin'],
+                'status' => 'coming-soon',
+            ],
+
         ];
 
         return collect($items)

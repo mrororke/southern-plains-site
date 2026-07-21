@@ -2,6 +2,7 @@
     'navigation',
 ])
 
+dd($navigation)
 <aside
     @mouseenter="sidebarOpen = true"
     @mouseleave="sidebarOpen = false"
