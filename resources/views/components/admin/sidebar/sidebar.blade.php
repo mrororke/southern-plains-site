@@ -4,6 +4,8 @@
 
 dd($navigation)
 <aside
+
+dd($navigation)
     @mouseenter="sidebarOpen = true"
     @mouseleave="sidebarOpen = false"
     class="flex flex-col bg-sp-deepGranite text-sp-softWhite">
