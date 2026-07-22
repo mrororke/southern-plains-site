@@ -41,13 +41,33 @@
     </a>
 
     @foreach($navigation as $item)
-    @if(isset($item['route']))
-    <x-admin.sidebar.nav-link
-        :route="$item['route']"
-        :activeRoute="$item['activeRoute']"
-        :icon="$item['icon']"
-        :label="$item['label']" />
+
+    @if(isset($item['children']))
+
+        <div class="px-6 pt-6 pb-2 text-xs uppercase tracking-wide text-sp-alloyGray">
+            {{ $item['label'] }}
+        </div>
+
+        @foreach($item['children'] as $child)
+
+            <x-admin.sidebar.nav-link
+                :route="$child['route']"
+                :activeRoute="$child['activeRoute']"
+                :icon="$child['icon']"
+                :label="$child['label']" />
+
+        @endforeach
+
+    @else
+
+        <x-admin.sidebar.nav-link
+            :route="$item['route']"
+            :activeRoute="$item['activeRoute']"
+            :icon="$item['icon']"
+            :label="$item['label']" />
+
     @endif
-    @endforeach
+
+@endforeach
 
 </div>
