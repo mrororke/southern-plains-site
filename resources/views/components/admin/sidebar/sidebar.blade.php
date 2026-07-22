@@ -61,7 +61,6 @@
             <x-admin.sidebar.nav-link
                 :route="$child['route']"
                 :activeRoute="$child['activeRoute']"
-                :icon="$child['icon']"
                 :label="$child['label']" />
 
 
@@ -72,6 +71,7 @@
         <x-admin.sidebar.nav-link
             :route="$item['route']"
             :activeRoute="$item['activeRoute']"
+            :icon="$item['icon']"
             :label="$item['label']" />
 
     @endif
