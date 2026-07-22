@@ -2,7 +2,6 @@
     'navigation',
 ])
 
-dd($navigation)
 <aside
 
     @mouseenter="sidebarOpen = true"
@@ -15,12 +14,13 @@ dd($navigation)
         </a>
 
         @foreach($navigation as $item)
+            @if(isset($item['route']))
 
             <x-admin.sidebar.dock-link
                 :route="$item['route']"
                 :activeRoute="$item['activeRoute']"
                 :icon="$item['icon']" />
-
+            @endif
         @endforeach
 
     </aside>
@@ -41,13 +41,13 @@ dd($navigation)
     </a>
 
     @foreach($navigation as $item)
-
+    @if(isset($item['route']))
     <x-admin.sidebar.nav-link
         :route="$item['route']"
         :activeRoute="$item['activeRoute']"
         :icon="$item['icon']"
         :label="$item['label']" />
-
+    @endif
     @endforeach
 
 </div>
