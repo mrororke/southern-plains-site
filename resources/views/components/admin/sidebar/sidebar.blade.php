@@ -72,7 +72,6 @@
         <x-admin.sidebar.nav-link
             :route="$item['route']"
             :activeRoute="$item['activeRoute']"
-            :icon="$item['icon']"
             :label="$item['label']" />
 
     @endif
