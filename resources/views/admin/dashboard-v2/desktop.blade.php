@@ -22,7 +22,9 @@
     x-data="{ sidebarOpen: false }"
     class="bg-sp-softWhite font-sans antialiased grid grid-cols-12 h-screen">
 
+    @php
     dd($navigation)
+    @endphp
 
     <x-admin.sidebar.sidebar :navigation="$navigation" />
 
