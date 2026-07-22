@@ -1,20 +1,29 @@
 @props([
     'route',
     'activeRoute',
-    'icon',
+    'icon' => null,
     'label',
+    'showIcon' => true,
+    'child' => false,
 ])
 
 <a href="{{ route($route) }}"
-    class="group flex items-center gap-4 px-6 py-3">
+    @class([
+        'group flex items-center py-3',
+        'gap-4 px-6' => $showIcon && $icon,
+        'pl-[3.75rem] pr-6' => !($showIcon && $icon) && $child,
+        'px-6' => !($showIcon && $icon) && !$child,
+    ])>
 
-    <x-dynamic-component
-        :component="'icons.' . $icon"
-        @class([
-            'transition-colors',
-            'text-sp-controlledLime' => request()->routeIs($activeRoute),
-            'text-sp-softWhite group-hover:text-sp-controlledLime' => !request()->routeIs($activeRoute),
-        ]) />
+    @if($showIcon && $icon)
+        <x-dynamic-component
+            :component="'icons.' . $icon"
+            @class([
+                'transition-colors',
+                'text-sp-controlledLime' => request()->routeIs($activeRoute),
+                'text-sp-softWhite group-hover:text-sp-controlledLime' => !request()->routeIs($activeRoute),
+            ]) />
+    @endif
 
     <span
         @class([

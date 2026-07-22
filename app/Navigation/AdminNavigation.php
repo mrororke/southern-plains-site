@@ -27,7 +27,6 @@ class AdminNavigation
 
                     [
                         'label' => 'Behaviors',
-                        'icon' => 'dashboard',
                         'route' => 'admin.trick-catalog.index',
                         'activeRoute' => 'admin.trick-catalog.*',
                         'status' => 'active',
@@ -35,7 +34,6 @@ class AdminNavigation
 
                     [
                         'label' => 'Resources',
-                        'icon' => 'dashboard',
                         'route' => 'admin.dashboard',
                         'activeRoute' => 'admin.resources.*',
                         'status' => 'coming-soon',
@@ -43,7 +41,6 @@ class AdminNavigation
 
                     [
                         'label' => 'Add Behavior',
-                        'icon' => 'dashboard',
                         'route' => 'admin.trick-catalog.create',
                         'activeRoute' => 'admin.trick-catalog.create',
                         'status' => 'active',
@@ -51,7 +48,6 @@ class AdminNavigation
 
                     [
                         'label' => 'Categories',
-                        'icon' => 'dashboard',
                         'route' => 'admin.dashboard',
                         'activeRoute' => 'admin.trick-catalog.categories',
                         'status' => 'coming-soon',
@@ -59,7 +55,6 @@ class AdminNavigation
 
                     [
                         'label' => 'Tags',
-                        'icon' => 'dashboard',
                         'route' => 'admin.dashboard',
                         'activeRoute' => 'admin.trick-catalog.tags',
                         'status' => 'coming-soon',
