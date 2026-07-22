@@ -44,9 +44,17 @@
 
     @if(isset($item['children']))
 
-        <div class="px-6 pt-6 pb-2 text-xs uppercase tracking-wide text-sp-alloyGray">
+        <div class="flex items-center gap-4 px-6 pt-6 pb-2 text-xs uppercase tracking-wide text-sp-alloyGray">
+
+        <x-dynamic-component
+            :component="'icons.' . $item['icon']"
+            class="w-5 h-5 text-sp-softWhite" />
+
+        <span>
             {{ $item['label'] }}
-        </div>
+        </span>
+
+    </div>
 
         @foreach($item['children'] as $child)
 
