@@ -6,25 +6,23 @@
 ])
 
 <a href="{{ route($route) }}"
-        class="group flex items-center gap-4 pt-12 px-6">
+    class="group flex items-center gap-4 px-6 py-3">
 
-        <x-dynamic-component
-            :component="'icons.' . $icon"
-            @class([
-                'transition-colors',
-                'text-sp-controlledLime' => request()->routeIs($activeRoute),
-                'text-sp-softWhite group-hover:text-sp-controlledLime' => !request()->routeIs($activeRoute),
-            ]) />
+    <x-dynamic-component
+        :component="'icons.' . $icon"
+        @class([
+            'transition-colors',
+            'text-sp-controlledLime' => request()->routeIs($activeRoute),
+            'text-sp-softWhite group-hover:text-sp-controlledLime' => !request()->routeIs($activeRoute),
+        ]) />
 
-        <span
-            x-show="sidebarOpen"
-            x-transition.delay.150ms
-            @class([
+    <span
+        @class([
             'uppercase text-xs tracking-wide whitespace-nowrap transition-colors',
             'text-sp-controlledLime' => request()->routeIs($activeRoute),
             'text-sp-softWhite group-hover:text-sp-controlledLime' => !request()->routeIs($activeRoute),
         ])>
-            {{ $label }}
-        </span>
+        {{ $label }}
+    </span>
 
-    </a>
+</a>
