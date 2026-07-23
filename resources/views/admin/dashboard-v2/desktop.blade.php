@@ -31,6 +31,7 @@
             {{ Breadcrumbs::render() }}
 
             @yield('content')
+            
         </main>
 
     </div>

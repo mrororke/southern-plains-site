@@ -1,13 +1,9 @@
 @extends('admin.dashboard-v2.desktop')
 
-@section('title', 'Dashboard')
-
 @section('content')
+    <div class="dashboard-content">
+        <h1>Dashboard</h1>
 
-    <div class="py-4">
-        <img src="{{ asset('images/headers/dashboard.png') }}" alt="Dashboard Header" class="rounded-md">
+        {{-- dashboard widgets/cards/etc --}}
     </div>
-
-    <x-admin.inbox />
-
 @endsection
