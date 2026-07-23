@@ -1,4 +1,4 @@
-@extends('admin.desktop-v2')
+@extends('admin.dashboard-v2.desktop')
 
 @section('title', 'Dashboard')
 
