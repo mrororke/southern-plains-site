@@ -31,11 +31,9 @@
 
         <main class="p-4">
             {{ Breadcrumbs::render() }}
-            <div class="py-4">
-                <img src="{{ asset('images/headers/dashboard.png') }}" alt="Dashboard Header" class="rounded-md">
-            </div>
+            
+            {{ $slot }}
 
-            <x-admin.inbox />
         </main>
 
     </div>
