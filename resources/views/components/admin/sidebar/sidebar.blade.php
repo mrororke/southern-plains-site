@@ -2,7 +2,9 @@
     'navigation',
 ])
 
+
 <aside
+Nav is working
 
     @mouseenter="sidebarOpen = true"
     @mouseleave="sidebarOpen = false"
