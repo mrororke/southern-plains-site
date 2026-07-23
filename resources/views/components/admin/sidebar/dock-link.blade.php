@@ -20,7 +20,7 @@
     @endif
 
     @class([
-        'group flex justify-center pt-12 transition-opacity',
+        'group flex h-12 items-center justify-center transition-opacity',
         'cursor-not-allowed opacity-40' => $isDisabled,
     ])>
 

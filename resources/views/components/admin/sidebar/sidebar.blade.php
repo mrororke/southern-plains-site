@@ -14,7 +14,7 @@
     </a>
 
     <!-- SCROLLING COLLAPSED NAV -->
-    <div class="flex-1 overflow-y-auto overflow-x-hidden">
+    <div class="flex-1 overflow-y-auto overflow-x-hidden flex flex-col pt-6 gap-4">
         @foreach($navigation as $item)
 
             <x-admin.sidebar.dock-link
