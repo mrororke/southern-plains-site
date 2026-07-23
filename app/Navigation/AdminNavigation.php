@@ -217,7 +217,7 @@ class AdminNavigation
             [
                 'label' => 'Resources',
                 'icon' => 'resources',
-                'roles' => ['admin'],
+                'roles' => ['admin', 'instructor'],
                 'status' => 'coming-soon',
 
                 'children' => [
@@ -226,6 +226,7 @@ class AdminNavigation
                         'label' => 'Documents',
                         'route' => 'admin.dashboard',
                         'activeRoute' => 'admin.dashboard',
+                        'roles' => ['admin'],
                         'status' => 'coming-soon',
                     ],
 
@@ -234,6 +235,7 @@ class AdminNavigation
                         'label' => 'Behavior Catalog',
                         'route' => 'admin.dashboard',
                         'activeRoute' => 'admin.dashboard.*',
+                        'roles' => ['admin', 'instructor'],
                         'status' => 'coming-soon',
                     ],
 
@@ -241,6 +243,7 @@ class AdminNavigation
                         'label' => 'Downloads',
                         'route' => 'admin.dashboard',
                         'activeRoute' => 'admin.dashboard',
+                        'roles' => ['admin'],
                         'status' => 'coming-soon',
                     ],
 
@@ -248,6 +251,7 @@ class AdminNavigation
                         'label' => 'Guides',
                         'route' => 'admin.dashboard',
                         'activeRoute' => 'admin.dashboard',
+                        'roles' => ['admin'],
                         'status' => 'coming-soon',
                     ],
 
@@ -255,6 +259,7 @@ class AdminNavigation
                         'label' => 'Forms',
                         'route' => 'admin.dashboard',
                         'activeRoute' => 'admin.dashboard',
+                        'roles' => ['admin'],
                         'status' => 'coming-soon',
                     ],
 
@@ -392,6 +397,7 @@ class AdminNavigation
                         ->map(function ($child) use ($item) {
 
                             $child['status'] = $child['status'] ?? $item['status'] ?? 'active';
+                            $child['roles'] = $child['roles'] ?? $item['roles'] ?? ['admin'];
                             $child['disabled'] = $child['status'] !== 'active';
 
                             return $child;
