@@ -13,7 +13,7 @@ class AdminNavigation
                 'icon' => 'dashboard',
                 'route' => 'admin.dashboard',
                 'activeRoute' => 'admin.dashboard',
-                'roles' => ['admin'],
+                'roles' => ['admin', 'instructor'],
                 'status' => 'active',
             ],
 
