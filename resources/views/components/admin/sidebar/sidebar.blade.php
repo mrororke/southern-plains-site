@@ -16,14 +16,13 @@
     <!-- SCROLLING COLLAPSED NAV -->
     <div class="flex-1 overflow-y-auto overflow-x-hidden">
         @foreach($navigation as $item)
-            @if(isset($item['route']))
 
-                <x-admin.sidebar.dock-link
-                    :route="$item['route']"
-                    :activeRoute="$item['activeRoute']"
-                    :icon="$item['icon']" />
+            <x-admin.sidebar.dock-link
+                :route="$item['route'] ?? null"
+                :activeRoute="$item['activeRoute'] ?? null"
+                :icon="$item['icon']"
+                :status="$item['status'] ?? 'active'" />
 
-            @endif
         @endforeach
     </div>
 
@@ -62,26 +61,34 @@
                         {{ $item['label'] }}
                     </span>
 
+                    @if(($item['status'] ?? 'active') !== 'active')
+                        <span class="ml-auto rounded-full bg-sp-alloyGray/20 px-2 py-0.5 text-[10px] text-sp-alloyGray">
+                            Soon
+                        </span>
+                    @endif
+
                 </div>
 
                 @foreach($item['children'] as $child)
 
                     <x-admin.sidebar.nav-link
-                        :route="$child['route']"
-                        :activeRoute="$child['activeRoute']"
+                        :route="$child['route'] ?? null"
+                        :activeRoute="$child['activeRoute'] ?? null"
                         :label="$child['label']"
                         :showIcon="false"
-                        :child="true" />
+                        :child="true"
+                        :status="$child['status'] ?? $item['status'] ?? 'active'" />
 
                 @endforeach
 
             @else
 
                 <x-admin.sidebar.nav-link
-                    :route="$item['route']"
-                    :activeRoute="$item['activeRoute']"
+                    :route="$item['route'] ?? null"
+                    :activeRoute="$item['activeRoute'] ?? null"
                     :icon="$item['icon']"
-                    :label="$item['label']" />
+                    :label="$item['label']"
+                    :status="$item['status'] ?? 'active'" />
 
             @endif
 

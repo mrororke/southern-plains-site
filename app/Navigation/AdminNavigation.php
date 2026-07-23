@@ -4,7 +4,7 @@ namespace App\Navigation;
 
 class AdminNavigation
 {
-    public static function items()
+    public static function items(): array
     {
         $items = [
 
@@ -33,7 +33,7 @@ class AdminNavigation
                     ],
 
                     [
-                        /* TODO: Current admin route: admin/posts  */
+                        /* TODO: Current admin route: admin/posts */
                         'label' => 'Posts',
                         'route' => 'admin.dashboard',
                         'activeRoute' => 'admin.dashboard.*',
@@ -54,9 +54,9 @@ class AdminNavigation
                         'status' => 'coming-soon',
                     ],
 
-
                 ],
             ],
+
             [
                 'label' => 'Training',
                 'icon' => 'training',
@@ -93,9 +93,9 @@ class AdminNavigation
                         'status' => 'coming-soon',
                     ],
 
-
                 ],
             ],
+
             [
                 'label' => 'Events & Sports',
                 'icon' => 'events-sports',
@@ -132,9 +132,9 @@ class AdminNavigation
                         'status' => 'coming-soon',
                     ],
 
-
                 ],
             ],
+
             [
                 'label' => 'Dogs',
                 'icon' => 'dogs',
@@ -171,12 +171,11 @@ class AdminNavigation
                         'status' => 'coming-soon',
                     ],
 
-
                 ],
             ],
 
             [
-                /* TODO: Current route on live site: admin/rats  */
+                /* TODO: Current route on live site: admin/rats */
                 'label' => 'Rat Management',
                 'icon' => 'rat-management',
                 'roles' => ['admin'],
@@ -212,9 +211,9 @@ class AdminNavigation
                         'status' => 'coming-soon',
                     ],
 
-
                 ],
             ],
+
             [
                 'label' => 'Resources',
                 'icon' => 'resources',
@@ -251,6 +250,7 @@ class AdminNavigation
                         'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
+
                     [
                         'label' => 'Forms',
                         'route' => 'admin.dashboard',
@@ -258,9 +258,9 @@ class AdminNavigation
                         'status' => 'coming-soon',
                     ],
 
-
                 ],
             ],
+
             [
                 'label' => 'Communication',
                 'icon' => 'communication',
@@ -296,10 +296,10 @@ class AdminNavigation
                         'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
-                    
 
                 ],
             ],
+
             [
                 'label' => 'People',
                 'icon' => 'people',
@@ -335,10 +335,10 @@ class AdminNavigation
                         'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
-                    
 
                 ],
             ],
+
             [
                 'label' => 'Settings',
                 'icon' => 'settings',
@@ -374,12 +374,9 @@ class AdminNavigation
                         'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
-                    
 
                 ],
             ],
-
-            
 
         ];
 
@@ -387,8 +384,21 @@ class AdminNavigation
             ->map(function ($item) {
 
                 $item['status'] = $item['status'] ?? 'active';
-
                 $item['roles'] = $item['roles'] ?? ['admin'];
+                $item['disabled'] = $item['status'] !== 'active';
+
+                if (isset($item['children'])) {
+                    $item['children'] = collect($item['children'])
+                        ->map(function ($child) use ($item) {
+
+                            $child['status'] = $child['status'] ?? $item['status'] ?? 'active';
+                            $child['disabled'] = $child['status'] !== 'active';
+
+                            return $child;
+
+                        })
+                        ->all();
+                }
 
                 return $item;
 
