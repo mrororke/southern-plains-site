@@ -17,11 +17,9 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js" defer></script>
 </head>
 
-
-    <body 
+<body 
     x-data="{ sidebarOpen: false }"
     class="bg-sp-softWhite font-sans antialiased grid grid-cols-12 h-screen">
-
 
     <x-admin.sidebar.sidebar :navigation="$navigation" />
 
@@ -31,11 +29,11 @@
 
         <main class="p-4">
             {{ Breadcrumbs::render() }}
-            
-            {{ $slot }}
 
+            @yield('content')
         </main>
 
     </div>
 
 </body>
+</html>
