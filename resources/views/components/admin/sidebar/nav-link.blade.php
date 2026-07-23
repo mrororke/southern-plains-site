@@ -15,7 +15,7 @@
     @class([
         'group flex items-center py-3',
         'gap-4 px-6' => $hasVisibleIcon,
-        'pl-20 pr-6' => $child,
+        'pl-16 pr-6' => $child,
         'px-6' => !$hasVisibleIcon && !$child,
     ])>
 
