@@ -63,7 +63,10 @@ Nav is working
             <x-admin.sidebar.nav-link
                 :route="$child['route']"
                 :activeRoute="$child['activeRoute']"
-                :label="$child['label']" />
+                :label="$child['label']"
+                :showIcon="false"
+                :child="true" />
+
 
 
         @endforeach

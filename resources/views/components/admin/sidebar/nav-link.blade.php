@@ -7,15 +7,19 @@
     'child' => false,
 ])
 
+@php
+    $hasVisibleIcon = !$child && $showIcon && $icon;
+@endphp
+
 <a href="{{ route($route) }}"
     @class([
         'group flex items-center py-3',
-        'gap-4 px-6' => $showIcon && $icon,
-        'pl-20 pr-6' => !($showIcon && $icon) && $child,
-        'px-6' => !($showIcon && $icon) && !$child,
+        'gap-4 px-6' => $hasVisibleIcon,
+        'pl-20 pr-6' => $child,
+        'px-6' => !$hasVisibleIcon && !$child,
     ])>
 
-    @if($showIcon && $icon)
+    @if($hasVisibleIcon)
         <x-dynamic-component
             :component="'icons.' . $icon"
             @class([
