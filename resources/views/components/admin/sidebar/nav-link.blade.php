@@ -52,10 +52,5 @@
         {{ $label }}
     </span>
 
-    @if($status !== 'active')
-        <span class="ml-auto rounded-full bg-sp-alloyGray/20 px-2 py-0.5 text-[10px] uppercase tracking-wide text-sp-alloyGray">
-            Soon
-        </span>
-    @endif
 
 </a>
