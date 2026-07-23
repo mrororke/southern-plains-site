@@ -25,6 +25,7 @@ function renderLevelBadge(level) {
         handler_mechanics: 'bg-rose-300 text-white',
         impulse_control: 'bg-indigo-500 text-white',
         intermediate: 'bg-pink-500 text-white',
+        mouthwork: 'bg-indigo-400 text-white',
         movement_puzzle: 'bg-amber-500 text-white',
         nose_work: 'bg-cyan-500 text-white',
         novice: 'bg-rose-500 text-white',

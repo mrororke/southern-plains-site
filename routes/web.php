@@ -182,34 +182,35 @@ Route::middleware(['auth'])
             ->name('contacts.status');
 
         /*
-        |--------------------------------------------------------------------------
-        | TRICK CATALOG (ADMIN + INSTRUCTOR)
-        |--------------------------------------------------------------------------
-        */
+|--------------------------------------------------------------------------
+| TRICK CATALOG (ADMIN + INSTRUCTOR)
+|--------------------------------------------------------------------------
+*/
 
-        Route::resource('trick-catalog', TrickCatalogController::class)
-            ->except(['show']);
+Route::get(
+    'trick-catalog/print',
+    [TrickCatalogController::class, 'printAll']
+)->name('trick-catalog.print-all');
 
-        Route::get(
-            'trick-catalog/print',
-            [TrickCatalogController::class, 'printAll']
-        )->name('trick-catalog.print-all');
+Route::post(
+    'trick-catalog/check-video',
+    [TrickCatalogController::class, 'checkVideo']
+)->name('trick-catalog.check-video');
 
-        Route::post(
-            'trick-catalog/check-video',
-            [TrickCatalogController::class, 'checkVideo']
-        )->name('trick-catalog.check-video');
+Route::get('trick-catalog/video-row', function () {
+    return view('admin.trick-catalog.partials.video-row', [
+        'index' => request('index')
+    ]);
+})->name('trick-catalog.video-row');
 
-        Route::get(
-            'trick-catalog/{trick_catalog}/show-data',
-            [TrickCatalogController::class, 'showData']
-        )->name('trick-catalog.show-data');
+Route::get(
+    'trick-catalog/{trick_catalog}/show-data',
+    [TrickCatalogController::class, 'showData']
+)->name('trick-catalog.show-data');
 
-        Route::get('trick-catalog/video-row', function () {
-            return view('admin.trick-catalog.partials.video-row', [
-                'index' => request('index')
-            ]);
-        });
+Route::resource('trick-catalog', TrickCatalogController::class)
+    ->except(['show']);
+
 
         /*
 |--------------------------------------------------------------------------
