@@ -72,18 +72,17 @@
     };
 
     $isAdmin =
-        $hasRole('admin') ||
-        data_get($user, 'is_admin') === true ||
-        data_get($user, 'is_admin') === 1 ||
-        data_get($user, 'isAdmin') === true ||
-        data_get($user, 'isAdmin') === 1;
+    $hasRole('admin') ||
+    data_get($user, 'is_admin') === true ||
+    data_get($user, 'is_admin') === 1 ||
+    ($user && method_exists($user, 'isAdmin') && $user->isAdmin());
 
-    $isInstructor =
-        $hasRole('instructor') ||
-        data_get($user, 'is_instructor') === true ||
-        data_get($user, 'is_instructor') === 1 ||
-        data_get($user, 'isInstructor') === true ||
-        data_get($user, 'isInstructor') === 1;
+$isInstructor =
+    $hasRole('instructor') ||
+    data_get($user, 'is_instructor') === true ||
+    data_get($user, 'is_instructor') === 1 ||
+    ($user && method_exists($user, 'isInstructor') && $user->isInstructor());
+
 
     /*
     |--------------------------------------------------------------------------
