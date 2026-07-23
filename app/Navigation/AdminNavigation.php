@@ -19,7 +19,7 @@ class AdminNavigation
 
             [
                 'label' => 'Content',
-                'icon' => 'content',
+                'icon' => 'content-icon',
                 'roles' => ['admin'],
                 'status' => 'coming-soon',
 
