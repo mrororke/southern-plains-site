@@ -2,6 +2,51 @@
     'navigation',
 ])
 
+@php
+    $user = auth()->user();
+
+    $hasRole = fn ($role) =>
+        $user &&
+        method_exists($user, 'hasRole') &&
+        $user->hasRole($role);
+
+    $isAdmin =
+        $hasRole('admin') ||
+        data_get($user, 'role') === 'admin';
+
+    $isInstructor =
+        $hasRole('instructor') ||
+        data_get($user, 'role') === 'instructor';
+
+    $visibleNavigation = collect($navigation);
+
+    if ($isAdmin) {
+        $visibleNavigation = collect($navigation);
+    } elseif ($isInstructor) {
+        $visibleNavigation = collect($navigation)
+            ->filter(function ($item) {
+                return ($item['label'] ?? null) === 'Resources';
+            })
+            ->map(function ($item) {
+                $item['children'] = collect($item['children'] ?? [])
+                    ->filter(function ($child) {
+                        return ($child['label'] ?? null) === 'Behavior Catalog';
+                    })
+                    ->values()
+                    ->all();
+
+                return $item;
+            })
+            ->filter(function ($item) {
+                return ! empty($item['children']);
+            })
+            ->values();
+    } else {
+        $visibleNavigation = collect();
+    }
+@endphp
+
+
 <aside
     @mouseenter="sidebarOpen = true"
     @mouseleave="sidebarOpen = false"
@@ -15,7 +60,7 @@
 
     <!-- SCROLLING COLLAPSED NAV -->
     <div class="flex-1 overflow-y-auto overflow-x-hidden flex flex-col pt-6 gap-4">
-        @foreach($navigation as $item)
+        @foreach($visibleNavigation as $item)
 
             <x-admin.sidebar.dock-link
                 :route="$item['route'] ?? null"
@@ -47,7 +92,7 @@
     <!-- SCROLLING EXPANDED NAV -->
     <div class="flex-1 overflow-y-auto overflow-x-hidden">
 
-        @foreach($navigation as $item)
+        @foreach($visibleNavigation as $item)
 
             @if(isset($item['children']))
 
