@@ -18,47 +18,41 @@ class AdminNavigation
             ],
 
             [
-                'label' => 'Teaching Library',
-                'icon' => 'dashboard',
-                'roles' => ['admin', 'instructor'],
-                'status' => 'active',
+                'label' => 'Content',
+                'icon' => 'content',
+                'roles' => ['admin'],
+                'status' => 'coming-soon',
 
                 'children' => [
 
                     [
-                        'label' => 'Behaviors',
-                        'route' => 'admin.trick-catalog.index',
-                        'activeRoute' => 'admin.trick-catalog.*',
-                        'status' => 'active',
-                    ],
-
-                    [
-                        'label' => 'Resources',
+                        'label' => 'Pages',
                         'route' => 'admin.dashboard',
-                        'activeRoute' => 'admin.resources.*',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
                     [
-                        'label' => 'Add Behavior',
-                        'route' => 'admin.trick-catalog.create',
-                        'activeRoute' => 'admin.trick-catalog.create',
-                        'status' => 'active',
-                    ],
-
-                    [
-                        'label' => 'Categories',
+                        'label' => 'Posts',
                         'route' => 'admin.dashboard',
-                        'activeRoute' => 'admin.trick-catalog.categories',
+                        'activeRoute' => 'admin.dashboard.*',
                         'status' => 'coming-soon',
                     ],
 
                     [
-                        'label' => 'Tags',
+                        'label' => 'FAQs',
                         'route' => 'admin.dashboard',
-                        'activeRoute' => 'admin.trick-catalog.tags',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
+
+                    [
+                        'label' => 'Media Library',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
+                        'status' => 'coming-soon',
+                    ],
+
 
                 ],
             ],
