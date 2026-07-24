@@ -1,3 +1,4 @@
+@vite('resources/js/admin/trick-catalog/index.js')
 @extends('admin.dashboard-v2.desktop')
 
 @section('content')
