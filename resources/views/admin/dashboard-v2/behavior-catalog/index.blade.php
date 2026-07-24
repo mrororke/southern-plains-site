@@ -8,7 +8,7 @@
     </div>
     <!-- Page Heading  -->
     <div class="flex justify-between items-center mb-6">
-        <h1 class="font-heading text-7xl">Behavior Catalog</h1>
+        <h1 class="font-heading text-7xl text-sp-deepGranite">Behavior Catalog</h1>
         <a href="{{ route('admin.trick-catalog.create') }}"
             class="inline-flex items-center justify-center rounded-md
                 bg-sp-deepGranite px-4 py-2 text-sm font-medium text-sp-softWhite transition-colors duration-200 hover:bg-sp-controlledLime">
@@ -23,7 +23,7 @@
 
         {{-- Search --}}
         <div>
-            <label class="block text-sm font-semibold uppercase mb-1">
+            <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
                 Search
             </label>
 
@@ -32,18 +32,18 @@
                 name="search"
                 value="{{ request('search') }}"
                 placeholder="Name, notes, creator..."
-                class="w-full border-sp-alloyGray shadow-sm focus:sp-darkGranite rounded-md">
+                class="w-full border-sp-alloyGray shadow-sm rounded-md focus:border-sp-darkGranite focus:ring-sp-darkGranite">
         </div>
 
         {{-- Level --}}
         <div>
-            <label class="block text-xs font-semibold uppercase mb-1">
+            <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
                 Category
             </label>
 
             <select
                 name="level"
-                class="w-full border-gray-300 shadow-sm focus:border-club focus:ring-club">
+                class="w-full border-sp-alloyGray rounded-md shadow-sm focus:border-sp-darkGranite focus:ring-sp-darkGranite">
 
                 <option value="">All Categories</option>
                 <option value="none" @selected(request('level')==='none' )>
@@ -63,7 +63,7 @@
 
         {{-- Platform --}}
         <div>
-            <label class="block text-xs font-semibold uppercase mb-1">
+            <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
                 Platform
             </label>
 
@@ -83,7 +83,7 @@
 
         {{-- Sort --}}
         <div>
-            <label class="block text-xs font-semibold uppercase mb-1">
+            <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
                 Sort
             </label>
 
@@ -106,7 +106,7 @@
 
         {{-- Preferred --}}
         <div>
-            <label class="block text-xs font-semibold uppercase mb-1">
+            <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
                 Preferred Video
             </label>
 
@@ -123,7 +123,7 @@
 
         {{-- Notes --}}
         <div>
-            <label class="block text-xs font-semibold uppercase mb-1">
+            <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
                 Notes
             </label>
 
