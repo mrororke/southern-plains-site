@@ -246,7 +246,7 @@
                                     @click="selectedBehavior = null"
                                     class="inline-flex items-center justify-center rounded-md
                                         bg-sp-vibrantCoral px-4 py-2 text-xs font-bold text-white
-                                        transition-colors duration-200 hover:bg-red-800"">
+                                        transition-colors duration-200 hover:brightness-95">
                                     X
                                 </button>
                         </div>
