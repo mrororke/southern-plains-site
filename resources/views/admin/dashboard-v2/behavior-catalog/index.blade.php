@@ -359,30 +359,37 @@
                                 <h3 class="font-heading text-3xl">Videos</h3>
 
                                 <template x-if="selectedBehavior.videos && selectedBehavior.videos.length">
-                                    <div class="space-y-2">
-                                        <template
-                                            x-for="video in selectedBehavior.videos.slice().sort((a, b) => Number(b.preferred) - Number(a.preferred))"
-                                            :key="video.id">
-                                            <div
-                                                class="rounded p-3 text-sm"
-                                                :class="Number(video.preferred) === 1 ? 'bg-lime-100' : 'bg-white'">
-                                                <div class="font-semibold" x-text="video.creator ?? 'Untitled Video'"></div>
+    <div class="space-y-2">
+        <template
+            x-for="video in selectedBehavior.videos.slice().sort((a, b) => 
+                ([1, '1', true, 'true'].includes(b.preferred) ? 1 : 0) - 
+                ([1, '1', true, 'true'].includes(a.preferred) ? 1 : 0)
+            )"
+            :key="video.id"
+        >
+            <div
+                class="rounded p-3 text-sm"
+                :class="[1, '1', true, 'true'].includes(video.preferred) ? 'bg-lime-100' : 'bg-white'"
+            >
+                <div class="font-semibold" x-text="video.creator ?? 'Untitled Video'"></div>
 
-                                                <template x-if="video.url">
-                                                    <a
-                                                        :href="video.url"
-                                                        target="_blank"
-                                                        class="text-sp-deepGranite underline"
-                                                        x-text="video.url"></a>
-                                                </template>
-                                            </div>
-                                        </template>
-                                    </div>
-                                </template>
+                <template x-if="video.url">
+                    <a
+                        :href="video.url"
+                        target="_blank"
+                        class="text-sp-deepGranite underline"
+                        x-text="video.url"
+                    ></a>
+                </template>
+            </div>
+        </template>
+    </div>
+</template>
 
-                                <template x-if="!selectedBehavior.videos || !selectedBehavior.videos.length">
-                                    <p class="text-sm italic">No videos added.</p>
-                                </template>
+<template x-if="!selectedBehavior.videos || !selectedBehavior.videos.length">
+    <p class="text-sm italic">No videos added.</p>
+</template>
+
 
                             </div>
                         </div>
