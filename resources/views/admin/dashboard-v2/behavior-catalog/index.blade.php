@@ -357,6 +357,8 @@
 
                             <div>
                                 <h3 class="font-heading text-3xl">Videos</h3>
+                                <pre x-text="JSON.stringify(video, null, 2)"></pre>
+
 
                                 <template x-if="selectedBehavior.videos && selectedBehavior.videos.length">
     <div class="space-y-2">
