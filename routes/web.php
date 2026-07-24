@@ -247,20 +247,16 @@ Route::middleware(['auth'])
             ]);
         })->name('dashboard');
 
+        Route::get('/behavior-catalog', function () {
+            return view('admin.dashboard-v2.behavior-catalog.index', [
+                'navigation' => \App\Navigation\AdminNavigation::items(),
+            ]);
+        })->name('behavior-catalog.index');
+
     });
 
 
 
-// Route::middleware(['auth'])
-//     ->prefix('admin')
-//     ->name('admin.')
-//     ->group(function () {
-
-//         Route::get('/dashboard-v2', function () {
-//             return view('admin.dashboard-v2.desktop');
-//         })->name('dashboard-v2');
-
-//     });
 
 
 Route::middleware(['auth'])
