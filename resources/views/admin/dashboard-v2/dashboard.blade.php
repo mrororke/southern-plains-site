@@ -2,6 +2,9 @@
 
 @section('content')
     <div class="dashboard-content">
+        <div class="py-4">
+        <img src="{{ asset('images/headers/dashboard.png') }}" alt="Dashboard Header" class="rounded-md">
+    </div>
         <h1>Dashboard</h1>
 
         {{-- dashboard widgets/cards/etc --}}
