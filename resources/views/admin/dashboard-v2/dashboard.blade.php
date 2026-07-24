@@ -7,6 +7,6 @@
     </div>
         <h1>Dashboard</h1>
 
-        {{-- dashboard widgets/cards/etc --}}
+        <x-admin.inbox />
     </div>
 @endsection
