@@ -15,6 +15,9 @@
                 + New Behavior
             </a>
         </div>
+        <div>
+            Filters will go here.
+        </div>
 
         <div class="grid grid-cols-12 h-full">
             <div class="col-span-8">
