@@ -357,26 +357,7 @@
 
                             <div>
                                 <h3 class="font-heading text-3xl">Videos</h3>
-                                <pre x-text="JSON.stringify(video, null, 2)"></pre>
-<div class="bg-yellow-100 p-3 text-xs">
-    <div>
-        selectedBehavior exists:
-        <span x-text="selectedBehavior ? 'yes' : 'no'"></span>
-    </div>
-
-    <div>
-        videos exists:
-        <span x-text="selectedBehavior && selectedBehavior.videos ? 'yes' : 'no'"></span>
-    </div>
-
-    <div>
-        videos length:
-        <span x-text="selectedBehavior && selectedBehavior.videos ? selectedBehavior.videos.length : 'none'"></span>
-    </div>
-
-    <pre x-text="selectedBehavior ? JSON.stringify(selectedBehavior, null, 2) : 'no selectedBehavior'"></pre>
-</div>
-
+                                
 
                                 <template x-if="selectedBehavior.videos && selectedBehavior.videos.length">
     <div class="space-y-2">
