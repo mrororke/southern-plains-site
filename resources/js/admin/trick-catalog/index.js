@@ -1,3 +1,6 @@
+import Alpine from 'alpinejs';
+
+
 import './email';
 import './index-filters';
 
@@ -311,3 +314,5 @@ document.getElementById('trickModal').addEventListener('click', (e) => {
         closeTrickModal();
     }
 });
+
+Alpine.start();

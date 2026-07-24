@@ -1,4 +1,8 @@
 {
+  "_module.esm-DdaDH_LP.js": {
+    "file": "assets/module.esm-DdaDH_LP.js",
+    "name": "module.esm"
+  },
   "resources/css/app.css": {
     "file": "assets/app-DUo19iPe.css",
     "src": "resources/css/app.css",
@@ -22,16 +26,22 @@
     "isEntry": true
   },
   "resources/js/admin/trick-catalog/index.js": {
-    "file": "assets/index-CmooZr4v.js",
+    "file": "assets/index-BO7joJv4.js",
     "name": "index",
     "src": "resources/js/admin/trick-catalog/index.js",
-    "isEntry": true
+    "isEntry": true,
+    "imports": [
+      "_module.esm-DdaDH_LP.js"
+    ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-CVoQlRS0.js",
+    "file": "assets/app-PUU8QRIs.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
+    "imports": [
+      "_module.esm-DdaDH_LP.js"
+    ],
     "css": [
       "assets/app-DUo19iPe.css"
     ]
