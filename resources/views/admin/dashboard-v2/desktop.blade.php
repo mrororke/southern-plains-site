@@ -28,10 +28,10 @@
         <x-admin.top-nav />
 
         <main class="p-4">
-            {{ Breadcrumbs::render() }}
+            <span class="text-red">{{ Breadcrumbs::render() }}</span>
 
             @yield('content')
-            
+
         </main>
 
     </div>
