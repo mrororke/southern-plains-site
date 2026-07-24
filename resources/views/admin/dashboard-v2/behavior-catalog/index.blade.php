@@ -228,7 +228,8 @@
 
                 <thead>
                     <tr class="bg-sp-deepGranite border-b border-sp-darkGranite">
-                        <th class="p-3 text-left text-sp-softWhite text-base uppercase" width="75%">Name</th>
+                        <th class="p-3 text-left text-sp-softWhite text-base uppercase" width="65%">Name</th>
+                        <th class="p-3 text-left text-sp-softWhite text-base uppercase" width="65%">Videos</th>
                         <th class="p-3 text-sp-softWhite text-base uppercase">Actions</th>
                     </tr>
                 </thead>
@@ -243,6 +244,9 @@
         ->map(fn($l) => ucwords(str_replace('_', ' ', $l)))
         ->join(', ') }}
                             </span>
+                        </td>
+                        <td class="p-3">
+                            {{ $trick->videos->count() }}
                         </td>
                         <td class="p-3 text-center">
                             <a href="#"

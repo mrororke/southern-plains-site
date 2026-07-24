@@ -1,3 +1,0 @@
-import{m as o}from"./module.esm-DdaDH_LP.js";window.Alpine=o;o.data("behaviorCatalog",()=>({selectedBehavior:null,selectBehavior(e){this.selectedBehavior=e},copySimple(){if(!this.selectedBehavior)return;const e=[this.selectedBehavior.name,"",this.selectedBehavior.notes||""].join(`
-`);navigator.clipboard.writeText(e)},copyGrouped(){var t;if(!this.selectedBehavior)return;const e=(t=this.selectedBehavior.levels)!=null&&t.length?this.selectedBehavior.levels.join(", "):"No category",i=[this.selectedBehavior.name,"",`Categories: ${e}`,"","Notes:",this.selectedBehavior.notes||"No notes entered."].join(`
-`);navigator.clipboard.writeText(i)}}));
