@@ -12,7 +12,12 @@
     <h1 class="font-heading text-4xl pb-2">Behavior Catalog</h1>
 
     <a href="{{ route('admin.trick-catalog.create') }}"
-        class="inline-flex items-center px-4 py-2 text-xs uppercase bg-training text-white">
+        class="inline-flex items-center justify-center rounded-md
+           bg-sp-deepGranite
+           px-4 py-2
+           text-sm font-medium text-sp-softWhite
+           transition-colors duration-200
+           hover:bg-sp-darkGranite">
         + New Behavior
     </a>
 </div>

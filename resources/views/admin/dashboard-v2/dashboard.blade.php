@@ -5,7 +5,7 @@
         <div class="py-4">
         <img src="{{ asset('images/headers/dashboard.png') }}" alt="Hamish, a shetland sheepdog, running across a field." class="rounded-md">
     </div>
-        <h1>Dashboard</h1>
+        <h1 class="font-heading text-4xl">Dashboard</h1>
 
         <x-admin.inbox />
     </div>
