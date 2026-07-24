@@ -16,8 +16,8 @@
         </a>
     </div>
     <div> <!-- FILTER AREA -->
-        <form id="catalog-filter-form" method="GET" action="{{ route('admin.trick-catalog.index') }}"
-    class="mb-6 border border-black bg-white p-4">
+        <form id="catalog-filter-form" method="GET" action="{{ route('admin.behavior-catalog.index') }}"
+    class="mb-6  p-4">
 
     <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
 
@@ -157,7 +157,7 @@
             || request()->filled('sort'))
 
             <a
-                href="{{ route('admin.trick-catalog.index') }}"
+                href="{{ route('admin.behavior-catalog.index') }}"
                 class="px-4 py-2 bg-gray-200 text-xs uppercase">
 
                 Clear
@@ -180,7 +180,9 @@
     </div> <!-- END FILTER AREA -->
 
     <div class="grid grid-cols-12 h-full">
-        <p class="text-sm text-sp-darkGranite">
+        
+        <div class="col-span-8 py-4">
+            <p class="text-sm text-sp-darkGranite">
 
         Showing
 
@@ -197,7 +199,6 @@
         behaviors
 
     </p>
-        <div class="col-span-8 py-4">
             <table class="w-full text-sp-deepGranite border border-sp-darkGranite mb-6
                     [&_tbody_tr:nth-child(odd)>td]:bg-sp-alloyGray
                     [&_tbody_tr:nth-child(even)>td]:bg-sp-softWhite
