@@ -368,13 +368,13 @@
         >
             <div
                 class="rounded p-3 text-sm"
-                :class="video.preferred ? 'bg-sp-controlledLime' : 'bg-white'"
+                :class="video.preferred ? 'bg-lime-100' : 'bg-white'"
             >
                 <div class="flex items-center gap-2">
                     <div class="font-semibold" x-text="video.creator ?? 'Untitled Video'"></div>
 
                     <template x-if="video.preferred">
-                        <span class="rounded bg-sp-controlledLime px-2 py-0.5 text-xs font-semibold text-lime-900">
+                        <span class="rounded bg-lime-200 px-2 py-0.5 text-xs font-semibold text-lime-900">
                             Preferred
                         </span>
                     </template>
@@ -393,10 +393,6 @@
     </div>
 </template>
 
-
-                    <template x-if="!selectedBehavior.videos || !selectedBehavior.videos.length">
-                        <p class="text-sm italic">No videos added.</p>
-                    </template>
                 </div>
             </div>
         </template>
