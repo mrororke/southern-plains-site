@@ -106,22 +106,22 @@
 
             <div class="grid gap-4 mt-4 md:grid-cols-3">
 
-                {{-- PREFERRED VIDEO --}}
-                <div>
-                    <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
-                        Preferred Video
-                    </label>
+                 {{-- Preferred --}}
+        <div>
+            <label class="block text-xs font-semibold uppercase mb-1">
+                Preferred Video
+            </label>
 
-                    <select
-                        name="is_preferred"
-                        class="w-full border-sp-alloyGray shadow-sm rounded-md focus:border-sp-darkGranite focus:ring-sp-darkGranite">
+            <select
+                name="preferred"
+                class="w-full border-gray-300 shadow-sm focus:border-club focus:ring-club">
 
-                        <option value="">All</option>
-                        <option value="yes" @selected(request('is_preferred')=='yes' )>Has Preferred Video</option>
-                        <option value="no" @selected(request('is_preferred')=='no' )>Missing Preferred Video</option>
+                <option value="">All</option>
+                <option value="yes" @selected(request('preferred')=='yes' )>Has Preferred Video</option>
+                <option value="no" @selected(request('preferred')=='no' )>Missing Preferred Video</option>
 
-                    </select>
-                </div>
+            </select>
+        </div>
 
                 {{-- Notes --}}
                 <div>
