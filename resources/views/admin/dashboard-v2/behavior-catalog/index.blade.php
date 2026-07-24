@@ -23,8 +23,10 @@
             <div class="col-span-8 py-4">
                 <table class="border w-full">
                     <thead>
+                        <tr class="bg-sp-darkGranite border-b border-sp-darkGranite text-sp-softWhite uppercase text-sm">
                         <th>Name</th>
                         <th>Actions</th>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr>
