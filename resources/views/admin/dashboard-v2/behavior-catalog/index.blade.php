@@ -106,10 +106,10 @@
 
             <div class="grid gap-4 mt-4 md:grid-cols-3">
 
-                {{-- is_preferred --}}
+                {{-- PREFERRED VIDEO --}}
                 <div>
                     <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
-                        is_preferred Video
+                        Preferred Video
                     </label>
 
                     <select
@@ -117,8 +117,8 @@
                         class="w-full border-sp-alloyGray shadow-sm rounded-md focus:border-sp-darkGranite focus:ring-sp-darkGranite">
 
                         <option value="">All</option>
-                        <option value="yes" @selected(request('is_preferred')=='yes' )>Has is_preferred Video</option>
-                        <option value="no" @selected(request('is_preferred')=='no' )>Missing is_preferred Video</option>
+                        <option value="yes" @selected(request('is_preferred')=='yes' )>Has Preferred Video</option>
+                        <option value="no" @selected(request('is_preferred')=='no' )>Missing Preferred Video</option>
 
                     </select>
                 </div>
