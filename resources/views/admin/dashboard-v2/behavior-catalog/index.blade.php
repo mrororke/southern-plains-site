@@ -69,7 +69,7 @@
 
             <select
                 name="platform"
-                class="w-full border-gray-300 shadow-sm focus:border-club focus:ring-club">
+                class="w-full border-sp-alloyGray shadow-sm rounded-md focus:border-sp-darkGranite focus:ring-sp-darkGranite">
 
                 <option value="">All Platforms</option>
                 <option value="youtube" @selected(request('platform')=='youtube' )>YouTube</option>
@@ -89,7 +89,7 @@
 
             <select
                 name="sort"
-                class="w-full border-gray-300 shadow-sm focus:border-club focus:ring-club">
+                class="w-full border-sp-alloyGray shadow-sm rounded-md focus:border-sp-darkGranite focus:ring-sp-darkGranite">
 
                 <option value="">Name (A–Z)</option>
                 <option value="name_desc" @selected(request('sort')=='name_desc' )>Name (Z–A)</option>
@@ -112,7 +112,7 @@
 
             <select
                 name="preferred"
-                class="w-full border-gray-300 shadow-sm focus:border-club focus:ring-club">
+                class="w-full border-sp-alloyGray shadow-sm rounded-md focus:border-sp-darkGranite focus:ring-sp-darkGranite">
 
                 <option value="">All</option>
                 <option value="yes" @selected(request('preferred')=='yes' )>Has Preferred Video</option>
@@ -129,7 +129,7 @@
 
             <select
                 name="notes"
-                class="w-full border-gray-300 shadow-sm focus:border-club focus:ring-club">
+                class="w-full border-sp-alloyGray shadow-sm rounded-md focus:border-sp-darkGranite focus:ring-sp-darkGranite">
 
                 <option value="">All</option>
                 <option value="has" @selected(request('notes')=='has' )>Has Notes</option>
@@ -143,7 +143,12 @@
 
             <button
                 type="submit"
-                class="px-4 py-2 bg-training text-white text-xs uppercase">
+                class="inline-flex items-center justify-center rounded-md
+           bg-sp-controlledLime
+           px-4 py-2
+           text-sm font-semibold text-sp-deepGranite
+           transition-colors duration-200
+           hover:brightness-95uppercase">
 
                 Apply Filters
 
@@ -158,7 +163,13 @@
 
             <a
                 href="{{ route('admin.behavior-catalog.index') }}"
-                class="px-4 py-2 bg-gray-200 text-xs uppercase">
+                class="inline-flex items-center justify-center rounded-md
+           border border-sp-alloyGray
+           bg-white
+           px-4 py-2
+           text-sm font-medium text-sp-darkGranite
+           transition-colors duration-200
+           hover:bg-sp-softWhite uppercase">
 
                 Clear
 
@@ -168,7 +179,12 @@
 
             <a href="{{ route('admin.trick-catalog.print-all') }}"
    target="_blank"
-   class="px-4 py-2 bg-training text-white text-xs uppercase">
+   class="inline-flex items-center justify-center rounded-md
+           bg-sp-controlledLime
+           px-4 py-2
+           text-sm font-semibold text-sp-deepGranite
+           transition-colors duration-200
+           hover:brightness-95 uppercase">
     Print All
 </a>
 
