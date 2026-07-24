@@ -240,7 +240,7 @@
                 {{-- Selected behavior --}}
                 <template x-if="selectedBehavior">
                     <div>
-                        <div class="flex justify-end items-center mb-6 pb-4">
+                        <div class="flex justify-end items-center">
                             <button
                                     type="button"
                                     @click="selectedBehavior = null"
