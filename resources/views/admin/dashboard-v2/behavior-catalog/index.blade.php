@@ -30,11 +30,11 @@
                     </thead>
                     <tbody>
                         <tr class="text-sm">
-                            <td>
+                            <td class="p-3">
                                 Trick name<br/>
-                                Categories
+                                <span class="text-xs italic">Categories</span>
                             </td>
-                            <td>
+                            <td class="p-3">
                                 Actions
                             </td>
                         </tr>
