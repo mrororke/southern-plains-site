@@ -21,7 +21,24 @@
 
         <div class="grid grid-cols-12 h-full">
             <div class="col-span-8">
-                Table will go here
+                <table>
+                    <thead>
+                        <th>Name</th>
+                        <th>Actions</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Trick name<br/>
+                                Categories
+                            </td>
+                            <td>
+                                Actions
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
             </div>
             <div class="col-span-4">
                 Trick Info will go here.
