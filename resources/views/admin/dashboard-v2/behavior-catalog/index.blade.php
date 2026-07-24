@@ -8,7 +8,7 @@
         </div>
         <!-- Page Heading  -->
          <div class="flex justify-between items-center mb-6">
-            <h1 class="font-heading text-4xl">Behavior Catalog</h1>
+            <h1 class="font-heading text-7xl">Behavior Catalog</h1>
             <a href="{{ route('admin.trick-catalog.create') }}"
                 class="inline-flex items-center justify-center rounded-md
                 bg-sp-deepGranite px-4 py-2 text-sm font-medium text-sp-softWhite transition-colors duration-200 hover:bg-sp-controlledLime">
@@ -16,9 +16,9 @@
             </a>
         </div>
 
-        <div>
-            <div>Column One</div>
-            <div>Column Two</div>
+        <div class="col-span-12 grid grid-rows-[auto_1fr] h-full">
+            <div class="col-span-8">Column One</div>
+            <div class="col-span-4">Column Two</div>
         </div>
     </div><!--  End Dashboard content -->
         
