@@ -370,7 +370,7 @@
         >
             <div
                 class="rounded p-3 text-sm"
-                :class="[1, '1', true, 'true'].includes(video.is_preferred) ? 'bg-lime-100' : 'bg-white'"
+                :class="[1, '1', true, 'true'].includes(video.is_preferred) ? 'bg-sp-controlledLime' : 'bg-sp-softWhite'"
             >
                 <div class="font-semibold" x-text="video.creator ?? 'Untitled Video'"></div>
 
@@ -399,37 +399,7 @@
                 </div>
             </div>
 
-            <!-- <div id="behavior-display" class="rounded-md bg-sp-alloyGray ml-4 mr-4 p-4">
-                <div class="flex justify-between items-center mb-6 border-b border-sp-softWhite/.2 pb-4">
-                    <h2 class="font-heading text-5xl">Crawl</h2>
-                    <div>
-                        <a href="#"
-                            class="inline-flex items-center justify-center rounded-md
-                                    bg-sp-deepGranite px-4 py-2 text-xs uppercase font-medium text-sp-softWhite
-                                    transition-colors duration-200 hover:bg-sp-darkGranite">
-                            Copy Simple
-                        </a>
-                        <a href="#"
-                            class="inline-flex items-center justify-center rounded-md
-                                border border-sp-alloyGray bg-white px-4 py-2
-                                text-xs uppercase font-medium text-sp-darkGranite
-                                transition-colors duration-200 hover:bg-sp-softWhite">
-                            Copy Grouped
-                        </a>
-                    </div>
-
-                </div>
-
-                <div>
-                    <h3 class="font-heading text-3xl">Notes</h3>
-                    <p><strong>NOVICE</strong></br />
-                        The dog will respond to the handler’s cue to crawl by getting in the down position and crawling on his/her belly at least 3 body lengths.<br />
-                        • In the Novice level, the handler may instruct the dog to “down” in preparation for the crawl.<br />
-                        • The handler may use a lure.<br />
-                    </p>
-                    <h3 class="font-heading text-3xl">Videos</h3>
-                </div>
-            </div> -->
+            
         </div>
     </div>
 </div><!--  End Dashboard content -->
