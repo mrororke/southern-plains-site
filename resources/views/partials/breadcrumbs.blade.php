@@ -1,16 +1,25 @@
-@if ($breadcrumbs)
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
+@if (count($breadcrumbs))
+    <nav aria-label="Breadcrumb">
+        <ol class="flex flex-wrap items-center gap-2 text-sm text-gray-500">
             @foreach ($breadcrumbs as $breadcrumb)
-                @if ($breadcrumb->url && !$loop->last)
-                    <li class="breadcrumb-item">
-                        <a href="{{ $breadcrumb->url }}">
+                <li class="flex items-center">
+                    @if ($breadcrumb->url && ! $loop->last)
+                        <a
+                            href="{{ $breadcrumb->url }}"
+                            class="hover:text-gray-900 transition-colors"
+                        >
                             {{ $breadcrumb->title }}
                         </a>
-                    </li>
-                @else
-                    <li class="breadcrumb-item active" aria-current="page">
-                        {{ $breadcrumb->title }}
+                    @else
+                        <span class="font-medium text-gray-900">
+                            {{ $breadcrumb->title }}
+                        </span>
+                    @endif
+                </li>
+
+                @if (! $loop->last)
+                    <li aria-hidden="true" class="text-gray-400">
+                        /
                     </li>
                 @endif
             @endforeach
