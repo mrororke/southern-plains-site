@@ -28,7 +28,7 @@
         <x-admin.top-nav />
 
         <main class="p-4">
-            <span class="text-red">{{ Breadcrumbs::render() }}</span>
+            <span class="text-sp-deepTeal">{{ Breadcrumbs::render() }}</span>
 
             @yield('content')
 
