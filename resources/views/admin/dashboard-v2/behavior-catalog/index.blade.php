@@ -57,24 +57,29 @@
             </table>
         </div>
         <div class="col-span-4 py-4">
-            <div class="rounded-md bg-sp-alloyGray ml-4 mr-4 p-4 border border-b">
-                <h2 class="font-heading text-4xl">Crawl</h2>
-                <a href="#"
-                                class="inline-flex items-center justify-center rounded-md
+            <div class="rounded-md bg-sp-alloyGray ml-4 mr-4">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="font-heading text-4xl">Crawl</h2>
+                    <a href="#"
+                        class="inline-flex items-center justify-center rounded-md
                                     bg-sp-deepGranite px-4 py-2 text-xs uppercase font-medium text-sp-softWhite
                                     transition-colors duration-200hover:bg-sp-darkGranite">
-                                Copy Simple
-                            </a>
+                        Copy Simple
+                    </a>
                     <a href="#"
-                                class="inline-flex items-center justify-center rounded-md
+                        class="inline-flex items-center justify-center rounded-md
                                 border border-sp-alloyGray bg-white px-4 py-2
                                 text-xs uppercase font-medium text-sp-darkGranite
                                 transition-colors duration-200 hover:bg-sp-softWhite">
-                                Copy Grouped
-                            </a>
-                        <div>
-                            Next section
-                        </div>
+                        Copy Grouped
+                    </a>
+                </div>
+
+
+                
+                <div>
+                    Next section
+                </div>
             </div>
         </div>
     </div>
