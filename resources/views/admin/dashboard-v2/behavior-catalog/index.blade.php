@@ -17,8 +17,12 @@
         </div>
 
         <div class="grid grid-cols-12 h-full">
-            <div class="col-span-8">Column One</div>
-            <div class="col-span-4">Column Two</div>
+            <div class="col-span-8">
+                Table will go here
+            </div>
+            <div class="col-span-4">
+                Trick Info will go here.
+            </div>
         </div>
     </div><!--  End Dashboard content -->
         
