@@ -59,7 +59,7 @@
         <div class="col-span-4 py-4">
             <div id="behavior-display" class="rounded-md bg-sp-alloyGray ml-4 mr-4 p-4">
                 <div class="flex justify-between items-center mb-6 border-b border-sp-softWhite/.2 pb-4">
-                    <h2 class="font-heading text-4xl">Crawl</h2>
+                    <h2 class="font-heading text-5xl">Crawl</h2>
                     <div>
                         <a href="#"
                         class="inline-flex items-center justify-center rounded-md
@@ -79,13 +79,13 @@
                 </div>
                 
                 <div>
-                    <h3 class="font-heading text-xl">Notes</h3>
+                    <h3 class="font-heading text-3xl">Notes</h3>
                     <p><strong>NOVICE</strong></br/>
                     The dog will respond to the handler’s cue to crawl by getting in the down position and crawling on his/her belly at least 3 body lengths.<br/>
                         • In the Novice level, the handler may instruct the dog to “down” in preparation for the crawl.<br/>
                         • The handler may use a lure.<br/>
                     </p>
-                    <h4 class="font-heading text-lg">Videos</h4>
+                    <h3 class="font-heading text-3xl">Videos</h3>
                 </div>
             </div>
         </div>
