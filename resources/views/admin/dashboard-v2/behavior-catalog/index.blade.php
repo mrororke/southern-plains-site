@@ -35,7 +35,21 @@
                                 <span class="text-xs italic">Categories</span>
                             </td>
                             <td class="p-3">
-                                Actions
+                                <a href="{{ route('admin.trick-catalog.edit', $trick) }}"
+                        class="inline-flex items-center justify-center rounded-md
+           bg-sp-deepGranite
+           px-4 py-2
+           text-sm font-medium text-sp-softWhite
+           transition-colors duration-200
+           hover:bg-sp-darkGranite">
+                        Edit
+                    </a>
+
+                    <button type="button"
+                        class="js-open-trick-modal inline-flex items-center px-3 py-1 text-xs bg-training text-white"
+                        data-id="{{ $trick->id }}">
+                        View
+                    </button>
                             </td>
                         </tr>
 
