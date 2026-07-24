@@ -23,7 +23,7 @@
 
         {{-- Search --}}
         <div>
-            <label class="block text-xs font-semibold uppercase mb-1">
+            <label class="block text-sm font-semibold uppercase mb-1">
                 Search
             </label>
 
@@ -32,7 +32,7 @@
                 name="search"
                 value="{{ request('search') }}"
                 placeholder="Name, notes, creator..."
-                class="w-full border-gray-300 shadow-sm focus:border-club focus:ring-club">
+                class="w-full border-sp-alloyGray shadow-sm focus:sp-darkGranite rounded-md">
         </div>
 
         {{-- Level --}}
