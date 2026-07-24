@@ -21,7 +21,7 @@
 
         <div class="grid grid-cols-12 h-full">
             <div class="col-span-8 py-4">
-                <table class="w-full text-sp-deepGranite border border-sp-darkGranite mb-6">
+                <table class="w-full text-sp-deepGranite border border-sp-darkGranite mb-6 [&_tbody_tr]:bg-sp-alloyGray [&_tbody_tr:hover]:bg-sp-controlledLime/20">
                     <thead>
                         <tr class="bg-sp-deepGranite border-b border-sp-darkGranite">
                         <th class="p-3 text-left text-sp-softWhite text-base uppercase">Name</th>
