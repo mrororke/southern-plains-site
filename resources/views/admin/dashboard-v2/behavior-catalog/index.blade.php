@@ -144,11 +144,11 @@
             <button
                 type="submit"
                 class="inline-flex items-center justify-center rounded-md
-           bg-sp-controlledLime
+           bg-sp-deepGranite
            px-4 py-2
-           text-sm font-semibold text-sp-deepGranite
+           text-sm font-medium text-sp-softWhite
            transition-colors duration-200
-           hover:brightness-95uppercase">
+           hover:bg-sp-darkGranite uppercase">
 
                 Apply Filters
 
