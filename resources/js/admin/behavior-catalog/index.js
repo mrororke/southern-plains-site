@@ -42,4 +42,3 @@ Alpine.data('behaviorCatalog', () => ({
     },
 }));
 
-Alpine.start();
