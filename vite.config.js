@@ -12,6 +12,7 @@ export default defineConfig({
                 'resources/js/admin/trick-catalog/index.js',
                 'resources/js/admin/trick-catalog/create.js',
                 'resources/js/admin/trick-catalog/edit.js',
+                'resources/js/admin/behavior-catalog/index.js',
             ],
             refresh: true,
         }),

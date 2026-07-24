@@ -42,3 +42,5 @@ Alpine.data('behaviorCatalog', () => ({
         navigator.clipboard.writeText(text);
     },
 }));
+
+Alpine.start();
