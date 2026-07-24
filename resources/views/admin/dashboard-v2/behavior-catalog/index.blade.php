@@ -21,9 +21,9 @@
 
         <div class="grid grid-cols-12 h-full">
             <div class="col-span-8 py-4">
-                <table class="w-full text-sp-darkGranite border border-sp-darkGranite mb-6">
+                <table class="w-full text-sp-deepGranite border border-sp-darkGranite mb-6">
                     <thead>
-                        <tr class="bg-sp-darkGranite border-b border-sp-darkGranite">
+                        <tr class="bg-sp-deepGranite border-b border-sp-darkGranite">
                         <th class="p-3 text-left text-sp-softWhite text-base uppercase">Name</th>
                         <th class="p-3 text-left text-sp-softWhite text-base uppercase">Actions</th>
                         </tr>
