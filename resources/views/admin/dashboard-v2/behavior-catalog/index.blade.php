@@ -359,7 +359,7 @@
                         <div class="space-y-2">
                             <template x-for="video in selectedBehavior.videos" :key="video.id">
                                 <div class="rounded bg-white p-3 text-sm">
-                                    <div class="font-semibold" x-text="video.title ?? 'Untitled video'"></div>
+                                    <div class="font-semibold" x-text="video.creator ?? 'Untitled Video'"></div>
 
                                     <template x-if="video.url">
                                         <a
