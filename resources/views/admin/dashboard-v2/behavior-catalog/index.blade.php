@@ -15,6 +15,11 @@
                 + New Behavior
             </a>
         </div>
+
+        <div>
+            <div>Column One</div>
+            <div>Column Two</div>
+        </div>
     </div><!--  End Dashboard content -->
         
 @endsection
