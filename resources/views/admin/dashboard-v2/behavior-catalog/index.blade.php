@@ -37,22 +37,16 @@
                         <td class="p-3">
                             <a href="#"
                                 class="inline-flex items-center justify-center rounded-md
-           bg-sp-deepGranite
-           px-4 py-2
-           text-sm font-medium text-sp-softWhite
-           transition-colors duration-200
-           hover:bg-sp-darkGranite">
+                                    bg-sp-deepGranite px-4 py-2 text-sm font-medium text-sp-softWhite
+                                    transition-colors duration-200hover:bg-sp-darkGranite">
                                 Edit
                             </a>
 
                             <button type="button"
                                 class="inline-flex items-center justify-center rounded-md
-           border border-sp-alloyGray
-           bg-white
-           px-4 py-2
-           text-sm font-medium text-sp-darkGranite
-           transition-colors duration-200
-           hover:bg-sp-softWhite"
+                                border border-sp-alloyGray bg-white px-4 py-2
+                                text-sm font-medium text-sp-darkGranite
+                                transition-colors duration-200 hover:bg-sp-softWhite"
                                 data-id="">
                                 View
                             </button>
