@@ -57,8 +57,24 @@
             </table>
         </div>
         <div class="col-span-4 py-4">
-            <div class="rounded-md bg-sp-alloyGray ml-4 mr-4 p-4">
-                Trick Info will go here
+            <div class="rounded-md bg-sp-alloyGray ml-4 mr-4 p-4 border border-b">
+                <h2 class="font-heading text-4xl">Crawl</h2>
+                <a href="#"
+                                class="inline-flex items-center justify-center rounded-md
+                                    bg-sp-deepGranite px-4 py-2 text-sm font-medium text-sp-softWhite
+                                    transition-colors duration-200hover:bg-sp-darkGranite">
+                                Copy Simple
+                            </a>
+                    <a href="#"
+                                class="inline-flex items-center justify-center rounded-md
+                                border border-sp-alloyGray bg-white px-4 py-2
+                                text-sm font-medium text-sp-darkGranite
+                                transition-colors duration-200 hover:bg-sp-softWhite">
+                                Copy Grouped
+                            </a>
+                        <div>
+                            Next section
+                        </div>
             </div>
         </div>
     </div>
