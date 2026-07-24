@@ -405,4 +405,19 @@ class TrickCatalogController extends Controller
     ]);
 }
 
+/*
+   |--------------------------------------------------------------------------
+    | BEHAVIOR CATALOG - DASHBOARD 2.0
+    |--------------------------------------------------------------------------
+*/
+public function behaviorCatalog()
+{
+    return view('admin.dashboard-v2.behavior-catalog.index', [
+        'navigation' => \App\Navigation\AdminNavigation::items(),
+    ]);
+}
+
+
+
+
 }

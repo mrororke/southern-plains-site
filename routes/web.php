@@ -247,11 +247,9 @@ Route::middleware(['auth'])
             ]);
         })->name('dashboard');
 
-        Route::get('/behavior-catalog', function () {
-            return view('admin.dashboard-v2.behavior-catalog.index', [
-                'navigation' => \App\Navigation\AdminNavigation::items(),
-            ]);
-        })->name('behavior-catalog.index');
+        Route::get('behavior-catalog', [TrickCatalogController::class, 'behaviorCatalog'
+            ])->name('behavior-catalog.index');
+
 
     });
 

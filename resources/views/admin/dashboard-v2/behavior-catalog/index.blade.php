@@ -31,7 +31,7 @@
                 <tbody>
                     <tr class="text-sm">
                         <td class="p-3">
-                            Trick name<br />
+                            Behavior name<br />
                             <span class="text-xs italic">Categories</span>
                         </td>
                         <td class="p-3 text-center">
