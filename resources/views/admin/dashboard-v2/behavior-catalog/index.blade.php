@@ -21,11 +21,11 @@
 
         <div class="grid grid-cols-12 h-full">
             <div class="col-span-8 py-4">
-                <table class="border w-full">
+                <table class="w-full text-sp-darkGranite border border-sp-darkGranite mb-6">
                     <thead>
-                        <tr class="bg-sp-deepGranite border-b border-sp-darkGranite text-sp-softWhite uppercase text-left p-4">
-                        <th class="text-base">Name</th>
-                        <th class="text-base">Actions</th>
+                        <tr class="bg-sp-darkGranite border-b border-sp-darkGranite">
+                        <th class="p-3 text-left text-sp-softWhite text-base uppercase">Name</th>
+                        <th class="p-3 text-left text-sp-softWhite text-base uppercase">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
