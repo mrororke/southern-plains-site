@@ -229,7 +229,7 @@
                 <thead>
                     <tr class="bg-sp-deepGranite border-b border-sp-darkGranite">
                         <th class="p-3 text-left text-sp-softWhite text-base uppercase" width="65%">Name</th>
-                        <th class="p-3 text-left text-sp-softWhite text-base uppercase" width="65%">Videos</th>
+                        <th class="p-3 text-left text-sp-softWhite text-base uppercase" width="5%">Videos</th>
                         <th class="p-3 text-sp-softWhite text-base uppercase">Actions</th>
                     </tr>
                 </thead>
@@ -245,7 +245,7 @@
         ->join(', ') }}
                             </span>
                         </td>
-                        <td class="p-3">
+                        <td class="p-3 text-center">
                             {{ $trick->videos->count() }}
                         </td>
                         <td class="p-3 text-center">
