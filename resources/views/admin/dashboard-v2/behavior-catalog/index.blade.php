@@ -58,7 +58,7 @@
         </div>
         <div class="col-span-4 py-4">
             <div id="behavior-display" class="rounded-md bg-sp-alloyGray ml-4 mr-4 p-4">
-                <div class="flex justify-between items-center mb-6">
+                <div class="flex justify-between items-center mb-6 border border-b border-sp-softWhite">
                     <h2 class="font-heading text-4xl">Crawl</h2>
                     <div>
                         <a href="#"
