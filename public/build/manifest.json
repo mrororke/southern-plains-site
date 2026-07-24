@@ -1,11 +1,11 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-B1q9GYFi.css",
+    "file": "assets/app-BofhqRRF.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/css/dashboard-v2.css": {
-    "file": "assets/dashboard-v2-DgvYRrTI.css",
+    "file": "assets/dashboard-v2-BQTqUFsq.css",
     "src": "resources/css/dashboard-v2.css",
     "isEntry": true
   },
@@ -28,12 +28,12 @@
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-BCNbML9M.js",
+    "file": "assets/app-HiUlPc2h.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-B1q9GYFi.css"
+      "assets/app-BofhqRRF.css"
     ]
   }
 }
