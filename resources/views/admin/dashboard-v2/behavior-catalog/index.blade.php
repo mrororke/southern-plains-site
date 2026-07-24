@@ -240,12 +240,12 @@
                 {{-- Selected behavior --}}
                 <template x-if="selectedBehavior">
                     <div>
-                        <div class="flex justify-end items-center mb-6 border-b border-sp-softWhite/.2 pb-4">
+                        <div class="flex justify-end items-center mb-6 pb-4">
                             <button
                                     type="button"
                                     @click="selectedBehavior = null"
                                     class="inline-flex items-center justify-center rounded-md
-                                        bg-sp-vibrantCoral px-4 py-2 text-xs font-bold text-white
+                                        bg-sp-vibrantCoral px-2 py-1 text-xs font-bold text-white
                                         transition-colors duration-200 hover:brightness-95">
                                     X
                                 </button>
