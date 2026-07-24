@@ -1,3 +1,4 @@
+@vite('resources/js/admin/trick-catalog/index.js')
 @vite('resources/js/admin/behavior-catalog/index.js')
 @extends('admin.dashboard-v2.desktop')
 
@@ -291,7 +292,7 @@
         {{-- Empty state --}}
         <template x-if="!selectedBehavior">
             <div class="text-sp-deepGranite">
-                <h2 class="font-heading text-5xl mb-4">Behavior</h2>
+                <h2 class="font-heading text-4xl mb-4">Behavior</h2>
                 <p class="text-sm">
                     Select a behavior from the list to view its notes and videos.
                 </p>
@@ -302,7 +303,7 @@
         <template x-if="selectedBehavior">
             <div>
                 <div class="flex justify-between items-center mb-6 border-b border-sp-softWhite/.2 pb-4">
-                    <h2 class="font-heading text-5xl" x-text="selectedBehavior.name"></h2>
+                    <h2 class="font-heading text-4xl" x-text="selectedBehavior.name"></h2>
 
                     <div class="flex gap-2">
                         <button

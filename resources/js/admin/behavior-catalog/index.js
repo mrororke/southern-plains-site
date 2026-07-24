@@ -3,7 +3,6 @@ window.Alpine = Alpine;
 
 
 
-
 Alpine.data('behaviorCatalog', () => ({
     selectedBehavior: null,
 
