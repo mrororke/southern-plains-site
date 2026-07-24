@@ -16,6 +16,11 @@
         </a>
     </div>
     <div> <!-- FILTER AREA -->
+        <form id="catalog-filter-form" method="GET" action="{{ route('admin.trick-catalog.index') }}"
+    class="mb-6 border border-black bg-white p-4">
+
+    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+
         {{-- Search --}}
         <div>
             <label class="block text-xs font-semibold uppercase mb-1">
@@ -160,9 +165,38 @@
             </a>
 
             @endif
+
+            <a href="{{ route('admin.trick-catalog.print-all') }}"
+   target="_blank"
+   class="px-4 py-2 bg-training text-white text-xs uppercase">
+    Print All
+</a>
+
+        </div>
+
+    </div>
+
+</form>
     </div> <!-- END FILTER AREA -->
 
     <div class="grid grid-cols-12 h-full">
+        <p class="text-sm text-sp-darkGranite">
+
+        Showing
+
+        <strong>{{ $tricks->firstItem() ?? 0 }}</strong>
+
+        –
+
+        <strong>{{ $tricks->lastItem() ?? 0 }}</strong>
+
+        of
+
+        <strong>{{ $tricks->total() }}</strong>
+
+        behaviors
+
+    </p>
         <div class="col-span-8 py-4">
             <table class="w-full text-sp-deepGranite border border-sp-darkGranite mb-6
                     [&_tbody_tr:nth-child(odd)>td]:bg-sp-alloyGray
