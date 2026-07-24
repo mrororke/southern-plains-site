@@ -20,8 +20,8 @@
         </div>
 
         <div class="grid grid-cols-12 h-full">
-            <div class="col-span-8">
-                <table>
+            <div class="col-span-8 py-4">
+                <table class="border w-full">
                     <thead>
                         <th>Name</th>
                         <th>Actions</th>
@@ -40,7 +40,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="col-span-4">
+            <div class="col-span-4 py-4">
                 Trick Info will go here.
             </div>
         </div>
