@@ -18,153 +18,153 @@
     </div>
     <div> <!-- FILTER AREA -->
         <form id="catalog-filter-form" method="GET" action="{{ route('admin.behavior-catalog.index') }}"
-    class="mb-6  p-4">
+            class="mb-6  p-4">
 
-    <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
 
-        {{-- Search --}}
-        <div>
-            <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
-                Search
-            </label>
+                {{-- Search --}}
+                <div>
+                    <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
+                        Search
+                    </label>
 
-            <input
-                type="text"
-                name="search"
-                value="{{ request('search') }}"
-                placeholder="Name, notes, creator..."
-                class="w-full border-sp-alloyGray shadow-sm rounded-md focus:border-sp-darkGranite focus:ring-sp-darkGranite">
-        </div>
+                    <input
+                        type="text"
+                        name="search"
+                        value="{{ request('search') }}"
+                        placeholder="Name, notes, creator..."
+                        class="w-full border-sp-alloyGray shadow-sm rounded-md focus:border-sp-darkGranite focus:ring-sp-darkGranite">
+                </div>
 
-        {{-- Level --}}
-        <div>
-            <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
-                Category
-            </label>
+                {{-- Level --}}
+                <div>
+                    <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
+                        Category
+                    </label>
 
-            <select
-                name="level"
-                class="w-full border-sp-alloyGray rounded-md shadow-sm focus:border-sp-darkGranite focus:ring-sp-darkGranite">
+                    <select
+                        name="level"
+                        class="w-full border-sp-alloyGray rounded-md shadow-sm focus:border-sp-darkGranite focus:ring-sp-darkGranite">
 
-                <option value="">All Categories</option>
-                <option value="none" @selected(request('level')==='none' )>
-                    No Category
-                </option>
+                        <option value="">All Categories</option>
+                        <option value="none" @selected(request('level')==='none' )>
+                            No Category
+                        </option>
 
-                @foreach($levels as $level)
-                <option
-                    value="{{ $level->id }}"
-                    @selected(request('level')==$level->id)>
-                    {{ ucwords(str_replace('_', ' ', $level->name)) }}
-                </option>
-                @endforeach
+                        @foreach($levels as $level)
+                        <option
+                            value="{{ $level->id }}"
+                            @selected(request('level')==$level->id)>
+                            {{ ucwords(str_replace('_', ' ', $level->name)) }}
+                        </option>
+                        @endforeach
 
-            </select>
-        </div>
+                    </select>
+                </div>
 
-        {{-- Platform --}}
-        <div>
-            <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
-                Platform
-            </label>
+                {{-- Platform --}}
+                <div>
+                    <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
+                        Platform
+                    </label>
 
-            <select
-                name="platform"
-                class="w-full border-sp-alloyGray shadow-sm rounded-md focus:border-sp-darkGranite focus:ring-sp-darkGranite">
+                    <select
+                        name="platform"
+                        class="w-full border-sp-alloyGray shadow-sm rounded-md focus:border-sp-darkGranite focus:ring-sp-darkGranite">
 
-                <option value="">All Platforms</option>
-                <option value="youtube" @selected(request('platform')=='youtube' )>YouTube</option>
-                <option value="tiktok" @selected(request('platform')=='tiktok' )>TikTok</option>
-                <option value="instagram" @selected(request('platform')=='instagram' )>Instagram</option>
-                <option value="facebook" @selected(request('platform')=='facebook' )>Facebook</option>
-                <option value="unknown" @selected(request('platform')=='unknown' )>Unknown</option>
+                        <option value="">All Platforms</option>
+                        <option value="youtube" @selected(request('platform')=='youtube' )>YouTube</option>
+                        <option value="tiktok" @selected(request('platform')=='tiktok' )>TikTok</option>
+                        <option value="instagram" @selected(request('platform')=='instagram' )>Instagram</option>
+                        <option value="facebook" @selected(request('platform')=='facebook' )>Facebook</option>
+                        <option value="unknown" @selected(request('platform')=='unknown' )>Unknown</option>
 
-            </select>
-        </div>
+                    </select>
+                </div>
 
-        {{-- Sort --}}
-        <div>
-            <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
-                Sort
-            </label>
+                {{-- Sort --}}
+                <div>
+                    <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
+                        Sort
+                    </label>
 
-            <select
-                name="sort"
-                class="w-full border-sp-alloyGray shadow-sm rounded-md focus:border-sp-darkGranite focus:ring-sp-darkGranite">
+                    <select
+                        name="sort"
+                        class="w-full border-sp-alloyGray shadow-sm rounded-md focus:border-sp-darkGranite focus:ring-sp-darkGranite">
 
-                <option value="">Name (A–Z)</option>
-                <option value="name_desc" @selected(request('sort')=='name_desc' )>Name (Z–A)</option>
-                <option value="newest" @selected(request('sort')=='newest' )>Newest</option>
-                <option value="oldest" @selected(request('sort')=='oldest' )>Oldest</option>
-                <option value="videos" @selected(request('sort')=='videos' )>Most Videos</option>
+                        <option value="">Name (A–Z)</option>
+                        <option value="name_desc" @selected(request('sort')=='name_desc' )>Name (Z–A)</option>
+                        <option value="newest" @selected(request('sort')=='newest' )>Newest</option>
+                        <option value="oldest" @selected(request('sort')=='oldest' )>Oldest</option>
+                        <option value="videos" @selected(request('sort')=='videos' )>Most Videos</option>
 
-            </select>
-        </div>
+                    </select>
+                </div>
 
-    </div>
+            </div>
 
-    <div class="grid gap-4 mt-4 md:grid-cols-3">
+            <div class="grid gap-4 mt-4 md:grid-cols-3">
 
-        {{-- Preferred --}}
-        <div>
-            <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
-                Preferred Video
-            </label>
+                {{-- Preferred --}}
+                <div>
+                    <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
+                        Preferred Video
+                    </label>
 
-            <select
-                name="preferred"
-                class="w-full border-sp-alloyGray shadow-sm rounded-md focus:border-sp-darkGranite focus:ring-sp-darkGranite">
+                    <select
+                        name="preferred"
+                        class="w-full border-sp-alloyGray shadow-sm rounded-md focus:border-sp-darkGranite focus:ring-sp-darkGranite">
 
-                <option value="">All</option>
-                <option value="yes" @selected(request('preferred')=='yes' )>Has Preferred Video</option>
-                <option value="no" @selected(request('preferred')=='no' )>Missing Preferred Video</option>
+                        <option value="">All</option>
+                        <option value="yes" @selected(request('preferred')=='yes' )>Has Preferred Video</option>
+                        <option value="no" @selected(request('preferred')=='no' )>Missing Preferred Video</option>
 
-            </select>
-        </div>
+                    </select>
+                </div>
 
-        {{-- Notes --}}
-        <div>
-            <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
-                Notes
-            </label>
+                {{-- Notes --}}
+                <div>
+                    <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
+                        Notes
+                    </label>
 
-            <select
-                name="notes"
-                class="w-full border-sp-alloyGray shadow-sm rounded-md focus:border-sp-darkGranite focus:ring-sp-darkGranite">
+                    <select
+                        name="notes"
+                        class="w-full border-sp-alloyGray shadow-sm rounded-md focus:border-sp-darkGranite focus:ring-sp-darkGranite">
 
-                <option value="">All</option>
-                <option value="has" @selected(request('notes')=='has' )>Has Notes</option>
-                <option value="missing" @selected(request('notes')=='missing' )>Missing Notes</option>
+                        <option value="">All</option>
+                        <option value="has" @selected(request('notes')=='has' )>Has Notes</option>
+                        <option value="missing" @selected(request('notes')=='missing' )>Missing Notes</option>
 
-            </select>
-        </div>
+                    </select>
+                </div>
 
-        {{-- Buttons --}}
-        <div class="flex items-end gap-2">
+                {{-- Buttons --}}
+                <div class="flex items-end gap-2">
 
-            <button
-                type="submit"
-                class="inline-flex items-center justify-center rounded-md
+                    <button
+                        type="submit"
+                        class="inline-flex items-center justify-center rounded-md
            bg-sp-deepGranite
            px-4 py-2
            text-sm font-medium text-sp-softWhite
            transition-colors duration-200
            hover:bg-sp-darkGranite uppercase">
 
-                Apply Filters
+                        Apply Filters
 
-            </button>
+                    </button>
 
-            @if(request()->filled('search')
-            || request()->filled('level')
-            || request()->filled('platform')
-            || request()->filled('preferred')
-            || request()->filled('notes')
-            || request()->filled('sort'))
+                    @if(request()->filled('search')
+                    || request()->filled('level')
+                    || request()->filled('platform')
+                    || request()->filled('preferred')
+                    || request()->filled('notes')
+                    || request()->filled('sort'))
 
-            <a
-                href="{{ route('admin.behavior-catalog.index') }}"
-                class="inline-flex items-center justify-center rounded-md
+                    <a
+                        href="{{ route('admin.behavior-catalog.index') }}"
+                        class="inline-flex items-center justify-center rounded-md
            border border-sp-alloyGray
            bg-white
            px-4 py-2
@@ -172,49 +172,51 @@
            transition-colors duration-200
            hover:bg-sp-softWhite uppercase">
 
-                Clear
+                        Clear
 
-            </a>
+                    </a>
 
-            @endif
+                    @endif
 
-            <a href="{{ route('admin.trick-catalog.print-all') }}"
-   target="_blank"
-   class="inline-flex items-center justify-center rounded-md
+                    <a href="{{ route('admin.trick-catalog.print-all') }}"
+                        target="_blank"
+                        class="inline-flex items-center justify-center rounded-md
            bg-sp-controlledLime
            px-4 py-2
            text-sm font-semibold text-sp-deepGranite
            transition-colors duration-200
            hover:brightness-95 uppercase">
-    Print All
-</a>
+                        Print All
+                    </a>
 
-        </div>
-         <p class="text-sm text-sp-darkGranite">
+                </div>
+                <p class="text-sm text-sp-darkGranite">
 
-        Showing
+                    Showing
 
-        <strong>{{ $tricks->firstItem() ?? 0 }}</strong>
+                    <strong>{{ $tricks->firstItem() ?? 0 }}</strong>
 
-        –
+                    –
 
-        <strong>{{ $tricks->lastItem() ?? 0 }}</strong>
+                    <strong>{{ $tricks->lastItem() ?? 0 }}</strong>
 
-        of
+                    of
 
-        <strong>{{ $tricks->total() }}</strong>
+                    <strong>{{ $tricks->total() }}</strong>
 
-        behaviors
+                    behaviors
 
-    </p>
+                </p>
 
-    </div>
+            </div>
 
-</form>
+        </form>
     </div> <!-- END FILTER AREA -->
 
-    <div class="grid grid-cols-12 h-full">
-        
+    <div
+        x-data="behaviorCatalog()"
+        class="grid grid-cols-12 h-full">
+
         <div class="col-span-8 py-4">
             <table class="w-full text-sp-deepGranite border border-sp-darkGranite mb-6
                     [&_tbody_tr:nth-child(odd)>td]:bg-sp-alloyGray
@@ -233,7 +235,7 @@
                     @foreach ($tricks as $trick)
                     <tr class="text-sm">
                         <td class="p-3">
-                            {{ $trick->name }}<br />
+                            {{ $trick->name }}<br>
                             <span class="text-xs italic">
                                 {{ $trick->levels
         ->pluck('name')
@@ -245,11 +247,25 @@
                             <a href="#"
                                 class="inline-flex items-center justify-center rounded-md
                                     bg-sp-deepGranite px-4 py-2 text-sm font-medium text-sp-softWhite
-                                    transition-colors duration-200hover:bg-sp-darkGranite">
+                                    transition-colors duration-200 hover:bg-sp-darkGranite">
                                 Edit
                             </a>
 
                             <button type="button"
+                                @click="selectBehavior({
+                                id: {{ $trick->id }},
+                                name: @js($trick->name),
+                                notes: @js($trick->notes ?? ''),
+                                levels: @js(
+                                $trick->levels
+                                    ->pluck('name')
+                                    ->map(fn($l) => ucwords(str_replace('_', ' ', $l)))
+                                    ->values()
+                                ),
+                                    videos: @js(
+                                        $trick->videos ?? []
+                                        )
+                                    })"
                                 class="inline-flex items-center justify-center rounded-md
                                 border border-sp-alloyGray bg-white px-4 py-2
                                 text-sm font-medium text-sp-darkGranite
@@ -265,18 +281,117 @@
                 </tbody>
             </table>
             <div class="mt-4">
-    {{ $tricks->links() }}
-</div>
+                {{ $tricks->links() }}
+            </div>
         </div>
         <div class="col-span-4 py-4">
-            <div id="behavior-display" class="rounded-md bg-sp-alloyGray ml-4 mr-4 p-4">
+            <div class="col-span-4 py-4">
+    <div id="behavior-display" class="rounded-md bg-sp-alloyGray ml-4 mr-4 p-4">
+
+        {{-- Empty state --}}
+        <template x-if="!selectedBehavior">
+            <div class="text-sp-deepGranite">
+                <h2 class="font-heading text-5xl mb-4">Behavior</h2>
+                <p class="text-sm">
+                    Select a behavior from the list to view its notes and videos.
+                </p>
+            </div>
+        </template>
+
+        {{-- Selected behavior --}}
+        <template x-if="selectedBehavior">
+            <div>
+                <div class="flex justify-between items-center mb-6 border-b border-sp-softWhite/.2 pb-4">
+                    <h2 class="font-heading text-5xl" x-text="selectedBehavior.name"></h2>
+
+                    <div class="flex gap-2">
+                        <button
+                            type="button"
+                            @click="copySimple()"
+                            class="inline-flex items-center justify-center rounded-md
+                            bg-sp-deepGranite px-4 py-2 text-xs uppercase font-medium text-sp-softWhite
+                            transition-colors duration-200 hover:bg-sp-darkGranite"
+                        >
+                            Copy Simple
+                        </button>
+
+                        <button
+                            type="button"
+                            @click="copyGrouped()"
+                            class="inline-flex items-center justify-center rounded-md
+                            border border-sp-alloyGray bg-white px-4 py-2
+                            text-xs uppercase font-medium text-sp-darkGranite
+                            transition-colors duration-200 hover:bg-sp-softWhite"
+                        >
+                            Copy Grouped
+                        </button>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="font-heading text-3xl">Categories</h3>
+
+                    <template x-if="selectedBehavior.levels && selectedBehavior.levels.length">
+                        <p class="text-sm italic" x-text="selectedBehavior.levels.join(', ')"></p>
+                    </template>
+
+                    <template x-if="!selectedBehavior.levels || !selectedBehavior.levels.length">
+                        <p class="text-sm italic">No category assigned.</p>
+                    </template>
+                </div>
+
+                <div class="mb-6">
+                    <h3 class="font-heading text-3xl">Notes</h3>
+
+                    <template x-if="selectedBehavior.notes">
+                        <p class="whitespace-pre-line text-sm" x-text="selectedBehavior.notes"></p>
+                    </template>
+
+                    <template x-if="!selectedBehavior.notes">
+                        <p class="text-sm italic">No notes entered.</p>
+                    </template>
+                </div>
+
+                <div>
+                    <h3 class="font-heading text-3xl">Videos</h3>
+
+                    <template x-if="selectedBehavior.videos && selectedBehavior.videos.length">
+                        <div class="space-y-2">
+                            <template x-for="video in selectedBehavior.videos" :key="video.id">
+                                <div class="rounded bg-white p-3 text-sm">
+                                    <div class="font-semibold" x-text="video.title ?? 'Untitled video'"></div>
+
+                                    <template x-if="video.url">
+                                        <a
+                                            :href="video.url"
+                                            target="_blank"
+                                            class="text-sp-deepGranite underline"
+                                            x-text="video.url"
+                                        ></a>
+                                    </template>
+                                </div>
+                            </template>
+                        </div>
+                    </template>
+
+                    <template x-if="!selectedBehavior.videos || !selectedBehavior.videos.length">
+                        <p class="text-sm italic">No videos added.</p>
+                    </template>
+                </div>
+            </div>
+        </template>
+
+    </div>
+</div>
+
+            <!-- <div id="behavior-display" class="rounded-md bg-sp-alloyGray ml-4 mr-4 p-4">
                 <div class="flex justify-between items-center mb-6 border-b border-sp-softWhite/.2 pb-4">
                     <h2 class="font-heading text-5xl">Crawl</h2>
                     <div>
                         <a href="#"
                             class="inline-flex items-center justify-center rounded-md
                                     bg-sp-deepGranite px-4 py-2 text-xs uppercase font-medium text-sp-softWhite
-                                    transition-colors duration-200hover:bg-sp-darkGranite">
+                                    transition-colors duration-200 hover:bg-sp-darkGranite">
                             Copy Simple
                         </a>
                         <a href="#"
@@ -299,7 +414,7 @@
                     </p>
                     <h3 class="font-heading text-3xl">Videos</h3>
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
 </div><!--  End Dashboard content -->
