@@ -3,7 +3,7 @@
 @section('content')
     <div class="dashboard-content">
         <div class="py-4">
-        <img src="{{ asset('images/headers/dashboard.png') }}" alt="Dashboard Header" class="rounded-md">
+        <img src="{{ asset('images/headers/dashboard.png') }}" alt="Hamish, a shetland sheepdog, running across a field." class="rounded-md">
     </div>
         <h1>Dashboard</h1>
 
