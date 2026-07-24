@@ -29,10 +29,16 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($tricks as $trick)
                     <tr class="text-sm">
                         <td class="p-3">
-                            Behavior name<br />
-                            <span class="text-xs italic">Categories</span>
+                            {{ $trick->name }}<br />
+                            <span class="text-xs italic">
+                                {{ $trick->levels
+        ->pluck('name')
+        ->map(fn($l) => ucwords(str_replace('_', ' ', $l)))
+        ->join(', ') }}
+                            </span>
                         </td>
                         <td class="p-3 text-center">
                             <a href="#"
@@ -52,6 +58,8 @@
                             </button>
                         </td>
                     </tr>
+                    @endforeach
+
 
                 </tbody>
             </table>
@@ -62,28 +70,28 @@
                     <h2 class="font-heading text-5xl">Crawl</h2>
                     <div>
                         <a href="#"
-                        class="inline-flex items-center justify-center rounded-md
+                            class="inline-flex items-center justify-center rounded-md
                                     bg-sp-deepGranite px-4 py-2 text-xs uppercase font-medium text-sp-softWhite
                                     transition-colors duration-200hover:bg-sp-darkGranite">
-                        Copy Simple
-                    </a>
-                    <a href="#"
-                        class="inline-flex items-center justify-center rounded-md
+                            Copy Simple
+                        </a>
+                        <a href="#"
+                            class="inline-flex items-center justify-center rounded-md
                                 border border-sp-alloyGray bg-white px-4 py-2
                                 text-xs uppercase font-medium text-sp-darkGranite
                                 transition-colors duration-200 hover:bg-sp-softWhite">
-                        Copy Grouped
-                    </a>
+                            Copy Grouped
+                        </a>
                     </div>
-                    
+
                 </div>
-                
+
                 <div>
                     <h3 class="font-heading text-3xl">Notes</h3>
-                    <p><strong>NOVICE</strong></br/>
-                    The dog will respond to the handler’s cue to crawl by getting in the down position and crawling on his/her belly at least 3 body lengths.<br/>
-                        • In the Novice level, the handler may instruct the dog to “down” in preparation for the crawl.<br/>
-                        • The handler may use a lure.<br/>
+                    <p><strong>NOVICE</strong></br />
+                        The dog will respond to the handler’s cue to crawl by getting in the down position and crawling on his/her belly at least 3 body lengths.<br />
+                        • In the Novice level, the handler may instruct the dog to “down” in preparation for the crawl.<br />
+                        • The handler may use a lure.<br />
                     </p>
                     <h3 class="font-heading text-3xl">Videos</h3>
                 </div>
