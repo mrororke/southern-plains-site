@@ -16,7 +16,7 @@
             </a>
         </div>
 
-        <div class="col-span-12 grid grid-rows-[auto_1fr] h-full">
+        <div class="grid grid-cols-12 h-full">
             <div class="col-span-8">Column One</div>
             <div class="col-span-4">Column Two</div>
         </div>
