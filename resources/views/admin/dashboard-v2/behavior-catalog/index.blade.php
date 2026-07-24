@@ -34,7 +34,7 @@
                             Trick name<br />
                             <span class="text-xs italic">Categories</span>
                         </td>
-                        <td class="p-3">
+                        <td class="p-3 text-center">
                             <a href="#"
                                 class="inline-flex items-center justify-center rounded-md
                                     bg-sp-deepGranite px-4 py-2 text-sm font-medium text-sp-softWhite
