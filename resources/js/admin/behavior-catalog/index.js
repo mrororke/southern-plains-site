@@ -10,6 +10,10 @@ Alpine.data('behaviorCatalog', () => ({
         this.selectedBehavior = behavior;
     },
 
+    clearBehavior() {
+        this.selectedBehavior = null;
+    },
+
     copySimple() {
         if (!this.selectedBehavior) return;
 

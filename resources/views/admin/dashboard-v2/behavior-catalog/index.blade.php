@@ -225,7 +225,6 @@
             </div>
         </div>
         <div class="col-span-4 py-4">
-            <div class="col-span-4 py-4">
                 <div id="behavior-display" class="rounded-md bg-sp-alloyGray ml-4 mr-4 p-4">
 
                     {{-- Empty state --}}
@@ -263,6 +262,15 @@
                             transition-colors duration-200 hover:bg-sp-softWhite">
                                         Copy Grouped
                                     </button>
+                                    <button
+        type="button"
+        @click="selectedBehavior = null"
+        class="inline-flex items-center justify-center rounded-md
+border border-sp-deepGranite bg-sp-softWhite px-4 py-2
+text-xs uppercase font-medium text-sp-darkGranite
+transition-colors duration-200 hover:bg-white">
+        Close
+    </button>
                                 </div>
                             </div>
 
@@ -331,7 +339,6 @@
                         </div>
                     </template>
 
-                </div>
             </div>
 
             
