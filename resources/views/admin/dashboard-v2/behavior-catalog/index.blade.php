@@ -173,16 +173,7 @@
 </a>
 
         </div>
-
-    </div>
-
-</form>
-    </div> <!-- END FILTER AREA -->
-
-    <div class="grid grid-cols-12 h-full">
-        
-        <div class="col-span-8 py-4">
-            <p class="text-sm text-sp-darkGranite">
+         <p class="text-sm text-sp-darkGranite">
 
         Showing
 
@@ -199,6 +190,15 @@
         behaviors
 
     </p>
+
+    </div>
+
+</form>
+    </div> <!-- END FILTER AREA -->
+
+    <div class="grid grid-cols-12 h-full">
+        
+        <div class="col-span-8 py-4">
             <table class="w-full text-sp-deepGranite border border-sp-darkGranite mb-6
                     [&_tbody_tr:nth-child(odd)>td]:bg-sp-alloyGray
                     [&_tbody_tr:nth-child(even)>td]:bg-sp-softWhite
