@@ -242,7 +242,7 @@ Route::middleware(['auth'])
     ->group(function () {
 
         Route::get('/dashboard', function () {
-            return view('admin.dashboard-v2.desktop', [
+            return view('admin.dashboard-v2.dashboard', [
                 'navigation' => \App\Navigation\AdminNavigation::items(),
             ]);
         })->name('dashboard');
