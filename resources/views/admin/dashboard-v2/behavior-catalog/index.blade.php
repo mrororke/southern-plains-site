@@ -106,19 +106,19 @@
 
             <div class="grid gap-4 mt-4 md:grid-cols-3">
 
-                {{-- Preferred --}}
+                {{-- is_preferred --}}
                 <div>
                     <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
-                        Preferred Video
+                        is_preferred Video
                     </label>
 
                     <select
-                        name="preferred"
+                        name="is_preferred"
                         class="w-full border-sp-alloyGray shadow-sm rounded-md focus:border-sp-darkGranite focus:ring-sp-darkGranite">
 
                         <option value="">All</option>
-                        <option value="yes" @selected(request('preferred')=='yes' )>Has Preferred Video</option>
-                        <option value="no" @selected(request('preferred')=='no' )>Missing Preferred Video</option>
+                        <option value="yes" @selected(request('is_preferred')=='yes' )>Has is_preferred Video</option>
+                        <option value="no" @selected(request('is_preferred')=='no' )>Missing is_preferred Video</option>
 
                     </select>
                 </div>
@@ -159,7 +159,7 @@
                     @if(request()->filled('search')
                     || request()->filled('level')
                     || request()->filled('platform')
-                    || request()->filled('preferred')
+                    || request()->filled('is_preferred')
                     || request()->filled('notes')
                     || request()->filled('sort'))
 
@@ -382,14 +382,14 @@
     <div class="space-y-2">
         <template
             x-for="video in selectedBehavior.videos.slice().sort((a, b) => 
-                ([1, '1', true, 'true'].includes(b.preferred) ? 1 : 0) - 
-                ([1, '1', true, 'true'].includes(a.preferred) ? 1 : 0)
+                ([1, '1', true, 'true'].includes(b.is_preferred) ? 1 : 0) - 
+                ([1, '1', true, 'true'].includes(a.is_preferred) ? 1 : 0)
             )"
             :key="video.id"
         >
             <div
                 class="rounded p-3 text-sm"
-                :class="[1, '1', true, 'true'].includes(video.preferred) ? 'bg-lime-100' : 'bg-white'"
+                :class="[1, '1', true, 'true'].includes(video.is_preferred) ? 'bg-lime-100' : 'bg-white'"
             >
                 <div class="font-semibold" x-text="video.creator ?? 'Untitled Video'"></div>
 
