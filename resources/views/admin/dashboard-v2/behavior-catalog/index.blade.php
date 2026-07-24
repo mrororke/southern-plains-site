@@ -252,7 +252,8 @@
                         </div>
                         <div class="flex justify-between items-center mb-6 border-b border-sp-softWhite/.2 pb-4">
                             <h2 class="font-heading text-4xl" x-text="selectedBehavior.name"></h2>
-
+                        </div>
+                        <div class="flex justify-end items-center mb-6 pb-4">
                             <div class="flex gap-2">
                                 <button
                                     type="button"
