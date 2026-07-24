@@ -61,14 +61,14 @@
                 <h2 class="font-heading text-4xl">Crawl</h2>
                 <a href="#"
                                 class="inline-flex items-center justify-center rounded-md
-                                    bg-sp-deepGranite px-4 py-2 text-sm font-medium text-sp-softWhite
+                                    bg-sp-deepGranite px-4 py-2 text-xs uppercase font-medium text-sp-softWhite
                                     transition-colors duration-200hover:bg-sp-darkGranite">
                                 Copy Simple
                             </a>
                     <a href="#"
                                 class="inline-flex items-center justify-center rounded-md
                                 border border-sp-alloyGray bg-white px-4 py-2
-                                text-sm font-medium text-sp-darkGranite
+                                text-xs uppercase font-medium text-sp-darkGranite
                                 transition-colors duration-200 hover:bg-sp-softWhite">
                                 Copy Grouped
                             </a>
