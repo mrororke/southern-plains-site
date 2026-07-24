@@ -218,7 +218,7 @@ class AdminNavigation
                 'label' => 'Resources',
                 'icon' => 'resources',
                 'roles' => ['admin', 'instructor'],
-                'status' => 'coming-soon',
+                'status' => 'active',
 
                 'children' => [
 
@@ -231,12 +231,11 @@ class AdminNavigation
                     ],
 
                     [
-                        /* TODO: Current route: admin/trick-catalog */
                         'label' => 'Behavior Catalog',
-                        'route' => 'admin.dashboard',
-                        'activeRoute' => 'admin.dashboard.*',
+                        'route' => 'admin.dashboard-v2.behavior-catalog.index',
+                        'activeRoute' => 'admin.dashboard-v2.behavior-catalog.*',
                         'roles' => ['admin', 'instructor'],
-                        'status' => 'coming-soon',
+                        'status' => 'active',
                     ],
 
                     [
