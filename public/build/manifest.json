@@ -1,11 +1,11 @@
 {
   "resources/css/app.css": {
-    "file": "assets/app-BnQtMgGf.css",
+    "file": "assets/app-BulIOS4K.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/css/dashboard-v2.css": {
-    "file": "assets/dashboard-v2-PO37zrmq.css",
+    "file": "assets/dashboard-v2-BXGzXHf1.css",
     "src": "resources/css/dashboard-v2.css",
     "isEntry": true
   },
@@ -28,12 +28,12 @@
     "isEntry": true
   },
   "resources/js/app.js": {
-    "file": "assets/app-CHxPvi8J.js",
+    "file": "assets/app-BUX8iduo.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-BnQtMgGf.css"
+      "assets/app-BulIOS4K.css"
     ]
   }
 }

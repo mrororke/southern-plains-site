@@ -24,7 +24,8 @@
             <table class="w-full text-sp-deepGranite border border-sp-darkGranite mb-6
                     [&_tbody_tr:nth-child(odd)>td]:bg-sp-alloyGray
                     [&_tbody_tr:nth-child(even)>td]:bg-sp-softWhite
-                    [&_tbody_tr:hover>td]:bg-sp-controlledLime/.2">
+                    [&_tbody_tr:hover>td]:!bg-sp-controlledLime/20">
+
 
 
                 <thead>
