@@ -77,11 +77,15 @@
                     </div>
                     
                 </div>
-
-
                 
                 <div>
-                    Next section
+                    <h3 class="font-heading text-xl">Notes</h3>
+                    <p><strong>NOVICE</strong></br/>
+                    The dog will respond to the handler’s cue to crawl by getting in the down position and crawling on his/her belly at least 3 body lengths.<br/>
+                        • In the Novice level, the handler may instruct the dog to “down” in preparation for the crawl.<br/>
+                        • The handler may use a lure.<br/>
+                    </p>
+                    <h4 class="font-heading text-lg">Videos</h4>
                 </div>
             </div>
         </div>
