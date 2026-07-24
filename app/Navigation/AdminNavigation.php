@@ -232,8 +232,8 @@ class AdminNavigation
 
                     [
                         'label' => 'Behavior Catalog',
-                        'route' => 'behavior-catalog.index',
-                        'activeRoute' => 'behavior-catalog.*',
+                        'route' => 'admin.behavior-catalog.index',
+                        'activeRoute' => 'admin.behavior-catalog.*',
                         'roles' => ['admin', 'instructor'],
                         'status' => 'active',
                     ],
