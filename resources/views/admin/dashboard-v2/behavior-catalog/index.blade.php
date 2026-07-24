@@ -21,7 +21,11 @@
 
     <div class="grid grid-cols-12 h-full">
         <div class="col-span-8 py-4">
-            <table class="w-full text-sp-deepGranite border border-sp-darkGranite mb-6 [&_tbody_tr:nth-child(odd)]:bg-sp-alloyGray [&_tbody_tr:nth-child(even)]:bg-white [&_tbody_tr:hover]:bg-sp-controlledLime/20">
+            <table class="w-full text-sp-deepGranite border border-sp-darkGranite mb-6
+                    [&_tbody_tr:nth-child(odd)>td]:bg-sp-alloyGray
+                    [&_tbody_tr:nth-child(even)>td]:bg-sp-softWhite
+                    [&_tbody_tr:hover>td]:bg-sp-controlledLime/.2">
+
 
                 <thead>
                     <tr class="bg-sp-deepGranite border-b border-sp-darkGranite">
