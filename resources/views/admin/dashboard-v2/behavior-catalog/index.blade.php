@@ -23,13 +23,13 @@
             <div class="col-span-8 py-4">
                 <table class="border w-full">
                     <thead>
-                        <tr class="bg-sp-deepGranite border-b border-sp-darkGranite text-sp-softWhite uppercase text-sm">
-                        <th>Name</th>
-                        <th>Actions</th>
+                        <tr class="bg-sp-deepGranite border-b border-sp-darkGranite text-sp-softWhite uppercase text-left p-4">
+                        <th class="text-base">Name</th>
+                        <th class="text-base">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr class="text-sm">
                             <td>
                                 Trick name<br/>
                                 Categories
