@@ -30,7 +30,7 @@
             </td>
             <td class="p-3 text-center">
                 <a href="#"
-                    class="inline-flex items-center justify-center rounded-sm
+                    class="inline-flex items-center justify-center rounded-md
                                     bg-sp-prairieGreen px-4 py-2 text-sm font-medium text-sp-warmIvory
                                     transition-colors duration-200 hover:bg-sp-prairieOchre">
                     Edit
@@ -51,10 +51,10 @@
                                         $trick->videos ?? []
                                         )
                                     })"
-                    class="inline-flex items-center justify-center rounded-sm
+                    class="inline-flex items-center justify-center rounded-smd
                                 border border-sp-limestone bg-limestone px-4 py-2
                                 text-sm font-medium text-sp-prairieGreen
-                                transition-colors duration-200 hover:bg-sp-prairieOchre"
+                                transition-colors duration-200 hover:bg-sp-prairieOchre hover:text-sp-warmIvory"
                     data-id="">
                     View
                 </button>
