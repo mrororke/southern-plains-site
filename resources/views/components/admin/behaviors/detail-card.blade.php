@@ -93,7 +93,7 @@
                                         :key="video.id">
                                         <div
                                             class="rounded p-3 text-sm"
-                                            :class="[1, '1', true, 'true'].includes(video.is_preferred) ? 'bg-sp-warmIvory' : 'bg-sp-limestone'">
+                                            :class="[1, '1', true, 'true'].includes(video.is_preferred) ? 'bg-sp-warmIvory border border-sp-warmStone' : 'bg-sp-limestone border border-sp-warmStone'">
                                             <div class="font-semibold" x-text="video.creator ?? 'Untitled Video'"></div>
 
                                             <template x-if="video.url">
