@@ -139,12 +139,12 @@ $isInstructor =
 <aside
     @mouseenter="sidebarOpen = true"
     @mouseleave="sidebarOpen = false"
-    class="flex flex-col bg-sp-deepGranite text-sp-softWhite h-full overflow-hidden">
+    class="flex flex-col bg-sp-charCoal text-sp-warmIvory h-full overflow-hidden">
 
     <!-- FIXED LOGO -->
     <a href="{{ route('admin.dashboard') }}"
         class="group flex pt-4 justify-center shrink-0">
-        <x-icons.admin-logo class="transition-colors group-hover:text-sp-controlledLime" />
+        <x-icons.admin-logo class="transition-colors group-hover:text-sp-prairieGreen" />
     </a>
 
     <!-- SCROLLING COLLAPSED NAV -->
@@ -172,12 +172,12 @@ $isInstructor =
     :class="sidebarOpen
         ? 'translate-x-0 opacity-100'
         : '-translate-x-full opacity-0'"
-    class="absolute top-0 left-0 h-screen w-64 bg-sp-deepGranite text-sp-softWhite z-50 transform transition-all duration-300 ease-out opacity-0 overflow-hidden flex flex-col">
+    class="absolute top-0 left-0 h-screen w-64 bg-sp-charcoal text-sp-warmIvory z-50 transform transition-all duration-300 ease-out opacity-0 overflow-hidden flex flex-col">
 
     <!-- FIXED LOGO -->
     <a href="{{ route('admin.dashboard') }}"
         class="group flex pt-4 justify-center shrink-0">
-        <x-icons.admin-logo class="transition-colors duration-300 group-hover:text-sp-controlledLime" />
+        <x-icons.admin-logo class="transition-colors duration-300 group-hover:text-sp-prairieGreen" />
     </a>
 
     <!-- SCROLLING EXPANDED NAV -->
@@ -191,7 +191,7 @@ $isInstructor =
 
                     <x-dynamic-component
                         :component="'icons.' . $item['icon']"
-                        class="w-5 h-5 text-sp-softWhite" />
+                        class="w-5 h-5 text-sp-warmIvory" />
 
                     <span>
                         {{ $item['label'] }}

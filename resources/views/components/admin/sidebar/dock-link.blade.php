@@ -28,9 +28,9 @@
         :component="'icons.' . $icon"
         @class([
             'transition-colors',
-            'text-sp-controlledLime' => $isActive,
-            'text-sp-softWhite group-hover:text-sp-controlledLime' => !$isActive && !$isDisabled,
-            'text-sp-alloyGray' => $isDisabled,
+            'text-sp-prairieGreen' => $isActive,
+            'text-sp-warmIvory group-hover:text-sp-prairieGreen' => !$isActive && !$isDisabled,
+            'text-sp-limestone' => $isDisabled,
         ]) />
 
 </a>
