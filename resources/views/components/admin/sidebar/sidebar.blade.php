@@ -144,7 +144,7 @@ $isInstructor =
     <!-- FIXED LOGO -->
     <a href="{{ route('admin.dashboard') }}"
         class="group flex pt-4 justify-center shrink-0">
-        <x-icons.admin-logo class="transition-colors group-hover:text-sp-prairieOchre" />
+        <x-icons.admin-logo class="transition-colors group-hover:text-sp-prairieGreen" />
     </a>
 
     <!-- SCROLLING COLLAPSED NAV -->
@@ -177,7 +177,7 @@ $isInstructor =
     <!-- FIXED LOGO -->
     <a href="{{ route('admin.dashboard') }}"
         class="group flex pt-4 justify-center shrink-0">
-        <x-icons.admin-logo class="transition-colors duration-300 group-hover:text-sp-prairieOchre" />
+        <x-icons.admin-logo class="transition-colors duration-300 group-hover:text-sp-prairieGreen" />
     </a>
 
     <!-- SCROLLING EXPANDED NAV -->

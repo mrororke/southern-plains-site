@@ -37,7 +37,7 @@
             @class([
                 'transition-colors',
                 'text-sp-controlledLime' => $isActive,
-                'text-sp-warmIvory group-hover:text-sp-prairieOchre' => !$isActive && !$isDisabled,
+                'text-sp-warmIvory group-hover:text-sp-prairieGreen' => !$isActive && !$isDisabled,
                 'text-sp-warmIvory' => $isDisabled,
             ]) />
     @endif
@@ -46,7 +46,7 @@
         @class([
             'uppercase text-xs tracking-wide whitespace-nowrap transition-colors',
             'text-sp-controlledLime' => $isActive,
-            'text-sp-warmIvory group-hover:text-sp-prairieOchre' => !$isActive && !$isDisabled,
+            'text-sp-warmIvory group-hover:text-sp-prairieGreen' => !$isActive && !$isDisabled,
             'text-sp-warmIvory' => $isDisabled,
         ])>
         {{ $label }}
