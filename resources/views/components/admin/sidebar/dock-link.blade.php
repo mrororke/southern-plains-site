@@ -28,8 +28,8 @@
         :component="'icons.' . $icon"
         @class([
             'transition-colors',
-            'text-sp-prairieGreen' => $isActive,
-            'text-sp-warmIvory group-hover:text-sp-prairieGreen' => !$isActive && !$isDisabled,
+            'text-sp-prairieOchre' => $isActive,
+            'text-sp-warmIvory group-hover:text-sp-prairieOchre' => !$isActive && !$isDisabled,
             'text-sp-limestone' => $isDisabled,
         ]) />
 
