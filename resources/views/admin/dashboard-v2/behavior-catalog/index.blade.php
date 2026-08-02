@@ -25,7 +25,7 @@
 
                 {{-- Search --}}
                 <div>
-                    <label class="block text-sm text-sp-slate font-semibold uppercase mb-1">
+                    <label class="block text-xs text-sp-slate font-semibold uppercase mb-1">
                         Search
                     </label>
 
@@ -39,7 +39,7 @@
 
                 {{-- Level --}}
                 <div>
-                    <label class="block text-sm text-sp-slate font-semibold uppercase mb-1">
+                    <label class="block text-xs text-sp-slate font-semibold uppercase mb-1">
                         Category
                     </label>
 
@@ -65,7 +65,7 @@
 
                 {{-- Platform --}}
                 <div>
-                    <label class="block text-sm text-sp-slate font-semibold uppercase mb-1">
+                    <label class="block text-xs text-sp-slate font-semibold uppercase mb-1">
                         Platform
                     </label>
 
@@ -85,7 +85,7 @@
 
                 {{-- Sort --}}
                 <div>
-                    <label class="block text-sm text-sp-slate font-semibold uppercase mb-1">
+                    <label class="block text-xs text-sp-slate font-semibold uppercase mb-1">
                         Sort
                     </label>
 
@@ -125,7 +125,7 @@
 
                 {{-- Notes --}}
                 <div>
-                    <label class="block text-sm text-sp-slate font-semibold uppercase mb-1">
+                    <label class="block text-xs text-sp-slate font-semibold uppercase mb-1">
                         Notes
                     </label>
 
