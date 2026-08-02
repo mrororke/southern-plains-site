@@ -52,7 +52,7 @@
                                         )
                                     })"
                     class="inline-flex items-center justify-center rounded-md
-                                border border-sp-limestone bg-warmIvory px-4 py-2
+                                border border-sp-limestone bg-sp-warmIvory px-4 py-2
                                 text-sm font-medium text-sp-prairieGreen
                                 transition-colors duration-200 hover:bg-sp-prairieOchre hover:text-sp-warmIvory"
                     data-id="">
