@@ -6,7 +6,7 @@
                     name="globalSearch"
                     value=""
                     placeholder="Search anything..."
-                    class="mt-1 block border border-sp-charcoal rounded-md bg-transparent focus:border-sp-charcoal placeholder:italic placeholder:text-md placeholder:text-sp-charcoal w-full ">
+                    class="mt-1 block border border-sp-slate rounded-md bg-transparent focus:border-sp-charcoal placeholder:italic placeholder:text-md placeholder:text-sp-slate w-full ">
             </div>
             <div class="col-span-2 flex justify-end pr-4">
                 <div

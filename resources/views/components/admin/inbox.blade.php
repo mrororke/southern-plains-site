@@ -1,16 +1,16 @@
 <div
                 x-data="{ tab: 'all' }"
-                class="border-2 border-sp-alloyGray text-sp-deepGranite rounded-md my-4">
+                class="border-2 border-sp-warmStone bg-sp-limestone text-sp-charcoal rounded-sm my-4">
 
                 <!-- Card Header / Tabs -->
-                <div class="border-b border-sp-alloyGray">
+                <div class="border-b border-sp-warmStone">
                     <nav class="flex gap-6 px-6">
 
                         <button
                             @click="tab = 'all'"
                             :class="tab === 'all' 
-                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs tracking-wide' 
-                    : 'text-sp-deepGranite uppercase text-xs tracking-wide'"
+                    ? 'border-b-2 border-sp-prairieGreen text-sp-charcoal uppercase text-xs tracking-wide' 
+                    : 'text-sp-charcoal uppercase text-xs tracking-wide'"
                             class="py-4">
                             All (Count)
                         </button>
@@ -18,8 +18,8 @@
                         <button
                             @click="tab = 'trickEvals'"
                             :class="tab === 'trickEvals' 
-                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs tracking-wide' 
-                    : 'text-sp-deepGranite uppercase text-xs tracking-wide'"
+                    ? 'border-b-2 border-sp-prairieGreen text-sp-charcoal uppercase text-xs tracking-wide' 
+                    : 'text-sp-charcoal uppercase text-xs tracking-wide'"
                             class="py-4">
                             Trick Evaluations
                         </button>
@@ -27,40 +27,40 @@
                         <button
                             @click="tab = 'contactMessages'"
                             :class="tab === 'contactMessages' 
-                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs tracking-wide' 
-                    : 'text-sp-deepGranite uppercase text-xs tracking-wide'"
+                    ? 'border-b-2 border-sp-prairieGreen text-sp-charcoal uppercase text-xs tracking-wide' 
+                    : 'text-sp-charcoal uppercase text-xs tracking-wide'"
                             class="py-4">
                             Contact Messages
                         </button>
                         <button
                             @click="tab = 'formSubmissions'"
                             :class="tab === 'formSubmissions' 
-                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs tracking-wide' 
-                    : 'text-sp-deepGranite uppercase text-xs tracking-wide'"
+                    ? 'border-b-2 border-sp-prairieGreen text-sp-charcoal uppercase text-xs tracking-wide' 
+                    : 'text-sp-charcoal uppercase text-xs tracking-wide'"
                             class="py-4">
                             Form Submissions
                         </button>
                         <button
                             @click="tab = 'onlineEvaluations'"
                             :class="tab === 'onlineEvaluations' 
-                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs tracking-wide' 
-                    : 'text-sp-deepGranite uppercase text-xs tracking-wide'"
+                    ? 'border-b-2 border-sp-prairieGreen text-sp-charcoal uppercase text-xs tracking-wide' 
+                    : 'text-sp-charcoal uppercase text-xs tracking-wide'"
                             class="py-4">
                             Online Evaluations
                         </button>
                         <button
                             @click="tab = 'resourceRequests'"
                             :class="tab === 'resourceRequests' 
-                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs tracking-wide' 
-                    : 'text-sp-deepGranite uppercase text-xs tracking-wide'"
+                    ? 'border-b-2 border-sp-prairieGreen text-sp-charcoal uppercase text-xs tracking-wide' 
+                    : 'text-sp-charcoal uppercase text-xs tracking-wide'"
                             class="py-4">
                             Resource Requests
                         </button>
                         <button
                             @click="tab = 'trackingSport'"
                             :class="tab === 'trackingSport' 
-                    ? 'border-b-2 border-sp-controlledLime text-sp-deepGranite uppercase text-xs tracking-wide' 
-                    : 'text-sp-deepGranite uppercase text-xs tracking-wide'"
+                    ? 'border-b-2 border-sp-prairieGreen text-sp-charcoal uppercase text-xs tracking-wide' 
+                    : 'text-sp-charcoal uppercase text-xs tracking-wide'"
                             class="py-4">
                             Tracking Sport Feedback
                         </button>
