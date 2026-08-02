@@ -38,8 +38,8 @@
                                     type="button"
                                     @click="copySimple()"
                                     class="inline-flex items-center justify-center rounded-md
-                            bg-sp-deepGranite px-4 py-2 text-xs uppercase font-medium text-sp-softWhite
-                            transition-colors duration-200 hover:bg-sp-darkGranite">
+                                        bg-sp-prairieGreen px-2 py-1 text-xs font-bold text-sp-warmIvory
+                                        transition-colors duration-200 hover:brightness-95">
                                     Copy Simple
                                 </button>
 
@@ -47,9 +47,8 @@
                                     type="button"
                                     @click="copyGrouped()"
                                     class="inline-flex items-center justify-center rounded-md
-                            border border-sp-alloyGray bg-white px-4 py-2
-                            text-xs uppercase font-medium text-sp-darkGranite
-                            transition-colors duration-200 hover:bg-sp-softWhite">
+                                        bg-sp-prairieGreen px-2 py-1 text-xs font-bold text-sp-warmIvory
+                                        transition-colors duration-200 hover:brightness-95">
                                     Copy Grouped
                                 </button>
                                 
@@ -57,19 +56,19 @@
                         </div>
 
                         <div class="mb-6">
-                            <h3 class="font-heading text-3xl">Categories</h3>
+                            <h3 class="font-sans text-sp-charcoal text-3xl">Categories</h3>
 
                             <template x-if="selectedBehavior.levels && selectedBehavior.levels.length">
-                                <p class="text-sm italic" x-text="selectedBehavior.levels.join(', ')"></p>
+                                <p class="text-sm italic text-sp-slate" x-text="selectedBehavior.levels.join(', ')"></p>
                             </template>
 
                             <template x-if="!selectedBehavior.levels || !selectedBehavior.levels.length">
-                                <p class="text-sm italic">No category assigned.</p>
+                                <p class="text-sm italic text-sp-slate">No category assigned.</p>
                             </template>
                         </div>
 
                         <div class="mb-6">
-                            <h3 class="font-heading text-3xl">Notes</h3>
+                            <h3 class="font-sans text-sp-charcoal text-3xl">Notes</h3>
 
                             <template x-if="selectedBehavior.notes">
                                 <p class="whitespace-pre-line text-sm" x-html="selectedBehavior.notes"></p>
@@ -81,7 +80,7 @@
                         </div>
 
                         <div>
-                            <h3 class="font-heading text-3xl">Videos</h3>
+                            <h3 class="font-sans text-sp-charcoal text-3xl">Videos</h3>
 
 
                             <template x-if="selectedBehavior.videos && selectedBehavior.videos.length">
@@ -94,14 +93,14 @@
                                         :key="video.id">
                                         <div
                                             class="rounded p-3 text-sm"
-                                            :class="[1, '1', true, 'true'].includes(video.is_preferred) ? 'bg-sp-controlledLime' : 'bg-sp-softWhite'">
+                                            :class="[1, '1', true, 'true'].includes(video.is_preferred) ? 'bg-sp-warmStone' : 'bg-sp-limestone'">
                                             <div class="font-semibold" x-text="video.creator ?? 'Untitled Video'"></div>
 
                                             <template x-if="video.url">
                                                 <a
                                                     :href="video.url"
                                                     target="_blank"
-                                                    class="text-sp-deepGranite underline"
+                                                    class="text-sp-charcoal underline"
                                                     x-text="video.url"></a>
                                             </template>
                                         </div>
@@ -110,7 +109,7 @@
                             </template>
 
                             <template x-if="!selectedBehavior.videos || !selectedBehavior.videos.length">
-                                <p class="text-sm italic">No videos added.</p>
+                                <p class="text-sm text-sp-slate italic">No videos added.</p>
                             </template>
 
 
