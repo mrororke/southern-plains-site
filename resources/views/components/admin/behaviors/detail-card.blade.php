@@ -4,7 +4,7 @@
     'copyGroupedAction' => 'copyGrouped()',
 ])
 
-<div id="behavior-display" class="rounded-md bg-sp-alloyGray ml-4 mr-4 p-4">
+<div id="behavior-display" class="rounded-md bg-sp-limestone border border-sp-warmStone ml-4 mr-4 p-4">
 
                 {{-- Empty state --}}
                 <template x-if="!selectedBehavior">
@@ -93,7 +93,7 @@
                                         :key="video.id">
                                         <div
                                             class="rounded p-3 text-sm"
-                                            :class="[1, '1', true, 'true'].includes(video.is_preferred) ? 'bg-sp-warmStone' : 'bg-sp-limestone'">
+                                            :class="[1, '1', true, 'true'].includes(video.is_preferred) ? 'bg-sp-warmIvory' : 'bg-sp-limestone'">
                                             <div class="font-semibold" x-text="video.creator ?? 'Untitled Video'"></div>
 
                                             <template x-if="video.url">
