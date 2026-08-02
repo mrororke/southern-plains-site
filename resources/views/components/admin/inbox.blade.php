@@ -70,7 +70,7 @@
 
 
                 <!-- Card Content -->
-                <div class="p-6">
+                <div class="p-6 text-sp-slate">
 
                     <div x-show="tab === 'all'">
                         All content
