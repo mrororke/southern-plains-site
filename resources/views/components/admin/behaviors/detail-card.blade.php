@@ -8,9 +8,9 @@
 
                 {{-- Empty state --}}
                 <template x-if="!selectedBehavior">
-                    <div class="text-sp-deepGranite">
-                        <h2 class="font-heading text-4xl mb-4">Behavior</h2>
-                        <p class="text-sm">
+                    <div class="text-sp-charcoal">
+                        <h2 class="font-sans text-sp-charcoal text-4xl mb-4">Behavior</h2>
+                        <p class="text-sm text-sp-slate">
                             Select a behavior from the list to view its notes and videos.
                         </p>
                     </div>
@@ -24,15 +24,15 @@
                                     type="button"
                                     @click="selectedBehavior = null"
                                     class="inline-flex items-center justify-center rounded-md
-                                        bg-sp-vibrantCoral px-2 py-1 text-xs font-bold text-white
+                                        bg-sp-prairieGreen px-2 py-1 text-xs font-bold text-sp-warmIvory
                                         transition-colors duration-200 hover:brightness-95">
                                     X
                                 </button>
                         </div>
                         <div class="flex justify-between items-center mb-6">
-                            <h2 class="font-heading text-4xl" x-text="selectedBehavior.name"></h2>
+                            <h2 class="font-sans text-sp-charcoal text-4xl" x-text="selectedBehavior.name"></h2>
                         </div>
-                        <div class="flex justify-start items-center mb-6 border-b border-sp-softWhite/.2 pb-4">
+                        <div class="flex justify-start items-center mb-6 border-b border-sp-warmStone pb-4">
                             <div class="flex gap-2">
                                 <button
                                     type="button"
