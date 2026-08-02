@@ -4,7 +4,7 @@
     "name": "module.esm"
   },
   "resources/css/app.css": {
-    "file": "assets/app-BNv_ctAn.css",
+    "file": "assets/app-CUVWAux0.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
@@ -44,7 +44,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-BP19ZsIA.js",
+    "file": "assets/app-CCDvT1EB.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -52,7 +52,7 @@
       "_module.esm-DdaDH_LP.js"
     ],
     "css": [
-      "assets/app-BNv_ctAn.css"
+      "assets/app-CUVWAux0.css"
     ]
   }
 }
