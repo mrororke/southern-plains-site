@@ -77,7 +77,7 @@ export default {
 
             fontFamily: {
                 sans: ["Archivo", ...defaultTheme.fontFamily.sans],
-                heading: ["Bebas Neue", "sans-serif"],
+                display: ["Bebas Neue", "sans-serif"],
             },
 
             borderWidth: {

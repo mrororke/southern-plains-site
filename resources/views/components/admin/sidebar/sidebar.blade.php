@@ -139,7 +139,7 @@ $isInstructor =
 <aside
     @mouseenter="sidebarOpen = true"
     @mouseleave="sidebarOpen = false"
-    class="flex flex-col bg-sp-charCoal text-sp-warmIvory h-full overflow-hidden">
+    class="flex flex-col bg-sp-charcoal text-sp-warmIvory h-full overflow-hidden">
 
     <!-- FIXED LOGO -->
     <a href="{{ route('admin.dashboard') }}"
