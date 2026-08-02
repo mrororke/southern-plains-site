@@ -34,7 +34,7 @@
                         name="search"
                         value="{{ request('search') }}"
                         placeholder="Name, notes, creator..."
-                        class="w-ful lborder border-sp-slate rounded-md bg-transparent focus:border-sp-charcoal placeholder:italic placeholder:text-md placeholder:text-sp-slate">
+                        class="w-full border border-sp-slate rounded-md bg-transparent focus:border-sp-charcoal placeholder:italic placeholder:text-md placeholder:text-sp-slate">
                 </div>
 
                 {{-- Level --}}
@@ -65,13 +65,13 @@
 
                 {{-- Platform --}}
                 <div>
-                    <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
+                    <label class="block text-sm text-sp-slate font-semibold uppercase mb-1">
                         Platform
                     </label>
 
                     <select
                         name="platform"
-                        class="w-full border-sp-alloyGray shadow-sm rounded-md focus:border-sp-darkGranite focus:ring-sp-darkGranite">
+                        class="w-full border border-sp-slate rounded-md bg-transparent focus:border-sp-charcoal placeholder:italic placeholder:text-md placeholder:text-sp-slate">
 
                         <option value="">All Platforms</option>
                         <option value="youtube" @selected(request('platform')=='youtube' )>YouTube</option>
@@ -85,13 +85,13 @@
 
                 {{-- Sort --}}
                 <div>
-                    <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
+                    <label class="block text-sm text-sp-slate font-semibold uppercase mb-1">
                         Sort
                     </label>
 
                     <select
                         name="sort"
-                        class="w-full border-sp-alloyGray shadow-sm rounded-md focus:border-sp-darkGranite focus:ring-sp-darkGranite">
+                        class="w-full border border-sp-slate rounded-md bg-transparent focus:border-sp-charcoal placeholder:italic placeholder:text-md placeholder:text-sp-slate">
 
                         <option value="">Name (A–Z)</option>
                         <option value="name_desc" @selected(request('sort')=='name_desc' )>Name (Z–A)</option>
@@ -108,13 +108,13 @@
 
                 {{-- Preferred --}}
                 <div>
-                    <label class="block text-xs font-semibold uppercase mb-1">
+                    <label class="block text-sp-slate text-xs font-semibold uppercase mb-1">
                         Preferred Video
                     </label>
 
                     <select
                         name="preferred"
-                        class="w-full border-gray-300 shadow-sm focus:border-club focus:ring-club">
+                        class="w-full border border-sp-slate rounded-md bg-transparent focus:border-sp-charcoal placeholder:italic placeholder:text-md placeholder:text-sp-slate">
 
                         <option value="">All</option>
                         <option value="yes" @selected(request('preferred')=='yes' )>Has Preferred Video</option>
@@ -125,13 +125,13 @@
 
                 {{-- Notes --}}
                 <div>
-                    <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
+                    <label class="block text-sm text-sp-slate font-semibold uppercase mb-1">
                         Notes
                     </label>
 
                     <select
                         name="notes"
-                        class="w-full border-sp-alloyGray shadow-sm rounded-md focus:border-sp-darkGranite focus:ring-sp-darkGranite">
+                        class="w-full border border-sp-slate rounded-md bg-transparent focus:border-sp-charcoal placeholder:italic placeholder:text-md placeholder:text-sp-slate">
 
                         <option value="">All</option>
                         <option value="has" @selected(request('notes')=='has' )>Has Notes</option>
@@ -146,11 +146,8 @@
                     <button
                         type="submit"
                         class="inline-flex items-center justify-center rounded-md
-           bg-sp-deepGranite
-           px-4 py-2
-           text-sm font-medium text-sp-softWhite
-           transition-colors duration-200
-           hover:bg-sp-darkGranite uppercase">
+                                    bg-sp-prairieGreen px-4 py-2 text-sm font-medium text-sp-warmIvory
+                                    transition-colors duration-200 hover:bg-sp-prairieOchre uppercase">
 
                         Apply Filters
 
@@ -166,12 +163,9 @@
                     <a
                         href="{{ route('admin.behavior-catalog.index') }}"
                         class="inline-flex items-center justify-center rounded-md
-           border border-sp-alloyGray
-           bg-white
-           px-4 py-2
-           text-sm font-medium text-sp-darkGranite
-           transition-colors duration-200
-           hover:bg-sp-softWhite uppercase">
+                                border border-sp-limestone bg-sp-warmIvory px-4 py-2
+                                text-sm font-medium text-sp-prairieGreen
+                                transition-colors duration-200 hover:bg-sp-prairieOchre hover:text-sp-warmIvory uppercase">
 
                         Clear
 
@@ -182,16 +176,13 @@
                     <a href="{{ route('admin.trick-catalog.print-all') }}"
                         target="_blank"
                         class="inline-flex items-center justify-center rounded-md
-           bg-sp-controlledLime
-           px-4 py-2
-           text-sm font-semibold text-sp-deepGranite
-           transition-colors duration-200
-           hover:brightness-95 uppercase">
+                                    bg-sp-prairieGreen px-4 py-2 text-sm font-medium text-sp-warmIvory
+                                    transition-colors duration-200 hover:bg-sp-prairieOchre uppercase">
                         Print All
                     </a>
 
                 </div>
-                <p class="text-sm text-sp-darkGranite">
+                <p class="text-sm text-sp-slate">
 
                     Showing
 
