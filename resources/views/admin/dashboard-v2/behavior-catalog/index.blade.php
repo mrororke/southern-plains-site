@@ -10,7 +10,7 @@
     </div>
     <!-- Page Heading  -->
     <div class="flex justify-between items-center mb-6">
-        <h1 class="font-heading text-7xl text-sp-charcoal">Behavior Catalog</h1>
+        <h1 class="ont-sans text-sp-charcoal font-semibold text-6xl">Behavior Catalog</h1>
         <a href="{{ route('admin.trick-catalog.create') }}"
             class="inline-flex items-center justify-center rounded-md
                 bg-sp-prairieGreen px-4 py-2 text-sm font-medium text-sp-warmIvory transition-colors duration-200 hover:bg-sp-prairieOchre">
@@ -25,7 +25,7 @@
 
                 {{-- Search --}}
                 <div>
-                    <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
+                    <label class="block text-sm text-sp-slate font-semibold uppercase mb-1">
                         Search
                     </label>
 
@@ -34,18 +34,18 @@
                         name="search"
                         value="{{ request('search') }}"
                         placeholder="Name, notes, creator..."
-                        class="w-full border-sp-alloyGray shadow-sm rounded-md focus:border-sp-darkGranite focus:ring-sp-darkGranite">
+                        class="w-ful lborder border-sp-slate rounded-md bg-transparent focus:border-sp-charcoal placeholder:italic placeholder:text-md placeholder:text-sp-slate">
                 </div>
 
                 {{-- Level --}}
                 <div>
-                    <label class="block text-sm text-sp-deepGranite font-semibold uppercase mb-1">
+                    <label class="block text-sm text-sp-slate font-semibold uppercase mb-1">
                         Category
                     </label>
 
                     <select
                         name="level"
-                        class="w-full border-sp-alloyGray rounded-md shadow-sm focus:border-sp-darkGranite focus:ring-sp-darkGranite">
+                        class="w-full border border-sp-slate rounded-md bg-transparent focus:border-sp-charcoal placeholder:italic placeholder:text-md placeholder:text-sp-slate">
 
                         <option value="">All Categories</option>
                         <option value="none" @selected(request('level')==='none' )>
