@@ -25,7 +25,7 @@
 
     <body
         x-data="{ menuOpen: false }"
-        class="bg-sp-warmIvory font-sans antialiased min-h-screen">
+        class="bg-sp-charcoal font-sans antialiased min-h-screen">
 
         <header class="flex items-center justify-between bg-sp-charcoal px-4 py-3 relative z-50">
 
@@ -92,7 +92,7 @@
             x-transition:leave="transition ease-in duration-200"
             x-transition:leave-start="translate-y-0"
             x-transition:leave-end="-translate-y-full"
-            class="absolute top-0 left-0 w-full bg-sp-softWhite z-40 pt-20 shadow-md">
+            class="absolute top-0 left-0 w-full bg-sp-warmIvory z-40 pt-20 shadow-md">
             <div class="px-6 py-4">
                 <!-- TODO: This should be global search; When you search, it shouldn't disappear. It should remain there. -->
                 <input
