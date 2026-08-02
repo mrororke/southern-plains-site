@@ -4,7 +4,7 @@
     'copyGroupedAction' => 'copyGrouped()',
 ])
 
-<div id="behavior-display" class="rounded-md bg-sp-limestone border border-sp-warmStone ml-4 mr-4 p-4">
+<div id="behavior-display" class="rounded-md bg-sp-warmIvory border border-sp-warmStone ml-4 mr-4 p-4">
 
                 {{-- Empty state --}}
                 <template x-if="!selectedBehavior">
