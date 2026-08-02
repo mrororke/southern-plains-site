@@ -18,23 +18,23 @@
 </head>
 
 
-<body class="bg-sp-softWhite font-sans antialiased min-h-screen">
+<body class="bg-sp-warmIvory font-sans antialiased min-h-screen">
 
     <!-- Mobile Header -->
     <!-- Mobile Header -->
 
     <body
         x-data="{ menuOpen: false }"
-        class="bg-sp-softWhite font-sans antialiased min-h-screen">
+        class="bg-sp-warmIvory font-sans antialiased min-h-screen">
 
-        <header class="flex items-center justify-between bg-sp-deepGranite px-4 py-3 relative z-50">
+        <header class="flex items-center justify-between bg-sp-charcoal px-4 py-3 relative z-50">
 
             <!-- Logo -->
             <a href="{{ route('admin.mobile-shell') }}"
                 class="group">
 
                 <x-icons.admin-logo
-                    class="h-8 w-auto text-sp-softWhite transition-colors group-hover:text-sp-controlledLime" />
+                    class="h-8 w-auto text-sp-warmIvory transition-colors group-hover:text-sp-prairieGreen" />
 
             </a>
 
@@ -43,7 +43,7 @@
             <button
                 type="button"
                 @click="menuOpen = !menuOpen"
-                class="text-sp-softWhite transition-colors hover:text-sp-controlledLime">
+                class="text-sp-warmIvory transition-colors hover:text-sp-prairieGreen">
 
                 <svg
                     x-show="!menuOpen"
@@ -100,24 +100,24 @@
                     name="globalSearch"
                     value=""
                     placeholder="Search anything..."
-                    class="block border border-sp-deepGranite rounded-md focus:border-sp-deepGranite placeholder:italic placeholder:text-md placeholder:text-sp-deepGranite w-full bg-transparent">
+                    class="block border border-sp-charcoal rounded-md focus:border-sp-charcoal placeholder:italic placeholder:text-md placeholder:text-sp-charcoal w-full bg-transparent">
             </div>
 
             <a href="#"
-                class="block px-6 py-4 text-sp-darkGranite border-b border-sp-alloyGray">
+                class="block px-6 py-4 text-sp-charcoal border-b border-sp-warmStone">
                 Dashboard
             </a>
 
             <a href="#"
-                class="block px-6 py-4 text-sp-darkGranite border-b border-sp-alloyGray">
+                class="block px-6 py-4 text-sp-charcoal border-b border-sp-warmStone">
                 Behavior Library
             </a>
             <a href="#"
-                class="block px-6 py-4 text-sp-darkGranite border-b border-sp-alloyGray">
+                class="block px-6 py-4 text-sp-charcoal border-b border-sp-warmStone">
                 Resource Library
             </a>
             <a href="{{ route('profile.edit') }}"
-                class="block px-6 py-4 text-sp-darkGranite border-b border-sp-alloyGray">
+                class="block px-6 py-4 text-sp-charcoal border-b border-sp-warmStone">
                 Profile
             </a>
 
@@ -126,17 +126,17 @@
 
         <!-- Page Content -->
         <main class="p-4">
-            <p class="text-sp-darkGranite text-md text-center">Good morning, {{ Auth::user()->name }}!</p>
+            <p class="text-sp-charcoal text-md text-center">Good morning, {{ Auth::user()->name }}!</p>
             <!-- TODO: This should be global search; When you search, it shouldn't disappear. It should remain there. -->
             <input
                 type="text"
                 name="globalSearch"
                 value=""
                 placeholder="Search anything..."
-                class="mt-1 mb-1 block border border-sp-deepGranite rounded-md bg-transparent focus:border-sp-deepGranite placeholder:italic placeholder:text-md placeholder:text-sp-deepGranite w-full ">
+                class="mt-1 mb-1 block border border-sp-charcoal rounded-md bg-transparent focus:border-sp-charcoal placeholder:italic placeholder:text-md placeholder:text-sp-charcoal w-full ">
 
             <!-- Most Recent Additions -->
-            <div class="bg-sp-alloyGray px-6 py-4 mt-4 rounded-md">
+            <div class="bg-sp-limestone px-6 py-4 mt-4 rounded-md">
                 <div class="items-center">
                     <h1 class="font-heading text-3xl">Newest Behaviors</h1>
                     We will have filters with the search bar, and here will be the five most recently added behaviors to the catalog.

@@ -59,12 +59,19 @@ export default {
                 "brand-gray": "#71717A",
 
                 sp: {
-                    deepGranite: "#252A2E",
-                    softWhite: "#F8F8F5",
-                    alloyGray: "#D8DDE0",
-                    deepTeal: "#006B73",
-                    controlledLime: "#8CCB3F",
-                    vibrantCoral: "#E85D45",
+                    prairieGreen: "#4F6954",
+                    prairieOchre: "#B78A45",
+                    goldenrod: "#D8B64C",
+                    burntClay: "#9B5C3A",
+                    warmIvory: "#F7F5F0",
+                    limestone: "#E9E3D7",
+                    charcoal: "#2E312E",
+                    slate: "#66655F",
+                    warmStone: "#CFC7B9",
+                    success: "#4E7C59",
+                    warning: "#C58C2A",
+                    error: "#B44B42",
+                    info: "#4D718F",
                 }
             },
 
