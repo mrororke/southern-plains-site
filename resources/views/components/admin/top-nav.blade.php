@@ -1,4 +1,4 @@
-<nav class="bg-sp-alloyGray grid grid-cols-12 items-center">
+<nav class="bg-sp-limestone grid grid-cols-12 items-center">
             <div class="col-span-10 pr-8 p-4">
                 <!-- TODO: This should be global search; When you search, it shouldn't disappear. It should remain there. -->
                 <input
@@ -6,7 +6,7 @@
                     name="globalSearch"
                     value=""
                     placeholder="Search anything..."
-                    class="mt-1 block border border-sp-deepGranite rounded-md bg-transparent focus:border-sp-deepGranite placeholder:italic placeholder:text-md placeholder:text-sp-deepGranite w-full ">
+                    class="mt-1 block border border-sp-charcoal rounded-md bg-transparent focus:border-sp-charcoal placeholder:italic placeholder:text-md placeholder:text-sp-charcoal w-full ">
             </div>
             <div class="col-span-2 flex justify-end pr-4">
                 <div
@@ -16,7 +16,7 @@
                     <button
                         @click="open = !open"
                         @click.outside="open = false"
-                        class="flex items-center gap-2 text-sp-darkGranite">
+                        class="flex items-center gap-2 text-sp-slate">
 
                         <span>{{ Auth::user()->name }}</span>
 
@@ -31,15 +31,15 @@
                     <div
                         x-show="open"
                         x-transition
-                        class="absolute right-0 mt-3 w-56 rounded-md bg-sp-alloyGray border border-b">
+                        class="absolute right-0 mt-3 w-56 rounded-sm bg-sp-warmIvory border border-b">
 
                         <a href="{{ route('profile.edit') }}"
-                            class="block px-4 py-3 hover:bg-gray-100">
+                            class="block px-4 py-3 hover:bg-sp-limestone">
                             Profile
                         </a>
 
                         <button
-                            class="block w-full text-left px-4 py-3 hover:bg-gray-100">
+                            class="block w-full text-left px-4 py-3 hover:bg-sp-limestone">
                             Settings
                         </button>
 
@@ -49,7 +49,7 @@
                             @csrf
 
                             <button
-                                class="block w-full text-left px-4 py-3 hover:bg-gray-100">
+                                class="block w-full text-left px-4 py-3 hover:bg-sp-limestone">
                                 Log Out
                             </button>
 
