@@ -101,17 +101,17 @@
             </div>
 
             <!-- Results -->
-            <div x-show="! loading && results.behaviors.length > 0">
+            <div x-show="! loading && results.behaviors.items.length > 0">
 
                 <div
                     class="border-b border-sp-warmStone bg-sp-limestone
                            px-4 py-2 text-xs font-semibold uppercase
                            tracking-wide text-sp-slate">
-                    Behaviors
+                    <span x-text="`${results.behaviors.label} (${results.behaviors.items.length})`"></span>
                 </div>
 
                 <template
-                    x-for="result in results.behaviors"
+                    x-for="result in results.behaviors.items"
                     :key="result.url">
                     <a
                         :href="result.url"
@@ -147,7 +147,7 @@
                 x-show="
                     ! loading
                     && query.trim().length >= 2
-                    && results.length === 0
+                    && results.behaviors.items.length === 0
                 ">
                 <x-admin.search.empty />
             </div>
