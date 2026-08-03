@@ -14,45 +14,62 @@ class BackendSearchService
     {
         $search = trim($search);
 
-        if ($search === '') {
-            return collect([
-                'behaviors' => collect(),
-                'resources' => collect(),
-                'dogs' => collect(),
-                'events' => collect(),
-                'users' => collect(),
-            ]);
+        $behaviors = collect();
+
+        if ($search !== '') {
+            $behaviors = Trick::query()
+                ->with('levels')
+                ->where('name', 'like', "%{$search}%")
+                ->orderByRaw('LOWER(name)')
+                ->limit(5)
+                ->get()
+                ->map(function (Trick $behavior) {
+                    $levels = $behavior->levels
+                        ->pluck('name')
+                        ->map(
+                            fn ($name) => ucwords(
+                                str_replace('_', ' ', $name)
+                            )
+                        )
+                        ->join(', ');
+
+                    return [
+                        'type' => 'Behavior',
+                        'title' => $behavior->name,
+                        'description' => $levels,
+                        'url' => route(
+                            'admin-v2.behavior-catalog.show',
+                            $behavior
+                        ),
+                    ];
+                });
         }
 
-        $behaviors = Trick::query()
-            ->with('levels')
-            ->where('name', 'like', "%{$search}%")
-            ->orderByRaw('LOWER(name)')
-            ->limit(5)
-            ->get()
-            ->map(function (Trick $behavior) {
-                $levels = $behavior->levels
-                    ->pluck('name')
-                    ->map(fn ($name) => ucwords(str_replace('_', ' ', $name)))
-                    ->join(', ');
-
-                return [
-                    'type' => 'Behavior',
-                    'title' => $behavior->name,
-                    'description' => $levels,
-                    'url' => route(
-                        'admin-v2.behavior-catalog.show',
-                        $behavior
-                    ),
-                ];
-            });
-
         return collect([
-            'behaviors' => $behaviors,
-            'resources' => collect(),
-            'dogs' => collect(),
-            'events' => collect(),
-            'users' => collect(),
+            'behaviors' => [
+                'label' => 'Behaviors',
+                'items' => $behaviors,
+            ],
+
+            'resources' => [
+                'label' => 'Resources',
+                'items' => collect(),
+            ],
+
+            'dogs' => [
+                'label' => 'Dogs',
+                'items' => collect(),
+            ],
+
+            'events' => [
+                'label' => 'Events',
+                'items' => collect(),
+            ],
+
+            'users' => [
+                'label' => 'Users',
+                'items' => collect(),
+            ],
         ]);
     }
 }
