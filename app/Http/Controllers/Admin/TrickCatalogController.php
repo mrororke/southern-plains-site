@@ -522,6 +522,27 @@ public function behaviorCatalog(Request $request)
 }
 
 
+/*
+|--------------------------------------------------------------------------
+| BEHAVIOR DISPLAY - DASHBOARD 2.0 MOBILE
+|--------------------------------------------------------------------------
+*/
+public function behaviorShow(Trick $trick)
+{
+    $trick->load([
+        'levels',
+        'videos',
+        'preferredVideo',
+        'creator',
+        'updater',
+    ]);
+
+    return view('admin.dashboard-v2.mobile.behavior-catalog.show', [
+        'navigation' => \App\Navigation\AdminNavigation::items(),
+        'behavior' => $trick,
+    ]);
+}
+
 
 
 

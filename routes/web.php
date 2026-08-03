@@ -266,6 +266,11 @@ Route::middleware(['auth', 'device'])
             'behavior-catalog',
             [TrickCatalogController::class, 'behaviorCatalog']
         )->name('behavior-catalog.index');
+
+        Route::get(
+            'behavior-catalog/{trick}',
+            [TrickCatalogController::class, 'behaviorShow']
+        )->name('behavior-catalog.show');
     });
 
 /*
