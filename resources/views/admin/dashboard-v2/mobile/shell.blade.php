@@ -18,7 +18,7 @@
 </head>
 
 
-<body class="bg-sp-warmIvory font-sans antialiased min-h-screen">
+<body class="bg-white font-sans antialiased min-h-screen">
 
     <!-- Mobile Header -->
     <!-- Mobile Header -->

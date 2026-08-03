@@ -19,7 +19,7 @@
 
 <body 
     x-data="{ sidebarOpen: false }"
-    class="bg-sp-warmIvory font-sans antialiased grid grid-cols-12 h-screen">
+    class="bg-white font-sans antialiased grid grid-cols-12 h-screen">
 
     <x-admin.sidebar.sidebar :navigation="$navigation" />
 
