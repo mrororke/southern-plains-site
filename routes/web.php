@@ -245,12 +245,19 @@ Route::middleware(['auth', 'device'])
         Route::get('/dashboard', function () {
             $isMobile = request()->attributes->get('isMobile', false);
 
+            $recentBehaviors = \App\Models\Trick::query()
+                ->with(['levels', 'creator', 'updater'])
+                ->latest('updated_at')
+                ->limit(5)
+                ->get();
+
             return view(
                 $isMobile
                     ? 'admin.dashboard-v2.mobile.dashboard'
                     : 'admin.dashboard-v2.dashboard',
                 [
                     'navigation' => \App\Navigation\AdminNavigation::items(),
+                    'recentBehaviors' => $recentBehaviors,
                 ]
             );
         })->name('dashboard');

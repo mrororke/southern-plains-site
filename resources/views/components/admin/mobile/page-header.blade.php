@@ -15,7 +15,7 @@
 
 <div class="mb-6">
 
-    <h1 class="font-heading text-5xl text-sp-charcoal">
+    <h1 class="font-sans text-5xl text-sp-charcoal">
         {{ $title }}
     </h1>
 

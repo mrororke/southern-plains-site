@@ -16,14 +16,8 @@
                placeholder:text-sp-charcoal focus:border-sp-charcoal"
     >
 
-    <div class="mt-4 rounded-md bg-sp-limestone px-6 py-4">
-        <h2 class="font-heading text-3xl">
-            Newest Behaviors
-        </h2>
-
-        <p>
-            The five most recently added or edited behaviors will appear here.
-        </p>
-    </div>
+    <x-admin.behaviors.recent-list
+        :behaviors="$recentBehaviors"
+    />
 
 @endsection
