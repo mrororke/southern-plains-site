@@ -7,6 +7,7 @@
 
 <div class="relative">
     <input
+        x-ref="searchInput"
         id="global-search"
         type="search"
         name="search"

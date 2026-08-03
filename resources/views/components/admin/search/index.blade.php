@@ -43,6 +43,7 @@
         },
     }"
     @keydown.escape.window="open = false"
+    @keydown.slash.window.prevent="$refs.searchInput.focus()"
     class="relative"
 >
     <div @input.debounce.300ms="search()">
