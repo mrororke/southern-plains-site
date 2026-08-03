@@ -207,7 +207,7 @@
 
     <div
         x-data="behaviorCatalog()"
-        class="grid grid-cols-12 h-full">
+        class="grid grid-cols-12">
 
         <div class="col-span-8 py-4">
             <x-admin.behaviors.table :tricks="$tricks" />
