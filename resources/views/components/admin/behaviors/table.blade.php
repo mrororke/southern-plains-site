@@ -1,6 +1,6 @@
 @props(['tricks'])
 <table class="w-full text-sp-slate border border-sp-warmStone mb-6
-                    [&_tbody_tr:nth-child(odd)>td]:bg-sp-limestone
+                    [&_tbody_tr:nth-child(odd)>td]:bg-white
                     [&_tbody_tr:nth-child(even)>td]:bg-sp-warmIvory
                     [&_tbody_tr:hover>td]:!bg-sp-warmStone/20">
 
