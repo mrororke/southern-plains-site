@@ -42,6 +42,7 @@
             }
         },
     }"
+    @keydown.escape.window="open = false"
     class="relative"
 >
     <div @input.debounce.300ms="search()">
