@@ -2,14 +2,14 @@
     <nav
         role="navigation"
         aria-label="{{ __('Pagination Navigation') }}"
-        class="mt-12 border-t border-stone-300 pt-6"
+        class="mt-12 border-t border-sp-warmStone pt-6"
     >
         {{-- Mobile --}}
         <div class="flex items-center justify-between sm:hidden">
             @if ($paginator->onFirstPage())
                 <span
                     class="inline-flex min-h-11 items-center px-4 py-2
-                           font-sans text-sm font-semibold text-stone-400"
+                           font-sans text-sm font-semibold text-sp-slate"
                 >
                     Previous
                 </span>
@@ -18,8 +18,8 @@
                     href="{{ $paginator->previousPageUrl() }}"
                     rel="prev"
                     class="inline-flex min-h-11 items-center px-4 py-2
-                           font-sans text-sm font-semibold text-stone-900
-                           transition hover:text-orange-800
+                           font-sans text-sm font-semibold text-sp-warmIvory
+                           transition hover:text-sp-prairieGreen
                            focus-visible:outline focus-visible:outline-2
                            focus-visible:outline-offset-4"
                 >
@@ -27,7 +27,7 @@
                 </a>
             @endif
 
-            <span class="font-sans text-sm text-stone-600">
+            <span class="font-sans text-sm text-sp-slate">
                 Page {{ $paginator->currentPage() }}
                 of {{ $paginator->lastPage() }}
             </span>
@@ -37,8 +37,8 @@
                     href="{{ $paginator->nextPageUrl() }}"
                     rel="next"
                     class="inline-flex min-h-11 items-center px-4 py-2
-                           font-sans text-sm font-semibold text-stone-900
-                           transition hover:text-orange-800
+                           font-sans text-sm font-semibold text-sp-charcoal
+                           transition hover:text-sp-prairieGreen
                            focus-visible:outline focus-visible:outline-2
                            focus-visible:outline-offset-4"
                 >
@@ -47,7 +47,7 @@
             @else
                 <span
                     class="inline-flex min-h-11 items-center px-4 py-2
-                           font-sans text-sm font-semibold text-stone-400"
+                           font-sans text-sm font-semibold text-sp-charcoal"
                 >
                     Next
                 </span>
@@ -56,17 +56,17 @@
 
         {{-- Desktop --}}
         <div class="hidden items-center justify-between gap-8 sm:flex">
-            <p class="font-sans text-sm text-stone-600">
+            <p class="font-sans text-sm text-sp-slate">
                 Showing
-                <span class="font-semibold text-stone-900">
+                <span class="font-semibold text-sp-charcoal">
                     {{ $paginator->firstItem() }}
                 </span>
                 to
-                <span class="font-semibold text-stone-900">
+                <span class="font-semibold text-sp-charcoal">
                     {{ $paginator->lastItem() }}
                 </span>
                 of
-                <span class="font-semibold text-stone-900">
+                <span class="font-semibold text-sp-charcoal">
                     {{ $paginator->total() }}
                 </span>
             </p>
@@ -78,7 +78,7 @@
                         aria-disabled="true"
                         aria-label="{{ __('Previous') }}"
                         class="inline-flex size-11 items-center justify-center
-                               text-stone-300"
+                               text-sp-slate"
                     >
                         <span aria-hidden="true">&larr;</span>
                     </span>
@@ -88,8 +88,8 @@
                         rel="prev"
                         aria-label="{{ __('Previous') }}"
                         class="inline-flex size-11 items-center justify-center
-                               text-stone-700 transition
-                               hover:bg-stone-100 hover:text-orange-800
+                               text-sp-warmIvory transition
+                               hover:bg-sp-charcoal hover:text-prairieGreen
                                focus-visible:outline focus-visible:outline-2
                                focus-visible:outline-offset-2"
                     >
@@ -103,7 +103,7 @@
                         <span
                             aria-disabled="true"
                             class="inline-flex size-11 items-center justify-center
-                                   text-sm text-stone-400"
+                                   text-sm text-sp-slate"
                         >
                             {{ $element }}
                         </span>
@@ -115,9 +115,9 @@
                                 <span
                                     aria-current="page"
                                     class="inline-flex size-11 items-center
-                                           justify-center bg-stone-900
+                                           justify-center bg-sp-charcoal
                                            font-sans text-sm font-semibold
-                                           text-white"
+                                           text-sp-warmIvory"
                                 >
                                     {{ $page }}
                                 </span>
