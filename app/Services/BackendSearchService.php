@@ -19,6 +19,7 @@ class BackendSearchService
     }
 
     return Trick::query()
+        ->with('levels')
         ->where('name', 'like', "%{$search}%")
         ->orderByRaw('LOWER(name)')
         ->limit(5)
