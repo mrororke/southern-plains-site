@@ -31,6 +31,13 @@ class DetectDevice
          */
         $request->attributes->set('isMobile', $isMobile);
 
+        /* TODO Create a helper so that every route becomes: 
+                return backendView(
+                'dashboard', 
+                ['navigation' => AdminNavigation::items(),
+                ]);
+        */
+
         View::share('isMobile', $isMobile);
 
         return $next($request);
