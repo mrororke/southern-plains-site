@@ -13,14 +13,14 @@ Because the recent behaviors could eventually appear on desktop too, I would not
 
 <section
     aria-labelledby="recent-behaviors-heading"
-    class="mt-4 overflow-hidden rounded-md bg-sp-limestone"
+    class="mt-4 overflow-hidden rounded-md bg-sp-warmIvory"
 >
     <div class="flex items-center justify-between gap-4 px-5 py-4">
         <h2
             id="recent-behaviors-heading"
-            class="font-heading text-3xl text-sp-charcoal"
+            class="font-sans text-3xl text-sp-charcoal"
         >
-            Newest Behaviors
+            Latest Behaviors
         </h2>
 
         <a
