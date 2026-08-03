@@ -1,7 +1,13 @@
 <div
     x-data="{
         query: '',
-        results: [],
+        results: {
+            behaviors: [],
+            resources: [],
+            dogs: [],
+            events: [],
+            users: [],
+        },
         loading: false,
         open: false,
 
@@ -79,7 +85,7 @@
             </div>
 
             <!-- Results -->
-            <div x-show="! loading && results.length > 0">
+            <div x-show="! loading && results.behaviors.length > 0">
 
                 <div
                     class="border-b border-sp-warmStone bg-sp-limestone
@@ -90,7 +96,7 @@
                 </div>
 
                 <template
-                    x-for="result in results"
+                    x-for="result in results.behaviors"
                     :key="result.url"
                 >
                     <a
