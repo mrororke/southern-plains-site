@@ -1,4 +1,4 @@
-@extends($isMobile ? 'admin.dashboard-v2.mobile.shell' : 'admin.dashboard-v2.desktop')
+@extends('admin.dashboard-v2.desktop')
 
 @section('content')
     <div class="dashboard-content">

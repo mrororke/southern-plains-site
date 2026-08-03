@@ -243,9 +243,16 @@ Route::middleware(['auth', 'device'])
     ->group(function () {
 
         Route::get('/dashboard', function () {
-            return view('admin.dashboard-v2.dashboard', [
-                'navigation' => \App\Navigation\AdminNavigation::items(),
-            ]);
+            $isMobile = request()->attributes->get('isMobile', false);
+
+            return view(
+                $isMobile
+                    ? 'admin.dashboard-v2.mobile.dashboard'
+                    : 'admin.dashboard-v2.dashboard',
+                [
+                    'navigation' => \App\Navigation\AdminNavigation::items(),
+                ]
+            );
         })->name('dashboard');
 
         Route::get(
