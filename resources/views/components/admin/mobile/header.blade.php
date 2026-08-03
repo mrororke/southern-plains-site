@@ -1,7 +1,7 @@
 <header class="flex items-center justify-between bg-sp-charcoal px-4 py-3 relative z-50">
 
             <!-- Logo -->
-            <a href="{{ route('admin.mobile-shell') }}"
+            <a href="{{ route('admin-v2.mobile-shell') }}"
                 class="group">
 
                 <x-icons.admin-logo
