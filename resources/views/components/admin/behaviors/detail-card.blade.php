@@ -9,7 +9,7 @@
                 {{-- Empty state --}}
                 <template x-if="!selectedBehavior">
                     <div class="text-sp-charcoal">
-                        <h2 class="font-sans text-sp-charcoal text-4xl mb-4">Behavior</h2>
+                        <h4 class="font-sans text-sp-charcoal text-2xl mb-4">Behavior</h4>
                         <p class="text-sm text-sp-slate">
                             Select a behavior from the list to view its notes and videos.
                         </p>
@@ -56,7 +56,7 @@
                         </div>
 
                         <div class="mb-6">
-                            <h3 class="font-sans text-sp-charcoal text-3xl">Categories</h3>
+                            <h4 class="font-display text-sp-charcoal text-xl uppercase">Categories</h3>
 
                             <template x-if="selectedBehavior.levels && selectedBehavior.levels.length">
                                 <p class="text-sm italic text-sp-slate" x-text="selectedBehavior.levels.join(', ')"></p>
@@ -68,7 +68,7 @@
                         </div>
 
                         <div class="mb-6">
-                            <h3 class="font-sans text-sp-charcoal text-3xl">Notes</h3>
+                            <h4 class="font-display text-sp-charcoal text-xl uppercase">Notes</h4>
 
                             <template x-if="selectedBehavior.notes">
                                 <p class="whitespace-pre-line text-sm" x-html="selectedBehavior.notes"></p>
@@ -80,7 +80,7 @@
                         </div>
 
                         <div>
-                            <h3 class="font-sans text-sp-charcoal text-3xl">Videos</h3>
+                            <h3 class="font-display text-sp-charcoal text-xl uppercase">Videos</h3>
 
 
                             <template x-if="selectedBehavior.videos && selectedBehavior.videos.length">
