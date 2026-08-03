@@ -1,11 +1,3 @@
-<!-- This will be the compact view<br/>
-It could eventually show:
-behavior name;
-category or discipline;
-“updated” or “added” information;
-link to the separate behavior detail page.
-That keeps it distinct from your desktop table row and from the full behavior detail component. -->
-
 @props([
     'behavior',
     'last' => false,
@@ -34,38 +26,48 @@ That keeps it distinct from your desktop table row and from the full behavior de
         ->join(', ');
 @endphp
 
-<article
-    class="px-5 py-4 {{ $last ? '' : 'border-b border-sp-warmStone' }}"
+<a
+    href="{{ route('admin-v2.behavior-catalog.show', $behavior) }}"
+    class="group block px-5 py-4 transition-colors hover:bg-sp-warmIvory
+           focus-visible:outline focus-visible:outline-2
+           focus-visible:outline-offset-[-2px]
+           focus-visible:outline-sp-prairieGreen
+           {{ $last ? '' : 'border-b border-sp-warmStone' }}"
 >
-    <div class="flex items-start justify-between gap-4">
+    <article>
+        <div class="flex items-start justify-between gap-4">
 
-        <div class="min-w-0">
-            <h3 class="font-semibold text-sp-charcoal">
-                {{ $behavior->name }}
-            </h3>
+            <div class="min-w-0">
+                <h3
+                    class="font-semibold text-sp-charcoal transition-colors
+                           group-hover:text-sp-prairieGreen"
+                >
+                    {{ $behavior->name }}
+                </h3>
 
-            @if($levelNames)
-                <p class="mt-1 text-sm text-sp-slate">
-                    {{ $levelNames }}
-                </p>
-            @else
-                <p class="mt-1 text-sm italic text-sp-slate">
-                    No category
-                </p>
-            @endif
+                @if($levelNames)
+                    <p class="mt-1 text-sm text-sp-slate">
+                        {{ $levelNames }}
+                    </p>
+                @else
+                    <p class="mt-1 text-sm italic text-sp-slate">
+                        No category
+                    </p>
+                @endif
+            </div>
+
+            <span class="shrink-0 text-xs text-sp-slate">
+                {{ $behavior->updated_at->diffForHumans() }}
+            </span>
+
         </div>
 
-        <span class="shrink-0 text-xs text-sp-slate">
-            {{ $behavior->updated_at->diffForHumans() }}
-        </span>
+        <p class="mt-2 text-xs text-sp-slate">
+            {{ $activityLabel }}
 
-    </div>
-
-    <p class="mt-2 text-xs text-sp-slate">
-        {{ $activityLabel }}
-
-        @if($activityUser)
-            by {{ $activityUser->name }}
-        @endif
-    </p>
-</article>
+            @if($activityUser)
+                by {{ $activityUser->name }}
+            @endif
+        </p>
+    </article>
+</a>
