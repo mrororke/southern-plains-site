@@ -44,11 +44,9 @@
                 Notes
             </h2>
 
-            <div class="rounded-md bg-sp-limestone px-5 py-4">
-                <p class="whitespace-pre-line text-sm leading-relaxed text-sp-charcoal">
-                    {{ $behavior->notes }}
-                </p>
-            </div>
+            <div class="prose prose-sm max-w-none rounded-md bg-sp-limestone px-5 py-4">
+    {!! $behavior->notes !!}
+</div>
         </section>
     @endif
 
