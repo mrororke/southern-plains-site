@@ -231,14 +231,15 @@ Route::resource('trick-catalog', TrickCatalogController::class)
 
 });   // <-- closes the admin route group
 
+
 /*
 |--------------------------------------------------------------------------
 | ADMIN DASHBOARD V2 SANDBOX
 |--------------------------------------------------------------------------
 */
-Route::middleware(['auth'])
-    ->prefix('admin')
-    ->name('admin.')
+Route::middleware(['auth', 'device'])
+    ->prefix('admin-v2')
+    ->name('admin-v2.')
     ->group(function () {
 
         Route::get('/dashboard', function () {
@@ -247,24 +248,10 @@ Route::middleware(['auth'])
             ]);
         })->name('dashboard');
 
-        Route::get('behavior-catalog', [TrickCatalogController::class, 'behaviorCatalog'
-            ])->name('behavior-catalog.index');
-
-
-    });
-
-
-
-
-
-Route::middleware(['auth'])
-    ->prefix('admin')
-    ->name('admin.')
-    ->group(function () {
-
-        Route::view('/mobile-shell', 'admin.dashboard-v2.mobile.shell')
-            ->name('mobile-shell');
-
+        Route::get(
+            'behavior-catalog',
+            [TrickCatalogController::class, 'behaviorCatalog']
+        )->name('behavior-catalog.index');
     });
 
 /*

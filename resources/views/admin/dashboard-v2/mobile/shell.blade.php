@@ -19,39 +19,18 @@
 
 
 
-    <!-- Mobile Header -->
-
     <body
-        x-data="{ menuOpen: false }"
-        class="bg-white font-sans antialiased min-h-screen">
+    x-data="{ menuOpen: false }"
+    class="min-h-screen bg-white font-sans antialiased">
 
-        <x-admin.mobile.header />
+    <x-admin.mobile.header />
 
-        <x-admin.mobile.navigation />
+    <x-admin.mobile.navigation :navigation="$navigation" />
 
+    <main class="p-4">
+        @yield('content')
+    </main>
 
-        <!-- Page Content -->
-        <main class="p-4">
-            <x-admin.mobile.page-header title="Dashboard" />
-       
-            <input
-                type="text"
-                name="globalSearch"
-                value=""
-                placeholder="Search anything..."
-                class="mt-1 mb-1 block border border-sp-charcoal rounded-md bg-transparent focus:border-sp-charcoal placeholder:italic placeholder:text-md placeholder:text-sp-charcoal w-full ">
-
-            <!-- Most Recent Additions -->
-            <div class="bg-sp-limestone px-6 py-4 mt-4 rounded-md">
-                <div class="items-center">
-                    <h1 class="font-heading text-3xl">Newest Behaviors</h1>
-                    We will have filters with the search bar, and here will be the five most recently added behaviors to the catalog.
-                </div>
-
-            </div>
-
-        </main>
-
-    </body>
+</body>
 
 </html>

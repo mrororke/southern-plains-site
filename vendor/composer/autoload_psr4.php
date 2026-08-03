@@ -90,6 +90,7 @@ return array(
     'Doctrine\\Common\\Lexer\\' => array($vendorDir . '/doctrine/lexer/src'),
     'Diglactic\\Breadcrumbs\\' => array($vendorDir . '/diglactic/laravel-breadcrumbs/src'),
     'Dflydev\\DotAccessData\\' => array($vendorDir . '/dflydev/dot-access-data/src'),
+    'Detection\\' => array($vendorDir . '/mobiledetect/mobiledetectlib/src'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'Database\\Seeders\\' => array($baseDir . '/database/seeders', $vendorDir . '/laravel/pint/database/seeders'),
     'Database\\Factories\\' => array($baseDir . '/database/factories', $vendorDir . '/laravel/pint/database/factories'),

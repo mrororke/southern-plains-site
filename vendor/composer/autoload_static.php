@@ -166,6 +166,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
             'Doctrine\\Common\\Lexer\\' => 22,
             'Diglactic\\Breadcrumbs\\' => 22,
             'Dflydev\\DotAccessData\\' => 22,
+            'Detection\\' => 10,
             'DeepCopy\\' => 9,
             'Database\\Seeders\\' => 17,
             'Database\\Factories\\' => 19,
@@ -528,6 +529,10 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         array (
             0 => __DIR__ . '/..' . '/dflydev/dot-access-data/src',
         ),
+        'Detection\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/src',
+        ),
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
@@ -658,6 +663,7 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'App\\Models\\TrickLevel' => __DIR__ . '/../..' . '/app/Models/TrickLevel.php',
         'App\\Models\\TrickVideo' => __DIR__ . '/../..' . '/app/Models/TrickVideo.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Navigation\\AdminNavigation' => __DIR__ . '/../..' . '/app/Navigation/AdminNavigation.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -833,6 +839,13 @@ class ComposerStaticInit9c491b8531eec05ba41a11d9276a5749
         'DeepCopy\\TypeFilter\\Spl\\SplDoublyLinkedListFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/Spl/SplDoublyLinkedListFilter.php',
         'DeepCopy\\TypeFilter\\TypeFilter' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeFilter/TypeFilter.php',
         'DeepCopy\\TypeMatcher\\TypeMatcher' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/TypeMatcher/TypeMatcher.php',
+        'Detection\\Cache\\Cache' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/src/Cache/Cache.php',
+        'Detection\\Cache\\CacheException' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/src/Cache/CacheException.php',
+        'Detection\\Cache\\CacheInvalidArgumentException' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/src/Cache/CacheInvalidArgumentException.php',
+        'Detection\\Exception\\MobileDetectException' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/src/Exception/MobileDetectException.php',
+        'Detection\\Exception\\MobileDetectExceptionCode' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/src/Exception/MobileDetectExceptionCode.php',
+        'Detection\\MobileDetect' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/src/MobileDetect.php',
+        'Detection\\MobileDetectStandalone' => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/src/MobileDetectStandalone.php',
         'Dflydev\\DotAccessData\\Data' => __DIR__ . '/..' . '/dflydev/dot-access-data/src/Data.php',
         'Dflydev\\DotAccessData\\DataInterface' => __DIR__ . '/..' . '/dflydev/dot-access-data/src/DataInterface.php',
         'Dflydev\\DotAccessData\\Exception\\DataException' => __DIR__ . '/..' . '/dflydev/dot-access-data/src/Exception/DataException.php',
