@@ -5,6 +5,19 @@
         loading: false,
         open: false,
 
+        focusSearch(event) {
+            const activeElement = document.activeElement;
+
+            const isTypingField =
+                ['INPUT', 'TEXTAREA', 'SELECT'].includes(activeElement.tagName)
+                || activeElement.isContentEditable;
+
+            if (event.key === '/' && ! isTypingField) {
+                event.preventDefault();
+                this.$refs.searchInput.focus();
+            }
+        },
+
         async search() {
             const search = this.query.trim();
 
@@ -43,15 +56,7 @@
         },
     }"
     @keydown.escape.window="open = false"
-    @keydown.slash.window="
-    if (
-        ! ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)
-        && ! document.activeElement.isContentEditable
-    ) {
-        $event.preventDefault();
-        $refs.searchInput.focus();
-    }
-"
+    @keydown.window="focusSearch($event)"
     class="relative"
 >
     <div @input.debounce.300ms="search()">
