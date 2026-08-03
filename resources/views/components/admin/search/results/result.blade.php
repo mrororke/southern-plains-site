@@ -9,7 +9,7 @@
     class="flex items-start gap-3 px-4 py-3 transition-colors hover:bg-sp-limestone"
 >
 
-    <div class="mt-0.5 shrink-0">
+    <div class="mt-1 shrink-0">
         {{ $icon ?? '' }}
     </div>
 
