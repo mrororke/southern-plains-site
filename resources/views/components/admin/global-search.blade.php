@@ -1,3 +1,22 @@
-     <!-- TODO: This should be global search; When you search, it shouldn't disappear. It should remain there. -->
+<div class="relative">
 
-GLobal search will go here.
+    <label
+        for="globalSearch"
+        class="sr-only">
+        Search anything...
+    </label>
+
+    <input
+        id="globalSearch"
+        type="search"
+        autocomplete="off"
+        placeholder="Search anything..."
+        class="mt-1 block w-full rounded-md
+               border border-sp-slate
+               bg-transparent
+               placeholder:text-md
+               placeholder:italic
+               placeholder:text-sp-slate
+               focus:border-sp-charcoal">
+
+</div>

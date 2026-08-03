@@ -10,7 +10,7 @@ class AdminNavigation
 
             [
                 'label' => 'Dashboard',
-                'icon' => 'dashboard',
+                'icon' => 'layout-dashboard',
                 'route' => 'admin-v2.dashboard',
                 'activeRoute' => 'admin-v2.dashboard',
                 'roles' => ['admin', 'instructor'],
@@ -19,7 +19,7 @@ class AdminNavigation
 
             [
                 'label' => 'Content',
-                'icon' => 'content-icon',
+                'icon' => 'newspaper',
                 'roles' => ['admin'],
                 'status' => 'coming-soon',
 
@@ -59,7 +59,7 @@ class AdminNavigation
 
             [
                 'label' => 'Training',
-                'icon' => 'training',
+                'icon' => 'graduation-cap',
                 'roles' => ['admin'],
                 'status' => 'coming-soon',
 
@@ -98,7 +98,7 @@ class AdminNavigation
 
             [
                 'label' => 'Events & Sports',
-                'icon' => 'events-sports',
+                'icon' => 'trophy',
                 'roles' => ['admin'],
                 'status' => 'coming-soon',
 
@@ -137,7 +137,7 @@ class AdminNavigation
 
             [
                 'label' => 'Dogs',
-                'icon' => 'dogs',
+                'icon' => 'paw-print',
                 'roles' => ['admin'],
                 'status' => 'coming-soon',
 
@@ -177,7 +177,7 @@ class AdminNavigation
             [
                 /* TODO: Current route on live site: admin/rats */
                 'label' => 'Rat Management',
-                'icon' => 'rat-management',
+                'icon' => 'rat',
                 'roles' => ['admin'],
                 'status' => 'coming-soon',
 
@@ -216,7 +216,7 @@ class AdminNavigation
 
             [
                 'label' => 'Resources',
-                'icon' => 'resources',
+                'icon' => 'library-big',
                 'roles' => ['admin', 'instructor'],
                 'status' => 'active',
 
@@ -267,7 +267,7 @@ class AdminNavigation
 
             [
                 'label' => 'Communication',
-                'icon' => 'communication',
+                'icon' => 'send',
                 'roles' => ['admin'],
                 'status' => 'coming-soon',
 
@@ -306,7 +306,7 @@ class AdminNavigation
 
             [
                 'label' => 'People',
-                'icon' => 'people',
+                'icon' => 'users-round',
                 'roles' => ['admin'],
                 'status' => 'coming-soon',
 
