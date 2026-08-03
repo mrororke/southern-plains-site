@@ -19,6 +19,8 @@ use App\Http\Controllers\Admin\TeachingLibrary\ResourceTagController;
 use App\Http\Controllers\Admin\TeachingLibrary\ResourceAudienceController;
 use App\Http\Controllers\Admin\TeachingLibrary\ResourceController;
 
+use App\Http\Controllers\Admin\BackendSearchController;
+
 use App\Http\Controllers\Admin\TrickEvaluationController as AdminTrickEvaluationController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
 
@@ -187,29 +189,29 @@ Route::middleware(['auth'])
 |--------------------------------------------------------------------------
 */
 
-Route::get(
-    'trick-catalog/print',
-    [TrickCatalogController::class, 'printAll']
-)->name('trick-catalog.print-all');
+        Route::get(
+            'trick-catalog/print',
+            [TrickCatalogController::class, 'printAll']
+        )->name('trick-catalog.print-all');
 
-Route::post(
-    'trick-catalog/check-video',
-    [TrickCatalogController::class, 'checkVideo']
-)->name('trick-catalog.check-video');
+        Route::post(
+            'trick-catalog/check-video',
+            [TrickCatalogController::class, 'checkVideo']
+        )->name('trick-catalog.check-video');
 
-Route::get('trick-catalog/video-row', function () {
-    return view('admin.trick-catalog.partials.video-row', [
-        'index' => request('index')
-    ]);
-})->name('trick-catalog.video-row');
+        Route::get('trick-catalog/video-row', function () {
+            return view('admin.trick-catalog.partials.video-row', [
+                'index' => request('index')
+            ]);
+        })->name('trick-catalog.video-row');
 
-Route::get(
-    'trick-catalog/{trick_catalog}/show-data',
-    [TrickCatalogController::class, 'showData']
-)->name('trick-catalog.show-data');
+        Route::get(
+            'trick-catalog/{trick_catalog}/show-data',
+            [TrickCatalogController::class, 'showData']
+        )->name('trick-catalog.show-data');
 
-Route::resource('trick-catalog', TrickCatalogController::class)
-    ->except(['show']);
+        Route::resource('trick-catalog', TrickCatalogController::class)
+            ->except(['show']);
 
 
         /*
@@ -218,18 +220,16 @@ Route::resource('trick-catalog', TrickCatalogController::class)
 |--------------------------------------------------------------------------
 */
 
-    Route::prefix('teaching-library')
-    ->name('teaching-library.')
-    ->group(function () {
+        Route::prefix('teaching-library')
+            ->name('teaching-library.')
+            ->group(function () {
 
-        Route::resource('categories', ResourceCategoryController::class);
-        Route::resource('tags', ResourceTagController::class);
-        Route::resource('audiences', ResourceAudienceController::class);
-        Route::resource('resources', ResourceController::class);
-
-    });
-
-});   // <-- closes the admin route group
+                Route::resource('categories', ResourceCategoryController::class);
+                Route::resource('tags', ResourceTagController::class);
+                Route::resource('audiences', ResourceAudienceController::class);
+                Route::resource('resources', ResourceController::class);
+            });
+    });   // <-- closes the admin route group
 
 
 /*
@@ -261,6 +261,11 @@ Route::middleware(['auth', 'device'])
                 ]
             );
         })->name('dashboard');
+
+        Route::get(
+            'search',
+            [BackendSearchController::class, 'index']
+        )->name('search');
 
         Route::get(
             'behavior-catalog',
