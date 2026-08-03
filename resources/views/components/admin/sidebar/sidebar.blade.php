@@ -139,7 +139,7 @@ $isInstructor =
 <aside
     @mouseenter="sidebarOpen = true"
     @mouseleave="sidebarOpen = false"
-    class="flex flex-col bg-sp-charcoal text-sp-warmIvory h-full overflow-hidden">
+    class="flex flex-col bg-sp-charcoal text-sp-warmIvory overflow-hidden">
 
     <!-- FIXED LOGO -->
     <a href="{{ route('admin.dashboard') }}"
@@ -172,7 +172,7 @@ $isInstructor =
     :class="sidebarOpen
         ? 'translate-x-0 opacity-100'
         : '-translate-x-full opacity-0'"
-    class="absolute top-0 left-0 h-screen w-64 bg-sp-charcoal text-sp-warmIvory z-50 transform transition-all duration-300 ease-out opacity-0 overflow-hidden flex flex-col">
+    class="fixed top-0 left-0 h-screen w-64 bg-sp-charcoal text-sp-warmIvory z-50 transform transition-all duration-300 ease-out opacity-0 overflow-hidden flex flex-col">
 
     <!-- FIXED LOGO -->
     <a href="{{ route('admin.dashboard') }}"
