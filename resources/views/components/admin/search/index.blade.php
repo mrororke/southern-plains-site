@@ -1,34 +1,65 @@
 <div
     x-data="{
         query: '',
+
         results: {
-    behaviors: {
-        label: 'Behaviors',
-        items: [],
-    },
+            behaviors: {
+                label: 'Behaviors',
+                items: [],
+            },
 
-    resources: {
-        label: 'Resources',
-        items: [],
-    },
+            resources: {
+                label: 'Resources',
+                items: [],
+            },
 
-    dogs: {
-        label: 'Dogs',
-        items: [],
-    },
+            dogs: {
+                label: 'Dogs',
+                items: [],
+            },
 
-    events: {
-        label: 'Events',
-        items: [],
-    },
+            events: {
+                label: 'Events',
+                items: [],
+            },
 
-    users: {
-        label: 'Users',
-        items: [],
-    },
-},
+            users: {
+                label: 'Users',
+                items: [],
+            },
+        },
+
         loading: false,
         open: false,
+
+        emptyResults() {
+            return {
+                behaviors: {
+                    label: 'Behaviors',
+                    items: [],
+                },
+
+                resources: {
+                    label: 'Resources',
+                    items: [],
+                },
+
+                dogs: {
+                    label: 'Dogs',
+                    items: [],
+                },
+
+                events: {
+                    label: 'Events',
+                    items: [],
+                },
+
+                users: {
+                    label: 'Users',
+                    items: [],
+                },
+            };
+        },
 
         focusSearch(event) {
             const activeElement = document.activeElement;
@@ -47,7 +78,7 @@
             const search = this.query.trim();
 
             if (search.length < 2) {
-                this.results = [];
+                this.results = this.emptyResults();
                 this.loading = false;
                 this.open = false;
 
@@ -74,7 +105,8 @@
                 this.results = await response.json();
             } catch (error) {
                 console.error(error);
-                this.results = [];
+
+                this.results = this.emptyResults();
             } finally {
                 this.loading = false;
             }
@@ -82,7 +114,8 @@
     }"
     @keydown.escape.window="open = false"
     @keydown.window="focusSearch($event)"
-    class="relative">
+    class="relative"
+>
     <div @input.debounce.300ms="search()">
         <x-admin.search.input />
     </div>
@@ -90,59 +123,68 @@
     <div
         x-show="open"
         x-cloak
-        @click.outside="open = false">
+        @click.outside="open = false"
+    >
         <x-admin.search.dropdown>
 
             <!-- Loading -->
             <div
                 x-show="loading"
-                class="px-4 py-6 text-center text-sm text-sp-slate">
+                class="px-4 py-6 text-center text-sm text-sp-slate"
+            >
                 Searching…
             </div>
 
             <!-- Results -->
-            <div x-show="! loading && results.behaviors.items.length > 0">
+            <div
+                x-show="
+                    ! loading
+                    && results.behaviors.items.length > 0
+                "
+            >
+                <x-admin.search.results.group label="Behaviors">
 
-                <x-admin.search.results.group
-                    :label="'Behaviors'"
-                    ::count="results.behaviors.items.length">
+                    <x-slot:count>
+                        <span x-text="results.behaviors.items.length"></span>
+                    </x-slot:count>
 
                     <template
                         x-for="result in results.behaviors.items"
-                        :key="result.url">
+                        :key="result.url"
+                    >
                         <a
                             :href="result.url"
                             class="flex items-start gap-3 px-4 py-3
-                   transition-colors hover:bg-sp-limestone">
-
+                                   transition-colors hover:bg-sp-limestone"
+                        >
                             <div class="mt-1 shrink-0">
                                 <x-icons.paw-print
-                                    class="h-3.5 w-3.5 text-sp-slate" />
+                                    class="h-3.5 w-3.5 text-sp-slate"
+                                />
                             </div>
 
                             <div class="min-w-0 flex-1">
-
                                 <h3
                                     class="truncate font-medium text-sp-charcoal"
-                                    x-text="result.title"></h3>
+                                    x-text="result.title"
+                                ></h3>
 
                                 <p
                                     x-show="result.description"
                                     class="mt-0.5 text-sm text-sp-slate"
-                                    x-text="result.description"></p>
-
+                                    x-text="result.description"
+                                ></p>
                             </div>
 
                             <div class="mt-1 shrink-0">
                                 <x-icons.chevron-right
-                                    class="h-3 w-3 text-sp-slate/60" />
+                                    class="h-3 w-3 text-sp-slate/60"
+                                />
                             </div>
-
                         </a>
                     </template>
 
                 </x-admin.search.results.group>
-
             </div>
 
             <!-- Empty state -->
@@ -151,7 +193,8 @@
                     ! loading
                     && query.trim().length >= 2
                     && results.behaviors.items.length === 0
-                ">
+                "
+            >
                 <x-admin.search.empty />
             </div>
 
