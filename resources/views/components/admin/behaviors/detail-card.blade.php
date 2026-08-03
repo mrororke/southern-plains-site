@@ -30,7 +30,7 @@
                                 </button>
                         </div>
                         <div class="flex justify-between items-center mb-6">
-                            <h2 class="font-sans text-sp-charcoal text-4xl" x-text="selectedBehavior.name"></h2>
+                            <h2 class="font-sans text-sp-charcoal text-2xl" x-text="selectedBehavior.name"></h2>
                         </div>
                         <div class="flex justify-start items-center mb-6 border-b border-sp-warmStone pb-4">
                             <div class="flex gap-2">
