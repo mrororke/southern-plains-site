@@ -20,7 +20,7 @@
     </h1>
 
     <p class="mt-2 text-sm text-sp-slate">
-        {{ $greeting }}, {{ Auth::user()->name }}.
+        {{ $greeting }}, {{ Auth::user()->name }}.<br/>
         Search the backend or pick up where you left off.
     </p>
 
