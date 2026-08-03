@@ -127,9 +127,9 @@
                                     aria-label="{{ __('Go to page :page', ['page' => $page]) }}"
                                     class="inline-flex size-11 items-center
                                            justify-center font-sans text-sm
-                                           font-semibold text-stone-700
-                                           transition hover:bg-stone-100
-                                           hover:text-orange-800
+                                           font-semibold text-sp-charcoal
+                                           transition hover:bg-sp-limestone
+                                           hover:text-sp-prairieGreen
                                            focus-visible:outline
                                            focus-visible:outline-2
                                            focus-visible:outline-offset-2"
@@ -148,8 +148,8 @@
                         rel="next"
                         aria-label="{{ __('Next') }}"
                         class="inline-flex size-11 items-center justify-center
-                               text-stone-700 transition
-                               hover:bg-stone-100 hover:text-orange-800
+                               text-sp-charcoal transition
+                               hover:bg-sp-limestone hover:text-sp-prairieGreen
                                focus-visible:outline focus-visible:outline-2
                                focus-visible:outline-offset-2"
                     >
@@ -160,7 +160,7 @@
                         aria-disabled="true"
                         aria-label="{{ __('Next') }}"
                         class="inline-flex size-11 items-center justify-center
-                               text-stone-300"
+                               text-sp-slate"
                     >
                         <span aria-hidden="true">&rarr;</span>
                     </span>
