@@ -15,11 +15,11 @@
 </div>
 
 <header class="mb-6">
-    <p class="mb-1 text-xs font-semibold uppercase tracking-wide text-sp-burntClay font-display">
+    <p class="mb-1 text-sm uppercase tracking-wide text-sp-burntClay font-display">
         Behavior
     </p>
 
-    <h1 class="font-heading text-4xl leading-tight text-sp-charcoal">
+    <h1 class="font-sans font-semibold text-4xl leading-tight text-sp-charcoal">
         {{ $behavior->name }}
     </h1>
 
@@ -39,7 +39,7 @@
         Notes
     </h2>
 
-    <div class="prose prose-sm max-w-none rounded-md bg-sp-limestone px-5 py-4">
+    <div class="prose prose-sm max-w-none rounded-md bg-sp-warmIvory px-5 py-4">
         {!! $behavior->notes !!}
     </div>
 </section>
