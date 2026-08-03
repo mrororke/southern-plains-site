@@ -18,116 +18,22 @@
 </head>
 
 
-<body class="bg-white font-sans antialiased min-h-screen">
 
-    <!-- Mobile Header -->
     <!-- Mobile Header -->
 
     <body
         x-data="{ menuOpen: false }"
-        class="bg-sp-charcoal font-sans antialiased min-h-screen">
+        class="bg-white font-sans antialiased min-h-screen">
 
-        <header class="flex items-center justify-between bg-sp-charcoal px-4 py-3 relative z-50">
+        <x-admin.mobile.header />
 
-            <!-- Logo -->
-            <a href="{{ route('admin.mobile-shell') }}"
-                class="group">
-
-                <x-icons.admin-logo
-                    class="h-8 w-auto text-sp-warmIvory transition-colors group-hover:text-sp-prairieGreen" />
-
-            </a>
-
-
-            <!-- Hamburger / Close Button -->
-            <button
-                type="button"
-                @click="menuOpen = !menuOpen"
-                class="text-sp-warmIvory transition-colors hover:text-sp-prairieGreen">
-
-                <svg
-                    x-show="!menuOpen"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="h-7 w-7">
-
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-
-                </svg>
-
-
-                <svg
-                    x-show="menuOpen"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    class="h-7 w-7 text-sp-softWhite">
-
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M6 18 18 6M6 6l12 12" />
-
-                </svg>
-
-            </button>
-
-        </header>
-
-
-        <!-- Slide Down Menu -->
-        <nav
-            x-show="menuOpen"
-            x-transition:enter="transition ease-out duration-300"
-            x-transition:enter-start="-translate-y-full"
-            x-transition:enter-end="translate-y-0"
-            x-transition:leave="transition ease-in duration-200"
-            x-transition:leave-start="translate-y-0"
-            x-transition:leave-end="-translate-y-full"
-            class="absolute top-0 left-0 w-full bg-sp-warmIvory z-40 pt-20 shadow-md">
-            <div class="px-6 py-4">
-                <!-- TODO: This should be global search; When you search, it shouldn't disappear. It should remain there. -->
-                <input
-                    type="text"
-                    name="globalSearch"
-                    value=""
-                    placeholder="Search anything..."
-                    class="block border border-sp-charcoal rounded-md focus:border-sp-charcoal placeholder:italic placeholder:text-md placeholder:text-sp-charcoal w-full bg-transparent">
-            </div>
-
-            <a href="#"
-                class="block px-6 py-4 text-sp-charcoal border-b border-sp-warmStone">
-                Dashboard
-            </a>
-
-            <a href="#"
-                class="block px-6 py-4 text-sp-charcoal border-b border-sp-warmStone">
-                Behavior Library
-            </a>
-            <a href="#"
-                class="block px-6 py-4 text-sp-charcoal border-b border-sp-warmStone">
-                Resource Library
-            </a>
-            <a href="{{ route('profile.edit') }}"
-                class="block px-6 py-4 text-sp-charcoal border-b border-sp-warmStone">
-                Profile
-            </a>
-
-        </nav>
+        <x-admin.mobile.navigation />
 
 
         <!-- Page Content -->
         <main class="p-4">
-            <p class="text-sp-charcoal text-md text-center">Good morning, {{ Auth::user()->name }}!</p>
-            <!-- TODO: This should be global search; When you search, it shouldn't disappear. It should remain there. -->
+            <x-admin.mobile.page-header title="Dashboard" />
+       
             <input
                 type="text"
                 name="globalSearch"
