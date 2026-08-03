@@ -43,7 +43,15 @@
         },
     }"
     @keydown.escape.window="open = false"
-    @keydown.slash.window.prevent="$refs.searchInput.focus()"
+    @keydown.slash.window="
+    if (
+        ! ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)
+        && ! document.activeElement.isContentEditable
+    ) {
+        $event.preventDefault();
+        $refs.searchInput.focus();
+    }
+"
     class="relative"
 >
     <div @input.debounce.300ms="search()">
