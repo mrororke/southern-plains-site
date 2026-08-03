@@ -333,24 +333,24 @@ class TrickCatalogController extends Controller
     |--------------------------------------------------------------------------
     */
     public function destroy(Trick $trick_catalog)
-{
-    $user = auth()->user();
+    {
+        $user = auth()->user();
 
-    $isInstructor = $user->roles()->where('slug', 'instructor')->exists();
+        $isInstructor = $user->roles()->where('slug', 'instructor')->exists();
 
-    // Admin OR Instructor allowed
-    if (!$user->isAdmin() && !$isInstructor) {
-        abort(403, 'Unauthorized');
+        // Admin OR Instructor allowed
+        if (!$user->isAdmin() && !$isInstructor) {
+            abort(403, 'Unauthorized');
+        }
+
+        $trick_catalog->videos()->delete();
+        $trick_catalog->levels()->detach();
+        $trick_catalog->delete();
+
+        return redirect()
+            ->route('admin.trick-catalog.index')
+            ->with('success', 'Trick deleted.');
     }
-
-    $trick_catalog->videos()->delete();
-    $trick_catalog->levels()->detach();
-    $trick_catalog->delete();
-
-    return redirect()
-        ->route('admin.trick-catalog.index')
-        ->with('success', 'Trick deleted.');
-}
 
     /*
     |--------------------------------------------------------------------------
@@ -395,155 +395,160 @@ class TrickCatalogController extends Controller
     */
 
     public function printAll()
-{
-    $tricks = \App\Models\Trick::with(['levels', 'videos'])
-        ->orderBy('name')
-        ->get();
+    {
+        $tricks = \App\Models\Trick::with(['levels', 'videos'])
+            ->orderBy('name')
+            ->get();
 
-    return view('admin.trick-catalog.print-all', [
-        'tricks' => $tricks,
-    ]);
-}
+        return view('admin.trick-catalog.print-all', [
+            'tricks' => $tricks,
+        ]);
+    }
 
-/*
+    /*
    |--------------------------------------------------------------------------
     | BEHAVIOR CATALOG - DASHBOARD 2.0
     |--------------------------------------------------------------------------
 */
-public function behaviorCatalog(Request $request)
-{
-    $levels = TrickLevel::orderByRaw('LOWER(name)')->get();
+    public function behaviorCatalog(Request $request)
+    {
+        $levels = TrickLevel::orderByRaw('LOWER(name)')->get();
 
-    $query = Trick::query()
-        ->with(['videos', 'levels']);
+        $query = Trick::query()
+            ->with(['videos', 'levels']);
 
-    // Search
-    if ($request->filled('search')) {
+        // Search
+        if ($request->filled('search')) {
 
-        $search = trim($request->search);
+            $search = trim($request->search);
 
-        $query->where(function ($q) use ($search) {
+            $query->where(function ($q) use ($search) {
 
-            $q->where('name', 'like', "%{$search}%")
-                ->orWhere('notes', 'like', "%{$search}%")
-                ->orWhereHas('videos', function ($video) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                    ->orWhere('notes', 'like', "%{$search}%")
+                    ->orWhereHas('videos', function ($video) use ($search) {
 
-                    $video->where('creator', 'like', "%{$search}%");
-                });
-        });
-    }
-
-    // Level Filter
-    if ($request->filled('level')) {
-
-        if ($request->level === 'none') {
-
-            $query->doesntHave('levels');
-        } else {
-
-            $query->whereHas('levels', function ($q) use ($request) {
-                $q->where('trick_levels.id', $request->level);
+                        $video->where('creator', 'like', "%{$search}%");
+                    });
             });
         }
+
+        // Level Filter
+        if ($request->filled('level')) {
+
+            if ($request->level === 'none') {
+
+                $query->doesntHave('levels');
+            } else {
+
+                $query->whereHas('levels', function ($q) use ($request) {
+                    $q->where('trick_levels.id', $request->level);
+                });
+            }
+        }
+
+        // Platform Filter
+        if ($request->filled('platform')) {
+
+            $query->whereHas('videos', function ($q) use ($request) {
+
+                $q->where('platform', $request->platform);
+            });
+        }
+
+        // Preferred Video Filter
+        if ($request->preferred === 'yes') {
+
+            $query->whereHas('videos', function ($q) {
+
+                $q->where('is_preferred', true);
+            });
+        } elseif ($request->preferred === 'no') {
+
+            $query->whereDoesntHave('videos', function ($q) {
+
+                $q->where('is_preferred', true);
+            });
+        }
+
+        // Notes Filter
+        if ($request->notes === 'has') {
+
+            $query->whereNotNull('notes')
+                ->where('notes', '!=', '');
+        } elseif ($request->notes === 'missing') {
+
+            $query->where(function ($q) {
+
+                $q->whereNull('notes')
+                    ->orWhere('notes', '');
+            });
+        }
+
+        // Sorting
+        switch ($request->sort) {
+
+            case 'name_desc':
+                $query->orderByRaw('LOWER(name) DESC');
+                break;
+
+            case 'newest':
+                $query->latest();
+                break;
+
+            case 'oldest':
+                $query->oldest();
+                break;
+
+            case 'videos':
+                $query->withCount('videos')
+                    ->orderByDesc('videos_count');
+                break;
+
+            default:
+                $query->orderByRaw('LOWER(name) ASC');
+                break;
+        }
+
+        $isMobile = request()->attributes->get('isMobile', false);
+
+        $perPage = $isMobile ? 15 : 25;
+
+        $tricks = $query
+            ->paginate($perPage)
+            ->withQueryString();
+
+        return view(
+            $isMobile
+                ? 'admin.dashboard-v2.mobile.behavior-catalog.index'
+                : 'admin.dashboard-v2.behavior-catalog.index',
+            [
+                'navigation' => \App\Navigation\AdminNavigation::items(),
+                'tricks' => $tricks,
+                'levels' => $levels,
+            ]
+        );
     }
 
-    // Platform Filter
-    if ($request->filled('platform')) {
 
-        $query->whereHas('videos', function ($q) use ($request) {
-
-            $q->where('platform', $request->platform);
-        });
-    }
-
-    // Preferred Video Filter
-    if ($request->preferred === 'yes') {
-
-        $query->whereHas('videos', function ($q) {
-
-            $q->where('is_preferred', true);
-        });
-    } elseif ($request->preferred === 'no') {
-
-        $query->whereDoesntHave('videos', function ($q) {
-
-            $q->where('is_preferred', true);
-        });
-    }
-
-    // Notes Filter
-    if ($request->notes === 'has') {
-
-        $query->whereNotNull('notes')
-            ->where('notes', '!=', '');
-    } elseif ($request->notes === 'missing') {
-
-        $query->where(function ($q) {
-
-            $q->whereNull('notes')
-                ->orWhere('notes', '');
-        });
-    }
-
-    // Sorting
-    switch ($request->sort) {
-
-        case 'name_desc':
-            $query->orderByRaw('LOWER(name) DESC');
-            break;
-
-        case 'newest':
-            $query->latest();
-            break;
-
-        case 'oldest':
-            $query->oldest();
-            break;
-
-        case 'videos':
-            $query->withCount('videos')
-                ->orderByDesc('videos_count');
-            break;
-
-        default:
-            $query->orderByRaw('LOWER(name) ASC');
-            break;
-    }
-
-    $tricks = $query
-        ->paginate(25)
-        ->withQueryString();
-
-    return view('admin.dashboard-v2.behavior-catalog.index', [
-        'navigation' => \App\Navigation\AdminNavigation::items(),
-        'tricks' => $tricks,
-        'levels' => $levels,
-    ]);
-}
-
-
-/*
+    /*
 |--------------------------------------------------------------------------
 | BEHAVIOR DISPLAY - DASHBOARD 2.0 MOBILE
 |--------------------------------------------------------------------------
 */
-public function behaviorShow(Trick $trick)
-{
-    $trick->load([
-        'levels',
-        'videos',
-        'preferredVideo',
-        'creator',
-        'updater',
-    ]);
+    public function behaviorShow(Trick $trick)
+    {
+        $trick->load([
+            'levels',
+            'videos',
+            'preferredVideo',
+            'creator',
+            'updater',
+        ]);
 
-    return view('admin.dashboard-v2.mobile.behavior-catalog.show', [
-        'navigation' => \App\Navigation\AdminNavigation::items(),
-        'behavior' => $trick,
-    ]);
-}
-
-
-
-
+        return view('admin.dashboard-v2.mobile.behavior-catalog.show', [
+            'navigation' => \App\Navigation\AdminNavigation::items(),
+            'behavior' => $trick,
+        ]);
+    }
 }
