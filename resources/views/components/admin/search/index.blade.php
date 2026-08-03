@@ -5,60 +5,104 @@
         results: {
             behaviors: {
                 label: 'Behaviors',
+                count: 0,
                 items: [],
+                viewAllUrl: null,
             },
 
             resources: {
                 label: 'Resources',
+                count: 0,
                 items: [],
+                viewAllUrl: null,
             },
 
             dogs: {
                 label: 'Dogs',
+                count: 0,
                 items: [],
+                viewAllUrl: null,
             },
 
             events: {
                 label: 'Events',
+                count: 0,
                 items: [],
+                viewAllUrl: null,
             },
 
             users: {
                 label: 'Users',
+                count: 0,
                 items: [],
+                viewAllUrl: null,
             },
         },
 
+        recentSearches: [],
         loading: false,
         open: false,
+        selectedIndex: -1,
+        requestNumber: 0,
+
+        init() {
+            try {
+                const saved = localStorage.getItem('backendRecentSearches');
+
+                this.recentSearches = saved
+                    ? JSON.parse(saved)
+                    : [];
+            } catch (error) {
+                console.error(error);
+                this.recentSearches = [];
+            }
+        },
 
         emptyResults() {
             return {
                 behaviors: {
                     label: 'Behaviors',
+                    count: 0,
                     items: [],
+                    viewAllUrl: null,
                 },
 
                 resources: {
                     label: 'Resources',
+                    count: 0,
                     items: [],
+                    viewAllUrl: null,
                 },
 
                 dogs: {
                     label: 'Dogs',
+                    count: 0,
                     items: [],
+                    viewAllUrl: null,
                 },
 
                 events: {
                     label: 'Events',
+                    count: 0,
                     items: [],
+                    viewAllUrl: null,
                 },
 
                 users: {
                     label: 'Users',
+                    count: 0,
                     items: [],
+                    viewAllUrl: null,
                 },
             };
+        },
+
+        currentItems() {
+            if (this.query.trim().length < 2) {
+                return this.recentSearches;
+            }
+
+            return this.results.behaviors.items;
         },
 
         focusSearch(event) {
@@ -71,19 +115,93 @@
             if (event.key === '/' && ! isTypingField) {
                 event.preventDefault();
                 this.$refs.searchInput.focus();
+                this.open = true;
             }
+        },
+
+        moveSelection(direction) {
+            if (! this.open) {
+                this.open = true;
+            }
+
+            const items = this.currentItems();
+
+            if (items.length === 0) {
+                this.selectedIndex = -1;
+                return;
+            }
+
+            this.selectedIndex += direction;
+
+            if (this.selectedIndex < 0) {
+                this.selectedIndex = items.length - 1;
+            }
+
+            if (this.selectedIndex >= items.length) {
+                this.selectedIndex = 0;
+            }
+
+            this.$nextTick(() => {
+                const selected = this.$refs.resultsContainer
+                    ?.querySelector(
+                        `[data-search-index='${this.selectedIndex}']`
+                    );
+
+                selected?.scrollIntoView({
+                    block: 'nearest',
+                });
+            });
+        },
+
+        openSelected() {
+            const item = this.currentItems()[this.selectedIndex];
+
+            if (! item) {
+                return;
+            }
+
+            this.openResult(item);
+        },
+
+        openResult(result) {
+            this.saveRecent(result);
+            window.location.href = result.url;
+        },
+
+        saveRecent(result) {
+            const recent = {
+                type: result.type,
+                title: result.title,
+                description: result.description ?? '',
+                url: result.url,
+            };
+
+            this.recentSearches = [
+                recent,
+                ...this.recentSearches.filter(
+                    item => item.url !== recent.url
+                ),
+            ].slice(0, 5);
+
+            localStorage.setItem(
+                'backendRecentSearches',
+                JSON.stringify(this.recentSearches)
+            );
         },
 
         async search() {
             const search = this.query.trim();
 
+            this.selectedIndex = -1;
+
             if (search.length < 2) {
                 this.results = this.emptyResults();
                 this.loading = false;
-                this.open = false;
-
+                this.open = true;
                 return;
             }
+
+            const currentRequest = ++this.requestNumber;
 
             this.loading = true;
             this.open = true;
@@ -102,18 +220,29 @@
                     throw new Error('Search request failed.');
                 }
 
-                this.results = await response.json();
+                const data = await response.json();
+
+                if (currentRequest === this.requestNumber) {
+                    this.results = data;
+                }
             } catch (error) {
                 console.error(error);
 
-                this.results = this.emptyResults();
+                if (currentRequest === this.requestNumber) {
+                    this.results = this.emptyResults();
+                }
             } finally {
-                this.loading = false;
+                if (currentRequest === this.requestNumber) {
+                    this.loading = false;
+                }
             }
         },
     }"
-    @keydown.escape.window="open = false"
+    @keydown.escape.window="open = false; selectedIndex = -1"
     @keydown.window="focusSearch($event)"
+    @keydown.down.prevent="moveSelection(1)"
+    @keydown.up.prevent="moveSelection(-1)"
+    @keydown.enter.prevent="openSelected()"
     class="relative"
 >
     <div @input.debounce.300ms="search()">
@@ -123,79 +252,179 @@
     <div
         x-show="open"
         x-cloak
-        @click.outside="open = false"
+        @click.outside="open = false; selectedIndex = -1"
     >
         <x-admin.search.dropdown>
 
-            <!-- Loading -->
             <div
-                x-show="loading"
-                class="px-4 py-6 text-center text-sm text-sp-slate"
+                x-ref="resultsContainer"
+                class="max-h-96 overflow-y-auto"
             >
-                Searching…
-            </div>
-
-            <!-- Results -->
-            <div
-                x-show="
-                    ! loading
-                    && results.behaviors.items.length > 0
-                "
-            >
-                <x-admin.search.results.group label="Behaviors">
-
-                    <x-slot:count>
-                        <span x-text="results.behaviors.items.length"></span>
-                    </x-slot:count>
-
-                    <template
-                        x-for="result in results.behaviors.items"
-                        :key="result.url"
-                    >
-                        <a
-                            :href="result.url"
-                            class="flex items-start gap-3 px-4 py-3
-                                   transition-colors hover:bg-sp-limestone"
-                        >
-                            <div class="mt-1 shrink-0">
-                                <x-icons.paw-print
-                                    class="h-3.5 w-3.5 text-sp-slate"
-                                />
+                <!-- Idle state -->
+                <div
+                    x-show="
+                        ! loading
+                        && query.trim().length < 2
+                    "
+                >
+                    <template x-if="recentSearches.length > 0">
+                        <section>
+                            <div
+                                class="border-b border-sp-warmStone bg-sp-limestone
+                                       px-4 py-2 text-xs font-semibold uppercase
+                                       tracking-wide text-sp-slate"
+                            >
+                                Recent Searches
                             </div>
 
-                            <div class="min-w-0 flex-1">
-                                <h3
-                                    class="truncate font-medium text-sp-charcoal"
-                                    x-text="result.title"
-                                ></h3>
+                            <template
+                                x-for="(result, index) in recentSearches"
+                                :key="result.url"
+                            >
+                                <button
+                                    type="button"
+                                    :data-search-index="index"
+                                    @click="openResult(result)"
+                                    @mouseenter="selectedIndex = index"
+                                    :class="{
+                                        'bg-sp-limestone': selectedIndex === index
+                                    }"
+                                    class="flex w-full items-start gap-3 px-4 py-3
+                                           text-left transition-colors
+                                           hover:bg-sp-limestone"
+                                >
+                                    <div class="mt-1 shrink-0">
+                                        <x-icons.paw-print
+                                            class="h-3.5 w-3.5 text-sp-slate"
+                                        />
+                                    </div>
 
-                                <p
-                                    x-show="result.description"
-                                    class="mt-0.5 text-sm text-sp-slate"
-                                    x-text="result.description"
-                                ></p>
-                            </div>
+                                    <div class="min-w-0 flex-1">
+                                        <h3
+                                            class="truncate font-medium text-sp-charcoal"
+                                            x-text="result.title"
+                                        ></h3>
 
-                            <div class="mt-1 shrink-0">
-                                <x-icons.chevron-right
-                                    class="h-3 w-3 text-sp-slate/60"
-                                />
-                            </div>
-                        </a>
+                                        <p
+                                            x-show="result.description"
+                                            class="mt-0.5 text-sm text-sp-slate"
+                                            x-text="result.description"
+                                        ></p>
+                                    </div>
+
+                                    <div class="mt-1 shrink-0">
+                                        <x-icons.chevron-right
+                                            class="h-3 w-3 text-sp-slate/60"
+                                        />
+                                    </div>
+                                </button>
+                            </template>
+                        </section>
                     </template>
 
-                </x-admin.search.results.group>
-            </div>
+                    <div
+                        class="flex items-center justify-between gap-4
+                               border-t border-sp-warmStone px-4 py-3
+                               text-xs text-sp-slate"
+                    >
+                        <span>Press / to focus search</span>
+                        <span>Esc to close</span>
+                    </div>
+                </div>
 
-            <!-- Empty state -->
-            <div
-                x-show="
-                    ! loading
-                    && query.trim().length >= 2
-                    && results.behaviors.items.length === 0
-                "
-            >
-                <x-admin.search.empty />
+                <!-- Loading -->
+                <div
+                    x-show="loading"
+                    class="px-4 py-6 text-center text-sm text-sp-slate"
+                >
+                    Searching…
+                </div>
+
+                <!-- Live results -->
+                <div
+                    x-show="
+                        ! loading
+                        && query.trim().length >= 2
+                        && results.behaviors.items.length > 0
+                    "
+                >
+                    <x-admin.search.results.group label="Behaviors">
+
+                        <x-slot:count>
+                            <span x-text="results.behaviors.count"></span>
+                        </x-slot:count>
+
+                        <template
+                            x-for="(result, index) in results.behaviors.items"
+                            :key="result.url"
+                        >
+                            <button
+                                type="button"
+                                :data-search-index="index"
+                                @click="openResult(result)"
+                                @mouseenter="selectedIndex = index"
+                                :class="{
+                                    'bg-sp-limestone': selectedIndex === index
+                                }"
+                                class="flex w-full items-start gap-3 px-4 py-3
+                                       text-left transition-colors
+                                       hover:bg-sp-limestone"
+                            >
+                                <div class="mt-1 shrink-0">
+                                    <x-icons.paw-print
+                                        class="h-3.5 w-3.5 text-sp-slate"
+                                    />
+                                </div>
+
+                                <div class="min-w-0 flex-1">
+                                    <h3
+                                        class="truncate font-medium text-sp-charcoal"
+                                        x-text="result.title"
+                                    ></h3>
+
+                                    <p
+                                        x-show="result.description"
+                                        class="mt-0.5 text-sm text-sp-slate"
+                                        x-text="result.description"
+                                    ></p>
+                                </div>
+
+                                <div class="mt-1 shrink-0">
+                                    <x-icons.chevron-right
+                                        class="h-3 w-3 text-sp-slate/60"
+                                    />
+                                </div>
+                            </button>
+                        </template>
+
+                        <a
+                            x-show="results.behaviors.viewAllUrl"
+                            :href="results.behaviors.viewAllUrl"
+                            class="flex items-center justify-between
+                                   border-t border-sp-warmStone px-4 py-3
+                                   text-sm font-semibold text-sp-prairieGreen
+                                   transition-colors hover:bg-sp-limestone"
+                        >
+                            <span>View all Behaviors</span>
+
+                            <x-icons.chevron-right
+                                class="h-3 w-3"
+                            />
+                        </a>
+
+                    </x-admin.search.results.group>
+                </div>
+
+                <!-- Empty state -->
+                <div
+                    x-show="
+                        ! loading
+                        && query.trim().length >= 2
+                        && results.behaviors.items.length === 0
+                    "
+                >
+                    <x-admin.search.empty />
+                </div>
             </div>
 
         </x-admin.search.dropdown>

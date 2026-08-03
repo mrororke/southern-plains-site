@@ -15,11 +15,16 @@ class BackendSearchService
         $search = trim($search);
 
         $behaviors = collect();
+        $behaviorCount = 0;
 
         if ($search !== '') {
-            $behaviors = Trick::query()
+            $behaviorQuery = Trick::query()
+                ->where('name', 'like', "%{$search}%");
+
+            $behaviorCount = (clone $behaviorQuery)->count();
+
+            $behaviors = $behaviorQuery
                 ->with('levels')
-                ->where('name', 'like', "%{$search}%")
                 ->orderByRaw('LOWER(name)')
                 ->limit(5)
                 ->get()
@@ -48,27 +53,40 @@ class BackendSearchService
         return collect([
             'behaviors' => [
                 'label' => 'Behaviors',
+                'count' => $behaviorCount,
                 'items' => $behaviors,
+                'viewAllUrl' => route(
+                    'admin-v2.behavior-catalog.index',
+                    ['search' => $search]
+                ),
             ],
 
             'resources' => [
                 'label' => 'Resources',
+                'count' => 0,
                 'items' => collect(),
+                'viewAllUrl' => null,
             ],
 
             'dogs' => [
                 'label' => 'Dogs',
+                'count' => 0,
                 'items' => collect(),
+                'viewAllUrl' => null,
             ],
 
             'events' => [
                 'label' => 'Events',
+                'count' => 0,
                 'items' => collect(),
+                'viewAllUrl' => null,
             ],
 
             'users' => [
                 'label' => 'Users',
+                'count' => 0,
                 'items' => collect(),
+                'viewAllUrl' => null,
             ],
         ]);
     }

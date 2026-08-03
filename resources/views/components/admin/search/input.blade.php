@@ -8,6 +8,8 @@
 <div class="relative">
     <input
         x-ref="searchInput"
+        x-model="query"
+        @focus="open = true"
         id="global-search"
         type="search"
         name="search"
