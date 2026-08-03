@@ -6,7 +6,7 @@
 <div class="dashboard-content">
     <!-- HEADER IMAGE -->
     <div class="py-4">
-        <img src="{{ asset('images/headers/header-behavior-catalog.jpg') }}" alt="Hamish, a Shetland Sheepdog, at a quarry box." class="rounded-sm">
+        <img src="{{ asset('images/headers/header-behavior-catalog.jpg') }}" alt="Hamish, a Shetland Sheepdog, at a quarry box." class="rounded-md">
     </div>
     <!-- Page Heading  -->
     <div class="flex justify-between items-center mb-6">
