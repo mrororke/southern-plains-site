@@ -1,12 +1,6 @@
 <nav class="bg-sp-limestone grid grid-cols-12 items-center">
             <div class="col-span-10 pr-8 p-4">
-                <!-- TODO: This should be global search; When you search, it shouldn't disappear. It should remain there. -->
-                <input
-                    type="text"
-                    name="globalSearch"
-                    value=""
-                    placeholder="Search anything..."
-                    class="mt-1 block border border-sp-slate rounded-md bg-transparent focus:border-sp-charcoal placeholder:italic placeholder:text-md placeholder:text-sp-slate w-full ">
+                <x-admin.search.index />
             </div>
             <div class="col-span-2 flex justify-end pr-4">
                 <div

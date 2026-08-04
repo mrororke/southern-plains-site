@@ -51,43 +51,77 @@ All icons:
 ---
 
 # Navigation
+These icons identify primary navigation sections throughout the backend.
 
-| Section | Icon |
-|----------|------|
-| Dashboard | layout-dashboard |
-| Content | newspaper |
-| Training | graduation-cap |
-| Events & Sports | trophy |
-| Dogs | dog |
-| Rat Management | rat |
-| Resources | library-big |
-| Communication | send |
-| People | users-round |
-| Settings | settings |
+| Component | Primary Use |
+|-----------|-------------|
+| `<x-icons.layout-dashboard />` | Dashboard |
+| `<x-icons.newspaper />` | Content |
+| `<x-icons.graduation-cap />` | Training |
+| `<x-icons.trophy />` | Events & Sports |
+| `<x-icons.paw-print />` | Dogs |
+| `<x-icons.rat />` | Rat Management |
+| `<x-icons.library-big />` | Resources |
+| `<x-icons.send />` | Communication |
+| `<x-icons.users-round />` | People |
+| `<x-icons.settings />` | Settings |
 
----
+## Guidelines
+
+- Use these icons only for primary navigation.
+- Keep icon usage consistent between desktop and mobile navigation.
+- Component names intentionally match the official Lucide icon names.
+
 
 # Search Result Types
+These icons identify the content type of each search result in the global search dropdown.
 
-| Result | Icon |
-|--------|------|
-| Behavior | paw-print |
-| Resource | file-text |
-| Event | calendar-days |
-| Dog | dog |
-| User | user-round |
+| Component | Primary Use |
+|-----------|-------------|
+| `<x-icons.paw-print />` | Behavior |
+| `<x-icons.file-text />` | Resource |
+| `<x-icons.calendar-days />` | Event |
+| `<x-icons.dog />` | Dog |
+| `<x-icons.user-round />` | User |
 
+## Guidelines
+
+- Search result icons identify the content type rather than the available action.
+- Use one icon consistently for each content type throughout the backend.
+- Component names intentionally match the official Lucide icon names.
 ---
 
-# Common Actions
+# Tier 3 – Common Actions
 
-| Action | Icon |
-|---------|------|
-| Search | search |
-| Open / View | chevron-right |
-| Back | chevron-left |
-| Menu | menu |
-| Close | x |
+These icons represent common user actions throughout the backend. Component names mirror the official Lucide icon names and should not be renamed or aliased.
+
+| Component | Primary Use |
+|-----------|-------------|
+| `<x-icons.plus />` | Add new content, records, or items |
+| `<x-icons.pencil />` | Edit existing content |
+| `<x-icons.trash-2 />` | Permanently delete content |
+| `<x-icons.eye />` | View or preview content |
+| `<x-icons.eye-off />` | Hide content or conceal values |
+| `<x-icons.copy />` | Duplicate or copy content |
+| `<x-icons.check />` | Confirm an action or indicate completion |
+| `<x-icons.circle-check-big />` | Display successful actions or completed states |
+| `<x-icons.circle-alert />` | Display warnings or important notices |
+| `<x-icons.info />` | Display informational content or contextual help |
+| `<x-icons.external-link />` | Open an external website or resource |
+| `<x-icons.download />` | Download files or exported content |
+| `<x-icons.upload />` | Upload or import content |
+| `<x-icons.printer />` | Print pages, reports, or documents |
+| `<x-icons.funnel />` | Apply or view filters |
+| `<x-icons.funnel-x />` | Clear or reset active filters |
+| `<x-icons.refresh-cw />` | Refresh data or reload content |
+
+## Guidelines
+
+- Use these icons only for interactive actions.
+- Component names intentionally match the official Lucide icon names.
+- Do not create aliases (for example, use `funnel` instead of `filter`).
+- Use one icon consistently for each action throughout the backend.
+- Prefer `circle-check-big` and `circle-alert` for feedback or status messaging rather than action buttons.
 
 ---
 
