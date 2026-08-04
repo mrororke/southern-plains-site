@@ -159,16 +159,7 @@
     class="absolute left-0 top-0 z-40 w-full bg-sp-warmIvory pt-20 shadow-md"
 >
     <div class="px-6 py-4">
-        <!-- TODO: Replace with the shared global search component. -->
-        <input
-            type="text"
-            name="globalSearch"
-            value=""
-            placeholder="Search anything..."
-            class="block w-full rounded-md border border-sp-charcoal bg-transparent
-                   placeholder:text-md placeholder:italic placeholder:text-sp-charcoal
-                   focus:border-sp-charcoal"
-        >
+        <x-admin.search.index />
     </div>
 
     @foreach($mobileNavigation as $item)
