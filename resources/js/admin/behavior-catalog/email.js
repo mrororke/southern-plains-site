@@ -75,10 +75,9 @@ export function buildEmailGrouped(behaviorName, videos) {
     });
 
     return [
-        `We've found these resources to help you teach your dog ${behaviorName}:`,
-        '',
-        ...sections,
-    ].join('\n\n').trim();
+    `We've found these resources to help you teach your dog ${behaviorName}:`,
+    ...sections,
+].join('\n\n').trim();
 }
 
 /*
