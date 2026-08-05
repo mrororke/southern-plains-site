@@ -55,7 +55,7 @@
                            text-sp-warmIvory transition-colors
                            hover:brightness-95"
                 >
-                    <x-icons.copy class="h-3.5 w-3.5" />
+                    <x-icons.copy class="h-3 w-3" />
                     Copy Simple
                 </button>
 
@@ -67,7 +67,7 @@
                            text-sp-warmIvory transition-colors
                            hover:brightness-95"
                 >
-                    <x-icons.copy class="h-3.5 w-3.5" />
+                    <x-icons.copy class="h-3 w-3" />
                     Copy Grouped
                 </button>
 
@@ -80,7 +80,7 @@
                                text-sp-warmIvory transition-colors
                                hover:brightness-95"
                     >
-                        <x-icons.copy class="h-3.5 w-3.5" />
+                        <x-icons.copy class="h-3 w-3" />
                         Copy Preferred
                     </button>
                 </template>
