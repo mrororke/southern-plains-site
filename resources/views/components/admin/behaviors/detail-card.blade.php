@@ -77,7 +77,7 @@
                         @click="{{ $copyPreferredAction }}"
                         class="inline-flex items-center justify-center gap-2 rounded-md
                                bg-sp-burntClay px-3 py-2 text-sm font-semibold
-                               text-sp-charcoal transition-colors
+                               text-sp-warmIvory transition-colors
                                hover:brightness-95"
                     >
                         <x-icons.copy class="h-3.5 w-3.5" />
