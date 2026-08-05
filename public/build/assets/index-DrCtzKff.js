@@ -6,7 +6,7 @@ ${c.url}`);return`${d(t)}:
 
 ${u.join(`
 
-`)}`});return[`We've found these resources to help you teach your dog ${e}:`,"",...i].join(`
+`)}`});return[`We've found these resources to help you teach your dog ${e}:`,...i].join(`
 
 `).trim()}function m(e,r){const i=s(r).filter(t=>t.is_preferred===1).filter(t=>t.url).map(t=>`${t.creator||"Unknown creator"}
 ${t.url}`);return[`We've found these preferred resources to help you teach your dog ${e}:`,"",i.join(`
