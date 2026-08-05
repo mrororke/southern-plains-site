@@ -1,4 +1,7 @@
+@vite('resources/js/admin/trick-catalog/index.js')
+@vite('resources/js/admin/behavior-catalog/index.js')
 @extends('admin.dashboard-v2.desktop')
+
 @section('title', 'Behavior Catalog')
 
 @section('content')
@@ -248,10 +251,3 @@
 </div><!--  End Dashboard content -->
 
 @endsection
-
-@push('scripts')
-    @vite([
-        'resources/js/admin/trick-catalog/index.js',
-        'resources/js/admin/behavior-catalog/index.js',
-    ])
-@endpush
