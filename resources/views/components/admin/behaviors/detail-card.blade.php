@@ -200,7 +200,7 @@
                                                font-semibold text-sp-warmIvory
                                                transition-colors hover:bg-[#9B5C3A]"
                                     >
-                                        <x-icons.external-link class="h-3.5 w-3.5" />
+                                        <x-icons.external-link class="h-3 w-3" />
                                         Open
                                     </a>
 
@@ -213,7 +213,7 @@
                                                font-semibold text-sp-charcoal
                                                transition-colors hover:bg-sp-limestone"
                                     >
-                                        <x-icons.copy class="h-3.5 w-3.5" />
+                                        <x-icons.copy class="h-3 w-3" />
                                         Copy Link
                                     </button>
                                 </div>
@@ -275,7 +275,7 @@
                                                        hover:bg-[#9B5C3A]"
                                             >
                                                 <x-icons.external-link
-                                                    class="h-3.5 w-3.5"
+                                                    class="h-3 w-3"
                                                 />
                                                 Open
                                             </a>
@@ -293,7 +293,7 @@
                                                        hover:bg-white"
                                             >
                                                 <x-icons.copy
-                                                    class="h-3.5 w-3.5"
+                                                    class="h-3 w-3"
                                                 />
                                                 Copy Link
                                             </button>
