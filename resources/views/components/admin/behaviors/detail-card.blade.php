@@ -51,7 +51,7 @@
                     type="button"
                     @click="{{ $copySimpleAction }}"
                     class="inline-flex items-center justify-center gap-2 rounded-md
-                           bg-[#B78A45] px-3 py-2 text-sm font-semibold
+                           bg-sp-prairieOchre px-3 py-2 text-sm font-semibold
                            text-sp-warmIvory transition-colors
                            hover:brightness-95"
                 >
@@ -63,7 +63,7 @@
                     type="button"
                     @click="{{ $copyGroupedAction }}"
                     class="inline-flex items-center justify-center gap-2 rounded-md
-                           bg-[#9B5C3A] px-3 py-2 text-sm font-semibold
+                           bg-sp-goldenrod px-3 py-2 text-sm font-semibold
                            text-sp-warmIvory transition-colors
                            hover:brightness-95"
                 >
@@ -76,7 +76,7 @@
                         type="button"
                         @click="{{ $copyPreferredAction }}"
                         class="inline-flex items-center justify-center gap-2 rounded-md
-                               bg-[#D8B64C] px-3 py-2 text-sm font-semibold
+                               bg-sp-burntClay px-3 py-2 text-sm font-semibold
                                text-sp-charcoal transition-colors
                                hover:brightness-95"
                     >
@@ -163,7 +163,7 @@
                         </h3>
 
                         <div
-                            class="rounded-md border-l-4 border-[#D8B64C]
+                            class="rounded-md border-l-4 border-sp-goldenrod
                                    bg-[#D8B64C]/15 p-4"
                         >
                             <div class="flex items-start justify-between gap-4">
@@ -184,7 +184,7 @@
 
                                     <p
                                         class="mt-2 text-xs font-semibold uppercase
-                                               tracking-wide text-[#9B5C3A]"
+                                               tracking-wide text-sp-burntClay"
                                     >
                                         Recommended
                                     </p>
