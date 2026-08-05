@@ -1,4 +1,8 @@
 {
+  "_email-CRqfLoIW.js": {
+    "file": "assets/email-CRqfLoIW.js",
+    "name": "email"
+  },
   "_module.esm-DdaDH_LP.js": {
     "file": "assets/module.esm-DdaDH_LP.js",
     "name": "module.esm"
@@ -14,12 +18,23 @@
     "isEntry": true
   },
   "resources/js/admin/behavior-catalog/index.js": {
-    "file": "assets/index-DrCtzKff.js",
+    "file": "assets/index-jaHx7ZSZ.js",
     "name": "index",
     "src": "resources/js/admin/behavior-catalog/index.js",
     "isEntry": true,
     "imports": [
-      "_module.esm-DdaDH_LP.js"
+      "_module.esm-DdaDH_LP.js",
+      "_email-CRqfLoIW.js"
+    ]
+  },
+  "resources/js/admin/behavior-catalog/show.js": {
+    "file": "assets/show-HK-5sVkV.js",
+    "name": "show",
+    "src": "resources/js/admin/behavior-catalog/show.js",
+    "isEntry": true,
+    "imports": [
+      "_module.esm-DdaDH_LP.js",
+      "_email-CRqfLoIW.js"
     ]
   },
   "resources/js/admin/trick-catalog/create.js": {
