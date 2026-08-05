@@ -1,97 +1,124 @@
-import Alpine from "alpinejs";
+import Alpine from 'alpinejs';
 
 import {
     buildEmailSimple,
     buildEmailGrouped,
     buildEmailPreferredOnly,
     copyEmail,
-} from "./email";
+} from './email';
 
 window.Alpine = Alpine;
 
-Alpine.data("behaviorCatalog", () => ({
+Alpine.data('behaviorCatalog', () => ({
     selectedBehavior: null,
+    copiedAction: null,
+    copyFeedbackTimer: null,
 
     selectBehavior(behavior) {
         this.selectedBehavior = behavior;
+        this.copiedAction = null;
     },
 
     clearBehavior() {
         this.selectedBehavior = null;
+        this.copiedAction = null;
     },
 
     isPreferred(video) {
-        return [1, "1", true, "true"].includes(video?.is_preferred);
+        return [1, '1', true, 'true'].includes(video?.is_preferred);
     },
 
     preferredVideo() {
-        return (
-            this.selectedBehavior?.videos?.find((video) =>
-                this.isPreferred(video),
-            ) ?? null
-        );
+        return this.selectedBehavior?.videos?.find(
+            video => this.isPreferred(video)
+        ) ?? null;
     },
 
     additionalVideos() {
-        return (
-            this.selectedBehavior?.videos?.filter(
-                (video) => !this.isPreferred(video),
-            ) ?? []
-        );
+        return this.selectedBehavior?.videos?.filter(
+            video => ! this.isPreferred(video)
+        ) ?? [];
     },
 
     platformLabel(platform) {
-        if (!platform) {
-            return "Unknown platform";
-        }
+        const labels = {
+            youtube: 'YouTube',
+            tiktok: 'TikTok',
+            instagram: 'Instagram',
+            facebook: 'Facebook',
+            unknown: 'Unknown platform',
+        };
 
-        return platform.charAt(0).toUpperCase() + platform.slice(1);
+        const normalized = (platform || 'unknown').toLowerCase();
+
+        return labels[normalized]
+            ?? normalized.charAt(0).toUpperCase() + normalized.slice(1);
     },
 
-    copyVideoUrl(url) {
-        if (!url) {
+    showCopyFeedback(action, success) {
+        window.clearTimeout(this.copyFeedbackTimer);
+
+        this.copiedAction = success
+            ? action
+            : 'failed';
+
+        this.copyFeedbackTimer = window.setTimeout(() => {
+            this.copiedAction = null;
+        }, 1500);
+    },
+
+    async copyVideoUrl(url, videoId) {
+        if (! url) {
             return;
         }
 
-        navigator.clipboard.writeText(url);
+        const success = await copyEmail(url);
+
+        this.showCopyFeedback(`video-${videoId}`, success);
     },
 
     async copySimple() {
-        if (!this.selectedBehavior) {
+        if (! this.selectedBehavior) {
             return;
         }
 
         const text = buildEmailSimple(
             this.selectedBehavior.name,
-            this.selectedBehavior.videos,
+            this.selectedBehavior.videos
         );
 
-        await copyEmail(text);
+        const success = await copyEmail(text);
+
+        this.showCopyFeedback('simple', success);
     },
 
     async copyGrouped() {
-        if (!this.selectedBehavior) {
+        if (! this.selectedBehavior) {
             return;
         }
 
         const text = buildEmailGrouped(
             this.selectedBehavior.name,
-            this.selectedBehavior.videos,
+            this.selectedBehavior.videos
         );
 
-        await copyEmail(text);
+        const success = await copyEmail(text);
+
+        this.showCopyFeedback('grouped', success);
     },
 
     async copyPreferred() {
-        if (!this.selectedBehavior) {
+        if (! this.selectedBehavior) {
             return;
         }
 
         const text = buildEmailPreferredOnly(
             this.selectedBehavior.name,
-            this.selectedBehavior.videos,
+            this.selectedBehavior.videos
         );
 
-        await copyEmail(text);
+        const success = await copyEmail(text);
+
+        this.showCopyFeedback('preferred', success);
     },
 }));

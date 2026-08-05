@@ -47,44 +47,125 @@
 
             {{-- Copy actions --}}
             <div class="mb-6 flex flex-wrap gap-2">
+                {{-- Copy Simple --}}
                 <button
                     type="button"
                     @click="{{ $copySimpleAction }}"
-                    class="inline-flex items-center justify-center gap-2 rounded-md
-                           bg-sp-prairieOchre px-3 py-2 text-sm font-semibold
-                           text-sp-warmIvory transition-colors
+                    :class="{
+                        'scale-[1.03] brightness-110':
+                            copiedAction === 'simple'
+                    }"
+                    class="inline-flex min-h-8 items-center justify-center
+                           gap-1.5 rounded-md bg-sp-prairieOchre
+                           px-3 py-1.5 text-xs font-semibold
+                           text-sp-warmIvory transition duration-200
                            hover:brightness-95"
                 >
-                    <x-icons.copy class="h-3 w-3" />
-                    Copy Simple
+                    <span class="relative h-3 w-3 shrink-0">
+                        <x-icons.copy
+                            x-show="copiedAction !== 'simple'"
+                            class="absolute inset-0 h-3 w-3"
+                        />
+
+                        <x-icons.check
+                            x-show="copiedAction === 'simple'"
+                            x-cloak
+                            class="absolute inset-0 h-3 w-3"
+                        />
+                    </span>
+
+                    <span
+                        x-text="
+                            copiedAction === 'simple'
+                                ? 'Copied'
+                                : 'Copy Simple'
+                        "
+                    ></span>
                 </button>
 
+                {{-- Copy Grouped --}}
                 <button
                     type="button"
                     @click="{{ $copyGroupedAction }}"
-                    class="inline-flex items-center justify-center gap-2 rounded-md
-                           bg-sp-goldenrod px-3 py-2 text-sm font-semibold
-                           text-sp-warmIvory transition-colors
+                    :class="{
+                        'scale-[1.03] brightness-110':
+                            copiedAction === 'grouped'
+                    }"
+                    class="inline-flex min-h-8 items-center justify-center
+                           gap-1.5 rounded-md bg-sp-goldenrod
+                           px-3 py-1.5 text-xs font-semibold
+                           text-sp-warmIvory transition duration-200
                            hover:brightness-95"
                 >
-                    <x-icons.copy class="h-3 w-3" />
-                    Copy Grouped
+                    <span class="relative h-3 w-3 shrink-0">
+                        <x-icons.copy
+                            x-show="copiedAction !== 'grouped'"
+                            class="absolute inset-0 h-3 w-3"
+                        />
+
+                        <x-icons.check
+                            x-show="copiedAction === 'grouped'"
+                            x-cloak
+                            class="absolute inset-0 h-3 w-3"
+                        />
+                    </span>
+
+                    <span
+                        x-text="
+                            copiedAction === 'grouped'
+                                ? 'Copied'
+                                : 'Copy Grouped'
+                        "
+                    ></span>
                 </button>
 
+                {{-- Copy Preferred --}}
                 <template x-if="preferredVideo()">
                     <button
                         type="button"
                         @click="{{ $copyPreferredAction }}"
-                        class="inline-flex items-center justify-center gap-2 rounded-md
-                               bg-sp-burntClay px-3 py-2 text-sm font-semibold
-                               text-sp-warmIvory transition-colors
+                        :class="{
+                            'scale-[1.03] brightness-110':
+                                copiedAction === 'preferred'
+                        }"
+                        class="inline-flex min-h-8 items-center justify-center
+                               gap-1.5 rounded-md bg-sp-burntClay
+                               px-3 py-1.5 text-xs font-semibold
+                               text-sp-warmIvory transition duration-200
                                hover:brightness-95"
                     >
-                        <x-icons.copy class="h-3 w-3" />
-                        Copy Preferred
+                        <span class="relative h-3 w-3 shrink-0">
+                            <x-icons.copy
+                                x-show="copiedAction !== 'preferred'"
+                                class="absolute inset-0 h-3 w-3"
+                            />
+
+                            <x-icons.check
+                                x-show="copiedAction === 'preferred'"
+                                x-cloak
+                                class="absolute inset-0 h-3 w-3"
+                            />
+                        </span>
+
+                        <span
+                            x-text="
+                                copiedAction === 'preferred'
+                                    ? 'Copied'
+                                    : 'Copy Preferred'
+                            "
+                        ></span>
                     </button>
                 </template>
             </div>
+
+            {{-- Copy failure --}}
+            <p
+                x-show="copiedAction === 'failed'"
+                x-cloak
+                class="-mt-4 mb-6 text-sm font-medium text-sp-burntClay"
+            >
+                Unable to copy. Please try again.
+            </p>
 
             <div class="border-t border-sp-warmStone pt-6">
 
@@ -177,14 +258,19 @@
                                     ></p>
 
                                     <p
-                                        class="mt-1 text-xs uppercase tracking-wide
-                                               text-sp-slate"
-                                        x-text="platformLabel(preferredVideo().platform)"
+                                        class="mt-1 text-xs uppercase
+                                               tracking-wide text-sp-slate"
+                                        x-text="
+                                            platformLabel(
+                                                preferredVideo().platform
+                                            )
+                                        "
                                     ></p>
 
                                     <p
-                                        class="mt-2 text-xs font-semibold uppercase
-                                               tracking-wide text-sp-burntClay"
+                                        class="mt-2 text-xs font-semibold
+                                               uppercase tracking-wide
+                                               text-sp-burntClay"
                                     >
                                         Recommended
                                     </p>
@@ -195,26 +281,71 @@
                                         :href="preferredVideo().url"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        class="inline-flex items-center gap-1.5 rounded-md
-                                               bg-sp-charcoal px-3 py-2 text-xs
-                                               font-semibold text-sp-warmIvory
-                                               transition-colors hover:bg-[#9B5C3A]"
+                                        class="inline-flex items-center gap-1.5
+                                               rounded-md bg-sp-charcoal
+                                               px-3 py-2 text-xs font-semibold
+                                               text-sp-warmIvory
+                                               transition-colors
+                                               hover:bg-sp-burntClay"
                                     >
-                                        <x-icons.external-link class="h-3 w-3" />
+                                        <x-icons.external-link
+                                            class="h-3 w-3"
+                                        />
+
                                         Open
                                     </a>
 
                                     <button
                                         type="button"
-                                        @click="copyVideoUrl(preferredVideo().url)"
-                                        class="inline-flex items-center gap-1.5 rounded-md
-                                               border border-sp-warmStone
-                                               bg-sp-warmIvory px-3 py-2 text-xs
-                                               font-semibold text-sp-charcoal
-                                               transition-colors hover:bg-sp-limestone"
+                                        @click="
+                                            copyVideoUrl(
+                                                preferredVideo().url,
+                                                preferredVideo().id
+                                            )
+                                        "
+                                        :class="{
+                                            'scale-[1.03] brightness-110':
+                                                copiedAction ===
+                                                    `video-${preferredVideo().id}`
+                                        }"
+                                        class="inline-flex items-center gap-1.5
+                                               rounded-md border
+                                               border-sp-warmStone
+                                               bg-sp-warmIvory px-3 py-2
+                                               text-xs font-semibold
+                                               text-sp-charcoal transition
+                                               duration-200
+                                               hover:bg-sp-limestone"
                                     >
-                                        <x-icons.copy class="h-3 w-3" />
-                                        Copy Link
+                                        <span
+                                            class="relative h-3 w-3 shrink-0"
+                                        >
+                                            <x-icons.copy
+                                                x-show="
+                                                    copiedAction !==
+                                                        `video-${preferredVideo().id}`
+                                                "
+                                                class="absolute inset-0 h-3 w-3"
+                                            />
+
+                                            <x-icons.check
+                                                x-show="
+                                                    copiedAction ===
+                                                        `video-${preferredVideo().id}`
+                                                "
+                                                x-cloak
+                                                class="absolute inset-0 h-3 w-3"
+                                            />
+                                        </span>
+
+                                        <span
+                                            x-text="
+                                                copiedAction ===
+                                                    `video-${preferredVideo().id}`
+                                                    ? 'Copied'
+                                                    : 'Copy Link'
+                                            "
+                                        ></span>
                                     </button>
                                 </div>
                             </div>
@@ -238,16 +369,18 @@
                                 :key="video.id"
                             >
                                 <div
-                                    class="rounded-md border border-sp-warmStone
+                                    class="rounded-md border
+                                           border-sp-warmStone
                                            bg-sp-limestone p-4"
                                 >
                                     <div
-                                        class="flex items-start justify-between
-                                               gap-4"
+                                        class="flex items-start
+                                               justify-between gap-4"
                                     >
                                         <div class="min-w-0">
                                             <p
-                                                class="font-semibold text-sp-charcoal"
+                                                class="font-semibold
+                                                       text-sp-charcoal"
                                                 x-text="
                                                     video.creator
                                                     ?? 'Untitled Video'
@@ -256,8 +389,13 @@
 
                                             <p
                                                 class="mt-1 text-xs uppercase
-                                                       tracking-wide text-sp-slate"
-                                                x-text="platformLabel(video.platform)"
+                                                       tracking-wide
+                                                       text-sp-slate"
+                                                x-text="
+                                                    platformLabel(
+                                                        video.platform
+                                                    )
+                                                "
                                             ></p>
                                         </div>
 
@@ -272,30 +410,71 @@
                                                        text-xs font-semibold
                                                        text-sp-warmIvory
                                                        transition-colors
-                                                       hover:bg-[#9B5C3A]"
+                                                       hover:bg-sp-burntClay"
                                             >
                                                 <x-icons.external-link
                                                     class="h-3 w-3"
                                                 />
+
                                                 Open
                                             </a>
 
                                             <button
                                                 type="button"
-                                                @click="copyVideoUrl(video.url)"
+                                                @click="
+                                                    copyVideoUrl(
+                                                        video.url,
+                                                        video.id
+                                                    )
+                                                "
+                                                :class="{
+                                                    'scale-[1.03] brightness-110':
+                                                        copiedAction ===
+                                                            `video-${video.id}`
+                                                }"
                                                 class="inline-flex items-center
                                                        gap-1.5 rounded-md
-                                                       border border-sp-warmStone
-                                                       bg-sp-warmIvory px-3 py-2
-                                                       text-xs font-semibold
+                                                       border
+                                                       border-sp-warmStone
+                                                       bg-sp-warmIvory
+                                                       px-3 py-2 text-xs
+                                                       font-semibold
                                                        text-sp-charcoal
-                                                       transition-colors
+                                                       transition duration-200
                                                        hover:bg-white"
                                             >
-                                                <x-icons.copy
-                                                    class="h-3 w-3"
-                                                />
-                                                Copy Link
+                                                <span
+                                                    class="relative h-3 w-3
+                                                           shrink-0"
+                                                >
+                                                    <x-icons.copy
+                                                        x-show="
+                                                            copiedAction !==
+                                                                `video-${video.id}`
+                                                        "
+                                                        class="absolute inset-0
+                                                               h-3 w-3"
+                                                    />
+
+                                                    <x-icons.check
+                                                        x-show="
+                                                            copiedAction ===
+                                                                `video-${video.id}`
+                                                        "
+                                                        x-cloak
+                                                        class="absolute inset-0
+                                                               h-3 w-3"
+                                                    />
+                                                </span>
+
+                                                <span
+                                                    x-text="
+                                                        copiedAction ===
+                                                            `video-${video.id}`
+                                                            ? 'Copied'
+                                                            : 'Copy Link'
+                                                    "
+                                                ></span>
                                             </button>
                                         </div>
                                     </div>
@@ -304,6 +483,7 @@
                         </div>
                     </template>
 
+                    {{-- No videos --}}
                     <template
                         x-if="
                             ! selectedBehavior.videos
@@ -317,6 +497,7 @@
                         </div>
                     </template>
 
+                    {{-- Preferred video only --}}
                     <template
                         x-if="
                             preferredVideo()
