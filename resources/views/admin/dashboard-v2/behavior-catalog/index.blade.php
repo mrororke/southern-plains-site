@@ -18,7 +18,7 @@
         </a>
     </div>
     <div> <!-- FILTER AREA -->
-        <form id="catalog-filter-form" method="GET" action="{{ route('admin.behavior-catalog.index') }}"
+        <form id="catalog-filter-form" method="GET" action="{{ route('admin-v2.behavior-catalog.index') }}"
             class="mb-6  p-4">
 
             <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
