@@ -37,4 +37,5 @@
     </div>
 
 </body>
+@stack('scripts')
 </html>

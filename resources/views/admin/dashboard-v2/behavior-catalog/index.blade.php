@@ -1,7 +1,4 @@
-@vite('resources/js/admin/trick-catalog/index.js')
-@vite('resources/js/admin/behavior-catalog/index.js')
 @extends('admin.dashboard-v2.desktop')
-
 @section('title', 'Behavior Catalog')
 
 @section('content')
@@ -34,7 +31,7 @@
     </div>
     <!-- FILTER AREA -->
         <form id="catalog-filter-form" method="GET" action="{{ route('admin-v2.behavior-catalog.index') }}"
-            class="mb-6 rounded-md bg-sp-limestone p-4">
+            class="mb-6 rounded-md bg-sp-warmIvory p-4">
 
             <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
 
@@ -251,3 +248,10 @@
 </div><!--  End Dashboard content -->
 
 @endsection
+
+@push('scripts')
+    @vite([
+        'resources/js/admin/trick-catalog/index.js',
+        'resources/js/admin/behavior-catalog/index.js',
+    ])
+@endpush
