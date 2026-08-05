@@ -515,6 +515,11 @@ class TrickCatalogController extends Controller
         $perPage = $isMobile ? 15 : 25;
 
         $tricks = $query
+            ->with([
+                'levels',
+                'videos',
+            ])
+            ->withCount('videos')
             ->paginate($perPage)
             ->withQueryString();
 
