@@ -161,7 +161,7 @@
                     || request()->filled('sort'))
 
                     <a
-                        href="{{ route('admin.behavior-catalog.index') }}"
+                        href="{{ route('admin-v2.behavior-catalog.index') }}"
                         class="inline-flex items-center justify-center rounded-md
                                 border border-sp-limestone bg-sp-warmIvory px-4 py-2
                                 text-sm font-medium text-sp-prairieGreen
