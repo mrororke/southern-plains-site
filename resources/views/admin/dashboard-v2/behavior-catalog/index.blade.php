@@ -156,7 +156,7 @@
                     @if(request()->filled('search')
                     || request()->filled('level')
                     || request()->filled('platform')
-                    || request()->filled('is_preferred')
+                    || request()->filled('preferred')
                     || request()->filled('notes')
                     || request()->filled('sort'))
 
