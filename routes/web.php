@@ -242,6 +242,12 @@ Route::middleware(['auth', 'device'])
     ->name('admin-v2.')
     ->group(function () {
 
+        /*
+        |--------------------------------------------------------------------------
+        | Dashboard
+        |--------------------------------------------------------------------------
+        */
+
         Route::get('/dashboard', function () {
             $isMobile = request()->attributes->get('isMobile', false);
 
@@ -262,10 +268,22 @@ Route::middleware(['auth', 'device'])
             );
         })->name('dashboard');
 
+        /*
+        |--------------------------------------------------------------------------
+        | Global Search
+        |--------------------------------------------------------------------------
+        */
+
         Route::get(
             'search',
             [BackendSearchController::class, 'index']
         )->name('search');
+
+        /*
+        |--------------------------------------------------------------------------
+        | Behavior Catalog
+        |--------------------------------------------------------------------------
+        */
 
         Route::get(
             'behavior-catalog',
@@ -273,9 +291,37 @@ Route::middleware(['auth', 'device'])
         )->name('behavior-catalog.index');
 
         Route::get(
+            'behavior-catalog/create',
+            [TrickCatalogController::class, 'behaviorCreate']
+        )->name('behavior-catalog.create');
+
+        Route::post(
+            'behavior-catalog',
+            [TrickCatalogController::class, 'behaviorStore']
+        )->name('behavior-catalog.store');
+
+        Route::get(
+            'behavior-catalog/video-row',
+            function () {
+                return view(
+                    'admin.dashboard-v2.behavior-catalog.partials.video-row',
+                    [
+                        'index' => request('index'),
+                    ]
+                );
+            }
+        )->name('behavior-catalog.video-row');
+
+        Route::post(
+            'behavior-catalog/check-video',
+            [TrickCatalogController::class, 'checkVideo']
+        )->name('behavior-catalog.check-video');
+
+        Route::get(
             'behavior-catalog/{trick}',
             [TrickCatalogController::class, 'behaviorShow']
         )->name('behavior-catalog.show');
+
     });
 
 /*
