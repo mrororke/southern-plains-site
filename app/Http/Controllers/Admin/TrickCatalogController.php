@@ -601,6 +601,31 @@ class TrickCatalogController extends Controller
     }
 
     /*
+|--------------------------------------------------------------------------
+| BEHAVIOR EDIT - DASHBOARD V2
+|--------------------------------------------------------------------------
+*/
+
+    public function behaviorEdit(Trick $trick)
+    {
+        $levels = TrickLevel::orderByRaw('LOWER(name)')->get();
+
+        $trick->load([
+            'levels',
+            'videos',
+        ]);
+
+        return view(
+            'admin.dashboard-v2.behavior-catalog.edit',
+            [
+                'navigation' => \App\Navigation\AdminNavigation::items(),
+                'trick' => $trick,
+                'levels' => $levels,
+            ]
+        );
+    }
+
+    /*
     |--------------------------------------------------------------------------
     | BEHAVIOR STORE - DASHBOARD V2
     |--------------------------------------------------------------------------
@@ -657,9 +682,7 @@ class TrickCatalogController extends Controller
                     'url' => $url,
                     'platform' => $video['platform'] ?? 'unknown',
                     'creator' => $video['creator'] ?? null,
-                    'is_preferred' => ! empty(
-                        $video['is_preferred']
-                    ),
+                    'is_preferred' => ! empty($video['is_preferred']),
                     'created_by' => auth()->id(),
                 ]);
             }
