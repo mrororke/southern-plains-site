@@ -54,16 +54,7 @@
         method="POST"
         action="{{ route('admin-v2.behavior-catalog.store') }}"
         class="max-w-5xl"
-    ><a
-                href="{{ route('admin-v2.behavior-catalog.index') }}"
-                class="mb-2 inline-flex items-center gap-1.5 text-sm
-                       font-semibold text-sp-prairieGreen
-                       transition-colors hover:text-sp-prairieOchre"
-            >
-                <x-icons.chevron-left class="h-4 w-4" />
-
-                Behavior Catalog
-            </a>
+    >
         @csrf
 
         {{-- Behavior details --}}
