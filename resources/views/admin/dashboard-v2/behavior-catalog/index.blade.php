@@ -12,7 +12,7 @@
     </div>
     <div class="flex justify-between items-center mb-6">
         <h1 class="font-sans text-sp-charcoal font-semibold text-6xl">Behavior Catalog</h1>
-        <a href="{{ route('admin-v2.trick-catalog.create') }}"
+        <a href="{{ route('admin-v2.behavior-catalog.create') }}"
             class="inline-flex items-center justify-center rounded-md
                 bg-sp-prairieGreen px-4 py-2 text-sm font-medium text-sp-warmIvory transition-colors duration-200 hover:bg-sp-prairieOchre">
             + New Behavior
