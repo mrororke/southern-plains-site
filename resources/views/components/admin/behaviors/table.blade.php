@@ -30,7 +30,7 @@
             </td>
             <td class="p-3 text-center">
                 <a
-    href="{{ route('admin-v2.behavior-catalog.edit', $behavior) }}"
+    href="{{ route('admin-v2.behavior-catalog.edit', $trick) }}"
     class="inline-flex items-center justify-center rounded-md
            bg-sp-prairieGreen px-4 py-2 text-sm font-medium
            text-sp-warmIvory transition-colors duration-200
