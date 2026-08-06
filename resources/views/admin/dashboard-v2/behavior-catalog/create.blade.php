@@ -11,17 +11,7 @@
     {{-- Page header --}}
     <div class="mb-6 flex items-start justify-between gap-6">
         <div>
-            <a
-                href="{{ route('admin-v2.behavior-catalog.index') }}"
-                class="mb-2 inline-flex items-center gap-1.5 text-sm
-                       font-semibold text-sp-prairieGreen
-                       transition-colors hover:text-sp-prairieOchre"
-            >
-                <x-icons.chevron-left class="h-4 w-4" />
-
-                Behavior Catalog
-            </a>
-
+            
             <h1 class="font-sans text-6xl font-semibold text-sp-charcoal">
                 Create Behavior
             </h1>
@@ -64,7 +54,16 @@
         method="POST"
         action="{{ route('admin-v2.behavior-catalog.store') }}"
         class="max-w-5xl"
-    >
+    ><a
+                href="{{ route('admin-v2.behavior-catalog.index') }}"
+                class="mb-2 inline-flex items-center gap-1.5 text-sm
+                       font-semibold text-sp-prairieGreen
+                       transition-colors hover:text-sp-prairieOchre"
+            >
+                <x-icons.chevron-left class="h-4 w-4" />
+
+                Behavior Catalog
+            </a>
         @csrf
 
         {{-- Behavior details --}}
@@ -81,7 +80,7 @@
                 </p>
 
                 <h2 class="mt-1 font-sans text-3xl font-semibold text-sp-charcoal">
-                    Core information
+                    Core Information
                 </h2>
             </div>
 
