@@ -9,19 +9,16 @@
 <div class="dashboard-content">
 
     {{-- Page header --}}
-    <div class="mb-6 flex items-start justify-between gap-6">
-        <div>
-            
-            <h1 class="font-sans text-6xl font-semibold text-sp-charcoal">
-                Create Behavior
-            </h1>
+    <header class="mb-6">
+        <h1 class="font-sans text-6xl font-semibold text-sp-charcoal">
+            Create Behavior
+        </h1>
 
-            <p class="mt-2 max-w-2xl text-sm text-sp-slate">
-                Add the behavior details, assign categories, and include any
-                helpful video resources.
-            </p>
-        </div>
-    </div>
+        <p class="mt-2 max-w-3xl text-sm text-sp-slate">
+            Add the behavior details, assign categories, and include any
+            helpful video resources.
+        </p>
+    </header>
 
     {{-- Validation summary --}}
     @if($errors->any())
@@ -40,7 +37,10 @@
                         Please review the form.
                     </h2>
 
-                    <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-sp-slate">
+                    <ul
+                        class="mt-2 list-disc space-y-1 pl-5
+                               text-sm text-sp-slate"
+                    >
                         @foreach($errors->all() as $error)
                             <li>{{ $error }}</li>
                         @endforeach
@@ -53,11 +53,11 @@
     <form
         method="POST"
         action="{{ route('admin-v2.behavior-catalog.store') }}"
-        class="max-w-5xl"
+        class="w-full"
     >
         @csrf
 
-        {{-- Behavior details --}}
+        {{-- Core information --}}
         <section
             class="mb-6 rounded-md border border-sp-warmStone
                    bg-sp-warmIvory p-6"
@@ -70,7 +70,10 @@
                     Behavior Details
                 </p>
 
-                <h2 class="mt-1 font-sans text-3xl font-semibold text-sp-charcoal">
+                <h2
+                    class="mt-1 font-sans text-3xl font-semibold
+                           text-sp-charcoal"
+                >
                     Core Information
                 </h2>
             </div>
@@ -120,7 +123,8 @@
                     <div
                         class="grid gap-2 rounded-md border
                                border-sp-warmStone bg-white p-4
-                               md:grid-cols-2 xl:grid-cols-3"
+                               sm:grid-cols-2 lg:grid-cols-3
+                               xl:grid-cols-4"
                     >
                         @foreach($levels as $level)
                             @php
@@ -168,28 +172,45 @@
                     @enderror
                 </fieldset>
 
-                {{-- Notes --}}
-                <div>
-                    <label
-                        class="mb-1 block text-xs font-semibold uppercase
-                               tracking-wide text-sp-slate"
-                    >
-                        Notes
-                    </label>
-
-                    <div
-                        id="notes-editor"
-                        data-value="{{ old('notes') }}"
-                    ></div>
-
-                    @error('notes')
-                        <p class="mt-1 text-sm text-sp-burntClay">
-                            {{ $message }}
-                        </p>
-                    @enderror
-                </div>
-
             </div>
+        </section>
+
+        {{-- Notes --}}
+        <section
+            class="mb-6 rounded-md border border-sp-warmStone
+                   bg-sp-warmIvory p-6"
+        >
+            <div class="mb-6">
+                <p
+                    class="font-display text-sm uppercase tracking-wide
+                           text-sp-burntClay"
+                >
+                    Teaching Information
+                </p>
+
+                <h2
+                    class="mt-1 font-sans text-3xl font-semibold
+                           text-sp-charcoal"
+                >
+                    Notes
+                </h2>
+
+                <p class="mt-1 text-sm text-sp-slate">
+                    Add teaching instructions, reminders, prerequisites, or
+                    other useful context.
+                </p>
+            </div>
+
+            <div
+                id="notes-editor"
+                data-value="{{ old('notes') }}"
+            ></div>
+
+            @error('notes')
+                <p class="mt-2 text-sm text-sp-burntClay">
+                    {{ $message }}
+                </p>
+            @enderror
         </section>
 
         {{-- Videos --}}
@@ -216,7 +237,7 @@
                         Videos
                     </h2>
 
-                    <p class="mt-1 text-sm text-sp-slate">
+                    <p class="mt-1 max-w-3xl text-sm text-sp-slate">
                         Add training videos and choose one preferred resource
                         when appropriate.
                     </p>
@@ -243,9 +264,11 @@
                         [
                             'index' => $index,
                             'url' => $video['url'] ?? '',
-                            'currentPlatform' => $video['platform'] ?? 'unknown',
+                            'currentPlatform' =>
+                                $video['platform'] ?? 'unknown',
                             'creator' => $video['creator'] ?? '',
-                            'isPreferred' => ! empty($video['is_preferred']),
+                            'isPreferred' =>
+                                ! empty($video['is_preferred']),
                         ]
                     )
                 @endforeach
@@ -256,8 +279,9 @@
                 class="rounded-md bg-sp-limestone px-5 py-4
                        text-sm text-sp-slate"
             >
-                No videos added yet. Select <strong>Add Video</strong> to
-                include a resource.
+                No videos added yet. Select
+                <strong>Add Video</strong>
+                to include a resource.
             </div>
 
             @error('videos')
