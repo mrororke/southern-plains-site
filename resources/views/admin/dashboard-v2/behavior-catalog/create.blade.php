@@ -112,65 +112,22 @@
                 </div>
 
                 {{-- Categories --}}
-                <fieldset>
-                    <legend
-                        class="mb-2 text-xs font-semibold uppercase
-                               tracking-wide text-sp-slate"
-                    >
-                        Categories
-                    </legend>
+<x-admin.forms.category-selector
+    :levels="$levels"
+    :selected="old('levels', [])"
+>
+    @error('levels')
+        <p class="mt-1 text-sm text-sp-burntClay">
+            {{ $message }}
+        </p>
+    @enderror
 
-                    <div
-                        class="grid gap-2 rounded-md border
-                               border-sp-warmStone bg-white p-4
-                               sm:grid-cols-2 lg:grid-cols-3
-                               xl:grid-cols-4"
-                    >
-                        @foreach($levels as $level)
-                            @php
-                                $formattedLevel = ucwords(
-                                    str_replace('_', ' ', $level->name)
-                                );
-                            @endphp
-
-                            <label
-                                class="flex cursor-pointer items-start gap-2
-                                       rounded-md px-3 py-2 text-sm
-                                       text-sp-charcoal transition-colors
-                                       hover:bg-sp-limestone"
-                            >
-                                <input
-                                    type="checkbox"
-                                    name="levels[]"
-                                    value="{{ $level->id }}"
-                                    @checked(
-                                        in_array(
-                                            $level->id,
-                                            old('levels', [])
-                                        )
-                                    )
-                                    class="mt-0.5 rounded border-sp-slate
-                                           text-sp-prairieGreen
-                                           focus:ring-sp-prairieGreen"
-                                >
-
-                                <span>{{ $formattedLevel }}</span>
-                            </label>
-                        @endforeach
-                    </div>
-
-                    @error('levels')
-                        <p class="mt-1 text-sm text-sp-burntClay">
-                            {{ $message }}
-                        </p>
-                    @enderror
-
-                    @error('levels.*')
-                        <p class="mt-1 text-sm text-sp-burntClay">
-                            {{ $message }}
-                        </p>
-                    @enderror
-                </fieldset>
+    @error('levels.*')
+        <p class="mt-1 text-sm text-sp-burntClay">
+            {{ $message }}
+        </p>
+    @enderror
+</x-admin.forms.category-selector>
 
             </div>
         </section>
