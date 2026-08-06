@@ -405,82 +405,268 @@ class TrickCatalogController extends Controller
         ]);
     }
 
-/*
-|--------------------------------------------------------------------------
-| BEHAVIOR CREATE - DASHBOARD V2
-|--------------------------------------------------------------------------
-*/
-public function behaviorCreate()
-{
-    $levels = TrickLevel::orderByRaw('LOWER(name)')->get();
+    /*
+    |--------------------------------------------------------------------------
+    | BEHAVIOR CATALOG - DASHBOARD V2
+    |--------------------------------------------------------------------------
+    */
 
-    return view(
-        'admin.dashboard-v2.behavior-catalog.create',
-        [
-            'navigation' => \App\Navigation\AdminNavigation::items(),
-            'levels' => $levels,
-        ]
-    );
-}
+    public function behaviorCatalog(Request $request)
+    {
+        $levels = TrickLevel::orderByRaw('LOWER(name)')->get();
 
-/*
-|--------------------------------------------------------------------------
-| BEHAVIOR STORE - DASHBOARD V2
-|--------------------------------------------------------------------------
-*/
-public function behaviorStore(Request $request)
-{
-    $validated = $request->validate([
-        'name' => 'required|string',
-        'levels' => 'nullable|array',
-        'levels.*' => 'exists:trick_levels,id',
-        'notes' => 'nullable|string',
-        'videos' => 'nullable|array',
+        $query = Trick::query()
+            ->with(['videos', 'levels']);
 
-        'videos.*.url' => 'nullable|url',
-        'videos.*.platform' => 'nullable|string',
-        'videos.*.creator' => 'nullable|string',
-        'videos.*.is_preferred' => 'nullable',
-    ]);
+        /*
+        |--------------------------------------------------------------------------
+        | Search
+        |--------------------------------------------------------------------------
+        */
 
-    DB::transaction(function () use ($validated, $request) {
-        $behavior = Trick::create([
-            'name' => $validated['name'],
-            'notes' => $validated['notes'] ?? null,
-            'created_by' => auth()->id(),
+        if ($request->filled('search')) {
+            $search = trim($request->search);
+
+            $query->where(function ($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                    ->orWhere('notes', 'like', "%{$search}%")
+                    ->orWhereHas('videos', function ($video) use ($search) {
+                        $video->where('creator', 'like', "%{$search}%");
+                    });
+            });
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Category Filter
+        |--------------------------------------------------------------------------
+        */
+
+        if ($request->filled('level')) {
+            if ($request->level === 'none') {
+                $query->doesntHave('levels');
+            } else {
+                $query->whereHas('levels', function ($q) use ($request) {
+                    $q->where('trick_levels.id', $request->level);
+                });
+            }
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Platform Filter
+        |--------------------------------------------------------------------------
+        */
+
+        if ($request->filled('platform')) {
+            $query->whereHas('videos', function ($q) use ($request) {
+                $q->where('platform', $request->platform);
+            });
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Preferred Video Filter
+        |--------------------------------------------------------------------------
+        */
+
+        if ($request->preferred === 'yes') {
+            $query->whereHas('videos', function ($q) {
+                $q->where('is_preferred', true);
+            });
+        } elseif ($request->preferred === 'no') {
+            $query->whereDoesntHave('videos', function ($q) {
+                $q->where('is_preferred', true);
+            });
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Notes Filter
+        |--------------------------------------------------------------------------
+        */
+
+        if ($request->notes === 'has') {
+            $query->whereNotNull('notes')
+                ->where('notes', '!=', '');
+        } elseif ($request->notes === 'missing') {
+            $query->where(function ($q) {
+                $q->whereNull('notes')
+                    ->orWhere('notes', '');
+            });
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Sorting
+        |--------------------------------------------------------------------------
+        */
+
+        switch ($request->sort) {
+            case 'name_desc':
+                $query->orderByRaw('LOWER(name) DESC');
+                break;
+
+            case 'newest':
+                $query->latest();
+                break;
+
+            case 'oldest':
+                $query->oldest();
+                break;
+
+            case 'videos':
+                $query->withCount('videos')
+                    ->orderByDesc('videos_count');
+                break;
+
+            default:
+                $query->orderByRaw('LOWER(name) ASC');
+                break;
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Device-Specific Pagination and View
+        |--------------------------------------------------------------------------
+        */
+
+        $isMobile = request()->attributes->get('isMobile', false);
+
+        $perPage = $isMobile ? 15 : 25;
+
+        $tricks = $query
+            ->with([
+                'levels',
+                'videos',
+            ])
+            ->withCount('videos')
+            ->paginate($perPage)
+            ->withQueryString();
+
+        return view(
+            $isMobile
+                ? 'admin.dashboard-v2.mobile.behavior-catalog.index'
+                : 'admin.dashboard-v2.behavior-catalog.index',
+            [
+                'navigation' => \App\Navigation\AdminNavigation::items(),
+                'tricks' => $tricks,
+                'levels' => $levels,
+            ]
+        );
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | BEHAVIOR DISPLAY - DASHBOARD V2 MOBILE
+    |--------------------------------------------------------------------------
+    */
+
+    public function behaviorShow(Trick $trick)
+    {
+        $trick->load([
+            'levels',
+            'videos',
+            'preferredVideo',
+            'creator',
+            'updater',
         ]);
 
-        $behavior->levels()->sync($validated['levels'] ?? []);
+        return view(
+            'admin.dashboard-v2.mobile.behavior-catalog.show',
+            [
+                'navigation' => \App\Navigation\AdminNavigation::items(),
+                'behavior' => $trick,
+            ]
+        );
+    }
 
-        foreach ($request->videos ?? [] as $video) {
-            if (empty($video['url'])) {
-                continue;
-            }
+    /*
+    |--------------------------------------------------------------------------
+    | BEHAVIOR CREATE - DASHBOARD V2
+    |--------------------------------------------------------------------------
+    */
 
-            $url = TrickVideoService::normalizeUrl($video['url']);
+    public function behaviorCreate()
+    {
+        $levels = TrickLevel::orderByRaw('LOWER(name)')->get();
 
-            $exists = TrickVideo::where('trick_id', $behavior->id)
-                ->where('url', $url)
-                ->exists();
+        return view(
+            'admin.dashboard-v2.behavior-catalog.create',
+            [
+                'navigation' => \App\Navigation\AdminNavigation::items(),
+                'levels' => $levels,
+            ]
+        );
+    }
 
-            if ($exists) {
-                continue;
-            }
+    /*
+    |--------------------------------------------------------------------------
+    | BEHAVIOR STORE - DASHBOARD V2
+    |--------------------------------------------------------------------------
+    */
 
-            TrickVideo::create([
-                'trick_id' => $behavior->id,
-                'url' => $url,
-                'platform' => $video['platform'] ?? 'unknown',
-                'creator' => $video['creator'] ?? null,
-                'is_preferred' => ! empty($video['is_preferred']),
+    public function behaviorStore(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string',
+            'levels' => 'nullable|array',
+            'levels.*' => 'exists:trick_levels,id',
+            'notes' => 'nullable|string',
+            'videos' => 'nullable|array',
+
+            'videos.*.url' => 'nullable|url',
+            'videos.*.platform' => 'nullable|string',
+            'videos.*.creator' => 'nullable|string',
+            'videos.*.is_preferred' => 'nullable',
+        ]);
+
+        DB::transaction(function () use ($validated, $request) {
+            $behavior = Trick::create([
+                'name' => $validated['name'],
+                'notes' => $validated['notes'] ?? null,
                 'created_by' => auth()->id(),
             ]);
-        }
-    });
 
-    return redirect()
-        ->route('admin-v2.behavior-catalog.index')
-        ->with('success', 'Behavior created.');
-}
+            $behavior->levels()->sync(
+                $validated['levels'] ?? []
+            );
 
+            foreach ($request->videos ?? [] as $video) {
+                if (empty($video['url'])) {
+                    continue;
+                }
+
+                $url = TrickVideoService::normalizeUrl(
+                    $video['url']
+                );
+
+                $exists = TrickVideo::where(
+                    'trick_id',
+                    $behavior->id
+                )
+                    ->where('url', $url)
+                    ->exists();
+
+                if ($exists) {
+                    continue;
+                }
+
+                TrickVideo::create([
+                    'trick_id' => $behavior->id,
+                    'url' => $url,
+                    'platform' => $video['platform'] ?? 'unknown',
+                    'creator' => $video['creator'] ?? null,
+                    'is_preferred' => ! empty(
+                        $video['is_preferred']
+                    ),
+                    'created_by' => auth()->id(),
+                ]);
+            }
+        });
+
+        return redirect()
+            ->route('admin-v2.behavior-catalog.index')
+            ->with('success', 'Behavior created.');
+    }
 }
