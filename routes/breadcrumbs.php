@@ -11,7 +11,10 @@ use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 */
 
 Breadcrumbs::for('admin-v2.dashboard', function (BreadcrumbTrail $trail) {
-    $trail->push('Dashboard', route('admin-v2.dashboard'));
+    $trail->push(
+        'Dashboard',
+        route('admin-v2.dashboard')
+    );
 });
 
 /*
@@ -20,14 +23,17 @@ Breadcrumbs::for('admin-v2.dashboard', function (BreadcrumbTrail $trail) {
 |--------------------------------------------------------------------------
 */
 
-Breadcrumbs::for('admin-v2.behavior-catalog.index', function (BreadcrumbTrail $trail) {
-    $trail->parent('admin-v2.dashboard');
+Breadcrumbs::for(
+    'admin-v2.behavior-catalog.index',
+    function (BreadcrumbTrail $trail) {
+        $trail->parent('admin-v2.dashboard');
 
-    $trail->push(
-        'Behavior Catalog',
-        route('admin-v2.behavior-catalog.index')
-    );
-});
+        $trail->push(
+            'Behavior Catalog',
+            route('admin-v2.behavior-catalog.index')
+        );
+    }
+);
 
 /*
 |--------------------------------------------------------------------------
@@ -35,14 +41,14 @@ Breadcrumbs::for('admin-v2.behavior-catalog.index', function (BreadcrumbTrail $t
 |--------------------------------------------------------------------------
 */
 
-Breadcrumbs::for('admin-v2.behavior-catalog.create', function (BreadcrumbTrail $trail) {
-    $trail->parent('admin-v2.behavior-catalog.index');
+Breadcrumbs::for(
+    'admin-v2.behavior-catalog.create',
+    function (BreadcrumbTrail $trail) {
+        $trail->parent('admin-v2.behavior-catalog.index');
 
-    $trail->push(
-        'New Behavior',
-        route('admin-v2.behavior-catalog.create')
-    );
-});
+        $trail->push('New Behavior');
+    }
+);
 
 /*
 |--------------------------------------------------------------------------
@@ -53,9 +59,29 @@ Breadcrumbs::for('admin-v2.behavior-catalog.create', function (BreadcrumbTrail $
 Breadcrumbs::for(
     'admin-v2.behavior-catalog.show',
     function (BreadcrumbTrail $trail, Trick $trick) {
-
         $trail->parent('admin-v2.behavior-catalog.index');
 
-        $trail->push($trick->name);
+        $trail->push(
+            $trick->name,
+            route('admin-v2.behavior-catalog.show', $trick)
+        );
+    }
+);
+
+/*
+|--------------------------------------------------------------------------
+| Edit Behavior
+|--------------------------------------------------------------------------
+*/
+
+Breadcrumbs::for(
+    'admin-v2.behavior-catalog.edit',
+    function (BreadcrumbTrail $trail, Trick $trick) {
+        $trail->parent(
+            'admin-v2.behavior-catalog.show',
+            $trick
+        );
+
+        $trail->push('Edit');
     }
 );

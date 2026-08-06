@@ -29,12 +29,15 @@
                 {{ $trick->videos->count() }}
             </td>
             <td class="p-3 text-center">
-                <a href="#"
-                    class="inline-flex items-center justify-center rounded-md
-                                    bg-sp-prairieGreen px-4 py-2 text-sm font-medium text-sp-warmIvory
-                                    transition-colors duration-200 hover:bg-sp-prairieOchre">
-                    Edit
-                </a>
+                <a
+    href="{{ route('admin-v2.behavior-catalog.edit', $behavior) }}"
+    class="inline-flex items-center justify-center rounded-md
+           bg-sp-prairieGreen px-4 py-2 text-sm font-medium
+           text-sp-warmIvory transition-colors duration-200
+           hover:bg-sp-prairieOchre"
+>
+    Edit
+</a>
 
                 <button type="button"
                     @click="selectBehavior({

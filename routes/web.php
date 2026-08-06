@@ -318,10 +318,19 @@ Route::middleware(['auth', 'device'])
         )->name('behavior-catalog.check-video');
 
         Route::get(
+            'behavior-catalog/{trick}/edit',
+            [TrickCatalogController::class, 'behaviorEdit']
+        )->name('behavior-catalog.edit');
+
+        Route::put(
+            'behavior-catalog/{trick}',
+            [TrickCatalogController::class, 'behaviorUpdate']
+        )->name('behavior-catalog.update');
+
+        Route::get(
             'behavior-catalog/{trick}',
             [TrickCatalogController::class, 'behaviorShow']
         )->name('behavior-catalog.show');
-
     });
 
 /*
