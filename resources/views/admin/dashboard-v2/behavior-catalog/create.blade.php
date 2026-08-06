@@ -8,47 +8,12 @@
 
 <div class="dashboard-content">
 
-    {{-- Page header --}}
-    <header class="mb-6">
-        <h1 class="font-sans text-6xl font-semibold text-sp-charcoal">
-            Create Behavior
-        </h1>
+    <x-admin.layout.page-header
+        title="Create Behavior"
+        description="Add the behavior details, assign categories, and include any helpful video resources."
+    />
 
-        <p class="mt-2 max-w-3xl text-sm text-sp-slate">
-            Add the behavior details, assign categories, and include any
-            helpful video resources.
-        </p>
-    </header>
-
-    {{-- Validation summary --}}
-    @if($errors->any())
-        <div
-            class="mb-6 rounded-md border border-sp-burntClay
-                   bg-sp-burntClay/10 px-5 py-4"
-            role="alert"
-        >
-            <div class="flex items-start gap-3">
-                <x-icons.circle-alert
-                    class="mt-0.5 h-4 w-4 shrink-0 text-sp-burntClay"
-                />
-
-                <div>
-                    <h2 class="font-semibold text-sp-charcoal">
-                        Please review the form.
-                    </h2>
-
-                    <ul
-                        class="mt-2 list-disc space-y-1 pl-5
-                               text-sm text-sp-slate"
-                    >
-                        @foreach($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            </div>
-        </div>
-    @endif
+    <x-admin.forms.validation-summary />
 
     <form
         method="POST"
@@ -58,26 +23,10 @@
         @csrf
 
         {{-- Core information --}}
-        <section
-            class="mb-6 rounded-md border border-sp-warmStone
-                   bg-sp-warmIvory p-6"
+        <x-admin.forms.section
+            eyebrow="Behavior Details"
+            title="Core Information"
         >
-            <div class="mb-6">
-                <p
-                    class="font-display text-sm uppercase tracking-wide
-                           text-sp-burntClay"
-                >
-                    Behavior Details
-                </p>
-
-                <h2
-                    class="mt-1 font-sans text-3xl font-semibold
-                           text-sp-charcoal"
-                >
-                    Core Information
-                </h2>
-            </div>
-
             <div class="space-y-6">
 
                 {{-- Name --}}
@@ -104,107 +53,48 @@
                                focus:border-sp-charcoal"
                     >
 
-                    @error('name')
-                        <p class="mt-1 text-sm text-sp-burntClay">
-                            {{ $message }}
-                        </p>
-                    @enderror
+                    <x-admin.forms.field-error name="name" />
                 </div>
 
                 {{-- Categories --}}
-<x-admin.forms.category-selector
-    :levels="$levels"
-    :selected="old('levels', [])"
->
-    @error('levels')
-        <p class="mt-1 text-sm text-sp-burntClay">
-            {{ $message }}
-        </p>
-    @enderror
-
-    @error('levels.*')
-        <p class="mt-1 text-sm text-sp-burntClay">
-            {{ $message }}
-        </p>
-    @enderror
-</x-admin.forms.category-selector>
+                <x-admin.forms.category-selector
+                    :levels="$levels"
+                    :selected="old('levels', [])"
+                >
+                    <x-admin.forms.field-error name="levels" />
+                    <x-admin.forms.field-error name="levels.*" />
+                </x-admin.forms.category-selector>
 
             </div>
-        </section>
+        </x-admin.forms.section>
 
         {{-- Notes --}}
-        <section
-            class="mb-6 rounded-md border border-sp-warmStone
-                   bg-sp-warmIvory p-6"
+        <x-admin.forms.section
+            eyebrow="Teaching Information"
+            title="Notes"
+            description="Add teaching instructions, reminders, prerequisites, or other useful context."
         >
-            <div class="mb-6">
-                <p
-                    class="font-display text-sm uppercase tracking-wide
-                           text-sp-burntClay"
-                >
-                    Teaching Information
-                </p>
-
-                <h2
-                    class="mt-1 font-sans text-3xl font-semibold
-                           text-sp-charcoal"
-                >
-                    Notes
-                </h2>
-
-                <p class="mt-1 text-sm text-sp-slate">
-                    Add teaching instructions, reminders, prerequisites, or
-                    other useful context.
-                </p>
-            </div>
-
-            <div
+            <x-admin.forms.rich-text
                 id="notes-editor"
-                data-value="{{ old('notes') }}"
-            ></div>
-
-            @error('notes')
-                <p class="mt-2 text-sm text-sp-burntClay">
-                    {{ $message }}
-                </p>
-            @enderror
-        </section>
+                name="notes"
+                :value="old('notes')"
+            />
+        </x-admin.forms.section>
 
         {{-- Videos --}}
-        <section
-            class="rounded-md border border-sp-warmStone
-                   bg-sp-warmIvory p-6"
+        <x-admin.forms.section
+            eyebrow="Resources"
+            title="Videos"
+            description="Add training videos and choose one preferred resource when appropriate."
+            :header-border="true"
+            class="mb-0"
         >
-            <div
-                class="mb-6 flex items-start justify-between gap-4
-                       border-b border-sp-warmStone pb-4"
-            >
-                <div>
-                    <p
-                        class="font-display text-sm uppercase tracking-wide
-                               text-sp-burntClay"
-                    >
-                        Resources
-                    </p>
-
-                    <h2
-                        class="mt-1 font-sans text-3xl font-semibold
-                               text-sp-charcoal"
-                    >
-                        Videos
-                    </h2>
-
-                    <p class="mt-1 max-w-3xl text-sm text-sp-slate">
-                        Add training videos and choose one preferred resource
-                        when appropriate.
-                    </p>
-                </div>
-
+            <x-slot:actions>
                 <button
                     id="add-video-btn"
                     type="button"
-                    class="inline-flex shrink-0 items-center justify-center
-                           gap-2 rounded-md bg-sp-prairieGreen px-4 py-2
+                    class="inline-flex items-center justify-center gap-2
+                           rounded-md bg-sp-prairieGreen px-4 py-2
                            text-sm font-semibold text-sp-warmIvory
                            transition-colors hover:bg-sp-prairieOchre"
                 >
@@ -212,12 +102,12 @@
 
                     Add Video
                 </button>
-            </div>
+            </x-slot:actions>
 
             <div id="video-container" class="space-y-4">
                 @foreach(old('videos', []) as $index => $video)
                     @include(
-                        'admin.dashboard-v2.behavior-catalog.partials.video-row',
+                        'admin.dashboard.partials.video-row',
                         [
                             'index' => $index,
                             'url' => $video['url'] ?? '',
@@ -241,46 +131,21 @@
                 to include a resource.
             </div>
 
-            @error('videos')
-                <p class="mt-3 text-sm text-sp-burntClay">
-                    {{ $message }}
-                </p>
-            @enderror
+            <x-admin.forms.field-error
+                name="videos"
+                class="mt-3"
+            />
 
-            @error('videos.*.url')
-                <p class="mt-3 text-sm text-sp-burntClay">
-                    {{ $message }}
-                </p>
-            @enderror
-        </section>
+            <x-admin.forms.field-error
+                name="videos.*.url"
+                class="mt-3"
+            />
+        </x-admin.forms.section>
 
-        {{-- Form actions --}}
-        <div
-            class="mt-6 flex items-center justify-end gap-3
-                   border-t border-sp-warmStone pt-6"
-        >
-            <a
-                href="{{ route('admin-v2.behavior-catalog.index') }}"
-                class="inline-flex items-center justify-center rounded-md
-                       border border-sp-warmStone bg-sp-warmIvory
-                       px-4 py-2 text-sm font-semibold text-sp-charcoal
-                       transition-colors hover:bg-sp-limestone"
-            >
-                Cancel
-            </a>
-
-            <button
-                type="submit"
-                class="inline-flex items-center justify-center gap-2
-                       rounded-md bg-sp-prairieGreen px-4 py-2
-                       text-sm font-semibold text-sp-warmIvory
-                       transition-colors hover:bg-sp-prairieOchre"
-            >
-                <x-icons.check class="h-4 w-4" />
-
-                Save Behavior
-            </button>
-        </div>
+        <x-admin.forms.actions
+            :cancel-href="route('admin-v2.behavior-catalog.index')"
+            submit-label="Save Behavior"
+        />
 
     </form>
 </div>
