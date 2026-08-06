@@ -23,6 +23,12 @@
     "src": "resources/js/admin/behavior-catalog/create.js",
     "isEntry": true
   },
+  "resources/js/admin/behavior-catalog/edit.js": {
+    "file": "assets/edit-ClrCzvyi.js",
+    "name": "edit",
+    "src": "resources/js/admin/behavior-catalog/edit.js",
+    "isEntry": true
+  },
   "resources/js/admin/behavior-catalog/index.js": {
     "file": "assets/index-CxnuW8qy.js",
     "name": "index",

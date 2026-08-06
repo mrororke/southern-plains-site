@@ -15,6 +15,7 @@ export default defineConfig({
                 'resources/js/admin/behavior-catalog/index.js',
                 'resources/js/admin/behavior-catalog/show.js',
                 'resources/js/admin/behavior-catalog/create.js',
+                'resources/js/admin/behavior-catalog/edit.js',
             ],
             refresh: true,
         }),
