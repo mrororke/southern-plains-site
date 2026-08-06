@@ -166,7 +166,7 @@
 <form
     id="delete-form"
     method="POST"
-    action="{{ route('admin.behavior-catalog.destroy', $trick) }}"
+    action="{{ route('admin-v2.behavior-catalog.destroy', $trick) }}"
     class="hidden">
     @csrf
     @method('DELETE')
