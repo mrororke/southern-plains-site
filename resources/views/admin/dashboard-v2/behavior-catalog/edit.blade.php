@@ -114,7 +114,7 @@
                 @foreach($trick->videos as $index => $video)
 
                     @include(
-                        'admin.dashboard.partials.video-row',
+                        'admin.dashboard-v2.behavior-catalog.partials.video-row',
                         [
                             'index' => $index,
                             'videoId' => $video->id,
