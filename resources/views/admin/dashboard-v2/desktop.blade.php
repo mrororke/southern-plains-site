@@ -17,7 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js" defer></script>
 </head>
 
-<body 
+<body
     x-data="{ sidebarOpen: false }"
     class="min-h-screen bg-white font-sans antialiased grid grid-cols-12">
 
@@ -30,11 +30,13 @@
         <main class="p-4">
             {{ Breadcrumbs::render() }}
 
-            @yield('content')
+            <x-admin.feedback.flash />
 
+            @yield('content')
         </main>
 
     </div>
 
 </body>
+
 </html>
