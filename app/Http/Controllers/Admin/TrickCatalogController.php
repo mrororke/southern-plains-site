@@ -721,4 +721,128 @@ class TrickCatalogController extends Controller
             ->route('admin-v2.behavior-catalog.index')
             ->with('success', 'Behavior deleted.');
     }
+
+    /*
+|--------------------------------------------------------------------------
+| BEHAVIOR UPDATE - DASHBOARD V2
+|--------------------------------------------------------------------------
+*/
+
+public function behaviorUpdate(Request $request, Trick $trick)
+{
+    $validated = $request->validate([
+        'name' => 'required|string',
+        'levels' => 'nullable|array',
+        'levels.*' => 'exists:trick_levels,id',
+        'notes' => 'nullable|string',
+        'videos' => 'nullable|array',
+
+        'videos.*.id' => 'nullable|exists:trick_videos,id',
+        'videos.*.url' => 'nullable|url',
+        'videos.*.platform' => 'nullable|string',
+        'videos.*.creator' => 'nullable|string',
+        'videos.*.is_preferred' => 'nullable',
+    ]);
+
+    DB::transaction(function () use ($validated, $request, $trick) {
+        $trick->update([
+            'name' => $validated['name'],
+            'notes' => $validated['notes'] ?? null,
+            'updated_by' => auth()->id(),
+        ]);
+
+        $trick->levels()->sync(
+            $validated['levels'] ?? []
+        );
+
+        $submittedVideoIds = [];
+
+        foreach ($request->videos ?? [] as $video) {
+            if (empty($video['url'])) {
+                continue;
+            }
+
+            $url = TrickVideoService::normalizeUrl(
+                $video['url']
+            );
+
+            /*
+            |--------------------------------------------------------------------------
+            | Update Existing Video
+            |--------------------------------------------------------------------------
+            */
+
+            if (! empty($video['id'])) {
+                $record = TrickVideo::where(
+                    'trick_id',
+                    $trick->id
+                )
+                    ->where('id', $video['id'])
+                    ->first();
+
+                if (! $record) {
+                    continue;
+                }
+
+                $record->update([
+                    'url' => $url,
+                    'platform' => $video['platform'] ?? 'unknown',
+                    'creator' => $video['creator'] ?? null,
+                    'is_preferred' => ! empty(
+                        $video['is_preferred']
+                    ),
+                    'updated_by' => auth()->id(),
+                ]);
+
+                $submittedVideoIds[] = $record->id;
+
+                continue;
+            }
+
+            /*
+            |--------------------------------------------------------------------------
+            | Create New Video
+            |--------------------------------------------------------------------------
+            */
+
+            $duplicate = TrickVideo::where(
+                'trick_id',
+                $trick->id
+            )
+                ->where('url', $url)
+                ->exists();
+
+            if ($duplicate) {
+                continue;
+            }
+
+            $newVideo = TrickVideo::create([
+                'trick_id' => $trick->id,
+                'url' => $url,
+                'platform' => $video['platform'] ?? 'unknown',
+                'creator' => $video['creator'] ?? null,
+                'is_preferred' => ! empty(
+                    $video['is_preferred']
+                ),
+                'created_by' => auth()->id(),
+            ]);
+
+            $submittedVideoIds[] = $newVideo->id;
+        }
+
+        /*
+        |--------------------------------------------------------------------------
+        | Delete Removed Videos
+        |--------------------------------------------------------------------------
+        */
+
+        TrickVideo::where('trick_id', $trick->id)
+            ->whereNotIn('id', $submittedVideoIds)
+            ->delete();
+    });
+
+    return redirect()
+        ->route('admin-v2.behavior-catalog.index')
+        ->with('success', 'Behavior updated.');
+}
 }
