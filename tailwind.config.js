@@ -68,10 +68,10 @@ export default {
                     charcoal: "#2E312E",
                     slate: "#66655F",
                     warmStone: "#CFC7B9",
-                    success: "#4E7C59",
-                    warning: "#C58C2A",
-                    error: "#B44B42",
-                    info: "#4D718F",
+                    successGreen: "#4E7C59",
+                    warningOchre: "#C58C2A",
+                    clayRed: "#B44B42",
+                    prairieBlue: "#4D718F",
                 }
             },
 
