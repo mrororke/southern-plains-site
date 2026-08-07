@@ -9,16 +9,16 @@
     <input
         x-ref="searchInput"
         x-model="query"
-        @focus="open = true"
+        @focus="
+            open = true;
+            selectedIndex = -1;
+        "
         id="global-search"
         type="search"
         name="search"
         autocomplete="off"
         spellcheck="false"
         placeholder="Search anything..."
-        x-model="query"
-        @focus="open = query.length >= 2"
-        @input="open = query.length >= 2"
         class="mt-1 block w-full rounded-md
                border border-sp-slate
                bg-transparent
@@ -30,7 +30,8 @@
     >
 
     <div
-        class="pointer-events-none absolute inset-y-0 right-3 flex items-center"
+        class="pointer-events-none absolute inset-y-0 right-3
+               flex items-center"
     >
         <x-icons.search class="h-4 w-4 text-sp-slate" />
     </div>
