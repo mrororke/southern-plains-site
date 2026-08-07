@@ -138,28 +138,17 @@
         </x-admin.forms.section>
 
         {{-- Actions --}}
-        <div
-            class="mt-6 flex items-center justify-between
-           border-t border-sp-warmStone pt-6">
-            <button
-                type="button"
-                onclick="confirmDeleteBehavior()"
-                class="inline-flex items-center justify-center rounded-md
-               border border-sp-clayRed px-4 py-2
-               text-sm font-semibold text-sp-clayRed
-               transition-colors
-               hover:bg-sp-clayRed hover:text-sp-warmIvory">
-                <x-icons.trash-2 class="mr-2 h-4 w-4" />
-
-                Delete Behavior
-            </button>
-
-            <x-admin.forms.actions
-                :cancel-href="route('admin-v2.behavior-catalog.index')"
-                submit-label="Update Behavior" />
-        </div>
+        <x-admin.forms.actions
+            :cancel-href="route('admin-v2.behavior-catalog.index')"
+            submit-label="Update Behavior" />
 
     </form>
+    <x-admin.forms.danger-zone
+    title="Delete Behavior"
+    description="Permanently delete this behavior, including its video resources and category assignments. This action cannot be undone."
+    button-label="Delete Behavior"
+    action="confirmDeleteBehavior()"
+/>
 
 </div>
 
