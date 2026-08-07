@@ -243,6 +243,7 @@
     @keydown.down.prevent="moveSelection(1)"
     @keydown.up.prevent="moveSelection(-1)"
     @keydown.enter.prevent="openSelected()"
+    @click.outside="open = false; selectedIndex = -1"
     class="relative"
 >
     <div @input.debounce.300ms="search()">
@@ -252,7 +253,6 @@
     <div
         x-show="open"
         x-cloak
-        @click.outside="open = false; selectedIndex = -1"
     >
         <x-admin.search.dropdown>
 
