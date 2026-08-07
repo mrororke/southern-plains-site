@@ -14,11 +14,6 @@ use App\Http\Controllers\TrickEvaluationController;
 use App\Http\Controllers\TrickController;
 use App\Http\Controllers\Admin\TrickCatalogController;
 
-use App\Http\Controllers\Admin\TeachingLibrary\ResourceCategoryController;
-use App\Http\Controllers\Admin\TeachingLibrary\ResourceTagController;
-use App\Http\Controllers\Admin\TeachingLibrary\ResourceAudienceController;
-use App\Http\Controllers\Admin\TeachingLibrary\ResourceController;
-
 use App\Http\Controllers\Admin\BackendSearchController;
 
 use App\Http\Controllers\Admin\TrickEvaluationController as AdminTrickEvaluationController;
@@ -213,22 +208,6 @@ Route::middleware(['auth'])
         Route::resource('trick-catalog', TrickCatalogController::class)
             ->except(['show']);
 
-
-        /*
-|--------------------------------------------------------------------------
-| TEACHING LIBRARY
-|--------------------------------------------------------------------------
-*/
-
-        Route::prefix('teaching-library')
-            ->name('teaching-library.')
-            ->group(function () {
-
-                Route::resource('categories', ResourceCategoryController::class);
-                Route::resource('tags', ResourceTagController::class);
-                Route::resource('audiences', ResourceAudienceController::class);
-                Route::resource('resources', ResourceController::class);
-            });
     });   // <-- closes the admin route group
 
 

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\TeachingLibrary\Resource;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -40,9 +39,6 @@ class Trick extends Model
     return $this->belongsToMany(TrickLevel::class, 'trick_level');
 }
 
-public function resources(){
-    return $this->belongsToMany(Resource::class);
-}
 
     /*
     |--------------------------------------------------------------------------
