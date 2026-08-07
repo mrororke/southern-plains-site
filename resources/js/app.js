@@ -18,7 +18,6 @@ import {
 } from './utils/resourceEmailFormatter'
 
 
-
 /*
 |--------------------------------------------------------------------------
 | Alpine
@@ -36,12 +35,15 @@ Alpine.data(
     'behaviorPreview',
     behaviorPreview
 )
- 
+
 Alpine.start()
 
 /*
-LUCIDE ICONS
+|--------------------------------------------------------------------------
+| Lucide Icons
+|--------------------------------------------------------------------------
 */
+
 import { createIcons, icons } from 'lucide';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -56,14 +58,13 @@ document.addEventListener('DOMContentLoaded', () => {
 |--------------------------------------------------------------------------
 */
 
-
-const el = document.getElementById('notes-editor')
-
-if (el) {
-    createApp(AdminEditor, {
-        value: el.dataset.value
-    }).mount(el)
-}
+document
+    .querySelectorAll('[data-admin-rich-text]')
+    .forEach((element) => {
+        createApp(AdminEditor, {
+            value: element.dataset.value ?? ''
+        }).mount(element)
+    })
 
 const resourceEditor = document.getElementById('body-editor')
 
@@ -73,7 +74,12 @@ if (resourceEditor) {
     }).mount(resourceEditor)
 }
 
-// RESOURCE EMAIL FORMATTER
+/*
+|--------------------------------------------------------------------------
+| Resource Email Formatter
+|--------------------------------------------------------------------------
+*/
+
 window.ResourceEmailFormatter = {
     buildBehaviorEmail,
     buildResourceEmail,

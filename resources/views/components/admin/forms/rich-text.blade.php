@@ -18,7 +18,7 @@
 
     <div
         id="{{ $id }}"
-        data-name="{{ $name }}"
+        data-admin-rich-text
         data-value="{{ $value }}"
         {{ $attributes }}
     ></div>
