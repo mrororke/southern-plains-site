@@ -14,6 +14,32 @@ Alpine.data('behaviorCatalog', () => ({
     copiedAction: null,
     copyFeedbackTimer: null,
 
+    init() {
+    const params = new URLSearchParams(window.location.search);
+    const behaviorId = params.get('behavior');
+
+    if (! behaviorId) {
+        return;
+    }
+
+    this.$nextTick(() => {
+        const button = document.querySelector(
+            `[data-behavior-id="${behaviorId}"]`
+        );
+
+        if (! button) {
+            return;
+        }
+
+        button.click();
+
+        button.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+        });
+    });
+},
+
     selectBehavior(behavior) {
         this.selectedBehavior = behavior;
         this.copiedAction = null;

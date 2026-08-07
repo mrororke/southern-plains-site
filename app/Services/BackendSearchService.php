@@ -32,7 +32,7 @@ class BackendSearchService
                     $levels = $behavior->levels
                         ->pluck('name')
                         ->map(
-                            fn ($name) => ucwords(
+                            fn($name) => ucwords(
                                 str_replace('_', ' ', $name)
                             )
                         )
@@ -43,8 +43,11 @@ class BackendSearchService
                         'title' => $behavior->name,
                         'description' => $levels,
                         'url' => route(
-                            'admin-v2.behavior-catalog.show',
-                            $behavior
+                            'admin-v2.behavior-catalog.index',
+                            [
+                                'search' => $behavior->name,
+                                'behavior' => $behavior->id,
+                            ]
                         ),
                     ];
                 });

@@ -58,7 +58,7 @@
                                 border border-sp-limestone bg-sp-warmIvory px-4 py-2
                                 text-sm font-medium text-sp-prairieGreen
                                 transition-colors duration-200 hover:bg-sp-prairieOchre hover:text-sp-warmIvory"
-                    data-id="">
+                    data-behavior-id="{{ $trick->id }}">
                     View
                 </button>
             </td>
