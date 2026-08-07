@@ -327,6 +327,11 @@ Route::middleware(['auth', 'device'])
             [TrickCatalogController::class, 'behaviorUpdate']
         )->name('behavior-catalog.update');
 
+        Route::delete(
+            'behavior-catalog/{trick}',
+            [TrickCatalogController::class, 'behaviorDestroy']
+        )->name('behavior-catalog.destroy');
+
         Route::get(
             'behavior-catalog/{trick}',
             [TrickCatalogController::class, 'behaviorShow']

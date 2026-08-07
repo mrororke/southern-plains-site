@@ -692,4 +692,33 @@ class TrickCatalogController extends Controller
             ->route('admin-v2.behavior-catalog.index')
             ->with('success', 'Behavior created.');
     }
+
+    /*
+|--------------------------------------------------------------------------
+| BEHAVIOR DELETE - DASHBOARD V2
+|--------------------------------------------------------------------------
+*/
+
+    public function behaviorDestroy(Trick $trick)
+    {
+        $user = auth()->user();
+
+        $isInstructor = $user->roles()
+            ->where('slug', 'instructor')
+            ->exists();
+
+        if (! $user->isAdmin() && ! $isInstructor) {
+            abort(403, 'Unauthorized');
+        }
+
+        DB::transaction(function () use ($trick) {
+            $trick->videos()->delete();
+            $trick->levels()->detach();
+            $trick->delete();
+        });
+
+        return redirect()
+            ->route('admin-v2.behavior-catalog.index')
+            ->with('success', 'Behavior deleted.');
+    }
 }
