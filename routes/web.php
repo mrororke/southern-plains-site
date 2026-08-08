@@ -15,6 +15,7 @@ use App\Http\Controllers\TrickController;
 use App\Http\Controllers\Admin\TrickCatalogController;
 
 use App\Http\Controllers\Admin\BackendSearchController;
+use App\Http\Controllers\Admin\ResourceLibrary\ResourceController;
 
 use App\Http\Controllers\Admin\TrickEvaluationController as AdminTrickEvaluationController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
@@ -207,7 +208,6 @@ Route::middleware(['auth'])
 
         Route::resource('trick-catalog', TrickCatalogController::class)
             ->except(['show']);
-
     });   // <-- closes the admin route group
 
 
@@ -315,7 +315,49 @@ Route::middleware(['auth', 'device'])
             'behavior-catalog/{trick}',
             [TrickCatalogController::class, 'behaviorShow']
         )->name('behavior-catalog.show');
+
+        /*
+|--------------------------------------------------------------------------
+| Resource Library
+|--------------------------------------------------------------------------
+*/
+
+        Route::get(
+            'resource-library',
+            [ResourceController::class, 'index']
+        )->name('resource-library.index');
+
+        Route::get(
+            'resource-library/create',
+            [ResourceController::class, 'create']
+        )->name('resource-library.create');
+
+        Route::post(
+            'resource-library',
+            [ResourceController::class, 'store']
+        )->name('resource-library.store');
+
+        Route::get(
+            'resource-library/{resource}/edit',
+            [ResourceController::class, 'edit']
+        )->name('resource-library.edit');
+
+        Route::put(
+            'resource-library/{resource}',
+            [ResourceController::class, 'update']
+        )->name('resource-library.update');
+
+        Route::delete(
+            'resource-library/{resource}',
+            [ResourceController::class, 'destroy']
+        )->name('resource-library.destroy');
+
+        Route::get(
+            'resource-library/{resource}',
+            [ResourceController::class, 'show']
+        )->name('resource-library.show');
     });
+
 
 /*
 |--------------------------------------------------------------------------
