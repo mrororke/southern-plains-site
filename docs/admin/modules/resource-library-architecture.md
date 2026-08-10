@@ -1,10 +1,22 @@
-# Database Architecture
+# Resource Library Architecture
 
 The Resource Library is designed around a single core concept:
 
 > **A Resource is a living document that evolves over time.**
 
 Resources preserve the history of club communications while remaining reusable for future classes, events, and training. Rather than replacing existing content, new communications are typically created from previous Resources, allowing the club's knowledge base to grow organically.
+
+---
+
+# Design Philosophy
+
+The Resource Library is designed as a knowledge system rather than a traditional document manager.
+
+Its primary purpose is to help instructors quickly find, read, reuse, and evolve communications over time.
+
+The interface prioritizes reading over editing and organization over administration.
+
+Resources should feel like articles in an internal knowledge base rather than records in a database.
 
 ---
 
@@ -232,6 +244,147 @@ Welcome - Summer 2026
 
 ---
 
+# User Interface Architecture
+
+## Desktop
+
+The desktop interface consists of two primary areas.
+
+### Resource Index
+
+The Resource Index occupies approximately 30% of the available width.
+
+Its purpose is to quickly locate Resources through searching, filtering, and browsing.
+
+The selected Resource is indicated with a colored left border rather than a traditional highlighted table row.
+
+The Resource Index presents Resources as a reading index rather than a traditional data table.
+
+### Reader
+
+The Reader occupies approximately 70% of the available width.
+
+Its purpose is to present Resources in a comfortable editorial reading experience.
+
+The Reader is composed of:
+
+- Reader Header
+- Body
+- Related Behaviors
+- Related Reading
+- Series History
+- About This Document
+
+The Resource Index and Reader scroll independently.
+
+Whenever practical, the browser window should not be the primary scrolling container.
+
+## Mobile
+
+The mobile experience intentionally differs from desktop.
+
+Workflow:
+
+Find
+
+↓
+
+Tap
+
+↓
+
+Read
+
+Resources open on a dedicated reading page rather than within a split layout.
+
+---
+
+# View Architecture
+
+```text
+resource-library/
+
+components/
+    about-document.blade.php
+    reader.blade.php
+    reader-empty-state.blade.php
+    reader-header.blade.php
+    related-behaviors.blade.php
+    related-reading.blade.php
+    resource-index.blade.php
+    series-history.blade.php
+    toolbar.blade.php
+
+partials/
+    form.blade.php
+
+create.blade.php
+edit.blade.php
+index.blade.php
+```
+
+## Design Decisions
+
+- The Reader composes the remaining reading-related components.
+- The Toolbar owns both searching and filtering.
+- Create and Edit share a single form partial.
+- Components should answer one user question and have a single responsibility.
+
+---
+
+# JavaScript Architecture
+
+```text
+resources/js/admin/resource-library/
+
+create.js
+edit.js
+index.js
+```
+
+## Design Decisions
+
+- Each page has its own JavaScript entry point.
+- Shared JavaScript should only be extracted when multiple pages genuinely require the same behavior.
+- Avoid creating helper modules prematurely.
+
+---
+
+# Backend Architecture
+
+The Resource Library follows the standard Dashboard V2 module architecture.
+
+```text
+Architecture
+    ↓
+Database
+    ↓
+Seeders
+    ↓
+Models
+    ↓
+Validation Requests
+    ↓
+Services
+    ↓
+Controllers
+    ↓
+Routes
+    ↓
+Views
+    ↓
+JavaScript
+```
+
+## Design Decisions
+
+- Business rules belong within the `ResourceService`.
+- Controllers remain thin and coordinate HTTP requests only.
+- Models describe relationships and data structure.
+- Validation belongs in Form Requests.
+
+---
+
 # Deletion Rules
 
 | Object | Behavior |
@@ -271,3 +424,19 @@ Welcome - Summer 2026
 6. Create `resource_resource`
 7. Seed Categories
 8. Seed Types
+
+---
+
+# Future Roadmap
+
+Potential future enhancements include:
+
+- Email sending
+- Gmail synchronization
+- Version comparison
+- Resource duplication workflow
+- Exporting Resources
+- AI-assisted drafting
+- Advanced search
+- Additional Resource Categories
+- Additional Resource Types
