@@ -35,7 +35,7 @@ Alpine.data('behaviorCatalog', () => ({
 
         button.scrollIntoView({
             behavior: 'smooth',
-            block: 'center',
+            block: 'nearest',
         });
     });
 },
