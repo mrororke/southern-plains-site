@@ -5,6 +5,7 @@ namespace App\Services\ResourceLibrary;
 use App\Models\ResourceLibrary\Resource;
 use App\Models\ResourceLibrary\ResourceSeries;
 use Illuminate\Support\Facades\DB;
+use RuntimeException;
 
 class ResourceService
 {
@@ -14,11 +15,18 @@ class ResourceService
     |--------------------------------------------------------------------------
     */
 
-    public function store(array $data): Resource
-    {
-        return DB::transaction(function () use ($data) {
+    public function store(
+        array $data,
+        ?int $userId = null
+    ): Resource {
+        $userId = $this->resolveUserId($userId);
 
-            $data = $this->resolveSeries($data);
+        return DB::transaction(function () use ($data, $userId) {
+
+            $data = $this->resolveSeries(
+                $data,
+                $userId
+            );
 
             $resource = Resource::create([
                 'title' => $data['title'],
@@ -29,8 +37,8 @@ class ResourceService
                 'based_on_resource_id' => $data['based_on_resource_id'] ?? null,
                 'status' => $data['status'],
                 'first_sent' => $data['first_sent'] ?? null,
-                'created_by' => auth()->id(),
-                'updated_by' => auth()->id(),
+                'created_by' => $userId,
+                'updated_by' => $userId,
             ]);
 
             $this->syncBehaviors(
@@ -53,11 +61,23 @@ class ResourceService
     |--------------------------------------------------------------------------
     */
 
-    public function update(Resource $resource, array $data): Resource
-    {
-        return DB::transaction(function () use ($resource, $data) {
+    public function update(
+        Resource $resource,
+        array $data,
+        ?int $userId = null
+    ): Resource {
+        $userId = $this->resolveUserId($userId);
 
-            $data = $this->resolveSeries($data);
+        return DB::transaction(function () use (
+            $resource,
+            $data,
+            $userId
+        ) {
+
+            $data = $this->resolveSeries(
+                $data,
+                $userId
+            );
 
             $resource->update([
                 'title' => $data['title'],
@@ -71,7 +91,7 @@ class ResourceService
                     $resource,
                     $data['first_sent'] ?? null
                 ),
-                'updated_by' => auth()->id(),
+                'updated_by' => $userId,
             ]);
 
             $this->syncBehaviors(
@@ -90,21 +110,46 @@ class ResourceService
 
     /*
     |--------------------------------------------------------------------------
+    | Resolve User
+    |--------------------------------------------------------------------------
+    */
+
+    protected function resolveUserId(
+        ?int $userId
+    ): int {
+        $resolvedUserId = $userId ?? auth()->id();
+
+        if (! $resolvedUserId) {
+            throw new RuntimeException(
+                'A user is required to create or update a Resource.'
+            );
+        }
+
+        return $resolvedUserId;
+    }
+
+    /*
+    |--------------------------------------------------------------------------
     | Resolve Series
     |--------------------------------------------------------------------------
     */
 
-    protected function resolveSeries(array $data): array
-    {
+    protected function resolveSeries(
+        array $data,
+        int $userId
+    ): array {
         if (! empty($data['new_series_name'])) {
 
             $series = ResourceSeries::firstOrCreate(
                 [
-                    'resource_category_id' => $data['resource_category_id'],
-                    'name' => trim($data['new_series_name']),
+                    'resource_category_id' =>
+                        $data['resource_category_id'],
+                    'name' => trim(
+                        $data['new_series_name']
+                    ),
                 ],
                 [
-                    'created_by' => auth()->id(),
+                    'created_by' => $userId,
                 ]
             );
 
@@ -120,10 +165,6 @@ class ResourceService
     |--------------------------------------------------------------------------
     | First Sent
     |--------------------------------------------------------------------------
-    |
-    | Once first_sent has been set, ordinary updates preserve the original
-    | historical date.
-    |
     */
 
     protected function resolveFirstSent(
@@ -154,10 +195,6 @@ class ResourceService
     |--------------------------------------------------------------------------
     | Sync Related Resources
     |--------------------------------------------------------------------------
-    |
-    | Resource pairs are normalized so that the lower Resource ID is always
-    | stored in resource_id and the higher ID in related_resource_id.
-    |
     */
 
     protected function syncRelatedResources(
@@ -172,13 +209,19 @@ class ResourceService
 
         DB::table('resource_resource')
             ->where('resource_id', $resource->id)
-            ->orWhere('related_resource_id', $resource->id)
+            ->orWhere(
+                'related_resource_id',
+                $resource->id
+            )
             ->delete();
 
         $now = now();
 
         $rows = $relatedResourceIds
-            ->map(function ($relatedId) use ($resource, $now) {
+            ->map(function ($relatedId) use (
+                $resource,
+                $now
+            ) {
 
                 $lowerId = min(
                     $resource->id,
@@ -200,7 +243,8 @@ class ResourceService
             ->all();
 
         if (! empty($rows)) {
-            DB::table('resource_resource')->insert($rows);
+            DB::table('resource_resource')
+                ->insert($rows);
         }
     }
 }
