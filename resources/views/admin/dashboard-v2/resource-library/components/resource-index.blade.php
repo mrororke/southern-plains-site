@@ -26,10 +26,10 @@
                     : 'false'
             "
             :class="{
-                'border-sp-burntClay bg-sp-limestone/20':
+                'border-l-sp-burntClay bg-sp-limestone/20':
                     selectedResource?.id === {{ $resource->id }}
             }"
-            class="group block w-full border-l-[8px] border-transparent
+            class="group block w-full border-l-[8px] border-l-transparent
                    px-4 py-4 text-left transition-colors
                    hover:bg-sp-limestone/10"
         >
