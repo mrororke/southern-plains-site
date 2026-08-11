@@ -6,19 +6,24 @@
     <button
         type="button"
         @click="selectResource({
-                id: {{ $resource->id }},
-                title: @js($resource->title),
-                body: @js($resource->body),
-                type: @js($resource->type->name),
-                category: @js($resource->category->name),
-                status: @js($resource->status),
-                edit_url: @js(
-                    route(
-                        'admin-v2.resource-library.edit',
-                        $resource
-                    )
-                )
-            })"
+    id: {{ $resource->id }},
+    title: @js($resource->title),
+    body: @js($resource->body),
+    type: @js($resource->type->name),
+    category: @js($resource->category->name),
+    status: @js($resource->status),
+    first_sent: @js(
+        $resource->first_sent
+            ? $resource->first_sent->format('M j, Y')
+            : 'Never Sent'
+    ),
+    edit_url: @js(
+        route(
+            'admin-v2.resource-library.edit',
+            $resource
+        )
+    )
+})"
         :aria-pressed="
                 selectedResource?.id === {{ $resource->id }}
                     ? 'true'

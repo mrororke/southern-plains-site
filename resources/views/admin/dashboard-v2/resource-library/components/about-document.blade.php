@@ -8,7 +8,7 @@
     </h3>
 
     <dl
-        class="mt-6 grid grid-cols-2 gap-x-8 gap-y-4 text-sm"
+        class="mt-6 grid grid-cols-2 gap-x-8 gap-y-6 text-sm"
     >
 
         <div>
@@ -17,7 +17,7 @@
             </dt>
 
             <dd
-                class="mt-1 font-medium text-sp-charcoal"
+                class="font-medium text-sp-charcoal"
                 x-text="selectedResource?.category"
             ></dd>
         </div>
