@@ -1,0 +1,1 @@
+import{b as o}from"./form-DQAExDYs.js";const n=o();function t(){if(!window.confirm("Are you sure you want to delete this behavior? This cannot be undone."))return;const e=document.getElementById("delete-form");if(!e){console.error("Delete form not found.");return}e.submit()}window.confirmDeleteBehavior=t;document.addEventListener("DOMContentLoaded",()=>{n.init()});
