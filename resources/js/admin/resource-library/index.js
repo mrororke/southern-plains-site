@@ -3,7 +3,6 @@ export default function resourceLibrary() {
         selectedResource: null,
 
         init() {
-            console.log('Resource Library init running');
             const params = new URLSearchParams(
                 window.location.search
             );
@@ -25,9 +24,17 @@ export default function resourceLibrary() {
 
                 button.click();
 
-                button.scrollIntoView({
+                const container = button.closest(
+                    '#resource-index'
+                );
+
+                if (! container) {
+                    return;
+                }
+
+                container.scrollTo({
+                    top: button.offsetTop - 16,
                     behavior: 'smooth',
-                    block: 'nearest',
                 });
             });
         },
