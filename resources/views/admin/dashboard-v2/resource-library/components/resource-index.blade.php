@@ -1,7 +1,6 @@
 <div
     id="resource-index"
-    class="space-y-1"
->
+    class="space-y-1">
     @forelse($resources as $resource)
 
     <button
@@ -32,9 +31,11 @@
                     'id' => $trick->id,
                     'name' => $trick->name,
                     'url' => route(
-            'admin-v2.behavior-catalog.show',
-            $trick
-        ),
+                        'admin-v2.behavior-catalog.index',
+                        [
+                            'behavior' => $trick->id,
+                        ]
+                    ),
                 ])
             ),
             related_resources: @js(
@@ -72,8 +73,7 @@
                focus:outline-none
                focus-visible:ring-2
                focus-visible:ring-sp-prairieBlue
-               focus-visible:ring-offset-2"
-    >
+               focus-visible:ring-offset-2">
         {{-- Title --}}
         <h2
             class="font-sans text-sm leading-snug text-sp-charcoal"
@@ -82,8 +82,7 @@
                     selectedResource?.id === {{ $resource->id }},
                 'font-semibold':
                     selectedResource?.id !== {{ $resource->id }}
-            }"
-        >
+            }">
             {{ $resource->title }}
         </h2>
 
@@ -96,20 +95,20 @@
             {{ $resource->category->name }}
 
             @if($resource->status === 'archived')
-                <span aria-hidden="true">·</span>
+            <span aria-hidden="true">·</span>
 
-                <span class="text-sp-warningOchre">
-                    Archived
-                </span>
+            <span class="text-sp-warningOchre">
+                Archived
+            </span>
             @endif
         </p>
 
         {{-- First Sent --}}
         <p class="mt-1 text-xs text-sp-slate">
             @if($resource->first_sent)
-                {{ $resource->first_sent->format('M j, Y') }}
+            {{ $resource->first_sent->format('M j, Y') }}
             @else
-                Never Sent
+            Never Sent
             @endif
         </p>
     </button>
@@ -130,8 +129,8 @@
 
     {{-- Pagination --}}
     @if($resources->hasPages())
-        <div class="border-t border-sp-warmStone px-4 pt-4">
-            {{ $resources->links() }}
-        </div>
+    <div class="border-t border-sp-warmStone px-4 pt-4">
+        {{ $resources->links() }}
+    </div>
     @endif
 </div>
