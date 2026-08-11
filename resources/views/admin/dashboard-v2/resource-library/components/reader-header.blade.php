@@ -76,7 +76,7 @@
         x-show="actionsOpen"
         x-cloak
         class="absolute right-0 z-10 mt-2 w-48 rounded-md
-               border border-sp-warmStone bg-white py-1 shadow-md"
+               border border-sp-warmStone bg-sp-warmIvory py-1 shadow-md"
     >
 
         <a

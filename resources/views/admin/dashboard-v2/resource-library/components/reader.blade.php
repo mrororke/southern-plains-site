@@ -30,6 +30,10 @@
                     x-html="selectedResource.body"
                 ></div>
 
+                @include(
+                    'admin.dashboard-v2.resource-library.components.related-behaviors'
+                )
+
             </div>
 
         </article>
