@@ -35,6 +35,10 @@
                 )
 
                 @include(
+                    'admin.dashboard-v2.resource-library.components.related-reading'
+                )
+
+                @include(
                     'admin.dashboard-v2.resource-library.components.about-document'
                 )
 
