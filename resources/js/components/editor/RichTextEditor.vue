@@ -1,65 +1,113 @@
 <template>
     <div>
         <!-- Toolbar -->
-        <div class="flex gap-2 mb-3 border-b border-gray-200 pb-2">
+        <div
+            class="flex flex-wrap gap-2 mb-3
+                   border-b border-gray-200 pb-2"
+        >
+            <!-- H2 -->
             <button
                 type="button"
                 @click="toggleHeading"
-                :class="[
-                    'px-3 py-1 text-xs uppercase border border-gray-300 hover:bg-gray-100',
-                    isActive('heading', { level: 2 }) ? 'bg-gray-200' : ''
-                ]"
+                :class="buttonClass(
+                    isActive('heading', { level: 2 })
+                )"
             >
                 H2
             </button>
 
+            <!-- Bold -->
             <button
                 type="button"
                 @click="toggleBold"
-                :class="[
-                    'px-3 py-1 text-xs uppercase border border-gray-300 hover:bg-gray-100',
-                    isActive('bold') ? 'bg-gray-200' : ''
-                ]"
+                :class="buttonClass(
+                    isActive('bold')
+                )"
             >
                 Bold
             </button>
 
+            <!-- Italic -->
             <button
                 type="button"
                 @click="toggleItalic"
-                :class="[
-                    'px-3 py-1 text-xs uppercase border border-gray-300 hover:bg-gray-100',
-                    isActive('italic') ? 'bg-gray-200' : ''
-                ]"
+                :class="buttonClass(
+                    isActive('italic')
+                )"
             >
                 Italic
             </button>
 
+            <!-- Unordered List -->
             <button
                 type="button"
                 @click="toggleBulletList"
-                :class="[
-                    'px-3 py-1 text-xs uppercase border border-gray-300 hover:bg-gray-100',
-                    isActive('bulletList') ? 'bg-gray-200' : ''
-                ]"
+                :class="buttonClass(
+                    isActive('bulletList')
+                )"
             >
                 UL
             </button>
 
+            <!-- Ordered List -->
             <button
                 type="button"
                 @click="toggleOrderedList"
-                :class="[
-                    'px-3 py-1 text-xs uppercase border border-gray-300 hover:bg-gray-100',
-                    isActive('orderedList') ? 'bg-gray-200' : ''
-                ]"
+                :class="buttonClass(
+                    isActive('orderedList')
+                )"
             >
                 OL
+            </button>
+
+            <!-- Blockquote -->
+            <button
+                type="button"
+                @click="toggleBlockquote"
+                :class="buttonClass(
+                    isActive('blockquote')
+                )"
+            >
+                Quote
+            </button>
+
+            <!-- Link -->
+            <button
+                type="button"
+                @click="setLink"
+                :class="buttonClass(
+                    isActive('link')
+                )"
+            >
+                Link
+            </button>
+
+            <!-- Clear Formatting -->
+            <button
+                type="button"
+                @click="clearFormatting"
+                :class="buttonClass(false)"
+            >
+                Clear
             </button>
         </div>
 
         <!-- Editor -->
-        <div class="border p-3 min-h-[200px]">
+        <div
+            class="min-h-[200px] border p-3
+                   [&_.ProseMirror]:min-h-[180px]
+                   [&_.ProseMirror]:outline-none
+                   [&_.ProseMirror_ul]:list-disc
+                   [&_.ProseMirror_ul]:pl-6
+                   [&_.ProseMirror_ol]:list-decimal
+                   [&_.ProseMirror_ol]:pl-6
+                   [&_.ProseMirror_li]:my-1
+                   [&_.ProseMirror_blockquote]:border-l-4
+                   [&_.ProseMirror_blockquote]:border-sp-burntClay
+                   [&_.ProseMirror_blockquote]:pl-4
+                   [&_.ProseMirror_blockquote]:italic
+                   [&_.ProseMirror_blockquote]:text-sp-slate"
+        >
             <EditorContent :editor="editor" />
         </div>
 
@@ -93,14 +141,24 @@ const html = ref(props.value || "");
 
 const editor = useEditor({
     content: props.value || "",
+
     extensions: [
-        StarterKit,
+        StarterKit.configure({
+            heading: {
+                levels: [2],
+            },
+
+            link: {
+                openOnClick: false,
+                autolink: true,
+                linkOnPaste: true,
+            },
+        }),
     ],
 
     onUpdate: ({ editor }) => {
         const content = editor.getHTML();
 
-        // Normalize empty content
         const cleaned =
             content === "<p></p>" ||
             content === "<p><br></p>" ||
@@ -114,6 +172,17 @@ const editor = useEditor({
 
 const isActive = (type, options = {}) =>
     editor.value?.isActive(type, options);
+
+const buttonClass = (active) => [
+    "px-3 py-1 text-xs uppercase border border-gray-300 hover:bg-gray-100",
+    active ? "bg-gray-200" : "",
+];
+
+/*
+|--------------------------------------------------------------------------
+| Formatting Commands
+|--------------------------------------------------------------------------
+*/
 
 const toggleHeading = () =>
     editor.value
@@ -149,6 +218,80 @@ const toggleOrderedList = () =>
         .focus()
         .toggleOrderedList()
         .run();
+
+const toggleBlockquote = () =>
+    editor.value
+        ?.chain()
+        .focus()
+        .toggleBlockquote()
+        .run();
+
+/*
+|--------------------------------------------------------------------------
+| Link
+|--------------------------------------------------------------------------
+*/
+
+const setLink = () => {
+    if (! editor.value) {
+        return;
+    }
+
+    const existingHref =
+        editor.value.getAttributes("link").href ?? "";
+
+    const url = window.prompt(
+        "Enter URL",
+        existingHref
+    );
+
+    if (url === null) {
+        return;
+    }
+
+    if (url.trim() === "") {
+        editor.value
+            .chain()
+            .focus()
+            .extendMarkRange("link")
+            .unsetLink()
+            .run();
+
+        return;
+    }
+
+    editor.value
+        .chain()
+        .focus()
+        .extendMarkRange("link")
+        .setLink({
+            href: url.trim(),
+            target: "_blank",
+            rel: "noopener noreferrer",
+        })
+        .run();
+};
+
+/*
+|--------------------------------------------------------------------------
+| Clear Formatting
+|--------------------------------------------------------------------------
+*/
+
+const clearFormatting = () => {
+    editor.value
+        ?.chain()
+        .focus()
+        .unsetAllMarks()
+        .clearNodes()
+        .run();
+};
+
+/*
+|--------------------------------------------------------------------------
+| Cleanup
+|--------------------------------------------------------------------------
+*/
 
 onBeforeUnmount(() => {
     editor.value?.destroy();
