@@ -188,11 +188,6 @@ class ResourceService
     Resource $resource,
     array $trickIds
 ): void {
-    dd([
-        'resource_id' => $resource->id,
-        'trickIds' => $trickIds,
-    ]);
-
     $resource->tricks()->sync($trickIds);
 }
 
