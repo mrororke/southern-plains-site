@@ -31,6 +31,10 @@
                 $resource->tricks->map(fn ($trick) => [
                     'id' => $trick->id,
                     'name' => $trick->name,
+                    'url' => route(
+            'admin-v2.behavior-catalog.show',
+            $trick
+        ),
                 ])
             ),
             related_resources: @js(
