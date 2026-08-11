@@ -26,7 +26,7 @@
                     : 'false'
             "
             :class="{
-                'border-l-sp-burntClay bg-sp-limestone/20':
+                'border-sp-burntClay bg-red-200':
                     selectedResource?.id === {{ $resource->id }}
             }"
             class="group block w-full border-l-[8px] border-l-transparent
