@@ -1,10 +1,12 @@
 <div
     id="resource-index"
-    class="space-y-1">
+    class="space-y-1"
+>
     @forelse($resources as $resource)
 
     <button
         type="button"
+        data-resource-id="{{ $resource->id }}"
         @click="selectResource({
             id: {{ $resource->id }},
             title: @js($resource->title),
@@ -73,7 +75,8 @@
                focus:outline-none
                focus-visible:ring-2
                focus-visible:ring-sp-prairieBlue
-               focus-visible:ring-offset-2">
+               focus-visible:ring-offset-2"
+    >
         {{-- Title --}}
         <h2
             class="font-sans text-sm leading-snug text-sp-charcoal"
@@ -82,7 +85,8 @@
                     selectedResource?.id === {{ $resource->id }},
                 'font-semibold':
                     selectedResource?.id !== {{ $resource->id }}
-            }">
+            }"
+        >
             {{ $resource->title }}
         </h2>
 
@@ -106,11 +110,12 @@
         {{-- First Sent --}}
         <p class="mt-1 text-xs text-sp-slate">
             @if($resource->first_sent)
-            {{ $resource->first_sent->format('M j, Y') }}
+                {{ $resource->first_sent->format('M j, Y') }}
             @else
-            Never Sent
+                Never Sent
             @endif
         </p>
+
     </button>
 
     @empty
