@@ -39,13 +39,24 @@
 
             <button
                 type="button"
-                @click="toggleList"
+                @click="toggleBulletList"
                 :class="[
                     'px-3 py-1 text-xs uppercase border border-gray-300 hover:bg-gray-100',
                     isActive('bulletList') ? 'bg-gray-200' : ''
                 ]"
             >
-                List
+                UL
+            </button>
+
+            <button
+                type="button"
+                @click="toggleOrderedList"
+                :class="[
+                    'px-3 py-1 text-xs uppercase border border-gray-300 hover:bg-gray-100',
+                    isActive('orderedList') ? 'bg-gray-200' : ''
+                ]"
+            >
+                OL
             </button>
         </div>
 
@@ -55,7 +66,11 @@
         </div>
 
         <!-- Hidden input for Laravel -->
-        <input type="hidden" name="body" :value="html" />
+        <input
+            type="hidden"
+            :name="name"
+            :value="html"
+        />
     </div>
 </template>
 
@@ -74,35 +89,53 @@ const html = ref(props.value || "");
 const editor = useEditor({
     content: props.value || "",
     extensions: [StarterKit],
+
     onUpdate: ({ editor }) => {
-    const content = editor.getHTML()
+        const content = editor.getHTML();
 
-    // Normalize empty content
-    const cleaned =
-        content === '<p></p>' ||
-        content === '<p><br></p>' ||
-        content === '<p><br class="ProseMirror-trailingBreak"></p>'
-            ? ''
-            : content
+        // Normalize empty content
+        const cleaned =
+            content === "<p></p>" ||
+            content === "<p><br></p>" ||
+            content === '<p><br class="ProseMirror-trailingBreak"></p>'
+                ? ""
+                : content;
 
-    html.value = cleaned
-},
+        html.value = cleaned;
+    },
 });
 
 const isActive = (type, options = {}) =>
     editor.value?.isActive(type, options);
 
-const toggleBold = () => editor.value?.chain().focus().toggleBold().run();
+const toggleBold = () =>
+    editor.value?.chain().focus().toggleBold().run();
 
-const toggleItalic = () => editor.value?.chain().focus().toggleItalic().run();
+const toggleItalic = () =>
+    editor.value?.chain().focus().toggleItalic().run();
 
 const toggleHeading = () =>
-    editor.value?.chain().focus().toggleHeading({ level: 2 }).run();
+    editor.value
+        ?.chain()
+        .focus()
+        .toggleHeading({ level: 2 })
+        .run();
 
-const toggleList = () =>
-    editor.value?.chain().focus().toggleBulletList().run();
+const toggleBulletList = () =>
+    editor.value
+        ?.chain()
+        .focus()
+        .toggleBulletList()
+        .run();
+
+const toggleOrderedList = () =>
+    editor.value
+        ?.chain()
+        .focus()
+        .toggleOrderedList()
+        .run();
 
 onBeforeUnmount(() => {
-    editor?.destroy();
+    editor.value?.destroy();
 });
 </script>

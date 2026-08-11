@@ -68,6 +68,7 @@ document
     .querySelectorAll('[data-admin-rich-text]')
     .forEach((element) => {
         createApp(AdminEditor, {
+            name: element.dataset.name,
             value: element.dataset.value ?? ''
         }).mount(element)
     })
