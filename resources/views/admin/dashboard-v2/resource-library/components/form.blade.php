@@ -321,11 +321,20 @@
             Connections
         </h2>
 
-        <div class="mt-6">
+        <p class="mt-1 text-sm text-sp-slate">
+    Connect this Resource to behaviors and related Resources.
+</p>
+
+<div class="mt-6 space-y-8">
 
     <x-admin.forms.behavior-selector
         :tricks="$tricks"
         :selected="old('tricks', [])"
+    />
+
+    <x-admin.forms.resource-selector
+        :resources="$relatedResources"
+        :selected="old('related_resources', [])"
     />
 
 </div>
