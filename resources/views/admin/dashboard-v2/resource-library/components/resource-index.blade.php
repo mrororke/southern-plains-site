@@ -15,14 +15,14 @@
         >
             {{-- Title --}}
             <h2
-                class="font-sans text-base font-semibold leading-snug
+                class="font-sans text-sm font-semibold leading-snug
                        text-sp-charcoal"
             >
                 {{ $resource->title }}
             </h2>
 
             {{-- Type · Category · Archived state --}}
-            <p class="mt-1 text-sm text-sp-slate">
+            <p class="mt-1 text-xs text-sp-slate">
                 {{ $resource->type->name }}
                 <span aria-hidden="true">·</span>
                 {{ $resource->category->name }}
