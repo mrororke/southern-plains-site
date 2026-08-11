@@ -3,6 +3,7 @@ export default function resourceLibrary() {
         selectedResource: null,
 
         init() {
+            console.log('Resource Library init running');
             const params = new URLSearchParams(
                 window.location.search
             );
