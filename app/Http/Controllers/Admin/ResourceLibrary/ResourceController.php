@@ -122,7 +122,7 @@ class ResourceController extends Controller
 
     public function store(StoreResourceRequest $request)
     {
-        dd($request->all());
+        dd($request->validated());
         $resource = $this->resourceService->store(
             $request->validated()
         );
