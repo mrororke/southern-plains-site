@@ -185,11 +185,16 @@ class ResourceService
     */
 
     protected function syncBehaviors(
-        Resource $resource,
-        array $trickIds
-    ): void {
-        $resource->tricks()->sync($trickIds);
-    }
+    Resource $resource,
+    array $trickIds
+): void {
+    dd([
+        'resource_id' => $resource->id,
+        'trickIds' => $trickIds,
+    ]);
+
+    $resource->tricks()->sync($trickIds);
+}
 
     /*
     |--------------------------------------------------------------------------
