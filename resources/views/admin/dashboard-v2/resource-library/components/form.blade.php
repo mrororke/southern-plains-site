@@ -321,9 +321,14 @@
             Connections
         </h2>
 
-        <p class="mt-1 text-sm text-sp-slate">
-            Behaviors and related Resources will be managed here.
-        </p>
+        <div class="mt-6">
+
+    <x-admin.forms.behavior-selector
+        :tricks="$tricks"
+        :selected="old('tricks', [])"
+    />
+
+</div>
     </section>
 
     {{-- Actions --}}

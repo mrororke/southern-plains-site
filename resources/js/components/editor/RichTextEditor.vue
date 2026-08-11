@@ -1,17 +1,23 @@
 <template>
     <div>
+        /*
+        |--------------------------------------------------------------------------
+        | Toolbar
+        |--------------------------------------------------------------------------
+        | | Keep this editor intentionally lightweight. | | This editor is
+        designed for documentation, training notes, | Resource Library content,
+        and other long-form administrative | writing throughout Dashboard V2. |
+        | Supported formatting: | • Heading 2 | • Bold | • Italic | • Bulleted
+        Lists | • Numbered Lists | • Blockquotes | • Hyperlinks | • Clear
+        Formatting | | Before adding additional formatting options, consider
+        whether | they improve documentation or simply add complexity. | */
         <!-- Toolbar -->
-        <div
-            class="flex flex-wrap gap-2 mb-3
-                   border-b border-gray-200 pb-2"
-        >
+        <div class="flex flex-wrap gap-2 mb-3 border-b border-gray-200 pb-2">
             <!-- H2 -->
             <button
                 type="button"
                 @click="toggleHeading"
-                :class="buttonClass(
-                    isActive('heading', { level: 2 })
-                )"
+                :class="buttonClass(isActive('heading', { level: 2 }))"
             >
                 H2
             </button>
@@ -20,9 +26,7 @@
             <button
                 type="button"
                 @click="toggleBold"
-                :class="buttonClass(
-                    isActive('bold')
-                )"
+                :class="buttonClass(isActive('bold'))"
             >
                 Bold
             </button>
@@ -31,9 +35,7 @@
             <button
                 type="button"
                 @click="toggleItalic"
-                :class="buttonClass(
-                    isActive('italic')
-                )"
+                :class="buttonClass(isActive('italic'))"
             >
                 Italic
             </button>
@@ -42,9 +44,7 @@
             <button
                 type="button"
                 @click="toggleBulletList"
-                :class="buttonClass(
-                    isActive('bulletList')
-                )"
+                :class="buttonClass(isActive('bulletList'))"
             >
                 UL
             </button>
@@ -53,9 +53,7 @@
             <button
                 type="button"
                 @click="toggleOrderedList"
-                :class="buttonClass(
-                    isActive('orderedList')
-                )"
+                :class="buttonClass(isActive('orderedList'))"
             >
                 OL
             </button>
@@ -64,9 +62,7 @@
             <button
                 type="button"
                 @click="toggleBlockquote"
-                :class="buttonClass(
-                    isActive('blockquote')
-                )"
+                :class="buttonClass(isActive('blockquote'))"
             >
                 Quote
             </button>
@@ -75,9 +71,7 @@
             <button
                 type="button"
                 @click="setLink"
-                :class="buttonClass(
-                    isActive('link')
-                )"
+                :class="buttonClass(isActive('link'))"
             >
                 Link
             </button>
@@ -92,31 +86,23 @@
             </button>
         </div>
 
+        /*
+        |--------------------------------------------------------------------------
+        | Tiptap Configuration
+        |--------------------------------------------------------------------------
+        | | Uses StarterKit as the shared editing foundation for all | Dashboard
+        V2 rich text fields. | | Limit headings to H2 to maintain consistent
+        content hierarchy | across the application. | */
+
         <!-- Editor -->
         <div
-            class="min-h-[200px] border p-3
-                   [&_.ProseMirror]:min-h-[180px]
-                   [&_.ProseMirror]:outline-none
-                   [&_.ProseMirror_ul]:list-disc
-                   [&_.ProseMirror_ul]:pl-6
-                   [&_.ProseMirror_ol]:list-decimal
-                   [&_.ProseMirror_ol]:pl-6
-                   [&_.ProseMirror_li]:my-1
-                   [&_.ProseMirror_blockquote]:border-l-4
-                   [&_.ProseMirror_blockquote]:border-sp-burntClay
-                   [&_.ProseMirror_blockquote]:pl-4
-                   [&_.ProseMirror_blockquote]:italic
-                   [&_.ProseMirror_blockquote]:text-sp-slate"
+            class="min-h-[200px] border p-3 [&_.ProseMirror]:min-h-[180px] [&_.ProseMirror]:outline-none [&_.ProseMirror_ul]:list-disc [&_.ProseMirror_ul]:pl-6 [&_.ProseMirror_ol]:list-decimal [&_.ProseMirror_ol]:pl-6 [&_.ProseMirror_li]:my-1 [&_.ProseMirror_blockquote]:border-l-4 [&_.ProseMirror_blockquote]:border-sp-burntClay [&_.ProseMirror_blockquote]:pl-4 [&_.ProseMirror_blockquote]:italic [&_.ProseMirror_blockquote]:text-sp-slate"
         >
             <EditorContent :editor="editor" />
         </div>
 
         <!-- Hidden input for Laravel -->
-        <input
-            type="hidden"
-            :name="name"
-            :value="html"
-        />
+        <input type="hidden" :name="name" :value="html" />
     </div>
 </template>
 
@@ -170,8 +156,7 @@ const editor = useEditor({
     },
 });
 
-const isActive = (type, options = {}) =>
-    editor.value?.isActive(type, options);
+const isActive = (type, options = {}) => editor.value?.isActive(type, options);
 
 const buttonClass = (active) => [
     "px-3 py-1 text-xs uppercase border border-gray-300 hover:bg-gray-100",
@@ -182,49 +167,27 @@ const buttonClass = (active) => [
 |--------------------------------------------------------------------------
 | Formatting Commands
 |--------------------------------------------------------------------------
+|
+| Each toolbar button maps directly to a Tiptap command.
+| Keep command implementations simple and reusable.
+|
 */
 
 const toggleHeading = () =>
-    editor.value
-        ?.chain()
-        .focus()
-        .toggleHeading({ level: 2 })
-        .run();
+    editor.value?.chain().focus().toggleHeading({ level: 2 }).run();
 
-const toggleBold = () =>
-    editor.value
-        ?.chain()
-        .focus()
-        .toggleBold()
-        .run();
+const toggleBold = () => editor.value?.chain().focus().toggleBold().run();
 
-const toggleItalic = () =>
-    editor.value
-        ?.chain()
-        .focus()
-        .toggleItalic()
-        .run();
+const toggleItalic = () => editor.value?.chain().focus().toggleItalic().run();
 
 const toggleBulletList = () =>
-    editor.value
-        ?.chain()
-        .focus()
-        .toggleBulletList()
-        .run();
+    editor.value?.chain().focus().toggleBulletList().run();
 
 const toggleOrderedList = () =>
-    editor.value
-        ?.chain()
-        .focus()
-        .toggleOrderedList()
-        .run();
+    editor.value?.chain().focus().toggleOrderedList().run();
 
 const toggleBlockquote = () =>
-    editor.value
-        ?.chain()
-        .focus()
-        .toggleBlockquote()
-        .run();
+    editor.value?.chain().focus().toggleBlockquote().run();
 
 /*
 |--------------------------------------------------------------------------
@@ -233,29 +196,20 @@ const toggleBlockquote = () =>
 */
 
 const setLink = () => {
-    if (! editor.value) {
+    if (!editor.value) {
         return;
     }
 
-    const existingHref =
-        editor.value.getAttributes("link").href ?? "";
+    const existingHref = editor.value.getAttributes("link").href ?? "";
 
-    const url = window.prompt(
-        "Enter URL",
-        existingHref
-    );
+    const url = window.prompt("Enter URL", existingHref);
 
     if (url === null) {
         return;
     }
 
     if (url.trim() === "") {
-        editor.value
-            .chain()
-            .focus()
-            .extendMarkRange("link")
-            .unsetLink()
-            .run();
+        editor.value.chain().focus().extendMarkRange("link").unsetLink().run();
 
         return;
     }
@@ -279,12 +233,7 @@ const setLink = () => {
 */
 
 const clearFormatting = () => {
-    editor.value
-        ?.chain()
-        .focus()
-        .unsetAllMarks()
-        .clearNodes()
-        .run();
+    editor.value?.chain().focus().unsetAllMarks().clearNodes().run();
 };
 
 /*
