@@ -18,7 +18,7 @@
                 'admin.dashboard-v2.resource-library.components.reader-header'
             )
 
-            <div class="px-8 py-8">
+            <div class="pt-10 pb-8">
 
                 <div
                     class="prose prose-sm max-w-none
