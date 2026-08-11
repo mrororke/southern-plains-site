@@ -39,19 +39,95 @@
 
         </div>
 
-        <div class="shrink-0">
+        <div
+    class="relative shrink-0"
+    x-data="{ actionsOpen: false }"
+    @click.outside="actionsOpen = false"
+>
+    <button
+        type="button"
+        @click="actionsOpen = !actionsOpen"
+        class="inline-flex items-center justify-center rounded-md
+               border border-sp-warmStone bg-white px-4 py-2
+               text-sm font-semibold text-sp-charcoal
+               transition-colors
+               hover:bg-sp-limestone/20"
+    >
+        Actions
 
-            <a
-                :href="selectedResource?.edit_url"
-                class="inline-flex items-center justify-center rounded-md
-                       bg-sp-prairieGreen px-4 py-2 text-sm font-semibold
-                       text-sp-warmIvory transition-colors
-                       hover:bg-sp-prairieOchre"
-            >
-                Edit
-            </a>
+        <svg
+            class="ml-2 h-4 w-4 transition-transform"
+            :class="{ 'rotate-180': actionsOpen }"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor"
+        >
+            <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+            />
+        </svg>
+    </button>
 
-        </div>
+    <div
+        x-show="actionsOpen"
+        x-cloak
+        class="absolute right-0 z-10 mt-2 w-48 rounded-md
+               border border-sp-warmStone bg-white py-1 shadow-md"
+    >
+
+        <a
+            :href="selectedResource?.edit_url"
+            class="block px-4 py-2 text-sm text-sp-charcoal
+                   hover:bg-sp-limestone/20"
+        >
+            Edit
+        </a>
+
+        <button
+            type="button"
+            disabled
+            class="flex w-full cursor-not-allowed items-center
+                   justify-between px-4 py-2 text-sm text-sp-slate"
+        >
+            Duplicate
+
+            <span class="text-xs">
+                Soon
+            </span>
+        </button>
+
+        <button
+            type="button"
+            disabled
+            class="flex w-full cursor-not-allowed items-center
+                   justify-between px-4 py-2 text-sm text-sp-slate"
+        >
+            Archive
+
+            <span class="text-xs">
+                Soon
+            </span>
+        </button>
+
+        <button
+            type="button"
+            disabled
+            class="flex w-full cursor-not-allowed items-center
+                   justify-between px-4 py-2 text-sm text-sp-slate"
+        >
+            Delete
+
+            <span class="text-xs">
+                Soon
+            </span>
+        </button>
+
+    </div>
+</div>
 
     </div>
 </div>
