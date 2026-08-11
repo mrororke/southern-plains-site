@@ -12,6 +12,15 @@
     type: @js($resource->type->name),
     category: @js($resource->category->name),
     status: @js($resource->status),
+    series: @js(
+    $resource->series?->name ?? 'No Series'
+),
+created_at: @js(
+    $resource->created_at->format('M j, Y')
+),
+updated_at: @js(
+    $resource->updated_at->format('M j, Y')
+),
     first_sent: @js(
         $resource->first_sent
             ? $resource->first_sent->format('M j, Y')

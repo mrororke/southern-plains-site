@@ -11,6 +11,6 @@
         class="mt-2 text-sm text-sp-slate"
     >
         No behaviors connected yet.<br/>
-        Connect behaviors while editing this Resource.
+        Connect behaviors when editing this Resource.
     </p>
 </section>
