@@ -7,8 +7,13 @@
 @section('content')
 
 <div class="dashboard-content">
+
     <div class="py-4">
-        <img src="{{ asset('images/headers/resourceLibrary.jpg') }}" alt="Hamish, a Shetland Sheepdog, looking at the camera." class="rounded-md">
+        <img
+            src="{{ asset('images/headers/resourceLibrary.jpg') }}"
+            alt="Hamish, a Shetland Sheepdog, looking at the camera."
+            class="rounded-md"
+        >
     </div>
 
     <x-admin.layout.page-header
@@ -23,6 +28,7 @@
 
     {{-- Resource workspace --}}
     <div
+        x-data="resourceLibrary"
         class="grid min-h-0 grid-cols-[minmax(0,3fr)_minmax(0,7fr)]
                gap-6"
     >
