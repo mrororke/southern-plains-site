@@ -12,12 +12,12 @@
     "name": "module.esm"
   },
   "resources/css/app.css": {
-    "file": "assets/app-NV8Lgxqi.css",
+    "file": "assets/app-pttzzjv2.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/css/dashboard-v2.css": {
-    "file": "assets/dashboard-v2-D5uQEylf.css",
+    "file": "assets/dashboard-v2-BQ9SzV6x.css",
     "src": "resources/css/dashboard-v2.css",
     "isEntry": true
   },
@@ -72,7 +72,7 @@
     "isEntry": true
   },
   "resources/js/admin/resource-library/index.js": {
-    "file": "assets/index-l0sNRNKZ.js",
+    "file": "assets/index-D4_Slkt1.js",
     "name": "index",
     "src": "resources/js/admin/resource-library/index.js",
     "isEntry": true
@@ -99,15 +99,16 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-KNP7AZIq.js",
+    "file": "assets/app-CkOfWZy5.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "imports": [
+      "resources/js/admin/resource-library/index.js",
       "_module.esm-DdaDH_LP.js"
     ],
     "css": [
-      "assets/app-NV8Lgxqi.css"
+      "assets/app-pttzzjv2.css"
     ]
   }
 }
