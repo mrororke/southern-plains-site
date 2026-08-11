@@ -7,7 +7,7 @@ import resourceLibrary from './admin/resource-library/index'
 import Alpine from 'alpinejs'
 
 import { createApp } from 'vue'
-import AdminEditor from './components/editor/AdminEditor.vue'
+import RichTextEditor from './components/editor/RichTextEditor.vue'
 
 import {
     buildBehaviorEmail,
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 document
     .querySelectorAll('[data-admin-rich-text]')
     .forEach((element) => {
-        createApp(AdminEditor, {
+        createApp(RichTextEditor, {
             name: element.dataset.name,
             value: element.dataset.value ?? ''
         }).mount(element)
