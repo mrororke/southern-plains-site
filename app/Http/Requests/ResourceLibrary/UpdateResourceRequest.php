@@ -69,14 +69,14 @@ class UpdateResourceRequest extends FormRequest
                 'nullable',
                 'integer',
                 Rule::exists('resource_series', 'id'),
-                'prohibited_with:new_series_name',
+                'prohibits:new_series_name',
             ],
 
             'new_series_name' => [
                 'nullable',
                 'string',
                 'max:255',
-                'prohibited_with:resource_series_id',
+                'prohibits:resource_series_id',
             ],
 
             /*
