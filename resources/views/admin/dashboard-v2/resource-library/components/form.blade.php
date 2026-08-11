@@ -284,20 +284,31 @@
     </section>
 
     {{-- Content --}}
-    <section
-        class="rounded-md border border-sp-warmStone
-               bg-sp-warmIvory p-6"
+<section
+    class="rounded-md border border-sp-warmStone
+           bg-sp-warmIvory p-6"
+>
+    <h2
+        class="font-sans text-lg font-semibold text-sp-charcoal"
     >
-        <h2
-            class="font-sans text-lg font-semibold text-sp-charcoal"
-        >
-            Content
-        </h2>
+        Content
+    </h2>
 
-        <p class="mt-1 text-sm text-sp-slate">
-            The Resource content will be edited here.
-        </p>
-    </section>
+    <p class="mt-1 text-sm text-sp-slate">
+        Write or update the Resource content.
+    </p>
+
+    <div class="mt-6">
+        <x-admin.forms.rich-text
+            id="body-editor"
+            name="body"
+            :value="old(
+                'body',
+                $resource->body ?? ''
+            )"
+        />
+    </div>
+</section>
 
     {{-- Connections --}}
     <section

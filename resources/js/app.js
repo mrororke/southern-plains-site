@@ -8,7 +8,6 @@ import Alpine from 'alpinejs'
 
 import { createApp } from 'vue'
 import AdminEditor from './components/editor/AdminEditor.vue'
-import ResourceEditor from './components/editor/ResourceEditor.vue'
 
 import {
     buildBehaviorEmail,
@@ -73,13 +72,6 @@ document
         }).mount(element)
     })
 
-const resourceEditor = document.getElementById('body-editor')
-
-if (resourceEditor) {
-    createApp(ResourceEditor, {
-        value: resourceEditor.dataset.value
-    }).mount(resourceEditor)
-}
 
 /*
 |--------------------------------------------------------------------------
