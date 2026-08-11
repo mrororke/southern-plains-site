@@ -1,11 +1,29 @@
 <section
     class="border-t border-sp-warmStone px-8 py-8"
 >
-    <h3
-        class="font-sans text-lg font-semibold text-sp-charcoal"
-    >
-        Related Reading
-    </h3>
+    <div class="flex items-baseline justify-between gap-4">
+
+        <h3
+            class="font-sans text-lg font-semibold text-sp-charcoal"
+        >
+            Related Reading
+        </h3>
+
+        <span
+            x-show="
+                selectedResource.related_resources
+                && selectedResource.related_resources.length > 0
+            "
+            class="text-xs uppercase tracking-wide text-sp-slate"
+            x-text="
+                `${selectedResource.related_resources.length}
+                ${selectedResource.related_resources.length === 1
+                    ? 'resource'
+                    : 'resources'}`
+            "
+        ></span>
+
+    </div>
 
     <template
         x-if="
@@ -13,27 +31,55 @@
             && selectedResource.related_resources.length > 0
         "
     >
-        <div class="mt-4 space-y-2">
+
+        <div class="mt-5 grid gap-3">
 
             <template
                 x-for="resource in selectedResource.related_resources"
                 :key="resource.id"
             >
+
                 <a
                     :href="`{{ route('admin-v2.resource-library.index') }}?resource=${resource.id}`"
-                    class="block rounded-md border border-sp-warmStone
-                           bg-sp-warmIvory px-4 py-3
+                    class="group flex items-center justify-between gap-4
+                           rounded-md border border-sp-warmStone
+                           bg-sp-limestone/20
+                           px-5 py-4
                            transition-colors
-                           hover:bg-sp-limestone/20"
+                           hover:border-sp-burntClay
+                           hover:bg-sp-limestone/40"
                 >
-                    <p
-                        class="font-medium text-sp-charcoal"
-                        x-text="resource.title"
-                    ></p>
+
+                    <div class="min-w-0">
+
+                        <p
+                            class="font-medium text-sp-charcoal
+                                   transition-colors
+                                   group-hover:text-sp-prairieGreen"
+                            x-text="resource.title"
+                        ></p>
+
+                        <p
+                            class="mt-1 text-xs uppercase tracking-wide
+                                   text-sp-slate"
+                        >
+                            Open resource
+                        </p>
+
+                    </div>
+
+                    <x-icons.chevron-right
+                        class="h-4 w-4 shrink-0 text-sp-slate
+                               transition-transform
+                               group-hover:translate-x-1"
+                    />
+
                 </a>
+
             </template>
 
         </div>
+
     </template>
 
     <template
@@ -42,11 +88,13 @@
             || selectedResource.related_resources.length === 0
         "
     >
+
         <p
-            class="mt-2 text-sm text-sp-slate"
+            class="mt-3 text-sm text-sp-slate"
         >
             No related resources connected yet.
         </p>
+
     </template>
 
 </section>
