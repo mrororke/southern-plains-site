@@ -34,6 +34,10 @@
                     'admin.dashboard-v2.resource-library.components.related-behaviors'
                 )
 
+                @include(
+                    'admin.dashboard-v2.resource-library.components.about-document'
+                )
+
             </div>
 
         </article>
