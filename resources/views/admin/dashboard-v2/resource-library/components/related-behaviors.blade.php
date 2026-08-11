@@ -1,50 +1,103 @@
 <section
     class="border-t border-sp-warmStone px-8 py-8"
-    x-show="
-        selectedResource?.tricks
-        && selectedResource.tricks.length
-    ">
-    <h3
-        class="font-sans text-lg font-semibold text-sp-charcoal">
-        Related Behaviors
-    </h3>
+>
+    <div class="flex items-baseline justify-between gap-4">
 
-    <div class="mt-4 space-y-2">
+        <h3
+            class="font-sans text-lg font-semibold text-sp-charcoal"
+        >
+            Related Behaviors
+        </h3>
 
-        <template
-            x-for="trick in selectedResource.tricks"
-            :key="trick.id">
-            <a
-                :href="trick.url"
-                class="block rounded-md bg-sp-limestone
-           px-4 py-3 transition-colors
-           hover:bg-sp-warmStone">
-                <p
-                    class="text-sm font-medium text-sp-charcoal"
-                    x-text="trick.name"></p>
-
-                <p class="mt-1 text-xs text-sp-slate">
-                    View behavior details
-                </p>
-            </a>
-        </template>
+        <span
+            x-show="
+                selectedResource.tricks
+                && selectedResource.tricks.length > 0
+            "
+            class="text-xs uppercase tracking-wide text-sp-slate"
+            x-text="
+                `${selectedResource.tricks.length}
+                ${selectedResource.tricks.length === 1
+                    ? 'behavior'
+                    : 'behaviors'}`
+            "
+        ></span>
 
     </div>
-</section>
 
-<section
-    x-show="
-        !selectedResource?.tricks
-        || selectedResource.tricks.length === 0
-    "
-    class="border-t border-sp-warmStone px-8 py-8">
-    <h3
-        class="font-sans text-lg font-semibold text-sp-charcoal">
-        Related Behaviors
-    </h3>
 
-    <p class="mt-2 text-sm text-sp-slate">
-        No behaviors connected yet.<br />
-        Connect behaviors when editing this Resource.
-    </p>
+    <template
+        x-if="
+            selectedResource.tricks
+            && selectedResource.tricks.length > 0
+        "
+    >
+
+        <div class="mt-5 grid gap-3">
+
+            <template
+                x-for="behavior in selectedResource.tricks"
+                :key="behavior.id"
+            >
+
+                <a
+                    :href="behavior.url"
+                    class="group flex items-center justify-between gap-4
+                           rounded-md border border-sp-warmStone
+                           bg-sp-limestone/20
+                           px-5 py-4
+                           transition-colors
+                           hover:border-sp-burntClay
+                           hover:bg-sp-limestone/40"
+                >
+
+                    <div class="min-w-0">
+
+                        <p
+                            class="font-medium text-sp-charcoal
+                                   transition-colors
+                                   group-hover:text-sp-prairieGreen"
+                            x-text="behavior.name"
+                        ></p>
+
+                        <p
+                            class="mt-1 text-xs uppercase tracking-wide
+                                   text-sp-slate"
+                        >
+                            Open behavior
+                        </p>
+
+                    </div>
+
+
+                    <x-icons.chevron-right
+                        class="h-4 w-4 shrink-0 text-sp-slate
+                               transition-transform
+                               group-hover:translate-x-1"
+                    />
+
+                </a>
+
+            </template>
+
+        </div>
+
+    </template>
+
+
+    <template
+        x-if="
+            ! selectedResource.tricks
+            || selectedResource.tricks.length === 0
+        "
+    >
+
+        <p
+            class="mt-3 text-sm text-sp-slate"
+        >
+            No behaviors connected yet.
+        </p>
+
+    </template>
+
 </section>
