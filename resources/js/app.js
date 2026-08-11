@@ -2,6 +2,7 @@ import './bootstrap'
 import '../css/app.css'
 import searchableCheckboxList from './alpine/searchableCheckboxList'
 import behaviorPreview from './alpine/behaviorPreview'
+import resourceLibrary from './admin/resource-library/index'
 
 import Alpine from 'alpinejs'
 
@@ -34,6 +35,11 @@ Alpine.data(
 Alpine.data(
     'behaviorPreview',
     behaviorPreview
+)
+
+Alpine.data(
+    'resourceLibrary',
+    resourceLibrary
 )
 
 Alpine.start()

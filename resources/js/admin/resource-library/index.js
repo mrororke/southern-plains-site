@@ -1,15 +1,13 @@
-import Alpine from 'alpinejs';
+export default function resourceLibrary() {
+    return {
+        selectedResource: null,
 
-window.Alpine = Alpine;
+        selectResource(resource) {
+            this.selectedResource = resource;
+        },
 
-Alpine.data('resourceLibrary', () => ({
-    selectedResource: null,
-
-    selectResource(resource) {
-        this.selectedResource = resource;
-    },
-
-    clearResource() {
-        this.selectedResource = null;
-    },
-}));
+        clearResource() {
+            this.selectedResource = null;
+        },
+    };
+}
