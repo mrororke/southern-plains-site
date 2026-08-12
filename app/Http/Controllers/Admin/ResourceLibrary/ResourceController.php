@@ -267,6 +267,8 @@ class ResourceController extends Controller
             ->values()
             ->all();
 
+            dd($selectedTrickIds);
+
         return view(
             'admin.dashboard-v2.resource-library.edit',
             [
