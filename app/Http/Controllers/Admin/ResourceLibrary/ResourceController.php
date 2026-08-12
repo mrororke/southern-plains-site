@@ -214,11 +214,6 @@ class ResourceController extends Controller
             'tricks',
         ]);
 
-        dd([
-    'resource_id' => $resource->id,
-    'tricks_loaded' => $resource->tricks->pluck('id')->all(),
-]);
-
         $categories = ResourceCategory::query()
             ->where(function ($query) use ($resource) {
                 $query

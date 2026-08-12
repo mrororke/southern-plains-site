@@ -189,6 +189,12 @@ class ResourceService
     Resource $resource,
     array $trickIds
 ): void {
+    dd([
+        'resource_id' => $resource->id,
+        'incoming_trick_ids' => $trickIds,
+        'before_sync' => $resource->tricks()->pluck('tricks.id')->all(),
+    ]);
+
     $resource->tricks()->sync($trickIds);
 }
 
