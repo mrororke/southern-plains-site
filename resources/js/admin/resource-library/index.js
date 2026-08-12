@@ -25,9 +25,17 @@ export default function resourceLibrary() {
 
                 button.click();
 
-                button.scrollIntoView({
+                const reader = document.querySelector(
+                    '#resource-reader'
+                );
+
+                if (! reader) {
+                    return;
+                }
+
+                reader.scrollIntoView({
                     behavior: 'smooth',
-                    block: 'nearest',
+                    block: 'start',
                 });
 
             }, 100);
