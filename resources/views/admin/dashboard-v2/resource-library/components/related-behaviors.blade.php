@@ -92,11 +92,33 @@
         "
     >
 
-        <p
-            class="mt-3 text-sm text-sp-slate"
-        >
-            No behaviors connected yet.
-        </p>
+        <div
+    class="mt-6 rounded-md border border-sp-warmStone
+           bg-sp-limestone/40 px-6 py-5"
+>
+    <div class="flex items-start gap-4">
+
+        <x-icons.paw-print
+            class="mt-1 h-6 w-6 shrink-0 text-sp-prairieOchre"
+        />
+
+        <div>
+            <p
+                class="font-medium text-sp-charcoal"
+            >
+                No behaviors connected yet.
+            </p>
+
+            <p
+                class="mt-1 text-sm leading-relaxed text-sp-slate"
+            >
+                Connect behaviors from the edit screen to build
+                training relationships for this Resource.
+            </p>
+        </div>
+
+    </div>
+</div>
 
     </template>
 

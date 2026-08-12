@@ -89,11 +89,32 @@
         "
     >
 
-        <p
-            class="mt-3 text-sm text-sp-slate"
-        >
-            No related resources connected yet.
-        </p>
+        <div
+    class="mt-6 rounded-md border border-sp-warmStone
+           bg-sp-limestone/40 px-6 py-5"
+>
+    <div class="flex items-start gap-4">
+
+        <x-icons.book-open
+            class="mt-1 h-6 w-6 shrink-0 text-sp-prairieOchre"
+        />
+
+        <div>
+            <p
+                class="font-medium text-sp-charcoal"
+            >
+                No related resources connected yet.
+            </p>
+
+            <p
+                class="mt-1 text-sm leading-relaxed text-sp-slate"
+            >
+                Connect related Resources from the edit screen to create a useful reading path.
+            </p>
+        </div>
+
+    </div>
+</div>
 
     </template>
 
