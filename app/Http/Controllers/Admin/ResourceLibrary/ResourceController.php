@@ -267,12 +267,6 @@ class ResourceController extends Controller
             ->values()
             ->all();
 
-        dd([
-    'resource_id' => $resource->id,
-    'selectedTrickIds' => $selectedTrickIds,
-    'selectedRelatedResourceIds' => $selectedRelatedResourceIds,
-]);
-
 
         return view(
             'admin.dashboard-v2.resource-library.edit',

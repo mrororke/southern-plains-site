@@ -23,7 +23,8 @@
 
     <div>
         <label
-            class="mb-2 block text-xs font-semibold uppercase
+            class="mb-2 block text-xs
+                   font-semibold uppercase
                    tracking-wide text-sp-slate"
         >
             Behaviors
@@ -35,14 +36,16 @@
             placeholder="Search behaviors..."
             class="w-full rounded-md border border-sp-warmStone
                    bg-sp-warmIvory px-3 py-2 text-sm
-                   focus:border-sp-prairieGreen focus:outline-none"
+                   focus:border-sp-prairieGreen
+                   focus:outline-none"
         >
     </div>
 
 
     <div
-        class="grid max-h-72 grid-cols-2 gap-2 overflow-y-auto
-               rounded-md border border-sp-warmStone
+        class="grid max-h-72 grid-cols-2 gap-2
+               overflow-y-auto rounded-md
+               border border-sp-warmStone
                bg-sp-warmIvory p-3 lg:grid-cols-3"
     >
 
@@ -60,6 +63,7 @@
                 <input
                     type="checkbox"
                     :value="item.id"
+                    :checked="selected.includes(item.id)"
                     x-model="selected"
                     name="{{ $name }}[]"
                     class="rounded border-sp-warmStone
