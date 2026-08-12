@@ -267,9 +267,10 @@ class ResourceController extends Controller
             ->values()
             ->all();
 
-        dd([
-    'selectedTrickIds' => $selectedTrickIds,
-    'selectedRelatedResourceIds' => $selectedRelatedResourceIds,
+            dd([
+    'tricks_relationship' => $resource->tricks->pluck('id')->all(),
+    'related_relationship' => $resource->relatedResources->pluck('id')->all(),
+    'inverse_relationship' => $resource->inverseRelatedResources->pluck('id')->all(),
 ]);
 
 
