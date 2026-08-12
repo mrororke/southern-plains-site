@@ -21,7 +21,7 @@
             <div class="px-8 pt-10 pb-8">
 
             <div
-                class="prose prose-sm max-w-none
+                class="prose max-w-none
                 prose-headings:font-semibold
                 prose-headings:text-sp-charcoal
                 prose-h2:mt-6
