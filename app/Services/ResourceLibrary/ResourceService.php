@@ -202,13 +202,7 @@ class ResourceService
         Resource $resource,
         array $relatedResourceIds
     ): void {
-        dd([
-        'incoming_related_ids' => $relatedResourceIds,
-        'before_delete' => DB::table('resource_resource')
-            ->where('resource_id', $resource->id)
-            ->orWhere('related_resource_id', $resource->id)
-            ->get(),
-    ]);
+        
         $relatedResourceIds = collect($relatedResourceIds)
             ->map(fn ($id) => (int) $id)
             ->reject(fn ($id) => $id === $resource->id)
@@ -254,5 +248,11 @@ class ResourceService
             DB::table('resource_resource')
                 ->insert($rows);
         }
+        dd([
+    'after_sync_related' => DB::table('resource_resource')
+        ->where('resource_id', $resource->id)
+        ->orWhere('related_resource_id', $resource->id)
+        ->get(),
+]);
     }
 }
