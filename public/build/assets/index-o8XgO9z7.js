@@ -1,0 +1,1 @@
+function o(){return{selectedResource:null,init(){const c=new URLSearchParams(window.location.search).get("resource");c&&setTimeout(()=>{const e=document.querySelector(`[data-resource-id="${c}"]`);e&&(e.click(),e.scrollIntoView({behavior:"smooth",block:"nearest"}))},100)},selectResource(r){this.selectedResource=r},clearResource(){this.selectedResource=null}}}export{o as r};

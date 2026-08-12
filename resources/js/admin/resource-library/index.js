@@ -25,17 +25,9 @@ export default function resourceLibrary() {
 
                 button.click();
 
-                const container = button.closest(
-                    '#resource-index'
-                );
-
-                if (! container) {
-                    return;
-                }
-
-                container.scrollTo({
-                    top: button.offsetTop - 16,
+                button.scrollIntoView({
                     behavior: 'smooth',
+                    block: 'nearest',
                 });
 
             }, 100);
