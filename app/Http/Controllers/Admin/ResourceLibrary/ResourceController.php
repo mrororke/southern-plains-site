@@ -292,22 +292,23 @@ class ResourceController extends Controller
     */
 
     public function update(
-        dd($request->all());
-        UpdateResourceRequest $request,
-        Resource $resource
-    ) {
-        $resource = $this->resourceService->update(
-            $resource,
-            $request->validated()
-        );
+    UpdateResourceRequest $request,
+    Resource $resource
+) {
+    dd($request->all());
 
-        return redirect()
-            ->route(
-                'admin-v2.resource-library.index',
-                ['resource' => $resource->id]
-            )
-            ->with('success', 'Resource updated.');
-    }
+    $resource = $this->resourceService->update(
+        $resource,
+        $request->validated()
+    );
+
+    return redirect()
+        ->route(
+            'admin-v2.resource-library.index',
+            ['resource' => $resource->id]
+        )
+        ->with('success', 'Resource updated.');
+}
 
     /*
     |--------------------------------------------------------------------------
