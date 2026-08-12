@@ -1,5 +1,5 @@
 <section
-    class="border-t border-sp-warmStone px-8 py-8"
+    class="mt-10 border-t border-sp-warmStone px-8 pt-8 pb-8"
 >
     <div class="flex items-baseline justify-between gap-4">
 
