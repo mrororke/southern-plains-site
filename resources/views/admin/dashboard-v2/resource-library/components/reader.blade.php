@@ -20,24 +20,33 @@
 
             <div class="px-8 pt-10 pb-8">
 
-                <div
-    class="prose prose-sm max-w-none
-           prose-headings:text-sp-charcoal
-           prose-p:text-sp-charcoal
-           prose-strong:text-sp-charcoal
-           prose-a:text-sp-prairieGreen
-           prose-li:text-sp-charcoal
-           prose-ul:list-disc
-           prose-ul:pl-6
-           prose-ol:list-decimal
-           prose-ol:pl-6
-           prose-blockquote:border-l-4
-           prose-blockquote:border-sp-burntClay
-           prose-blockquote:pl-4
-           prose-blockquote:italic
-           prose-blockquote:text-sp-slate"
-    x-html="selectedResource.body"
-></div>
+            <div
+                class="prose prose-sm max-w-none
+                prose-headings:font-semibold
+                prose-headings:text-sp-charcoal
+                prose-h2:mt-6
+                prose-h2:mb-3
+                prose-h2:text-2xl
+                prose-p:text-sp-charcoal
+                prose-p:leading-relaxed
+                prose-strong:text-sp-charcoal
+                prose-a:text-sp-prairieGreen
+                prose-a:underline
+                prose-ul:list-disc
+                prose-ul:pl-6
+                prose-ol:list-decimal
+                prose-ol:pl-6
+                prose-li:text-sp-charcoal
+                prose-li:my-1
+                prose-li:pl-1
+                prose-li-p:my-0
+                prose-blockquote:border-l-4
+                prose-blockquote:border-sp-burntClay
+                prose-blockquote:pl-4
+                prose-blockquote:italic
+                prose-blockquote:text-sp-slate"
+                x-html="selectedResource.body"
+            ></div>
 
                 @include(
                     'admin.dashboard-v2.resource-library.components.related-behaviors'
