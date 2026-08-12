@@ -248,11 +248,6 @@ class ResourceService
             DB::table('resource_resource')
                 ->insert($rows);
         }
-        dd([
-    'after_sync_related' => DB::table('resource_resource')
-        ->where('resource_id', $resource->id)
-        ->orWhere('related_resource_id', $resource->id)
-        ->get(),
-]);
+        
     }
 }
