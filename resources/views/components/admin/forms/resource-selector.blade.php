@@ -65,6 +65,7 @@
                 <input
                     type="checkbox"
                     :value="item.id"
+                    :checked="selected.includes(item.id)"
                     x-model="selected"
                     name="{{ $name }}[]"
                     class="mt-1 rounded border-sp-warmStone
