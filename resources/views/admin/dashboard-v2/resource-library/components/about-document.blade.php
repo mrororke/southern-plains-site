@@ -9,7 +9,7 @@
 
     <div
         class="mt-6 rounded-md border border-sp-warmStone
-               bg-sp-warmIvory px-6 py-5"
+               bg-sp-limestone/20 px-6 py-5"
     >
         <dl
             class="grid grid-cols-2 gap-x-8 gap-y-6"
