@@ -410,151 +410,199 @@ class TrickCatalogController extends Controller
     | BEHAVIOR CATALOG - DASHBOARD V2
     |--------------------------------------------------------------------------
     */
+public function behaviorCatalog(Request $request)
+{
+    $levels = TrickLevel::orderByRaw('LOWER(name)')->get();
 
-    public function behaviorCatalog(Request $request)
-    {
-        $levels = TrickLevel::orderByRaw('LOWER(name)')->get();
+    $query = Trick::query()
+        ->with(['videos', 'levels']);
 
-        $query = Trick::query()
-            ->with(['videos', 'levels']);
+    /*
+    |--------------------------------------------------------------------------
+    | Search
+    |--------------------------------------------------------------------------
+    */
 
-        /*
-        |--------------------------------------------------------------------------
-        | Search
-        |--------------------------------------------------------------------------
-        */
+    if ($request->filled('search')) {
+        $search = trim($request->search);
 
-        if ($request->filled('search')) {
-            $search = trim($request->search);
+        $query->where(function ($q) use ($search) {
+            $q->where('name', 'like', "%{$search}%")
+                ->orWhere('notes', 'like', "%{$search}%")
+                ->orWhereHas('videos', function ($video) use ($search) {
+                    $video->where('creator', 'like', "%{$search}%");
+                });
+        });
+    }
 
-            $query->where(function ($q) use ($search) {
-                $q->where('name', 'like', "%{$search}%")
-                    ->orWhere('notes', 'like', "%{$search}%")
-                    ->orWhereHas('videos', function ($video) use ($search) {
-                        $video->where('creator', 'like', "%{$search}%");
-                    });
+    /*
+    |--------------------------------------------------------------------------
+    | Level Filter
+    |--------------------------------------------------------------------------
+    */
+
+    if ($request->filled('level')) {
+
+        if ($request->level === 'none') {
+
+            $query->doesntHave('levels');
+
+        } else {
+
+            $query->whereHas('levels', function ($q) use ($request) {
+                $q->where('trick_levels.id', $request->level);
             });
         }
+    }
 
-        /*
-        |--------------------------------------------------------------------------
-        | Category Filter
-        |--------------------------------------------------------------------------
-        */
+    /*
+    |--------------------------------------------------------------------------
+    | Platform Filter
+    |--------------------------------------------------------------------------
+    */
 
-        if ($request->filled('level')) {
-            if ($request->level === 'none') {
-                $query->doesntHave('levels');
-            } else {
-                $query->whereHas('levels', function ($q) use ($request) {
-                    $q->where('trick_levels.id', $request->level);
-                });
+    if ($request->filled('platform')) {
+
+        $query->whereHas('videos', function ($q) use ($request) {
+            $q->where('platform', $request->platform);
+        });
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Preferred Video Filter
+    |--------------------------------------------------------------------------
+    */
+
+    if ($request->preferred === 'yes') {
+
+        $query->whereHas('videos', function ($q) {
+            $q->where('is_preferred', true);
+        });
+
+    } elseif ($request->preferred === 'no') {
+
+        $query->whereDoesntHave('videos', function ($q) {
+            $q->where('is_preferred', true);
+        });
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Notes Filter
+    |--------------------------------------------------------------------------
+    */
+
+    if ($request->notes === 'has') {
+
+        $query->whereNotNull('notes')
+            ->where('notes', '!=', '');
+
+    } elseif ($request->notes === 'missing') {
+
+        $query->where(function ($q) {
+            $q->whereNull('notes')
+                ->orWhere('notes', '');
+        });
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Sorting
+    |--------------------------------------------------------------------------
+    */
+
+    switch ($request->sort) {
+
+        case 'name_desc':
+            $query->orderByRaw('LOWER(name) DESC');
+            break;
+
+        case 'newest':
+            $query->latest();
+            break;
+
+        case 'oldest':
+            $query->oldest();
+            break;
+
+        case 'videos':
+            $query->withCount('videos')
+                ->orderByDesc('videos_count');
+            break;
+
+        default:
+            $query->orderByRaw('LOWER(name) ASC');
+            break;
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Device-Specific Pagination
+    |--------------------------------------------------------------------------
+    */
+
+    $isMobile = request()
+        ->attributes
+        ->get('isMobile', false);
+
+    $perPage = $isMobile ? 15 : 25;
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Deep Link To Behavior
+    |--------------------------------------------------------------------------
+    */
+
+    if ($request->filled('behavior')) {
+
+        $behaviorId = (int) $request->behavior;
+
+        $position = (clone $query)
+            ->pluck('id')
+            ->search($behaviorId);
+
+        if ($position !== false) {
+
+            $page = (int) floor(
+                $position / $perPage
+            ) + 1;
+
+            if ((int) $request->page !== $page) {
+
+                return redirect()->to(
+                    $request->fullUrlWithQuery([
+                        'page' => $page,
+                    ])
+                );
             }
         }
-
-        /*
-        |--------------------------------------------------------------------------
-        | Platform Filter
-        |--------------------------------------------------------------------------
-        */
-
-        if ($request->filled('platform')) {
-            $query->whereHas('videos', function ($q) use ($request) {
-                $q->where('platform', $request->platform);
-            });
-        }
-
-        /*
-        |--------------------------------------------------------------------------
-        | Preferred Video Filter
-        |--------------------------------------------------------------------------
-        */
-
-        if ($request->preferred === 'yes') {
-            $query->whereHas('videos', function ($q) {
-                $q->where('is_preferred', true);
-            });
-        } elseif ($request->preferred === 'no') {
-            $query->whereDoesntHave('videos', function ($q) {
-                $q->where('is_preferred', true);
-            });
-        }
-
-        /*
-        |--------------------------------------------------------------------------
-        | Notes Filter
-        |--------------------------------------------------------------------------
-        */
-
-        if ($request->notes === 'has') {
-            $query->whereNotNull('notes')
-                ->where('notes', '!=', '');
-        } elseif ($request->notes === 'missing') {
-            $query->where(function ($q) {
-                $q->whereNull('notes')
-                    ->orWhere('notes', '');
-            });
-        }
-
-        /*
-        |--------------------------------------------------------------------------
-        | Sorting
-        |--------------------------------------------------------------------------
-        */
-
-        switch ($request->sort) {
-            case 'name_desc':
-                $query->orderByRaw('LOWER(name) DESC');
-                break;
-
-            case 'newest':
-                $query->latest();
-                break;
-
-            case 'oldest':
-                $query->oldest();
-                break;
-
-            case 'videos':
-                $query->withCount('videos')
-                    ->orderByDesc('videos_count');
-                break;
-
-            default:
-                $query->orderByRaw('LOWER(name) ASC');
-                break;
-        }
-
-        /*
-        |--------------------------------------------------------------------------
-        | Device-Specific Pagination and View
-        |--------------------------------------------------------------------------
-        */
-
-        $isMobile = request()->attributes->get('isMobile', false);
-
-        $perPage = $isMobile ? 15 : 25;
-
-        $tricks = $query
-            ->with([
-                'levels',
-                'videos',
-            ])
-            ->withCount('videos')
-            ->paginate($perPage)
-            ->withQueryString();
-
-        return view(
-            $isMobile
-                ? 'admin.dashboard-v2.mobile.behavior-catalog.index'
-                : 'admin.dashboard-v2.behavior-catalog.index',
-            [
-                'navigation' => \App\Navigation\AdminNavigation::items(),
-                'tricks' => $tricks,
-                'levels' => $levels,
-            ]
-        );
     }
+
+
+    $tricks = $query
+        ->with([
+            'levels',
+            'videos',
+        ])
+        ->withCount('videos')
+        ->paginate($perPage)
+        ->withQueryString();
+
+
+    return view(
+        $isMobile
+            ? 'admin.dashboard-v2.mobile.behavior-catalog.index'
+            : 'admin.dashboard-v2.behavior-catalog.index',
+        [
+            'navigation' => \App\Navigation\AdminNavigation::items(),
+            'tricks' => $tricks,
+            'levels' => $levels,
+        ]
+    );
+}
+    
 
     /*
     |--------------------------------------------------------------------------
