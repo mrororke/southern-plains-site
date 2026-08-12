@@ -41,6 +41,11 @@ class ResourceService
                 'updated_by' => $userId,
             ]);
 
+            dd([
+    'tricks_from_service' => $data['tricks'] ?? [],
+    'resources_from_service' => $data['related_resources'] ?? [],
+]);
+
             $this->syncBehaviors(
                 $resource,
                 $data['tricks'] ?? []
