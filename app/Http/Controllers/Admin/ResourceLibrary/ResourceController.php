@@ -295,7 +295,6 @@ class ResourceController extends Controller
     UpdateResourceRequest $request,
     Resource $resource
 ) {
-    dd($request->all());
 
     $resource = $this->resourceService->update(
         $resource,
