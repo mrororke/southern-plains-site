@@ -94,6 +94,7 @@
                     </select>
                 </div>
 
+
                 {{-- Type --}}
                 <div>
                     <label
@@ -132,6 +133,7 @@
                 </div>
 
             </div>
+
 
             <div class="grid grid-cols-2 gap-6">
 
@@ -177,6 +179,7 @@
                     </select>
                 </div>
 
+
                 {{-- New Series --}}
                 <div>
                     <label
@@ -204,6 +207,7 @@
                 </div>
 
             </div>
+
 
             <div class="grid grid-cols-2 gap-6">
 
@@ -247,8 +251,10 @@
                         >
                             Archived
                         </option>
+
                     </select>
                 </div>
+
 
                 {{-- First Sent --}}
                 <div>
@@ -283,32 +289,35 @@
 
     </section>
 
+
     {{-- Content --}}
-<section
-    class="rounded-md border border-sp-warmStone
-           bg-sp-warmIvory p-6"
->
-    <h2
-        class="font-sans text-lg font-semibold text-sp-charcoal"
+    <section
+        class="rounded-md border border-sp-warmStone
+               bg-sp-warmIvory p-6"
     >
-        Content
-    </h2>
+        <h2
+            class="font-sans text-lg font-semibold text-sp-charcoal"
+        >
+            Content
+        </h2>
 
-    <p class="mt-1 text-sm text-sp-slate">
-        Write or update the Resource content.
-    </p>
+        <p class="mt-1 text-sm text-sp-slate">
+            Write or update the Resource content.
+        </p>
 
-    <div class="mt-6">
-        <x-admin.forms.rich-text
-            id="body-editor"
-            name="body"
-            :value="old(
-                'body',
-                $resource->body ?? ''
-            )"
-        />
-    </div>
-</section>
+        <div class="mt-6">
+            <x-admin.forms.rich-text
+                id="body-editor"
+                name="body"
+                :value="old(
+                    'body',
+                    $resource->body ?? ''
+                )"
+            />
+        </div>
+
+    </section>
+
 
     {{-- Connections --}}
     <section
@@ -322,37 +331,32 @@
         </h2>
 
         <p class="mt-1 text-sm text-sp-slate">
-    Connect this Resource to behaviors and related Resources.
-</p>
+            Connect this Resource to behaviors and related Resources.
+        </p>
 
-<div class="mt-6 space-y-8">
+        <div class="mt-6 space-y-8">
 
-    <x-admin.forms.behavior-selector
-    :tricks="$tricks"
-    :selected="old(
-        'tricks',
-        $resource->tricks
-            ->pluck('id')
-            ->values()
-            ->all()
-    )"
-/>
+            <x-admin.forms.behavior-selector
+                :tricks="$tricks"
+                :selected="old(
+                    'tricks',
+                    $selectedTrickIds ?? []
+                )"
+            />
 
-    <x-admin.forms.resource-selector
-    :resources="$relatedResources"
-    :selected="old(
-        'related_resources',
-        $resource->relatedResources
-            ->merge($resource->inverseRelatedResources)
-            ->pluck('id')
-            ->unique()
-            ->values()
-            ->all()
-    )"
-/>
 
-</div>
+            <x-admin.forms.resource-selector
+                :resources="$relatedResources"
+                :selected="old(
+                    'related_resources',
+                    $selectedRelatedResourceIds ?? []
+                )"
+            />
+
+        </div>
+
     </section>
+
 
     {{-- Actions --}}
     <div class="flex justify-end gap-4">

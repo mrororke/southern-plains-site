@@ -253,6 +253,12 @@ class ResourceController extends Controller
             ->orderByRaw('LOWER(title)')
             ->get();
 
+        $selectedTrickIds = $resource
+            ->tricks
+            ->pluck('id')
+            ->values()
+            ->all();
+
         $selectedRelatedResourceIds = $resource
             ->relatedResources
             ->merge($resource->inverseRelatedResources)
@@ -271,6 +277,7 @@ class ResourceController extends Controller
                 'series' => $series,
                 'tricks' => $tricks,
                 'relatedResources' => $relatedResources,
+                'selectedTrickIds' => $selectedTrickIds,
                 'selectedRelatedResourceIds' =>
                     $selectedRelatedResourceIds,
             ]
