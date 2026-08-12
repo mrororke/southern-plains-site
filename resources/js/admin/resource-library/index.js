@@ -13,7 +13,8 @@ export default function resourceLibrary() {
                 return;
             }
 
-            this.$nextTick(() => {
+            setTimeout(() => {
+
                 const button = document.querySelector(
                     `[data-resource-id="${resourceId}"]`
                 );
@@ -36,7 +37,8 @@ export default function resourceLibrary() {
                     top: button.offsetTop - 16,
                     behavior: 'smooth',
                 });
-            });
+
+            }, 100);
         },
 
         selectResource(resource) {
