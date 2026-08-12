@@ -28,12 +28,8 @@ Alpine.data('behaviorCatalog', () => ({
         );
 
         if (! button) {
-    console.log(
-        'Behavior button not found:',
-        behaviorId
-    );
-
     return;
+
 }
 
         button.click();
