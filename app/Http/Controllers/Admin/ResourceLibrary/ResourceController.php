@@ -22,51 +22,91 @@ class ResourceController extends Controller
     }
 
     /*
+|--------------------------------------------------------------------------
+| Index
+|--------------------------------------------------------------------------
+*/
+
+public function index(Request $request)
+{
+    $query = $this->buildIndexQuery();
+
+    $this->applySearch($query, $request);
+    $this->applyFilters($query, $request);
+    $this->applySorting($query, $request);
+
+    $isMobile = request()
+        ->attributes
+        ->get('isMobile', false);
+
+    $perPage = $isMobile ? 15 : 25;
+
+    /*
     |--------------------------------------------------------------------------
-    | Index
+    | Resolve Deep-Linked Resource Page
     |--------------------------------------------------------------------------
+    |
+    | Related Reading links identify the Resource, but do not know which
+    | pagination page currently contains it.
+    |
+    | When a Resource is requested without an explicit page, determine its
+    | position in the current Resource query and redirect to the correct page.
+    |
     */
 
-    public function index(Request $request)
-    {
-        $query = $this->buildIndexQuery();
+    if (
+        $request->filled('resource')
+        && ! $request->filled('page')
+    ) {
+        $resourceId = (int) $request->resource;
 
-        $this->applySearch($query, $request);
-        $this->applyFilters($query, $request);
-        $this->applySorting($query, $request);
+        $resourceIds = (clone $query)
+            ->pluck('resources.id')
+            ->values();
 
-        $isMobile = request()
-            ->attributes
-            ->get('isMobile', false);
+        $position = $resourceIds->search($resourceId);
 
-        $perPage = $isMobile ? 15 : 25;
+        if ($position !== false) {
+            $page = intdiv($position, $perPage) + 1;
 
-        $resources = $query
-            ->paginate($perPage)
-            ->withQueryString();
-
-        $categories = ResourceCategory::query()
-            ->where('is_active', true)
-            ->orderBy('name')
-            ->get();
-
-        $types = ResourceType::query()
-            ->where('is_active', true)
-            ->orderBy('name')
-            ->get();
-
-        return view(
-            $isMobile
-                ? 'admin.dashboard-v2.mobile.resource-library.index'
-                : 'admin.dashboard-v2.resource-library.index',
-            [
-                'navigation' => \App\Navigation\AdminNavigation::items(),
-                'resources' => $resources,
-                'categories' => $categories,
-                'types' => $types,
-            ]
-        );
+            if ($page > 1) {
+                return redirect()->route(
+                    'admin-v2.resource-library.index',
+                    array_merge(
+                        $request->query(),
+                        ['page' => $page]
+                    )
+                );
+            }
+        }
     }
+
+    $resources = $query
+        ->paginate($perPage)
+        ->withQueryString();
+
+    $categories = ResourceCategory::query()
+        ->where('is_active', true)
+        ->orderBy('name')
+        ->get();
+
+    $types = ResourceType::query()
+        ->where('is_active', true)
+        ->orderBy('name')
+        ->get();
+
+    return view(
+        $isMobile
+            ? 'admin.dashboard-v2.mobile.resource-library.index'
+            : 'admin.dashboard-v2.resource-library.index',
+        [
+            'navigation' => \App\Navigation\AdminNavigation::items(),
+            'resources' => $resources,
+            'categories' => $categories,
+            'types' => $types,
+        ]
+    );
+}
 
     /*
     |--------------------------------------------------------------------------
