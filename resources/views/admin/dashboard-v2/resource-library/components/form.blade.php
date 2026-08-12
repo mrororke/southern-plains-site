@@ -328,14 +328,28 @@
 <div class="mt-6 space-y-8">
 
     <x-admin.forms.behavior-selector
-        :tricks="$tricks"
-        :selected="old('tricks', [])"
-    />
+    :tricks="$tricks"
+    :selected="old(
+        'tricks',
+        $resource->tricks
+            ->pluck('id')
+            ->values()
+            ->all()
+    )"
+/>
 
     <x-admin.forms.resource-selector
-        :resources="$relatedResources"
-        :selected="old('related_resources', [])"
-    />
+    :resources="$relatedResources"
+    :selected="old(
+        'related_resources',
+        $resource->relatedResources
+            ->merge($resource->inverseRelatedResources)
+            ->pluck('id')
+            ->unique()
+            ->values()
+            ->all()
+    )"
+/>
 
 </div>
     </section>
