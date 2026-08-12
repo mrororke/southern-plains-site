@@ -190,10 +190,6 @@ class ResourceService
     array $trickIds
 ): void {
     $resource->tricks()->sync($trickIds);
-
-    dd([
-        'after_sync' => $resource->tricks()->pluck('tricks.id')->all(),
-    ]);
 }
 
     /*
@@ -206,6 +202,13 @@ class ResourceService
         Resource $resource,
         array $relatedResourceIds
     ): void {
+        dd([
+        'incoming_related_ids' => $relatedResourceIds,
+        'before_delete' => DB::table('resource_resource')
+            ->where('resource_id', $resource->id)
+            ->orWhere('related_resource_id', $resource->id)
+            ->get(),
+    ]);
         $relatedResourceIds = collect($relatedResourceIds)
             ->map(fn ($id) => (int) $id)
             ->reject(fn ($id) => $id === $resource->id)
