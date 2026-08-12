@@ -292,6 +292,7 @@ class ResourceController extends Controller
     */
 
     public function update(
+        dd($request->all());
         UpdateResourceRequest $request,
         Resource $resource
     ) {
