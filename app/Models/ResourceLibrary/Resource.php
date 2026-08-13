@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Collection;
 
 class Resource extends Model
 {
@@ -81,6 +82,52 @@ class Resource extends Model
             Resource::class,
             'based_on_resource_id'
         );
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Version History
+    |--------------------------------------------------------------------------
+    */
+
+    public function versionHistory(): Collection
+    {
+        $root = $this;
+
+        while ($root->based_on_resource_id) {
+            $root = $root->basedOn()->first();
+
+            if (! $root) {
+                break;
+            }
+        }
+
+        if (! $root) {
+            return collect([$this]);
+        }
+
+        $history = collect();
+
+        $collectVersions = function (
+            Resource $resource
+        ) use (&$collectVersions, $history): void {
+
+            $history->push($resource);
+
+            $resource->derivedResources()
+                ->get()
+                ->each(function (
+                    Resource $derived
+                ) use (&$collectVersions) {
+                    $collectVersions($derived);
+                });
+        };
+
+        $collectVersions($root);
+
+        return $history
+            ->unique('id')
+            ->values();
     }
 
     /*

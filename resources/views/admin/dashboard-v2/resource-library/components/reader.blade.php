@@ -69,6 +69,10 @@
                 )
 
                 @include(
+                    'admin.dashboard-v2.resource-library.components.version-history'
+                )
+
+                @include(
                     'admin.dashboard-v2.resource-library.components.related-behaviors'
                 )
 
