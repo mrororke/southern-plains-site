@@ -26,6 +26,18 @@
     class="space-y-4"
 >
 
+    {{-- Hidden inputs submit every selected resource --}}
+    <template
+        x-for="id in selected"
+        :key="`selected-resource-${id}`"
+    >
+        <input
+            type="hidden"
+            name="{{ $name }}[]"
+            :value="id"
+        >
+    </template>
+
     <div>
         <label
             class="mb-2 block text-xs font-semibold uppercase
@@ -43,7 +55,6 @@
                    focus:border-sp-prairieGreen focus:outline-none"
         >
     </div>
-
 
     <div
         class="grid max-h-72 gap-2 overflow-y-auto rounded-md
@@ -67,7 +78,6 @@
                     :value="item.id"
                     :checked="selected.includes(item.id)"
                     x-model="selected"
-                    name="{{ $name }}[]"
                     class="mt-1 rounded border-sp-warmStone
                            text-sp-prairieGreen
                            focus:ring-sp-prairieGreen"
@@ -92,7 +102,6 @@
         </template>
 
     </div>
-
 
     <p class="text-xs text-sp-slate">
 
