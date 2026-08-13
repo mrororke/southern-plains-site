@@ -69,11 +69,11 @@
                             .join(' '),
 
                         selectedResource?.week_number
-                            ? `<br/>Week ${selectedResource.week_number}`
+                            ? `Week ${selectedResource.week_number}`
                             : null
                     ]
                         .filter(Boolean)
-                        .join(' · ')
+                        .join(' <br/> ')
                 "
             ></p>
 
