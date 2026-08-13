@@ -86,7 +86,7 @@
                                     class="uppercase tracking-wide
                                            text-sp-burntClay"
                                 >
-                                    Current Version
+                                    Currently Viewing
                                 </span>
                             </div>
 
