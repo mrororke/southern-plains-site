@@ -53,7 +53,7 @@
                     || selectedResource?.year
                     || selectedResource?.week_number
                 "
-                class="text-sm font-medium text-sp-slate"
+                class="text-xs text-sp-slate"
                 x-text="
                     [
                         [
