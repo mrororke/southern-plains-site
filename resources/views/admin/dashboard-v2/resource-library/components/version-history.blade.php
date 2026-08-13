@@ -13,16 +13,6 @@
             Version History
         </h3>
 
-        <span
-            class="text-xs uppercase tracking-wide text-sp-slate"
-            x-text="
-                `${selectedResource.version_history.length}
-                ${selectedResource.version_history.length === 1
-                    ? 'version'
-                    : 'versions'}`
-            "
-        ></span>
-
     </div>
 
 
@@ -40,11 +30,15 @@
                         class="flex items-center justify-between gap-4
                                rounded-md border border-sp-burntClay
                                bg-sp-limestone/40
-                               px-5 py-4"
+                               px-5 py-3"
                     >
                         <div class="min-w-0">
 
                             <p
+                                x-show="
+                                    version.session
+                                    || version.year
+                                "
                                 class="font-semibold text-sp-charcoal"
                                 x-text="
                                     [
@@ -62,17 +56,39 @@
                             ></p>
 
                             <p
-                                class="mt-1 text-xs uppercase tracking-wide
-                                       text-sp-burntClay"
-                            >
-                                Current version
-                            </p>
-
-                            <p
-                                x-show="version.week_number"
-                                class="mt-1 text-xs text-sp-slate"
-                                x-text="`Week ${version.week_number}`"
+                                x-show="
+                                    ! version.session
+                                    && ! version.year
+                                "
+                                class="font-semibold text-sp-charcoal"
+                                x-text="version.title"
                             ></p>
+
+                            <div
+                                class="mt-1 flex items-center gap-2
+                                       text-xs"
+                            >
+                                <span
+                                    x-show="version.week_number"
+                                    class="text-sp-slate"
+                                    x-text="`Week ${version.week_number}`"
+                                ></span>
+
+                                <span
+                                    x-show="version.week_number"
+                                    aria-hidden="true"
+                                    class="text-sp-warmStone"
+                                >
+                                    ·
+                                </span>
+
+                                <span
+                                    class="uppercase tracking-wide
+                                           text-sp-burntClay"
+                                >
+                                    Current Version
+                                </span>
+                            </div>
 
                         </div>
                     </div>
@@ -86,7 +102,7 @@
                         class="group flex items-center justify-between gap-4
                                rounded-md border border-sp-warmStone
                                bg-sp-limestone/20
-                               px-5 py-4
+                               px-5 py-3
                                transition-colors
                                hover:border-sp-burntClay
                                hover:bg-sp-limestone/40"
@@ -94,6 +110,10 @@
                         <div class="min-w-0">
 
                             <p
+                                x-show="
+                                    version.session
+                                    || version.year
+                                "
                                 class="font-medium text-sp-charcoal
                                        transition-colors
                                        group-hover:text-sp-prairieGreen"
@@ -110,6 +130,17 @@
                                         .filter(Boolean)
                                         .join(' ')
                                 "
+                            ></p>
+
+                            <p
+                                x-show="
+                                    ! version.session
+                                    && ! version.year
+                                "
+                                class="font-medium text-sp-charcoal
+                                       transition-colors
+                                       group-hover:text-sp-prairieGreen"
+                                x-text="version.title"
                             ></p>
 
                             <p
