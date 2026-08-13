@@ -5,6 +5,7 @@
 >
     <div class="flex items-start justify-between gap-6">
 
+        {{-- Resource Identity --}}
         <div class="min-w-0">
 
             <h2
@@ -14,6 +15,7 @@
             ></h2>
 
             <p class="mt-2 text-sm text-sp-slate">
+
                 <span x-text="selectedResource?.type"></span>
 
                 <span aria-hidden="true"> · </span>
@@ -35,197 +37,144 @@
                             : 'Active'
                     "
                 ></span>
-            </p>
-
-
-            <p
-                x-show="
-                    selectedResource?.series !== 'No Series'
-                    || selectedResource?.session
-                    || selectedResource?.year
-                    || selectedResource?.week_number
-                "
-                class="mt-2 text-sm text-sp-slate"
-            >
-
-                <template
-                    x-if="selectedResource?.series !== 'No Series'"
-                >
-                    <span
-                        class="font-medium text-sp-charcoal"
-                        x-text="selectedResource?.series"
-                    ></span>
-                </template>
-
-
-                <template
-                    x-if="
-                        selectedResource?.series !== 'No Series'
-                        && (
-                            selectedResource?.session
-                            || selectedResource?.year
-                            || selectedResource?.week_number
-                        )
-                    "
-                >
-                    <span aria-hidden="true"> · </span>
-                </template>
-
-
-                <template
-                    x-if="
-                        selectedResource?.session
-                        || selectedResource?.year
-                    "
-                >
-                    <span>
-                        <span
-                            x-show="selectedResource?.session"
-                            x-text="
-                                selectedResource?.session
-                                    ? selectedResource.session
-                                        .charAt(0)
-                                        .toUpperCase()
-                                        + selectedResource.session.slice(1)
-                                    : ''
-                            "
-                        ></span>
-
-                        <span
-                            x-show="
-                                selectedResource?.session
-                                && selectedResource?.year
-                            "
-                        >
-                            &nbsp;
-                        </span>
-
-                        <span
-                            x-show="selectedResource?.year"
-                            x-text="selectedResource?.year"
-                        ></span>
-                    </span>
-                </template>
-
-
-                <template
-                    x-if="
-                        (
-                            selectedResource?.session
-                            || selectedResource?.year
-                        )
-                        && selectedResource?.week_number
-                    "
-                >
-                    <span aria-hidden="true"> · </span>
-                </template>
-
-
-                <template
-                    x-if="selectedResource?.week_number"
-                >
-                    <span
-                        x-text="`Week ${selectedResource.week_number}`"
-                    ></span>
-                </template>
 
             </p>
 
         </div>
 
 
-        <div
-            class="relative shrink-0"
-            x-data="{ actionsOpen: false }"
-            @click.outside="actionsOpen = false"
-        >
-            <button
-                type="button"
-                @click="actionsOpen = !actionsOpen"
-                class="inline-flex items-center justify-center rounded-md
-                       border border-sp-warmStone bg-white px-4 py-2
-                       text-sm font-semibold text-sp-charcoal
-                       transition-colors
-                       hover:bg-sp-limestone/20"
-            >
-                Actions
+        {{-- Delivery + Actions --}}
+        <div class="flex shrink-0 flex-col items-end gap-3">
 
-                <svg
-                    class="ml-2 h-4 w-4 transition-transform"
-                    :class="{ 'rotate-180': actionsOpen }"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                    />
-                </svg>
-            </button>
+            {{-- Delivery Information --}}
+            <p
+                x-show="
+                    selectedResource?.session
+                    || selectedResource?.year
+                    || selectedResource?.week_number
+                "
+                class="text-sm font-medium text-sp-slate"
+                x-text="
+                    [
+                        [
+                            selectedResource?.session
+                                ? selectedResource.session
+                                    .charAt(0)
+                                    .toUpperCase()
+                                    + selectedResource.session.slice(1)
+                                : null,
+                            selectedResource?.year
+                        ]
+                            .filter(Boolean)
+                            .join(' '),
 
+                        selectedResource?.week_number
+                            ? `Week ${selectedResource.week_number}`
+                            : null
+                    ]
+                        .filter(Boolean)
+                        .join(' · ')
+                "
+            ></p>
+
+
+            {{-- Actions --}}
             <div
-                x-show="actionsOpen"
-                x-cloak
-                class="absolute right-0 z-10 mt-2 w-48 rounded-md
-                       border border-sp-warmStone bg-sp-warmIvory
-                       py-1 shadow-md"
+                class="relative"
+                x-data="{ actionsOpen: false }"
+                @click.outside="actionsOpen = false"
             >
-
-                <a
-                    :href="selectedResource?.edit_url"
-                    class="block px-4 py-2 text-sm text-sp-charcoal
+                <button
+                    type="button"
+                    @click="actionsOpen = !actionsOpen"
+                    class="inline-flex items-center justify-center
+                           rounded-md border border-sp-warmStone
+                           bg-white px-4 py-2
+                           text-sm font-semibold text-sp-charcoal
+                           transition-colors
                            hover:bg-sp-limestone/20"
                 >
-                    Edit
-                </a>
+                    Actions
 
-                <button
-                    type="button"
-                    disabled
-                    class="flex w-full cursor-not-allowed items-center
-                           justify-between px-4 py-2
-                           text-sm text-sp-slate"
-                >
-                    Duplicate
-
-                    <span class="text-xs">
-                        Soon
-                    </span>
+                    <svg
+                        class="ml-2 h-4 w-4 transition-transform"
+                        :class="{ 'rotate-180': actionsOpen }"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="2"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                        />
+                    </svg>
                 </button>
 
-                <button
-                    type="button"
-                    disabled
-                    class="flex w-full cursor-not-allowed items-center
-                           justify-between px-4 py-2
-                           text-sm text-sp-slate"
+
+                <div
+                    x-show="actionsOpen"
+                    x-cloak
+                    class="absolute right-0 z-10 mt-2 w-48
+                           rounded-md border border-sp-warmStone
+                           bg-sp-warmIvory py-1 shadow-md"
                 >
-                    Archive
 
-                    <span class="text-xs">
-                        Soon
-                    </span>
-                </button>
+                    <a
+                        :href="selectedResource?.edit_url"
+                        class="block px-4 py-2 text-sm text-sp-charcoal
+                               hover:bg-sp-limestone/20"
+                    >
+                        Edit
+                    </a>
 
-                <button
-                    type="button"
-                    disabled
-                    class="flex w-full cursor-not-allowed items-center
-                           justify-between px-4 py-2
-                           text-sm text-sp-slate"
-                >
-                    Delete
+                    <button
+                        type="button"
+                        disabled
+                        class="flex w-full cursor-not-allowed
+                               items-center justify-between
+                               px-4 py-2 text-sm text-sp-slate"
+                    >
+                        Duplicate
 
-                    <span class="text-xs">
-                        Soon
-                    </span>
-                </button>
+                        <span class="text-xs">
+                            Soon
+                        </span>
+                    </button>
 
+                    <button
+                        type="button"
+                        disabled
+                        class="flex w-full cursor-not-allowed
+                               items-center justify-between
+                               px-4 py-2 text-sm text-sp-slate"
+                    >
+                        Archive
+
+                        <span class="text-xs">
+                            Soon
+                        </span>
+                    </button>
+
+                    <button
+                        type="button"
+                        disabled
+                        class="flex w-full cursor-not-allowed
+                               items-center justify-between
+                               px-4 py-2 text-sm text-sp-slate"
+                    >
+                        Delete
+
+                        <span class="text-xs">
+                            Soon
+                        </span>
+                    </button>
+
+                </div>
             </div>
+
         </div>
 
     </div>
