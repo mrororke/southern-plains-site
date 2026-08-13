@@ -41,78 +41,79 @@
             x-for="resource in selectedResource.series_resources"
             :key="resource.id"
         >
+            <div>
 
-            <template
-                x-if="resource.id === selectedResource.id"
-            >
-                <div
-                    class="flex items-center justify-between gap-4
-                           rounded-md border border-sp-burntClay
-                           bg-sp-limestone/40
-                           px-5 py-4"
+                {{-- Current Resource --}}
+                <template
+                    x-if="resource.id === selectedResource.id"
                 >
+                    <div
+                        class="flex items-center justify-between gap-4
+                               rounded-md border border-sp-burntClay
+                               bg-sp-limestone/40
+                               px-5 py-4"
+                    >
+                        <div class="min-w-0">
 
-                    <div class="min-w-0">
+                            <p
+                                class="font-semibold text-sp-charcoal"
+                                x-text="resource.title"
+                            ></p>
 
-                        <p
-                            class="font-semibold text-sp-charcoal"
-                            x-text="resource.title"
-                        ></p>
+                            <p
+                                class="mt-1 text-xs uppercase tracking-wide
+                                       text-sp-burntClay"
+                            >
+                                Current resource
+                            </p>
 
-                        <p
-                            class="mt-1 text-xs uppercase tracking-wide
-                                   text-sp-burntClay"
-                        >
-                            Current resource
-                        </p>
-
+                        </div>
                     </div>
-
-                </div>
-            </template>
+                </template>
 
 
-            <template
-                x-if="resource.id !== selectedResource.id"
-            >
-                <a
-                    :href="`{{ route('admin-v2.resource-library.index') }}?resource=${resource.id}`"
-                    class="group flex items-center justify-between gap-4
-                           rounded-md border border-sp-warmStone
-                           bg-sp-limestone/20
-                           px-5 py-4
-                           transition-colors
-                           hover:border-sp-burntClay
-                           hover:bg-sp-limestone/40"
+                {{-- Other Resources --}}
+                <template
+                    x-if="resource.id !== selectedResource.id"
                 >
+                    <a
+                        :href="`{{ route('admin-v2.resource-library.index') }}?resource=${resource.id}`"
+                        class="group flex items-center justify-between gap-4
+                               rounded-md border border-sp-warmStone
+                               bg-sp-limestone/20
+                               px-5 py-4
+                               transition-colors
+                               hover:border-sp-burntClay
+                               hover:bg-sp-limestone/40"
+                    >
+                        <div class="min-w-0">
 
-                    <div class="min-w-0">
+                            <p
+                                class="font-medium text-sp-charcoal
+                                       transition-colors
+                                       group-hover:text-sp-prairieGreen"
+                                x-text="resource.title"
+                            ></p>
 
-                        <p
-                            class="font-medium text-sp-charcoal
-                                   transition-colors
-                                   group-hover:text-sp-prairieGreen"
-                            x-text="resource.title"
-                        ></p>
+                            <p
+                                class="mt-1 text-xs uppercase tracking-wide
+                                       text-sp-slate"
+                            >
+                                Open resource
+                            </p>
 
-                        <p
-                            class="mt-1 text-xs uppercase tracking-wide
-                                   text-sp-slate"
-                        >
-                            Open resource
-                        </p>
+                        </div>
 
-                    </div>
+                        <x-icons.chevron-right
+                            class="h-4 w-4 shrink-0 text-sp-slate
+                                   transition-transform
+                                   group-hover:translate-x-1"
+                        />
 
-                    <x-icons.chevron-right
-                        class="h-4 w-4 shrink-0 text-sp-slate
-                               transition-transform
-                               group-hover:translate-x-1"
-                    />
+                    </a>
+                </template>
 
-                </a>
-            </template>
-
+            </div>
         </template>
 
     </div>
