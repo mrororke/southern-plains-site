@@ -194,6 +194,48 @@
 
 
             <div class="grid grid-cols-4 gap-6">
+                {{-- Status --}}
+<div>
+    <label
+        for="status"
+        class="block text-sm font-medium text-sp-charcoal"
+    >
+        Status
+    </label>
+
+    <select
+        name="status"
+        id="status"
+        class="mt-2 block w-full rounded-md
+               border-sp-warmStone
+               bg-sp-warmIvory
+               text-sm text-sp-charcoal"
+    >
+        <option
+            value="active"
+            @selected(
+                old(
+                    'status',
+                    $resource->status ?? 'active'
+                ) === 'active'
+            )
+        >
+            Active
+        </option>
+
+        <option
+            value="archived"
+            @selected(
+                old(
+                    'status',
+                    $resource->status ?? null
+                ) === 'archived'
+            )
+        >
+            Archived
+        </option>
+    </select>
+</div>
 
                 {{-- Year --}}
                 <div>
