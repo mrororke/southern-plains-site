@@ -50,7 +50,7 @@
         || selectedResource?.year
         || selectedResource?.week_number
     "
-                class="text-right text-sm text-sp-slate">
+                class="text-right text-xs text-sp-slate">
 
                 <span
                     class="block"
