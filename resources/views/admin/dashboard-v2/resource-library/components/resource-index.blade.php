@@ -1,232 +1,144 @@
 <div
-    x-show="selectedResource"
-    x-cloak
-    class="border-b border-sp-warmStone px-8 py-6"
+    id="resource-index"
+    class="space-y-1"
 >
-    <div class="flex items-start justify-between gap-6">
+    @forelse($resources as $resource)
 
-        <div class="min-w-0">
-
-            <h2
-                class="font-sans text-3xl font-semibold leading-tight
-                       text-sp-charcoal"
-                x-text="selectedResource?.title"
-            ></h2>
-
-            <p class="mt-2 text-sm text-sp-slate">
-                <span x-text="selectedResource?.type"></span>
-
-                <span aria-hidden="true"> · </span>
-
-                <span x-text="selectedResource?.category"></span>
-
-                <span aria-hidden="true"> · </span>
-
-                <span
-                    :class="{
-                        'text-sp-successGreen':
-                            selectedResource?.status === 'active',
-                        'text-sp-warningOchre':
-                            selectedResource?.status === 'archived'
-                    }"
-                    x-text="
-                        selectedResource?.status === 'archived'
-                            ? 'Archived'
-                            : 'Active'
-                    "
-                ></span>
-            </p>
-
-
-            <p
-                x-show="
-                    selectedResource?.series !== 'No Series'
-                    || selectedResource?.session
-                    || selectedResource?.year
-                    || selectedResource?.week_number
-                "
-                class="mt-2 text-sm text-sp-slate"
-            >
-
-                <template
-                    x-if="selectedResource?.series !== 'No Series'"
-                >
-                    <span
-                        class="font-medium text-sp-charcoal"
-                        x-text="selectedResource?.series"
-                    ></span>
-                </template>
-
-
-                <template
-                    x-if="
-                        selectedResource?.series !== 'No Series'
-                        && (
-                            selectedResource?.session
-                            || selectedResource?.year
-                            || selectedResource?.week_number
-                        )
-                    "
-                >
-                    <span aria-hidden="true"> · </span>
-                </template>
-
-
-                <template
-                    x-if="
-                        selectedResource?.session
-                        || selectedResource?.year
-                    "
-                >
-                    <span>
-                        <span
-                            x-show="selectedResource?.session"
-                            x-text="
-                                selectedResource?.session
-                                    ? selectedResource.session
-                                        .charAt(0)
-                                        .toUpperCase()
-                                        + selectedResource.session.slice(1)
-                                    : ''
-                            "
-                        ></span>
-
-                        <span
-                            x-show="
-                                selectedResource?.session
-                                && selectedResource?.year
-                            "
-                        >
-                            &nbsp;
-                        </span>
-
-                        <span
-                            x-show="selectedResource?.year"
-                            x-text="selectedResource?.year"
-                        ></span>
-                    </span>
-                </template>
-
-
-                <template
-                    x-if="
-                        (
-                            selectedResource?.session
-                            || selectedResource?.year
-                        )
-                        && selectedResource?.week_number
-                    "
-                >
-                    <span aria-hidden="true"> · </span>
-                </template>
-
-
-                <template
-                    x-if="selectedResource?.week_number"
-                >
-                    <span
-                        x-text="`Week ${selectedResource.week_number}`"
-                    ></span>
-                </template>
-
-            </p>
-
-        </div>
-
-
-        <div
-            class="relative shrink-0"
-            x-data="{ actionsOpen: false }"
-            @click.outside="actionsOpen = false"
+    <button
+        type="button"
+        data-resource-id="{{ $resource->id }}"
+        @click="selectResource({
+            id: {{ $resource->id }},
+            title: @js($resource->title),
+            body: @js($resource->body),
+            type: @js($resource->type->name),
+            category: @js($resource->category->name),
+            status: @js($resource->status),
+            series: @js(
+                $resource->series?->name ?? 'No Series'
+            ),
+            year: @js($resource->year),
+            session: @js($resource->session),
+            week_number: @js($resource->week_number),
+            created_at: @js(
+                $resource->created_at->format('M j, Y')
+            ),
+            updated_at: @js(
+                $resource->updated_at->format('M j, Y')
+            ),
+            first_sent: @js(
+                $resource->first_sent
+                    ? $resource->first_sent->format('M j, Y')
+                    : 'Never Sent'
+            ),
+            tricks: @js(
+                $resource->tricks->map(fn ($trick) => [
+                    'id' => $trick->id,
+                    'name' => $trick->name,
+                    'url' => route(
+                        'admin-v2.behavior-catalog.index',
+                        [
+                            'behavior' => $trick->id,
+                        ]
+                    ),
+                ])
+            ),
+            related_resources: @js(
+                $resource->relatedResources
+                    ->merge($resource->inverseRelatedResources)
+                    ->unique('id')
+                    ->map(fn ($related) => [
+                        'id' => $related->id,
+                        'title' => $related->title,
+                    ])
+                    ->values()
+            ),
+            edit_url: @js(
+                route(
+                    'admin-v2.resource-library.edit',
+                    $resource
+                )
+            )
+        })"
+        :aria-pressed="
+            selectedResource?.id === {{ $resource->id }}
+                ? 'true'
+                : 'false'
+        "
+        :class="{
+            'border-sp-burntClay bg-sp-limestone/20':
+                selectedResource?.id === {{ $resource->id }},
+            'border-transparent':
+                selectedResource?.id !== {{ $resource->id }}
+        }"
+        class="group block w-full border-l-[8px]
+               px-4 py-4 text-left
+               transition-all duration-150 ease-out
+               hover:bg-sp-limestone/20
+               focus:outline-none
+               focus-visible:ring-2
+               focus-visible:ring-sp-prairieBlue
+               focus-visible:ring-offset-2"
+    >
+        {{-- Title --}}
+        <h2
+            class="font-sans text-sm leading-snug text-sp-charcoal"
+            :class="{
+                'font-bold':
+                    selectedResource?.id === {{ $resource->id }},
+                'font-semibold':
+                    selectedResource?.id !== {{ $resource->id }}
+            }"
         >
-            <button
-                type="button"
-                @click="actionsOpen = !actionsOpen"
-                class="inline-flex items-center justify-center rounded-md
-                       border border-sp-warmStone bg-white px-4 py-2
-                       text-sm font-semibold text-sp-charcoal
-                       transition-colors
-                       hover:bg-sp-limestone/20"
-            >
-                Actions
+            {{ $resource->title }}
+        </h2>
 
-                <svg
-                    class="ml-2 h-4 w-4 transition-transform"
-                    :class="{ 'rotate-180': actionsOpen }"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="2"
-                    stroke="currentColor"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                    />
-                </svg>
-            </button>
+        {{-- Type · Category · Archived state --}}
+        <p class="mt-1 text-xs text-sp-slate">
+            {{ $resource->type->name }}
 
-            <div
-                x-show="actionsOpen"
-                x-cloak
-                class="absolute right-0 z-10 mt-2 w-48 rounded-md
-                       border border-sp-warmStone bg-sp-warmIvory
-                       py-1 shadow-md"
-            >
+            <span aria-hidden="true">·</span>
 
-                <a
-                    :href="selectedResource?.edit_url"
-                    class="block px-4 py-2 text-sm text-sp-charcoal
-                           hover:bg-sp-limestone/20"
-                >
-                    Edit
-                </a>
+            {{ $resource->category->name }}
 
-                <button
-                    type="button"
-                    disabled
-                    class="flex w-full cursor-not-allowed items-center
-                           justify-between px-4 py-2
-                           text-sm text-sp-slate"
-                >
-                    Duplicate
+            @if($resource->status === 'archived')
+            <span aria-hidden="true">·</span>
 
-                    <span class="text-xs">
-                        Soon
-                    </span>
-                </button>
+            <span class="text-sp-warningOchre">
+                Archived
+            </span>
+            @endif
+        </p>
 
-                <button
-                    type="button"
-                    disabled
-                    class="flex w-full cursor-not-allowed items-center
-                           justify-between px-4 py-2
-                           text-sm text-sp-slate"
-                >
-                    Archive
+        {{-- First Sent --}}
+        <p class="mt-1 text-xs text-sp-slate">
+            @if($resource->first_sent)
+                {{ $resource->first_sent->format('M j, Y') }}
+            @else
+                Never Sent
+            @endif
+        </p>
 
-                    <span class="text-xs">
-                        Soon
-                    </span>
-                </button>
+    </button>
 
-                <button
-                    type="button"
-                    disabled
-                    class="flex w-full cursor-not-allowed items-center
-                           justify-between px-4 py-2
-                           text-sm text-sp-slate"
-                >
-                    Delete
+    @empty
 
-                    <span class="text-xs">
-                        Soon
-                    </span>
-                </button>
+    <div class="px-4 py-8 text-center">
+        <p class="font-medium text-sp-charcoal">
+            No resources found.
+        </p>
 
-            </div>
-        </div>
-
+        <p class="mt-1 text-sm text-sp-slate">
+            Try changing your search or filters.
+        </p>
     </div>
+
+    @endforelse
+
+    {{-- Pagination --}}
+    @if($resources->hasPages())
+    <div class="border-t border-sp-warmStone px-4 pt-4">
+        {{ $resources->links() }}
+    </div>
+    @endif
 </div>
