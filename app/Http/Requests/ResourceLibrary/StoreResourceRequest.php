@@ -79,6 +79,23 @@ class StoreResourceRequest extends FormRequest
                 'prohibits:resource_series_id',
             ],
 
+            'year' => [
+                'nullable',
+                'integer',
+                'between:2000,2100',
+            ],
+
+            'session' => [
+                'nullable',
+                'in:winter,spring,summer,fall',
+            ],
+
+            'week_number' => [
+                'nullable',
+                'integer',
+                'between:1,10',
+            ],
+
             /*
             |--------------------------------------------------------------------------
             | Lineage
