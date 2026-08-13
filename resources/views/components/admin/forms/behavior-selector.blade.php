@@ -21,6 +21,19 @@
     class="space-y-4"
 >
 
+    {{-- Hidden inputs submit every selected behavior --}}
+    <template
+        x-for="id in selected"
+        :key="`selected-behavior-${id}`"
+    >
+        <input
+            type="hidden"
+            name="{{ $name }}[]"
+            :value="id"
+        >
+    </template>
+
+
     <div>
         <label
             class="mb-2 block text-xs
@@ -65,7 +78,6 @@
                     :value="item.id"
                     :checked="selected.includes(item.id)"
                     x-model="selected"
-                    name="{{ $name }}[]"
                     class="rounded border-sp-warmStone
                            text-sp-prairieGreen
                            focus:ring-sp-prairieGreen"
