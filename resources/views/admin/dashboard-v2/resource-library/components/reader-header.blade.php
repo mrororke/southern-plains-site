@@ -41,7 +41,7 @@
 
 
         {{-- Delivery + Actions --}}
-        <div class="flex shrink-0 flex-col items-end gap-3">
+        <div class="flex shrink-0 flex-col items-end gap-2">
 
             {{-- Delivery Information --}}
             <p
@@ -50,10 +50,10 @@
         || selectedResource?.year
         || selectedResource?.week_number
     "
-                class="text-right text-xs text-sp-slate">
+                class="text-sm text-sp-slate">
 
                 <span
-                    class="block"
+                    class="block font-semibold"
                     x-show="
             selectedResource?.session
             || selectedResource?.year
@@ -73,7 +73,7 @@
         "></span>
 
                 <span
-                    class="block"
+                    class="block text-xs"
                     x-show="selectedResource?.week_number"
                     x-text="`Week ${selectedResource.week_number}`"></span>
 
