@@ -65,6 +65,10 @@
             ></div>
 
                 @include(
+                    'admin.dashboard-v2.resource-library.components.more-in-series'
+                )
+
+                @include(
                     'admin.dashboard-v2.resource-library.components.related-behaviors'
                 )
 
