@@ -91,44 +91,120 @@ class Resource extends Model
     */
 
     public function versionHistory(): Collection
-    {
-        $root = $this;
+{
+    $root = $this;
 
-        while ($root->based_on_resource_id) {
-            $root = $root->basedOn()->first();
+    while ($root->based_on_resource_id) {
 
-            if (! $root) {
-                break;
-            }
-        }
+        $root = $root->basedOn()->first();
 
         if (! $root) {
-            return collect([$this]);
+            break;
         }
-
-        $history = collect();
-
-        $collectVersions = function (
-            Resource $resource
-        ) use (&$collectVersions, $history): void {
-
-            $history->push($resource);
-
-            $resource->derivedResources()
-                ->get()
-                ->each(function (
-                    Resource $derived
-                ) use (&$collectVersions) {
-                    $collectVersions($derived);
-                });
-        };
-
-        $collectVersions($root);
-
-        return $history
-            ->unique('id')
-            ->values();
     }
+
+    if (! $root) {
+        return collect([$this]);
+    }
+
+    $history = collect();
+
+    $collectVersions = function (
+        Resource $resource
+    ) use (&$collectVersions, $history): void {
+
+        $history->push($resource);
+
+        $resource->derivedResources()
+            ->get()
+            ->each(function (
+                Resource $derived
+            ) use (&$collectVersions) {
+
+                $collectVersions($derived);
+
+            });
+    };
+
+    $collectVersions($root);
+
+    $sessionOrder = [
+        'winter' => 1,
+        'spring' => 2,
+        'summer' => 3,
+        'fall' => 4,
+    ];
+
+    return $history
+        ->unique('id')
+        ->sort(function (Resource $a, Resource $b) use ($sessionOrder) {
+
+            /*
+            |--------------------------------------------------------------------------
+            | First Sent (Newest First)
+            |--------------------------------------------------------------------------
+            */
+
+            if ($a->first_sent && $b->first_sent) {
+
+                return $b->first_sent->timestamp
+                    <=>
+                    $a->first_sent->timestamp;
+            }
+
+            if ($a->first_sent && ! $b->first_sent) {
+                return -1;
+            }
+
+            if (! $a->first_sent && $b->first_sent) {
+                return 1;
+            }
+
+            /*
+            |--------------------------------------------------------------------------
+            | Planned Delivery
+            |--------------------------------------------------------------------------
+            */
+
+            $yearCompare =
+                ($b->year ?? 0)
+                <=>
+                ($a->year ?? 0);
+
+            if ($yearCompare !== 0) {
+                return $yearCompare;
+            }
+
+            $sessionCompare =
+                ($sessionOrder[$b->session] ?? 0)
+                <=>
+                ($sessionOrder[$a->session] ?? 0);
+
+            if ($sessionCompare !== 0) {
+                return $sessionCompare;
+            }
+
+            $weekCompare =
+                ($b->week_number ?? 0)
+                <=>
+                ($a->week_number ?? 0);
+
+            if ($weekCompare !== 0) {
+                return $weekCompare;
+            }
+
+            /*
+            |--------------------------------------------------------------------------
+            | Final Fallback
+            |--------------------------------------------------------------------------
+            */
+
+            return $b->created_at->timestamp
+                <=>
+                $a->created_at->timestamp;
+        })
+        ->values();
+}
 
     /*
     |--------------------------------------------------------------------------

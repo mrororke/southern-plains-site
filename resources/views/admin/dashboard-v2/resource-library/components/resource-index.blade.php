@@ -76,23 +76,6 @@
 
     version_history: @js(
         $resource->versionHistory()
-            ->sortByDesc(function ($version) {
-
-                $sessionOrder = [
-                    'winter' => 1,
-                    'spring' => 2,
-                    'summer' => 3,
-                    'fall' => 4,
-                ];
-
-                return sprintf(
-                    '%04d-%01d-%02d',
-                    $version->year ?? 0,
-                    $sessionOrder[$version->session] ?? 0,
-                    $version->week_number ?? 0
-                );
-
-            })
             ->map(fn ($version) => [
                 'id' => $version->id,
                 'title' => $version->title,
@@ -131,6 +114,7 @@
                focus-visible:ring-2
                focus-visible:ring-sp-prairieBlue
                focus-visible:ring-offset-2">
+
         {{-- Title --}}
         <h2
             class="font-sans text-sm leading-snug text-sp-charcoal"
