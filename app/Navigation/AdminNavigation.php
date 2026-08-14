@@ -223,11 +223,11 @@ class AdminNavigation
                 'children' => [
 
                     [
-                        'label' => 'Documents',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
-                        'roles' => ['admin'],
-                        'status' => 'coming-soon',
+                        'label' => 'Resource Library',
+                        'route' => 'admin-v2.resource-library.index',
+                        'activeRoute' => 'admin-v2.resrouce-library.*',
+                        'roles' => ['admin', 'instructor'],
+                        'status' => 'active',
                     ],
 
                     [
