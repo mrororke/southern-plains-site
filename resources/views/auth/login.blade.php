@@ -40,7 +40,7 @@
             @endif
 
             <x-primary-button class="ms-3 bg-sp-prairieGreen hover:bg-sp-prairieOchre rounded-md text-sp-warmIvory">
-                {{ __('Log in') }}
+                {{ __('Sign in') }}
             </x-primary-button>
         </div>
     </form>
