@@ -270,6 +270,11 @@ Route::middleware(['auth', 'device'])
         )->name('behavior-catalog.index');
 
         Route::get(
+            'behavior-catalog/print',
+            [TrickCatalogController::class, 'printAll']
+        )->name('behavior-catalog.print-all');
+
+        Route::get(
             'behavior-catalog/create',
             [TrickCatalogController::class, 'behaviorCreate']
         )->name('behavior-catalog.create');
