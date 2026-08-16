@@ -198,9 +198,44 @@
 
         @foreach($visibleNavigation as $item)
 
+            @php
+                /*
+                |--------------------------------------------------------------------------
+                | Collapsed Dock Routing
+                |--------------------------------------------------------------------------
+                |
+                | A grouped navigation item does not necessarily have its own route.
+                | Use the first active child as the dock destination and all active
+                | child route patterns to determine the dock's active state.
+                */
+
+                $activeChildren = collect(
+                    $item['children'] ?? []
+                )
+                    ->filter(
+                        fn ($child) =>
+                            ($child['status'] ?? 'active') === 'active'
+                    );
+
+                $dockRoute =
+                    $item['route']
+                    ?? data_get(
+                        $activeChildren->first(),
+                        'route'
+                    );
+
+                $dockActiveRoutes = isset($item['children'])
+                    ? $activeChildren
+                        ->pluck('activeRoute')
+                        ->filter()
+                        ->values()
+                        ->all()
+                    : ($item['activeRoute'] ?? null);
+            @endphp
+
             <x-admin.sidebar.dock-link
-                :route="$item['route'] ?? null"
-                :activeRoute="$item['activeRoute'] ?? null"
+                :route="$dockRoute"
+                :activeRoute="$dockActiveRoutes"
                 :icon="$item['icon']"
                 :status="$item['status'] ?? 'active'"
             />

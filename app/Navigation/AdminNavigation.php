@@ -225,7 +225,7 @@ class AdminNavigation
                     [
                         'label' => 'Resource Library',
                         'route' => 'admin.resource-library.index',
-                        'activeRoute' => 'admin.resrouce-library.*',
+                        'activeRoute' => 'admin.resource-library.*',
                         'roles' => ['admin', 'instructor'],
                         'status' => 'active',
                     ],
