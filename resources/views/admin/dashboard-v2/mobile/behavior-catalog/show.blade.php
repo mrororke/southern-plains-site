@@ -45,7 +45,7 @@
     {{-- Back link --}}
     <div class="mb-4">
         <a
-            href="{{ route('admin-v2.behavior-catalog.index') }}"
+            href="{{ route('admin.behavior-catalog.index') }}"
             class="inline-flex items-center gap-1 text-sm font-semibold
                    text-sp-prairieGreen transition-colors
                    hover:text-sp-prairieOchre"

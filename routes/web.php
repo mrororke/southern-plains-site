@@ -124,8 +124,8 @@ Route::middleware(['auth'])->group(function () {
 */
 
 Route::middleware(['auth'])
-    ->prefix('admin')
-    ->name('admin.')
+    ->prefix('admin-legacy')
+    ->name('admin-legacy.')
     ->group(function () {
 
         /*
@@ -134,7 +134,7 @@ Route::middleware(['auth'])
         |--------------------------------------------------------------------------
         */
         Route::get('/dashboard', function (AdminDashboardService $service) {
-            return view('admin.dashboard', $service->data());
+            return view('admin-legacy.dashboard', $service->data());
         })->name('dashboard');
 
         /*
@@ -217,8 +217,8 @@ Route::middleware(['auth'])
 |--------------------------------------------------------------------------
 */
 Route::middleware(['auth', 'device'])
-    ->prefix('admin-v2')
-    ->name('admin-v2.')
+    ->prefix('admin')
+    ->name('admin.')
     ->group(function () {
 
         /*

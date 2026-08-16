@@ -487,7 +487,7 @@
     <div class="flex justify-end gap-4">
 
         <a
-            href="{{ route('admin-v2.resource-library.index') }}"
+            href="{{ route('admin.resource-library.index') }}"
             class="inline-flex items-center justify-center
                    rounded-md border border-sp-warmStone
                    px-4 py-2 text-sm font-semibold

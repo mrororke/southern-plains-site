@@ -49,7 +49,7 @@ export default function behaviorCatalogForm() {
 
         try {
             const response = await fetch(
-                `/admin-v2/behavior-catalog/video-row?index=${index}`,
+                `/admin/behavior-catalog/video-row?index=${index}`,
                 {
                     headers: {
                         Accept: 'text/html',
@@ -142,7 +142,7 @@ export default function behaviorCatalogForm() {
                 ?.getAttribute('content');
 
             const response = await fetch(
-                '/admin-v2/behavior-catalog/check-video',
+                '/admin/behavior-catalog/check-video',
                 {
                     method: 'POST',
                     headers: {

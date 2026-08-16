@@ -15,7 +15,7 @@
 
     <form
         method="POST"
-        action="{{ route('admin-v2.resource-library.update', $resource) }}"
+        action="{{ route('admin.resource-library.update', $resource) }}"
         class="space-y-8"
     >
         @csrf

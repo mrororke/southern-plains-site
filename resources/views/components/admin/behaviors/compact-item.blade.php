@@ -27,7 +27,7 @@
 @endphp
 
 <a
-    href="{{ route('admin-v2.behavior-catalog.show', $behavior) }}"
+    href="{{ route('admin.behavior-catalog.show', $behavior) }}"
     class="group block px-5 py-4 transition-colors hover:bg-sp-warmIvory
            focus-visible:outline focus-visible:outline-2
            focus-visible:outline-offset-[-2px]

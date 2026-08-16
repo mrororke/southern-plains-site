@@ -6,9 +6,9 @@ V2 feature routes use the feature name rather than legacy terminology.
 
 Example:
 
-admin-v2.behavior-catalog.index
-admin-v2.behavior-catalog.create
-admin-v2.behavior-catalog.edit
+admin.behavior-catalog.index
+admin.behavior-catalog.create
+admin.behavior-catalog.edit
 
 Do not introduce new `trick-catalog` naming into Dashboard V2.
 

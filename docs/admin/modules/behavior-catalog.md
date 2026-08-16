@@ -10,19 +10,19 @@ Future admin modules should reuse its patterns where appropriate rather than rec
 
 Prefix:
 
-admin-v2/behavior-catalog
+admin/behavior-catalog
 
 Named routes:
 
-admin-v2.behavior-catalog.index
-admin-v2.behavior-catalog.create
-admin-v2.behavior-catalog.store
-admin-v2.behavior-catalog.show
-admin-v2.behavior-catalog.edit
-admin-v2.behavior-catalog.update
-admin-v2.behavior-catalog.destroy
-admin-v2.behavior-catalog.video-row
-admin-v2.behavior-catalog.check-video
+admin.behavior-catalog.index
+admin.behavior-catalog.create
+admin.behavior-catalog.store
+admin.behavior-catalog.show
+admin.behavior-catalog.edit
+admin.behavior-catalog.update
+admin.behavior-catalog.destroy
+admin.behavior-catalog.video-row
+admin.behavior-catalog.check-video
 
 Routes live in:
 

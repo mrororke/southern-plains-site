@@ -98,7 +98,7 @@
                 {{-- Other Versions --}}
                 <template x-if="! version.is_current">
                     <a
-                        :href="`{{ route('admin-v2.resource-library.index') }}?resource=${version.id}`"
+                        :href="`{{ route('admin.resource-library.index') }}?resource=${version.id}`"
                         class="group flex items-center justify-between gap-4
                                rounded-md border border-sp-warmStone
                                bg-sp-limestone/20

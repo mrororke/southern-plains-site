@@ -23,7 +23,7 @@ $colorClasses = [
 $currentColors = $colorClasses[$color] ?? $colorClasses['club'];
 
 // --- BASE CLASSES ---
-$baseClasses = 'inline-flex items-center px-4 py-2 font-semibold text-xs uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150 border-2 border-transparent';
+$baseClasses = 'inline-flex items-center px-4 py-2 font-semibold text-xs uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150';
 
 // Concatenate base, color scheme, and any custom active classes
 $finalClasses = $baseClasses . ' ' . $currentColors . ' ' . $activeClass;

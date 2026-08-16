@@ -51,7 +51,7 @@ class BackendSearchService
                         'title' => $behavior->name,
                         'description' => $levels,
                         'url' => route(
-                            'admin-v2.behavior-catalog.index',
+                            'admin.behavior-catalog.index',
                             [
                                 'search' => $behavior->name,
                                 'behavior' => $behavior->id,
@@ -190,7 +190,7 @@ class BackendSearchService
                             $descriptionParts
                         ),
                         'url' => route(
-                            'admin-v2.resource-library.show',
+                            'admin.resource-library.show',
                             $resource
                         ),
                     ];
@@ -210,7 +210,7 @@ class BackendSearchService
                 'count' => $behaviorCount,
                 'items' => $behaviors,
                 'viewAllUrl' => route(
-                    'admin-v2.behavior-catalog.index',
+                    'admin.behavior-catalog.index',
                     ['search' => $search]
                 ),
             ],
@@ -220,7 +220,7 @@ class BackendSearchService
                 'count' => $resourceCount,
                 'items' => $resources,
                 'viewAllUrl' => route(
-                    'admin-v2.resource-library.index',
+                    'admin.resource-library.index',
                     ['search' => $search]
                 ),
             ],

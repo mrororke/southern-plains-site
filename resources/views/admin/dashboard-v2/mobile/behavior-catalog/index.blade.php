@@ -20,7 +20,7 @@
 
     <form
         method="GET"
-        action="{{ route('admin-v2.behavior-catalog.index') }}"
+        action="{{ route('admin.behavior-catalog.index') }}"
         class="mb-5"
     >
         <label
@@ -62,7 +62,7 @@
                 </p>
 
                 <a
-                    href="{{ route('admin-v2.behavior-catalog.index') }}"
+                    href="{{ route('admin.behavior-catalog.index') }}"
                     class="shrink-0 text-sm font-semibold text-sp-prairieGreen
                            transition-colors hover:text-sp-prairieOchre"
                 >

@@ -1,7 +1,7 @@
 <header class="flex items-center justify-between bg-sp-charcoal px-4 py-3 relative z-50">
 
             <!-- Logo -->
-            <a href="{{ route('admin-v2.dashboard') }}"
+            <a href="{{ route('admin.dashboard') }}"
                 class="group">
 
                 <x-icons.admin-logo

@@ -36,7 +36,7 @@
 @if($mode === 'mobile')
 
     <a
-        href="{{ route('admin-v2.resource-library.show', $resource) }}"
+        href="{{ route('admin.resource-library.show', $resource) }}"
         class="group flex items-center justify-between gap-4
                px-4 py-4 transition-colors
                hover:bg-sp-limestone/20"
@@ -127,7 +127,7 @@
                     'id' => $trick->id,
                     'name' => $trick->name,
                     'url' => route(
-                        'admin-v2.behavior-catalog.index',
+                        'admin.behavior-catalog.index',
                         [
                             'behavior' => $trick->id,
                         ]
@@ -176,7 +176,7 @@
 
             edit_url: @js(
                 route(
-                    'admin-v2.resource-library.edit',
+                    'admin.resource-library.edit',
                     $resource
                 )
             )

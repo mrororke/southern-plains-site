@@ -19,7 +19,7 @@
 
     <form
         method="POST"
-        action="{{ route('admin-v2.behavior-catalog.update', $trick) }}"
+        action="{{ route('admin.behavior-catalog.update', $trick) }}"
         class="w-full">
         @csrf
         @method('PUT')
@@ -142,7 +142,7 @@
 
         {{-- Actions --}}
         <x-admin.forms.actions
-            :cancel-href="route('admin-v2.behavior-catalog.index')"
+            :cancel-href="route('admin.behavior-catalog.index')"
             submit-label="Update Behavior" />
 
     </form>
@@ -158,7 +158,7 @@
 <form
     id="delete-form"
     method="POST"
-    action="{{ route('admin-v2.behavior-catalog.destroy', $trick) }}"
+    action="{{ route('admin.behavior-catalog.destroy', $trick) }}"
     class="hidden">
     @csrf
     @method('DELETE')

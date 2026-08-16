@@ -250,7 +250,7 @@
 
             try {
                 const response = await fetch(
-                    `{{ route('admin-v2.search') }}?search=${encodeURIComponent(search)}`,
+                    `{{ route('admin.search') }}?search=${encodeURIComponent(search)}`,
                     {
                         headers: {
                             Accept:

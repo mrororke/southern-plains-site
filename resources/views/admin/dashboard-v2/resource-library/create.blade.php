@@ -21,7 +21,7 @@
 
     <form
         method="POST"
-        action="{{ route('admin-v2.resource-library.store') }}"
+        action="{{ route('admin.resource-library.store') }}"
         class="space-y-8"
     >
         @csrf

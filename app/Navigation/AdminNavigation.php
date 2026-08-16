@@ -11,8 +11,8 @@ class AdminNavigation
             [
                 'label' => 'Dashboard',
                 'icon' => 'layout-dashboard',
-                'route' => 'admin-v2.dashboard',
-                'activeRoute' => 'admin-v2.dashboard',
+                'route' => 'admin.dashboard',
+                'activeRoute' => 'admin.dashboard',
                 'roles' => ['admin', 'instructor'],
                 'status' => 'active',
             ],
@@ -27,30 +27,30 @@ class AdminNavigation
 
                     [
                         'label' => 'Pages',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         /* TODO: Current admin route: admin/posts */
                         'label' => 'Posts',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard.*',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard.*',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'FAQs',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Media Library',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
@@ -67,29 +67,29 @@ class AdminNavigation
 
                     [
                         'label' => 'Courses',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Bookings',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard.*',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard.*',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Attendance',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Resources',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
@@ -106,29 +106,29 @@ class AdminNavigation
 
                     [
                         'label' => 'Events',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'League',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard.*',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard.*',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Registration',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Results',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
@@ -145,29 +145,29 @@ class AdminNavigation
 
                     [
                         'label' => 'All Dogs',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Profiles',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard.*',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard.*',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Health Records',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Owners / Handlers',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
@@ -185,29 +185,29 @@ class AdminNavigation
 
                     [
                         'label' => 'Rats',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Litters',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard.*',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard.*',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Health Records',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Timeline Updates',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
@@ -224,40 +224,40 @@ class AdminNavigation
 
                     [
                         'label' => 'Resource Library',
-                        'route' => 'admin-v2.resource-library.index',
-                        'activeRoute' => 'admin-v2.resrouce-library.*',
+                        'route' => 'admin.resource-library.index',
+                        'activeRoute' => 'admin.resrouce-library.*',
                         'roles' => ['admin', 'instructor'],
                         'status' => 'active',
                     ],
 
                     [
                         'label' => 'Behavior Catalog',
-                        'route' => 'admin-v2.behavior-catalog.index',
-                        'activeRoute' => 'admin-v2.behavior-catalog.*',
+                        'route' => 'admin.behavior-catalog.index',
+                        'activeRoute' => 'admin.behavior-catalog.*',
                         'roles' => ['admin', 'instructor'],
                         'status' => 'active',
                     ],
 
                     [
                         'label' => 'Downloads',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'roles' => ['admin'],
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Guides',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'roles' => ['admin'],
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Forms',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'roles' => ['admin'],
                         'status' => 'coming-soon',
                     ],
@@ -275,29 +275,29 @@ class AdminNavigation
 
                     [
                         'label' => 'Emails',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Templates',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard.*',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard.*',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Enquiries',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Notifications',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
@@ -314,29 +314,29 @@ class AdminNavigation
 
                     [
                         'label' => 'Users',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Clients',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard.*',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard.*',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Instructors',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Roles',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
@@ -353,29 +353,29 @@ class AdminNavigation
 
                     [
                         'label' => 'General',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Email',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard.*',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard.*',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Payments',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 
                     [
                         'label' => 'Integrations',
-                        'route' => 'admin-v2.dashboard',
-                        'activeRoute' => 'admin-v2.dashboard',
+                        'route' => 'admin.dashboard',
+                        'activeRoute' => 'admin.dashboard',
                         'status' => 'coming-soon',
                     ],
 

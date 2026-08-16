@@ -73,7 +73,7 @@
     {{-- Back Link --}}
     <div class="mb-4">
         <a
-            href="{{ route('admin-v2.resource-library.index') }}"
+            href="{{ route('admin.resource-library.index') }}"
             class="inline-flex items-center gap-1 text-sm font-semibold
                    text-sp-prairieGreen transition-colors
                    hover:text-sp-prairieOchre"
@@ -349,7 +349,7 @@
 
                         <a
                             href="{{ route(
-                                'admin-v2.resource-library.show',
+                                'admin.resource-library.show',
                                 $version
                             ) }}"
                             class="group flex items-center
@@ -418,7 +418,7 @@
 
                     <a
                         href="{{ route(
-                            'admin-v2.behavior-catalog.show',
+                            'admin.behavior-catalog.show',
                             $behavior
                         ) }}"
                         class="group flex items-center

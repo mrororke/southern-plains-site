@@ -11,10 +11,10 @@ use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 |--------------------------------------------------------------------------
 */
 
-Breadcrumbs::for('admin-v2.dashboard', function (BreadcrumbTrail $trail) {
+Breadcrumbs::for('admin.dashboard', function (BreadcrumbTrail $trail) {
     $trail->push(
         'Dashboard',
-        route('admin-v2.dashboard')
+        route('admin.dashboard')
     );
 });
 
@@ -25,13 +25,13 @@ Breadcrumbs::for('admin-v2.dashboard', function (BreadcrumbTrail $trail) {
 */
 
 Breadcrumbs::for(
-    'admin-v2.behavior-catalog.index',
+    'admin.behavior-catalog.index',
     function (BreadcrumbTrail $trail) {
-        $trail->parent('admin-v2.dashboard');
+        $trail->parent('admin.dashboard');
 
         $trail->push(
             'Behavior Catalog',
-            route('admin-v2.behavior-catalog.index')
+            route('admin.behavior-catalog.index')
         );
     }
 );
@@ -43,9 +43,9 @@ Breadcrumbs::for(
 */
 
 Breadcrumbs::for(
-    'admin-v2.behavior-catalog.create',
+    'admin.behavior-catalog.create',
     function (BreadcrumbTrail $trail) {
-        $trail->parent('admin-v2.behavior-catalog.index');
+        $trail->parent('admin.behavior-catalog.index');
 
         $trail->push('New Behavior');
     }
@@ -58,13 +58,13 @@ Breadcrumbs::for(
 */
 
 Breadcrumbs::for(
-    'admin-v2.behavior-catalog.show',
+    'admin.behavior-catalog.show',
     function (BreadcrumbTrail $trail, Trick $trick) {
-        $trail->parent('admin-v2.behavior-catalog.index');
+        $trail->parent('admin.behavior-catalog.index');
 
         $trail->push(
             $trick->name,
-            route('admin-v2.behavior-catalog.show', $trick)
+            route('admin.behavior-catalog.show', $trick)
         );
     }
 );
@@ -76,10 +76,10 @@ Breadcrumbs::for(
 */
 
 Breadcrumbs::for(
-    'admin-v2.behavior-catalog.edit',
+    'admin.behavior-catalog.edit',
     function (BreadcrumbTrail $trail, Trick $trick) {
         $trail->parent(
-            'admin-v2.behavior-catalog.show',
+            'admin.behavior-catalog.show',
             $trick
         );
 
@@ -94,13 +94,13 @@ Breadcrumbs::for(
 */
 
 Breadcrumbs::for(
-    'admin-v2.resource-library.index',
+    'admin.resource-library.index',
     function (BreadcrumbTrail $trail) {
-        $trail->parent('admin-v2.dashboard');
+        $trail->parent('admin.dashboard');
 
         $trail->push(
             'Resource Library',
-            route('admin-v2.resource-library.index')
+            route('admin.resource-library.index')
         );
     }
 );
@@ -112,9 +112,9 @@ Breadcrumbs::for(
 */
 
 Breadcrumbs::for(
-    'admin-v2.resource-library.create',
+    'admin.resource-library.create',
     function (BreadcrumbTrail $trail) {
-        $trail->parent('admin-v2.resource-library.index');
+        $trail->parent('admin.resource-library.index');
 
         $trail->push('New Resource');
     }
@@ -127,13 +127,13 @@ Breadcrumbs::for(
 */
 
 Breadcrumbs::for(
-    'admin-v2.resource-library.show',
+    'admin.resource-library.show',
     function (BreadcrumbTrail $trail, Resource $resource) {
-        $trail->parent('admin-v2.resource-library.index');
+        $trail->parent('admin.resource-library.index');
 
         $trail->push(
             $resource->title,
-            route('admin-v2.resource-library.show', $resource)
+            route('admin.resource-library.show', $resource)
         );
     }
 );
@@ -145,10 +145,10 @@ Breadcrumbs::for(
 */
 
 Breadcrumbs::for(
-    'admin-v2.resource-library.edit',
+    'admin.resource-library.edit',
     function (BreadcrumbTrail $trail, Resource $resource) {
         $trail->parent(
-            'admin-v2.resource-library.show',
+            'admin.resource-library.show',
             $resource
         );
 

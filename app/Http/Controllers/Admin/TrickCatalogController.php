@@ -737,7 +737,7 @@ public function behaviorCatalog(Request $request)
         });
 
         return redirect()
-            ->route('admin-v2.behavior-catalog.index')
+            ->route('admin.behavior-catalog.index')
             ->with('success', 'Behavior created.');
     }
 
@@ -766,7 +766,7 @@ public function behaviorCatalog(Request $request)
         });
 
         return redirect()
-            ->route('admin-v2.behavior-catalog.index')
+            ->route('admin.behavior-catalog.index')
             ->with('success', 'Behavior deleted.');
     }
 
@@ -890,7 +890,7 @@ public function behaviorUpdate(Request $request, Trick $trick)
     });
 
     return redirect()
-        ->route('admin-v2.behavior-catalog.index')
+        ->route('admin.behavior-catalog.index')
         ->with('success', 'Behavior updated.');
 }
 }

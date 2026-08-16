@@ -1,6 +1,6 @@
 <form
     method="GET"
-    action="{{ route('admin-v2.resource-library.index') }}"
+    action="{{ route('admin.resource-library.index') }}"
     class="mb-6 flex flex-wrap items-end gap-3"
 >
     {{-- Search --}}
@@ -217,7 +217,7 @@
         || request()->filled('sort')
     )
         <a
-            href="{{ route('admin-v2.resource-library.index') }}"
+            href="{{ route('admin.resource-library.index') }}"
             class="inline-flex items-center justify-center rounded-md
                    border border-sp-warmStone bg-sp-warmIvory
                    px-4 py-2 text-sm font-semibold text-sp-charcoal
@@ -229,7 +229,7 @@
 
     {{-- New Resource --}}
     <a
-        href="{{ route('admin-v2.resource-library.create') }}"
+        href="{{ route('admin.resource-library.create') }}"
         class="ml-auto inline-flex items-center justify-center gap-2
                rounded-md bg-sp-prairieGreen px-4 py-2
                text-sm font-semibold text-sp-warmIvory

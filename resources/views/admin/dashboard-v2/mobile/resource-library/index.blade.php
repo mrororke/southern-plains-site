@@ -22,7 +22,7 @@
     {{-- Search --}}
     <form
         method="GET"
-        action="{{ route('admin-v2.resource-library.index') }}"
+        action="{{ route('admin.resource-library.index') }}"
         class="mb-5"
     >
         <label
@@ -64,7 +64,7 @@
                 </p>
 
                 <a
-                    href="{{ route('admin-v2.resource-library.index') }}"
+                    href="{{ route('admin.resource-library.index') }}"
                     class="shrink-0 text-sm font-semibold text-sp-prairieGreen
                            transition-colors hover:text-sp-prairieOchre"
                 >

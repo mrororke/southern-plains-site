@@ -20,7 +20,7 @@
 
     <form
         method="POST"
-        action="{{ route('admin-v2.behavior-catalog.store') }}"
+        action="{{ route('admin.behavior-catalog.store') }}"
         class="w-full"
     >
         @csrf
@@ -146,7 +146,7 @@
         </x-admin.forms.section>
 
         <x-admin.forms.actions
-            :cancel-href="route('admin-v2.behavior-catalog.index')"
+            :cancel-href="route('admin.behavior-catalog.index')"
             submit-label="Save Behavior"
         />
 

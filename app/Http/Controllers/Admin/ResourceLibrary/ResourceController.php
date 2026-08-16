@@ -71,7 +71,7 @@ public function index(Request $request)
 
             if ($page > 1) {
                 return redirect()->route(
-                    'admin-v2.resource-library.index',
+                    'admin.resource-library.index',
                     array_merge(
                         $request->query(),
                         ['page' => $page]
@@ -168,7 +168,7 @@ public function index(Request $request)
 
         return redirect()
             ->route(
-                'admin-v2.resource-library.index',
+                'admin.resource-library.index',
                 ['resource' => $resource->id]
             )
             ->with('success', 'Resource created.');
@@ -222,7 +222,7 @@ public function index(Request $request)
 
         if (! $isMobile) {
             return redirect()->route(
-                'admin-v2.resource-library.index',
+                'admin.resource-library.index',
                 ['resource' => $resource->id]
             );
         }
@@ -343,7 +343,7 @@ public function index(Request $request)
 
     return redirect()
         ->route(
-            'admin-v2.resource-library.index',
+            'admin.resource-library.index',
             ['resource' => $resource->id]
         )
         ->with('success', 'Resource updated.');
@@ -360,7 +360,7 @@ public function index(Request $request)
         $resource->delete();
 
         return redirect()
-            ->route('admin-v2.resource-library.index')
+            ->route('admin.resource-library.index')
             ->with('success', 'Resource deleted.');
     }
 

@@ -24,7 +24,7 @@ Because the recent behaviors could eventually appear on desktop too, I would not
         </h2>
 
         <a
-            href="{{ route('admin-v2.behavior-catalog.index') }}"
+            href="{{ route('admin.behavior-catalog.index') }}"
             class="shrink-0 text-sm font-semibold text-sp-prairieGreen
                    transition-colors hover:text-sp-prairieOchre"
         >

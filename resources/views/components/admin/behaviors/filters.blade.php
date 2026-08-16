@@ -22,7 +22,7 @@
 <form
     id="catalog-filter-form"
     method="GET"
-    action="{{ route('admin-v2.behavior-catalog.index') }}"
+    action="{{ route('admin.behavior-catalog.index') }}"
     class="mb-6 rounded-md bg-sp-warmIvory p-4"
 >
     <div class="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -274,7 +274,7 @@
 
             @if($hasActiveFilters)
                 <a
-                    href="{{ route('admin-v2.behavior-catalog.index') }}"
+                    href="{{ route('admin.behavior-catalog.index') }}"
                     class="inline-flex items-center justify-center rounded-md
                            border border-sp-limestone bg-sp-warmIvory
                            px-4 py-2 text-sm font-medium uppercase
