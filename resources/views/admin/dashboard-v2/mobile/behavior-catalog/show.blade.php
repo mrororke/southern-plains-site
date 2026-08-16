@@ -56,8 +56,10 @@
         </a>
     </div>
 
+
     {{-- Header --}}
     <header class="mb-6">
+
         <p
             class="mb-1 font-display text-sm uppercase tracking-wide
                    text-sp-burntClay"
@@ -73,6 +75,7 @@
         </h1>
 
         @if($behavior->levels->isNotEmpty())
+
             <p class="mt-3 text-sm italic text-sp-slate">
                 {{ $behavior->levels
                     ->pluck('name')
@@ -83,15 +86,21 @@
                     )
                     ->join(', ') }}
             </p>
+
         @else
+
             <p class="mt-3 text-sm italic text-sp-slate">
                 No category assigned.
             </p>
+
         @endif
+
     </header>
+
 
     {{-- Copy actions --}}
     <section class="mb-6">
+
         <h2
             class="mb-2 text-xs font-semibold uppercase tracking-wide
                    text-sp-slate"
@@ -100,6 +109,7 @@
         </h2>
 
         <div class="flex flex-wrap gap-2">
+
             <button
                 type="button"
                 @click="copySimple()"
@@ -117,6 +127,7 @@
                     "
                 ></span>
             </button>
+
 
             <button
                 type="button"
@@ -136,7 +147,9 @@
                 ></span>
             </button>
 
+
             @if($behavior->preferredVideo)
+
                 <button
                     type="button"
                     @click="copyPreferred()"
@@ -154,8 +167,11 @@
                         "
                     ></span>
                 </button>
+
             @endif
+
         </div>
+
 
         <p
             x-show="copiedAction === 'failed'"
@@ -164,10 +180,13 @@
         >
             Unable to copy. Please try again.
         </p>
+
     </section>
+
 
     {{-- Notes --}}
     <section class="mb-6">
+
         <h2
             class="mb-2 text-xs font-semibold uppercase tracking-wide
                    text-sp-slate"
@@ -176,24 +195,80 @@
         </h2>
 
         @if($behavior->notes)
+
             <div
                 class="prose prose-sm max-w-none
-                        rounded-md bg-sp-warmIvory px-5 py-4"
+                       rounded-md bg-sp-warmIvory px-5 py-4"
             >
                 {!! $behavior->notes !!}
             </div>
+
         @else
+
             <div class="rounded-md bg-sp-warmIvory px-5 py-4">
                 <p class="text-sm italic text-sp-slate">
                     No notes entered.
                 </p>
             </div>
+
         @endif
+
     </section>
+
+
+    {{-- Related Resources --}}
+    <section class="mb-6">
+
+        <h2
+            class="mb-2 text-xs font-semibold uppercase tracking-wide
+                   text-sp-slate"
+        >
+            Related Resources
+        </h2>
+
+        @if($behavior->resources->isNotEmpty())
+
+            <div
+                class="overflow-hidden rounded-md border
+                       border-sp-warmStone bg-white"
+            >
+                @foreach($behavior->resources as $resource)
+
+                    <div
+                        @class([
+                            'border-b border-sp-warmStone' => ! $loop->last,
+                        ])
+                    >
+                        @include(
+                            'admin.dashboard-v2.resource-library.partials.catalog-card',
+                            [
+                                'resource' => $resource,
+                                'mode' => 'mobile',
+                            ]
+                        )
+                    </div>
+
+                @endforeach
+            </div>
+
+        @else
+
+            <div class="rounded-md bg-sp-limestone px-5 py-4">
+                <p class="text-sm italic text-sp-slate">
+                    No related resources.
+                </p>
+            </div>
+
+        @endif
+
+    </section>
+
 
     {{-- Preferred video --}}
     @if($behavior->preferredVideo)
+
         <section class="mb-6">
+
             <h2
                 class="mb-2 text-xs font-semibold uppercase tracking-wide
                        text-sp-slate"
@@ -206,7 +281,9 @@
                        bg-[#D8B64C]/15 px-5 py-4"
             >
                 <div class="flex items-start justify-between gap-3">
+
                     <div class="min-w-0">
+
                         <p class="font-semibold text-sp-charcoal">
                             {{ $behavior->preferredVideo->creator
                                 ?: 'Untitled Video' }}
@@ -233,10 +310,14 @@
                         >
                             Recommended
                         </p>
+
                     </div>
+
                 </div>
 
+
                 <div class="mt-4 flex flex-wrap gap-2">
+
                     <a
                         href="{{ $behavior->preferredVideo->url }}"
                         target="_blank"
@@ -250,6 +331,7 @@
 
                         Open
                     </a>
+
 
                     <button
                         type="button"
@@ -276,14 +358,21 @@
                             "
                         ></span>
                     </button>
+
                 </div>
+
             </div>
+
         </section>
+
     @endif
+
 
     {{-- Additional videos --}}
     @if($otherVideos->isNotEmpty())
+
         <section class="mb-6">
+
             <h2
                 class="mb-2 text-xs font-semibold uppercase tracking-wide
                        text-sp-slate"
@@ -295,7 +384,9 @@
                 class="overflow-hidden rounded-md
                        border border-sp-warmStone"
             >
+
                 @foreach($otherVideos as $video)
+
                     <article
                         class="px-5 py-4
                                {{ $loop->last
@@ -318,6 +409,7 @@
                         </p>
 
                         <div class="mt-3 flex flex-wrap gap-2">
+
                             <a
                                 href="{{ $video->url }}"
                                 target="_blank"
@@ -332,6 +424,7 @@
 
                                 Open
                             </a>
+
 
                             <button
                                 type="button"
@@ -352,19 +445,28 @@
 
                                 <span
                                     x-text="
-                                        copiedAction === 'video-{{ $video->id }}'
+                                        copiedAction ===
+                                            'video-{{ $video->id }}'
                                             ? 'Copied'
                                             : 'Copy Link'
                                     "
                                 ></span>
                             </button>
+
                         </div>
+
                     </article>
+
                 @endforeach
+
             </div>
+
         </section>
+
     @elseif($behavior->preferredVideo)
+
         <section class="mb-6">
+
             <h2
                 class="mb-2 text-xs font-semibold uppercase tracking-wide
                        text-sp-slate"
@@ -377,13 +479,17 @@
                     No additional videos added.
                 </p>
             </div>
+
         </section>
+
     @else
+
         <section class="mb-6 rounded-md bg-sp-limestone px-5 py-4">
             <p class="text-sm text-sp-slate">
                 No videos have been added to this behavior yet.
             </p>
         </section>
+
     @endif
 
 </div>
