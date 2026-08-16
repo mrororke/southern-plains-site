@@ -1,39 +1,81 @@
-@props(['type' => 'submit', 'color' => 'club', 'activeClass' => ''])
+@props([
+    'type' => 'submit',
+    'color' => 'club',
+    'activeClass' => '',
+])
 
 @php
-// Define the color schemes (Using the color prop 'train')
+
 $colorClasses = [
-    'club' => 'bg-club text-white hover:bg-club-hover active:bg-club border-transparent focus:ring-club',
-    
-    // FIX: Changed hover:text-white to !hover:text-white for dark themes to override !text-[color]
-    'club-dark' => 'bg-white text-club hover:bg-transparent !hover:text-white hover:border-white focus:ring-club', 
-    
-    'league' => 'bg-league text-white hover:bg-league-hover active:bg-league border-transparent focus:ring-league',
-    
-    // FIX: Changed hover:text-white to !hover:text-white
-    'league-dark' => 'bg-white text-league hover:bg-transparent !hover:text-white hover:border-white focus:ring-league', 
-    
-    'train' => 'bg-training text-white hover:bg-training-hover active:bg-training border-transparent focus:ring-training',
-    
-    // FIX: Changed hover:text-white to !hover:text-white
-    'train-dark' => 'bg-white text-training hover:bg-transparent !hover:text-white hover:border-white focus:ring-training', 
+
+    /*
+    |--------------------------------------------------------------------------
+    | Legacy Public Site
+    |--------------------------------------------------------------------------
+    */
+
+    'club' =>
+        'bg-club text-white hover:bg-club-hover active:bg-club border-transparent focus:ring-club',
+
+    'club-dark' =>
+        'bg-white text-club hover:bg-transparent !hover:text-white hover:border-white focus:ring-club',
+
+    'league' =>
+        'bg-league text-white hover:bg-league-hover active:bg-league border-transparent focus:ring-league',
+
+    'league-dark' =>
+        'bg-white text-league hover:bg-transparent !hover:text-white hover:border-white focus:ring-league',
+
+    'train' =>
+        'bg-training text-white hover:bg-training-hover active:bg-training border-transparent focus:ring-training',
+
+    'train-dark' =>
+        'bg-white text-training hover:bg-transparent !hover:text-white hover:border-white focus:ring-training',
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Dashboard V2 / New Brand
+    |--------------------------------------------------------------------------
+    */
+
+    'primary' =>
+        'bg-sp-prairieGreen text-sp-warmIvory hover:bg-sp-prairieOchre active:bg-sp-prairieGreen border-transparent focus:ring-sp-prairieGreen',
+
+    'secondary' =>
+        'border border-sp-warmStone bg-white text-sp-charcoal hover:bg-sp-limestone/20 focus:ring-sp-prairieGreen',
+
+    'danger' =>
+        'bg-sp-burntClay text-sp-warmIvory hover:brightness-95 border-transparent focus:ring-sp-burntClay',
+
+    'warning' =>
+        'bg-sp-warningOchre text-sp-charcoal hover:brightness-95 border-transparent focus:ring-sp-warningOchre',
+
+    'ghost' =>
+        'bg-transparent text-sp-prairieGreen hover:bg-sp-limestone/20 border-transparent focus:ring-sp-prairieGreen',
+
 ];
 
-// Select the class set based on the 'color' prop
-$currentColors = $colorClasses[$color] ?? $colorClasses['club'];
+$currentColors = $colorClasses[$color] ?? $colorClasses['primary'];
 
-// --- BASE CLASSES ---
-$baseClasses = 'inline-flex items-center px-4 py-2 font-semibold text-xs uppercase tracking-widest focus:outline-none focus:ring-2 focus:ring-offset-2 transition ease-in-out duration-150 border-2 border-transparent';
+$baseClasses =
+    'inline-flex items-center justify-center rounded-md
+     px-4 py-2
+     text-sm font-semibold
+     transition-colors duration-200
+     focus:outline-none focus:ring-2 focus:ring-offset-2';
 
-// Concatenate base, color scheme, and any custom active classes
-$finalClasses = $baseClasses . ' ' . $currentColors . ' ' . $activeClass;
+$finalClasses = trim(
+    $baseClasses . ' ' . $currentColors . ' ' . $activeClass
+);
 
 @endphp
 
 <button
     {{ $attributes->merge([
-        'type' => $type, 
-        'class' => $finalClasses 
-    ]) }}>
+        'type' => $type,
+        'class' => $finalClasses,
+    ]) }}
+>
     {{ $slot }}
 </button>

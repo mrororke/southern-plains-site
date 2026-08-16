@@ -8,6 +8,7 @@ $age = $rat->dob
 @endphp
 
 <div class="bg-white shadow border p-6 mb-6 items-end">
+   
 
     <h1 class="font-bold text-xl mb-4">
         @if($rat->registered_name)

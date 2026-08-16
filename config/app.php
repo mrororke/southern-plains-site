@@ -70,7 +70,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Chicago',
 
     /*
     |--------------------------------------------------------------------------
@@ -182,7 +182,7 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
-        // 'Example' => App\Facades\Example::class,
+        'Breadcrumbs' => Diglactic\Breadcrumbs\Breadcrumbs::class,
     ])->toArray(),
 
 ];

@@ -6,10 +6,12 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "diglactic/laravel-breadcrumbs": "^10.1",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.3",
         "laravel/tinker": "^2.8",
+        "mobiledetect/mobiledetectlib": "^4.11",
         "spatie/laravel-google-fonts": "^1.4"
     },
     "require-dev": {

@@ -1,5 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
+use App\Navigation\AdminNavigation;
+
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\BlogController;
@@ -7,112 +11,363 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HistoryFormController;
 use App\Http\Controllers\TrickEvaluationController;
+use App\Http\Controllers\TrickController;
+use App\Http\Controllers\Admin\TrickCatalogController;
+
+use App\Http\Controllers\Admin\BackendSearchController;
+use App\Http\Controllers\Admin\ResourceLibrary\ResourceController;
+
+use App\Http\Controllers\Admin\TrickEvaluationController as AdminTrickEvaluationController;
+use App\Http\Controllers\Admin\ContactController as AdminContactController;
 
 use App\Http\Controllers\RatController;
-
-use Illuminate\Support\Facades\Route;
+use App\Services\AdminDashboardService;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| PUBLIC ROUTES
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
 */
 
-// Home Page
-Route::get('/', function () {
-    // This assumes you have renamed your original 'welcome.blade.php' to 'home.blade.php'
-    return view('home');
-})->name('welcome'); // Named 'welcome' for the link, or you can use 'home'
+Route::get('/', fn() => view('home'))->name('home');
+Route::get('/about', fn() => view('about'))->name('about');
 
-// About Page
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
+Route::view('/training', 'training.index')->name('training.index');
 
-// PUBLIC BLOG ROUTES
-// Blog Index
-Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/league', fn() => view('league.index'))->name('league.index');
 
-// Filter by Category
-Route::get('/blog/category/{category:slug}', [BlogController::class, 'category'])->name('blog.category');
+/*
+|--------------------------------------------------------------------------
+| BLOG
+|--------------------------------------------------------------------------
+*/
 
-// Filter by Tag
-Route::get('/blog/tag/{tag:slug}', [BlogController::class, 'tag'])->name('blog.tag');
-
-// Single Post View (Using Post:slug for route model binding)
-Route::get('/blog/{post:slug}', [BlogController::class, 'show'])->name('blog.show');
-
-// Training Page
-Route::view('/training', 'training.index')
-    ->name('training.index');
-
-// League Page
-Route::get('/league', function () {
-    return view('league.index'); // Using the appropriate view name
-})->name('league.index');
-
-// Calendar Routes
-Route::get('/events', [EventController::class, 'index'])->name('events.index');
-Route::get('/events/{event:slug}', [EventController::class, 'show'])->name('events.show');
-
-// Contact Page
-Route::get('/contact', [ContactController::class, 'create'])->name('contact.create');
-Route::post('/contact', [ContactController::class, 'store'])->name('contact.store');
-
-// Form Related Routes
-Route::get('/history/create', [HistoryFormController::class, 'create'])->name('emails.history.create');
-Route::post('/history/store', [HistoryFormController::class, 'store'])->name('emails.history.store');
-Route::get('/trickevaluation/create', [TrickEvaluationController::class, 'create'])->name('emails.trickevaluation.create');
-Route::post('/trickevaluation/store', [TrickEvaluationController::class, 'store'])->name('emails.trickevaluation.store');
-
-// Rat Related Routes
-Route::get('/rats/create', [RatController::class, 'create']);
-Route::post('/rats', [RatController::class, 'store']);
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+Route::prefix('blog')->name('blog.')->group(function () {
+    Route::get('/', [BlogController::class, 'index'])->name('index');
+    Route::get('category/{category:slug}', [BlogController::class, 'category'])->name('category');
+    Route::get('tag/{tag:slug}', [BlogController::class, 'tag'])->name('tag');
+    Route::get('{post:slug}', [BlogController::class, 'show'])->name('show');
 });
 
-Route::middleware(['auth', 'admin'])
+/*
+|--------------------------------------------------------------------------
+| EVENTS
+|--------------------------------------------------------------------------
+*/
+
+Route::prefix('events')->name('events.')->group(function () {
+    Route::get('/', [EventController::class, 'index'])->name('index');
+    Route::get('{event:slug}', [EventController::class, 'show'])->name('show');
+});
+
+/*
+|--------------------------------------------------------------------------
+| CONTACT (PUBLIC)
+|--------------------------------------------------------------------------
+*/
+
+Route::prefix('contact')->name('contact.')->group(function () {
+    Route::get('/', [ContactController::class, 'create'])->name('create');
+    Route::post('/', [ContactController::class, 'store'])->name('store');
+});
+
+/*
+|--------------------------------------------------------------------------
+| FORMS
+|--------------------------------------------------------------------------
+*/
+
+Route::prefix('forms')->name('forms.')->group(function () {
+    Route::get('/history', [HistoryFormController::class, 'create'])->name('history.create');
+    Route::post('/history', [HistoryFormController::class, 'store'])->name('history.store');
+
+    Route::get('/trick-evaluation', [TrickEvaluationController::class, 'create'])->name('trick.create');
+    Route::post('/trick-evaluation', [TrickEvaluationController::class, 'store'])->name('trick.store');
+});
+
+/*
+|--------------------------------------------------------------------------
+| LEGAL
+|--------------------------------------------------------------------------
+*/
+
+Route::prefix('legal')->name('legal.')->group(function () {
+    Route::view('/tos', 'legal.tos')->name('tos');
+    Route::view('/privacy', 'legal.privacy')->name('privacy');
+    Route::view('/cookies', 'legal.cookies')->name('cookies');
+    Route::view('/refund', 'legal.refund')->name('refund');
+    Route::view('/waiver', 'legal.waiver')->name('waiver');
+    Route::view('/conduct', 'legal.conduct')->name('conduct');
+});
+
+/*
+|--------------------------------------------------------------------------
+| AUTH
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/dashboard', fn() => view('dashboard'))->name('dashboard');
+
+    Route::prefix('profile')->name('profile.')->group(function () {
+        Route::get('/', [ProfileController::class, 'edit'])->name('edit');
+        Route::patch('/', [ProfileController::class, 'update'])->name('update');
+        Route::delete('/', [ProfileController::class, 'destroy'])->name('destroy');
+    });
+});
+
+/*
+|--------------------------------------------------------------------------
+| ADMIN AREA (ADMIN + INSTRUCTOR ACCESS)
+|--------------------------------------------------------------------------
+*/
+
+Route::middleware(['auth'])
+    ->prefix('admin-legacy')
+    ->name('admin-legacy.')
+    ->group(function () {
+
+        /*
+        |--------------------------------------------------------------------------
+        | Dashboard
+        |--------------------------------------------------------------------------
+        */
+        Route::get('/dashboard', function (AdminDashboardService $service) {
+            return view('admin-legacy.dashboard', $service->data());
+        })->name('dashboard');
+
+        /*
+        |--------------------------------------------------------------------------
+        | Content
+        |--------------------------------------------------------------------------
+        */
+        Route::resource('posts', PostController::class);
+        Route::resource('rats', RatController::class);
+
+        Route::get('rats/{rat}/pedigree', [RatController::class, 'show'])
+            ->name('rats.pedigree');
+
+        /*
+        |--------------------------------------------------------------------------
+        | TRICK EVALUATIONS
+        |--------------------------------------------------------------------------
+        */
+        Route::get('/tricks', [AdminTrickEvaluationController::class, 'index'])
+            ->name('tricks.index');
+
+        Route::get('/tricks/{trickEvaluation}', [AdminTrickEvaluationController::class, 'show'])
+            ->name('tricks.show');
+
+        Route::patch('/tricks/{trickEvaluation}/status', [AdminTrickEvaluationController::class, 'updateStatus'])
+            ->name('tricks.status');
+
+        Route::post('/tricks/{trickEvaluation}/notes', [TrickEvaluationController::class, 'storeNote'])
+            ->name('tricks.notes.store');
+
+        /*
+        |--------------------------------------------------------------------------
+        | CONTACTS
+        |--------------------------------------------------------------------------
+        */
+        Route::get('/contacts', [AdminContactController::class, 'index'])
+            ->name('contacts.index');
+
+        Route::get('/contacts/{contact}', [AdminContactController::class, 'show'])
+            ->name('contacts.show');
+
+        Route::patch('/contacts/{contact}/status', [AdminContactController::class, 'updateStatus'])
+            ->name('contacts.status');
+
+        /*
+|--------------------------------------------------------------------------
+| TRICK CATALOG (ADMIN + INSTRUCTOR)
+|--------------------------------------------------------------------------
+*/
+
+        Route::get(
+            'trick-catalog/print',
+            [TrickCatalogController::class, 'printAll']
+        )->name('trick-catalog.print-all');
+
+        Route::post(
+            'trick-catalog/check-video',
+            [TrickCatalogController::class, 'checkVideo']
+        )->name('trick-catalog.check-video');
+
+        Route::get('trick-catalog/video-row', function () {
+            return view('admin.trick-catalog.partials.video-row', [
+                'index' => request('index')
+            ]);
+        })->name('trick-catalog.video-row');
+
+        Route::get(
+            'trick-catalog/{trick_catalog}/show-data',
+            [TrickCatalogController::class, 'showData']
+        )->name('trick-catalog.show-data');
+
+        Route::resource('trick-catalog', TrickCatalogController::class)
+            ->except(['show']);
+    });   // <-- closes the admin route group
+
+
+/*
+|--------------------------------------------------------------------------
+| ADMIN DASHBOARD V2 SANDBOX
+|--------------------------------------------------------------------------
+*/
+Route::middleware(['auth', 'device'])
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
 
+        /*
+        |--------------------------------------------------------------------------
+        | Dashboard
+        |--------------------------------------------------------------------------
+        */
+
         Route::get('/dashboard', function () {
-            return view('admin.dashboard');
+            $isMobile = request()->attributes->get('isMobile', false);
+
+            $recentBehaviors = \App\Models\Trick::query()
+                ->with(['levels', 'creator', 'updater'])
+                ->latest('updated_at')
+                ->limit(5)
+                ->get();
+
+            return view(
+                $isMobile
+                    ? 'admin.dashboard-v2.mobile.dashboard'
+                    : 'admin.dashboard-v2.dashboard',
+                [
+                    'navigation' => \App\Navigation\AdminNavigation::items(),
+                    'recentBehaviors' => $recentBehaviors,
+                ]
+            );
         })->name('dashboard');
 
-        Route::get('/', function () {
-            return redirect()->route('admin.dashboard');
-        })->name('index');
+        /*
+        |--------------------------------------------------------------------------
+        | Global Search
+        |--------------------------------------------------------------------------
+        */
 
-        Route::resource('posts', PostController::class);
+        Route::get(
+            'search',
+            [BackendSearchController::class, 'index']
+        )->name('search');
 
-        Route::resource('rats', RatController::class);
-        Route::get('rats/{rat}/pedigree', [RatController::class, 'show'])
-            ->name('rats.pedigree');
+        /*
+        |--------------------------------------------------------------------------
+        | Behavior Catalog
+        |--------------------------------------------------------------------------
+        */
+
+        Route::get(
+            'behavior-catalog',
+            [TrickCatalogController::class, 'behaviorCatalog']
+        )->name('behavior-catalog.index');
+
+        Route::get(
+            'behavior-catalog/print',
+            [TrickCatalogController::class, 'printAll']
+        )->name('behavior-catalog.print-all');
+
+        Route::get(
+            'behavior-catalog/create',
+            [TrickCatalogController::class, 'behaviorCreate']
+        )->name('behavior-catalog.create');
+
+        Route::post(
+            'behavior-catalog',
+            [TrickCatalogController::class, 'behaviorStore']
+        )->name('behavior-catalog.store');
+
+        Route::get(
+            'behavior-catalog/video-row',
+            function () {
+                return view(
+                    'admin.dashboard-v2.behavior-catalog.partials.video-row',
+                    [
+                        'index' => request('index'),
+                    ]
+                );
+            }
+        )->name('behavior-catalog.video-row');
+
+        Route::post(
+            'behavior-catalog/check-video',
+            [TrickCatalogController::class, 'checkVideo']
+        )->name('behavior-catalog.check-video');
+
+        Route::get(
+            'behavior-catalog/{trick}/edit',
+            [TrickCatalogController::class, 'behaviorEdit']
+        )->name('behavior-catalog.edit');
+
+        Route::put(
+            'behavior-catalog/{trick}',
+            [TrickCatalogController::class, 'behaviorUpdate']
+        )->name('behavior-catalog.update');
+
+        Route::delete(
+            'behavior-catalog/{trick}',
+            [TrickCatalogController::class, 'behaviorDestroy']
+        )->name('behavior-catalog.destroy');
+
+        Route::get(
+            'behavior-catalog/{trick}',
+            [TrickCatalogController::class, 'behaviorShow']
+        )->name('behavior-catalog.show');
+
+        /*
+|--------------------------------------------------------------------------
+| Resource Library
+|--------------------------------------------------------------------------
+*/
+
+        Route::get(
+            'resource-library',
+            [ResourceController::class, 'index']
+        )->name('resource-library.index');
+
+        Route::get(
+            'resource-library/create',
+            [ResourceController::class, 'create']
+        )->name('resource-library.create');
+
+        Route::post(
+            'resource-library',
+            [ResourceController::class, 'store']
+        )->name('resource-library.store');
+
+        Route::get(
+            'resource-library/{resource}/edit',
+            [ResourceController::class, 'edit']
+        )->name('resource-library.edit');
+
+        Route::put(
+            'resource-library/{resource}',
+            [ResourceController::class, 'update']
+        )->name('resource-library.update');
+
+        Route::delete(
+            'resource-library/{resource}',
+            [ResourceController::class, 'destroy']
+        )->name('resource-library.destroy');
+
+        Route::get(
+            'resource-library/{resource}',
+            [ResourceController::class, 'show']
+        )->name('resource-library.show');
     });
 
-// Legal Routes
-Route::prefix('legal')->name('legal.')->group(function () {
-    Route::get('/tos', function () { return view('legal.tos'); })->name('tos');
-    Route::get('/privacy', function () { return view('legal.privacy'); })->name('privacy');
-    Route::get('/cookies', function () { return view('legal.cookies'); })->name('cookies');
-    Route::get('/refund', function () { return view('legal.refund'); })->name('refund');
-    Route::get('/waiver', function () { return view('legal.waiver'); })->name('waiver');
-    Route::get('/conduct', function () { return view('legal.conduct'); })->name('conduct');
-});
 
+/*
+|--------------------------------------------------------------------------
+| AUTH ROUTES
+|--------------------------------------------------------------------------
+*/
 
 require __DIR__ . '/auth.php';

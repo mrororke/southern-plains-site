@@ -1,5 +1,5 @@
 <div class="space-y-1 px-4 pb-3 pt-2">
-    <a href="{{ route('welcome') }}" class="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-100 hover:text-club">Home</a>
+    <a href="{{ route('home') }}" class="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-100 hover:text-club">Home</a>
     <a href="{{ route('about') }}" class="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-100 hover:text-club">About</a>
     <a href="{{ route('blog.index') }}" class="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-100 hover:text-club">Blog</a>
     <a href="{{ route('training.index') }}" class="block rounded-md px-3 py-2 text-base font-medium text-black hover:bg-gray-100 hover:text-club">Training</a>

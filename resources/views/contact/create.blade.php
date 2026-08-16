@@ -32,12 +32,12 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
                 <label for="first_name" class="block text-sm font-medium text-gray-700">First Name <span class="text-red-500">*</span></label>
-                <input type="text" name="first_name" id="first_name" value="{{ old('first_name') }}" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-club focus:ring-club">
+                <input type="text" name="first_name" id="first_name" value="{{ old('first_name') }}" required class="mt-1 block w-full rounded-md  border-gray-300 shadow-sm focus:border-club focus:ring-club">
                 @error('first_name') <p class="text-xs text-red-600 mt-1">{{ $message }}</p> @enderror
             </div>
             <div>
                 <label for="last_name" class="block text-sm font-medium text-gray-700">Last Name <span class="text-red-500">*</span></label>
-                <input type="text" name="last_name" id="last_name" value="{{ old('last_name') }}" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-club focus:ring-club">
+                <input type="text" name="last_name" id="last_name" value="{{ old('last_name') }}" required class="mt-1 block w-full rounded-md  border-gray-300 shadow-sm focus:border-club focus:ring-club">
                 @error('last_name') <p class="text-xs text-red-600 mt-1">{{ $message }}</p> @enderror
             </div>
         </div>
@@ -46,12 +46,12 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
                 <label for="email" class="block text-sm font-medium text-gray-700">Email Address <span class="text-red-500">*</span></label>
-                <input type="email" name="email" id="email" value="{{ old('email') }}" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-club focus:ring-club">
+                <input type="email" name="email" id="email" value="{{ old('email') }}" required class="mt-1 block w-full rounded-md  border-gray-300 shadow-sm focus:border-club focus:ring-club">
                 @error('email') <p class="text-xs text-red-600 mt-1">{{ $message }}</p> @enderror
             </div>
             <div>
                 <label for="contact_phone" class="block text-sm font-medium text-gray-700">Contact Phone (Optional)</label>
-                <input type="tel" name="contact_phone" id="contact_phone" value="{{ old('contact_phone') }}" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-club focus:ring-club">
+                <input type="tel" name="contact_phone" id="contact_phone" value="{{ old('contact_phone') }}" class="mt-1 block w-full rounded-md  border-gray-300 shadow-sm focus:border-club focus:ring-club">
                 @error('contact_phone') <p class="text-xs text-red-600 mt-1">{{ $message }}</p> @enderror
             </div>
         </div>
@@ -59,7 +59,7 @@
         <!-- Inquiry Type Dropdown -->
         <div>
             <label for="inquiry_type" class="block text-sm font-medium text-gray-700">What is your inquiry about? <span class="text-red-500">*</span></label>
-            <select name="inquiry_type" id="inquiry_type" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-club focus:ring-club">
+            <select name="inquiry_type" id="inquiry_type" required class="mt-1 block w-full rounded-md  border-gray-300 shadow-sm focus:border-club focus:ring-club">
                 <option value="" disabled selected>-- Select a topic --</option>
                 <option value="General Club Inquiry" {{ old('inquiry_type') == 'General Club Inquiry' ? 'selected' : '' }}>General Club Inquiry</option>
                 <option value="2026 League Question" {{ old('inquiry_type') == '2026 League Question' ? 'selected' : '' }}>2026 League Question (Scoring or Dates)</option>
@@ -91,13 +91,13 @@
         <!-- Message / Question Textarea -->
         <div>
             <label for="message" class="block text-sm font-medium text-gray-700">Message / Question <span class="text-red-500">*</span></label>
-            <textarea name="message" id="message" rows="5" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-club focus:ring-club">{{ old('message') }}</textarea>
+            <textarea name="message" id="message" rows="5" required class="mt-1 block w-full rounded-md  border-gray-300 shadow-sm focus:border-club focus:ring-club">{{ old('message') }}</textarea>
             @error('message') <p class="text-xs text-red-600 mt-1">{{ $message }}</p> @enderror
         </div>
 
         <!-- Submit Button -->
         <div class="pt-4">
-            <button type="submit" class="w-full inline-flex justify-center py-3 px-4 border border-transparent uppercase text-sm font-medium rounded-md text-white bg-club hover:bg-club/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-club transition duration-150">
+            <button type="submit" class="w-full inline-flex justify-center py-3 px-4 border border-transparent uppercase text-sm font-medium rounded-md  text-white bg-club hover:bg-club/80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-club transition duration-150">
                 Send Message
             </button>
         </div>

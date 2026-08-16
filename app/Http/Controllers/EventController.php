@@ -3,38 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
-use Illuminate\Http\Request;
+use App\Services\Events\EventQueryService;
 
 class EventController extends Controller
 {
-    /**
-     * Display the main Events Calendar index page.
-     */
-    public function index()
+    public function index(EventQueryService $service)
     {
-        // Fetch published events, starting from today, ordered chronologically.
-        $events = Event::where('is_published', true)
-                       ->where('date', '>=', now()->startOfDay()) // Only show events happening today or in the future
-                       ->orderBy('date', 'asc') // Sorting by date
-                       ->get();
+        $events = $service->upcoming();
 
         return view('events.index', compact('events'));
     }
 
-    /**
-     * Display a single event page.
-     */
-    public function show(Event $event)
+    public function show(Event $event, EventQueryService $service)
     {
-        // Ensure the event is published before showing it publicly
-        if (!$event->is_published) {
-            // If unpublished, check if the authenticated user is an admin
-            // (Assuming you have an auth system and an is_admin column on the User model)
-            if (!auth()->check() || !auth()->user()->is_admin) {
-                abort(404);
-            }
-        }
-        
+        abort_unless(
+            $service->canView($event),
+            404
+        );
+
         return view('events.show', compact('event'));
     }
 }

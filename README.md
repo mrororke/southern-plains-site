@@ -144,3 +144,22 @@ php artisan serve
 ```
 
 Visit http://localhost:8000 in browser.
+
+---
+
+## Service Layer Conventions
+
+We adopt this rule set:
+
+1. Services live in app/Services/{Domain}
+2. Controllers stay thin
+3. Business logic goes in services
+4. Form Requests handle validation
+5. Models stay mostly data + relationships
+6. No unnecessary repository layer
+
+
+Form Requests
+validate
+normalize
+authorize (lightly)

@@ -7,7 +7,7 @@
     
     <span class="block">
         <strong>Participant Resources:</strong> 
-        <a href="#" style="text-decoration:underline;">Client Area</a> | 
+        <a href="/login" style="text-decoration:underline;">Login</a> | 
         <a href="{{ route('legal.waiver') }}" style="text-decoration:underline;">Liability Waiver</a> | 
         <a href="{{ route('legal.conduct') }}" style="text-decoration:underline;">Community Guidelines</a> | 
         <a href="{{ route('legal.refund') }}" style="text-decoration:underline;">Refund Policy</a>

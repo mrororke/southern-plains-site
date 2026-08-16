@@ -2,13 +2,15 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+use App\Models\Role;
+
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -47,5 +49,13 @@ class User extends Authenticatable
     public function isAdmin()
     {
         return $this->is_admin === 1;
+    }
+
+    public function isClient(){
+        return !$this->isAdmin();
+    }
+
+    public function roles(){
+        return $this->belongsToMany(Role::class);
     }
 }

@@ -15,14 +15,55 @@ class RedirectIfAuthenticated
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, string ...$guards): Response
-    {
-        $guards = empty($guards) ? [null] : $guards;
+    public function handle(
+        Request $request,
+        Closure $next,
+        string ...$guards
+    ): Response {
+        $guards = empty($guards)
+            ? [null]
+            : $guards;
 
         foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+
+            if (! Auth::guard($guard)->check()) {
+                continue;
             }
+
+            $user = Auth::user();
+
+            /*
+            |--------------------------------------------------------------------------
+            | Backend Users
+            |--------------------------------------------------------------------------
+            |
+            | Admins and instructors now share the same backend.
+            | Role-based navigation determines what each user can access.
+            |
+            */
+
+            if (
+                $user
+                && (
+                    $user->isAdmin()
+                    || $user->roles()
+                        ->where('slug', 'instructor')
+                        ->exists()
+                )
+            ) {
+                return redirect()
+                    ->route('admin.dashboard');
+            }
+
+            /*
+            |--------------------------------------------------------------------------
+            | Default Authenticated User
+            |--------------------------------------------------------------------------
+            */
+
+            return redirect(
+                RouteServiceProvider::HOME
+            );
         }
 
         return $next($request);

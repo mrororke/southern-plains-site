@@ -2,79 +2,83 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\TrickEvaluationMail;
+use App\Http\Requests\TrickEvaluation\StoreTrickEvaluationRequest;
+use App\Services\TrickEvaluation\TrickEvaluationService;
+use App\Services\AuditService;
+use App\Models\TrickEvaluation;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 
 class TrickEvaluationController extends Controller
 {
-    /**
-     * Show the form for creating a new trick evaluation request.
-     */
     public function create()
     {
         return view('emails.trickevaluations.create');
     }
 
-    /**
-     * Handle the submission of the trick evaluation form.
-     */
-    public function store(Request $request)
-    {
-        // 1. Validation matching your Blade input names exactly
-        $validated = $request->validate([
-            // Owner Info
-            'owner_name'         => 'required|string|max:255',
-            'email'              => 'required|email:rfc,dns|max:255',
+    public function store(
+        StoreTrickEvaluationRequest $request,
+        TrickEvaluationService $service
+    ) {
+        $data = $request->validated();
 
-            // Primary Dog Info
-            'dog_name'           => 'required|string|max:100',
-            'dog_number'         => 'required|string|max:50', // Added this
-            'trick_level'        => 'required|in:Novice,Intermediate,Advanced,Performer,Elite Performer',
-
-            // Evaluation Method Logic
-            'eval_method'        => 'required|in:online,in-person',
-            
-            // Required if method is 'online'
-            'video_link'         => 'required_if:eval_method,online|nullable|url|max:255',
-            
-            // Required if method is 'in-person'
-            'scheduled_datetime' => 'required_if:eval_method,in-person|nullable|date',
-
-            // Multi-dog Logic (Arrays)
-            'additional_dogs'           => 'nullable|integer|min:0|max:10',
-            'additional_dog_names'      => 'nullable|array',
-            'additional_dog_names.*'    => 'required_with:additional_dog_names|string|max:100',
-            
-            'additional_dog_numbers'    => 'nullable|array', // Added this
-            'additional_dog_numbers.*'  => 'required_with:additional_dog_names|string|max:50', // Added this
-            
-            'additional_dog_levels'     => 'nullable|array',
-            'additional_dog_levels.*'   => 'required_with:additional_dog_names|in:Novice,Intermediate,Advanced,Performer,Elite Performer',
-            'additional_dog_video'      => 'nullable|array',
-            'additional_dog_video.*'    => 'nullable|url|max:255',
-
-            // Payment & Totals
-            'payment_method'     => 'required|in:Apple Pay,Venmo,PayPal',
-            'total_fee'          => 'required|numeric',
+        // Store submission
+        $evaluation = TrickEvaluation::create([
+            'owner_name' => $data['owner_name'],
+            'email' => $data['email'],
+            'dog_name' => $data['dog_name'],
+            'dog_number' => $data['dog_number'] ?? null,
+            'trick_level' => $data['trick_level'],
+            'eval_method' => $data['eval_method'],
+            'video_link' => $data['video_link'] ?? null,
+            'scheduled_datetime' => $data['scheduled_datetime'] ?? null,
+            'additional_dogs' => isset($data['additional_dog_names'])
+                ? json_encode($data['additional_dog_names'])
+                : null,
+            'payment_method' => $data['payment_method'] ?? null,
+            'total_fee' => $data['total_fee'] ?? null,
         ]);
 
-        try {
-            // 2. Send the email to the club
-            Mail::to('southernplainssportdogclub@gmail.com')->send(new TrickEvaluationMail($validated));
+        // Audit log
+        app(AuditService::class)->log(
+            'trick_evaluation.submitted',
+            $evaluation,
+            null,
+            $data
+        );
 
-            // 3. Success Redirect
-            return redirect()->back()
-                ->with('success', 'Thank you! Your evaluation request for ' . $request->dog_name . ' has been submitted successfully.');
+        // Existing email workflow
+        $service->submit($data);
 
-        } catch (\Exception $e) {
-            // Log the actual error for debugging
-            Log::error("Trick evaluation submission error: " . $e->getMessage());
-
-            return redirect()->back()
-                ->with('error', 'There was an issue submitting your request. Please check your details and try again.')
-                ->withInput();
-        }
+        return redirect()
+            ->back()
+            ->with(
+                'success',
+                'Thank you! Your evaluation request has been submitted successfully.'
+            );
     }
+
+    public function storeNote(Request $request, TrickEvaluation $trickEvaluation)
+{
+    $request->validate([
+        'body' => 'required|string',
+    ]);
+
+    $note = $trickEvaluation->notes()->create([
+        'body' => $request->body,
+        'user_id' => auth()->id(),
+    ]);
+
+    app(\App\Services\AuditService::class)->log(
+        \App\Support\Audit\ActivityType::TRICK_NOTE_ADDED,
+        $trickEvaluation,
+        null,
+        [
+            'note_id' => $note->id,
+            'note_preview' => str($note->body)->limit(100),
+        ]
+    );
+
+    return back();
+}
 }

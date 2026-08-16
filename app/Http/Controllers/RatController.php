@@ -2,86 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\AuditService;
+
 use App\Models\Rat;
 use App\Models\RatBreeder;
 use App\Models\RatColor;
 use App\Models\RatMarking;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\Rats\StoreRatRequest;
+use App\Http\Requests\Rats\UpdateRatRequest;
 
+use App\Services\Rats\RatQueryService;
+use App\Services\Rats\RatStatsService;
+use App\Services\Rats\RatPedigreeService;
 
 class RatController extends Controller
 {
-    public function index(Request $request)
-{
-    $query = Rat::with(['breeder', 'colors']);
+    public function index(
+        RatQueryService $queryService,
+        RatStatsService $statsService,
+        RatPedigreeService $pedigreeService
+    ) {
+        $rats = $queryService->index(request()->all());
 
-    if ($request->filled('search')) {
-        $query->where(function ($q) use ($request) {
-            $q->where('name', 'like', '%' . $request->search . '%')
-              ->orWhere('registered_name', 'like', '%' . $request->search . '%');
-        });
+        return view('admin.rats.index', array_merge(
+            compact('rats'),
+            $statsService->get(),
+            ['maxDepth' => $pedigreeService->maxDepth()],
+            [
+                'breeders' => RatBreeder::orderBy('rattery')->get(),
+            ]
+        ));
     }
-
-    if ($request->type === 'pedigree') {
-        $query->where('is_pedigree_only', true);
-    }
-
-    if ($request->type === 'full') {
-        $query->where('is_pedigree_only', false);
-    }
-
-    if ($request->filled('sex')) {
-        $query->where('sex', $request->sex);
-    }
-
-    if ($request->filled('breeder_id')) {
-        $query->where('breeder_id', $request->breeder_id);
-    }
-
-    if ($request->status === 'living') {
-        $query->whereNull('dod');
-    }
-
-    if ($request->status === 'deceased') {
-        $query->whereNotNull('dod');
-    }
-
-    $rats = $query
-        ->orderBy('name')
-        ->paginate(50)
-        ->withQueryString();
-
-    $breeders = RatBreeder::orderBy('rattery')->get();
-
-    $totalRats = Rat::count();
-    $ownedRats = Rat::where('is_owned', true)->count();
-    $pedigreeRats = Rat::where('is_pedigree_only', true)->count();
-    $livingRats = Rat::whereNull('dod')->count();
-    $foundationRats = Rat::whereNull('sire_id')->whereNull('dam_id')->count();
-    $totalWithParents = Rat::count();
-    $completePedigree = Rat::whereNotNull('sire_id')->whereNotNull('dam_id')->count();
-    $incompletePedigreePercent = $totalWithParents > 0 ? round((($totalWithParents - $completePedigree) / $totalWithParents) * 100, 1) : 0;
-    $maxDepth = Rat::with(['sire', 'dam'])->get()->map(fn ($rat) => $rat->pedigreeDepth())->max() ?? 0;
-
-    return view('admin.rats.index', compact(
-        'rats',
-        'breeders',
-        'totalRats',
-        'ownedRats',
-        'pedigreeRats',
-        'livingRats',
-        'foundationRats',
-        'incompletePedigreePercent',
-        'maxDepth'
-    ));
-}
 
     public function create()
     {
         return view('admin.rats.create', [
             'breeders' => RatBreeder::all(),
-
             'sires' => Rat::where('sex', 'Male')
                 ->orderBy('name')
                 ->get(),
@@ -98,68 +55,6 @@ class RatController extends Controller
             'eyeColors' => Rat::eyeColors(),
             'earSets' => Rat::earSets(),
         ]);
-    }
-
-    public function store(Request $request)
-    {
-
-
-        $validated = $request->validate([
-            'name' => 'required|string|max:150',
-            'registered_name' => 'nullable|string|max:255',
-            'breeder_reference' => 'nullable|string|max:10',
-
-            'sire_id' => 'nullable|exists:rats,id',
-            'dam_id' => 'nullable|exists:rats,id',
-
-            'sex' => 'required|in:Male,Female',
-            'dob' => 'nullable|date',
-            'dod' => 'nullable|date',
-
-            'variety' => 'required|string',
-            'silvered' => 'nullable|string',
-            'eye_color' => 'required|string',
-            'ear_set' => 'required|string',
-
-            'breeder_id' => 'nullable|exists:rat_breeders,id',
-
-            'colors' => 'required|array',
-            'colors.*' => 'exists:rat_colors,id',
-
-            'markings' => 'required|array',
-            'markings.*' => 'exists:rat_markings,id',
-        ]);
-
-
-        $rat = Rat::create([
-            'name' => $validated['name'],
-            'registered_name' => $validated['registered_name'] ?? null,
-            'breeder_reference' => $validated['breeder_reference'] ?? null,
-
-            'sire_id' => $validated['sire_id'] ?? null,
-            'dam_id' => $validated['dam_id'] ?? null,
-
-            'sex' => $validated['sex'],
-            'dob' => $validated['dob'] ?? null,
-            'dod' => $validated['dod'] ?? null,
-
-            'variety' => $validated['variety'],
-            'silvered' => $validated['silvered'] ?? null,
-            'eye_color' => $validated['eye_color'],
-            'ear_set' => $validated['ear_set'],
-
-            'breeder_id' => $validated['breeder_id'] ?? null,
-
-            'is_owned' => $request->boolean('is_owned'),
-            'is_pedigree_only' => $request->boolean('is_pedigree_only'),
-        ]);
-
-        $rat->colors()->sync($request->colors);
-        $rat->markings()->sync($request->markings);
-
-        return redirect()
-            ->route('admin.rats.index')
-            ->with('success', 'Rat created successfully.');
     }
 
     public function edit(Rat $rat)
@@ -167,6 +62,7 @@ class RatController extends Controller
         return view('admin.rats.edit', [
             'rat' => $rat,
             'breeders' => RatBreeder::all(),
+
             'sires' => Rat::where('sex', 'Male')
                 ->where('id', '!=', $rat->id)
                 ->orderBy('name')
@@ -176,6 +72,7 @@ class RatController extends Controller
                 ->where('id', '!=', $rat->id)
                 ->orderBy('name')
                 ->get(),
+
             'sexes' => Rat::sexes(),
             'varieties' => Rat::varieties(),
             'colors' => RatColor::all(),
@@ -186,46 +83,53 @@ class RatController extends Controller
         ]);
     }
 
-    public function update(Request $request, Rat $rat)
-    {
-        $validated = $request->validate([
-            'name' => 'required|string|max:150',
-            'registered_name' => 'nullable|string|max:255',
-            'breeder_reference' => 'nullable|string|max:10',
-
-            'sire_id' => 'nullable|exists:rats,id',
-            'dam_id' => 'nullable|exists:rats,id',
-
-            'sex' => 'required|in:Male,Female',
-            'dob' => 'nullable|date',
-            'dod' => 'nullable|date',
-
-            'variety' => 'required|string',
-            'silvered' => 'nullable|string',
-            'eye_color' => 'required|string',
-            'ear_set' => 'required|string',
-
-            'breeder_id' => 'nullable|exists:rat_breeders,id',
-
-            'colors' => 'required|array',
-            'colors.*' => 'exists:rat_colors,id',
-
-            'markings' => 'required|array',
-            'markings.*' => 'exists:rat_markings,id',
-        ]);
-
-        $ratData = collect($validated)
+    public function store(StoreRatRequest $request)
+{
+    $rat = Rat::create([
+        ...collect($request->validated())
             ->except(['colors', 'markings'])
-            ->toArray();
+            ->toArray(),
+
+        'is_owned' => $request->boolean('is_owned'),
+        'is_pedigree_only' => $request->boolean('is_pedigree_only'),
+    ]);
+
+    $rat->colors()->sync($request->colors);
+    $rat->markings()->sync($request->markings);
+
+    app(AuditService::class)->log(
+        'rat.created',
+        $rat,
+        null,
+        $rat->fresh()->toArray()
+    );
+
+    return redirect()
+        ->route('admin.rats.index')
+        ->with('success', 'Rat created successfully.');
+}
+
+    public function update(UpdateRatRequest $request, Rat $rat)
+    {
+        $old = $rat->getOriginal();
 
         $rat->update([
-            ...$ratData,
+            ...collect($request->validated())
+                ->except(['colors', 'markings'])
+                ->toArray(),
             'is_owned' => $request->boolean('is_owned'),
             'is_pedigree_only' => $request->boolean('is_pedigree_only'),
         ]);
 
         $rat->colors()->sync($request->colors);
         $rat->markings()->sync($request->markings);
+
+        app(AuditService::class)->log(
+            'rat.updated',
+            $rat,
+            $old,
+            $rat->fresh()->toArray()
+        );
 
         return redirect()
             ->route('admin.rats.index')
@@ -251,13 +155,23 @@ class RatController extends Controller
             'littersAsDam'
         ]);
 
-        $mode = $rat->getViewMode();
-
-        return view('admin.rats.show', compact('rat', 'mode'));
+        return view('admin.rats.show', [
+            'rat' => $rat,
+            'mode' => $rat->getViewMode()
+        ]);
     }
 
     public function destroy(Rat $rat)
     {
+        $old = $rat->toArray();
+
+        app(AuditService::class)->log(
+            'rat.deleted',
+            $rat,
+            $old,
+            null
+        );
+
         $rat->delete();
 
         return redirect()
