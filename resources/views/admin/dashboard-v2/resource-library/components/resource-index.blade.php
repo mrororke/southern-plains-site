@@ -131,57 +131,54 @@
             </h2>
 
 
-            {{-- Delivery: Session / Year / Week --}}
+            {{-- Session / Year · Series · Week --}}
             @if(
                 $resource->session
                 || $resource->year
+                || $resource->series
                 || $resource->week_number
             )
                 <p
                     class="mt-1 text-xs font-semibold
                            text-sp-charcoal"
                 >
-                    @if($resource->session)
-                        {{ ucfirst($resource->session) }}
-                    @endif
 
-                    @if($resource->year)
-                        @if($resource->session)
-                            {{ ' ' }}
-                        @endif
+                    @php
+                        $deliveryParts = [];
 
-                        {{ $resource->year }}
-                    @endif
+                        $sessionYear = trim(
+                            collect([
+                                $resource->session
+                                    ? ucfirst($resource->session)
+                                    : null,
+                                $resource->year,
+                            ])
+                                ->filter()
+                                ->join(' ')
+                        );
 
-                    @if(
-                        $resource->week_number
-                        && (
-                            $resource->session
-                            || $resource->year
-                        )
-                    )
-                        <span aria-hidden="true">
-                            ·
-                        </span>
-                    @endif
+                        if ($sessionYear !== '') {
+                            $deliveryParts[] = $sessionYear;
+                        }
 
-                    @if($resource->week_number)
-                        Week {{ $resource->week_number }}
-                    @endif
-                </p>
-            @endif
+                        if ($resource->series) {
+                            $deliveryParts[] = $resource->series->name;
+                        }
 
+                        if ($resource->week_number) {
+                            $deliveryParts[] =
+                                'Week ' . $resource->week_number;
+                        }
+                    @endphp
 
-            {{-- Series --}}
-            @if($resource->series)
-                <p class="mt-1 text-xs text-sp-slate">
-                    {{ $resource->series->name }}
+                    {{ implode(' · ', $deliveryParts) }}
+
                 </p>
             @endif
 
 
             {{-- Type · Status --}}
-            <p class="mt-2 text-xs text-sp-slate">
+            <p class="mt-1 text-xs text-sp-slate">
 
                 {{ $resource->type->name }}
 
