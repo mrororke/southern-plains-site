@@ -25,10 +25,13 @@
     {{-- Selected behavior --}}
     <template x-if="selectedBehavior">
         <div>
+
             {{-- Header --}}
             <div class="mb-6 flex items-start justify-between gap-4">
+
                 <h2
-                    class="font-sans text-3xl font-semibold leading-tight text-sp-charcoal"
+                    class="font-sans text-3xl font-semibold leading-tight
+                           text-sp-charcoal"
                     x-text="selectedBehavior.name"
                 ></h2>
 
@@ -43,10 +46,13 @@
                 >
                     <x-icons.x class="h-4 w-4" />
                 </button>
+
             </div>
+
 
             {{-- Copy actions --}}
             <div class="mb-6 flex flex-wrap gap-2">
+
                 {{-- Copy Simple --}}
                 <button
                     type="button"
@@ -62,6 +68,7 @@
                            hover:brightness-95"
                 >
                     <span class="relative h-3 w-3 shrink-0">
+
                         <x-icons.copy
                             x-show="copiedAction !== 'simple'"
                             class="absolute inset-0 h-3 w-3"
@@ -72,6 +79,7 @@
                             x-cloak
                             class="absolute inset-0 h-3 w-3"
                         />
+
                     </span>
 
                     <span
@@ -82,6 +90,7 @@
                         "
                     ></span>
                 </button>
+
 
                 {{-- Copy Grouped --}}
                 <button
@@ -98,6 +107,7 @@
                            hover:brightness-95"
                 >
                     <span class="relative h-3 w-3 shrink-0">
+
                         <x-icons.copy
                             x-show="copiedAction !== 'grouped'"
                             class="absolute inset-0 h-3 w-3"
@@ -108,6 +118,7 @@
                             x-cloak
                             class="absolute inset-0 h-3 w-3"
                         />
+
                     </span>
 
                     <span
@@ -119,8 +130,10 @@
                     ></span>
                 </button>
 
+
                 {{-- Copy Preferred --}}
                 <template x-if="preferredVideo()">
+
                     <button
                         type="button"
                         @click="{{ $copyPreferredAction }}"
@@ -135,6 +148,7 @@
                                hover:brightness-95"
                     >
                         <span class="relative h-3 w-3 shrink-0">
+
                             <x-icons.copy
                                 x-show="copiedAction !== 'preferred'"
                                 class="absolute inset-0 h-3 w-3"
@@ -145,6 +159,7 @@
                                 x-cloak
                                 class="absolute inset-0 h-3 w-3"
                             />
+
                         </span>
 
                         <span
@@ -155,8 +170,11 @@
                             "
                         ></span>
                     </button>
+
                 </template>
+
             </div>
+
 
             {{-- Copy failure --}}
             <p
@@ -167,10 +185,12 @@
                 Unable to copy. Please try again.
             </p>
 
+
             <div class="border-t border-sp-warmStone pt-6">
 
                 {{-- Categories --}}
                 <section class="mb-8">
+
                     <h3
                         class="mb-2 text-xs font-semibold uppercase
                                tracking-wide text-sp-slate"
@@ -200,10 +220,13 @@
                             No category assigned.
                         </p>
                     </template>
+
                 </section>
+
 
                 {{-- Notes --}}
                 <section class="mb-8">
+
                     <h3
                         class="mb-2 text-xs font-semibold uppercase
                                tracking-wide text-sp-slate"
@@ -212,6 +235,7 @@
                     </h3>
 
                     <template x-if="selectedBehavior.notes">
+
                         <div
                             class="prose prose-sm max-w-none rounded-md
                                    bg-sp-limestone px-4 py-3
@@ -222,20 +246,179 @@
                                    prose-li:text-sp-charcoal"
                             x-html="selectedBehavior.notes"
                         ></div>
+
                     </template>
 
                     <template x-if="! selectedBehavior.notes">
+
                         <div class="rounded-md bg-sp-limestone px-4 py-3">
                             <p class="text-sm italic text-sp-slate">
                                 No notes entered.
                             </p>
                         </div>
+
                     </template>
+
                 </section>
+
+
+                {{-- Related Resources --}}
+                <section class="mb-8">
+
+                    <h3
+                        class="mb-2 text-xs font-semibold uppercase
+                               tracking-wide text-sp-slate"
+                    >
+                        Related Resources
+                    </h3>
+
+                    <template
+                        x-if="
+                            selectedBehavior.resources
+                            && selectedBehavior.resources.length
+                        "
+                    >
+                        <div
+                            class="overflow-hidden rounded-md border
+                                   border-sp-warmStone bg-white"
+                        >
+
+                            <template
+                                x-for="(resource, index)
+                                      in selectedBehavior.resources"
+                                :key="resource.id"
+                            >
+                                <a
+                                    :href="resource.url"
+                                    class="group flex items-center
+                                           justify-between gap-4
+                                           px-4 py-4
+                                           transition-colors
+                                           hover:bg-sp-limestone/20"
+                                    :class="{
+                                        'border-b border-sp-warmStone':
+                                            index
+                                            < selectedBehavior.resources.length - 1
+                                    }"
+                                >
+
+                                    <div class="min-w-0 flex-1">
+
+                                        {{-- Title --}}
+                                        <p
+                                            class="font-semibold
+                                                   text-sp-charcoal
+                                                   transition-colors
+                                                   group-hover:text-sp-prairieGreen"
+                                            x-text="resource.title"
+                                        ></p>
+
+
+                                        {{-- Session / Year · Series · Week --}}
+                                        <p
+                                            x-show="
+                                                resource.session
+                                                || resource.year
+                                                || resource.series
+                                                || resource.week_number
+                                            "
+                                            class="mt-1 text-xs font-semibold
+                                                   text-sp-charcoal"
+                                            x-text="
+                                                [
+                                                    [
+                                                        resource.session
+                                                            ? resource.session
+                                                                .charAt(0)
+                                                                .toUpperCase()
+                                                                + resource.session.slice(1)
+                                                            : null,
+                                                        resource.year
+                                                    ]
+                                                        .filter(Boolean)
+                                                        .join(' '),
+
+                                                    resource.series,
+
+                                                    resource.week_number
+                                                        ? `Week ${resource.week_number}`
+                                                        : null
+                                                ]
+                                                    .filter(Boolean)
+                                                    .join(' · ')
+                                            "
+                                        ></p>
+
+
+                                        {{-- Type · Sent --}}
+                                        <p
+                                            class="mt-1 text-xs
+                                                   text-sp-slate"
+                                        >
+                                            <span
+                                                x-show="resource.type"
+                                                x-text="resource.type"
+                                            ></span>
+
+                                            <span
+                                                x-show="
+                                                    resource.type
+                                                    && resource.first_sent
+                                                "
+                                                aria-hidden="true"
+                                            >
+                                                ·
+                                            </span>
+
+                                            <span
+                                                x-show="resource.first_sent"
+                                                x-text="
+                                                    `Sent ${resource.first_sent}`
+                                                "
+                                            ></span>
+                                        </p>
+
+                                    </div>
+
+
+                                    <x-icons.chevron-right
+                                        class="h-4 w-4 shrink-0
+                                               text-sp-slate
+                                               transition-transform
+                                               group-hover:translate-x-1"
+                                    />
+
+                                </a>
+                            </template>
+
+                        </div>
+                    </template>
+
+
+                    {{-- No Related Resources --}}
+                    <template
+                        x-if="
+                            ! selectedBehavior.resources
+                            || ! selectedBehavior.resources.length
+                        "
+                    >
+                        <div class="rounded-md bg-sp-limestone px-4 py-3">
+
+                            <p class="text-sm italic text-sp-slate">
+                                No related resources.
+                            </p>
+
+                        </div>
+                    </template>
+
+                </section>
+
 
                 {{-- Preferred video --}}
                 <template x-if="preferredVideo()">
+
                     <section class="mb-8">
+
                         <h3
                             class="mb-2 text-xs font-semibold uppercase
                                    tracking-wide text-sp-slate"
@@ -247,10 +430,15 @@
                             class="rounded-md border-l-4 border-sp-goldenrod
                                    bg-[#D8B64C]/15 p-4"
                         >
-                            <div class="flex items-start justify-between gap-4">
+                            <div
+                                class="flex items-start
+                                       justify-between gap-4"
+                            >
                                 <div class="min-w-0">
+
                                     <p
-                                        class="font-semibold text-sp-charcoal"
+                                        class="font-semibold
+                                               text-sp-charcoal"
                                         x-text="
                                             preferredVideo().creator
                                             ?? 'Untitled Video'
@@ -274,9 +462,11 @@
                                     >
                                         Recommended
                                     </p>
+
                                 </div>
 
                                 <div class="flex shrink-0 gap-2">
+
                                     <a
                                         :href="preferredVideo().url"
                                         target="_blank"
@@ -320,6 +510,7 @@
                                         <span
                                             class="relative h-3 w-3 shrink-0"
                                         >
+
                                             <x-icons.copy
                                                 x-show="
                                                     copiedAction !==
@@ -336,6 +527,7 @@
                                                 x-cloak
                                                 class="absolute inset-0 h-3 w-3"
                                             />
+
                                         </span>
 
                                         <span
@@ -346,15 +538,21 @@
                                                     : 'Copy Link'
                                             "
                                         ></span>
+
                                     </button>
+
                                 </div>
                             </div>
                         </div>
+
                     </section>
+
                 </template>
+
 
                 {{-- Additional videos --}}
                 <section>
+
                     <h3
                         class="mb-2 text-xs font-semibold uppercase
                                tracking-wide text-sp-slate"
@@ -363,7 +561,9 @@
                     </h3>
 
                     <template x-if="additionalVideos().length">
+
                         <div class="space-y-3">
+
                             <template
                                 x-for="video in additionalVideos()"
                                 :key="video.id"
@@ -377,7 +577,9 @@
                                         class="flex items-start
                                                justify-between gap-4"
                                     >
+
                                         <div class="min-w-0">
+
                                             <p
                                                 class="font-semibold
                                                        text-sp-charcoal"
@@ -397,9 +599,12 @@
                                                     )
                                                 "
                                             ></p>
+
                                         </div>
 
+
                                         <div class="flex shrink-0 gap-2">
+
                                             <a
                                                 :href="video.url"
                                                 target="_blank"
@@ -447,6 +652,7 @@
                                                     class="relative h-3 w-3
                                                            shrink-0"
                                                 >
+
                                                     <x-icons.copy
                                                         x-show="
                                                             copiedAction !==
@@ -465,6 +671,7 @@
                                                         class="absolute inset-0
                                                                h-3 w-3"
                                                     />
+
                                                 </span>
 
                                                 <span
@@ -475,13 +682,20 @@
                                                             : 'Copy Link'
                                                     "
                                                 ></span>
+
                                             </button>
+
                                         </div>
+
                                     </div>
                                 </div>
+
                             </template>
+
                         </div>
+
                     </template>
+
 
                     {{-- No videos --}}
                     <template
@@ -491,11 +705,14 @@
                         "
                     >
                         <div class="rounded-md bg-sp-limestone px-4 py-3">
+
                             <p class="text-sm italic text-sp-slate">
                                 No videos added.
                             </p>
+
                         </div>
                     </template>
+
 
                     {{-- Preferred video only --}}
                     <template
@@ -508,6 +725,7 @@
                             No additional videos added.
                         </p>
                     </template>
+
                 </section>
 
             </div>

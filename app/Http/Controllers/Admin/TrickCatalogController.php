@@ -406,16 +406,21 @@ class TrickCatalogController extends Controller
     }
 
     /*
-    |--------------------------------------------------------------------------
-    | BEHAVIOR CATALOG - DASHBOARD V2
-    |--------------------------------------------------------------------------
-    */
+|--------------------------------------------------------------------------
+| BEHAVIOR CATALOG - DASHBOARD V2
+|--------------------------------------------------------------------------
+*/
+
 public function behaviorCatalog(Request $request)
 {
-    $levels = TrickLevel::orderByRaw('LOWER(name)')->get();
+    $levels = TrickLevel::orderByRaw('LOWER(name)')
+        ->get();
 
     $query = Trick::query()
-        ->with(['videos', 'levels']);
+        ->with([
+            'videos',
+            'levels',
+        ]);
 
     /*
     |--------------------------------------------------------------------------
@@ -427,11 +432,26 @@ public function behaviorCatalog(Request $request)
         $search = trim($request->search);
 
         $query->where(function ($q) use ($search) {
-            $q->where('name', 'like', "%{$search}%")
-                ->orWhere('notes', 'like', "%{$search}%")
-                ->orWhereHas('videos', function ($video) use ($search) {
-                    $video->where('creator', 'like', "%{$search}%");
-                });
+            $q->where(
+                'name',
+                'like',
+                "%{$search}%"
+            )
+                ->orWhere(
+                    'notes',
+                    'like',
+                    "%{$search}%"
+                )
+                ->orWhereHas(
+                    'videos',
+                    function ($video) use ($search) {
+                        $video->where(
+                            'creator',
+                            'like',
+                            "%{$search}%"
+                        );
+                    }
+                );
         });
     }
 
@@ -449,9 +469,15 @@ public function behaviorCatalog(Request $request)
 
         } else {
 
-            $query->whereHas('levels', function ($q) use ($request) {
-                $q->where('trick_levels.id', $request->level);
-            });
+            $query->whereHas(
+                'levels',
+                function ($q) use ($request) {
+                    $q->where(
+                        'trick_levels.id',
+                        $request->level
+                    );
+                }
+            );
         }
     }
 
@@ -463,9 +489,15 @@ public function behaviorCatalog(Request $request)
 
     if ($request->filled('platform')) {
 
-        $query->whereHas('videos', function ($q) use ($request) {
-            $q->where('platform', $request->platform);
-        });
+        $query->whereHas(
+            'videos',
+            function ($q) use ($request) {
+                $q->where(
+                    'platform',
+                    $request->platform
+                );
+            }
+        );
     }
 
     /*
@@ -476,15 +508,27 @@ public function behaviorCatalog(Request $request)
 
     if ($request->preferred === 'yes') {
 
-        $query->whereHas('videos', function ($q) {
-            $q->where('is_preferred', true);
-        });
+        $query->whereHas(
+            'videos',
+            function ($q) {
+                $q->where(
+                    'is_preferred',
+                    true
+                );
+            }
+        );
 
     } elseif ($request->preferred === 'no') {
 
-        $query->whereDoesntHave('videos', function ($q) {
-            $q->where('is_preferred', true);
-        });
+        $query->whereDoesntHave(
+            'videos',
+            function ($q) {
+                $q->where(
+                    'is_preferred',
+                    true
+                );
+            }
+        );
     }
 
     /*
@@ -495,7 +539,8 @@ public function behaviorCatalog(Request $request)
 
     if ($request->notes === 'has') {
 
-        $query->whereNotNull('notes')
+        $query
+            ->whereNotNull('notes')
             ->where('notes', '!=', '');
 
     } elseif ($request->notes === 'missing') {
@@ -515,7 +560,9 @@ public function behaviorCatalog(Request $request)
     switch ($request->sort) {
 
         case 'name_desc':
-            $query->orderByRaw('LOWER(name) DESC');
+            $query->orderByRaw(
+                'LOWER(name) DESC'
+            );
             break;
 
         case 'newest':
@@ -527,12 +574,15 @@ public function behaviorCatalog(Request $request)
             break;
 
         case 'videos':
-            $query->withCount('videos')
+            $query
+                ->withCount('videos')
                 ->orderByDesc('videos_count');
             break;
 
         default:
-            $query->orderByRaw('LOWER(name) ASC');
+            $query->orderByRaw(
+                'LOWER(name) ASC'
+            );
             break;
     }
 
@@ -546,8 +596,9 @@ public function behaviorCatalog(Request $request)
         ->attributes
         ->get('isMobile', false);
 
-    $perPage = $isMobile ? 15 : 25;
-
+    $perPage = $isMobile
+        ? 15
+        : 25;
 
     /*
     |--------------------------------------------------------------------------
@@ -580,24 +631,43 @@ public function behaviorCatalog(Request $request)
         }
     }
 
+    /*
+    |--------------------------------------------------------------------------
+    | Load Catalog
+    |--------------------------------------------------------------------------
+    */
 
     $tricks = $query
         ->with([
             'levels',
             'videos',
+
+            'resources' => function ($resourceQuery) {
+                $resourceQuery
+                    ->where(
+                        'status',
+                        'active'
+                    )
+                    ->with([
+                        'type',
+                        'series',
+                    ]);
+            },
         ])
         ->withCount('videos')
         ->paginate($perPage)
         ->withQueryString();
-
 
     return view(
         $isMobile
             ? 'admin.dashboard-v2.mobile.behavior-catalog.index'
             : 'admin.dashboard-v2.behavior-catalog.index',
         [
-            'navigation' => \App\Navigation\AdminNavigation::items(),
+            'navigation' =>
+                \App\Navigation\AdminNavigation::items(),
+
             'tricks' => $tricks,
+
             'levels' => $levels,
         ]
     );
@@ -605,29 +675,47 @@ public function behaviorCatalog(Request $request)
     
 
     /*
-    |--------------------------------------------------------------------------
-    | BEHAVIOR DISPLAY - DASHBOARD V2 MOBILE
-    |--------------------------------------------------------------------------
-    */
+|--------------------------------------------------------------------------
+| BEHAVIOR DISPLAY - DASHBOARD V2 MOBILE
+|--------------------------------------------------------------------------
+*/
 
-    public function behaviorShow(Trick $trick)
-    {
-        $trick->load([
-            'levels',
-            'videos',
-            'preferredVideo',
-            'creator',
-            'updater',
-        ]);
+public function behaviorShow(Trick $trick)
+{
+    $trick->load([
+        'levels',
+        'videos',
+        'preferredVideo',
+        'creator',
+        'updater',
 
-        return view(
-            'admin.dashboard-v2.mobile.behavior-catalog.show',
-            [
-                'navigation' => \App\Navigation\AdminNavigation::items(),
-                'behavior' => $trick,
-            ]
-        );
-    }
+        'resources' => function ($query) {
+            $query
+                ->where('status', 'active')
+                ->with([
+                    'category',
+                    'type',
+                    'series',
+                ])
+                ->orderByRaw(
+                    'CASE
+                        WHEN first_sent IS NULL THEN 1
+                        ELSE 0
+                    END'
+                )
+                ->orderByDesc('first_sent')
+                ->orderByDesc('resources.created_at');
+        },
+    ]);
+
+    return view(
+        'admin.dashboard-v2.mobile.behavior-catalog.show',
+        [
+            'navigation' => \App\Navigation\AdminNavigation::items(),
+            'behavior' => $trick,
+        ]
+    );
+}
 
     /*
     |--------------------------------------------------------------------------
