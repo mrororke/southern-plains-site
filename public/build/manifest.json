@@ -77,6 +77,15 @@
     "src": "resources/js/admin/resource-library/index.js",
     "isEntry": true
   },
+  "resources/js/admin/resource-library/show.js": {
+    "file": "assets/show-Hv6AFvQG.js",
+    "name": "show",
+    "src": "resources/js/admin/resource-library/show.js",
+    "isEntry": true,
+    "imports": [
+      "_module.esm-DdaDH_LP.js"
+    ]
+  },
   "resources/js/admin/trick-catalog/create.js": {
     "file": "assets/create-D0d1jzAa.js",
     "name": "create",

@@ -19,6 +19,7 @@ export default defineConfig({
                 'resources/js/admin/resource-library/index.js',
                 'resources/js/admin/resource-library/edit.js',
                 'resources/js/admin/resource-library/create.js',
+                'resources/js/admin/resource-library/show.js',
             ],
             refresh: true,
         }),
