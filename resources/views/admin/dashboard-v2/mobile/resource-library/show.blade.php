@@ -137,7 +137,8 @@
     </h2>
 
     <div
-        class="prose prose-sm max-w-none rounded-md
+        class="prose prose-sm max-w-none break-words
+                overflow-hidden rounded-md
                bg-sp-warmIvory px-5 py-4
 
                prose-headings:font-sans
@@ -161,6 +162,11 @@
                prose-ol:pl-5
 
                prose-li:text-sp-charcoal
+
+                prose-a:break-all
+                prose-code:break-all
+                prose-pre:whitespace-pre-wrap
+                prose-pre:break-words
 
                prose-blockquote:border-l-4
                prose-blockquote:border-sp-burntClay

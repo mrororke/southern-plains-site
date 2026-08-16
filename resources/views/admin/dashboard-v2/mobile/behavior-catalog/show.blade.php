@@ -177,8 +177,8 @@
 
         @if($behavior->notes)
             <div
-                class="prose prose-sm max-w-none rounded-md
-                       bg-sp-warmIvory px-5 py-4"
+                class="prose prose-sm max-w-none
+                        rounded-md bg-sp-warmIvory px-5 py-4"
             >
                 {!! $behavior->notes !!}
             </div>
