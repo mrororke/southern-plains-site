@@ -15,31 +15,57 @@ class RedirectIfAuthenticated
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, string ...$guards): Response
-{
-    $guards = empty($guards) ? [null] : $guards;
+    public function handle(
+        Request $request,
+        Closure $next,
+        string ...$guards
+    ): Response {
+        $guards = empty($guards)
+            ? [null]
+            : $guards;
 
-    foreach ($guards as $guard) {
+        foreach ($guards as $guard) {
 
-        if (Auth::guard($guard)->check()) {
+            if (! Auth::guard($guard)->check()) {
+                continue;
+            }
 
             $user = Auth::user();
 
-            // ADMIN
-            if ($user && $user->isAdmin()) {
-                return redirect('/admin/dashboard');
+            /*
+            |--------------------------------------------------------------------------
+            | Backend Users
+            |--------------------------------------------------------------------------
+            |
+            | Admins and instructors now share the same backend.
+            | Role-based navigation determines what each user can access.
+            |
+            */
+
+            if (
+                $user
+                && (
+                    $user->isAdmin()
+                    || $user->roles()
+                        ->where('slug', 'instructor')
+                        ->exists()
+                )
+            ) {
+                return redirect()
+                    ->route('admin.dashboard');
             }
 
-            // INSTRUCTOR
-            if ($user && $user->roles()->where('slug', 'instructor')->exists()) {
-                return redirect('/instructor/dashboard');
-            }
+            /*
+            |--------------------------------------------------------------------------
+            | Default Authenticated User
+            |--------------------------------------------------------------------------
+            */
 
-            // DEFAULT
-            return redirect(RouteServiceProvider::HOME);
+            return redirect(
+                RouteServiceProvider::HOME
+            );
         }
-    }
 
-    return $next($request);
-}
+        return $next($request);
+    }
 }
