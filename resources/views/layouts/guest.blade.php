@@ -24,9 +24,9 @@
                          group-hover:text-sp-prairieGreen" />
             </a>
         </div>
-        <div>
+        <div class="py-4">
             <h4 class="text-xs font-display text-sp-burntClay">Southern Plains Sport Dog Club</h4>
-            <h2 class="text-2XL font-sans">Administration Dashboard</h2>
+            <h2 class="text-3xl font-semibold font-sans">Administration Dashboard</h2>
         </div>
 
         <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white overflow-hidden">
