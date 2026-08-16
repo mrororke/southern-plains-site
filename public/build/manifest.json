@@ -3,8 +3,8 @@
     "file": "assets/email-CRqfLoIW.js",
     "name": "email"
   },
-  "_form-DQAExDYs.js": {
-    "file": "assets/form-DQAExDYs.js",
+  "_form-lIk_KKrd.js": {
+    "file": "assets/form-lIk_KKrd.js",
     "name": "form"
   },
   "_module.esm-DdaDH_LP.js": {
@@ -12,31 +12,31 @@
     "name": "module.esm"
   },
   "resources/css/app.css": {
-    "file": "assets/app-DdF44wvp.css",
+    "file": "assets/app-DZtBmH8Y.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/css/dashboard-v2.css": {
-    "file": "assets/dashboard-v2-BrLmKTWe.css",
+    "file": "assets/dashboard-v2-CukxqnAO.css",
     "src": "resources/css/dashboard-v2.css",
     "isEntry": true
   },
   "resources/js/admin/behavior-catalog/create.js": {
-    "file": "assets/create-BwzrO_LI.js",
+    "file": "assets/create-bvNDO9Bq.js",
     "name": "create",
     "src": "resources/js/admin/behavior-catalog/create.js",
     "isEntry": true,
     "imports": [
-      "_form-DQAExDYs.js"
+      "_form-lIk_KKrd.js"
     ]
   },
   "resources/js/admin/behavior-catalog/edit.js": {
-    "file": "assets/edit-DFuzAEQP.js",
+    "file": "assets/edit-COn8iUSQ.js",
     "name": "edit",
     "src": "resources/js/admin/behavior-catalog/edit.js",
     "isEntry": true,
     "imports": [
-      "_form-DQAExDYs.js"
+      "_form-lIk_KKrd.js"
     ]
   },
   "resources/js/admin/behavior-catalog/index.js": {
@@ -108,7 +108,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-C85NKTFD.js",
+    "file": "assets/app-DE0UiMcP.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -117,7 +117,7 @@
       "_module.esm-DdaDH_LP.js"
     ],
     "css": [
-      "assets/app-DdF44wvp.css"
+      "assets/app-DZtBmH8Y.css"
     ]
   }
 }

@@ -286,7 +286,7 @@
             @endif
 
             <a
-                href="{{ route('admin.trick-catalog.print-all') }}"
+                href="{{ route('admin.behavior-catalog.print-all') }}"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="inline-flex items-center justify-center rounded-md
