@@ -19,15 +19,14 @@
     <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-sp-warmIvory">
         <div>
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
                 <x-icons.admin-logo
                     class="transition-colors
                          group-hover:text-sp-prairieGreen" />
             </a>
         </div>
         <div>
-            <h4>Southern Plains Sport Dog Club</h4>
-            <h2>Administration Dashboard</h2>
+            <h4 class="text-xs font-display text-sp-burntClay">Southern Plains Sport Dog Club</h4>
+            <h2 class="text-2XL font-sans">Administration Dashboard</h2>
         </div>
 
         <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white overflow-hidden">
