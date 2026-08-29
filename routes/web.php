@@ -47,8 +47,9 @@ Route::prefix('v2')
     ->name('public-v2.')
     ->group(function () {
 
-        Route::view('/', 'public-v2.pages.home')
-            ->name('home');
+        Route::get('/', function () {
+            return '<h1>Southern Plains Public V2</h1>';
+        })->name('home');
 
         Route::view('/about', 'public-v2.pages.about')
             ->name('about');
