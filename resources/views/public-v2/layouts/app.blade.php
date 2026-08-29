@@ -17,7 +17,7 @@
     ])
 </head>
 
-<body class="bg-sp-warmIvory px-8">
+<body class="bg-sp-warmIvory px-8 py-8">
 
 
         <nav class="grid grid-cols-12 items-center">
