@@ -17,9 +17,8 @@
     ])
 </head>
 
-<body class="bg-sp-warmIvory">
+<body class="bg-sp-warmIvory px-8">
 
-    <div class="px-8">
 
         <nav class="grid grid-cols-12 items-center">
             <div class="col-span-2">
@@ -39,7 +38,6 @@
             My footer will live here.
         </footer>
 
-    </div>
 
 </body>
 
