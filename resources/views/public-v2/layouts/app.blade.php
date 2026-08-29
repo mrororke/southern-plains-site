@@ -23,7 +23,7 @@
     <nav class="grid grid-cols-12 items-center">
         <div class="col-span-2">
             <a href="{{ route('public-v2.home') }}">
-                <x-logo class="w-24 h-auto" />
+                <x-logo class="w-28 h-auto" />
             </a>
         </div>
 
