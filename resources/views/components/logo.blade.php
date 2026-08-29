@@ -1,7 +1,5 @@
 <svg
     {{ $attributes }}
-    width="251"
-    height="187"
     viewBox="0 0 251 187"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"

@@ -12,31 +12,31 @@
     We also need a favicon -->
 
     @vite([
-        'resources/css/public-v2.css',
-        'resources/js/public-v2.js',
+    'resources/css/public-v2.css',
+    'resources/js/public-v2.js',
     ])
 </head>
 
 <body class="bg-sp-warmIvory px-8 py-8">
 
 
-        <nav class="grid grid-cols-12 items-center">
-            <div class="col-span-2">
-                <a href="#">
-                    <x-logo />
-                </a>
-            </div>
+    <nav class="grid grid-cols-12 items-center">
+        <div class="col-span-2">
+            <a href="{{ route('public-v2.home') }}">
+                <x-logo class="w-32 h-auto" />
+            </a>
+        </div>
 
-            <div class="col-span-10 py-4">
-                nav will go here
-            </div>
-        </nav>
+        <div class="col-span-10 py-4">
+            nav will go here
+        </div>
+    </nav>
 
-        @yield('content')
+    @yield('content')
 
-        <footer>
-            My footer will live here.
-        </footer>
+    <footer>
+        My footer will live here.
+    </footer>
 
 
 </body>
