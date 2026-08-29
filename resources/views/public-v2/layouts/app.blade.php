@@ -12,37 +12,35 @@
     We also need a favicon -->
 
     @vite([
-    'resources/css/public-v2.css',
-    'resources/js/public-v2.js',
+        'resources/css/public-v2.css',
+        'resources/js/public-v2.js',
     ])
 </head>
 
 <body class="bg-sp-warmIvory">
 
-<nav class="bg-sp-limestone grid grid-cols-12 items-center">
-    <div class="col-span-2">
-        <a href="#">
-    <x-logo class="w-20 h-20 fill-current" />
-</a>
+    <div class="px-8">
+
+        <nav class="grid grid-cols-12 items-center">
+            <div class="col-span-2">
+                <a href="#">
+                    <x-logo class="h-20 w-20 fill-current" />
+                </a>
+            </div>
+
+            <div class="col-span-10 py-4">
+                nav will go here
+            </div>
+        </nav>
+
+        @yield('content')
+
+        <footer>
+            My footer will live here.
+        </footer>
+
     </div>
-            <div class="col-span-10 pr-8 p-4">
-                another div!
-</div>
-</nav>
-    <header>
-        <a href="#">
-    <x-logo class="w-20 h-20 fill-current" />
-</a>
-    </header>
 
-
-    @yield('content')
-
-
-
-    <footer>
-        My footer will live here.
-    </footer>
 </body>
 
 </html>

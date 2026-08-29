@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+    .site-container {
+        @apply mx-auto w-full px-8;
+    }
+}
