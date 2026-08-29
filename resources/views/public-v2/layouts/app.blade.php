@@ -18,6 +18,17 @@
 </head>
 
 <body class="bg-sp-warmIvory">
+
+<nav class="bg-sp-limestone grid grid-cols-12 items-center">
+    <div class="col-span-2">
+        <a href="#">
+    <x-logo class="w-20 h-20 fill-current" />
+</a>
+    </div>
+            <div class="col-span-10 pr-8 p-4">
+                another div!
+</div>
+</nav>
     <header>
         <a href="#">
     <x-logo class="w-20 h-20 fill-current" />
