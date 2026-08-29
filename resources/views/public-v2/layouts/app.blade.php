@@ -24,7 +24,7 @@
         <nav class="grid grid-cols-12 items-center">
             <div class="col-span-2">
                 <a href="#">
-                    <x-logo class="h-20 w-20 fill-current" />
+                    <x-logo />
                 </a>
             </div>
 
