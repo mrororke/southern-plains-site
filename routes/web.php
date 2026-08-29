@@ -36,6 +36,32 @@ Route::view('/training', 'training.index')->name('training.index');
 
 Route::get('/league', fn() => view('league.index'))->name('league.index');
 
+
+/*
+|--------------------------------------------------------------------------
+| PUBLIC WEBSITE V2 SANDBOX
+|--------------------------------------------------------------------------
+*/
+
+Route::prefix('v2')
+    ->name('public-v2.')
+    ->group(function () {
+
+        Route::view('/', 'public-v2.pages.home')
+            ->name('home');
+
+        Route::view('/training', 'public-v2.pages.training')
+            ->name('training');
+
+        Route::view('/dog-sports', 'public-v2.pages.dog-sports')
+            ->name('dog-sports');
+
+        Route::view('/learn', 'public-v2.learn.index')
+            ->name('learn.index');
+    });
+
+
+
 /*
 |--------------------------------------------------------------------------
 | BLOG
