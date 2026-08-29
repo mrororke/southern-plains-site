@@ -17,11 +17,17 @@
     ])
 </head>
 
-<body>
+<body class="bg-sp-warmIvory">
     <header>
-        My header will live hear.
+        <a href="{{ $homeRoute }}">
+    <x-application-logo class="w-20 h-20 fill-current" />
+</a>
     </header>
+
+
     @yield('content')
+
+
 
     <footer>
         My footer will live here.
