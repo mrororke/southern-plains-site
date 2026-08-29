@@ -50,6 +50,9 @@ Route::prefix('v2')
         Route::view('/', 'public-v2.pages.home')
             ->name('home');
 
+        Route::view('/about', 'public-v2.pages.about')
+            ->name('about');
+
         Route::view('/training', 'public-v2.pages.training')
             ->name('training');
 
@@ -58,6 +61,12 @@ Route::prefix('v2')
 
         Route::view('/learn', 'public-v2.learn.index')
             ->name('learn.index');
+
+        Route::view('/events', 'public-v2.events.index')
+            ->name('events.index');
+
+        Route::view('/contact', 'public-v2.pages.contact')
+            ->name('contact');
     });
 
 
