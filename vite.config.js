@@ -8,7 +8,9 @@ export default defineConfig({
             input: [
                 'resources/css/app.css',
                 'resources/css/dashboard-v2.css',
+                'resources/css/public-v2.css',
                 'resources/js/app.js',
+                'resources/js/public-v2.js',
                 'resources/js/admin/trick-catalog/index.js',
                 'resources/js/admin/trick-catalog/create.js',
                 'resources/js/admin/trick-catalog/edit.js',
