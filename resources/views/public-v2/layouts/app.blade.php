@@ -20,7 +20,7 @@
 <body class="bg-sp-warmIvory">
     <header>
         <a href="#">
-    <x-application-logo class="w-20 h-20 fill-current" />
+    <x-logo class="w-20 h-20 fill-current" />
 </a>
     </header>
 
