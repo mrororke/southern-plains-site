@@ -109,7 +109,7 @@
                             class="site-search-submit"
                             aria-label="Submit search"
                         >
-                            <i data-lucide="search" class="w-5 h-5"></i>
+                            <x-icons.search class="w-32 h-auto" />
                         </button>
                     </div>
                 </form>
