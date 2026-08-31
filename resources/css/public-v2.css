@@ -20,7 +20,7 @@
     }
 
     .nav-contact {
-        @apply inline-flex items-center justify-center bg-sp-prairieGreen px-6 py-3 text-sp-warmIvory font-semibold transition-colors duration-200;
+        @apply inline-flex items-center justify-center rounded-md bg-sp-prairieGreen px-6 py-3 text-sp-warmIvory font-semibold transition-colors duration-200;
     }
 
     .nav-contact:hover {
@@ -28,7 +28,7 @@
     }
 
     .nav-contact-active {
-        @apply bg-sp-burntClay;
+        @apply bg-sp-prairieOchre;
     }
 
     .nav-search-button {
@@ -36,7 +36,7 @@
     }
 
     .nav-search-button:hover {
-        @apply text-sp-burntClay;
+        @apply text-sp-prairieOchre;
     }
 
     .site-search-dropdown {
@@ -44,7 +44,7 @@
     }
 
     .site-search-input {
-        @apply w-full border-0 border-b border-sp-warmStone bg-transparent py-3 pr-10 text-sp-charcoal placeholder:text-sp-slate focus:border-sp-burntClay focus:ring-0;
+        @apply w-full border-0 border-b border-sp-warmStone bg-transparent py-3 pr-10 text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieOchre focus:ring-0;
     }
 
     .site-search-submit {
