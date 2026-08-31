@@ -74,7 +74,7 @@
 
                 {{-- Search Dropdown --}}
                 <div
-                    class="site-search-dropdown hidden"
+                    class="site-search-dropdown"
                     data-search-dropdown>
                     <form
                         action="#"
