@@ -7,6 +7,15 @@
         @apply mx-auto w-full px-8;
     }
 
+    .header-topo {
+    background-image: url('/images/headers/header-topo.svg');
+    background-repeat: repeat;
+    background-position: center;
+    background-size: auto;
+}
+
+    /* NAV Styles */
+
     .nav-link {
         @apply text-sp-charcoal font-normal transition-colors duration-200;
     }
