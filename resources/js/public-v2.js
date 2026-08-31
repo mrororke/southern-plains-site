@@ -17,29 +17,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const input = siteSearch.querySelector('[data-search-input]');
 
     toggle.addEventListener('click', () => {
-        const isOpen = !dropdown.classList.contains('hidden');
+        const isOpen = dropdown.classList.contains('is-open');
 
         if (isOpen) {
-            dropdown.classList.add('hidden');
+            dropdown.classList.remove('is-open');
             toggle.setAttribute('aria-expanded', 'false');
         } else {
-            dropdown.classList.remove('hidden');
+            dropdown.classList.add('is-open');
             toggle.setAttribute('aria-expanded', 'true');
-
             input.focus();
         }
     });
 
     document.addEventListener('click', (event) => {
         if (!siteSearch.contains(event.target)) {
-            dropdown.classList.add('hidden');
+            dropdown.classList.remove('is-open');
             toggle.setAttribute('aria-expanded', 'false');
         }
     });
 
     document.addEventListener('keydown', (event) => {
         if (event.key === 'Escape') {
-            dropdown.classList.add('hidden');
+            dropdown.classList.remove('is-open');
             toggle.setAttribute('aria-expanded', 'false');
             toggle.focus();
         }
