@@ -6,4 +6,52 @@
     .site-container {
         @apply mx-auto w-full px-8;
     }
+
+    .nav-link {
+        @apply text-sp-charcoal font-medium transition-colors duration-200;
+    }
+
+    .nav-link:hover {
+        @apply text-sp-burntClay;
+    }
+
+    .nav-link-active {
+        @apply text-sp-burntClay;
+    }
+
+    .nav-contact {
+        @apply inline-flex items-center justify-center bg-sp-prairieGreen px-6 py-3 text-sp-warmIvory font-semibold transition-colors duration-200;
+    }
+
+    .nav-contact:hover {
+        @apply bg-sp-charcoal;
+    }
+
+    .nav-contact-active {
+        @apply bg-sp-burntClay;
+    }
+
+    .nav-search-button {
+        @apply flex items-center justify-center text-sp-charcoal transition-colors duration-200;
+    }
+
+    .nav-search-button:hover {
+        @apply text-sp-burntClay;
+    }
+
+    .site-search-dropdown {
+        @apply absolute right-0 top-full z-50 mt-6 w-[400px] bg-sp-warmIvory p-6 shadow-lg;
+    }
+
+    .site-search-input {
+        @apply w-full border-0 border-b border-sp-warmStone bg-transparent py-3 pr-10 text-sp-charcoal placeholder:text-sp-slate focus:border-sp-burntClay focus:ring-0;
+    }
+
+    .site-search-submit {
+        @apply absolute right-0 top-1/2 -translate-y-1/2 text-sp-charcoal transition-colors duration-200;
+    }
+
+    .site-search-submit:hover {
+        @apply text-sp-burntClay;
+    }
 }
