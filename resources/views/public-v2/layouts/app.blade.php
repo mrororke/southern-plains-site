@@ -33,7 +33,7 @@
 
         <a
             href="{{ route('public-v2.about') }}"
-            class="nav-link {{ request()->routeIs('public-v2.about') ? 'nav-link-active' : '' }}"
+            class="nav-link {{ request()->routeIs('public-v2.about') ? 'nav-link-active' : 'text-red-100' }}"
         >
             About
         </a>
