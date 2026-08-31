@@ -226,6 +226,18 @@
 
             </div>
         </nav>
+
+    <div id="hero" class="grid grid-cols-12">
+        <div class="col-span-4">
+        I need a hero!
+</div>
+<div class="col-span-8 flex items-center gap-8">
+        <h1>I need a hero!</h1>
+</div>
+
+
+    </div>
+
     </header>
 
     @yield('content')
