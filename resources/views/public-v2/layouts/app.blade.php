@@ -90,10 +90,14 @@
                                 id="site-search"
                                 name="q"
                                 type="search"
-                                placeholder="Search training, events, dog sports, and more..."
+                                placeholder="What are you looking for?"
                                 autocomplete="off"
                                 class="site-search-input"
                                 data-search-input>
+
+                            <p class="site-search-helper">
+                                Search training, events, dog sports, and more.
+                            </p>
 
                             <button
                                 type="submit"

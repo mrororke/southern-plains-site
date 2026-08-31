@@ -68,4 +68,8 @@
     .site-search-submit:hover {
         @apply text-sp-prairieOchre;
     }
+
+    .site-search-helper {
+    @apply mt-3 text-xs text-sp-slate;
+}
 }
