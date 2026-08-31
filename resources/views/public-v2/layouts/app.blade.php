@@ -90,7 +90,7 @@
                                 id="site-search"
                                 name="q"
                                 type="search"
-                                placeholder="What are you looking for?"
+                                placeholder="Search training, events, dog sports, and more..."
                                 autocomplete="off"
                                 class="site-search-input"
                                 data-search-input>
