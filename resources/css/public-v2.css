@@ -12,11 +12,11 @@
     }
 
     .nav-link:hover {
-        @apply text-sp-burntClay;
+        @apply text-sp-prairieOchre;
     }
 
     .nav-link-active {
-        @apply text-sp-burntClay;
+        @apply text-sp-prairieOchre;
     }
 
     .nav-contact {
@@ -24,7 +24,7 @@
     }
 
     .nav-contact:hover {
-        @apply bg-sp-charcoal;
+        @apply bg-sp-prairieOchre;
     }
 
     .nav-contact-active {
@@ -52,6 +52,6 @@
     }
 
     .site-search-submit:hover {
-        @apply text-sp-burntClay;
+        @apply text-sp-prairieOchre;
     }
 }
