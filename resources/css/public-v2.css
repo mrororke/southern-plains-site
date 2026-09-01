@@ -19,6 +19,10 @@
     @apply absolute top-8 right-8 flex flex-col items-center text-white;
 }
 
+.image-registration:hover {
+    @apply bg-sp-prairieGreen rounded-md transition-colors duration-200;;
+}
+
 .image-registration-mark {
     @apply w-8 h-8;
 }
@@ -223,6 +227,10 @@ p.body-large {
     @apply w-full border-0 border-t border-sp-limestone;
 }
 
+/*
+    BUTTONS
+*/
+
 .btn-primary,
 .btn-secondary,
 .btn-primary-outline,
@@ -234,9 +242,7 @@ p.body-large {
 }
 
 
-/*
-    BUTTONS
-*/
+
 
 /* Primary */
 
