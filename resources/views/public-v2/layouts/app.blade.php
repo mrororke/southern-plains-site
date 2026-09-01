@@ -242,11 +242,11 @@
                          and thrive — together.</p>
 
                     <div>
-                        <a href="#possibilities" class="button-primary">
+                        <a href="#possibilities" class="btn-primary">
                             Explore What's Possible
                         </a>
 
-                        <a href="{{ route('public-v2.events.index') }}" class="button-secondary">
+                        <a href="{{ route('public-v2.events.index') }}" class="btn-outline-primary">
                             View Events
                         </a>
                     </div>
