@@ -273,6 +273,20 @@
 
     </header>
 
+    <!-- END of header -->
+
+    <div class="grid grid-cols-12 py-8 px-8">
+        <div class="col-span-12 md:col-span-4">
+            Column
+        </div>
+        <div class="col-span-12 md:col-span-4">
+            Column
+        </div>
+        <div class="col-span-12 md:col-span-4">
+            Column
+        </div>
+    </div>
+
     @yield('content')
 
     <footer>
