@@ -25,6 +25,8 @@
 
 .image-registration-line {
     @apply block h-8 w-px bg-white;
+    margin: 5px 0;
+
 }
 
 .image-registration-text {
