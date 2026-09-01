@@ -282,38 +282,7 @@
     @yield('content')
 
     <footer class="grid grid-cols-12 py-8 px-8">
-        <div class="col-span-12 md:col-span-4">
-            Column
-        </div>
-        <div class="col-span-12 md:col-span-8">
-            newsletter signup
-        </div>
-        
-    </div>
-
-    <!-- End newsletter signup -->
-
-    <div class="grid grid-cols-12 py-8 px-8">
-        <div class="col-span-12 md:col-span-2">
-            Logo
-        </div>
-        <div class="col-span-12 md:col-span-3">
-            Tagline
-        </div>
-        <div class="col-span-12 md:col-span-7">
-            Nav
-            <div class="grid grid-cols-12">
-                <div class="col-span-12 md:col-span-4">
-                    Nav
-                </div>
-                <div class="col-span-12 md:col-span-4">
-                    Nav
-                </div>
-                <div class="col-span-12 md:col-span-4">
-                    Nav
-                </div>
-            </div>
-        </div>
+        Here is my footer
     </footer>
 
 
