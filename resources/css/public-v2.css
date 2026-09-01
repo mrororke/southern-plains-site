@@ -14,6 +14,24 @@
     background-size: auto;
 }
 
+ /* IMAGE STYLES */
+ .image-registration {
+    @apply absolute top-8 right-8 flex flex-col items-center text-white;
+}
+
+.image-registration-mark {
+    @apply w-8 h-8;
+}
+
+.image-registration-line {
+    @apply block h-8 w-px bg-white;
+}
+
+.image-registration-text {
+    @apply text-xs uppercase tracking-wider whitespace-nowrap;
+    writing-mode: vertical-rl;
+}
+
     /* NAV Styles */
 
     .nav-link {

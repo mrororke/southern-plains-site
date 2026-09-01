@@ -227,16 +227,28 @@
             </div>
         </nav>
 
-    <div id="hero" class="grid grid-cols-12">
-        <div class="col-span-4">
-        I need a hero!
-</div>
-<div class="col-span-8 flex items-center gap-8">
-        <h1>I need a hero!</h1>
-</div>
+        <div id="hero" class="grid grid-cols-12">
+            <div class="col-span-4">
+                I need a hero!
+            </div>
+            <div class="col-span-8 flex items-center gap-8 relative">
+                <img
+                    src="{{ asset('images/headers/header-home.png') }}"
+                    alt="Black and white Sheltie standing among wildflowers on the Oklahoma prairie.">
+
+                <div class="image-registration">
+                    <x-icons.locate-fixed class="image-registration-mark" />
+
+                    <span class="image-registration-line"></span>
+
+                    <span class="image-registration-text">
+                        Hamish, Photo by Blue Ridge Creative
+                    </span>
+                </div>
+            </div>
 
 
-    </div>
+        </div>
 
     </header>
 
