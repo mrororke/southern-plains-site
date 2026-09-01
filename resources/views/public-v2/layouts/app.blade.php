@@ -17,8 +17,8 @@
     ])
 </head>
 
-<body class="bg-sp-warmIvory px-8 py-8">
-    <header class="header-topo">
+<body class="bg-sp-warmIvory py-8">
+    <header class="header-topo px-8 ">
 
         {{-- Desktop Navigation --}}
         <nav class="hidden md:grid grid-cols-12 items-center">
