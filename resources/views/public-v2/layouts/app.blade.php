@@ -17,11 +17,11 @@
     ])
 </head>
 
-<body class="bg-sp-warmIvory py-8">
+<body class="bg-sp-warmIvory">
     <header class="header-topo">
 
         {{-- Desktop Navigation --}}
-        <nav class="hidden md:grid grid-cols-12 items-center">
+        <nav class="hidden md:grid grid-cols-12 items-center py-8 px-8">
             {{-- Logo --}}
             <div class="col-span-2">
                 <a href="{{ route('public-v2.home') }}" aria-label="Southern Plains Sport Dog Club home">
@@ -127,7 +127,7 @@
 
 
         {{-- Mobile Navigation --}}
-        <nav class="md:hidden px-8" data-mobile-nav>
+        <nav class="md:hidden py-8 px-8" data-mobile-nav>
 
             {{-- Mobile Header --}}
             <div class="flex items-center justify-between">
