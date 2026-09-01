@@ -237,7 +237,7 @@
                         <hr>
                     </div>
 
-                    <p>Positive reinforcement training. Dog sports. Real community. 
+                    <p class="body-large">Positive reinforcement training. Dog sports. Real community. 
                         We’re here to help you and your dog learn, play,
                          and thrive — together.</p>
 
