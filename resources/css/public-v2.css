@@ -176,3 +176,35 @@
 }
 
 }
+
+
+/* Hero Text Styles */
+
+h1.text-hero {
+    @apply text-sp-charcoal font-sans;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 72px;
+}
+
+h1.text-hero-emphasis {
+    @apply text-sp-burntClay;
+    font-size: 80px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 72px; /* 90% */
+    text-transform: capitalize;
+
+}
+
+
+
+h3.text-eyebrow {
+    @apply text-sp-burntClay font-display;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 50px;
+    text-transform: uppercase;
+}
