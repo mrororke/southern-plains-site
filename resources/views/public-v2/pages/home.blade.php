@@ -1,5 +1,33 @@
 @extends('public-v2.layouts.app')
 
 @section('content')
-    <h1 class="text-4xl text-sp-charcoal">Southern Plains Public V2 is loading</h1>
-@endsection
+
+
+    <div class="grid grid-cols-12 py-8 px-8">
+        <div class="col-span-12 md:col-span-4">
+            Column one up
+        </div>
+        <div class="col-span-12 md:col-span-4">
+            Column
+        </div>
+        <div class="col-span-12 md:col-span-4">
+            Column
+        </div>
+    </div>
+
+    <!-- End of 3-Up -->
+
+    <div class="grid grid-cols-12 py-8 px-8">
+        <div class="col-span-12 md:col-span-6">
+            Column events
+        </div>
+        <div class="col-span-12 md:col-span-6">
+            Column
+        </div>
+    </div>
+
+    <!-- End Events section -->
+
+
+
+    @endsection

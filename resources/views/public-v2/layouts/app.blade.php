@@ -275,32 +275,14 @@
 
     <!-- END of header -->
 
-    <div class="grid grid-cols-12 py-8 px-8">
-        <div class="col-span-12 md:col-span-4">
-            Column
-        </div>
-        <div class="col-span-12 md:col-span-4">
-            Column
-        </div>
-        <div class="col-span-12 md:col-span-4">
-            Column
-        </div>
-    </div>
+    
 
-    <!-- End of 3-Up -->
+    
 
-    <div class="grid grid-cols-12 py-8 px-8">
-        <div class="col-span-12 md:col-span-6">
-            Column
-        </div>
-        <div class="col-span-12 md:col-span-6">
-            Column
-        </div>
-    </div>
+    @yield('content')
 
-    <!-- End Events section -->
-
-    <div class="grid grid-cols-12 py-8 px-8">
+    <footer class="grid grid-cols-12 py-8 px-8">
+        <div class="grid grid-cols-12 py-8 px-8">
         <div class="col-span-12 md:col-span-4">
             Column
         </div>
@@ -334,11 +316,6 @@
             </div>
         </div>
     </div>
-
-    @yield('content')
-
-    <footer>
-        My footer will live here.
     </footer>
 
 
