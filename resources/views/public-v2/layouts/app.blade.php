@@ -241,7 +241,7 @@
                         We’re here to help you and your dog learn, play,
                          and thrive — together.</p>
 
-                    <div class="py-6">
+                    <div class="flex gap-6 py-6">
                         <a href="#possibilities" class="btn-primary">
                             Explore What's Possible
                         </a>
