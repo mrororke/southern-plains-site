@@ -228,7 +228,7 @@
         </nav>
 
         <div id="hero" class="grid grid-cols-12 pt-8">
-            <div class="col-span-5 pl-8">
+            <div class="col-span-12 md:col-span-5 md:pr-0 md:pl-8 ">
                 <h3 class="text-eyebrow">Play. Train. Grow</h3>
                 <h1 class="text-hero">More Ways to Do Great Things<br/>
                     <span class="text-hero-emphasis">With Your Dog.</span></h1>
@@ -243,7 +243,7 @@
 
                     <div>Explore What's Possible. View Events. </div>
             </div>
-            <div class="col-span-7 relative">
+            <div class="col-span-12 mt-8 md:col-span-7 md:mt-0 relative">
                 <img
                     class="w-full h-full"
                     src="{{ asset('images/headers/header-home.png') }}"
