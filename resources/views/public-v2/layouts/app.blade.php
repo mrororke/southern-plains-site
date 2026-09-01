@@ -333,7 +333,7 @@
     </div>
 
     <div class="col-span-4 text-sp-warmIvory text-sm">
-        <a href="{{ route('admin.dashboard-v2.dashboard') }}">Login </a> / Privacy Policy / Terms of Use
+        <a href="{{ route('login') }}">Login</a> / Privacy Policy / Terms of Use
     </div>
 
 </div>
