@@ -246,7 +246,7 @@
                             Explore What's Possible
                         </a>
 
-                        <a href="{{ route('public-v2.events.index') }}" class="btn-outline-primary">
+                        <a href="{{ route('public-v2.events.index') }}" class="btn-primary-outline">
                             View Events
                         </a>
                     </div>
