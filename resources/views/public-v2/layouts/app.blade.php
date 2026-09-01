@@ -227,7 +227,7 @@
             </div>
         </nav>
 
-        <div id="hero" class="grid grid-cols-12 py-8">
+        <div id="hero" class="grid grid-cols-12 pt-8">
             <div class="col-span-5">
                 <h3 class="text-eyebrow">Play. Train. Grow</h3>
                 <h1 class="text-hero">More Ways to Do Great Things<br/>

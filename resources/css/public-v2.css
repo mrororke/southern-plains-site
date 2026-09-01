@@ -188,7 +188,7 @@ h1.text-hero {
     line-height: 72px;
 }
 
-h1.text-hero-emphasis {
+.text-hero-emphasis {
     @apply text-sp-burntClay;
     font-size: 80px;
     font-style: normal;
