@@ -232,7 +232,11 @@
                 <h3 class="text-eyebrow">Play. Train. Grow</h3>
                 <h1 class="text-hero">More Ways to Do Great Things<br/>
                     <span class="text-hero-emphasis">With Your Dog.</span></h1>
-                    <hr/>
+                    
+                    <div class="hl-break">
+                        <hr>
+                    </div>
+
                     <p>Positive reinforcement training. Dog sports. Real community. 
                         We’re here to help you and your dog learn, play,
                          and thrive — together.</p>
