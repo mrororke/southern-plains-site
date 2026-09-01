@@ -209,7 +209,6 @@ h3.text-eyebrow {
 
 p.body-large {
     @apply text-sp-slate font-sans;
-    font-family: Archivo;
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
