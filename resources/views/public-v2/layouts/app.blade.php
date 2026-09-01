@@ -281,17 +281,64 @@
 
     @yield('content')
 
-    <footer class="grid grid-cols-12 py-8 px-8">
-        <div class=""grid-cols-12">
-            Row One
-        </div>
-        <div class=""grid-cols-12">
-            Row two
-        </div>
-        <div class=""grid-cols-12">
-            Row three
-        </div>
-    </footer>
+    <footer class="py-8">
+
+    {{-- Newsletter Row --}}
+    <div class="grid grid-cols-12 px-8">
+
+    <div class="col-span-3">
+        Stay In The Loop.
+    </div>
+
+    <div class="col-span-5">
+        Email field
+    </div>
+
+    <div class="col-span-4">
+        Image
+    </div>
+
+</div>
+
+    {{-- Main Footer Row --}}
+    <div class="grid grid-cols-12 px-8">
+
+    <div class="col-span-2">
+        Logo
+    </div>
+
+    <div class="col-span-4">
+        Mission
+    </div>
+
+    <div class="col-span-1">
+        Explore
+    </div>
+
+    <div class="col-span-2">
+        Resources
+    </div>
+
+    <div class="col-span-3">
+        Contact
+    </div>
+
+</div>
+
+    {{-- Legal Row --}}
+    <div class="grid grid-cols-12 px-8">
+
+    <div class="col-span-8">
+        Copyright
+    </div>
+
+    <div class="col-span-4">
+        Login / Privacy Policy / Terms of Use
+    </div>
+
+</div>
+
+</footer>
 
 
 </body>
