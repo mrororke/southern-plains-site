@@ -223,80 +223,62 @@ p.body-large {
     @apply w-full border-0 border-t border-sp-limestone;
 }
 
-.btn-primary {
-    @apply bg-sp-prairieGreen transition-colors duration-200 px-3 py-2 text-sm text-sp-warmIvory font-normal;
-    border-radius: 8px;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    
+.btn-primary,
+.btn-secondary,
+.btn-primary-outline,
+.btn-secondary-outline {
+    @apply inline-flex items-center justify-center gap-[10px]
+           rounded-lg px-6 py-4
+           text-sm font-normal uppercase
+           transition-colors duration-200;
+}
 
+
+/*
+    BUTTONS
+*/
+
+/* Primary */
+
+.btn-primary {
+    @apply bg-sp-prairieGreen text-sp-warmIvory;
 }
 
 .btn-primary:hover {
     @apply bg-sp-prairieOchre;
-
 }
 
-.btn-secondary {
-    @apply bg-sp-prairieGreen;
-    border-radius: 8px;
-    display: inline-flex;
-    padding: 16px 24px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
 
+/* Secondary */
+
+.btn-secondary {
+    @apply bg-sp-prairieOchre text-sp-warmIvory;
 }
 
 .btn-secondary:hover {
-    @apply bg-sp-prairieGreen;
-    border-radius: 8px;
-    display: inline-flex;
-    padding: 16px 24px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-
+    @apply bg-sp-goldenrod;
 }
 
+
+/* Primary Outline */
+
 .btn-primary-outline {
-    @apply bg-sp-prairieGreen;
-    border-radius: 8px;
-    display: inline-flex;
-    padding: 16px 24px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+    @apply border border-sp-prairieGreen
+           bg-transparent text-sp-prairieGreen;
 }
 
 .btn-primary-outline:hover {
-    @apply bg-sp-prairieGreen;
-    border-radius: 8px;
-    display: inline-flex;
-    padding: 16px 24px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+    @apply border-sp-prairieOchre text-sp-prairieOchre;
 }
 
+
+/* Secondary Outline */
+
 .btn-secondary-outline {
-    @apply bg-sp-prairieGreen;
-    border-radius: 8px;
-    display: inline-flex;
-    padding: 16px 24px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+    @apply border border-sp-prairieOchre
+           bg-transparent text-sp-prairieOchre;
 }
 
 .btn-secondary-outline:hover {
-    @apply bg-sp-prairieGreen;
-    border-radius: 8px;
-    display: inline-flex;
-    padding: 16px 24px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+    @apply border-sp-goldenrod text-sp-goldenrod;
 }
