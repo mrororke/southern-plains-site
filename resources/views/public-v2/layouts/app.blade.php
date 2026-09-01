@@ -326,7 +326,7 @@
 </div>
 
     {{-- Legal Row --}}
-    <div class="grid grid-cols-12 px-8 bg-sp-prairieGreen">
+    <div class="grid grid-cols-12 px-8 py-8 bg-sp-prairieGreen">
 
     <div class="col-span-8 text-sp-warmIvory text-sm">
         Copyright © 2025 - 2026 Southern Plains Sport Dog Club, LLC. All rights reserved.
