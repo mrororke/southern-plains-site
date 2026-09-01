@@ -333,7 +333,7 @@
     </div>
 
     <div class="col-span-4 text-sp-warmIvory text-sm">
-        Login / Privacy Policy / Terms of Use
+        <a href="{{ route('public-v2.events.index') }}">Login / Privacy Policy / Terms of Use
     </div>
 
 </div>
