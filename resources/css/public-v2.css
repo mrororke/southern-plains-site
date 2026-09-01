@@ -16,12 +16,12 @@
 
  /* IMAGE STYLES */
  .image-registration {
-    @apply absolute top-8 right-8 flex flex-col items-center text-white;
+    @apply absolute top-8 right-8 flex flex-col items-center text-white  transition-colors duration-200;
 }
 
 .image-registration:hover {
-    @apply bg-sp-prairieGreen rounded-md transition-colors duration-200;
-    padding: 8px !important;
+    @apply bg-sp-prairieGreen rounded-md;
+    padding: 4px !important;
 }
 
 .image-registration-mark {
