@@ -282,7 +282,15 @@
     @yield('content')
 
     <footer class="grid grid-cols-12 py-8 px-8">
-        Here is my footer
+        <div>
+            Row One
+        </div>
+        <div>
+            Row two
+        </div>
+        <div>
+            Row three
+        </div>
     </footer>
 
 
