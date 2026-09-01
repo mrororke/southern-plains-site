@@ -222,3 +222,82 @@ p.body-large {
 .hl-break hr {
     @apply w-full border-0 border-t border-sp-limestone;
 }
+
+.btn-primary {
+    @apply bg-sp-prairieGreen transition-colors duration-200;;
+    border-radius: 8px;
+    display: inline-flex;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    
+
+}
+
+.btn-primary:hover {
+    @apply bg-sp-prairieOchre;
+
+}
+
+.btn-secondary {
+    @apply bg-sp-prairieGreen;
+    border-radius: 8px;
+    display: inline-flex;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.btn-secondary:hover {
+    @apply bg-sp-prairieGreen;
+    border-radius: 8px;
+    display: inline-flex;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+}
+
+.btn-primary-outline {
+    @apply bg-sp-prairieGreen;
+    border-radius: 8px;
+    display: inline-flex;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-primary-outline:hover {
+    @apply bg-sp-prairieGreen;
+    border-radius: 8px;
+    display: inline-flex;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-secondary-outline {
+    @apply bg-sp-prairieGreen;
+    border-radius: 8px;
+    display: inline-flex;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-secondary-outline:hover {
+    @apply bg-sp-prairieGreen;
+    border-radius: 8px;
+    display: inline-flex;
+    padding: 16px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}

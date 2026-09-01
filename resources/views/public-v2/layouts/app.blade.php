@@ -241,7 +241,15 @@
                         We’re here to help you and your dog learn, play,
                          and thrive — together.</p>
 
-                    <div>Explore What's Possible. View Events. </div>
+                    <div>
+                        <a href="#possibilities" class="button-primary">
+                            Explore What's Possible
+                        </a>
+
+                        <a href="{{ route('public-v2.events.index') }}" class="button-secondary">
+                            View Events
+                        </a>
+                    </div>
             </div>
             <div class="col-span-12 mt-8 md:col-span-7 md:mt-0 relative">
                 <img
