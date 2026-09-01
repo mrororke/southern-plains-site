@@ -20,7 +20,8 @@
 }
 
 .image-registration:hover {
-    @apply bg-sp-prairieGreen rounded-md transition-colors duration-200;;
+    @apply bg-sp-prairieGreen rounded-md transition-colors duration-200;
+    padding: 8px !important;
 }
 
 .image-registration-mark {
