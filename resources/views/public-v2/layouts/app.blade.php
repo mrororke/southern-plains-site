@@ -290,7 +290,9 @@
         <div class="grid grid-cols-12 px-8 py-8 bg-sp-prairieGreen">
 
             <div class="col-span-3">
-                Stay In The Loop.
+                <h3 class="text-eyebrow-light">Newsletter</h3>
+                <h2 class="newsletter-signup">Stay In The Loop.</h2>
+                <p class="text-sp-limestone text-sm">Get positive training tips, event updates, and early access to registration.</p>
             </div>
 
             <div class="col-span-5">
@@ -344,7 +346,7 @@
                         </div>
 
                         <button
-                            class="sib-form-block__button sib-form-block__button-with-loader btn-primary"
+                            class="sib-form-block__button sib-form-block__button-with-loader btn-secondary"
                             form="sib-form"
                             type="submit">
 
