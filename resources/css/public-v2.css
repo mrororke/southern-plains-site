@@ -213,6 +213,12 @@ h3.text-eyebrow {
     text-transform: uppercase;
 }
 
+h4.footer{
+    @apply text-sp-charcoal;
+    font-size: 20px;
+    line-height: 32px;
+}
+
 p.body-large {
     @apply text-sp-slate font-sans;
     font-size: 24px;

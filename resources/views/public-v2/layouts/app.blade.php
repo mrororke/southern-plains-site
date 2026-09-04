@@ -301,9 +301,9 @@
 </div>
 
     {{-- Main Footer Row --}}
-    <div class="grid grid-cols-12 px-8 footer-topo">
+    <div class="grid grid-cols-12 px-8 py-8 footer-topo">
 
-    <div class="col-span-2">
+    <div class="col-span-2 col-start-2">
         <x-logo class="w-32 h-auto" />
     </div>
 
@@ -313,8 +313,8 @@
         </p>
     </div>
 
-    <div class="col-span-1">
-        <h4>Explore</h4>
+    <div class="col-span-2">
+        <h4 class="footer">Explore</h4>
         <ul>
             <li>About</li>
             <li>Training</li>
@@ -325,7 +325,7 @@
     </div>
 
     <div class="col-span-2">
-        <h4>Resources</h4>
+        <h4 class="footer">Resources</h4>
         <ul>
             <li>Getting Started</li>
             <li>Learn</li>
@@ -335,8 +335,8 @@
         </ul>
     </div>
 
-    <div class="col-span-3">
-        <h4>Contact</h4>
+    <div class="col-span-2">
+        <h4 class="footer">Contact</h4>
         <ul>
             <li>Inola, Oklahoma</li>
             <li><a href="mailto:southernplainssportdogclub@gmail.com">southernplainssportdogclub@gmail.com</a></li>
