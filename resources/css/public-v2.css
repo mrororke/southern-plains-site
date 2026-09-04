@@ -14,6 +14,13 @@
     background-size: auto;
 }
 
+.footer-topo {
+    background-image: url('/images/headers/footer-topo.svg');
+    background-repeat: repeat;
+    background-position: center;
+    background-size: auto;
+}
+
  /* IMAGE STYLES */
  .image-registration {
     @apply absolute top-8 right-8 flex flex-col items-center text-white  transition-colors duration-200;

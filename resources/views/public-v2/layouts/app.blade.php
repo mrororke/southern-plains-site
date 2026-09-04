@@ -301,26 +301,46 @@
 </div>
 
     {{-- Main Footer Row --}}
-    <div class="grid grid-cols-12 px-8">
+    <div class="grid grid-cols-12 px-8 footer-topo">
 
     <div class="col-span-2">
-        Logo
+        <x-logo class="w-32 h-auto" />
     </div>
 
     <div class="col-span-4">
-        Mission
+        <p class="text-sm text-sp-slate">
+            Building better dog and handler teams through positive training, dog sports, and community.
+        </p>
     </div>
 
     <div class="col-span-1">
-        Explore
+        <h4>Explore</h4>
+        <ul>
+            <li>About</li>
+            <li>Training</li>
+            <li>Dog Sports</li>
+            <li>Events</li>
+            <li>Contact</li>
+        </ul>
     </div>
 
     <div class="col-span-2">
-        Resources
+        <h4>Resources</h4>
+        <ul>
+            <li>Getting Started</li>
+            <li>Learn</li>
+            <li>NASDA</li>
+            <li>League Info</li>
+            <li>Trick Dog</li>
+        </ul>
     </div>
 
     <div class="col-span-3">
-        Contact
+        <h4>Contact</h4>
+        <ul>
+            <li>Inola, Oklahoma</li>
+            <li><a href="mailto:southernplainssportdogclub@gmail.com">southernplainssportdogclub@gmail.com</a></li>
+        </ul>
     </div>
 
 </div>
