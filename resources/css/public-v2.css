@@ -236,11 +236,15 @@ p.body-large {
 }
 
 ul.footer-nav li {
-    @apply text-sp-slate;
+    @apply text-sp-slate flex items-center gap-2;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 20px;
+}
+
+.footer-nav svg {
+    @apply w-5 h-5 shrink-0;
 }
 
 
