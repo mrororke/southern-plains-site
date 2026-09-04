@@ -338,6 +338,16 @@ ul.footer-nav li:hover {
 
 /* NEWSLETTER SIGN UP STYLES */
 
+.newsletter-form,
+#sib-form-container,
+#sib-container,
+.newsletter-form .sib-input,
+.newsletter-form .sib-form-block,
+.newsletter-form .form__entry,
+.newsletter-form .entry__field {
+    @apply bg-transparent;
+}
+
 .newsletter-form {
     @apply w-full;
 }
@@ -367,8 +377,11 @@ ul.footer-nav li:hover {
     @apply mt-2 block text-sm text-sp-clayRed;
 }
 
+
+/* Brevo success + error messages */
+
 .newsletter-message {
-    @apply mb-4 text-sm;
+    @apply mb-4 rounded-md px-4 py-3 text-sm;
 }
 
 .newsletter-message .sib-form-message-panel__text {
@@ -380,20 +393,30 @@ ul.footer-nav li:hover {
 }
 
 .newsletter-message-error {
-    @apply text-sp-clayRed;
+    @apply bg-sp-warmIvory text-sp-clayRed;
 }
 
 .newsletter-message-success {
-    @apply text-sp-warmIvory;
+    @apply bg-sp-warmIvory text-sp-successGreen;
+}
+
+
+/* Brevo submit button + loader */
+
+.newsletter-form .sib-form-block__button {
+    @apply inline-flex shrink-0 items-center justify-center gap-2;
+}
+
+.newsletter-form .progress-indicator__icon {
+    @apply h-5 w-5 shrink-0;
 }
 
 .newsletter-form .sib-hide-loader-icon {
     @apply hidden;
 }
 
-.newsletter-form .sib-form-block__button {
-    @apply shrink-0;
-}
+
+/* Mobile */
 
 @media (max-width: 767px) {
     .newsletter-form-inner {
