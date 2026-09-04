@@ -307,7 +307,7 @@
         <x-logo class="w-32 h-auto" />
     </div>
 
-    <div class="col-span-4">
+    <div class="col-span-2">
         <p class="text-sm text-sp-slate">
             Building better dog and handler teams through positive training, dog sports, and community.
         </p>
