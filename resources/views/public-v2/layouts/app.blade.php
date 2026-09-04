@@ -315,7 +315,7 @@
 
     <div class="col-span-2 col-start-6">
         <h4 class="footer">Explore</h4>
-        <ul>
+        <ul class="footer-nav">
             <li>About</li>
             <li>Training</li>
             <li>Dog Sports</li>
