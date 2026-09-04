@@ -216,10 +216,10 @@ h1.text-hero {
 
 h2.newsletter-signup {
     @apply text-sp-warmIvory;
-    font-size: 40px;
+    font-size: 22px;
     font-style: normal;
     font-weight: 600;
-    line-height: 48px; /* 120% */
+    line-height: 26px; /* 120% */
     text-transform: capitalize;
 }
 
@@ -347,8 +347,8 @@ ul.footer-nav li:hover {
 }
 
 .newsletter-input {
-    @apply w-full border-0 border-b border-sp-warmIvory
-           bg-sp-warmIvory px-0 py-4
+    @apply w-full border-0 border-b border-sp-warmIvory rounded-md
+           bg-sp-warmIvory px-4 py-4
            text-base text-sp-charcoal
            placeholder:text-sp-slate
            focus:border-sp-prairieOchre focus:ring-0;

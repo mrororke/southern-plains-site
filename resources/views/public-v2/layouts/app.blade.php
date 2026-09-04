@@ -292,7 +292,7 @@
             <div class="col-span-3">
                 <h3 class="text-eyebrow-light">Newsletter</h3>
                 <h2 class="newsletter-signup">Stay In The Loop.</h2>
-                <p class="text-sp-limestone text-sm">Get positive training tips, event updates, and early access to registration.</p>
+                <p class="text-sp-limestone text-sm">Get positive training tips, event updates, and<br/>early access to registration.</p>
             </div>
 
             <div class="col-span-5">
@@ -377,7 +377,10 @@
             </div>
 
             <div class="col-span-4">
-                Image
+                <img
+                    class="w-full h-full"
+                    src="{{ asset('images/headers/newsletter.png') }}"
+                    alt="A sheltie and an english bulldog running through Oklahoma wildflowers together.">
             </div>
 
         </div>
