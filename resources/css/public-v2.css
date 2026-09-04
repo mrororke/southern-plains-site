@@ -338,3 +338,73 @@ ul.footer-nav li:hover {
 
 /* NEWSLETTER SIGN UP STYLES */
 
+.newsletter-form {
+    @apply w-full;
+}
+
+#sib-container {
+    @apply w-full bg-transparent;
+}
+
+.newsletter-form-inner {
+    @apply flex items-start gap-6;
+}
+
+.newsletter-field {
+    @apply flex-1;
+}
+
+.newsletter-input {
+    @apply w-full rounded-md border-0
+           bg-sp-warmIvory
+           px-4 py-4
+           text-base text-sp-charcoal
+           placeholder:text-sp-slate
+           focus:ring-0;
+}
+
+.newsletter-field-error {
+    @apply mt-2 block text-sm text-sp-clayRed;
+}
+
+.newsletter-message {
+    @apply mb-4 text-sm;
+}
+
+.newsletter-message .sib-form-message-panel__text {
+    @apply flex items-center gap-2 p-0;
+}
+
+.newsletter-message .sib-notification__icon {
+    @apply h-5 w-5 shrink-0;
+}
+
+.newsletter-message-error {
+    @apply text-sp-clayRed;
+}
+
+.newsletter-message-success {
+    @apply text-sp-warmIvory;
+}
+
+.newsletter-form .sib-hide-loader-icon {
+    @apply hidden;
+}
+
+.newsletter-form .sib-form-block__button {
+    @apply shrink-0;
+}
+
+@media (max-width: 767px) {
+    .newsletter-form-inner {
+        @apply flex-col;
+    }
+
+    .newsletter-field {
+        @apply w-full;
+    }
+
+    .newsletter-form .sib-form-block__button {
+        @apply w-full;
+    }
+}
