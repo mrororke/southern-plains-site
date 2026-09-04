@@ -376,7 +376,8 @@ ul.footer-nav li:hover {
     background-color: #F7F5F0 !important;
 }
 
-.newsletter-form .entry__field {
+.newsletter-form .entry__field,
+.newsletter-form .entry__field:focus-within {
     border: 0 !important;
 }
 
