@@ -303,7 +303,7 @@
     {{-- Main Footer Row --}}
     <div class="grid grid-cols-12 px-8 py-8 footer-topo">
 
-    <div class="col-span-2 col-start-2">
+    <div class="col-span-2">
         <x-logo class="w-32 h-auto" />
     </div>
 
@@ -313,7 +313,7 @@
         </p>
     </div>
 
-    <div class="col-span-2">
+    <div class="col-span-2 col-start-6">
         <h4 class="footer">Explore</h4>
         <ul>
             <li>About</li>
