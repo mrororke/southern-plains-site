@@ -246,6 +246,7 @@ ul.footer-nav li {
 
 ul.footer-nav li:hover {
     @apply text-sp-prairieGreen;
+    text-decoration: underline;
 }
 
 /*
