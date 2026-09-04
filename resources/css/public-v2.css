@@ -417,8 +417,8 @@ ul.footer-nav li:hover {
     flex: 0 0 20px;
 }
 
-.newsletter-form .sib-hide-loader-icon {
-    display: none !important;
+.newsletter-submit {
+    @apply shrink-0;
 }
 
 
