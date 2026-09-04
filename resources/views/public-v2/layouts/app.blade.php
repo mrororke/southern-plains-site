@@ -303,12 +303,12 @@
     {{-- Main Footer Row --}}
     <div class="grid grid-cols-12 px-8 py-8 footer-topo">
 
-    <div class="col-span-2">
+    <div class="col-span-1">
         <x-logo class="w-32 h-auto" />
     </div>
 
     <div class="col-span-2">
-        <p class="text-sm text-sp-slate">
+        <p class="text-sm text-sp-slate px-4">
             Building better dog and handler teams through positive training, dog sports, and community.
         </p>
     </div>
