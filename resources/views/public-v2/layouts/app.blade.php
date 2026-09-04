@@ -357,6 +357,7 @@
 
             <div class="col-span-5">
                 <div class="newsletter-form">
+
                     <!-- START - We recommend to place the below code where you want the form in your website html  -->
                     <div class="sib-form" style="text-align: center;
          background-color: #EFF2F7; 
@@ -487,6 +488,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- END - We recommend to place the above code where you want the form in your website html  -->
 
                 </div>
             </div>
