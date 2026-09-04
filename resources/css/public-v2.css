@@ -339,7 +339,7 @@ ul.footer-nav li:hover {
 /* NEWSLETTER SIGN UP STYLES */
 
 .newsletter-form-inner {
-    @apply flex items-start gap-4;
+    @apply flex items-start gap-6;
 }
 
 .newsletter-field {
@@ -347,15 +347,20 @@ ul.footer-nav li:hover {
 }
 
 .newsletter-input {
-    @apply w-full border-0 border-b border-sp-warmIvory rounded-md
-           bg-sp-warmIvory px-4 py-4
+    @apply w-full rounded-md border-0
+           bg-sp-warmIvory
+           px-4 py-4
            text-base text-sp-charcoal
            placeholder:text-sp-slate
-           focus:border-sp-prairieOchre focus:ring-0;
+           focus:ring-0;
 }
 
 .newsletter-message {
     @apply mb-4 text-sm;
+}
+
+.newsletter-message .sib-form-message-panel__text {
+    @apply p-0;
 }
 
 .newsletter-message-error {
@@ -363,9 +368,31 @@ ul.footer-nav li:hover {
 }
 
 .newsletter-message-success {
-    @apply text-sp-successGreen;
+    @apply text-sp-warmIvory;
 }
 
 .newsletter-field-error {
     @apply mt-2 block text-sm text-sp-clayRed;
+}
+
+.newsletter-form .sib-hide-loader-icon {
+    @apply hidden;
+}
+
+.newsletter-form .sib-form-block__button {
+    @apply inline-flex items-center justify-center;
+}
+
+@media (max-width: 767px) {
+    .newsletter-form-inner {
+        @apply flex-col;
+    }
+
+    .newsletter-field {
+        @apply w-full;
+    }
+
+    .newsletter-form .sib-form-block__button {
+        @apply w-full;
+    }
 }
