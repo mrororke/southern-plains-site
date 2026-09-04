@@ -339,21 +339,23 @@ ul.footer-nav li:hover {
 /* NEWSLETTER SIGN UP STYLES */
 
 .newsletter-form,
-#sib-form-container,
-#sib-container,
+.newsletter-form #sib-form-container,
+.newsletter-form #sib-container,
 .newsletter-form .sib-input,
 .newsletter-form .sib-form-block,
 .newsletter-form .form__entry,
 .newsletter-form .entry__field {
-    @apply bg-transparent;
+    background: transparent !important;
 }
 
-.newsletter-form {
+.newsletter-form,
+.newsletter-form #sib-container {
     @apply w-full;
 }
 
-#sib-container {
-    @apply w-full bg-transparent;
+.newsletter-form #sib-container {
+    padding: 0 !important;
+    max-width: none !important;
 }
 
 .newsletter-form-inner {
@@ -389,7 +391,9 @@ ul.footer-nav li:hover {
 }
 
 .newsletter-message .sib-notification__icon {
-    @apply h-5 w-5 shrink-0;
+    width: 20px !important;
+    height: 20px !important;
+    flex: 0 0 20px;
 }
 
 .newsletter-message-error {
@@ -408,11 +412,13 @@ ul.footer-nav li:hover {
 }
 
 .newsletter-form .progress-indicator__icon {
-    @apply h-5 w-5 shrink-0;
+    width: 20px !important;
+    height: 20px !important;
+    flex: 0 0 20px;
 }
 
 .newsletter-form .sib-hide-loader-icon {
-    @apply hidden;
+    display: none !important;
 }
 
 
