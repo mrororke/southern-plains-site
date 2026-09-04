@@ -308,7 +308,7 @@
     </div>
 
     <div class="col-span-2">
-        <p class="text-sm text-sp-slate px-4">
+        <p class="text-sp-slate px-4">
             Building better dog and handler teams through positive training, dog sports, and community.
         </p>
     </div>
@@ -338,7 +338,7 @@
     <div class="col-span-2">
         <h4 class="footer">Contact</h4>
         <ul class="footer-nav">
-            <li><x-icons.map-pin" />Inola, Oklahoma</li>
+            <li><x-icons.map-pin />Inola, Oklahoma</li>
             <li><x-icons.mail/><a href="mailto:southernplainssportdogclub@gmail.com">southernplainssportdogclub@gmail.com</a></li>
         </ul>
     </div>
