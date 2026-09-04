@@ -287,7 +287,7 @@
     <footer class="py-8">
 
         {{-- Newsletter Row --}}
-        <div class="grid grid-cols-12 px-8 py-8 bg-sp-prairieGreen">
+        <div class="grid grid-cols-12 pl-8 items-center bg-sp-prairieGreen">
 
             <div class="col-span-3">
                 <h3 class="text-eyebrow-light">Newsletter</h3>
