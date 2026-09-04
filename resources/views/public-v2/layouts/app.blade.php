@@ -15,6 +15,8 @@
     'resources/css/public-v2.css',
     'resources/js/public-v2.js',
     ])
+
+    <link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
 </head>
 
 <body class="bg-sp-warmIvory">
@@ -230,26 +232,27 @@
         <div id="hero" class="grid grid-cols-12 pt-8">
             <div class="col-span-12 md:col-span-5 md:pr-0 pl-8 pr-8 ">
                 <h3 class="text-eyebrow">Play. Train. Grow</h3>
-                <h1 class="text-hero">More Ways to Do Great Things<br/>
-                    <span class="text-hero-emphasis">With Your Dog.</span></h1>
-                    
-                    <div class="hl-break">
-                        <hr>
-                    </div>
+                <h1 class="text-hero">More Ways to Do Great Things<br />
+                    <span class="text-hero-emphasis">With Your Dog.</span>
+                </h1>
 
-                    <p class="body-large">Positive reinforcement training. Dog sports. Real community. 
-                        We’re here to help you and your dog learn, play,
-                         and thrive — together.</p>
+                <div class="hl-break">
+                    <hr>
+                </div>
 
-                    <div class="flex gap-6 py-6">
-                        <a href="#possibilities" class="btn-primary">
-                            Explore What's Possible
-                        </a>
+                <p class="body-large">Positive reinforcement training. Dog sports. Real community.
+                    We’re here to help you and your dog learn, play,
+                    and thrive — together.</p>
 
-                        <a href="{{ route('public-v2.events.index') }}" class="btn-primary-outline">
-                            View Events
-                        </a>
-                    </div>
+                <div class="flex gap-6 py-6">
+                    <a href="#possibilities" class="btn-primary">
+                        Explore What's Possible
+                    </a>
+
+                    <a href="{{ route('public-v2.events.index') }}" class="btn-primary-outline">
+                        View Events
+                    </a>
+                </div>
             </div>
             <div class="col-span-12 mt-8 md:col-span-7 md:mt-0 relative">
                 <img
@@ -275,90 +278,207 @@
 
     <!-- END of header -->
 
-    
 
-    
+
+
 
     @yield('content')
 
     <footer class="py-8">
 
-    {{-- Newsletter Row --}}
-    <div class="grid grid-cols-12 px-8">
+        {{-- Newsletter Row --}}
+        <div class="grid grid-cols-12 px-8 py-8 bg-sp-prairieGreen">
 
-    <div class="col-span-3">
-        Stay In The Loop.
-    </div>
+            <div class="col-span-3">
+                Stay In The Loop.
+            </div>
 
-    <div class="col-span-5">
-        Email field
-    </div>
+            <div class="col-span-5">
+                <div class="newsletter-form">
 
-    <div class="col-span-4">
-        Image
-    </div>
+                    <div id="error-message" class="sib-form-message-panel newsletter-message newsletter-message-error">
+                        <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                            <span class="sib-form-message-panel__inner-text">
+                                Your subscription could not be saved. Please try again.
+                            </span>
+                        </div>
+                    </div>
 
-</div>
+                    <div id="success-message" class="sib-form-message-panel newsletter-message newsletter-message-success">
+                        <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+                            <span class="sib-form-message-panel__inner-text">
+                                Your subscription has been successful.
+                            </span>
+                        </div>
+                    </div>
 
-    {{-- Main Footer Row --}}
-    <div class="grid grid-cols-12 px-8 py-8 footer-topo">
+                    <form
+                        id="sib-form"
+                        method="POST"
+                        action="https://a7e86912.sibforms.com/serve/MUIFAJWITnINuKdzydl8wxntokDKQVKmoUHp6mjSXu-RA6Bb88L0eC3bVYrdMY0zW1kGZqGqlwEWyA7JCHuFIo_cjP_HY-R_m_bKNOOJjPKwceUMbZ-IpDY7sf2PEMPmpuWw63T5NHlM2V_BfnrXfouKkOyXsrezGZTv7SsGbm_EXKzXWpeZrF4rJtCCHPwd2EgioW5olrsIk22X-A=="
+                        data-type="subscription"
+                        class="newsletter-form-inner">
 
-    <div class="col-span-1">
-        <x-logo class="w-32 h-auto" />
-    </div>
+                        <div class="sib-input newsletter-field">
+                            <div class="form__entry entry_block">
 
-    <div class="col-span-2">
-        <p class="text-sp-slate px-4">
-            Building better dog and handler teams through positive training, dog sports, and community.
-        </p>
-    </div>
+                                <label for="EMAIL" class="sr-only">
+                                    Email Address
+                                </label>
 
-    <div class="col-span-2 col-start-6">
-        <h4 class="footer">Explore</h4>
-        <ul class="footer-nav">
-            <li>About</li>
-            <li>Training</li>
-            <li>Dog Sports</li>
-            <li>Events</li>
-            <li>Contact</li>
-        </ul>
-    </div>
+                                <div class="entry__field">
+                                    <input
+                                        class="input newsletter-input"
+                                        type="email"
+                                        id="EMAIL"
+                                        name="EMAIL"
+                                        autocomplete="email"
+                                        placeholder="Email Address"
+                                        data-required="true"
+                                        required>
+                                </div>
 
-    <div class="col-span-2">
-        <h4 class="footer">Resources</h4>
-        <ul class="footer-nav">
-            <li>Getting Started</li>
-            <li>Learn</li>
-            <li>NASDA</li>
-            <li>League Info</li>
-            <li>Trick Dog</li>
-        </ul>
-    </div>
+                                <label class="entry__error entry__error--primary newsletter-field-error"></label>
 
-    <div class="col-span-2">
-        <h4 class="footer">Contact</h4>
-        <ul class="footer-nav">
-            <li><x-icons.map-pin />Inola, Oklahoma</li>
-            <li><x-icons.mail/><a href="mailto:southernplainssportdogclub@gmail.com">southernplainssportdogclub@gmail.com</a></li>
-        </ul>
-    </div>
+                            </div>
+                        </div>
 
-</div>
+                        <button
+                            class="sib-form-block__button sib-form-block__button-with-loader btn-primary"
+                            form="sib-form"
+                            type="submit">
 
-    {{-- Legal Row --}}
-    <div class="grid grid-cols-12 px-8 py-8 bg-sp-prairieGreen">
+                            <svg
+                                class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon"
+                                viewBox="0 0 512 512"
+                                aria-hidden="true">
+                                <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" />
+                            </svg>
 
-    <div class="col-span-8 text-sp-warmIvory text-sm">
-        Copyright © 2025 - 2026 Southern Plains Sport Dog Club, LLC. All rights reserved.
-    </div>
+                            Subscribe
+                        </button>
 
-    <div class="col-span-4 text-sp-warmIvory text-sm">
-        <a href="{{ route('login') }}">Login</a> / Privacy Policy / Terms of Use
-    </div>
+                        <input
+                            type="text"
+                            name="email_address_check"
+                            value=""
+                            class="input--hidden">
 
-</div>
+                        <input
+                            type="hidden"
+                            name="locale"
+                            value="en">
 
-</footer>
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="col-span-4">
+                Image
+            </div>
+
+        </div>
+
+        {{-- Main Footer Row --}}
+        <div class="grid grid-cols-12 px-8 py-8 footer-topo">
+
+            <div class="col-span-1">
+                <x-logo class="w-32 h-auto" />
+            </div>
+
+            <div class="col-span-2">
+                <p class="text-sp-slate px-4">
+                    Building better dog and handler teams through positive training, dog sports, and community.
+                </p>
+            </div>
+
+            <div class="col-span-2 col-start-6">
+                <h4 class="footer">Explore</h4>
+                <ul class="footer-nav">
+                    <li>About</li>
+                    <li>Training</li>
+                    <li>Dog Sports</li>
+                    <li>Events</li>
+                    <li>Contact</li>
+                </ul>
+            </div>
+
+            <div class="col-span-2">
+                <h4 class="footer">Resources</h4>
+                <ul class="footer-nav">
+                    <li>Getting Started</li>
+                    <li>Learn</li>
+                    <li>NASDA</li>
+                    <li>League Info</li>
+                    <li>Trick Dog</li>
+                </ul>
+            </div>
+
+            <div class="col-span-2">
+                <h4 class="footer">Contact</h4>
+                <ul class="footer-nav">
+                    <li><x-icons.map-pin />Inola, Oklahoma</li>
+                    <li><x-icons.mail /><a href="mailto:southernplainssportdogclub@gmail.com">southernplainssportdogclub@gmail.com</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        {{-- Legal Row --}}
+        <div class="grid grid-cols-12 px-8 py-8 bg-sp-prairieGreen">
+
+            <div class="col-span-8 text-sp-warmIvory text-sm">
+                Copyright © 2025 - 2026 Southern Plains Sport Dog Club, LLC. All rights reserved.
+            </div>
+
+            <div class="col-span-4 text-sp-warmIvory text-sm">
+                <a href="{{ route('login') }}">Login</a> / Privacy Policy / Terms of Use
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script>
+        window.REQUIRED_CODE_ERROR_MESSAGE = 'Please choose a country code';
+        window.LOCALE = 'en';
+
+        window.EMAIL_INVALID_MESSAGE =
+            window.SMS_INVALID_MESSAGE =
+            'The information provided is invalid. Please review the field format and try again.';
+
+        window.REQUIRED_ERROR_MESSAGE =
+            'This field cannot be left blank.';
+
+        window.GENERIC_INVALID_MESSAGE =
+            'The information provided is invalid. Please review the field format and try again.';
+
+        window.INVALID_NUMBER =
+            'The information provided is invalid. Please review the field format and try again.';
+
+        window.INVALID_DATE =
+            'Please enter a valid date';
+
+        window.REQUIRED_MULTISELECT_MESSAGE =
+            'Please select at least 1 option';
+
+        window.translation = {
+            common: {
+                selectedList: '{quantity} list selected',
+                selectedLists: '{quantity} lists selected',
+                selectedOption: '{quantity} selected',
+                selectedOptions: '{quantity} selected',
+            }
+        };
+
+        var AUTOHIDE = Boolean(1);
+    </script>
+
+    <script
+        defer
+        src="https://sibforms.com/forms/end-form/build/main.js">
+    </script>
 
 
 </body>

@@ -3,6 +3,16 @@
 @tailwind utilities;
 
 @layer components {
+    @media (max-width: 767px) {
+    .newsletter-form-inner {
+        @apply flex-col;
+    }
+
+    .newsletter-field {
+        @apply w-full;
+    }
+}
+
     .site-container {
         @apply mx-auto w-full px-8;
     }
@@ -213,7 +223,7 @@ h3.text-eyebrow {
     text-transform: uppercase;
 }
 
-h4.footer{
+h4.footer {
     @apply text-sp-charcoal;
     font-size: 20px;
     line-height: 32px;
@@ -246,7 +256,6 @@ ul.footer-nav li {
 .footer-nav svg {
     @apply w-5 h-5 shrink-0;
 }
-
 
 ul.footer-nav li:hover {
     @apply text-sp-prairieOchre;
@@ -307,4 +316,38 @@ ul.footer-nav li:hover {
 
 .btn-secondary-outline:hover {
     @apply border-sp-goldenrod text-sp-goldenrod;
+}
+
+/* NEWSLETTER SIGN UP STYLES */
+
+.newsletter-form-inner {
+    @apply flex items-start gap-4;
+}
+
+.newsletter-field {
+    @apply flex-1;
+}
+
+.newsletter-input {
+    @apply w-full border-0 border-b border-sp-warmStone
+           bg-transparent px-0 py-4
+           text-base text-sp-charcoal
+           placeholder:text-sp-slate
+           focus:border-sp-prairieOchre focus:ring-0;
+}
+
+.newsletter-message {
+    @apply mb-4 text-sm;
+}
+
+.newsletter-message-error {
+    @apply text-sp-clayRed;
+}
+
+.newsletter-message-success {
+    @apply text-sp-successGreen;
+}
+
+.newsletter-field-error {
+    @apply mt-2 block text-sm text-sp-clayRed;
 }
