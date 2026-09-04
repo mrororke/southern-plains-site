@@ -368,11 +368,12 @@ ul.footer-nav li:hover {
 
 .newsletter-input {
     @apply w-full rounded-md border-0
-           bg-sp-warmIvory
            px-4 py-4
            text-base text-sp-charcoal
            placeholder:text-sp-slate
            focus:ring-0;
+
+    background-color: #F7F5F0 !important;
 }
 
 .newsletter-field-error {
@@ -396,12 +397,26 @@ ul.footer-nav li:hover {
     flex: 0 0 20px;
 }
 
+
+/* Error */
+
 .newsletter-message-error {
-    @apply bg-sp-warmIvory text-sp-clayRed;
+    @apply text-sp-clayRed;
+
+    background-color: #F7F5F0 !important;
 }
 
+
+/* Success */
+
 .newsletter-message-success {
-    @apply bg-sp-warmIvory text-sp-successGreen;
+    @apply text-sp-limestone;
+
+    background: transparent !important;
+}
+
+.newsletter-message-success .sib-notification__icon {
+    @apply text-sp-limestone;
 }
 
 
@@ -425,6 +440,7 @@ ul.footer-nav li:hover {
 /* Mobile */
 
 @media (max-width: 767px) {
+
     .newsletter-form-inner {
         @apply flex-col;
     }
@@ -436,4 +452,5 @@ ul.footer-nav li:hover {
     .newsletter-form .sib-form-block__button {
         @apply w-full;
     }
+
 }
