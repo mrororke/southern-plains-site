@@ -376,6 +376,10 @@ ul.footer-nav li:hover {
     background-color: #F7F5F0 !important;
 }
 
+.newsletter-form .entry__field {
+    border: 0 !important;
+}
+
 .newsletter-field-error {
     @apply mt-2 block text-sm text-sp-clayRed;
 }
