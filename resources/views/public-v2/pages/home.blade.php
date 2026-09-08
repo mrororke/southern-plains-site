@@ -59,7 +59,7 @@
             the sport looks like, how trials work, and what to expect when you give it a try.
         </p>
 
-        <a href="#" class="learn-more-link text-sp-prairieOchre">
+        <a href="#" class="learn-more-link text-sp-prairieOchre py-4">
             Learn More
             <x-icons.move-right />
         </a>
