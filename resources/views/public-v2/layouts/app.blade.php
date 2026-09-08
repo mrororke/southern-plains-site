@@ -332,7 +332,7 @@
                     src="{{ asset('images/headers/header-home.png') }}"
                     alt="Black and white Sheltie standing among wildflowers on the Oklahoma prairie.">
 
-                <div class="image-registration">
+                <div class="image-registration image-registration-right">
 
                     <x-icons.locate-fixed class="image-registration-mark" />
 

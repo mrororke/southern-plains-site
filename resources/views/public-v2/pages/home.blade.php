@@ -42,7 +42,7 @@
     <!-- End of 3-Up -->
 
     <div class="grid grid-cols-12 py-8 px-8">
-        <div class="col-span-12 md:col-span-6 hazel-bg relative p-8">
+        <div class="col-span-12 md:col-span-6 hazel-bg relative rounded-md p-8">
 
     <div class="nasda-feature-box">
         <h3 class="text-eyebrow">
@@ -65,15 +65,17 @@
         </a>
     </div>
 
-    <div class="image-registration">
-        <x-icons.locate-fixed class="image-registration-mark" />
+    <div class="image-registration image-registration-bottom">
 
-        <span class="image-registration-line"></span>
+    <x-icons.locate-fixed class="image-registration-mark" />
 
-        <span class="image-registration-text-bottom">
-            Hazel, Photo by Blue Ridge Creative
-        </span>
-    </div>
+    <span class="image-registration-line"></span>
+
+    <span class="image-registration-text-bottom">
+        Hazel, Photo by Blue Ridge Creative
+    </span>
+
+</div>
 
 </div>
         <div class="col-span-12 md:col-span-6">

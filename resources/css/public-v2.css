@@ -33,31 +33,55 @@
 
     /* IMAGE STYLES */
     .image-registration {
-        @apply absolute top-8 right-8 flex flex-col items-center text-white  transition-colors duration-200;
-    }
+    @apply absolute flex items-center text-white
+           transition-colors duration-200;
+}
 
-    .image-registration:hover {
-        @apply bg-sp-prairieGreen rounded-md;
-        padding: 4px !important;
-    }
+.image-registration:hover {
+    @apply bg-sp-prairieGreen rounded-md;
+    padding: 4px !important;
+}
 
-    .image-registration-mark {
-        @apply w-8 h-8;
-    }
+.image-registration-mark {
+    @apply w-8 h-8 shrink-0;
+}
 
-    .image-registration-line {
-        @apply block h-8 w-px bg-white;
-        margin: 5px 0;
-    }
+.image-registration-line {
+    @apply block bg-white;
+}
 
-    .image-registration-text-right {
-        @apply text-xs uppercase tracking-wider whitespace-nowrap;
-        writing-mode: vertical-rl;
-    }
 
-    .image-registration-text-bottom {
-        @apply text-xs uppercase tracking-wider whitespace-nowrap;
-    }
+/* Right-side vertical registration */
+
+.image-registration-right {
+    @apply top-8 right-8 flex-col;
+}
+
+.image-registration-right .image-registration-line {
+    @apply h-8 w-px;
+    margin: 5px 0;
+}
+
+.image-registration-text-right {
+    @apply text-xs uppercase tracking-wider whitespace-nowrap;
+    writing-mode: vertical-rl;
+}
+
+
+/* Bottom-left horizontal registration */
+
+.image-registration-bottom {
+    @apply bottom-6 left-6 flex-row;
+}
+
+.image-registration-bottom .image-registration-line {
+    @apply h-px w-8;
+    margin: 0 10px;
+}
+
+.image-registration-text-bottom {
+    @apply text-xs uppercase tracking-wider whitespace-nowrap;
+}
 
     /* NAV Styles */
 
