@@ -6,7 +6,7 @@
     <div class="grid grid-cols-12 py-8 px-8">
         <div class="col-span-12 md:col-span-4 gap-4 flex">
             <div>
-                <x-icons.dog class="text-sp-prairieGreen"/>
+                <x-icons.dog class="text-sp-prairieGreen w-24 h-24"/>
             </div>
             <div>
                 <h4 class="font-display text-base text-sp-prairieGreen">Let Dogs Be Dogs.</h4>
