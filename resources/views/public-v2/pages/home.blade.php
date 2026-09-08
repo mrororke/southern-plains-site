@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <div class="grid grid-cols-12 py-8 px-8">
+    <div class="grid grid-cols-12 py-[64px] px-8">
         <div class="col-span-12 md:col-span-4 gap-4 flex">
             <div>
                 <x-icons.dog class="text-sp-prairieGreen w-24 h-24"/>
