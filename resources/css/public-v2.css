@@ -255,6 +255,14 @@ p.body-large {
     line-height: 32px; /* 133.333% */
 }
 
+p.body {
+    @apply text-sp-slate font-sans;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 133.333% */
+}
+
 .hl-break {
     @apply flex w-[100px] flex-col items-start pt-4 pb-6;
 }
