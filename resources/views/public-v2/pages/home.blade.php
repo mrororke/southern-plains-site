@@ -6,13 +6,13 @@
     <div class="grid grid-cols-12 py-8 px-8">
         <div class="col-span-12 md:col-span-4 flex">
             <div>
-                <x-icons.dog />
+                <x-icons.dog class="w-24 h-24 text-sp-prairieGreen"/>
             </div>
             <div>
-                <h4>Let Dogs Be Dogs.</h4>
+                <h4 class="font-display text-sm text-sp-prairieGreen">Let Dogs Be Dogs.</h4>
                 <h3>Play</h3>
                 <p class="">Create experiences that tap into natural instincts, spark joy, and build confidence.</p>
-                <a href"" class="flex">Learn More <x-icons.move-right /></a>
+                <a href"" class="flex items-center text-sp-prairieGreen">Learn More <x-icons.move-right /></a>
             </div>
         </div>
         <div class="col-span-12 md:col-span-4 flex">
