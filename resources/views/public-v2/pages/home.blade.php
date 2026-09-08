@@ -41,25 +41,25 @@
 
     <!-- End of 3-Up -->
 
-    <div class="grid grid-cols-12 py-8 px-8">
+    <div class="grid grid-cols-12 py-8 px-8 gap-8">
         <div class="col-span-12 md:col-span-6 hazel-bg relative rounded-md p-8">
 
     <div class="nasda-feature-box">
-        <h3 class="text-eyebrow">
+        <h4 class="font-display font-bold text-2xl text-sp-burntClay">
             Dog Sports 101
-        </h3>
+        </h4>
 
-        <h2>
+        <h2 class="font-sans text-4xl text-sp-charcoal">
             What Is NASDA, Anyway?
         </h2>
 
-        <p>
+        <p class="body-large">
             From finding lost items to searching for rats, NASDA gives dogs and their
             handlers some wonderfully different ways to play together. Here’s what
             the sport looks like, how trials work, and what to expect when you give it a try.
         </p>
 
-        <a href="#" class="learn-more-link">
+        <a href="#" class="learn-more-link text-sp-prairieOchre">
             Learn More
             <x-icons.move-right />
         </a>
