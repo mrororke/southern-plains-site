@@ -50,9 +50,13 @@
         margin: 5px 0;
     }
 
-    .image-registration-text {
+    .image-registration-text-right {
         @apply text-xs uppercase tracking-wider whitespace-nowrap;
         writing-mode: vertical-rl;
+    }
+
+    .image-registration-text-bottom {
+        @apply text-xs uppercase tracking-wider whitespace-nowrap;
     }
 
     /* NAV Styles */
@@ -402,7 +406,7 @@ ul.footer-nav li:hover {
            placeholder:text-sp-slate
            focus:ring-0;
 
-    background-color: #F7F5F0 !important;
+    background-color: #f7f5f0 !important;
 }
 
 .newsletter-form .entry__field,
@@ -413,7 +417,6 @@ ul.footer-nav li:hover {
 .newsletter-field-error {
     @apply mt-2 block text-sm text-sp-clayRed;
 }
-
 
 /* Brevo success + error messages */
 
@@ -431,15 +434,13 @@ ul.footer-nav li:hover {
     flex: 0 0 20px;
 }
 
-
 /* Error */
 
 .newsletter-message-error {
     @apply text-sp-clayRed;
 
-    background-color: #F7F5F0 !important;
+    background-color: #f7f5f0 !important;
 }
-
 
 /* Success */
 
@@ -452,7 +453,6 @@ ul.footer-nav li:hover {
 .newsletter-message-success .sib-notification__icon {
     @apply text-sp-limestone;
 }
-
 
 /* Brevo submit button + loader */
 
@@ -470,11 +470,9 @@ ul.footer-nav li:hover {
     @apply shrink-0;
 }
 
-
 /* Mobile */
 
 @media (max-width: 767px) {
-
     .newsletter-form-inner {
         @apply flex-col;
     }
@@ -486,5 +484,11 @@ ul.footer-nav li:hover {
     .newsletter-form .sib-form-block__button {
         @apply w-full;
     }
+}
 
+.hazel-bg {
+    background-image: url("/images/hazel.png");
+    background-repeat: repeat;
+    background-position: center;
+    background-size: auto;
 }

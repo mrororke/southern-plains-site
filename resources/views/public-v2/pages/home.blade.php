@@ -42,8 +42,19 @@
     <!-- End of 3-Up -->
 
     <div class="grid grid-cols-12 py-8 px-8">
-        <div class="col-span-12 md:col-span-6">
-            Column events
+        <div class="col-span-12 md:col-span-6 hazel-bg">
+            Hazel is here.
+            <div class="image-registration">
+
+                    <x-icons.locate-fixed class="image-registration-mark" />
+
+                    <span class="image-registration-line"></span>
+
+                    <span class="image-registration-text-bottom">
+                        Hazel, Photo by Blue Ridge Creative
+                    </span>
+
+                </div>
         </div>
         <div class="col-span-12 md:col-span-6">
             Column

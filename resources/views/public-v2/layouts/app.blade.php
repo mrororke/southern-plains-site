@@ -338,7 +338,7 @@
 
                     <span class="image-registration-line"></span>
 
-                    <span class="image-registration-text">
+                    <span class="image-registration-text-right">
                         Hamish, Photo by Blue Ridge Creative
                     </span>
 
