@@ -265,7 +265,6 @@ p.body {
 
 .learn-more-link {
     @apply inline-flex items-center gap-2
-           text-sp-prairieGreen
            transition-all duration-300;
 }
 
