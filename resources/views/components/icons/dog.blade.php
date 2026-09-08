@@ -1,5 +1,6 @@
 <svg
-    {{ $attributes->class('h-4 w-4')->merge([
+    {{ $attributes->merge([
+        'class' => 'h-4 w-4',
         'xmlns' => 'http://www.w3.org/2000/svg',
         'fill' => 'none',
         'viewBox' => '0 0 24 24',
