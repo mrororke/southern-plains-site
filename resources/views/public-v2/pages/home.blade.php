@@ -42,20 +42,40 @@
     <!-- End of 3-Up -->
 
     <div class="grid grid-cols-12 py-8 px-8">
-        <div class="col-span-12 md:col-span-6 hazel-bg">
-            Hazel is here.
-            <div class="image-registration">
+        <div class="col-span-12 md:col-span-6 hazel-bg relative p-8">
 
-                    <x-icons.locate-fixed class="image-registration-mark" />
+    <div class="nasda-feature-box">
+        <h3 class="text-eyebrow">
+            Dog Sports 101
+        </h3>
 
-                    <span class="image-registration-line"></span>
+        <h2>
+            What Is NASDA, Anyway?
+        </h2>
 
-                    <span class="image-registration-text-bottom">
-                        Hazel, Photo by Blue Ridge Creative
-                    </span>
+        <p>
+            From finding lost items to searching for rats, NASDA gives dogs and their
+            handlers some wonderfully different ways to play together. Here’s what
+            the sport looks like, how trials work, and what to expect when you give it a try.
+        </p>
 
-                </div>
-        </div>
+        <a href="#" class="learn-more-link">
+            Learn More
+            <x-icons.move-right />
+        </a>
+    </div>
+
+    <div class="image-registration">
+        <x-icons.locate-fixed class="image-registration-mark" />
+
+        <span class="image-registration-line"></span>
+
+        <span class="image-registration-text-bottom">
+            Hazel, Photo by Blue Ridge Creative
+        </span>
+    </div>
+
+</div>
         <div class="col-span-12 md:col-span-6">
             Column
         </div>

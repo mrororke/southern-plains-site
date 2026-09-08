@@ -488,7 +488,13 @@ ul.footer-nav li:hover {
 
 .hazel-bg {
     background-image: url("/images/hazel.png");
-    background-repeat: repeat;
+    background-repeat: no-repeat;
     background-position: center;
-    background-size: auto;
+    background-size: cover;
+}
+
+.nasda-feature-box {
+    @apply ml-auto my-16 w-2/3 rounded-lg
+           bg-sp-warmIvory/90
+           p-6;
 }
