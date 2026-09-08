@@ -263,6 +263,16 @@ p.body {
     line-height: 24px; /* 133.333% */
 }
 
+.learn-more-link {
+    @apply inline-flex items-center gap-2
+           text-sp-prairieGreen
+           transition-all duration-300;
+}
+
+.learn-more-link:hover {
+    @apply tracking-wider;
+}
+
 .hl-break {
     @apply flex w-[100px] flex-col items-start pt-4 pb-6;
 }
