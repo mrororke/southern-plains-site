@@ -264,7 +264,7 @@ p.body {
 }
 
 .learn-more-link {
-    @apply inline-flex items-center gap-2
+    @apply inline-flex items-center gap-2 uppercase
            transition-all duration-300;
 }
 
