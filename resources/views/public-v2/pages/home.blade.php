@@ -15,11 +15,27 @@
                 <a href="#" class="learn-more-link">Learn More <x-icons.move-right /></a>
             </div>
         </div>
-        <div class="col-span-12 md:col-span-4 flex">
-            Column
+        <div class="col-span-12 md:col-span-4 gap-4 flex">
+            <div>
+                <x-icons.award class="text-sp-prairieGreen w-24 h-24"/>
+            </div>
+            <div>
+                <h4 class="font-display font-bold text-2xl text-sp-prairieGreen">Build Better Partnerships.</h4>
+                <h3 class="font-sans text-4xl text-sp-charcoal uppercase">Train</h3>
+                <p class="body">Positive methods that strengthen communication, skills, and trust.</p>
+                <a href="#" class="learn-more-link">Learn More <x-icons.move-right /></a>
+            </div>
         </div>
-        <div class="col-span-12 md:col-span-4 flex">
-            Column
+        <div class="col-span-12 md:col-span-4 gap-4 flex">
+            <div>
+                <x-icons.sprout class="text-sp-prairieGreen w-24 h-24"/>
+            </div>
+            <div>
+                <h4 class="font-display font-bold text-2xl text-sp-prairieGreen">Celebrate Every Victory.</h4>
+                <h3 class="font-sans text-4xl text-sp-charcoal uppercase">Grow</h3>
+                <p class="body">From first steps to new titles, we’re here to support your journey together.</p>
+                <a href="#" class="learn-more-link">Learn More <x-icons.move-right /></a>
+            </div>
         </div>
     </div>
 
