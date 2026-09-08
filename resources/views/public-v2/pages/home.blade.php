@@ -49,11 +49,11 @@
             Dog Sports 101
         </h4>
 
-        <h2 class="font-sans text-4xl text-sp-charcoal">
+        <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
             What Is NASDA, Anyway?
         </h2>
 
-        <p class="body-large">
+        <p class="body">
             From finding lost items to searching for rats, NASDA gives dogs and their
             handlers some wonderfully different ways to play together. Here’s what
             the sport looks like, how trials work, and what to expect when you give it a try.
