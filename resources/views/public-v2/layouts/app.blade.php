@@ -557,102 +557,109 @@
 
 
         {{-- Main Footer Row --}}
-        <div class="grid grid-cols-12 px-8 py-8 footer-topo">
+<div class="grid grid-cols-12 gap-y-8 px-8 py-8 footer-topo">
 
-            <div class="col-span-1">
+    {{-- Logo --}}
+    <div class="col-span-4 md:col-span-1">
 
-                <x-logo class="w-32 h-auto" />
+        <x-logo class="w-32 h-auto" />
 
-            </div>
-
-
-            <div class="col-span-2">
-
-                <p class="text-sp-slate px-4">
-                    Building better dog and handler teams through positive training, dog sports, and community.
-                </p>
-
-            </div>
+    </div>
 
 
-            <div class="col-span-2 col-start-6">
+    {{-- Mission --}}
+    <div class="col-span-8 md:col-span-2">
 
-                <h4 class="footer">
-                    Explore
-                </h4>
+        <p class="text-sp-slate pl-4 md:px-4">
+            Building better dog and handler teams through positive training, dog sports, and community.
+        </p>
 
-                <ul class="footer-nav">
-                    <li>About</li>
-                    <li>Training</li>
-                    <li>Dog Sports</li>
-                    <li>Events</li>
-                    <li>Contact</li>
-                </ul>
-
-            </div>
+    </div>
 
 
-            <div class="col-span-2">
+    {{-- Explore --}}
+    <div class="col-span-6 md:col-span-2 md:col-start-6">
 
-                <h4 class="footer">
-                    Resources
-                </h4>
+        <h4 class="footer">
+            Explore
+        </h4>
 
-                <ul class="footer-nav">
-                    <li>Getting Started</li>
-                    <li>Learn</li>
-                    <li>NASDA</li>
-                    <li>League Info</li>
-                    <li>Trick Dog</li>
-                </ul>
+        <ul class="footer-nav">
+            <li>About</li>
+            <li>Training</li>
+            <li>Dog Sports</li>
+            <li>Events</li>
+            <li>Contact</li>
+        </ul>
 
-            </div>
-
-
-            <div class="col-span-2">
-
-                <h4 class="footer">
-                    Contact
-                </h4>
-
-                <ul class="footer-nav">
-
-                    <li>
-                        <x-icons.map-pin />
-                        Inola, Oklahoma
-                    </li>
-
-                    <li>
-                        <x-icons.mail />
-
-                        <a href="mailto:southernplainssportdogclub@gmail.com">
-                            southernplainssportdogclub@gmail.com
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
-        </div>
+    </div>
 
 
-        {{-- Legal Row --}}
-        <div class="grid grid-cols-12 px-8 py-8 bg-sp-prairieGreen">
+    {{-- Resources --}}
+    <div class="col-span-6 md:col-span-2">
 
-            <div class="col-span-8 text-sp-warmIvory text-sm">
-                Copyright © 2025 - 2026 Southern Plains Sport Dog Club, LLC. All rights reserved.
-            </div>
+        <h4 class="footer">
+            Resources
+        </h4>
 
-            <div class="col-span-4 text-sp-warmIvory text-sm">
-                <a href="{{ route('login') }}">Login</a>
-                /
-                Privacy Policy
-                /
-                Terms of Use
-            </div>
+        <ul class="footer-nav">
+            <li>Getting Started</li>
+            <li>Learn</li>
+            <li>NASDA</li>
+            <li>League Info</li>
+            <li>Trick Dog</li>
+        </ul>
 
-        </div>
+    </div>
+
+
+    {{-- Contact --}}
+    <div class="col-span-12 md:col-span-2">
+
+        <h4 class="footer">
+            Contact
+        </h4>
+
+        <ul class="footer-nav">
+
+            <li>
+                <x-icons.map-pin />
+                Inola, Oklahoma
+            </li>
+
+            <li>
+                <x-icons.mail />
+
+                <a
+                    href="mailto:southernplainssportdogclub@gmail.com"
+                    class="break-all">
+                    southernplainssportdogclub@gmail.com
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</div>
+
+
+{{-- Legal Row --}}
+<div class="grid grid-cols-12 gap-y-4 px-8 py-8 bg-sp-prairieGreen">
+
+    <div class="col-span-12 md:col-span-8 text-sp-warmIvory text-sm">
+        Copyright © 2025 - 2026 Southern Plains Sport Dog Club, LLC. All rights reserved.
+    </div>
+
+    <div class="col-span-12 md:col-span-4 text-sp-warmIvory text-sm md:text-right">
+        <a href="{{ route('login') }}">Login</a>
+        /
+        Privacy Policy
+        /
+        Terms of Use
+    </div>
+
+</div>
 
     </footer>
 
