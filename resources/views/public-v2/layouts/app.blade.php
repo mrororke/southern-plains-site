@@ -560,7 +560,7 @@
 <div class="grid grid-cols-12 gap-y-8 px-8 py-8 footer-topo">
 
     {{-- Logo --}}
-    <div class="col-span-4 md:col-span-1">
+    <div class="col-span-12 md:col-span-1">
 
         <x-logo class="w-32 h-auto" />
 
@@ -568,9 +568,9 @@
 
 
     {{-- Mission --}}
-    <div class="col-span-8 md:col-span-2">
+    <div class="col-span-12 md:col-span-2">
 
-        <p class="text-sp-slate pl-4 md:px-4">
+        <p class="text-sp-slate md:px-4">
             Building better dog and handler teams through positive training, dog sports, and community.
         </p>
 
@@ -639,24 +639,6 @@
 
         </ul>
 
-    </div>
-
-</div>
-
-
-{{-- Legal Row --}}
-<div class="grid grid-cols-12 gap-y-4 px-8 py-8 bg-sp-prairieGreen">
-
-    <div class="col-span-12 md:col-span-8 text-sp-warmIvory text-sm">
-        Copyright © 2025 - 2026 Southern Plains Sport Dog Club, LLC. All rights reserved.
-    </div>
-
-    <div class="col-span-12 md:col-span-4 text-sp-warmIvory text-sm md:text-right">
-        <a href="{{ route('login') }}">Login</a>
-        /
-        Privacy Policy
-        /
-        Terms of Use
     </div>
 
 </div>
