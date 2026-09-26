@@ -129,11 +129,11 @@
 
 
         {{-- Location --}}
-        <div class="flex shrink-0 items-center gap-3 pl-6 text-sp-slate">
+        <div class="ml-auto flex shrink-0 items-center justify-end gap-3 pl-6 text-sp-slate">
 
             <x-icons.milestone class="w-5 h-5 shrink-0" />
 
-            <span class="text-sm">
+            <span class="text-sm whitespace-nowrap">
                 Claremore, OK
             </span>
 
