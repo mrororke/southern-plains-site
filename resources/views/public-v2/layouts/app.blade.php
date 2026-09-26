@@ -640,6 +640,21 @@
         </ul>
 
     </div>
+    {{-- Legal Row --}}
+<div class="grid grid-cols-12 gap-y-4 px-8 py-8 bg-sp-prairieGreen">
+
+    <div class="col-span-12 md:col-span-8 text-sp-warmIvory text-sm">
+        Copyright © 2025 - 2026 Southern Plains Sport Dog Club, LLC. All rights reserved.
+    </div>
+
+    <div class="col-span-12 md:col-span-4 text-sp-warmIvory text-sm md:text-right">
+        <a href="{{ route('login') }}">Login</a>
+        /
+        Privacy Policy
+        /
+        Terms of Use
+    </div>
+
 
 </div>
 
