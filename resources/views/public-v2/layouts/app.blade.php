@@ -36,7 +36,7 @@
 
     <header class="header-topo">
 
-        @include('public-v2.components.navigation')
+       <x-public-v2.navigation />
 
 
         

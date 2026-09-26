@@ -55,10 +55,9 @@
             src="{{ asset('images/headers/header-home.png') }}"
             alt="Black and white Sheltie standing among wildflowers on the Oklahoma prairie.">
 
-        @include('public-v2.components.image-registration', [
-        'text' => 'Hamish, Photo by Blue Ridge Creative',
-        'position' => 'right',
-        ])
+        <x-public-v2.image-registration
+            text="Hamish, Photo by Blue Ridge Creative"
+            position="right" />
     </div>
 
 </div>
@@ -161,10 +160,10 @@
             </a>
         </div>
 
-        @include('public-v2.components.image-registration', [
-        'text' => 'Hazel, Photo by Blue Ridge Creative',
-        'position' => 'bottom',
-        ])
+        <x-public-v2.image-registration
+    text="Hazel, Photo by Blue Ridge Creative"
+    position="bottom"
+/>
     </div>
     <div class="col-span-12 md:col-span-6">
 
