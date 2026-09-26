@@ -98,10 +98,10 @@
 
 
     {{-- Event Row --}}
-    <div class="grid grid-cols-12 items-center border-b border-sp-limestone py-6">
+    <div class="flex items-center border-b border-sp-limestone py-6">
 
         {{-- Date --}}
-        <div class="col-span-2">
+        <div class="w-28 shrink-0">
 
             <div class="font-sans text-xl font-semibold uppercase text-sp-charcoal">
                 May
@@ -115,7 +115,7 @@
 
 
         {{-- Event Details --}}
-        <div class="col-span-7">
+        <div class="Flex-1 min-w-0">
 
             <h3 class="font-sans text-2xl font-semibold uppercase text-sp-charcoal">
                 NASDA Trial
@@ -129,7 +129,7 @@
 
 
         {{-- Location --}}
-        <div class="col-span-3 flex items-center gap-3 text-sp-slate">
+        <div class="flex shrink-0 items-center gap-3 pl-6 text-sp-slate">
 
             <x-icons.milestone class="w-5 h-5 shrink-0" />
 
