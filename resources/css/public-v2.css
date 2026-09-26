@@ -1,49 +1,14 @@
+/* Tailwind layers */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Component-layer styles */
+
 @layer components {
-    @media (max-width: 767px) {
-    .newsletter-form,
-    .newsletter-form #sib-form-container,
-    .newsletter-form #sib-container {
-        @apply w-full;
-    }
 
-    .newsletter-form #sib-container {
-        padding: 0 !important;
-    }
-
-    .newsletter-form-inner {
-        @apply flex flex-col gap-4;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-
-    .newsletter-field,
-    .newsletter-submit {
-        @apply w-full;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-
-    .newsletter-form .sib-form-block,
-    .newsletter-form .form__entry,
-    .newsletter-form .form__label-row,
-    .newsletter-form .entry__field {
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-
-    .newsletter-form .sib-form-block__button {
-        @apply w-full;
-        margin: 0 !important;
-    }
-
-    .newsletter-field-error {
-        margin-top: 0.5rem !important;
-    }
-}
+    /* Layout and topographic backgrounds */
 
     .site-container {
         @apply mx-auto w-full px-8;
@@ -63,59 +28,7 @@
         background-size: auto;
     }
 
-    /* IMAGE STYLES */
-    .image-registration {
-    @apply absolute flex items-center text-white
-           transition-colors duration-200;
-}
-
-.image-registration:hover {
-    @apply bg-sp-prairieGreen rounded-md;
-    padding: 4px !important;
-}
-
-.image-registration-mark {
-    @apply w-8 h-8 shrink-0;
-}
-
-.image-registration-line {
-    @apply block bg-white;
-}
-
-
-/* Right-side vertical registration */
-
-.image-registration-right {
-    @apply top-8 right-8 flex-col;
-}
-
-.image-registration-right .image-registration-line {
-    @apply h-8 w-px;
-    margin: 5px 0;
-}
-
-.image-registration-text-right {
-    @apply text-xs uppercase tracking-wider whitespace-nowrap;
-    writing-mode: vertical-rl;
-}
-
-
-/* Bottom-left horizontal registration */
-
-.image-registration-bottom {
-    @apply bottom-6 left-6 flex-row;
-}
-
-.image-registration-bottom .image-registration-line {
-    @apply h-px w-8;
-    margin: 0 10px;
-}
-
-.image-registration-text-bottom {
-    @apply text-xs uppercase tracking-wider whitespace-nowrap;
-}
-
-    /* NAV Styles */
+    /* Desktop navigation */
 
     .nav-link {
         @apply text-sp-charcoal font-normal transition-colors duration-200;
@@ -149,12 +62,14 @@
         @apply text-sp-prairieOchre;
     }
 
+    /* Desktop site search */
+
     .site-search-dropdown {
         @apply absolute right-0 top-full z-50 mt-4 w-[400px]
-           rounded-md border border-sp-warmStone
-           bg-sp-warmIvory p-5 shadow-sm
-           opacity-0 invisible -translate-y-1
-           transition-all duration-200;
+            rounded-md border border-sp-warmStone
+            bg-sp-warmIvory p-5 shadow-sm
+            opacity-0 invisible -translate-y-1
+            transition-all duration-200;
     }
 
     .site-search-dropdown.is-open {
@@ -163,16 +78,16 @@
 
     .site-search-input {
         @apply w-full border-0 border-b border-sp-warmStone
-           bg-transparent py-3 pr-10
-           text-base text-sp-charcoal
-           placeholder:text-sp-slate
-           focus:border-sp-prairieOchre focus:ring-0;
+            bg-transparent py-3 pr-10
+            text-base text-sp-charcoal
+            placeholder:text-sp-slate
+            focus:border-sp-prairieOchre focus:ring-0;
     }
 
     .site-search-submit {
         @apply absolute right-0 top-1/2 -translate-y-1/2
-           text-sp-charcoal
-           transition-colors duration-200;
+            text-sp-charcoal
+            transition-colors duration-200;
     }
 
     .site-search-submit:hover {
@@ -182,6 +97,8 @@
     .site-search-helper {
         @apply mt-3 text-xs text-sp-slate;
     }
+
+    /* Mobile navigation */
 
     .mobile-menu-toggle {
         @apply flex items-center justify-center text-sp-charcoal transition-colors duration-200;
@@ -193,13 +110,13 @@
 
     .mobile-menu {
         @apply max-h-0 overflow-hidden
-           opacity-0 invisible -translate-y-1
-           transition-all duration-200;
+            opacity-0 invisible -translate-y-1
+            transition-all duration-200;
     }
 
     .mobile-menu.is-open {
         @apply mt-6 max-h-[700px] border-t border-sp-warmStone pt-6
-           opacity-100 visible translate-y-0;
+            opacity-100 visible translate-y-0;
     }
 
     .mobile-menu-links {
@@ -218,33 +135,37 @@
         @apply text-sp-prairieOchre;
     }
 
+    /* Mobile site search */
+
     .mobile-search-form {
         @apply mt-6 border-t border-sp-warmStone pt-6;
     }
 
     .mobile-search-input {
         @apply w-full border-0 border-b border-sp-warmStone
-           bg-transparent py-3 pr-10
-           text-base text-sp-charcoal
-           placeholder:text-sp-slate
-           focus:border-sp-prairieOchre focus:ring-0;
+            bg-transparent py-3 pr-10
+            text-base text-sp-charcoal
+            placeholder:text-sp-slate
+            focus:border-sp-prairieOchre focus:ring-0;
     }
 
     .mobile-search-submit {
         @apply absolute right-0 top-1/2 -translate-y-1/2
-           text-sp-charcoal transition-colors duration-200;
+            text-sp-charcoal transition-colors duration-200;
     }
 
     .mobile-search-submit:hover {
         @apply text-sp-prairieOchre;
     }
 
+    /* Mobile contact button */
+
     .mobile-contact {
         @apply mt-6 inline-flex w-full items-center justify-center
-           rounded-md bg-sp-prairieGreen
-           px-4 py-3
-           text-sm font-normal text-sp-warmIvory
-           transition-colors duration-200;
+            rounded-md bg-sp-prairieGreen
+            px-4 py-3
+            text-sm font-normal text-sp-warmIvory
+            transition-colors duration-200;
     }
 
     .mobile-contact:hover {
@@ -254,9 +175,101 @@
     .mobile-contact-active {
         @apply bg-sp-prairieOchre;
     }
+
+    /* Image registration: shared styles */
+
+    .image-registration {
+        @apply absolute flex items-center text-white
+            transition-colors duration-200;
+    }
+
+    .image-registration:hover {
+        @apply bg-sp-prairieGreen rounded-md;
+        padding: 4px !important;
+    }
+
+    .image-registration-mark {
+        @apply w-8 h-8 shrink-0;
+    }
+
+    .image-registration-line {
+        @apply block bg-white;
+    }
+
+    /* Image registration: right-side vertical variant */
+
+    .image-registration-right {
+        @apply top-8 right-8 flex-col;
+    }
+
+    .image-registration-right .image-registration-line {
+        @apply h-8 w-px;
+        margin: 5px 0;
+    }
+
+    .image-registration-text-right {
+        @apply text-xs uppercase tracking-wider whitespace-nowrap;
+        writing-mode: vertical-rl;
+    }
+
+    /* Image registration: bottom-left horizontal variant */
+
+    .image-registration-bottom {
+        @apply bottom-6 left-6 flex-row;
+    }
+
+    .image-registration-bottom .image-registration-line {
+        @apply h-px w-8;
+        margin: 0 10px;
+    }
+
+    .image-registration-text-bottom {
+        @apply text-xs uppercase tracking-wider whitespace-nowrap;
+    }
+
+    /* Newsletter: component-layer mobile rules (up to 767px) */
+
+    @media (max-width: 767px) {
+        .newsletter-form,
+        .newsletter-form #sib-form-container,
+        .newsletter-form #sib-container {
+            @apply w-full;
+        }
+        .newsletter-form #sib-container {
+            padding: 0 !important;
+        }
+        .newsletter-form-inner {
+            @apply flex flex-col gap-4;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .newsletter-field,
+        .newsletter-submit {
+            @apply w-full;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .newsletter-form .sib-form-block,
+        .newsletter-form .form__entry,
+        .newsletter-form .form__label-row,
+        .newsletter-form .entry__field {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .newsletter-form .sib-form-block__button {
+            @apply w-full;
+            margin: 0 !important;
+        }
+        .newsletter-field-error {
+            margin-top: 0.5rem !important;
+        }
+    }
+
 }
 
-/* Hero Text Styles */
+/* Styles outside the component layer */
+
+/* Typography: hero and eyebrow headings */
 
 h1.text-hero {
     @apply text-sp-charcoal font-sans;
@@ -272,15 +285,6 @@ h1.text-hero {
     font-style: normal;
     font-weight: 400;
     line-height: 72px; /* 90% */
-}
-
-h2.newsletter-signup {
-    @apply text-sp-warmIvory;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 26px; /* 120% */
-    text-transform: capitalize;
 }
 
 h3.text-eyebrow {
@@ -301,11 +305,7 @@ h3.text-eyebrow-light {
     text-transform: uppercase;
 }
 
-h4.footer {
-    @apply text-sp-charcoal;
-    font-size: 20px;
-    line-height: 32px;
-}
+/* Typography: body text */
 
 p.body-large {
     @apply text-sp-slate font-sans;
@@ -323,9 +323,11 @@ p.body {
     line-height: 24px; /* 133.333% */
 }
 
+/* Text links and horizontal dividers */
+
 .learn-more-link {
     @apply inline-flex items-center gap-2 uppercase
-           transition-all duration-300;
+        transition-all duration-300;
 }
 
 .learn-more-link:hover {
@@ -340,38 +342,19 @@ p.body {
     @apply w-full border-0 border-t border-sp-limestone;
 }
 
-ul.footer-nav li {
-    @apply text-sp-slate flex items-center gap-2;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 22px;
-}
-
-.footer-nav svg {
-    @apply w-5 h-5 shrink-0;
-}
-
-ul.footer-nav li:hover {
-    @apply text-sp-prairieOchre;
-    text-decoration: underline;
-}
-
-/*
-    BUTTONS
-*/
+/* Buttons: shared styles */
 
 .btn-primary,
 .btn-secondary,
 .btn-primary-outline,
 .btn-secondary-outline {
     @apply inline-flex items-center justify-center gap-[10px]
-           rounded-lg px-6 py-4
-           text-sm font-normal uppercase
-           transition-colors duration-200;
+        rounded-lg px-6 py-4
+        text-sm font-normal uppercase
+        transition-colors duration-200;
 }
 
-/* Primary */
+/* Buttons: primary */
 
 .btn-primary {
     @apply bg-sp-prairieGreen text-sp-warmIvory;
@@ -381,7 +364,7 @@ ul.footer-nav li:hover {
     @apply bg-sp-prairieOchre;
 }
 
-/* Secondary */
+/* Buttons: secondary */
 
 .btn-secondary {
     @apply bg-sp-prairieOchre text-sp-warmIvory;
@@ -391,29 +374,55 @@ ul.footer-nav li:hover {
     @apply bg-sp-goldenrod;
 }
 
-/* Primary Outline */
+/* Buttons: primary outline */
 
 .btn-primary-outline {
     @apply border border-sp-prairieGreen
-           bg-transparent text-sp-prairieGreen;
+        bg-transparent text-sp-prairieGreen;
 }
 
 .btn-primary-outline:hover {
     @apply border-sp-prairieOchre text-sp-prairieOchre;
 }
 
-/* Secondary Outline */
+/* Buttons: secondary outline */
 
 .btn-secondary-outline {
     @apply border border-sp-prairieOchre
-           bg-transparent text-sp-prairieOchre;
+        bg-transparent text-sp-prairieOchre;
 }
 
 .btn-secondary-outline:hover {
     @apply border-sp-goldenrod text-sp-goldenrod;
 }
 
-/* NEWSLETTER SIGN UP STYLES */
+/* NASDA feature: background and content box */
+
+.hazel-bg {
+    background-image: url("/images/hazel.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.nasda-feature-box {
+    @apply ml-auto my-16 w-2/3 rounded-lg
+        bg-sp-warmIvory/90
+        p-6;
+}
+
+/* Newsletter: heading */
+
+h2.newsletter-signup {
+    @apply text-sp-warmIvory;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26px; /* 120% */
+    text-transform: capitalize;
+}
+
+/* Newsletter: form backgrounds, labels, layout, and fields */
 
 .newsletter-form,
 .newsletter-form #sib-form-container,
@@ -457,11 +466,10 @@ ul.footer-nav li:hover {
 
 .newsletter-input {
     @apply w-full rounded-md border-0
-           px-4 py-4
-           text-base text-sp-charcoal
-           placeholder:text-sp-slate
-           focus:ring-0;
-
+        px-4 py-4
+        text-base text-sp-charcoal
+        placeholder:text-sp-slate
+        focus:ring-0;
     background-color: #f7f5f0 !important;
 }
 
@@ -474,7 +482,7 @@ ul.footer-nav li:hover {
     @apply mt-2 block text-sm text-sp-clayRed;
 }
 
-/* Brevo success + error messages */
+/* Newsletter: Brevo message layout and icons */
 
 .newsletter-message {
     @apply mb-4 rounded-md px-4 py-3 text-sm;
@@ -490,19 +498,17 @@ ul.footer-nav li:hover {
     flex: 0 0 20px;
 }
 
-/* Error */
+/* Newsletter: Brevo error message */
 
 .newsletter-message-error {
     @apply text-sp-clayRed;
-
     background-color: #f7f5f0 !important;
 }
 
-/* Success */
+/* Newsletter: Brevo success message */
 
 .newsletter-message-success {
     @apply text-sp-limestone;
-
     background: transparent !important;
 }
 
@@ -510,7 +516,7 @@ ul.footer-nav li:hover {
     @apply text-sp-limestone;
 }
 
-/* Brevo submit button + loader */
+/* Newsletter: submit button and loading indicator */
 
 .newsletter-form .sib-form-block__button {
     @apply inline-flex shrink-0 items-center justify-center gap-2;
@@ -526,55 +532,66 @@ ul.footer-nav li:hover {
     @apply shrink-0;
 }
 
-/* Mobile */
+/* Newsletter: mobile layout (up to 767px) */
 
 @media (max-width: 767px) {
     .newsletter-form-inner {
         @apply flex-col;
     }
-
     .newsletter-field {
         @apply w-full;
     }
-
     .newsletter-form .sib-form-block__button {
         @apply w-full;
     }
 }
 
-.hazel-bg {
-    background-image: url("/images/hazel.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+/* Footer: heading and navigation */
+
+h4.footer {
+    @apply text-sp-charcoal;
+    font-size: 20px;
+    line-height: 32px;
 }
 
-.nasda-feature-box {
-    @apply ml-auto my-16 w-2/3 rounded-lg
-           bg-sp-warmIvory/90
-           p-6;
+ul.footer-nav li {
+    @apply text-sp-slate flex items-center gap-2;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
 }
+
+.footer-nav svg {
+    @apply w-5 h-5 shrink-0;
+}
+
+ul.footer-nav li:hover {
+    @apply text-sp-prairieOchre;
+    text-decoration: underline;
+}
+
+/* Responsive: Hazel background and bottom image registration (up to 767px) */
 
 @media (max-width: 767px) {
     .hazel-bg {
         background-position: 30% center;
     }
-
     .image-registration-text-bottom {
         @apply whitespace-normal;
     }
 }
 
+/* Responsive: right-side image registration (up to 767px) */
+
 @media (max-width: 767px) {
     .image-registration-right {
         @apply bottom-6 left-6 top-auto right-auto flex-row;
     }
-
     .image-registration-right .image-registration-line {
         @apply h-px w-8;
         margin: 0 10px;
     }
-
     .image-registration-text-right {
         @apply text-xs uppercase tracking-wider whitespace-nowrap;
         writing-mode: horizontal-tb;
