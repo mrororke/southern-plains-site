@@ -4,7 +4,7 @@
 
 @layer components {
     @media (max-width: 767px) {
-    .newsletter-form-inner {
+        .newsletter-form-inner {
         @apply flex-col gap-4;
     }
 
@@ -20,7 +20,7 @@
     .newsletter-form .sib-form-block__button {
         @apply w-full;
     }
-}
+    }
 
     .site-container {
         @apply mx-auto w-full px-8;
