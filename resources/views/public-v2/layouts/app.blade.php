@@ -359,9 +359,10 @@
     <footer>
 
         {{-- Newsletter Row --}}
-        <div class="grid grid-cols-12 pl-8 items-center bg-sp-prairieGreen">
+        <div class="grid grid-cols-12 items-center bg-sp-prairieGreen">
 
-            <div class="col-span-3">
+            {{-- Newsletter Copy --}}
+            <div class="col-span-12 px-8 pt-8 md:col-span-3 md:py-0 md:pl-8 md:pr-0">
 
                 <h3 class="text-eyebrow-light">
                     Newsletter
@@ -372,14 +373,15 @@
                 </h2>
 
                 <p class="text-sp-limestone text-sm">
-                    Get positive training tips, event updates, and<br>
+                    Get positive training tips, event updates, and
                     early access to registration.
                 </p>
 
             </div>
 
 
-            <div class="col-span-5">
+            {{-- Newsletter Form --}}
+            <div class="col-span-12 px-8 py-6 md:col-span-5 md:py-0">
 
                 <div class="newsletter-form">
 
@@ -540,10 +542,11 @@
             </div>
 
 
-            <div class="col-span-4">
+            {{-- Newsletter Image --}}
+            <div class="col-span-12 md:col-span-4">
 
                 <img
-                    class="w-full h-full"
+                    class="w-full h-48 object-cover md:h-full"
                     src="{{ asset('images/headers/newsletter.png') }}"
                     alt="A sheltie and an english bulldog running through Oklahoma wildflowers together.">
 
