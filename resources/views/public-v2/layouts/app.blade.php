@@ -550,15 +550,6 @@
                     src="{{ asset('images/headers/newsletter.png') }}"
                     alt="A sheltie and an english bulldog running through Oklahoma wildflowers together.">
 
-                <div class="image-registration image-registration-bottom">
-                    <x-icons.locate-fixed class="image-registration-mark" />
-
-                    <span class="image-registration-line"></span>
-
-                    <span class="image-registration-text-bottom">
-                        Photo by Blue Ridge Creative
-                    </span>
-                </div>
 
             </div>
 
