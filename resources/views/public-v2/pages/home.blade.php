@@ -3,41 +3,74 @@
 @section('content')
 
 
-    <div class="grid grid-cols-12 py-[64px] px-8">
-        <div class="col-span-12 md:col-span-4 gap-4 flex">
-            <div>
-                <x-icons.dog class="text-sp-prairieGreen w-24 h-24"/>
-            </div>
-            <div>
-                <h4 class="font-display font-bold text-2xl text-sp-prairieGreen">Let Dogs Be Dogs.</h4>
-                <h3 class="font-sans text-4xl text-sp-charcoal uppercase">Play</h3>
-                <p class="body">Create experiences that tap into natural instincts, spark joy, and build confidence.</p>
-                <a href="#" class="learn-more-link text-sp-prairieGreen">Learn More <x-icons.move-right /></a>
-            </div>
+    <div class="grid grid-cols-12 gap-y-10 md:gap-y-0 py-[64px] px-8">
+
+    <div class="col-span-12 md:col-span-4 gap-4 flex">
+        <div>
+            <x-icons.dog class="text-sp-prairieGreen w-24 h-24"/>
         </div>
-        <div class="col-span-12 md:col-span-4 gap-4 flex">
-            <div>
-                <x-icons.award class="text-sp-prairieOchre w-24 h-24"/>
-            </div>
-            <div>
-                <h4 class="font-display font-bold text-2xl text-sp-prairieOchre">Build Better Partnerships.</h4>
-                <h3 class="font-sans text-4xl text-sp-charcoal uppercase">Train</h3>
-                <p class="body">Positive methods that strengthen communication, skills, and trust.</p>
-                <a href="#" class="learn-more-link text-sp-prairieOchre">Learn More <x-icons.move-right /></a>
-            </div>
-        </div>
-        <div class="col-span-12 md:col-span-4 gap-4 flex">
-            <div>
-                <x-icons.sprout class="text-sp-burntClay w-24 h-24"/>
-            </div>
-            <div>
-                <h4 class="font-display font-bold text-2xl text-sp-burntClay">Celebrate Every Victory.</h4>
-                <h3 class="font-sans text-4xl text-sp-charcoal uppercase">Grow</h3>
-                <p class="body">From first steps to new titles, we’re here to support your journey together.</p>
-                <a href="#" class="learn-more-link text-sp-burntClay">Learn More <x-icons.move-right /></a>
-            </div>
+        <div>
+            <h4 class="font-display font-bold text-2xl text-sp-prairieGreen">
+                Let Dogs Be Dogs.
+            </h4>
+            <h3 class="font-sans text-4xl text-sp-charcoal uppercase">
+                Play
+            </h3>
+            <p class="body">
+                Create experiences that tap into natural instincts, spark joy, and build confidence.
+            </p>
+            <a href="#" class="learn-more-link text-sp-prairieGreen">
+                Learn More
+                <x-icons.move-right />
+            </a>
         </div>
     </div>
+
+    <div class="col-span-12 md:col-span-4 gap-4 flex">
+        <div>
+            <x-icons.award class="text-sp-prairieOchre w-24 h-24"/>
+        </div>
+        <div>
+            <h4 class="font-display font-bold text-2xl text-sp-prairieOchre">
+                Build Better Partnerships.
+            </h4>
+            <h3 class="font-sans text-4xl text-sp-charcoal uppercase">
+                Train
+            </h3>
+            <p class="body">
+                Positive methods that strengthen communication, skills, and trust.
+            </p>
+            <a href="#" class="learn-more-link text-sp-prairieOchre">
+                Learn More
+                <x-icons.move-right />
+            </a>
+        </div>
+    </div>
+
+    <div class="col-span-12 md:col-span-4 gap-4 flex">
+        <div>
+            <x-icons.sprout class="text-sp-burntClay w-24 h-24"/>
+        </div>
+        <div>
+            <h4 class="font-display font-bold text-2xl text-sp-burntClay">
+                Celebrate Every Victory.
+            </h4>
+            <h3 class="font-sans text-4xl text-sp-charcoal uppercase">
+                Grow
+            </h3>
+            <p class="body">
+                From first steps to new titles, we’re here to support your journey together.
+            </p>
+            <a href="#" class="learn-more-link text-sp-burntClay">
+                Learn More
+                <x-icons.move-right />
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<!-- End of 3-Up -->
 
     <!-- End of 3-Up -->
 
