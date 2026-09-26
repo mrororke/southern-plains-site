@@ -131,7 +131,7 @@
         {{-- Location --}}
         <div class="col-span-3 flex items-center gap-3 text-sp-slate">
 
-            <x-icons.signpost class="w-5 h-5 shrink-0" />
+            <x-icons.milestone class="w-5 h-5 shrink-0" />
 
             <span class="text-sm">
                 Claremore, OK
