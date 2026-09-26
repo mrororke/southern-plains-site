@@ -79,9 +79,69 @@
 
 </div>
         <div class="col-span-12 md:col-span-6">
-            Column
-        </div>
+
+    {{-- Section Header --}}
+    <div class="flex items-center justify-between mb-6">
+
+        <h2 class="font-sans text-3xl font-semibold text-sp-charcoal uppercase">
+            Upcoming Events
+        </h2>
+
+        <a
+            href="{{ route('public-v2.events.index') }}"
+            class="learn-more-link">
+            View Full Calendar
+            <x-icons.move-right />
+        </a>
+
     </div>
+
+
+    {{-- Event Row --}}
+    <div class="grid grid-cols-12 items-center border-b border-sp-limestone py-6">
+
+        {{-- Date --}}
+        <div class="col-span-2">
+
+            <div class="font-sans text-xl font-semibold uppercase text-sp-charcoal">
+                May
+            </div>
+
+            <div class="font-sans text-6xl text-sp-prairieOchre">
+                18
+            </div>
+
+        </div>
+
+
+        {{-- Event Details --}}
+        <div class="col-span-7">
+
+            <h3 class="font-sans text-2xl font-semibold uppercase text-sp-charcoal">
+                NASDA Trial
+            </h3>
+
+            <p class="mt-1 text-lg text-sp-slate">
+                Judged by Melanie O’Rorke
+            </p>
+
+        </div>
+
+
+        {{-- Location --}}
+        <div class="col-span-3 flex items-center gap-3 text-sp-slate">
+
+            <x-icons.signpost class="w-5 h-5 shrink-0" />
+
+            <span class="text-sm">
+                Claremore, OK
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
 
     <!-- End Events section -->
 
