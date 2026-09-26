@@ -4,23 +4,46 @@
 
 @layer components {
     @media (max-width: 767px) {
-        .newsletter-form-inner {
-        @apply flex-col gap-4;
+    .newsletter-form,
+    .newsletter-form #sib-form-container,
+    .newsletter-form #sib-container {
+        @apply w-full;
+    }
+
+    .newsletter-form #sib-container {
+        padding: 0 !important;
+    }
+
+    .newsletter-form-inner {
+        @apply flex flex-col gap-4;
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
     .newsletter-field,
     .newsletter-submit {
         @apply w-full;
+        padding: 0 !important;
+        margin: 0 !important;
     }
 
-    .newsletter-form .sib-form-block {
+    .newsletter-form .sib-form-block,
+    .newsletter-form .form__entry,
+    .newsletter-form .form__label-row,
+    .newsletter-form .entry__field {
         padding: 0 !important;
+        margin: 0 !important;
     }
 
     .newsletter-form .sib-form-block__button {
         @apply w-full;
+        margin: 0 !important;
     }
+
+    .newsletter-field-error {
+        margin-top: 0.5rem !important;
     }
+}
 
     .site-container {
         @apply mx-auto w-full px-8;
