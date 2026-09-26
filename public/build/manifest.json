@@ -1,0 +1,134 @@
+{
+  "_email-CRqfLoIW.js": {
+    "file": "assets/email-CRqfLoIW.js",
+    "name": "email"
+  },
+  "_form-lIk_KKrd.js": {
+    "file": "assets/form-lIk_KKrd.js",
+    "name": "form"
+  },
+  "_module.esm-DdaDH_LP.js": {
+    "file": "assets/module.esm-DdaDH_LP.js",
+    "name": "module.esm"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-Bg_anmn_.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/css/dashboard-v2.css": {
+    "file": "assets/dashboard-v2-D6phftK3.css",
+    "src": "resources/css/dashboard-v2.css",
+    "isEntry": true
+  },
+  "resources/css/public-v2.css": {
+    "file": "assets/public-v2-DxYoLEiT.css",
+    "src": "resources/css/public-v2.css",
+    "isEntry": true
+  },
+  "resources/js/admin/behavior-catalog/create.js": {
+    "file": "assets/create-bvNDO9Bq.js",
+    "name": "create",
+    "src": "resources/js/admin/behavior-catalog/create.js",
+    "isEntry": true,
+    "imports": [
+      "_form-lIk_KKrd.js"
+    ]
+  },
+  "resources/js/admin/behavior-catalog/edit.js": {
+    "file": "assets/edit-COn8iUSQ.js",
+    "name": "edit",
+    "src": "resources/js/admin/behavior-catalog/edit.js",
+    "isEntry": true,
+    "imports": [
+      "_form-lIk_KKrd.js"
+    ]
+  },
+  "resources/js/admin/behavior-catalog/index.js": {
+    "file": "assets/index-CFiSk01p.js",
+    "name": "index",
+    "src": "resources/js/admin/behavior-catalog/index.js",
+    "isEntry": true,
+    "imports": [
+      "_module.esm-DdaDH_LP.js",
+      "_email-CRqfLoIW.js"
+    ]
+  },
+  "resources/js/admin/behavior-catalog/show.js": {
+    "file": "assets/show-HK-5sVkV.js",
+    "name": "show",
+    "src": "resources/js/admin/behavior-catalog/show.js",
+    "isEntry": true,
+    "imports": [
+      "_module.esm-DdaDH_LP.js",
+      "_email-CRqfLoIW.js"
+    ]
+  },
+  "resources/js/admin/resource-library/create.js": {
+    "file": "assets/create-l0sNRNKZ.js",
+    "name": "create",
+    "src": "resources/js/admin/resource-library/create.js",
+    "isEntry": true
+  },
+  "resources/js/admin/resource-library/edit.js": {
+    "file": "assets/edit-l0sNRNKZ.js",
+    "name": "edit",
+    "src": "resources/js/admin/resource-library/edit.js",
+    "isEntry": true
+  },
+  "resources/js/admin/resource-library/index.js": {
+    "file": "assets/index-D5GRrvPF.js",
+    "name": "index",
+    "src": "resources/js/admin/resource-library/index.js",
+    "isEntry": true
+  },
+  "resources/js/admin/resource-library/show.js": {
+    "file": "assets/show-Hv6AFvQG.js",
+    "name": "show",
+    "src": "resources/js/admin/resource-library/show.js",
+    "isEntry": true,
+    "imports": [
+      "_module.esm-DdaDH_LP.js"
+    ]
+  },
+  "resources/js/admin/trick-catalog/create.js": {
+    "file": "assets/create-D0d1jzAa.js",
+    "name": "create",
+    "src": "resources/js/admin/trick-catalog/create.js",
+    "isEntry": true
+  },
+  "resources/js/admin/trick-catalog/edit.js": {
+    "file": "assets/edit-DGVeOJFB.js",
+    "name": "edit",
+    "src": "resources/js/admin/trick-catalog/edit.js",
+    "isEntry": true
+  },
+  "resources/js/admin/trick-catalog/index.js": {
+    "file": "assets/index-DOr6KTcX.js",
+    "name": "index",
+    "src": "resources/js/admin/trick-catalog/index.js",
+    "isEntry": true,
+    "imports": [
+      "_module.esm-DdaDH_LP.js"
+    ]
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-BjSghGHE.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "imports": [
+      "resources/js/admin/resource-library/index.js",
+      "_module.esm-DdaDH_LP.js"
+    ],
+    "css": [
+      "assets/app-Bg_anmn_.css"
+    ]
+  },
+  "resources/js/public-v2.js": {
+    "file": "assets/public-v2-fkONb8_7.js",
+    "name": "public-v2",
+    "src": "resources/js/public-v2.js",
+    "isEntry": true
+  }
+}
