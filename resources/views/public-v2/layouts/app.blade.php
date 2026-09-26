@@ -291,7 +291,7 @@
                 </h3>
 
                 <h1 class="text-hero">
-                    More Ways to Do Great Things<br>
+                    More Ways to Do Great Things<br class="hidden md:block">
                     <span class="text-hero-emphasis">
                         With Your Dog.
                     </span>
@@ -307,7 +307,7 @@
                     and thrive — together.
                 </p>
 
-                <div class="flex gap-6 py-6">
+                <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 py-6">
 
                     <a
                         href="#possibilities"
