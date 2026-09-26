@@ -524,6 +524,12 @@ ul.footer-nav li:hover {
 }
 
 @media (max-width: 767px) {
+    .hazel-bg {
+        background-position: 30% center;
+    }
+}
+
+@media (max-width: 767px) {
     .image-registration-right {
         @apply bottom-6 left-6 top-auto right-auto flex-row;
     }

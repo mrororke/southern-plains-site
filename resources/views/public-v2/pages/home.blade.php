@@ -72,7 +72,6 @@
 
 <!-- End of 3-Up -->
 
-    <!-- End of 3-Up -->
 
     <div class="grid grid-cols-12 py-8 px-8 gap-8">
         <div class="col-span-12 md:col-span-6 hazel-bg relative rounded-md p-8">
