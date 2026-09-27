@@ -408,15 +408,15 @@
 {{-- End Current Opportunities --}}
 
 {{-- AKC Trick Dog --}}
-<section class="grid grid-cols-12 gap-8 px-8 py-16 bg-sp-warmIvory">
+<section class="grid grid-cols-12 gap-8 px-6 py-12 md:px-8 md:py-16 bg-sp-warmIvory">
 
     {{-- Image --}}
-    <div class="col-span-4">
+    <div class="col-span-12 md:col-span-4">
 
-        <div class="relative h-full">
+        <div class="relative">
 
             <img
-                class="w-full h-full object-cover rounded-md"
+                class="w-full h-64 md:h-full object-cover rounded-md"
                 src="{{ asset('images/training/training-trick-dog.png') }}"
                 alt="Melanie working with Hamish, a black and white Sheltie, during a training session.">
 
@@ -431,9 +431,9 @@
     </div>
 
     {{-- Main Content --}}
-    <div class="col-span-5 flex items-center">
+    <div class="col-span-12 md:col-span-5 flex items-center">
 
-        <div>
+        <div class="w-full">
 
             <p class="font-display font-bold text-2xl text-sp-burntClay">
                 AKC Trick Dog
@@ -450,7 +450,7 @@
 
             <a
                 href="#"
-                class="btn-primary mt-6">
+                class="btn-primary w-full md:w-auto mt-6">
                 Request an Evaluation
             </a>
 
@@ -459,7 +459,7 @@
     </div>
 
     {{-- Evaluation Details --}}
-    <div class="col-span-3 border-l border-sp-warmStone pl-8 flex items-center">
+    <div class="col-span-12 md:col-span-3 border-t md:border-t-0 md:border-l border-sp-warmStone pt-8 md:pt-0 md:pl-8 flex items-center">
 
         <ul class="flex flex-col gap-6">
 
