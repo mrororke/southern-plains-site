@@ -442,7 +442,7 @@
             </h2>
 
             <p class="body-large mt-4">
-                As an AKC CGC Evaluator, Melanie offers AKC Trick Dog evaluations online, or in person. Earn titles that celebrate what your dog already knows — and open the door to even more fun.
+                As an AKC CGC Evaluator, Melanie offers AKC Trick Dog evaluations online or in person. Earn titles that celebrate what your dog already knows — and open the door to even more fun.
             </p>
 
             <a
@@ -510,6 +510,98 @@
 
 </section>
 {{-- End AKC Trick Dog --}}
+
+{{-- Experience Behind the Clicker --}}
+<section class="grid grid-cols-12 gap-8 px-8 py-[88px] bg-sp-warmIvory">
+
+    {{-- Intro --}}
+    <div class="col-span-5">
+
+        <p class="font-display font-bold text-2xl text-sp-burntClay">
+            Train With Confidence
+        </p>
+
+        <h2 class="font-sans text-3xl font-semibold text-sp-charcoal mt-3">
+            Experience Behind the Clicker.
+        </h2>
+
+        <p class="body mt-4">
+            Melanie brings years of hands-on training, teaching, and competing to every team she works with — always using positive methods.
+        </p>
+
+    </div>
+
+    {{-- Credentials --}}
+    <div class="col-span-5 grid grid-cols-4">
+
+        {{-- AKC CGC Evaluator --}}
+        <div class="pr-6 border-r border-sp-warmStone">
+
+            <x-icons.clipboard-check
+                class="w-8 h-8 text-sp-charcoal mb-4" />
+
+            <p class="body">
+                AKC CGC<br>
+                Evaluator
+            </p>
+
+        </div>
+
+        {{-- AKC Fit Dog Instructor --}}
+        <div class="px-6 border-r border-sp-warmStone">
+
+            <x-icons.activity
+                class="w-8 h-8 text-sp-charcoal mb-4" />
+
+            <p class="body">
+                AKC Fit Dog<br>
+                Instructor
+            </p>
+
+        </div>
+
+        {{-- Click to Calm --}}
+        <div class="px-6 border-r border-sp-warmStone">
+
+            <x-icons.graduation-cap
+                class="w-8 h-8 text-sp-charcoal mb-4" />
+
+            <p class="body">
+                Click to Calm<br>
+                Instructor<br>
+                In Progress
+            </p>
+
+        </div>
+
+        {{-- NASDA Judge --}}
+        <div class="pl-6">
+
+            <x-icons.badge-check
+                class="w-8 h-8 text-sp-charcoal mb-4" />
+
+            <p class="body">
+                NASDA<br>
+                Judge
+            </p>
+
+        </div>
+
+    </div>
+
+    {{-- About CTA --}}
+    <div class="col-span-2 flex items-center">
+
+        <a
+            href="{{ route('public-v2.about') }}"
+            class="btn-primary-outline w-full">
+            Meet Melanie
+        </a>
+
+    </div>
+
+</section>
+{{-- End Experience Behind the Clicker --}}
 
 
 
