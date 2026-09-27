@@ -514,11 +514,12 @@
 </section>
 {{-- End AKC Trick Dog --}}
 
+
 {{-- Experience Behind the Clicker --}}
-<section class="grid grid-cols-12 gap-8 px-8 py-[88px] bg-sp-warmIvory">
+<section class="grid grid-cols-12 gap-8 px-6 py-12 md:px-8 md:py-[88px] bg-sp-warmIvory">
 
     {{-- Intro --}}
-    <div class="col-span-5">
+    <div class="col-span-12 md:col-span-5">
 
         <p class="font-display font-bold text-2xl text-sp-burntClay">
             Train With Confidence
@@ -535,10 +536,10 @@
     </div>
 
     {{-- Credentials --}}
-    <div class="col-span-5 grid grid-cols-4">
+    <div class="col-span-12 md:col-span-5 grid grid-cols-2 md:grid-cols-4">
 
         {{-- AKC CGC Evaluator --}}
-        <div class="pr-6 border-r border-sp-warmStone text-center">
+        <div class="p-6 border-r border-b md:border-b-0 border-sp-warmStone text-center md:pt-0 md:pb-0 md:pl-0 md:pr-6">
 
             <x-icons.clipboard-check
                 class="w-8 h-8 text-sp-charcoal mb-4 mx-auto" />
@@ -551,7 +552,7 @@
         </div>
 
         {{-- AKC Fit Dog Instructor --}}
-        <div class="px-6 border-r border-sp-warmStone text-center">
+        <div class="p-6 border-b md:border-b-0 md:border-r border-sp-warmStone text-center">
 
             <x-icons.activity
                 class="w-8 h-8 text-sp-charcoal mb-4 mx-auto" />
@@ -564,7 +565,7 @@
         </div>
 
         {{-- Click to Calm --}}
-        <div class="px-6 border-r border-sp-warmStone text-center">
+        <div class="p-6 border-r border-sp-warmStone text-center md:py-0">
 
             <x-icons.graduation-cap
                 class="w-8 h-8 text-sp-charcoal mb-4 mx-auto" />
@@ -578,7 +579,7 @@
         </div>
 
         {{-- NASDA Judge --}}
-        <div class="pl-6 text-center">
+        <div class="p-6 text-center md:pt-0 md:pb-0 md:pr-0">
 
             <x-icons.badge-check
                 class="w-8 h-8 text-sp-charcoal mb-4 mx-auto" />
@@ -593,7 +594,7 @@
     </div>
 
     {{-- About CTA --}}
-    <div class="col-span-2 flex items-center">
+    <div class="col-span-12 md:col-span-2 flex items-center">
 
         <a
             href="{{ route('public-v2.about') }}"
@@ -605,7 +606,6 @@
 
 </section>
 {{-- End Experience Behind the Clicker --}}
-
 
 
 
