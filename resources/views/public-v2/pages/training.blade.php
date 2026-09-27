@@ -183,6 +183,9 @@
         class="w-full h-64 object-cover rounded-md"
         src="{{ asset('images/training/training-skills.png') }}"
         alt="Black and white Sheltie looking up at his handler, who is showing empty hands.">
+        <x-public-v2.image-registration
+            text="Hamish, Photo by Blue Ridge Creative"
+            position="bottom" />
 
     <h3 class="font-sans font-semibold text-xl text-sp-charcoal mt-4">
         Build Everyday Skills
