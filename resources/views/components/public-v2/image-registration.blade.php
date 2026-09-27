@@ -2,6 +2,7 @@
     'text',
     'position' => 'right',
     'compact' => false,
+    'href' => null,
 ])
 
 @php
@@ -20,16 +21,40 @@
     $compactClass = $compact
         ? 'image-registration-compact'
         : '';
+
+    $registrationClass = "image-registration {$positionClass} {$compactClass}";
 @endphp
 
-<div class="image-registration {{ $positionClass }} {{ $compactClass }}">
+@if ($href)
 
-    <x-icons.locate-fixed class="image-registration-mark" />
+    <a
+        href="{{ $href }}"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="{{ $registrationClass }}">
 
-    <span class="image-registration-line"></span>
+        <x-icons.locate-fixed class="image-registration-mark" />
 
-    <span class="{{ $textClass }}">
-        {{ $text }}
-    </span>
+        <span class="image-registration-line"></span>
 
-</div>
+        <span class="{{ $textClass }}">
+            {{ $text }}
+        </span>
+
+    </a>
+
+@else
+
+    <div class="{{ $registrationClass }}">
+
+        <x-icons.locate-fixed class="image-registration-mark" />
+
+        <span class="image-registration-line"></span>
+
+        <span class="{{ $textClass }}">
+            {{ $text }}
+        </span>
+
+    </div>
+
+@endif
