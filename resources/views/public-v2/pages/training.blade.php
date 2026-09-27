@@ -155,34 +155,48 @@
 
 </section>
 
-{{-- Train Differently --}}
-<section class="grid grid-cols-12 px-8 py-16 bg-sp-limestone">
-    <p class="font-display font-bold text-2xl text-sp-burntClay">
-        What do you want to do with your dog?
-    </p>
+{{-- What Do You Want to Do --}}
+<section
+    id="possibilities"
+    class="grid grid-cols-12 px-8 py-16 bg-sp-limestone">
 
-    <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-        Find the Right Path for You
-    </h2>
+    {{-- Section Intro --}}
+    <div class="col-span-12 mb-12">
 
+        <p class="font-display font-bold text-2xl text-sp-burntClay">
+            What Do You Want to Do With Your Dog?
+        </p>
 
-    {{-- Column --}}
-    <div class="col-span-3">
-        Column One
-    </div>
-    {{-- Column --}}
-    <div class="col-span-3">
-        Column two
-    </div>
-    {{-- Column --}}
-    <div class="col-span-3">
-        Column three
-    </div>
-    {{-- Column --}}
-    <div class="col-span-3">
-        Column four
+        <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
+            Find the Right Path for You
+        </h2>
+
     </div>
 
+    {{-- Cards --}}
+    <div class="col-span-12 grid grid-cols-4 gap-6">
+
+        {{-- Card One --}}
+        <div>
+            Column One
+        </div>
+
+        {{-- Card Two --}}
+        <div>
+            Column Two
+        </div>
+
+        {{-- Card Three --}}
+        <div>
+            Column Three
+        </div>
+
+        {{-- Card Four --}}
+        <div>
+            Column Four
+        </div>
+
+    </div>
 
 </section>
 
