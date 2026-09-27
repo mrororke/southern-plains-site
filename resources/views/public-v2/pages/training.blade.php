@@ -115,11 +115,17 @@
         {{-- Benefit --}}
         <div class="flex gap-6">
 
-            {{-- Icon --}}
+            <x-icons.shield-check
+                class="w-10 h-10 shrink-0 text-sp-prairieOchre" />
 
             <div>
-                {{-- Benefit Heading --}}
-                {{-- Benefit Copy --}}
+                <h3 class="font-sans font-semibold text-sp-charcoal">
+                    Build Confidence
+                </h3>
+
+                <p class="body">
+                    Create dogs who are willing to try, to think, and to participate.
+                </p>
             </div>
 
         </div>
@@ -127,11 +133,17 @@
         {{-- Benefit --}}
         <div class="flex gap-6">
 
-            {{-- Icon --}}
+            <x-icons.heart
+                class="w-10 h-10 shrink-0 text-sp-prairieOchre" />
 
             <div>
-                {{-- Benefit Heading --}}
-                {{-- Benefit Copy --}}
+                <h3 class="font-sans font-semibold text-sp-charcoal">
+                    Have Some Fun
+                </h3>
+
+                <p class="body">
+                    Because teh whole point is getting to do more with your dog.
+                </p>
             </div>
 
         </div>
