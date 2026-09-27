@@ -15,7 +15,8 @@
 
         <x-public-v2.image-registration
             text="Hamish, Photo by Blue Ridge Creative"
-            position="left" />
+            position="left"
+            href="https://www.blueridgeprairie.studio/" />
     </div>
 
     <div class="col-span-12 md:col-span-6 md:pr-0 pl-8 pr-8">
@@ -176,109 +177,145 @@
     {{-- Cards --}}
     <div class="col-span-12 grid grid-cols-4 gap-6">
 
-       {{-- Card One --}}
-<div>
+        {{-- Card One --}}
+        <div>
 
-    {{-- Card Image --}}
-<div class="relative">
+            {{-- Card Image --}}
+            <div class="relative">
 
-    <img
-        class="w-full h-64 object-cover rounded-md"
-        src="{{ asset('images/training/training-skills.png') }}"
-        alt="Black and white Sheltie looking up at his handler, who is showing empty hands.">
+                <img
+                    class="w-full h-64 object-cover rounded-md"
+                    src="{{ asset('images/training/training-skills.png') }}"
+                    alt="Black and white Sheltie looking up at his handler, who is showing empty hands.">
 
-    <x-public-v2.image-registration
-    text="Hamish, Photo by Blue Ridge Creative"
-    position="bottom"
-    compact
-    href="https://www.blueridgeprairie.studio/" />
+                <x-public-v2.image-registration
+                    text="Hamish, Photo by Blue Ridge Creative"
+                    position="bottom"
+                    compact
+                    href="https://www.blueridgeprairie.studio/" />
 
-</div>
+            </div>
 
-    <h3 class="font-sans font-semibold text-xl text-sp-charcoal mt-4">
-        Build Everyday Skills
-    </h3>
+            <h3 class="font-sans font-semibold text-xl text-sp-charcoal mt-4">
+                Build Everyday Skills
+            </h3>
 
-    <p class="body mt-3">
-        Manners, communication, CGC preparation, and stronger foundations for real life.
-    </p>
+            <p class="body mt-3">
+                Manners, communication, CGC preparation, and stronger foundations for real life.
+            </p>
 
-    <a
-        href="#"
-        class="learn-more-link text-sp-prairieGreen mt-4">
-        Learn More
-        <x-icons.move-right />
-    </a>
 
-</div>
+            <a
+                href="#"
+                class="learn-more-link text-sp-prairieGreen mt-4">
+                Learn More
+                <x-icons.move-right />
+            </a>
+
+        </div>
 
         {{-- Card Two --}}
         <div>
-            <img
-        class="w-full h-64 object-cover rounded-md"
-        src="{{ asset('images/training/training-new.png') }}"
-        alt="Black and white Sheltie looking up at his handler while standing between her legs. Handler is smiling at dog..">
+            <div class="relative">
 
-    <h3 class="font-sans font-semibold text-xl text-sp-charcoal mt-4">
-        Learn Something New
-    </h3>
+                <img
+                    class="w-full h-64 object-cover rounded-md"
+                    src="{{ asset('images/training/training-new.png') }}"
+                    alt="Black and white Sheltie looking up at his handler while standing between her legs. Handler is smiling at dog.">
 
-    <p class="body mt-3">
-        Tricks, workshops, specialty classes, and opportunitites to explore new skills.
-    </p>
+                <x-public-v2.image-registration
+                    text="Hamish, Photo by Odd Paw Studio"
+                    position="bottom"
+                    compact
+                    href="https://www.oddpawstudio.com/" />
 
-    <a
-        href="#"
-        class="learn-more-link text-sp-prairieGreen mt-4">
-        Learn More
-        <x-icons.move-right />
-    </a>
+            </div>
+
+            <h3 class="font-sans font-semibold text-xl text-sp-charcoal mt-4">
+                Learn Something New
+            </h3>
+
+            <p class="body mt-3">
+                Tricks, workshops, specialty classes, and opportunitites to explore new skills.
+            </p>
+
+            <a
+                href="#"
+                class="learn-more-link text-sp-prairieGreen mt-4">
+                Learn More
+                <x-icons.move-right />
+            </a>
         </div>
 
         {{-- Card Three --}}
         <div>
-            <img
-        class="w-full h-64 object-cover rounded-md"
-        src="{{ asset('images/training/training-compete.png') }}"
-        alt="Black and white Sheltie looking..">
 
-    <h3 class="font-sans font-semibold text-xl text-sp-charcoal mt-4">
-        Get Ready to Compete
-    </h3>
+            {{-- Card Image --}}
+            <div class="relative">
 
-    <p class="body mt-3">
-        Develop the skills and teamwork you'll need for dog sports and trial environments.
-    </p>
+                <img
+                    class="w-full h-64 object-cover rounded-md"
+                    src="{{ asset('images/training/training-compete.png') }}"
+                    alt="Black and white Sheltie looking up.">
 
-    <a
-        href="#"
-        class="learn-more-link text-sp-prairieGreen mt-4">
-        Learn More
-        <x-icons.move-right />
-    </a>
+                <x-public-v2.image-registration
+                    text="Hamish, Photo by Blue Ridge Creative"
+                    position="bottom"
+                    compact
+                    href="https://www.blueridgeprairie.studio/" />
+
+            </div>
+
+            <h3 class="font-sans font-semibold text-xl text-sp-charcoal mt-4">
+                Get Ready to Compete
+            </h3>
+
+            <p class="body mt-3">
+                Develop the skills and teamwork you'll need for dog sports and trial environments.
+            </p>
+
+            <a
+                href="#"
+                class="learn-more-link text-sp-prairieGreen mt-4">
+                Learn More
+                <x-icons.move-right />
+            </a>
         </div>
 
         {{-- Card Four --}}
         <div>
-            <img
-        class="w-full h-64 object-cover rounded-md"
-        src="{{ asset('images/training/training-work.png') }}"
-        alt="Black and white Sheltie trotting to the camera.">
 
-    <h3 class="font-sans font-semibold text-xl text-sp-charcoal mt-4">
-        Work Through Something
-    </h3>
 
-    <p class="body mt-3">
-        Private instruction for teams that need more individualized support and guidance.
-    </p>
+            {{-- Card Image --}}
+            <div class="relative">
 
-    <a
-        href="#"
-        class="learn-more-link text-sp-prairieGreen mt-4">
-        Learn More
-        <x-icons.move-right />
-    </a>
+                <img
+                    class="w-full h-64 object-cover rounded-md"
+                    src="{{ asset('images/training/training-work.png') }}"
+                    alt="Black and white Sheltie trotting toward the camera.">
+
+                <x-public-v2.image-registration
+                    text="Hamish, Photo by Blue Ridge Creative"
+                    position="bottom"
+                    compact
+                    href="https://www.blueridgeprairie.studio/" />
+
+            </div>
+
+            <h3 class="font-sans font-semibold text-xl text-sp-charcoal mt-4">
+                Work Through Something
+            </h3>
+
+            <p class="body mt-3">
+                Private instruction for teams that need more individualized support and guidance.
+            </p>
+
+            <a
+                href="#"
+                class="learn-more-link text-sp-prairieGreen mt-4">
+                Learn More
+                <x-icons.move-right />
+            </a>
         </div>
 
     </div>

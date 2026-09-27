@@ -86,7 +86,8 @@
 
         <x-public-v2.image-registration
             text="Hamish, Photo by Blue Ridge Creative"
-            position="right" />
+            position="right"
+            href="https://www.blueridgeprairie.studio/" />
     </div>
 
 </div>
@@ -190,7 +191,8 @@
 
         <x-public-v2.image-registration
             text="Hazel, Photo by Blue Ridge Creative"
-            position="bottom" />
+            position="bottom" 
+            href="https://www.blueridgeprairie.studio/"/>
     </div>
 
 
