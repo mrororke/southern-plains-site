@@ -6,7 +6,7 @@
 <div
     id="hero"
     class="grid grid-cols-12 pt-8">
-    <div class="col-span-12 mt-8 md:col-span-7 md:mt-0 relative">
+    <div class="col-span-12 mt-8 md:col-span-6 md:mt-0 relative">
 
         <img
             class="w-full h-full"
@@ -18,7 +18,7 @@
             position="left" />
     </div>
 
-    <div class="col-span-12 md:col-span-5 md:pr-0 pl-8 pr-8">
+    <div class="col-span-12 md:col-span-6 md:pr-0 pl-8 pr-8">
 
         <p class="text-eyebrow">
             Southern Plains Training
@@ -176,24 +176,30 @@
     {{-- Cards --}}
     <div class="col-span-12 grid grid-cols-4 gap-6">
 
-        {{-- Card One --}}
-        <div>
-            <img
-                class="w-full"
-                src="{{ asset('images/training/training-skills.png') }}"
-                alt="Black and white Sheltie looking up at his handler, who is showing empty hands.">
+       {{-- Card One --}}
+<div>
 
-            <p class="body font-bold">
-                Build Everyday Skills
-            </p>
-            <p class="body">
-                Manners, communication, CGC preparations, and stronger foundations for real life.
-            </p>
-            <a href="#" class="learn-more-link text-sp-prairieGreen">
-                Learn More
-                <x-icons.move-right />
-            </a>
-        </div>
+    <img
+        class="w-full h-64 object-cover rounded-md"
+        src="{{ asset('images/training/training-skills.png') }}"
+        alt="Black and white Sheltie looking up at his handler, who is showing empty hands.">
+
+    <h3 class="font-sans font-semibold text-xl text-sp-charcoal mt-4">
+        Build Everyday Skills
+    </h3>
+
+    <p class="body mt-3">
+        Manners, communication, CGC preparation, and stronger foundations for real life.
+    </p>
+
+    <a
+        href="#"
+        class="learn-more-link text-sp-prairieGreen mt-4">
+        Learn More
+        <x-icons.move-right />
+    </a>
+
+</div>
 
         {{-- Card Two --}}
         <div>
