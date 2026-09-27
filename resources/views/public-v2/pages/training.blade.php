@@ -60,13 +60,13 @@
 <section class="grid grid-cols-12 px-8 py-16">
 
     {{-- Icon --}}
-    <div class="col-span-1">
+    <div class="col-span-1 flx justify-end pr-6">
         {{-- Icon --}}
         <x-icons.mouse-pointer-click />
     </div>
 
     {{-- Left Text Area --}}
-    <div class="col-span-5">
+    <div class="col-span-5 pr-12">
 
         <p class="font-display font-bold text-2xl text-sp-burntClay">
             Train Differently
@@ -88,7 +88,7 @@
     </div>
 
     {{-- Right Benefits Area --}}
-    <div class="col-span-5">
+    <div class="col-span-5 pl-6 flex flex-col gap-6">
 
         {{-- Benefit --}}
         <div class="flex gap-6">
