@@ -1,14 +1,16 @@
-/* Tailwind layers */
+/* ==========================================================================
+   01. Tailwind layers
+   ========================================================================== */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Component-layer styles */
+/* ==========================================================================
+   02. Layout and topographic backgrounds
+   ========================================================================== */
 
 @layer components {
-
-    /* Layout and topographic backgrounds */
 
     .site-container {
         @apply mx-auto w-full px-8;
@@ -28,7 +30,15 @@
         background-size: auto;
     }
 
-    /* Desktop navigation */
+}
+
+/* ==========================================================================
+   03. Navigation
+   ========================================================================== */
+
+/* Desktop links, contact button, and search toggle */
+
+@layer components {
 
     .nav-link {
         @apply text-sp-charcoal font-normal transition-colors duration-200;
@@ -62,43 +72,11 @@
         @apply text-sp-prairieOchre;
     }
 
-    /* Desktop site search */
+}
 
-    .site-search-dropdown {
-        @apply absolute right-0 top-full z-50 mt-4 w-[400px]
-            rounded-md border border-sp-warmStone
-            bg-sp-warmIvory p-5 shadow-sm
-            opacity-0 invisible -translate-y-1
-            transition-all duration-200;
-    }
+/* Mobile menu and links */
 
-    .site-search-dropdown.is-open {
-        @apply opacity-100 visible translate-y-0;
-    }
-
-    .site-search-input {
-        @apply w-full border-0 border-b border-sp-warmStone
-            bg-transparent py-3 pr-10
-            text-base text-sp-charcoal
-            placeholder:text-sp-slate
-            focus:border-sp-prairieOchre focus:ring-0;
-    }
-
-    .site-search-submit {
-        @apply absolute right-0 top-1/2 -translate-y-1/2
-            text-sp-charcoal
-            transition-colors duration-200;
-    }
-
-    .site-search-submit:hover {
-        @apply text-sp-prairieOchre;
-    }
-
-    .site-search-helper {
-        @apply mt-3 text-xs text-sp-slate;
-    }
-
-    /* Mobile navigation */
+@layer components {
 
     .mobile-menu-toggle {
         @apply flex items-center justify-center text-sp-charcoal transition-colors duration-200;
@@ -135,7 +113,77 @@
         @apply text-sp-prairieOchre;
     }
 
-    /* Mobile site search */
+}
+
+/* Mobile contact button */
+
+@layer components {
+
+    .mobile-contact {
+        @apply mt-6 inline-flex w-full items-center justify-center
+            rounded-md bg-sp-prairieGreen
+            px-4 py-3
+            text-sm font-normal text-sp-warmIvory
+            transition-colors duration-200;
+    }
+
+    .mobile-contact:hover {
+        @apply bg-sp-prairieOchre;
+    }
+
+    .mobile-contact-active {
+        @apply bg-sp-prairieOchre;
+    }
+
+}
+
+/* ==========================================================================
+   04. Site search
+   ========================================================================== */
+
+/* Desktop search */
+
+@layer components {
+
+    .site-search-dropdown {
+        @apply absolute right-0 top-full z-50 mt-4 w-[400px]
+            rounded-md border border-sp-warmStone
+            bg-sp-warmIvory p-5 shadow-sm
+            opacity-0 invisible -translate-y-1
+            transition-all duration-200;
+    }
+
+    .site-search-dropdown.is-open {
+        @apply opacity-100 visible translate-y-0;
+    }
+
+    .site-search-input {
+        @apply w-full border-0 border-b border-sp-warmStone
+            bg-transparent py-3 pr-10
+            text-base text-sp-charcoal
+            placeholder:text-sp-slate
+            focus:border-sp-prairieOchre focus:ring-0;
+    }
+
+    .site-search-submit {
+        @apply absolute right-0 top-1/2 -translate-y-1/2
+            text-sp-charcoal
+            transition-colors duration-200;
+    }
+
+    .site-search-submit:hover {
+        @apply text-sp-prairieOchre;
+    }
+
+    .site-search-helper {
+        @apply mt-3 text-xs text-sp-slate;
+    }
+
+}
+
+/* Mobile search */
+
+@layer components {
 
     .mobile-search-form {
         @apply mt-6 border-t border-sp-warmStone pt-6;
@@ -158,118 +206,13 @@
         @apply text-sp-prairieOchre;
     }
 
-    /* Mobile contact button */
-
-    .mobile-contact {
-        @apply mt-6 inline-flex w-full items-center justify-center
-            rounded-md bg-sp-prairieGreen
-            px-4 py-3
-            text-sm font-normal text-sp-warmIvory
-            transition-colors duration-200;
-    }
-
-    .mobile-contact:hover {
-        @apply bg-sp-prairieOchre;
-    }
-
-    .mobile-contact-active {
-        @apply bg-sp-prairieOchre;
-    }
-
-    /* Image registration: shared styles */
-
-    .image-registration {
-        @apply absolute flex items-center text-white
-            transition-colors duration-200;
-    }
-
-    .image-registration:hover {
-        @apply bg-sp-prairieGreen rounded-md;
-        padding: 4px !important;
-    }
-
-    .image-registration-mark {
-        @apply w-8 h-8 shrink-0;
-    }
-
-    .image-registration-line {
-        @apply block bg-white;
-    }
-
-    /* Image registration: right-side vertical variant */
-
-    .image-registration-right {
-        @apply top-8 right-8 flex-col;
-    }
-
-    .image-registration-right .image-registration-line {
-        @apply h-8 w-px;
-        margin: 5px 0;
-    }
-
-    .image-registration-text-right {
-        @apply text-xs uppercase tracking-wider whitespace-nowrap;
-        writing-mode: vertical-rl;
-    }
-
-    /* Image registration: bottom-left horizontal variant */
-
-    .image-registration-bottom {
-        @apply bottom-6 left-6 flex-row;
-    }
-
-    .image-registration-bottom .image-registration-line {
-        @apply h-px w-8;
-        margin: 0 10px;
-    }
-
-    .image-registration-text-bottom {
-        @apply text-xs uppercase tracking-wider whitespace-nowrap;
-    }
-
-    /* Newsletter: component-layer mobile rules (up to 767px) */
-
-    @media (max-width: 767px) {
-        .newsletter-form,
-        .newsletter-form #sib-form-container,
-        .newsletter-form #sib-container {
-            @apply w-full;
-        }
-        .newsletter-form #sib-container {
-            padding: 0 !important;
-        }
-        .newsletter-form-inner {
-            @apply flex flex-col gap-4;
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-        .newsletter-field,
-        .newsletter-submit {
-            @apply w-full;
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-        .newsletter-form .sib-form-block,
-        .newsletter-form .form__entry,
-        .newsletter-form .form__label-row,
-        .newsletter-form .entry__field {
-            padding: 0 !important;
-            margin: 0 !important;
-        }
-        .newsletter-form .sib-form-block__button {
-            @apply w-full;
-            margin: 0 !important;
-        }
-        .newsletter-field-error {
-            margin-top: 0.5rem !important;
-        }
-    }
-
 }
 
-/* Styles outside the component layer */
+/* ==========================================================================
+   05. Typography
+   ========================================================================== */
 
-/* Typography: hero and eyebrow headings */
+/* Hero and eyebrow headings */
 
 h1.text-hero {
     @apply text-sp-charcoal font-sans;
@@ -305,7 +248,7 @@ h3.text-eyebrow-light {
     text-transform: uppercase;
 }
 
-/* Typography: body text */
+/* Body text */
 
 p.body-large {
     @apply text-sp-slate font-sans;
@@ -323,7 +266,9 @@ p.body {
     line-height: 24px; /* 133.333% */
 }
 
-/* Text links and horizontal dividers */
+/* ==========================================================================
+   06. Text links and horizontal dividers
+   ========================================================================== */
 
 .learn-more-link {
     @apply inline-flex items-center gap-2 uppercase
@@ -342,7 +287,11 @@ p.body {
     @apply w-full border-0 border-t border-sp-limestone;
 }
 
-/* Buttons: shared styles */
+/* ==========================================================================
+   07. Buttons
+   ========================================================================== */
+
+/* Shared button styles */
 
 .btn-primary,
 .btn-secondary,
@@ -354,7 +303,7 @@ p.body {
         transition-colors duration-200;
 }
 
-/* Buttons: primary */
+/* Primary */
 
 .btn-primary {
     @apply bg-sp-prairieGreen text-sp-warmIvory;
@@ -364,7 +313,7 @@ p.body {
     @apply bg-sp-prairieOchre;
 }
 
-/* Buttons: secondary */
+/* Secondary */
 
 .btn-secondary {
     @apply bg-sp-prairieOchre text-sp-warmIvory;
@@ -374,7 +323,7 @@ p.body {
     @apply bg-sp-goldenrod;
 }
 
-/* Buttons: primary outline */
+/* Primary outline */
 
 .btn-primary-outline {
     @apply border border-sp-prairieGreen
@@ -385,7 +334,7 @@ p.body {
     @apply border-sp-prairieOchre text-sp-prairieOchre;
 }
 
-/* Buttons: secondary outline */
+/* Secondary outline */
 
 .btn-secondary-outline {
     @apply border border-sp-prairieOchre
@@ -396,7 +345,102 @@ p.body {
     @apply border-sp-goldenrod text-sp-goldenrod;
 }
 
-/* NASDA feature: background and content box */
+/* ==========================================================================
+   08. Image registration
+   ========================================================================== */
+
+/* Shared styles */
+
+@layer components {
+
+    .image-registration {
+        @apply absolute flex items-center text-white
+            transition-colors duration-200;
+    }
+
+    .image-registration:hover {
+        @apply bg-sp-prairieGreen rounded-md;
+        padding: 4px !important;
+    }
+
+    .image-registration-mark {
+        @apply w-8 h-8 shrink-0;
+    }
+
+    .image-registration-line {
+        @apply block bg-white;
+    }
+
+}
+
+/* Right-side vertical variant */
+
+@layer components {
+
+    .image-registration-right {
+        @apply top-8 right-8 flex-col;
+    }
+
+    .image-registration-right .image-registration-line {
+        @apply h-8 w-px;
+        margin: 5px 0;
+    }
+
+    .image-registration-text-right {
+        @apply text-xs uppercase tracking-wider whitespace-nowrap;
+        writing-mode: vertical-rl;
+    }
+
+}
+
+/* Bottom-left horizontal variant */
+
+@layer components {
+
+    .image-registration-bottom {
+        @apply bottom-6 left-6 flex-row;
+    }
+
+    .image-registration-bottom .image-registration-line {
+        @apply h-px w-8;
+        margin: 0 10px;
+    }
+
+    .image-registration-text-bottom {
+        @apply text-xs uppercase tracking-wider whitespace-nowrap;
+    }
+
+}
+
+/* Mobile: bottom-left text (up to 767px; outside the component layer) */
+
+@media (max-width: 767px) {
+
+    .image-registration-text-bottom {
+        @apply whitespace-normal;
+    }
+
+}
+
+/* Mobile: right-side variant (up to 767px; outside the component layer) */
+
+@media (max-width: 767px) {
+    .image-registration-right {
+        @apply bottom-6 left-6 top-auto right-auto flex-row;
+    }
+    .image-registration-right .image-registration-line {
+        @apply h-px w-8;
+        margin: 0 10px;
+    }
+    .image-registration-text-right {
+        @apply text-xs uppercase tracking-wider whitespace-nowrap;
+        writing-mode: horizontal-tb;
+    }
+}
+
+/* ==========================================================================
+   09. NASDA feature / Hazel
+   ========================================================================== */
 
 .hazel-bg {
     background-image: url("/images/hazel.png");
@@ -411,7 +455,21 @@ p.body {
         p-6;
 }
 
-/* Newsletter: heading */
+/* Mobile: Hazel background (up to 767px) */
+
+@media (max-width: 767px) {
+
+    .hazel-bg {
+        background-position: 30% center;
+    }
+
+}
+
+/* ==========================================================================
+   10. Newsletter
+   ========================================================================== */
+
+/* Heading */
 
 h2.newsletter-signup {
     @apply text-sp-warmIvory;
@@ -422,7 +480,7 @@ h2.newsletter-signup {
     text-transform: capitalize;
 }
 
-/* Newsletter: form backgrounds, labels, layout, and fields */
+/* Form backgrounds, accessible labels, layout, and fields */
 
 .newsletter-form,
 .newsletter-form #sib-form-container,
@@ -482,7 +540,7 @@ h2.newsletter-signup {
     @apply mt-2 block text-sm text-sp-clayRed;
 }
 
-/* Newsletter: Brevo message layout and icons */
+/* Brevo message layout and icons */
 
 .newsletter-message {
     @apply mb-4 rounded-md px-4 py-3 text-sm;
@@ -498,14 +556,14 @@ h2.newsletter-signup {
     flex: 0 0 20px;
 }
 
-/* Newsletter: Brevo error message */
+/* Brevo error message */
 
 .newsletter-message-error {
     @apply text-sp-clayRed;
     background-color: #f7f5f0 !important;
 }
 
-/* Newsletter: Brevo success message */
+/* Brevo success message */
 
 .newsletter-message-success {
     @apply text-sp-limestone;
@@ -516,7 +574,7 @@ h2.newsletter-signup {
     @apply text-sp-limestone;
 }
 
-/* Newsletter: submit button and loading indicator */
+/* Submit button and loading indicator */
 
 .newsletter-form .sib-form-block__button {
     @apply inline-flex shrink-0 items-center justify-center gap-2;
@@ -532,7 +590,49 @@ h2.newsletter-signup {
     @apply shrink-0;
 }
 
-/* Newsletter: mobile layout (up to 767px) */
+/* Mobile: original component-layer rules (up to 767px) */
+
+@layer components {
+
+    @media (max-width: 767px) {
+        .newsletter-form,
+        .newsletter-form #sib-form-container,
+        .newsletter-form #sib-container {
+            @apply w-full;
+        }
+        .newsletter-form #sib-container {
+            padding: 0 !important;
+        }
+        .newsletter-form-inner {
+            @apply flex flex-col gap-4;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .newsletter-field,
+        .newsletter-submit {
+            @apply w-full;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .newsletter-form .sib-form-block,
+        .newsletter-form .form__entry,
+        .newsletter-form .form__label-row,
+        .newsletter-form .entry__field {
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        .newsletter-form .sib-form-block__button {
+            @apply w-full;
+            margin: 0 !important;
+        }
+        .newsletter-field-error {
+            margin-top: 0.5rem !important;
+        }
+    }
+
+}
+
+/* Mobile: original rules outside the component layer (up to 767px) */
 
 @media (max-width: 767px) {
     .newsletter-form-inner {
@@ -546,7 +646,11 @@ h2.newsletter-signup {
     }
 }
 
-/* Footer: heading and navigation */
+/* ==========================================================================
+   11. Footer
+   ========================================================================== */
+
+/* Heading and navigation */
 
 h4.footer {
     @apply text-sp-charcoal;
@@ -569,31 +673,4 @@ ul.footer-nav li {
 ul.footer-nav li:hover {
     @apply text-sp-prairieOchre;
     text-decoration: underline;
-}
-
-/* Responsive: Hazel background and bottom image registration (up to 767px) */
-
-@media (max-width: 767px) {
-    .hazel-bg {
-        background-position: 30% center;
-    }
-    .image-registration-text-bottom {
-        @apply whitespace-normal;
-    }
-}
-
-/* Responsive: right-side image registration (up to 767px) */
-
-@media (max-width: 767px) {
-    .image-registration-right {
-        @apply bottom-6 left-6 top-auto right-auto flex-row;
-    }
-    .image-registration-right .image-registration-line {
-        @apply h-px w-8;
-        margin: 0 10px;
-    }
-    .image-registration-text-right {
-        @apply text-xs uppercase tracking-wider whitespace-nowrap;
-        writing-mode: horizontal-tb;
-    }
 }
