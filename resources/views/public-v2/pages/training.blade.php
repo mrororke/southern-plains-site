@@ -404,6 +404,113 @@
 
 </section>
 
+{{-- AKC Trick Dog --}}
+<section class="grid grid-cols-12 gap-8 px-8 py-16 bg-sp-warmIvory">
+
+    {{-- Image --}}
+    <div class="col-span-4">
+
+        <div class="relative h-full">
+
+            <img
+                class="w-full h-full object-cover"
+                src="{{ asset('images/training/training-trick-dog.png') }}"
+                alt="Melanie working with Hamish, a black and white Sheltie, during a training session.">
+
+            <x-public-v2.image-registration
+                text="Hamish, Photo by Blue Ridge Creative"
+                position="bottom"
+                compact
+                href="https://www.blueridgeprairie.studio/" />
+
+        </div>
+
+    </div>
+
+    {{-- Main Content --}}
+    <div class="col-span-5 flex items-center">
+
+        <div>
+
+            <p class="font-display font-bold text-2xl text-sp-burntClay">
+                AKC Trick Dog
+            </p>
+
+            <h2 class="font-sans text-3xl font-semibold text-sp-charcoal mt-3">
+                Already Have the Tricks?<br>
+                Get the Title.
+            </h2>
+
+            <p class="body-large mt-4">
+                As an AKC CGC Evaluator, Melanie offers AKC Trick Dog evaluations online, or in person. Earn titles that celebrate what your dog already knows — and open the door to even more fun.
+            </p>
+
+            <a
+                href="#"
+                class="btn-primary mt-6">
+                Request an Evaluation
+            </a>
+
+        </div>
+
+    </div>
+
+    {{-- Evaluation Details --}}
+    <div class="col-span-3 border-l border-sp-warmStone pl-8 flex items-center">
+
+        <ul class="flex flex-col gap-6">
+
+            <li class="flex items-center gap-4">
+
+                <x-icons.circle-check
+                    class="w-8 h-8 shrink-0 text-sp-prairieGreen" />
+
+                <span class="body">
+                    All levels: Novice, Intermediate, Advanced, Performer and Performer Elite.
+                </span>
+
+            </li>
+
+            <li class="flex items-center gap-4">
+
+                <x-icons.circle-check
+                    class="w-8 h-8 shrink-0 text-sp-prairieGreen" />
+
+                <span class="body">
+                    Evaluation online or by appointment.
+                </span>
+
+            </li>
+
+            <li class="flex items-center gap-4">
+
+                <x-icons.circle-check
+                    class="w-8 h-8 shrink-0 text-sp-prairieGreen" />
+
+                <span class="body">
+                    Open to all dogs.
+                </span>
+
+            </li>
+
+            <li class="flex items-center gap-4">
+
+                <x-icons.circle-check
+                    class="w-8 h-8 shrink-0 text-sp-prairieGreen" />
+
+                <span class="body">
+                    Great goal for any team!
+                </span>
+
+            </li>
+
+        </ul>
+
+    </div>
+
+</section>
+{{-- End AKC Trick Dog --}}
+
 
 
 
