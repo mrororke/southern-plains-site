@@ -178,7 +178,7 @@
     <div class="col-span-12 grid grid-cols-4 gap-6">
 
         {{-- Card One --}}
-        <div>
+        <div class="flex flex-col">
 
             {{-- Card Image --}}
             <div class="relative">
@@ -204,10 +204,9 @@
                 Manners, communication, CGC preparation, and stronger foundations for real life.
             </p>
 
-
             <a
                 href="#"
-                class="learn-more-link text-sp-prairieGreen mt-4">
+                class="learn-more-link text-sp-prairieGreen mt-auto pt-4">
                 Learn More
                 <x-icons.move-right />
             </a>
@@ -215,13 +214,15 @@
         </div>
 
         {{-- Card Two --}}
-        <div>
+        <div class="flex flex-col">
+
+            {{-- Card Image --}}
             <div class="relative">
 
                 <img
                     class="w-full h-64 object-cover rounded-md"
                     src="{{ asset('images/training/training-new.png') }}"
-                    alt="Black and white Sheltie looking up at his handler while standing between her legs. Handler is smiling at dog.">
+                    alt="Black and white Sheltie standing between his handler's legs and looking up at her as she smiles down at him.">
 
                 <x-public-v2.image-registration
                     text="Hamish, Photo by Odd Paw Studio"
@@ -236,19 +237,20 @@
             </h3>
 
             <p class="body mt-3">
-                Tricks, workshops, specialty classes, and opportunitites to explore new skills.
+                Tricks, workshops, specialty classes, and opportunities to explore new skills.
             </p>
 
             <a
                 href="#"
-                class="learn-more-link text-sp-prairieGreen mt-4">
+                class="learn-more-link text-sp-prairieGreen mt-auto pt-4">
                 Learn More
                 <x-icons.move-right />
             </a>
+
         </div>
 
         {{-- Card Three --}}
-        <div>
+        <div class="flex flex-col">
 
             {{-- Card Image --}}
             <div class="relative">
@@ -256,7 +258,7 @@
                 <img
                     class="w-full h-64 object-cover rounded-md"
                     src="{{ asset('images/training/training-compete.png') }}"
-                    alt="Black and white Sheltie looking up.">
+                    alt="Black and white Sheltie looking attentively toward his handler in a training environment.">
 
                 <x-public-v2.image-registration
                     text="Hamish, Photo by Blue Ridge Creative"
@@ -276,15 +278,15 @@
 
             <a
                 href="#"
-                class="learn-more-link text-sp-prairieGreen mt-4">
+                class="learn-more-link text-sp-prairieGreen mt-auto pt-4">
                 Learn More
                 <x-icons.move-right />
             </a>
+
         </div>
 
         {{-- Card Four --}}
-        <div>
-
+        <div class="flex flex-col">
 
             {{-- Card Image --}}
             <div class="relative">
@@ -312,10 +314,11 @@
 
             <a
                 href="#"
-                class="learn-more-link text-sp-prairieGreen mt-4">
+                class="learn-more-link text-sp-prairieGreen mt-auto pt-4">
                 Learn More
                 <x-icons.move-right />
             </a>
+
         </div>
 
     </div>
