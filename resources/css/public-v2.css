@@ -11,7 +11,6 @@
    ========================================================================== */
 
 @layer components {
-
     .site-container {
         @apply mx-auto w-full px-8;
     }
@@ -29,7 +28,6 @@
         background-position: center;
         background-size: auto;
     }
-
 }
 
 /* ==========================================================================
@@ -39,7 +37,6 @@
 /* Desktop links, contact button, and search toggle */
 
 @layer components {
-
     .nav-link {
         @apply text-sp-charcoal font-normal transition-colors duration-200;
     }
@@ -71,13 +68,11 @@
     .nav-search-button:hover {
         @apply text-sp-prairieOchre;
     }
-
 }
 
 /* Mobile menu and links */
 
 @layer components {
-
     .mobile-menu-toggle {
         @apply flex items-center justify-center text-sp-charcoal transition-colors duration-200;
     }
@@ -112,13 +107,11 @@
     .mobile-nav-link-active {
         @apply text-sp-prairieOchre;
     }
-
 }
 
 /* Mobile contact button */
 
 @layer components {
-
     .mobile-contact {
         @apply mt-6 inline-flex w-full items-center justify-center
             rounded-md bg-sp-prairieGreen
@@ -134,7 +127,6 @@
     .mobile-contact-active {
         @apply bg-sp-prairieOchre;
     }
-
 }
 
 /* ==========================================================================
@@ -144,7 +136,6 @@
 /* Desktop search */
 
 @layer components {
-
     .site-search-dropdown {
         @apply absolute right-0 top-full z-50 mt-4 w-[400px]
             rounded-md border border-sp-warmStone
@@ -178,13 +169,11 @@
     .site-search-helper {
         @apply mt-3 text-xs text-sp-slate;
     }
-
 }
 
 /* Mobile search */
 
 @layer components {
-
     .mobile-search-form {
         @apply mt-6 border-t border-sp-warmStone pt-6;
     }
@@ -205,7 +194,6 @@
     .mobile-search-submit:hover {
         @apply text-sp-prairieOchre;
     }
-
 }
 
 /* ==========================================================================
@@ -352,7 +340,6 @@ p.body {
 /* Shared styles */
 
 @layer components {
-
     .image-registration {
         @apply absolute flex items-center text-white
             transition-colors duration-200;
@@ -372,19 +359,21 @@ p.body {
     }
 
     .image-registration-compact {
-    @apply right-6;
-}
+        @apply right-6;
+    }
 
-.image-registration-compact .image-registration-text-bottom {
-    @apply whitespace-normal;
-}
+    .image-registration-compact .image-registration-text-bottom {
+        @apply whitespace-normal;
+    }
 
+    .image-registration-compact .image-registration-mark {
+        @apply w-6 h-6;
+    }
 }
 
 /* Right-side vertical variant */
 
 @layer components {
-
     .image-registration-right {
         @apply top-8 right-8 flex-col;
     }
@@ -398,13 +387,11 @@ p.body {
         @apply text-xs uppercase tracking-wider whitespace-nowrap;
         writing-mode: vertical-rl;
     }
-
 }
 
 /* Left-side vertical variant */
 
 @layer components {
-
     .image-registration-left {
         @apply top-8 left-8 flex-col-reverse;
     }
@@ -419,13 +406,11 @@ p.body {
         writing-mode: vertical-rl;
         transform: rotate(180deg);
     }
-
 }
 
 /* Bottom-left horizontal variant */
 
 @layer components {
-
     .image-registration-bottom {
         @apply bottom-6 left-6 flex-row;
     }
@@ -438,17 +423,14 @@ p.body {
     .image-registration-text-bottom {
         @apply text-xs uppercase tracking-wider whitespace-nowrap;
     }
-
 }
 
 /* Mobile: bottom-left text (up to 767px; outside the component layer) */
 
 @media (max-width: 767px) {
-
     .image-registration-text-bottom {
         @apply whitespace-normal;
     }
-
 }
 
 /* Mobile: right-side variant (up to 767px; outside the component layer) */
@@ -470,7 +452,6 @@ p.body {
 /* Mobile: left-side variant (up to 767px; outside the component layer) */
 
 @media (max-width: 767px) {
-
     .image-registration-left {
         @apply bottom-6 left-6 top-auto right-auto flex-row;
     }
@@ -485,7 +466,6 @@ p.body {
         writing-mode: horizontal-tb;
         transform: none;
     }
-
 }
 
 /* ==========================================================================
@@ -508,11 +488,9 @@ p.body {
 /* Mobile: Hazel background (up to 767px) */
 
 @media (max-width: 767px) {
-
     .hazel-bg {
         background-position: 30% center;
     }
-
 }
 
 /* ==========================================================================
@@ -643,7 +621,6 @@ h2.newsletter-signup {
 /* Mobile: original component-layer rules (up to 767px) */
 
 @layer components {
-
     @media (max-width: 767px) {
         .newsletter-form,
         .newsletter-form #sib-form-container,
@@ -679,7 +656,6 @@ h2.newsletter-signup {
             margin-top: 0.5rem !important;
         }
     }
-
 }
 
 /* Mobile: original rules outside the component layer (up to 767px) */
