@@ -9,23 +9,23 @@
 
 @section('structured_data')
 <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Southern Plains Sport Dog Club, LLC",
-    "url": "https://southernplains.dog/",
-    "logo": "https://southernplains.dog/images/logo.svg",
-    "email": "southernplainssportdogclub@gmail.com",
-    "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": "Northeast Oklahoma"
-    },
-    "sameAs": [
-        "https://www.facebook.com/southernplainsportdogclub",
-        "https://www.instagram.com/southernplainssdc/",
-        "https://www.youtube.com/@southernplainssportdogs"
-    ]
-}
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Southern Plains Sport Dog Club, LLC",
+        "url": "https://southernplains.dog/",
+        "logo": "https://southernplains.dog/images/logo.svg",
+        "email": "southernplainssportdogclub@gmail.com",
+        "areaServed": {
+            "@type": "AdministrativeArea",
+            "name": "Northeast Oklahoma"
+        },
+        "sameAs": [
+            "https://www.facebook.com/southernplainsportdogclub",
+            "https://www.instagram.com/southernplainssdc/",
+            "https://www.youtube.com/@southernplainssportdogs"
+        ]
+    }
 </script>
 @endsection
 
@@ -38,9 +38,9 @@
 
     <div class="col-span-12 md:col-span-5 md:pr-0 pl-8 pr-8">
 
-        <h3 class="text-eyebrow">
+        <p class="text-eyebrow">
             Play. Train. Grow
-        </h3>
+        </p>
 
         <h1 class="text-hero">
             More Ways to Do Great Things<br class="hidden md:block">
