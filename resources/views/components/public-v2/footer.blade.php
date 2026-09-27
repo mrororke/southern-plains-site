@@ -126,12 +126,12 @@
         </div>
 
         <div class="col-span-12 md:col-span-4 text-sp-warmIvory text-sm md:text-right">
-            <a href="{{ route('login') }}">Login</a>
-            /
-            Privacy Policy
-            /
-            Terms of Use
-        </div>
+    <a href="{{ route('login') }}">Login</a>
+    /
+    <a href="{{ route('legal.privacy') }}">Privacy Policy</a>
+    /
+    <a href="{{ route('legal.tos') }}">Terms of Use</a>
+</div>
 
     </div>
 
