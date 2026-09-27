@@ -58,19 +58,19 @@
 {{-- End Hero --}}
 
 {{-- Train Differently --}}
-<section class="grid grid-cols-12 px-8 py-16">
+<section class="grid grid-cols-12 px-6 py-12 md:px-8 md:py-16">
 
     {{-- Empty Column --}}
-    <div class="col-span-1"></div>
+    <div class="hidden md:block md:col-span-1"></div>
 
     {{-- Icon --}}
-    <div class="col-span-1">
+    <div class="col-span-12 md:col-span-1">
         <x-icons.mouse-pointer-click
-            class="w-12 h-12 text-sp-prairieGreen" />
+            class="w-10 h-10 md:w-12 md:h-12 text-sp-prairieGreen" />
     </div>
 
     {{-- Left Text Area --}}
-    <div class="col-span-4">
+    <div class="col-span-12 mt-3 md:col-span-4 md:mt-0">
 
         <p class="font-display font-bold text-2xl text-sp-burntClay">
             Train Differently
@@ -81,25 +81,25 @@
             No Forcing the Issue.
         </h2>
 
-        <p class="body">
+        <p class="body mt-4">
             Southern Plains uses positive reinforcement and marker-based training to help dogs understand what we’re asking of them. Clickers are encouraged. Choice matters. And training should build confidence—not make your dog worry about what happens when they get it wrong.
         </p>
 
     </div>
 
     {{-- Divider --}}
-    <div class="col-span-1 flex justify-center">
+    <div class="hidden md:flex md:col-span-1 justify-center">
         <div class="border-l border-sp-warmStone h-full"></div>
     </div>
 
     {{-- Right Benefits Area --}}
-    <div class="col-span-4 flex flex-col gap-6">
+    <div class="col-span-12 flex flex-col gap-6 mt-8 md:col-span-4 md:mt-0">
 
         {{-- Benefit --}}
-        <div class="flex gap-6">
+        <div class="flex gap-4 md:gap-6">
 
             <x-icons.message-circle-more
-                class="w-10 h-10 shrink-0 text-sp-prairieOchre" />
+                class="w-8 h-8 md:w-10 md:h-10 shrink-0 text-sp-prairieOchre" />
 
             <div>
                 <h3 class="font-sans font-semibold text-sp-charcoal">
@@ -114,10 +114,10 @@
         </div>
 
         {{-- Benefit --}}
-        <div class="flex gap-6">
+        <div class="flex gap-4 md:gap-6">
 
             <x-icons.shield-check
-                class="w-10 h-10 shrink-0 text-sp-prairieOchre" />
+                class="w-8 h-8 md:w-10 md:h-10 shrink-0 text-sp-prairieOchre" />
 
             <div>
                 <h3 class="font-sans font-semibold text-sp-charcoal">
@@ -132,10 +132,10 @@
         </div>
 
         {{-- Benefit --}}
-        <div class="flex gap-6">
+        <div class="flex gap-4 md:gap-6">
 
             <x-icons.heart
-                class="w-10 h-10 shrink-0 text-sp-prairieOchre" />
+                class="w-8 h-8 md:w-10 md:h-10 shrink-0 text-sp-prairieOchre" />
 
             <div>
                 <h3 class="font-sans font-semibold text-sp-charcoal">
@@ -152,9 +152,10 @@
     </div>
 
     {{-- Empty Column --}}
-    <div class="col-span-1"></div>
+    <div class="hidden md:block md:col-span-1"></div>
 
 </section>
+{{-- End Train Differently --}}
 
 {{-- What Do You Want to Do --}}
 <section
