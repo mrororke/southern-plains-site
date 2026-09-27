@@ -20,9 +20,9 @@
 
     <div class="col-span-12 md:col-span-5 md:pr-0 pl-8 pr-8">
 
-        <h3 class="text-eyebrow">
+        <p class="text-eyebrow">
             Southern Plains Training
-        </h3>
+</p>
 
         <h1 class="text-hero">
             Training Should Feel Good on Both Ends of the Leash
@@ -33,7 +33,7 @@
         </div>
 
         <p class="body-large">
-            Positive reinforcement, clear communication, and plenty of room to have fun. Southern Plains  helps you build skills with the dog in front of you—without force, intimidation, or physical correction.
+            Positive reinforcement, clear communication, and plenty of room to have fun. Southern Plains helps you build skills with the dog in front of you—without force, intimidation, or physical correction.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 py-6">
@@ -53,6 +53,19 @@
         </div>
 
     </div>
+
+    {{-- Train Differently --}}
+
+    <div class="grid grid-cols-12 pt-8">
+        <div class="col-span-12 md:col-span-5 md:pr-0 pl-8 pr-8">
+            Left
+        </div>
+        <div class="col-span-12 md:col-span-5 md:pr-0 pl-8 pr-8">
+            Right
+        </div>
+
+    </div>
+
 
     
 
