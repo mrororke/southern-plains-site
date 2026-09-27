@@ -327,14 +327,12 @@
 </section>
 {{-- End What Do You Want to Do --}}
 
-
-
 {{-- Current Opportunities --}}
 <section
-    class="grid grid-cols-12 gap-6 px-8 py-16 bg-sp-prairieGreen/45">
+    class="grid grid-cols-12 gap-6 px-6 py-12 md:px-8 md:py-16 bg-sp-prairieGreen/45">
 
     {{-- Section Intro --}}
-    <div class="col-span-12 mb-6">
+    <div class="col-span-12 mb-2 md:mb-6">
 
         <p class="font-display font-bold text-2xl text-sp-burntClay">
             Ready to Train?
@@ -347,14 +345,14 @@
     </div>
 
     {{-- Sample Opportunity --}}
-    <div class="col-span-3 bg-sp-warmIvory rounded-md p-6">
+    <div class="col-span-12 md:col-span-3 bg-sp-warmIvory rounded-md p-6">
 
-        <div class="flex gap-6">
+        <div class="flex gap-4 md:gap-6">
 
             {{-- Temporary icon --}}
             <div class="shrink-0">
                 <x-icons.calendar-days
-                    class="w-10 h-10 text-sp-prairieGreen" />
+                    class="w-8 h-8 md:w-10 md:h-10 text-sp-prairieGreen" />
             </div>
 
             <div>
@@ -381,15 +379,15 @@
     </div>
 
     {{-- Reserved Space for Dynamic Opportunities --}}
-    <div class="col-span-6"></div>
+    <div class="hidden md:block md:col-span-6"></div>
 
     {{-- Empty State --}}
-    <div class="col-span-3 flex items-center">
+    <div class="col-span-12 md:col-span-3 flex items-center mt-4 pt-8 border-t border-sp-prairieGreen/30 md:mt-0 md:pt-0 md:border-t-0">
 
         <div>
 
             <x-icons.bone
-                class="w-10 h-10 text-sp-prairieGreen mb-6" />
+                class="w-8 h-8 md:w-10 md:h-10 text-sp-prairieGreen mb-4 md:mb-6" />
 
             <p class="body">
                 Nothing scheduled right now — but we’re always working on what’s next.
@@ -407,6 +405,7 @@
     </div>
 
 </section>
+{{-- End Current Opportunities --}}
 
 {{-- AKC Trick Dog --}}
 <section class="grid grid-cols-12 gap-8 px-8 py-16 bg-sp-warmIvory">
