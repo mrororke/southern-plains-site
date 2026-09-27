@@ -413,7 +413,7 @@
         <div class="relative h-full">
 
             <img
-                class="w-full h-full object-cover"
+                class="w-full h-full object-cover rounded-md"
                 src="{{ asset('images/training/training-trick-dog.png') }}"
                 alt="Melanie working with Hamish, a black and white Sheltie, during a training session.">
 
