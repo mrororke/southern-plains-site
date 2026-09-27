@@ -1,6 +1,6 @@
 <footer>
 
-       <x-public-v2.newsletter />
+    <x-public-v2.newsletter />
 
 
     {{-- Main Footer Row --}}
@@ -32,11 +32,25 @@
             </h4>
 
             <ul class="footer-nav">
-                <li>About</li>
-                <li>Training</li>
-                <li>Dog Sports</li>
-                <li>Events</li>
-                <li>Contact</li>
+                <li>
+                    <a href="{{ route('public-v2.about') }}">About</a>
+                </li>
+
+                <li>
+                    <a href="{{ route('public-v2.training') }}">Training</a>
+                </li>
+
+                <li>
+                    <a href="{{ route('public-v2.dog-sports') }}">Dog Sports</a>
+                </li>
+
+                <li>
+                    <a href="{{ route('public-v2.events.index') }}">Events</a>
+                </li>
+
+                <li>
+                    <a href="{{ route('public-v2.contact') }}">Contact</a>
+                </li>
             </ul>
 
         </div>
