@@ -92,11 +92,13 @@
             <div class="flex gap-6">
 
                 {{-- Icon --}}
+                <x-icons.message-circle-more />
 
                 <div>
-                    {{-- Benefit Heading --}}
-
-                    {{-- Benefit Copy --}}
+                    <h4>Communicate Clearly</h4>
+                    <p class="body">
+                        Make it easy for your dog to understand what earns reinforcement.
+                    </p>
                 </div>
 
             </div>
