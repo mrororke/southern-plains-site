@@ -230,7 +230,7 @@ h1.text-hero {
     line-height: 72px; /* 90% */
 }
 
-h3.text-eyebrow {
+.text-eyebrow {
     @apply text-sp-burntClay font-display;
     font-size: 48px;
     font-style: normal;
@@ -239,7 +239,7 @@ h3.text-eyebrow {
     text-transform: uppercase;
 }
 
-h3.text-eyebrow-light {
+.text-eyebrow-light {
     @apply text-sp-warmIvory font-display;
     font-size: 22px;
     font-style: normal;
