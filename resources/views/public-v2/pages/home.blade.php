@@ -161,9 +161,8 @@
         </div>
 
         <x-public-v2.image-registration
-    text="Hazel, Photo by Blue Ridge Creative"
-    position="bottom"
-/>
+            text="Hazel, Photo by Blue Ridge Creative"
+            position="bottom" />
     </div>
     <div class="col-span-12 md:col-span-6">
 
@@ -183,61 +182,14 @@
 
         </div>
 
-
-        {{-- Event Row --}}
-        <div class="flex items-start md:items-center border-b border-sp-limestone py-6">
-
-            {{-- Date --}}
-            <div class="w-20 md:w-28 shrink-0">
-
-                <div class="font-sans text-xl font-semibold uppercase text-sp-charcoal">
-                    May
-                </div>
-
-                <div class="font-sans text-6xl text-sp-prairieOchre">
-                    18
-                </div>
-
-            </div>
+        <x-public-v2.event-row
+            month="May"
+            day="18"
+            title="NASDA Trial"
+            description="Judged by Melanie O’Rorke"
+            location="Claremore, OK" />
 
 
-            {{-- Event Details --}}
-            <div class="flex-1 min-w-0">
-
-                <h3 class="font-sans text-2xl font-semibold uppercase text-sp-charcoal">
-                    NASDA Trial
-                </h3>
-
-                <p class="mt-1 text-lg text-sp-slate">
-                    Judged by Melanie O’Rorke
-                </p>
-
-                {{-- Mobile Location --}}
-                <div class="mt-3 flex items-center gap-2 text-sp-slate md:hidden">
-
-                    <x-icons.milestone class="w-5 h-5 shrink-0" />
-
-                    <span class="text-sm">
-                        Claremore, OK
-                    </span>
-
-                </div>
-
-            </div>
-
-
-            {{-- Desktop Location --}}
-            <div class="ml-auto hidden md:flex shrink-0 items-center justify-end gap-3 pl-6 text-sp-slate">
-
-                <x-icons.milestone class="w-5 h-5 shrink-0" />
-
-                <span class="text-sm whitespace-nowrap">
-                    Claremore, OK
-                </span>
-
-            </div>
-
-        </div>
 
     </div>
 </div>
