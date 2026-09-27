@@ -64,13 +64,26 @@
             </h4>
 
             <ul class="footer-nav">
-                <li>Getting Started</li>
-                <li>Learn</li>
-                <li>NASDA</li>
-                <li>League Info</li>
-                <li>Trick Dog</li>
-            </ul>
+                <li>
+                    <a href="{{ route('public-v2.learn.index') }}">Getting Started</a>
+                </li>
 
+                <li>
+                    <a href="{{ route('public-v2.learn.index') }}">Learn</a>
+                </li>
+
+                <li>
+                    <a href="{{ route('public-v2.dog-sports') }}">NASDA</a>
+                </li>
+
+                <li>
+                    <a href="{{ route('public-v2.dog-sports') }}">League Info</a>
+                </li>
+
+                <li>
+                    <a href="{{ route('public-v2.learn.index') }}">Trick Dog</a>
+                </li>
+            </ul>
         </div>
 
 
