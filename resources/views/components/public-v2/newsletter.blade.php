@@ -188,7 +188,7 @@
          <img
              class="w-full h-48 object-cover md:h-full"
              src="{{ asset('images/headers/newsletter.png') }}"
-             alt="A sheltie and an english bulldog running through Oklahoma wildflowers together.">
+             alt="A Sheltie and an English Bulldog running through Oklahoma wildflowers together.">
 
 
      </div>
