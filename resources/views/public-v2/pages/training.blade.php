@@ -60,9 +60,10 @@
 <section class="grid grid-cols-12 px-8 py-16">
 
     {{-- Icon --}}
-    <div class="col-span-1 flx justify-end pr-6">
+    <div class="col-span-1 flex justify-end pr-6">
         {{-- Icon --}}
-        <x-icons.mouse-pointer-click />
+        <x-icons.mouse-pointer-click 
+            class="w-12 h-12 text-sp-prairieGreen"/>
     </div>
 
     {{-- Left Text Area --}}
@@ -90,20 +91,23 @@
     {{-- Right Benefits Area --}}
     <div class="col-span-5 pl-6 flex flex-col gap-6">
 
-        {{-- Benefit --}}
-        <div class="flex gap-6">
+       {{-- Benefit --}}
+<div class="flex gap-6">
 
-            {{-- Icon --}}
-            <x-icons.message-circle-more />
+    <x-icons.message-circle-more
+        class="w-10 h-10 shrink-0 text-sp-prairieOchre" />
 
-            <div>
-                <h4>Communicate Clearly</h4>
-                <p class="body">
-                    Make it easy for your dog to understand what earns reinforcement.
-                </p>
-            </div>
+    <div>
+        <h3 class="font-sans font-semibold text-sp-charcoal">
+            Communicate Clearly
+        </h3>
 
-        </div>
+        <p class="body">
+            Make it easy for your dog to understand what earns reinforcement.
+        </p>
+    </div>
+
+</div>
 
         {{-- Benefit --}}
         <div class="flex gap-6">
