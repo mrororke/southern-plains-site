@@ -168,9 +168,9 @@
     <div class="col-span-12 md:col-span-6 hazel-bg relative rounded-md p-8">
 
         <div class="nasda-feature-box">
-            <h4 class="font-display font-bold text-2xl text-sp-burntClay">
+            <p class="font-display font-bold text-2xl text-sp-burntClay">
                 Dog Sports 101
-            </h4>
+            </p>
 
             <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
                 What Is NASDA, Anyway?
@@ -192,6 +192,8 @@
             text="Hazel, Photo by Blue Ridge Creative"
             position="bottom" />
     </div>
+
+
     <div class="col-span-12 md:col-span-6">
 
         {{-- Section Header --}}
