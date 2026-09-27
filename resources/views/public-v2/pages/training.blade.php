@@ -165,6 +165,8 @@
         Find the Right Path for You
     </h2>
 
+
+    <div class="grid grid-cols-12 px-8 py-16">
     {{-- Column --}}
     <div class="col-span-3">
         Column One
@@ -181,6 +183,8 @@
     <div class="col-span-3">
         Column four
     </div>
+
+</div>
 
 </section>
 
