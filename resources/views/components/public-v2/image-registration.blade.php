@@ -4,13 +4,17 @@
 ])
 
 @php
-    $positionClass = $position === 'bottom'
-        ? 'image-registration-bottom'
-        : 'image-registration-right';
+    $positionClass = match ($position) {
+        'left' => 'image-registration-left',
+        'bottom' => 'image-registration-bottom',
+        default => 'image-registration-right',
+    };
 
-    $textClass = $position === 'bottom'
-        ? 'image-registration-text-bottom'
-        : 'image-registration-text-right';
+    $textClass = match ($position) {
+        'left' => 'image-registration-text-left',
+        'bottom' => 'image-registration-text-bottom',
+        default => 'image-registration-text-right',
+    };
 @endphp
 
 <div class="image-registration {{ $positionClass }}">
