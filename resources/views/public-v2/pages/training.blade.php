@@ -325,6 +325,85 @@
 
 </section>
 
+{{-- Current Opportunities --}}
+<section
+    class="grid grid-cols-12 gap-6 px-8 py-16 bg-sp-prairieGreen/45">
+
+    {{-- Section Intro --}}
+    <div class="col-span-12 mb-6">
+
+        <p class="font-display font-bold text-2xl text-sp-burntClay">
+            Ready to Train?
+        </p>
+
+        <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
+            Current Opportunities
+        </h2>
+
+    </div>
+
+    {{-- Sample Opportunity --}}
+    <div class="col-span-3 bg-sp-warmIvory rounded-md p-6">
+
+        <div class="flex gap-6">
+
+            {{-- Temporary icon --}}
+            <div class="shrink-0">
+                <x-icons.calendar-days
+                    class="w-10 h-10 text-sp-prairieGreen" />
+            </div>
+
+            <div>
+
+                <h3 class="font-sans font-semibold text-xl text-sp-charcoal">
+                    Communicate Clearly
+                </h3>
+
+                <p class="body mt-3">
+                    Make it easy for your dog to understand what earns reinforcement.
+                </p>
+
+                <a
+                    href="#"
+                    class="learn-more-link text-sp-prairieGreen mt-4">
+                    View Classes
+                    <x-icons.move-right />
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {{-- Reserved Space for Dynamic Opportunities --}}
+    <div class="col-span-6"></div>
+
+    {{-- Empty State --}}
+    <div class="col-span-3 flex items-center">
+
+        <div>
+
+            <x-icons.bone
+                class="w-10 h-10 text-sp-prairieGreen mb-6" />
+
+            <p class="body">
+                Nothing scheduled right now — but we’re always working on what’s next.
+            </p>
+
+            <a
+                href="#newsletter"
+                class="learn-more-link text-sp-prairieGreen mt-4">
+                Join the Newsletter to Stay in the Loop
+                <x-icons.move-right />
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
 
 
 
