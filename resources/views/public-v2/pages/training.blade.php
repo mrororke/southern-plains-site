@@ -124,7 +124,7 @@
                 </h3>
 
                 <p class="body">
-                    Create dogs who are willing to try, to think, and to participate.
+                    Help dogs feel confident enough to try, to think, and to participate.
                 </p>
             </div>
 
@@ -142,7 +142,7 @@
                 </h3>
 
                 <p class="body">
-                    Because teh whole point is getting to do more with your dog.
+                    Because the whole point is getting to do more with your dog.
                 </p>
             </div>
 
@@ -152,6 +152,35 @@
 
     {{-- Empty Column --}}
     <div class="col-span-1"></div>
+
+</section>
+
+{{-- Train Differently --}}
+<section class="grid grid-cols-12 px-8 py-16 bg-sp-limestone">
+    <p class="font-display font-bold text-2xl text-sp-burntClay">
+        What do you want to do with your dog?
+    </p>
+
+    <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
+        Find the Right Path for You
+    </h2>
+
+    {{-- Column --}}
+    <div class="col-span-3">
+        Column One
+    </div>
+    {{-- Column --}}
+    <div class="col-span-3">
+        Column two
+    </div>
+    {{-- Column --}}
+    <div class="col-span-3">
+        Column three
+    </div>
+    {{-- Column --}}
+    <div class="col-span-3">
+        Column four
+    </div>
 
 </section>
 
