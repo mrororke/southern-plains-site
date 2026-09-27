@@ -19,41 +19,41 @@
             href="https://www.blueridgeprairie.studio/" />
     </div>
 
-    <div class="col-span-12 md:col-span-6 md:pr-0 pl-8 pr-8">
+    <div class="col-span-12 px-6 pt-8 md:col-span-6 md:pt-0 md:pl-8 md:pr-0">
 
-        <p class="text-eyebrow">
-            Southern Plains Training
-        </p>
+    <p class="text-eyebrow">
+        Southern Plains Training
+    </p>
 
-        <h1 class="text-hero">
-            Training Should Feel Good on Both Ends of the Leash
-        </h1>
+    <h1 class="text-4xl sm:text-5xl md:text-hero font-sans font-semibold text-sp-charcoal leading-[1.05]">
+        Training Should Feel Good on Both Ends of the Leash
+    </h1>
 
-        <div class="hl-break">
-            <hr>
-        </div>
+    <div class="hl-break">
+        <hr>
+    </div>
 
-        <p class="body-large">
-            Positive reinforcement, clear communication, and plenty of room to have fun. Southern Plains helps you build skills with the dog in front of you—without force, intimidation, or physical correction.
-        </p>
+    <p class="body-large">
+        Positive reinforcement, clear communication, and plenty of room to have fun. Southern Plains helps you build skills with the dog in front of you—without force, intimidation, or physical correction.
+    </p>
 
-        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 py-6">
+    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 py-6">
 
-            <a
-                href="#possibilities"
-                class="btn-primary">
-                Explore Training Options
-            </a>
+        <a
+            href="#possibilities"
+            class="btn-primary">
+            Explore Training Options
+        </a>
 
-            <a
-                href="{{ route('public-v2.about') }}"
-                class="btn-primary-outline">
-                Meet Melanie
-            </a>
-
-        </div>
+        <a
+            href="{{ route('public-v2.about') }}"
+            class="btn-primary-outline">
+            Meet Melanie
+        </a>
 
     </div>
+
+</div>
 </div>
 {{-- End Hero --}}
 
