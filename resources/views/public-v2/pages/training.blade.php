@@ -189,7 +189,7 @@
 
     <x-public-v2.image-registration
         text="Hamish, Photo by Blue Ridge Creative"
-        position="bottom" />
+        position="bottom" compact/>
 
 </div>
 

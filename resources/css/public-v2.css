@@ -371,6 +371,14 @@ p.body {
         @apply block bg-white;
     }
 
+    .image-registration-compact {
+    @apply right-6;
+}
+
+.image-registration-compact .image-registration-text-bottom {
+    @apply whitespace-normal;
+}
+
 }
 
 /* Right-side vertical variant */
