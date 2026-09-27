@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{-- Site Icons --}}
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon/favicon-32.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon/apple-touch-icon.png') }}">
 
     {{-- Primary Meta --}}
     <title>@yield('meta_title', 'Southern Plains Sport Dog Club')</title>
@@ -62,8 +65,8 @@
 
     {{-- Public V2 styles + scripts --}}
     @vite([
-        'resources/css/public-v2.css',
-        'resources/js/public-v2.js',
+    'resources/css/public-v2.css',
+    'resources/js/public-v2.js',
     ])
 
 
@@ -83,10 +86,10 @@
 
     <header class="header-topo">
 
-       <x-public-v2.navigation />
+        <x-public-v2.navigation />
 
 
-        
+
 
     </header>
 
@@ -97,7 +100,7 @@
 
 
     <x-public-v2.footer />
-       
+
 
 
     {{-- Brevo Form Configuration --}}
