@@ -462,7 +462,7 @@
 
             <li class="flex items-center gap-4">
 
-                <x-icons.circle-check
+                <x-icons.circle-check-big
                     class="w-8 h-8 shrink-0 text-sp-prairieGreen" />
 
                 <span class="body">
@@ -473,7 +473,7 @@
 
             <li class="flex items-center gap-4">
 
-                <x-icons.circle-check
+                <x-icons.circle-check-big
                     class="w-8 h-8 shrink-0 text-sp-prairieGreen" />
 
                 <span class="body">
@@ -484,7 +484,7 @@
 
             <li class="flex items-center gap-4">
 
-                <x-icons.circle-check
+                <x-icons.circle-check-big
                     class="w-8 h-8 shrink-0 text-sp-prairieGreen" />
 
                 <span class="body">
@@ -495,7 +495,7 @@
 
             <li class="flex items-center gap-4">
 
-                <x-icons.circle-check
+                <x-icons.circle-check-big
                     class="w-8 h-8 shrink-0 text-sp-prairieGreen" />
 
                 <span class="body">
