@@ -22,7 +22,7 @@
 
         <p class="text-eyebrow">
             Southern Plains Training
-</p>
+        </p>
 
         <h1 class="text-hero">
             Training Should Feel Good on Both Ends of the Leash
@@ -55,19 +55,84 @@
     </div>
 
     {{-- Train Differently --}}
+    <section class="grid grid-cols-12 px-8 py-16">
 
-    <div class="grid grid-cols-12 pt-8">
-        <div class="col-span-12 md:col-span-5 md:pr-0 pl-8 pr-8">
-            Left
+        {{-- Icon --}}
+        <div class="col-span-1">
+            {{-- Icon --}}
+            <x-icons.mouse-pointer-click />
         </div>
-        <div class="col-span-12 md:col-span-5 md:pr-0 pl-8 pr-8">
-            Right
+
+        {{-- Left Text Area --}}
+        <div class="col-span-5">
+
+            <p class="font-display font-bold text-2xl text-sp-burntClay">
+                Train Differently
+            </p>
+            <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
+                No Prongs. No Shock.<br class="hidden md:block">
+                No Forcing the Issue.
+            </h2>
+
+            <p class="body">
+                Southern Plains uses positive reinforcement and marker-based training to help dogs understand what we’re asking of them. Clickers are encouraged. Choice matters. And training should build confidence—not make your dog worry about what happens when they get it wrong.
+            </p>
+
         </div>
 
-    </div>
+        {{-- Divider --}}
+        <div class="col-span-1 flex justify-center">
+            <div class="border-l border-sp-warmStone h-full"></div>
+        </div>
+
+        {{-- Right Benefits Area --}}
+        <div class="col-span-5">
+
+            {{-- Benefit --}}
+            <div class="flex gap-6">
+
+                {{-- Icon --}}
+
+                <div>
+                    {{-- Benefit Heading --}}
+
+                    {{-- Benefit Copy --}}
+                </div>
+
+            </div>
+
+            {{-- Benefit --}}
+            <div class="flex gap-6">
+
+                {{-- Icon --}}
+
+                <div>
+                    {{-- Benefit Heading --}}
+
+                    {{-- Benefit Copy --}}
+                </div>
+
+            </div>
+
+            {{-- Benefit --}}
+            <div class="flex gap-6">
+
+                {{-- Icon --}}
+
+                <div>
+                    {{-- Benefit Heading --}}
+
+                    {{-- Benefit Copy --}}
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
 
 
-    
+
 
 </div>
 
