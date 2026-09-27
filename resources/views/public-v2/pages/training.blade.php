@@ -178,7 +178,7 @@
     <div class="col-span-12 grid grid-cols-4 gap-6">
 
         {{-- Card One --}}
-        <div class="flex flex-col">
+        <div class="flex flex-col h-full">
 
             {{-- Card Image --}}
             <div class="relative">
@@ -214,7 +214,7 @@
         </div>
 
         {{-- Card Two --}}
-        <div class="flex flex-col">
+        <div class="flex flex-col h-full">
 
             {{-- Card Image --}}
             <div class="relative">
@@ -250,7 +250,7 @@
         </div>
 
         {{-- Card Three --}}
-        <div class="flex flex-col">
+        <div class="flex flex-col h-full">
 
             {{-- Card Image --}}
             <div class="relative">
@@ -286,7 +286,7 @@
         </div>
 
         {{-- Card Four --}}
-        <div class="flex flex-col">
+        <div class="flex flex-col h-full">
 
             {{-- Card Image --}}
             <div class="relative">
