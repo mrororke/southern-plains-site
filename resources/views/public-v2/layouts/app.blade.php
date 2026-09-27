@@ -87,6 +87,22 @@
 
     @yield('structured_data')
 
+    {{-- Google Analytics --}}
+    @if (app()->environment('production') && config('services.google_analytics.measurement_id'))
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ config('services.google_analytics.measurement_id') }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+        gtag('config', '{{ config('
+            services.google_analytics.measurement_id ') }}');
+    </script>
+    @endif
+
 </head>
 
 <body class="bg-sp-warmIvory">
