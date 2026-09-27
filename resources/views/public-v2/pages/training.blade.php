@@ -59,19 +59,22 @@
 {{-- Train Differently --}}
 <section class="grid grid-cols-12 px-8 py-16">
 
+    {{-- Empty Column --}}
+    <div class="col-span-1"></div>
+
     {{-- Icon --}}
-    <div class="col-span-1 flex justify-end pr-6">
-        {{-- Icon --}}
-        <x-icons.mouse-pointer-click 
-            class="w-12 h-12 text-sp-prairieGreen"/>
+    <div class="col-span-1">
+        <x-icons.mouse-pointer-click
+            class="w-12 h-12 text-sp-prairieGreen" />
     </div>
 
     {{-- Left Text Area --}}
-    <div class="col-span-5 pr-12">
+    <div class="col-span-4">
 
         <p class="font-display font-bold text-2xl text-sp-burntClay">
             Train Differently
         </p>
+
         <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
             No Prongs. No Shock.<br class="hidden md:block">
             No Forcing the Issue.
@@ -89,25 +92,25 @@
     </div>
 
     {{-- Right Benefits Area --}}
-    <div class="col-span-5 pl-6 flex flex-col gap-6">
+    <div class="col-span-4 flex flex-col gap-6">
 
-       {{-- Benefit --}}
-<div class="flex gap-6">
+        {{-- Benefit --}}
+        <div class="flex gap-6">
 
-    <x-icons.message-circle-more
-        class="w-10 h-10 shrink-0 text-sp-prairieOchre" />
+            <x-icons.message-circle-more
+                class="w-10 h-10 shrink-0 text-sp-prairieOchre" />
 
-    <div>
-        <h3 class="font-sans font-semibold text-sp-charcoal">
-            Communicate Clearly
-        </h3>
+            <div>
+                <h3 class="font-sans font-semibold text-sp-charcoal">
+                    Communicate Clearly
+                </h3>
 
-        <p class="body">
-            Make it easy for your dog to understand what earns reinforcement.
-        </p>
-    </div>
+                <p class="body">
+                    Make it easy for your dog to understand what earns reinforcement.
+                </p>
+            </div>
 
-</div>
+        </div>
 
         {{-- Benefit --}}
         <div class="flex gap-6">
@@ -116,7 +119,6 @@
 
             <div>
                 {{-- Benefit Heading --}}
-
                 {{-- Benefit Copy --}}
             </div>
 
@@ -129,13 +131,15 @@
 
             <div>
                 {{-- Benefit Heading --}}
-
                 {{-- Benefit Copy --}}
             </div>
 
         </div>
 
     </div>
+
+    {{-- Empty Column --}}
+    <div class="col-span-1"></div>
 
 </section>
 
