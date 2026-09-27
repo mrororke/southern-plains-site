@@ -10,12 +10,12 @@
 
         <img
             class="w-full h-full"
-            src="{{ asset('images/headers/header-home.png') }}"
+            src="{{ asset('images/headers/header-training.png') }}"
             alt="Black and white Sheltie standing among wildflowers on the Oklahoma prairie.">
 
         <x-public-v2.image-registration
             text="Hamish, Photo by Blue Ridge Creative"
-            position="right" />
+            position="left" />
     </div>
 
     <div class="col-span-12 md:col-span-5 md:pr-0 pl-8 pr-8">

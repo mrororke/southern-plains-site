@@ -5,22 +5,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Southern Plains Sport Dog Club</title>
+    {{-- Primary Meta --}}
+    <title>@yield('meta_title', 'Southern Plains Sport Dog Club')</title>
 
-    <!-- TODO
-    Don't forget to build in dynamic Meta Information
-    We also need a favicon -->
+    <meta
+        name="description"
+        content="@yield('meta_description', 'Positive reinforcement dog training, dog sports, events, and resources in Oklahoma.')">
+
+    <link
+        rel="canonical"
+        href="@yield('canonical_url', url()->current())">
+
+
+    {{-- Open Graph --}}
+    <meta property="og:type" content="@yield('og_type', 'website')">
+    <meta property="og:site_name" content="Southern Plains Sport Dog Club">
+
+    <meta
+        property="og:title"
+        content="@yield('og_title', 'Southern Plains Sport Dog Club')">
+
+    <meta
+        property="og:description"
+        content="@yield('og_description', 'Positive reinforcement dog training, dog sports, events, and resources in Oklahoma.')">
+
+    <meta
+        property="og:url"
+        content="@yield('canonical_url', url()->current())">
+
+    <meta
+        property="og:image"
+        content="@yield('og_image', asset('images/og/default.jpg'))">
+
+
+    {{-- Social Sharing --}}
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta
+        name="twitter:title"
+        content="@yield('og_title', 'Southern Plains Sport Dog Club')">
+
+    <meta
+        name="twitter:description"
+        content="@yield('og_description', 'Positive reinforcement dog training, dog sports, events, and resources in Oklahoma.')">
+
+    <meta
+        name="twitter:image"
+        content="@yield('og_image', asset('images/og/default.jpg'))">
+
 
     {{-- Brevo base styles --}}
     <link
         rel="stylesheet"
         href="https://sibforms.com/forms/end-form/build/sib-styles.css">
 
+
     {{-- Public V2 styles + scripts --}}
     @vite([
-    'resources/css/public-v2.css',
-    'resources/js/public-v2.js',
+        'resources/css/public-v2.css',
+        'resources/js/public-v2.js',
     ])
+
 
     {{-- Brevo message panels begin hidden.
          Brevo's JS controls their visibility after submission. --}}

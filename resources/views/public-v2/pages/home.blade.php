@@ -1,5 +1,12 @@
 @extends('public-v2.layouts.app')
 
+@section('meta_title', 'Dog Training & Dog Sports in Oklahoma | Southern Plains Sport Dog Club')
+@section('meta_description', 'Positive reinforcement dog training, dog sports, events, and resources in Oklahoma. Play, train, and grow with Southern Plains Sport Dog Club.')
+@section('og_title', 'Do Great Things With Your Dog | Southern Plains Sport Dog Club')
+@section('og_description', 'Positive reinforcement training, dog sports, events, and a community built around doing more with your dog.')
+@section('og_image', asset('images/og/home.jpg'))
+@section('canonical_url', 'https://southernplains.dog/')
+
 @section('content')
 
 {{-- Hero --}}
