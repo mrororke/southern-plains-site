@@ -1,6 +1,7 @@
 @props([
     'text',
     'position' => 'right',
+    'compact' => false,
 ])
 
 @php
@@ -15,9 +16,13 @@
         'bottom' => 'image-registration-text-bottom',
         default => 'image-registration-text-right',
     };
+
+    $compactClass = $compact
+        ? 'image-registration-compact'
+        : '';
 @endphp
 
-<div class="image-registration {{ $positionClass }}">
+<div class="image-registration {{ $positionClass }} {{ $compactClass }}">
 
     <x-icons.locate-fixed class="image-registration-mark" />
 
