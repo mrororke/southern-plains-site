@@ -178,7 +178,21 @@
 
         {{-- Card One --}}
         <div>
-            Column One
+            <img
+            class="w-full h-full"
+            src="{{ asset('images/training/training-skills.png') }}"
+            alt="Black and white Sheltie looking up at his handler, who is showing empty hands.">
+
+            <p class="body font-bold">
+                    Build Everyday Skills
+                </p>
+                <p class="body">
+                    Manners, communication, CGC preparations, and stronger foundations for real life.
+                </p>
+                <a href="#" class="learn-more-link text-sp-prairieGreen">
+                Learn More
+                <x-icons.move-right />
+            </a>
         </div>
 
         {{-- Card Two --}}
