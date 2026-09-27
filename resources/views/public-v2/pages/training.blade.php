@@ -188,8 +188,10 @@
         alt="Black and white Sheltie looking up at his handler, who is showing empty hands.">
 
     <x-public-v2.image-registration
-        text="Hamish, Photo by Blue Ridge Creative"
-        position="bottom" compact/>
+    text="Hamish, Photo by Blue Ridge Creative"
+    position="bottom"
+    compact
+    href="https://www.blueridgeprairie.studio/" />
 
 </div>
 
