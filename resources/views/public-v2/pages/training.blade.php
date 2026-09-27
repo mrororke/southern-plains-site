@@ -11,7 +11,7 @@
         <img
             class="w-full h-full"
             src="{{ asset('images/headers/header-training.png') }}"
-            alt="Black and white Sheltie standing among wildflowers on the Oklahoma prairie.">
+            alt="Black and white Sheltie standing near a deer antler, looking up at his handler.">
 
         <x-public-v2.image-registration
             text="Hamish, Photo by Blue Ridge Creative"
@@ -21,14 +21,11 @@
     <div class="col-span-12 md:col-span-5 md:pr-0 pl-8 pr-8">
 
         <h3 class="text-eyebrow">
-            Play. Train. Grow
+            Southern Plains Training
         </h3>
 
         <h1 class="text-hero">
-            More Ways to Do Great Things<br class="hidden md:block">
-            <span class="text-hero-emphasis">
-                With Your Dog.
-            </span>
+            Training Should Feel Good on Both Ends of the Leash
         </h1>
 
         <div class="hl-break">
@@ -36,9 +33,7 @@
         </div>
 
         <p class="body-large">
-            Positive reinforcement training. Dog sports. Real community.
-            We’re here to help you and your dog learn, play,
-            and thrive — together.
+            Positive reinforcement, clear communication, and plenty of room to have fun. Southern Plains  helps you build skills with the dog in front of you—without force, intimidation, or physical correction.
         </p>
 
         <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 py-6">
@@ -46,13 +41,13 @@
             <a
                 href="#possibilities"
                 class="btn-primary">
-                Explore What's Possible
+                Explore Training Options
             </a>
 
             <a
-                href="{{ route('public-v2.events.index') }}"
+                href="{{ route('public-v2.about') }}"
                 class="btn-primary-outline">
-                View Events
+                Meet Melanie
             </a>
 
         </div>
