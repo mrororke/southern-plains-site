@@ -7,6 +7,28 @@
 @section('og_image', asset('images/og/home.jpg'))
 @section('canonical_url', 'https://southernplains.dog/')
 
+@section('structured_data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Southern Plains Sport Dog Club, LLC",
+    "url": "https://southernplains.dog/",
+    "logo": "https://southernplains.dog/images/logo.svg",
+    "email": "southernplainssportdogclub@gmail.com",
+    "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Northeast Oklahoma"
+    },
+    "sameAs": [
+        "https://www.facebook.com/southernplainsportdogclub",
+        "https://www.instagram.com/southernplainssdc/",
+        "https://www.youtube.com/@southernplainssportdogs"
+    ]
+}
+</script>
+@endsection
+
 @section('content')
 
 {{-- Hero --}}

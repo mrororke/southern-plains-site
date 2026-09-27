@@ -75,6 +75,8 @@
         }
     </style>
 
+    @yield('structured_data')
+
 </head>
 
 <body class="bg-sp-warmIvory">
