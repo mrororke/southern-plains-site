@@ -160,23 +160,6 @@
 {{-- What Do You Want to Do --}}
 <section
     id="possibilities"
-    class="grid grid-cols-12 px-8 py-16 bg-sp-limestone">
-
-    {{-- Section Intro --}}
-    <div class="col-span-12 mb-12">
-
-        <p class="font-display font-bold text-2xl text-sp-burntClay">
-            What Do You Want to Do With Your Dog?
-        </p>
-
-        <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-            Find the Right Path for You
-        </h2>
-
-    </div>
-    {{-- What Do You Want to Do --}}
-<section
-    id="possibilities"
     class="grid grid-cols-12 px-6 py-12 md:px-8 md:py-16 bg-sp-limestone">
 
     {{-- Section Intro --}}
@@ -343,7 +326,6 @@
 
 </section>
 {{-- End What Do You Want to Do --}}
-
 
 {{-- Current Opportunities --}}
 <section
