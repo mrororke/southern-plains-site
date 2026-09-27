@@ -398,7 +398,7 @@ p.body {
 @layer components {
 
     .image-registration-left {
-        @apply top-8 left-8 flex-col;
+        @apply top-8 left-8 flex-col-reverse;
     }
 
     .image-registration-left .image-registration-line {
