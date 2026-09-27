@@ -254,6 +254,15 @@ p.body {
     line-height: 24px; /* 133.333% */
 }
 
+p.body-small {
+    @apply text-sp-slate font-sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px; /* 133.333% */
+
+}
+
 /* ==========================================================================
    06. Text links and horizontal dividers
    ========================================================================== */

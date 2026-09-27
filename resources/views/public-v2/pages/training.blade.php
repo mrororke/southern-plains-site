@@ -535,12 +535,12 @@
     <div class="col-span-5 grid grid-cols-4">
 
         {{-- AKC CGC Evaluator --}}
-        <div class="pr-6 border-r border-sp-warmStone">
+        <div class="pr-6 border-r border-sp-warmStone text-center">
 
             <x-icons.clipboard-check
-                class="w-8 h-8 text-sp-charcoal mb-4" />
+                class="w-8 h-8 text-sp-charcoal mb-4 mx-auto" />
 
-            <p class="body">
+            <p class="body-small">
                 AKC CGC<br>
                 Evaluator
             </p>
@@ -548,12 +548,12 @@
         </div>
 
         {{-- AKC Fit Dog Instructor --}}
-        <div class="px-6 border-r border-sp-warmStone">
+        <div class="px-6 border-r border-sp-warmStone text-center">
 
             <x-icons.activity
-                class="w-8 h-8 text-sp-charcoal mb-4" />
+                class="w-8 h-8 text-sp-charcoal mb-4 mx-auto" />
 
-            <p class="body">
+            <p class="body-small">
                 AKC Fit Dog<br>
                 Instructor
             </p>
@@ -561,12 +561,12 @@
         </div>
 
         {{-- Click to Calm --}}
-        <div class="px-6 border-r border-sp-warmStone">
+        <div class="px-6 border-r border-sp-warmStone text-center">
 
             <x-icons.graduation-cap
-                class="w-8 h-8 text-sp-charcoal mb-4" />
+                class="w-8 h-8 text-sp-charcoal mb-4 mx-auto" />
 
-            <p class="body">
+            <p class="body-small">
                 Click to Calm<br>
                 Instructor<br>
                 In Progress
@@ -575,12 +575,12 @@
         </div>
 
         {{-- NASDA Judge --}}
-        <div class="pl-6">
+        <div class="pl-6 text-center">
 
             <x-icons.badge-check
-                class="w-8 h-8 text-sp-charcoal mb-4" />
+                class="w-8 h-8 text-sp-charcoal mb-4 mx-auto" />
 
-            <p class="body">
+            <p class="body-small">
                 NASDA<br>
                 Judge
             </p>
