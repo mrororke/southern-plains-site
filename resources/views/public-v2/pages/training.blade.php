@@ -570,62 +570,62 @@
     </div>
 
     {{-- Credentials --}}
-    <div class="col-span-12 md:col-span-5 grid grid-cols-2 md:grid-cols-4">
+<ul class="col-span-12 md:col-span-5 grid grid-cols-2 md:grid-cols-4">
 
-        {{-- AKC CGC Evaluator --}}
-        <div class="p-6 border-r border-b md:border-b-0 border-sp-warmStone text-center md:pt-0 md:pb-0 md:pl-0 md:pr-6">
+    {{-- AKC CGC Evaluator --}}
+    <li class="p-6 border-r border-b md:border-b-0 border-sp-warmStone text-center md:pt-0 md:pb-0 md:pl-0 md:pr-6">
 
-            <x-icons.clipboard-check
-                class="w-8 h-8 text-sp-charcoal mb-4 mx-auto" />
+        <x-icons.clipboard-check
+            class="w-8 h-8 text-sp-charcoal mb-4 mx-auto" />
 
-            <p class="body-small">
-                AKC CGC<br>
-                Evaluator
-            </p>
+        <p class="body-small">
+            AKC CGC<br>
+            Evaluator
+        </p>
 
-        </div>
+    </li>
 
-        {{-- AKC Fit Dog Instructor --}}
-        <div class="p-6 border-b md:border-b-0 md:border-r border-sp-warmStone text-center">
+    {{-- AKC Fit Dog Instructor --}}
+    <li class="p-6 border-b md:border-b-0 md:border-r border-sp-warmStone text-center">
 
-            <x-icons.activity
-                class="w-8 h-8 text-sp-charcoal mb-4 mx-auto" />
+        <x-icons.activity
+            class="w-8 h-8 text-sp-charcoal mb-4 mx-auto" />
 
-            <p class="body-small">
-                AKC Fit Dog<br>
-                Instructor
-            </p>
+        <p class="body-small">
+            AKC Fit Dog<br>
+            Instructor
+        </p>
 
-        </div>
+    </li>
 
-        {{-- Click to Calm --}}
-        <div class="p-6 border-r border-sp-warmStone text-center md:py-0">
+    {{-- Click to Calm --}}
+    <li class="p-6 border-r border-sp-warmStone text-center md:py-0">
 
-            <x-icons.graduation-cap
-                class="w-8 h-8 text-sp-charcoal mb-4 mx-auto" />
+        <x-icons.graduation-cap
+            class="w-8 h-8 text-sp-charcoal mb-4 mx-auto" />
 
-            <p class="body-small">
-                Click to Calm<br>
-                Instructor<br>
-                In Progress
-            </p>
+        <p class="body-small">
+            Click to Calm<br>
+            Instructor<br>
+            In Progress
+        </p>
 
-        </div>
+    </li>
 
-        {{-- NASDA Judge --}}
-        <div class="p-6 text-center md:pt-0 md:pb-0 md:pr-0">
+    {{-- NASDA Judge --}}
+    <li class="p-6 text-center md:pt-0 md:pb-0 md:pr-0">
 
-            <x-icons.badge-check
-                class="w-8 h-8 text-sp-charcoal mb-4 mx-auto" />
+        <x-icons.badge-check
+            class="w-8 h-8 text-sp-charcoal mb-4 mx-auto" />
 
-            <p class="body-small">
-                NASDA<br>
-                Judge
-            </p>
+        <p class="body-small">
+            NASDA<br>
+            Judge
+        </p>
 
-        </div>
+    </li>
 
-    </div>
+</ul>
 
     {{-- About CTA --}}
     <div class="col-span-12 md:col-span-2 flex items-center">
