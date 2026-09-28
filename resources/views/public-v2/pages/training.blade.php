@@ -1,5 +1,39 @@
 @extends('public-v2.layouts.app')
 
+@section('meta_title', 'Positive Reinforcement Dog Training in Oklahoma | Southern Plains')
+
+@section('meta_description', 'Positive reinforcement dog training in Oklahoma for everyday skills, tricks, dog sports, AKC Trick Dog evaluations, and stronger dog-handler teams.')
+
+@section('og_title', 'Train the Dog in Front of You | Southern Plains')
+
+@section('og_description', 'Positive reinforcement training for everyday skills, tricks, dog sports, and stronger partnerships with your dog.')
+
+@section('og_image', asset('images/og/training.jpg'))
+
+@section('canonical_url', 'https://southernplains.dog/training')
+
+@section('structured_data')
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Positive Reinforcement Dog Training in Oklahoma",
+        "url": "https://southernplains.dog/training",
+        "description": "Positive reinforcement dog training in Oklahoma for everyday skills, tricks, dog sports, AKC Trick Dog evaluations, and stronger dog-handler teams.",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Southern Plains Sport Dog Club",
+            "url": "https://southernplains.dog/"
+        },
+        "about": {
+            "@type": "Organization",
+            "name": "Southern Plains Sport Dog Club, LLC",
+            "url": "https://southernplains.dog/"
+        }
+    }
+</script>
+@endsection
+
 @section('content')
 
 {{-- Hero --}}
