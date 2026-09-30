@@ -275,87 +275,87 @@
 <section class="grid grid-cols-12 gap-6 px-8 py-16 bg-sp-prairieGreen text-sp-warmIvory">
 
     {{-- Intro --}}
-    <div class="col-span-4 pr-8">
+    <div class="col-span-4 pr-6">
 
-        <p class="font-display font-bold text-2xl">
+        <p class="font-display font-bold text-2xl text-sp-warmIvory">
             Get Involved
         </p>
 
-        <h2 class="font-sans text-3xl font-semibold mt-3">
+        <h2 class="font-sans text-3xl font-semibold text-sp-warmIvory mt-3">
             Play With Us.
         </h2>
 
-        <p class="body-large mt-4">
+        <p class="body-large text-sp-warmIvory mt-4">
             Southern Plains offers opportunities for every stage of your dog sports journey.
         </p>
 
         <a
             href="{{ route('public-v2.events.index') }}"
-            class="btn-light mt-6">
+            class="btn-primary-outline mt-6 bg-sp-warmIvory">
             View Upcoming Events
         </a>
 
     </div>
 
     {{-- NASDA Trials --}}
-    <div class="col-span-2 px-6 border-r border-sp-warmIvory/30">
+    <div class="col-span-2 pr-6 border-r border-sp-warmIvory/40">
 
         <x-icons.calendar-days
             class="w-10 h-10 text-sp-warmIvory mb-6" />
 
-        <h3 class="font-sans font-semibold text-xl">
+        <h3 class="font-sans font-semibold text-xl text-sp-warmIvory">
             NASDA Trials
         </h3>
 
-        <p class="body-small mt-3">
+        <p class="body-small text-sp-warmIvory mt-3">
             Earn titles and celebrate your team’s hard work in a supportive competitive setting.
         </p>
 
     </div>
 
     {{-- Training Days --}}
-    <div class="col-span-2 px-6 border-r border-sp-warmIvory/30">
+    <div class="col-span-2 pr-6 border-r border-sp-warmIvory/40">
 
         <x-icons.route
             class="w-10 h-10 text-sp-warmIvory mb-6" />
 
-        <h3 class="font-sans font-semibold text-xl">
+        <h3 class="font-sans font-semibold text-xl text-sp-warmIvory">
             Training Days
         </h3>
 
-        <p class="body-small mt-3">
+        <p class="body-small text-sp-warmIvory mt-3">
             Practice and learn in a fun, low-pressure environment with like-minded handlers.
         </p>
 
     </div>
 
     {{-- Sport Dog League --}}
-    <div class="col-span-2 px-6 border-r border-sp-warmIvory/30">
+    <div class="col-span-2 pr-6 border-r border-sp-warmIvory/40">
 
         <x-icons.medal
             class="w-10 h-10 text-sp-warmIvory mb-6" />
 
-        <h3 class="font-sans font-semibold text-xl">
+        <h3 class="font-sans font-semibold text-xl text-sp-warmIvory">
             Sport Dog League
         </h3>
 
-        <p class="body-small mt-3">
+        <p class="body-small text-sp-warmIvory mt-3">
             Earn titles and celebrate your team’s hard work in a supportive competitive setting.
         </p>
 
     </div>
 
     {{-- First Trial Prep --}}
-    <div class="col-span-2 pl-6">
+    <div class="col-span-2">
 
         <x-icons.book-open
             class="w-10 h-10 text-sp-warmIvory mb-6" />
 
-        <h3 class="font-sans font-semibold text-xl">
+        <h3 class="font-sans font-semibold text-xl text-sp-warmIvory">
             First Trial Prep
         </h3>
 
-        <p class="body-small mt-3">
+        <p class="body-small text-sp-warmIvory mt-3">
             Resources and mentorship to help you feel confident and ready.
         </p>
 
@@ -363,19 +363,18 @@
 
 </section>
 {{-- End Play With Us --}}
-
 {{-- Southern Plains Sport Dog League --}}
 <section class="grid grid-cols-12 gap-6 px-8 py-16 bg-sp-warmIvory">
 
     {{-- Image --}}
     <div class="col-span-4">
 
-        <div class="relative h-full">
+        <div class="relative">
 
             <img
                 src="{{ asset('images/dog-sports/league.jpg') }}"
                 alt="Hamish, a black and white Sheltie, finding a shed antler."
-                class="w-full h-full object-cover">
+                class="w-full aspect-[4/3] object-cover">
 
             <x-public-v2.image-registration
                 text="Hamish, Photo by Blue Ridge Creative"
@@ -388,7 +387,7 @@
     </div>
 
     {{-- League Intro --}}
-    <div class="col-span-5 flex items-center">
+    <div class="col-span-4 flex items-center">
 
         <div>
 
@@ -415,13 +414,13 @@
 
     </div>
 
-    {{-- Breathing Room --}}
-    <div class="col-span-1"></div>
+    {{-- Intentional Empty Space --}}
+    <div class="col-span-2"></div>
 
     {{-- League Features --}}
     <div class="col-span-2 flex items-center">
 
-        <div class="w-full bg-sp-limestone rounded-md p-8">
+        <div class="w-full bg-sp-limestone rounded-md p-6">
 
             <ul class="flex flex-col gap-6">
 
