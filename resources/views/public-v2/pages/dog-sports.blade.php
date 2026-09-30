@@ -34,7 +34,7 @@
 </script>
 @endsection
 
-@section('content')
+@section('hero')
 
 {{-- Hero --}}
 <div
@@ -91,6 +91,12 @@
     </div>
 
 </div>
+
+{{-- End Hero --}}
+
+@endsection
+
+@section('content')
 
 {{-- Start Where You Are --}}
 <section class="grid grid-cols-12 gap-6 px-6 py-12 md:px-8 md:py-16 bg-sp-warmIvory">
