@@ -176,7 +176,7 @@
 {{-- End Featured Article --}}
 
 {{-- Learn Articles --}}
-<section class="grid grid-cols-12 gap-6 px-6 pb-12 md:px-8 md:pb-16">
+<section class="grid grid-cols-12 items-start gap-6 px-6 pb-12 md:px-8 md:pb-16">
 
     {{-- Article Card --}}
     <article class="col-span-12 md:col-span-4 flex flex-col rounded-md border border-sp-warmStone p-4">
