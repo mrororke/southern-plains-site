@@ -88,6 +88,87 @@
 
 </div>
 
+{{-- Start Where You Are --}}
+<section class="grid grid-cols-12 gap-6 px-8 py-16 bg-sp-warmIvory">
+
+    {{-- Intro --}}
+    <div class="col-span-6">
+
+        <p class="font-display font-bold text-2xl text-sp-burntClay">
+            Start Where You Are
+        </p>
+
+        <h2 class="font-sans text-3xl font-semibold text-sp-charcoal mt-3">
+            You Don’t Need a Sport Dog.<br>
+            You Need Your Dog.
+        </h2>
+
+        <p class="body mt-4 max-w-xl">
+            Dog sports aren’t just for certain breeds, highly trained dogs, or experienced competitors. They’re for any dog and any person who want to build a stronger partnership, and have a blast doing it.
+        </p>
+
+    </div>
+
+    {{-- Principles --}}
+    <div class="col-span-6 grid grid-cols-4 self-center">
+
+        {{-- Fun --}}
+        <div class="px-6 text-center border-r border-sp-warmStone">
+
+            <x-icons.balloon
+            class="w-10 h-10 md:w-12 md:h-12 text-sp-prairieGreen" />
+
+            <p class="body-small mt-4">
+                Fun for dogs<br>
+                and people
+            </p>
+
+        </div>
+
+        {{-- Confidence --}}
+        <div class="px-6 text-center border-r border-sp-warmStone">
+
+           <x-icons.paw-print
+            class="w-10 h-10 md:w-12 md:h-12 text-sp-prairieGreen" />
+
+            <p class="body-small mt-4">
+                Build confidence<br>
+                and connection
+            </p>
+
+        </div>
+
+        {{-- Inclusive --}}
+        <div class="px-6 text-center border-r border-sp-warmStone">
+
+            <x-icons.users
+            class="w-10 h-10 md:w-12 md:h-12 text-sp-prairieGreen" />
+
+            <p class="body-small mt-4">
+                All breeds.<br>
+                All sizes.
+            </p>
+
+        </div>
+
+        {{-- Start Small --}}
+        <div class="px-6 text-center">
+
+            <x-icons.heart
+            class="w-10 h-10 md:w-12 md:h-12 text-sp-prairieGreen" />
+
+            <p class="body-small mt-4">
+                Start small.<br>
+                Go at your pace.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+{{-- End Start Where You Are --}}
+
 
 
 
