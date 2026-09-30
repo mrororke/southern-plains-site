@@ -39,32 +39,32 @@
     <div class="col-span-12 min-w-0 mt-4 md:mt-8">
 
         {{-- Search --}}
-        <form
-            role="search"
-            class="w-full">
+<form
+    role="search"
+    class="w-full min-w-0">
 
-            <label
-                for="learn-search"
-                class="sr-only">
-                Search Learn
-            </label>
+    <label
+        for="learn-search"
+        class="sr-only">
+        Search Learn
+    </label>
 
-            <div class="relative">
+    <div class="relative w-full min-w-0">
 
-                <x-icons.search
-                    class="absolute left-4 top-1/2 w-5 h-5 -translate-y-1/2 text-sp-slate"
-                    aria-hidden="true" />
+        <x-icons.search
+            class="absolute left-4 top-1/2 w-5 h-5 -translate-y-1/2 text-sp-slate"
+            aria-hidden="true" />
 
-                <input
-                    type="search"
-                    id="learn-search"
-                    name="search"
-                    placeholder="Search guides, articles, and book reviews"
-                    class="w-full rounded-md border border-sp-warmStone bg-sp-warmIvory py-4 pl-12 pr-4 text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none">
+        <input
+            type="search"
+            id="learn-search"
+            name="search"
+            placeholder="Search guides, articles, and book reviews"
+            class="block w-full min-w-0 max-w-full rounded-md border border-sp-warmStone bg-sp-warmIvory py-4 pl-12 pr-4 text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none">
 
-            </div>
+    </div>
 
-        </form>
+</form>
 
         {{-- Filters --}}
         <nav
