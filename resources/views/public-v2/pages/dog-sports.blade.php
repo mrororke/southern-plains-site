@@ -271,6 +271,213 @@
 </section>
 {{-- End Find Your Game --}}
 
+{{-- Play With Us --}}
+<section class="grid grid-cols-12 gap-6 px-8 py-16 bg-sp-prairieGreen text-sp-warmIvory">
+
+    {{-- Intro --}}
+    <div class="col-span-4 pr-8">
+
+        <p class="font-display font-bold text-2xl">
+            Get Involved
+        </p>
+
+        <h2 class="font-sans text-3xl font-semibold mt-3">
+            Play With Us.
+        </h2>
+
+        <p class="body-large mt-4">
+            Southern Plains offers opportunities for every stage of your dog sports journey.
+        </p>
+
+        <a
+            href="{{ route('public-v2.events.index') }}"
+            class="btn-light mt-6">
+            View Upcoming Events
+        </a>
+
+    </div>
+
+    {{-- NASDA Trials --}}
+    <div class="col-span-2 px-6 border-r border-sp-warmIvory/30">
+
+        <x-icons.calendar-days
+            class="w-10 h-10 text-sp-warmIvory mb-6" />
+
+        <h3 class="font-sans font-semibold text-xl">
+            NASDA Trials
+        </h3>
+
+        <p class="body-small mt-3">
+            Earn titles and celebrate your team’s hard work in a supportive competitive setting.
+        </p>
+
+    </div>
+
+    {{-- Training Days --}}
+    <div class="col-span-2 px-6 border-r border-sp-warmIvory/30">
+
+        <x-icons.route
+            class="w-10 h-10 text-sp-warmIvory mb-6" />
+
+        <h3 class="font-sans font-semibold text-xl">
+            Training Days
+        </h3>
+
+        <p class="body-small mt-3">
+            Practice and learn in a fun, low-pressure environment with like-minded handlers.
+        </p>
+
+    </div>
+
+    {{-- Sport Dog League --}}
+    <div class="col-span-2 px-6 border-r border-sp-warmIvory/30">
+
+        <x-icons.medal
+            class="w-10 h-10 text-sp-warmIvory mb-6" />
+
+        <h3 class="font-sans font-semibold text-xl">
+            Sport Dog League
+        </h3>
+
+        <p class="body-small mt-3">
+            Earn titles and celebrate your team’s hard work in a supportive competitive setting.
+        </p>
+
+    </div>
+
+    {{-- First Trial Prep --}}
+    <div class="col-span-2 pl-6">
+
+        <x-icons.book-open
+            class="w-10 h-10 text-sp-warmIvory mb-6" />
+
+        <h3 class="font-sans font-semibold text-xl">
+            First Trial Prep
+        </h3>
+
+        <p class="body-small mt-3">
+            Resources and mentorship to help you feel confident and ready.
+        </p>
+
+    </div>
+
+</section>
+{{-- End Play With Us --}}
+
+{{-- Southern Plains Sport Dog League --}}
+<section class="grid grid-cols-12 gap-6 px-8 py-16 bg-sp-warmIvory">
+
+    {{-- Image --}}
+    <div class="col-span-4">
+
+        <div class="relative h-full">
+
+            <img
+                src="{{ asset('images/dog-sports/league.jpg') }}"
+                alt="Hamish, a black and white Sheltie, finding a shed antler."
+                class="w-full h-full object-cover">
+
+            <x-public-v2.image-registration
+                text="Hamish, Photo by Blue Ridge Creative"
+                position="bottom"
+                compact
+                href="https://www.blueridgeprairie.studio/" />
+
+        </div>
+
+    </div>
+
+    {{-- League Intro --}}
+    <div class="col-span-5 flex items-center">
+
+        <div>
+
+            <p class="font-display font-bold text-2xl text-sp-burntClay">
+                More Ways to Play
+            </p>
+
+            <h2 class="font-sans text-3xl font-semibold text-sp-charcoal mt-3">
+                Southern Plains<br>
+                Sport Dog League
+            </h2>
+
+            <p class="body-large mt-4">
+                A year-long league for handlers and dogs of all experience levels. Earn points, track your progress, and celebrate at the end of season party.
+            </p>
+
+            <a
+                href="#"
+                class="btn-secondary mt-6">
+                Explore the League
+            </a>
+
+        </div>
+
+    </div>
+
+    {{-- Breathing Room --}}
+    <div class="col-span-1"></div>
+
+    {{-- League Features --}}
+    <div class="col-span-2 flex items-center">
+
+        <div class="w-full bg-sp-limestone rounded-md p-8">
+
+            <ul class="flex flex-col gap-6">
+
+                <li class="flex items-center gap-4">
+
+                    <x-icons.dog
+                        class="w-8 h-8 shrink-0 text-sp-charcoal" />
+
+                    <span class="body-small">
+                        Open to handlers and dogs of all levels
+                    </span>
+
+                </li>
+
+                <li class="flex items-center gap-4">
+
+                    <x-icons.trophy
+                        class="w-8 h-8 shrink-0 text-sp-charcoal" />
+
+                    <span class="body-small">
+                        Earn points at League Days throughout the year.
+                    </span>
+
+                </li>
+
+                <li class="flex items-center gap-4">
+
+                    <x-icons.chart-no-axes-column
+                        class="w-8 h-8 shrink-0 text-sp-charcoal" />
+
+                    <span class="body-small">
+                        Season standings and rewards
+                    </span>
+
+                </li>
+
+                <li class="flex items-center gap-4">
+
+                    <x-icons.handshake
+                        class="w-8 h-8 shrink-0 text-sp-charcoal" />
+
+                    <span class="body-small">
+                        Community and friendly competition
+                    </span>
+
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</section>
+{{-- End Southern Plains Sport Dog League --}}
+
 
 
 
