@@ -44,6 +44,7 @@
 
         <h1 class="text-hero">
             Your dog was Made to do Stuff.
+            </span>
         </h1>
 
         <div class="hl-break">
@@ -57,9 +58,9 @@
         <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 py-6">
 
             <a
-                href="#discovery"
+                href="#discover"
                 class="btn-primary">
-                Discover Dog Sports
+                Discovery Dog Sports
             </a>
 
             <a
@@ -77,7 +78,7 @@
         <img
             class="w-full h-full"
             src="{{ asset('images/headers/header-dog-sports.png') }}"
-            alt="A brindle and white English bulldog trotting through the Oklahoma wildflowers.">
+            alt="Brindle and white English bulldog trotting through OKlahoma wildflowers.">
 
         <x-public-v2.image-registration
             text="Hazel, Photo by Blue Ridge Creative"
@@ -86,3 +87,8 @@
     </div>
 
 </div>
+
+
+
+
+@endsection
