@@ -248,6 +248,90 @@
 </section>
 {{-- End Learn Articles --}}
 
+{{-- Pagination --}}
+<nav
+    class="px-6 pb-12 md:px-8 md:pb-16"
+    aria-label="Learn pagination">
+
+    <ul class="flex flex-wrap items-center justify-center gap-2">
+
+        {{-- Previous --}}
+        <li>
+            <span
+                class="inline-flex items-center justify-center rounded-md border border-sp-warmStone px-4 py-3 text-sm uppercase text-sp-slate opacity-50"
+                aria-disabled="true">
+                Previous
+            </span>
+        </li>
+
+        {{-- Current Page --}}
+        <li>
+            <span
+                class="inline-flex min-w-11 items-center justify-center rounded-md bg-sp-prairieGreen px-3 py-3 text-sm text-sp-warmIvory"
+                aria-current="page">
+                1
+            </span>
+        </li>
+
+        {{-- Page 2 --}}
+        <li>
+            <a
+                href="#"
+                class="inline-flex min-w-11 items-center justify-center rounded-md border border-sp-warmStone px-3 py-3 text-sm text-sp-charcoal transition-colors hover:border-sp-prairieGreen hover:text-sp-prairieGreen">
+                2
+            </a>
+        </li>
+
+        {{-- Page 3 --}}
+        <li>
+            <a
+                href="#"
+                class="inline-flex min-w-11 items-center justify-center rounded-md border border-sp-warmStone px-3 py-3 text-sm text-sp-charcoal transition-colors hover:border-sp-prairieGreen hover:text-sp-prairieGreen">
+                3
+            </a>
+        </li>
+
+        {{-- Page 4 --}}
+        <li>
+            <a
+                href="#"
+                class="inline-flex min-w-11 items-center justify-center rounded-md border border-sp-warmStone px-3 py-3 text-sm text-sp-charcoal transition-colors hover:border-sp-prairieGreen hover:text-sp-prairieGreen">
+                4
+            </a>
+        </li>
+
+        {{-- Ellipsis --}}
+        <li>
+            <span
+                class="inline-flex min-w-11 items-center justify-center px-3 py-3 text-sm text-sp-slate"
+                aria-hidden="true">
+                …
+            </span>
+        </li>
+
+        {{-- Last Page --}}
+        <li>
+            <a
+                href="#"
+                class="inline-flex min-w-11 items-center justify-center rounded-md border border-sp-warmStone px-3 py-3 text-sm text-sp-charcoal transition-colors hover:border-sp-prairieGreen hover:text-sp-prairieGreen">
+                10
+            </a>
+        </li>
+
+        {{-- Next --}}
+        <li>
+            <a
+                href="#"
+                class="inline-flex items-center justify-center rounded-md border border-sp-prairieGreen px-4 py-3 text-sm uppercase text-sp-prairieGreen transition-colors hover:border-sp-prairieOchre hover:text-sp-prairieOchre">
+                Next
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+{{-- End Pagination --}}
+
 
 @endsection
 
