@@ -342,11 +342,7 @@
             {{-- Heading --}}
             <div class="col-span-12 md:col-span-4">
 
-                <p class="text-eyebrow">
-                    Explore More
-                </p>
-
-                <h2 class="text-section mt-2">
+                <h2 class="text-eyebrow">
                     Browse by Topic
                 </h2>
 
