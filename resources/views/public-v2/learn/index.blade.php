@@ -266,7 +266,7 @@
         {{-- Previous --}}
         <li>
             <span
-                class="inline-flex items-center justify-center rounded-md border border-sp-warmStone px-4 py-3 text-sm uppercase text-sp-slate opacity-50"
+                class="inline-flex items-center justify-center rounded-md border border-sp-warmStone px-3 py-2 text-xs uppercase text-sp-slate opacity-50 md:px-4 md:py-3 md:text-sm"
                 aria-disabled="true">
                 Previous
             </span>
@@ -275,7 +275,7 @@
         {{-- Current Page --}}
         <li>
             <span
-                class="inline-flex min-w-11 items-center justify-center rounded-md bg-sp-prairieGreen px-3 py-3 text-sm text-sp-warmIvory"
+                class="inline-flex min-w-9 items-center justify-center rounded-md bg-sp-prairieGreen px-2 py-2 text-xs text-sp-warmIvory md:min-w-11 md:px-3 md:py-3 md:text-sm"
                 aria-current="page">
                 1
             </span>
@@ -285,7 +285,7 @@
         <li>
             <a
                 href="#"
-                class="inline-flex min-w-11 items-center justify-center rounded-md border border-sp-warmStone px-3 py-3 text-sm text-sp-charcoal transition-colors hover:border-sp-prairieGreen hover:text-sp-prairieGreen">
+                class="inline-flex min-w-9 items-center justify-center rounded-md border border-sp-warmStone px-2 py-2 text-xs text-sp-charcoal transition-colors hover:border-sp-prairieGreen hover:text-sp-prairieGreen md:min-w-11 md:px-3 md:py-3 md:text-sm">
                 2
             </a>
         </li>
@@ -294,7 +294,7 @@
         <li>
             <a
                 href="#"
-                class="inline-flex min-w-11 items-center justify-center rounded-md border border-sp-warmStone px-3 py-3 text-sm text-sp-charcoal transition-colors hover:border-sp-prairieGreen hover:text-sp-prairieGreen">
+                class="inline-flex min-w-9 items-center justify-center rounded-md border border-sp-warmStone px-2 py-2 text-xs text-sp-charcoal transition-colors hover:border-sp-prairieGreen hover:text-sp-prairieGreen md:min-w-11 md:px-3 md:py-3 md:text-sm">
                 3
             </a>
         </li>
@@ -303,7 +303,7 @@
         <li>
             <a
                 href="#"
-                class="inline-flex min-w-11 items-center justify-center rounded-md border border-sp-warmStone px-3 py-3 text-sm text-sp-charcoal transition-colors hover:border-sp-prairieGreen hover:text-sp-prairieGreen">
+                class="inline-flex min-w-9 items-center justify-center rounded-md border border-sp-warmStone px-2 py-2 text-xs text-sp-charcoal transition-colors hover:border-sp-prairieGreen hover:text-sp-prairieGreen md:min-w-11 md:px-3 md:py-3 md:text-sm">
                 4
             </a>
         </li>
@@ -311,7 +311,7 @@
         {{-- Ellipsis --}}
         <li>
             <span
-                class="inline-flex min-w-11 items-center justify-center px-3 py-3 text-sm text-sp-slate"
+                class="inline-flex min-w-9 items-center justify-center px-2 py-2 text-xs text-sp-slate md:min-w-11 md:px-3 md:py-3 md:text-sm"
                 aria-hidden="true">
                 …
             </span>
@@ -321,7 +321,7 @@
         <li>
             <a
                 href="#"
-                class="inline-flex min-w-11 items-center justify-center rounded-md border border-sp-warmStone px-3 py-3 text-sm text-sp-charcoal transition-colors hover:border-sp-prairieGreen hover:text-sp-prairieGreen">
+                class="inline-flex min-w-9 items-center justify-center rounded-md border border-sp-warmStone px-2 py-2 text-xs text-sp-charcoal transition-colors hover:border-sp-prairieGreen hover:text-sp-prairieGreen md:min-w-11 md:px-3 md:py-3 md:text-sm">
                 10
             </a>
         </li>
@@ -330,7 +330,7 @@
         <li>
             <a
                 href="#"
-                class="inline-flex items-center justify-center rounded-md border border-sp-prairieGreen px-4 py-3 text-sm uppercase text-sp-prairieGreen transition-colors hover:border-sp-prairieOchre hover:text-sp-prairieOchre">
+                class="inline-flex items-center justify-center rounded-md border border-sp-prairieGreen px-3 py-2 text-xs uppercase text-sp-prairieGreen transition-colors hover:border-sp-prairieOchre hover:text-sp-prairieOchre md:px-4 md:py-3 md:text-sm">
                 Next
             </a>
         </li>
