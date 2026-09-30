@@ -189,7 +189,7 @@
 <div class="col-span-12 md:col-span-3 md:flex md:justify-end">
 
     <p class="body-small font-semibold text-sp-slate md:text-right md:max-w-64">
-        Explore dog sports, find your game,<br class="hidden md:block">
+        Explore dog sports, find your game,
         and discover something new.
     </p>
 
