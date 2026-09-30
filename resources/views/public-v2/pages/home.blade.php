@@ -39,7 +39,7 @@
     <div class="col-span-12 md:col-span-5 md:pr-0 pl-8 pr-8">
 
         <p class="text-eyebrow">
-            Play. Train. Grow
+            Play. Train. Grow.
         </p>
 
         <h1 class="text-hero">
