@@ -173,23 +173,23 @@
 <section class="grid grid-cols-12 gap-6 px-6 py-12 md:px-8 md:py-16 bg-sp-warmIvory">
 
     {{-- Section Intro --}}
-    <div class="col-span-12 md:col-span-9">
+<div class="col-span-12 md:col-span-9 md:self-start">
 
-        <p class="font-display font-bold text-2xl text-sp-burntClay">
-            Find Your Game
-        </p>
+    <p class="font-display font-bold text-2xl text-sp-burntClay">
+        Find Your Game
+    </p>
 
-        <h2 class="font-sans text-3xl font-semibold text-sp-charcoal mt-3">
-            What Do You Want to Try?
-        </h2>
+    <h2 class="font-sans text-3xl font-semibold text-sp-charcoal mt-3">
+        What Do You Want to Try?
+    </h2>
 
-    </div>
+</div>
 
-    {{-- Supporting Copy --}}
-<div class="col-span-12 md:col-span-3 md:flex md:justify-end">
+{{-- Supporting Copy --}}
+<div class="col-span-12 md:col-span-3 md:self-start">
 
-    <p class="body-small font-semibold text-sp-slate md:text-right md:max-w-64">
-        Explore dog sports, find your game,
+    <p class="body-small font-semibold text-sp-slate md:text-right">
+        Explore dog sports, find your game,<br class="hidden md:block">
         and discover something new.
     </p>
 
