@@ -2,8 +2,6 @@
 
 @section('hero')
 
-@section('hero')
-
 {{-- Learn Hero --}}
 <div
     id="hero"
@@ -12,16 +10,16 @@
     {{-- Intro --}}
     <div class="col-span-12 md:col-span-7">
 
-        <p class="text-eyebrow !text-[32px] !leading-[34px] md:!text-[48px] md:!leading-[50px]">
+        <p class="text-eyebrow">
             Learn
         </p>
 
-        <h1 class="text-hero !text-[40px] !leading-[44px] md:!text-[64px] md:!leading-[72px]">
+        <h1 class="text-hero">
             Learn. Grow. Do More.<br class="hidden md:block">
             Together With Your Dog.
         </h1>
 
-        <p class="body-large text-sp-slate mt-4 max-w-3xl !text-[20px] !leading-[28px] md:!text-[24px] md:!leading-[32px]">
+        <p class="body-large text-sp-slate mt-4 max-w-3xl">
             Explore guides, training advice, real stories, and book reviews from Southern Plains Sport Dog Club.
             Whether you’re training for your next title, building a better partnership, or just love learning
             with your dog, you’ll find something here.
@@ -65,7 +63,7 @@
             class="mt-6"
             aria-label="Filter Learn articles">
 
-            <ul class="flex flex-wrap gap-x-5 gap-y-4 md:gap-x-8">
+            <ul class="flex flex-wrap gap-x-8 gap-y-4">
 
                 <li>
                     <a
