@@ -344,7 +344,7 @@
         <li>
             <a
                 href="#"
-                class="inline-flex items-center rounded-full bg-sp-limestone px-4 py-2 body-small text-sp-prairieGreen transition-colors hover:bg-sp-warmStone">
+                class="inline-flex items-center rounded-full bg-sp-limestone px-4 py-2 text-sm text-sp-prairieGreen transition-colors hover:bg-sp-warmStone">
                 NASDA
             </a>
         </li>
@@ -352,7 +352,7 @@
         <li>
             <a
                 href="#"
-                class="inline-flex items-center rounded-full bg-sp-limestone px-4 py-2 body-small text-sp-prairieGreen transition-colors hover:bg-sp-warmStone">
+                class="inline-flex items-center rounded-full bg-sp-limestone px-4 py-2 text-sm text-sp-prairieGreen transition-colors hover:bg-sp-warmStone">
                 Reactive Dogs
             </a>
         </li>
@@ -360,7 +360,7 @@
         <li>
             <a
                 href="#"
-                class="inline-flex items-center rounded-full bg-sp-limestone px-4 py-2 body-small text-sp-prairieGreen transition-colors hover:bg-sp-warmStone">
+                class="inline-flex items-center rounded-full bg-sp-limestone px-4 py-2 text-sm text-sp-prairieGreen transition-colors hover:bg-sp-warmStone">
                 Trick Dog
             </a>
         </li>
@@ -368,7 +368,7 @@
         <li>
             <a
                 href="#"
-                class="inline-flex items-center rounded-full bg-sp-limestone px-4 py-2 body-small text-sp-prairieGreen transition-colors hover:bg-sp-warmStone">
+                class="inline-flex items-center rounded-full bg-sp-limestone px-4 py-2 text-sm text-sp-prairieGreen transition-colors hover:bg-sp-warmStone">
                 Private Training
             </a>
         </li>
@@ -376,7 +376,7 @@
         <li>
             <a
                 href="#"
-                class="inline-flex items-center rounded-full bg-sp-limestone px-4 py-2 body-small text-sp-prairieGreen transition-colors hover:bg-sp-warmStone">
+                class="inline-flex items-center rounded-full bg-sp-limestone px-4 py-2 text-sm text-sp-prairieGreen transition-colors hover:bg-sp-warmStone">
                 First Trials
             </a>
         </li>
@@ -384,7 +384,7 @@
         <li>
             <a
                 href="#"
-                class="inline-flex items-center rounded-full bg-sp-limestone px-4 py-2 body-small text-sp-prairieGreen transition-colors hover:bg-sp-warmStone">
+                class="inline-flex items-center rounded-full bg-sp-limestone px-4 py-2 text-sm text-sp-prairieGreen transition-colors hover:bg-sp-warmStone">
                 Resource Roundup
             </a>
         </li>
