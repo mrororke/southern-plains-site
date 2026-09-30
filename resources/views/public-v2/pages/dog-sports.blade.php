@@ -170,10 +170,10 @@
 {{-- End Start Where You Are --}}
 
 {{-- Find Your Game --}}
-<section class="grid grid-cols-12 gap-6 px-8 py-16 bg-sp-warmIvory">
+<section class="grid grid-cols-12 gap-6 px-6 py-12 md:px-8 md:py-16 bg-sp-warmIvory">
 
     {{-- Section Intro --}}
-    <div class="col-span-9">
+    <div class="col-span-12 md:col-span-9">
 
         <p class="font-display font-bold text-2xl text-sp-burntClay">
             Find Your Game
@@ -185,10 +185,11 @@
 
     </div>
 
-    <div class="col-span-3 flex items-end justify-end">
+    {{-- Supporting Copy --}}
+    <div class="col-span-12 md:col-span-3 flex md:items-end md:justify-end">
 
-        <p class="body-small font-semibold text-sp-prairieGreen text-right">
-            Explore dog sports, find your game,<br>
+        <p class="body-small font-semibold text-sp-prairieGreen md:text-right">
+            Explore dog sports, find your game,<br class="hidden md:block">
             and discover something new.
         </p>
 
@@ -197,20 +198,20 @@
     {{--
         Featured Dog Sports Content
 
-        TODO :
+        TODO:
         Pull published Learn articles assigned to the Dog Sports category.
         When multiple qualifying articles exist, display these features as
         a slider/carousel. For now, NASDA is the single static feature.
     --}}
     <div class="col-span-12 border border-sp-warmStone rounded-md mt-2">
 
-        <div class="grid grid-cols-12 gap-6 py-20">
+        <div class="grid grid-cols-12 gap-6 px-6 py-10 md:px-0 md:py-20">
 
             {{-- Empty Column --}}
-            <div class="col-span-1"></div>
+            <div class="hidden md:block md:col-span-1"></div>
 
             {{-- Featured Content --}}
-            <div class="col-span-5 flex items-center">
+            <div class="col-span-12 md:col-span-5 flex items-center">
 
                 <div>
 
@@ -218,15 +219,15 @@
                         Featured Sport
                     </span>
 
-                    <h3 class="font-display text-7xl text-sp-charcoal mt-8">
+                    <h3 class="font-display text-6xl md:text-7xl text-sp-charcoal mt-8">
                         NASDA
                     </h3>
 
-                    <p class="body-small uppercase mt-2">
+                    <p class="body-small text-sp-slate uppercase mt-2">
                         North American Sport Dog Association
                     </p>
 
-                    <p class="body-large mt-8">
+                    <p class="body-large text-sp-slate mt-8">
                         From searching for lost objects to trailing and locating rats, NASDA lets dogs use their noses, independence, and problem solving skills in exciting and rewarding ways.
                     </p>
 
@@ -242,7 +243,7 @@
             </div>
 
             {{-- Featured Image --}}
-            <div class="col-span-5 flex items-center">
+            <div class="col-span-12 md:col-span-5 flex items-center mt-4 md:mt-0">
 
                 <div class="relative w-full">
 
@@ -262,7 +263,7 @@
             </div>
 
             {{-- Empty Column --}}
-            <div class="col-span-1"></div>
+            <div class="hidden md:block md:col-span-1"></div>
 
         </div>
 
