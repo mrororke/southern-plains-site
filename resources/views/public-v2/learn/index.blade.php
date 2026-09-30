@@ -205,8 +205,49 @@
 
     </article>
 
+    {{-- Book Review Card --}}
+<article class="col-span-12 md:col-span-4 grid grid-cols-2 gap-6 rounded-md border border-sp-warmStone p-4">
+
+    {{-- Book Cover --}}
+    <div>
+
+        <img
+            src="{{ asset('images/learn/book-reviews/one-on-one.jpg') }}"
+            alt="Cover of One on One: A Dog Trainer’s Guide to Private Lessons by Nicole Wilde."
+            class="w-full h-full object-cover rounded-md">
+
+    </div>
+
+    {{-- Review Content --}}
+    <div class="flex flex-col">
+
+        <p class="font-display font-bold text-lg text-sp-prairieOchre uppercase">
+            Book Review
+        </p>
+
+        <h2 class="font-sans text-2xl font-semibold text-sp-charcoal mt-2">
+            One on One
+        </h2>
+
+        <p class="body text-sp-slate mt-4">
+            A practical guide to private dog training lessons, from working with clients to structuring sessions and building a successful training relationship.
+        </p>
+
+        <a
+            href="#"
+            class="learn-more-link text-sp-prairieOchre mt-4">
+            Read the Review
+            <x-icons.move-right />
+        </a>
+
+    </div>
+
+</article>
+{{-- End Book Review Card --}}
+
 </section>
 {{-- End Learn Articles --}}
+
 
 @endsection
 
