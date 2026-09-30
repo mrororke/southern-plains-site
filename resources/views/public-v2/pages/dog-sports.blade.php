@@ -449,7 +449,7 @@
 
                 <li class="flex items-center gap-4">
 
-                    <x-icons.chart-no-axes-column
+                    <x-icons.chart-column-big
                         class="w-8 h-8 shrink-0 text-sp-charcoal" />
 
                     <span class="body-small">
