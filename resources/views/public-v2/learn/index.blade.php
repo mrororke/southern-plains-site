@@ -127,7 +127,6 @@
 @endsection
 
 @section('content')
-
 {{-- Featured Article --}}
 <section class="px-6 py-12 md:px-8 md:py-16 bg-sp-warmIvory">
 
