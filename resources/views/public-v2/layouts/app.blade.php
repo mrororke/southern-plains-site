@@ -111,6 +111,8 @@
 
         <x-public-v2.navigation />
 
+        @yield('hero')
+
 
 
 

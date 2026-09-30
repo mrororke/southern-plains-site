@@ -29,8 +29,9 @@
 </script>
 @endsection
 
-@section('content')
 
+
+@section('hero')
 {{-- Hero --}}
 <div
     id="hero"
@@ -91,6 +92,10 @@
     </div>
 
 </div>
+{{-- end hero --}}
+@endsection
+
+@section('content')
 
 
 {{-- Begin 3 cards --}}
