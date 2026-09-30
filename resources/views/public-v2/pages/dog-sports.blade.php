@@ -363,6 +363,7 @@
 
 </section>
 {{-- End Play With Us --}}
+
 {{-- Southern Plains Sport Dog League --}}
 <section class="grid grid-cols-12 gap-6 px-8 py-16 bg-sp-warmIvory">
 
@@ -416,7 +417,7 @@
 
 
     {{-- League Features --}}
-    <div class="col-span-2 flex items-center">
+    <div class="col-span-3 flex items-center">
 
         <div class="w-full bg-sp-limestone rounded-md p-6">
 
