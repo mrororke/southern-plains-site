@@ -347,7 +347,7 @@
         Browse by Topic
     </h2>
 
-    <ul class="flex flex-wrap gap-4 mt-4">
+    <ul class="flex flex-wrap gap-3 md:gap-4 mt-4">
 
         <li>
             <a
