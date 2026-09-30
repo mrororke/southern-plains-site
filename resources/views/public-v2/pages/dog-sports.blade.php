@@ -1,30 +1,35 @@
 @extends('public-v2.layouts.app')
 
-@section('meta_title', 'Dog Training & Dog Sports in Oklahoma | Southern Plains Sport Dog Club')
-@section('meta_description', 'Positive reinforcement dog training, dog sports, events, and resources in Oklahoma. Play, train, and grow with Southern Plains Sport Dog Club.')
-@section('og_title', 'Do Great Things With Your Dog | Southern Plains Sport Dog Club')
-@section('og_description', 'Positive reinforcement training, dog sports, events, and a community built around doing more with your dog.')
-@section('og_image', asset('images/og/home.jpg'))
-@section('canonical_url', 'https://southernplains.dog/')
+@section('meta_title', 'Dog Sports in Oklahoma | Southern Plains Sport Dog Club')
+
+@section('meta_description', 'Explore dog sports in Oklahoma with Southern Plains, including NASDA trials, training days, first trial resources, and opportunities for dogs of all breeds and experience levels.')
+
+@section('og_title', 'Find Your Game | Southern Plains Sport Dog Club')
+
+@section('og_description', 'Explore dog sports, try something new, and find more ways to play with your dog through Southern Plains.')
+
+@section('og_image', asset('images/og/dog-sports.jpg'))
+
+@section('canonical_url', 'https://southernplains.dog/dog-sports')
 
 @section('structured_data')
 <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Southern Plains Sport Dog Club, LLC",
-        "url": "https://southernplains.dog/",
-        "logo": "https://southernplains.dog/images/logo.svg",
-        "email": "southernplainssportdogclub@gmail.com",
-        "areaServed": {
-            "@type": "AdministrativeArea",
-            "name": "Northeast Oklahoma"
+        "@type": "WebPage",
+        "name": "Dog Sports in Oklahoma",
+        "url": "https://southernplains.dog/dog-sports",
+        "description": "Explore dog sports in Oklahoma with Southern Plains, including NASDA trials, training days, first trial resources, and opportunities for dogs of all breeds and experience levels.",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Southern Plains Sport Dog Club",
+            "url": "https://southernplains.dog/"
         },
-        "sameAs": [
-            "https://www.facebook.com/southernplainsportdogclub",
-            "https://www.instagram.com/southernplainssdc/",
-            "https://www.youtube.com/@southernplainssportdogs"
-        ]
+        "about": {
+            "@type": "Organization",
+            "name": "Southern Plains Sport Dog Club, LLC",
+            "url": "https://southernplains.dog/"
+        }
     }
 </script>
 @endsection
@@ -44,7 +49,6 @@
 
         <h1 class="text-hero">
             Your Dog was Made to do Stuff.
-            </span>
         </h1>
 
         <div class="hl-break">
@@ -78,7 +82,7 @@
         <img
             class="w-full h-full"
             src="{{ asset('images/headers/header-dog-sports.png') }}"
-            alt="Brindle and white English bulldog trotting through OKlahoma wildflowers.">
+            alt="Brindle and white English bulldog trotting through Oklahoma wildflowers.">
 
         <x-public-v2.image-registration
             text="Hazel, Photo by Blue Ridge Creative"
@@ -110,67 +114,69 @@
     </div>
 
     {{-- Principles --}}
-    <div class="col-span-12 grid grid-cols-2 mt-4 md:col-span-6 md:grid-cols-4 md:mt-0 self-center">
+<ul class="col-span-12 grid grid-cols-2 mt-4 md:col-span-6 md:grid-cols-4 md:mt-0 self-center">
 
-        {{-- Fun --}}
-        <div class="p-6 border-r border-b md:border-b-0 border-sp-warmStone text-center">
+    {{-- Fun --}}
+    <li class="p-6 border-r border-b md:border-b-0 border-sp-warmStone text-center">
 
-            <x-icons.balloon
-                class="w-10 h-10 md:w-12 md:h-12 text-sp-prairieGreen mx-auto" />
+        <x-icons.balloon
+            class="w-10 h-10 md:w-12 md:h-12 text-sp-prairieGreen mx-auto" />
 
-            <p class="body-small text-sp-slate mt-4">
-                Fun for dogs<br>
-                and people
-            </p>
+        <p class="body-small text-sp-slate mt-4">
+            Fun for dogs<br>
+            and people
+        </p>
 
-        </div>
+    </li>
 
-        {{-- Confidence --}}
-        <div class="p-6 border-b md:border-b-0 md:border-r border-sp-warmStone text-center">
+    {{-- Confidence --}}
+    <li class="p-6 border-b md:border-b-0 md:border-r border-sp-warmStone text-center">
 
-            <x-icons.paw-print
-                class="w-10 h-10 md:w-12 md:h-12 text-sp-prairieGreen mx-auto" />
+        <x-icons.paw-print
+            class="w-10 h-10 md:w-12 md:h-12 text-sp-prairieGreen mx-auto" />
 
-            <p class="body-small text-sp-slate mt-4">
-                Build confidence<br>
-                and connection
-            </p>
+        <p class="body-small text-sp-slate mt-4">
+            Build confidence<br>
+            and connection
+        </p>
 
-        </div>
+    </li>
 
-        {{-- Inclusive --}}
-        <div class="p-6 border-r border-sp-warmStone text-center">
+    {{-- Inclusive --}}
+    <li class="p-6 border-r border-sp-warmStone text-center">
 
-            <x-icons.users
-                class="w-10 h-10 md:w-12 md:h-12 text-sp-prairieGreen mx-auto" />
+        <x-icons.users
+            class="w-10 h-10 md:w-12 md:h-12 text-sp-prairieGreen mx-auto" />
 
-            <p class="body-small text-sp-slate mt-4">
-                All breeds.<br>
-                All sizes.
-            </p>
+        <p class="body-small text-sp-slate mt-4">
+            All breeds.<br>
+            All sizes.
+        </p>
 
-        </div>
+    </li>
 
-        {{-- Start Small --}}
-        <div class="p-6 text-center">
+    {{-- Start Small --}}
+    <li class="p-6 text-center">
 
-            <x-icons.heart
-                class="w-10 h-10 md:w-12 md:h-12 text-sp-prairieGreen mx-auto" />
+        <x-icons.heart
+            class="w-10 h-10 md:w-12 md:h-12 text-sp-prairieGreen mx-auto" />
 
-            <p class="body-small  text-sp-slate mt-4">
-                Start small.<br>
-                Go at your pace.
-            </p>
+        <p class="body-small text-sp-slate mt-4">
+            Start small.<br>
+            Go at your pace.
+        </p>
 
-        </div>
+    </li>
 
-    </div>
+</ul>
 
 </section>
 {{-- End Start Where You Are --}}
 
 {{-- Find Your Game --}}
-<section class="grid grid-cols-12 gap-6 px-6 py-12 md:px-8 md:py-16 bg-sp-warmIvory">
+<section 
+    id="discover"
+    class="grid grid-cols-12 gap-6 px-6 py-12 md:px-8 md:py-16 bg-sp-warmIvory">
 
     {{-- Section Intro --}}
 <div class="col-span-12 md:col-span-9 md:self-start">
