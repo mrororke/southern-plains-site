@@ -167,8 +167,6 @@
 </section>
 {{-- End Featured Article --}}
 
-@endsection
-
 {{-- Learn Articles --}}
 <section class="grid grid-cols-12 gap-6 px-6 pb-12 md:px-8 md:pb-16">
 
@@ -209,3 +207,6 @@
 
 </section>
 {{-- End Learn Articles --}}
+
+@endsection
+
