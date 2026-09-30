@@ -169,6 +169,100 @@
 </section>
 {{-- End Start Where You Are --}}
 
+{{-- Find Your Game --}}
+<section class="grid grid-cols-12 gap-6 px-8 py-16 bg-sp-warmIvory">
+
+    {{-- Section Intro --}}
+    <div class="col-span-9">
+
+        <p class="font-display font-bold text-2xl text-sp-burntClay">
+            Find Your Game
+        </p>
+
+        <h2 class="font-sans text-3xl font-semibold text-sp-charcoal mt-3">
+            What Do You Want to Try?
+        </h2>
+
+    </div>
+
+    <div class="col-span-3 flex items-end justify-end">
+
+        <p class="body-small font-semibold text-sp-prairieGreen text-right max-w-64">
+            Explore dog sports, find your game,<br>
+            and discover something new.
+        </p>
+
+    </div>
+
+
+    {{--
+        Featured Dog Sports Content
+
+        TODO :
+        Pull published Learn articles assigned to the Dog Sports category.
+        When multiple qualifying articles exist, display these features as
+        a slider/carousel. For now, NASDA is the single static feature.
+    --}}
+    <div class="col-span-12 border border-sp-warmStone rounded-md mt-2">
+
+        <div class="grid grid-cols-12 gap-6 px-16 py-20">
+
+            {{-- Featured Content --}}
+            <div class="col-span-5 flex items-center">
+
+                <div>
+
+                    <span class="inline-block bg-sp-prairieOchre text-sp-warmIvory text-xs uppercase rounded-md px-3 py-2">
+                        Featured Sport
+                    </span>
+
+                    <h3 class="font-display text-7xl text-sp-charcoal mt-8">
+                        NASDA
+                    </h3>
+
+                    <p class="body-small uppercase mt-2">
+                        North American Sport Dog Association
+                    </p>
+
+                    <p class="body-large mt-8">
+                        From searching for lost objects to trailing and locating rats, NASDA lets dogs use their noses, independence, and problem solving skills in exciting and rewarding ways.
+                    </p>
+
+                    <a
+                        href="#"
+                        class="learn-more-link text-sp-prairieOchre mt-4">
+                        Learn More About NASDA
+                        <x-icons.move-right />
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            {{-- Featured Image --}}
+            <div class="col-span-1"></div>
+
+            <div class="col-span-6 flex items-center">
+
+                <div class="relative w-full">
+
+                    <img
+                        src="{{ asset('images/learn/what-is-nasda/featured.jpg') }}"
+                        alt="Black and white dog investigating a NASDA quarry box."
+                        class="w-full aspect-[16/9] object-cover rounded-md">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+{{-- End Find Your Game --}}
+
 
 
 
