@@ -273,10 +273,10 @@
 {{-- End Find Your Game --}}
 
 {{-- Play With Us --}}
-<section class="grid grid-cols-12 gap-6 px-8 py-16 bg-sp-prairieGreen text-sp-warmIvory">
+<section class="grid grid-cols-12 gap-6 px-6 py-12 md:px-8 md:py-16 bg-sp-prairieGreen text-sp-warmIvory">
 
     {{-- Intro --}}
-    <div class="col-span-4 pr-6">
+    <div class="col-span-12 md:col-span-4 md:pr-6">
 
         <p class="font-display font-bold text-2xl text-sp-warmIvory">
             Get Involved
@@ -292,73 +292,78 @@
 
         <a
             href="{{ route('public-v2.events.index') }}"
-            class="btn-light mt-6">
+            class="btn-light w-full md:w-auto mt-6">
             View Upcoming Events
         </a>
 
     </div>
 
-    {{-- NASDA Trials --}}
-    <div class="col-span-2 pr-6 border-r border-sp-warmIvory/40">
+    {{-- Opportunities --}}
+    <div class="col-span-12 grid grid-cols-2 mt-4 md:col-span-8 md:grid-cols-4 md:mt-0">
 
-        <x-icons.calendar-days
-            class="w-10 h-10 text-sp-warmIvory mb-6" />
+        {{-- NASDA Trials --}}
+        <div class="p-6 border-r border-b md:border-b-0 border-sp-warmIvory/40 md:pt-0 md:pb-0 md:pl-0 md:pr-6">
 
-        <h3 class="font-sans font-semibold text-xl text-sp-warmIvory">
-            NASDA Trials
-        </h3>
+            <x-icons.calendar-days
+                class="w-10 h-10 text-sp-warmIvory mb-6" />
 
-        <p class="body-small-light mt-3">
-            Earn titles and celebrate your team’s hard work in a supportive competitive setting.
-        </p>
+            <h3 class="font-sans font-semibold text-xl text-sp-warmIvory">
+                NASDA Trials
+            </h3>
 
-    </div>
+            <p class="body-small-light mt-3">
+                Earn titles and celebrate your team’s hard work in a supportive competitive setting.
+            </p>
 
-    {{-- Training Days --}}
-    <div class="col-span-2 pr-6 border-r border-sp-warmIvory/40">
+        </div>
 
-        <x-icons.route
-            class="w-10 h-10 text-sp-warmIvory mb-6" />
+        {{-- Training Days --}}
+        <div class="p-6 border-b md:border-b-0 md:border-r border-sp-warmIvory/40 md:py-0">
 
-        <h3 class="font-sans font-semibold text-xl text-sp-warmIvory">
-            Training Days
-        </h3>
+            <x-icons.route
+                class="w-10 h-10 text-sp-warmIvory mb-6" />
 
-        <p class="body-small-light mt-3">
-            Practice and learn in a fun, low-pressure environment with like-minded handlers.
-        </p>
+            <h3 class="font-sans font-semibold text-xl text-sp-warmIvory">
+                Training Days
+            </h3>
 
-    </div>
+            <p class="body-small-light mt-3">
+                Practice and learn in a fun, low-pressure environment with like-minded handlers.
+            </p>
 
-    {{-- Sport Dog League --}}
-    <div class="col-span-2 pr-6 border-r border-sp-warmIvory/40">
+        </div>
 
-        <x-icons.medal
-            class="w-10 h-10 text-sp-warmIvory mb-6" />
+        {{-- Sport Dog League --}}
+        <div class="p-6 border-r border-sp-warmIvory/40 md:py-0">
 
-        <h3 class="font-sans font-semibold text-xl text-sp-warmIvory">
-            Sport Dog League
-        </h3>
+            <x-icons.medal
+                class="w-10 h-10 text-sp-warmIvory mb-6" />
 
-        <p class="body-small-light mt-3">
-            Earn titles and celebrate your team’s hard work in a supportive competitive setting.
-        </p>
+            <h3 class="font-sans font-semibold text-xl text-sp-warmIvory">
+                Sport Dog League
+            </h3>
 
-    </div>
+            <p class="body-small-light mt-3">
+                Earn titles and celebrate your team’s hard work in a supportive competitive setting.
+            </p>
 
-    {{-- First Trial Prep --}}
-    <div class="col-span-2">
+        </div>
 
-        <x-icons.book-open
-            class="w-10 h-10 text-sp-warmIvory mb-6" />
+        {{-- First Trial Prep --}}
+        <div class="p-6 md:pt-0 md:pb-0 md:pl-6 md:pr-0">
 
-        <h3 class="font-sans font-semibold text-xl text-sp-warmIvory">
-            First Trial Prep
-        </h3>
+            <x-icons.book-open
+                class="w-10 h-10 text-sp-warmIvory mb-6" />
 
-        <p class="body-small-light mt-3">
-            Resources and mentorship to help you feel confident and ready.
-        </p>
+            <h3 class="font-sans font-semibold text-xl text-sp-warmIvory">
+                First Trial Prep
+            </h3>
+
+            <p class="body-small-light mt-3">
+                Resources and mentorship to help you feel confident and ready.
+            </p>
+
+        </div>
 
     </div>
 
@@ -366,10 +371,10 @@
 {{-- End Play With Us --}}
 
 {{-- Southern Plains Sport Dog League --}}
-<section class="grid grid-cols-12 gap-6 px-8 py-16 bg-sp-warmIvory">
+<section class="grid grid-cols-12 gap-8 px-6 py-12 md:gap-6 md:px-8 md:py-16 bg-sp-warmIvory">
 
     {{-- Image --}}
-    <div class="col-span-4">
+    <div class="col-span-12 md:col-span-4">
 
         <div class="relative">
 
@@ -389,7 +394,7 @@
     </div>
 
     {{-- League Intro --}}
-    <div class="col-span-5 flex items-center">
+    <div class="col-span-12 md:col-span-5 flex items-center">
 
         <div>
 
@@ -398,17 +403,17 @@
             </p>
 
             <h2 class="font-sans text-3xl font-semibold text-sp-charcoal mt-3">
-                Southern Plains<br>
+                Southern Plains<br class="hidden md:block">
                 Sport Dog League
             </h2>
 
-            <p class="body-large mt-4">
+            <p class="body-large text-sp-slate mt-4">
                 A year-long league for handlers and dogs of all experience levels. Earn points, track your progress, and celebrate at the end of season party.
             </p>
 
             <a
                 href="#"
-                class="btn-secondary mt-6">
+                class="btn-secondary w-full md:w-auto mt-6">
                 Explore the League
             </a>
 
@@ -416,20 +421,19 @@
 
     </div>
 
-
     {{-- League Features --}}
-    <div class="col-span-3 flex items-center">
+    <div class="col-span-12 md:col-span-3 flex items-center">
 
         <div class="w-full bg-sp-limestone rounded-md p-6">
 
-            <ul class="flex flex-col gap-6">
+            <ul class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-1">
 
                 <li class="flex items-center gap-4">
 
                     <x-icons.dog
                         class="w-8 h-8 shrink-0 text-sp-charcoal" />
 
-                    <span class="body-small">
+                    <span class="body-small text-sp-slate">
                         Open to handlers and dogs of all levels
                     </span>
 
@@ -440,7 +444,7 @@
                     <x-icons.trophy
                         class="w-8 h-8 shrink-0 text-sp-charcoal" />
 
-                    <span class="body-small">
+                    <span class="body-small text-sp-slate">
                         Earn points at League Days throughout the year.
                     </span>
 
@@ -451,7 +455,7 @@
                     <x-icons.chart-column-big
                         class="w-8 h-8 shrink-0 text-sp-charcoal" />
 
-                    <span class="body-small">
+                    <span class="body-small text-sp-slate">
                         Season standings and rewards
                     </span>
 
@@ -462,7 +466,7 @@
                     <x-icons.handshake
                         class="w-8 h-8 shrink-0 text-sp-charcoal" />
 
-                    <span class="body-small">
+                    <span class="body-small text-sp-slate">
                         Community and friendly competition
                     </span>
 
@@ -476,6 +480,8 @@
 
 </section>
 {{-- End Southern Plains Sport Dog League --}}
+
+
 
 
 
