@@ -15,8 +15,16 @@
         </p>
 
         <h1 class="text-hero">
-            Learn. Grow. Do More.<br class="hidden md:block">
-            Together With Your Dog.
+            <span class="block md:inline">
+                Learn. Grow.
+            </span>
+            <span class="block md:inline">
+                Do More.
+            </span>
+            <br class="hidden md:block">
+            <span class="block md:inline">
+                Together With Your Dog.
+            </span>
         </h1>
 
         <p class="body-large text-sp-slate mt-4 max-w-3xl">
@@ -206,44 +214,44 @@
     </article>
 
     {{-- Book Review Card --}}
-<article class="col-span-12 md:col-span-4 grid grid-cols-2 gap-6 rounded-md border border-sp-warmStone p-4">
+    <article class="col-span-12 md:col-span-4 grid grid-cols-2 gap-6 rounded-md border border-sp-warmStone p-4">
 
-    {{-- Book Cover --}}
-    <div>
+        {{-- Book Cover --}}
+        <div>
 
-        <img
-            src="{{ asset('images/learn/book-reviews/one-on-one.jpg') }}"
-            alt="Cover of One on One: A Dog Trainer’s Guide to Private Lessons by Nicole Wilde."
-            class="w-full h-full object-cover rounded-md">
+            <img
+                src="{{ asset('images/learn/book-reviews/one-on-one.jpg') }}"
+                alt="Cover of One on One: A Dog Trainer’s Guide to Private Lessons by Nicole Wilde."
+                class="w-full h-full object-cover rounded-md">
 
-    </div>
+        </div>
 
-    {{-- Review Content --}}
-    <div class="flex flex-col">
+        {{-- Review Content --}}
+        <div class="flex flex-col">
 
-        <p class="font-display font-bold text-lg text-sp-prairieOchre uppercase">
-            Book Review
-        </p>
+            <p class="font-display font-bold text-lg text-sp-prairieOchre uppercase">
+                Book Review
+            </p>
 
-        <h2 class="font-sans text-2xl font-semibold text-sp-charcoal mt-2">
-            One on One
-        </h2>
+            <h2 class="font-sans text-2xl font-semibold text-sp-charcoal mt-2">
+                One on One
+            </h2>
 
-        <p class="body text-sp-slate mt-4">
-            A practical guide to private dog training lessons, from working with clients to structuring sessions and building a successful training relationship.
-        </p>
+            <p class="body text-sp-slate mt-4">
+                A practical guide to private dog training lessons, from working with clients to structuring sessions and building a successful training relationship.
+            </p>
 
-        <a
-            href="#"
-            class="learn-more-link text-sp-prairieOchre mt-4">
-            Read the Review
-            <x-icons.move-right />
-        </a>
+            <a
+                href="#"
+                class="learn-more-link text-sp-prairieOchre mt-4">
+                Read the Review
+                <x-icons.move-right />
+            </a>
 
-    </div>
+        </div>
 
-</article>
-{{-- End Book Review Card --}}
+    </article>
+    {{-- End Book Review Card --}}
 
 </section>
 {{-- End Learn Articles --}}
@@ -396,4 +404,3 @@
 
 
 @endsection
-
