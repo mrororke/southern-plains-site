@@ -238,7 +238,7 @@ h1.text-hero {
 
 /* Body text */
 
-p.body-large {
+.body-large {
     @apply text-sp-slate font-sans;
     font-size: 24px;
     font-style: normal;
@@ -246,7 +246,7 @@ p.body-large {
     line-height: 32px; /* 133.333% */
 }
 
-p.body {
+.body {
     @apply text-sp-slate font-sans;
     font-size: 18px;
     font-style: normal;
@@ -254,7 +254,7 @@ p.body {
     line-height: 24px; /* 133.333% */
 }
 
-p.body-small {
+.body-small {
     @apply text-sp-slate font-sans;
     font-size: 16px;
     font-style: normal;
