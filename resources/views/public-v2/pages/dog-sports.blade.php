@@ -401,7 +401,7 @@
                 Sport Dog League
             </h2>
 
-            <p class="body-large mt-4">
+            <p class="body-large-light mt-4">
                 A year-long league for handlers and dogs of all experience levels. Earn points, track your progress, and celebrate at the end of season party.
             </p>
 
@@ -428,7 +428,7 @@
                     <x-icons.dog
                         class="w-8 h-8 shrink-0 text-sp-charcoal" />
 
-                    <span class="body-small">
+                    <span class="body-small-light">
                         Open to handlers and dogs of all levels
                     </span>
 
@@ -439,7 +439,7 @@
                     <x-icons.trophy
                         class="w-8 h-8 shrink-0 text-sp-charcoal" />
 
-                    <span class="body-small">
+                    <span class="body-small-light">
                         Earn points at League Days throughout the year.
                     </span>
 
@@ -450,7 +450,7 @@
                     <x-icons.chart-column-big
                         class="w-8 h-8 shrink-0 text-sp-charcoal" />
 
-                    <span class="body-small">
+                    <span class="body-small-light">
                         Season standings and rewards
                     </span>
 
@@ -461,7 +461,7 @@
                     <x-icons.handshake
                         class="w-8 h-8 shrink-0 text-sp-charcoal" />
 
-                    <span class="body-small">
+                    <span class="body-small-light">
                         Community and friendly competition
                     </span>
 

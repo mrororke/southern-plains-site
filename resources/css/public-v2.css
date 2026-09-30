@@ -263,6 +263,14 @@ p.body-small {
 
 }
 
+.body-large-light {
+    @apply body-large text-sp-warmIvory;
+}
+
+.body-small-light {
+    @apply body-small text-sp-warmIvory;
+}
+
 /* ==========================================================================
    06. Text links and horizontal dividers
    ========================================================================== */
