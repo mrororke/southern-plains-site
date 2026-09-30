@@ -173,7 +173,7 @@
 <section class="grid grid-cols-12 gap-6 px-6 py-12 md:px-8 md:py-16 bg-sp-warmIvory">
 
     {{-- Section Intro --}}
-    <div class="col-span-12 md:col-span-9">
+    <div class="col-span-12 md:col-span-8">
 
         <p class="font-display font-bold text-2xl text-sp-burntClay">
             Find Your Game
@@ -186,7 +186,7 @@
     </div>
 
     {{-- Supporting Copy --}}
-<div class="col-span-12 md:col-span-3 md:flex md:justify-end">
+<div class="col-span-12 md:col-span-4 md:flex md:justify-end">
 
     <p class="body-small font-semibold text-sp-slate md:text-right md:max-w-64">
         Explore dog sports, find your game,
