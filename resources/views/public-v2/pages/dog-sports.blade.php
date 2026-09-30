@@ -307,7 +307,7 @@
             NASDA Trials
         </h3>
 
-        <p class="body-small text-sp-warmIvory mt-3">
+        <p class="body-small-light mt-3">
             Earn titles and celebrate your team’s hard work in a supportive competitive setting.
         </p>
 
@@ -323,7 +323,7 @@
             Training Days
         </h3>
 
-        <p class="body-small text-sp-warmIvory mt-3">
+        <p class="body-small-light mt-3">
             Practice and learn in a fun, low-pressure environment with like-minded handlers.
         </p>
 
@@ -339,7 +339,7 @@
             Sport Dog League
         </h3>
 
-        <p class="body-small text-sp-warmIvory mt-3">
+        <p class="body-small-light mt-3">
             Earn titles and celebrate your team’s hard work in a supportive competitive setting.
         </p>
 
@@ -355,7 +355,7 @@
             First Trial Prep
         </h3>
 
-        <p class="body-small text-sp-warmIvory mt-3">
+        <p class="body-small-light mt-3">
             Resources and mentorship to help you feel confident and ready.
         </p>
 
@@ -428,7 +428,7 @@
                     <x-icons.dog
                         class="w-8 h-8 shrink-0 text-sp-charcoal" />
 
-                    <span class="body-small-light">
+                    <span class="body-small">
                         Open to handlers and dogs of all levels
                     </span>
 
@@ -439,7 +439,7 @@
                     <x-icons.trophy
                         class="w-8 h-8 shrink-0 text-sp-charcoal" />
 
-                    <span class="body-small-light">
+                    <span class="body-small">
                         Earn points at League Days throughout the year.
                     </span>
 
@@ -450,7 +450,7 @@
                     <x-icons.chart-column-big
                         class="w-8 h-8 shrink-0 text-sp-charcoal" />
 
-                    <span class="body-small-light">
+                    <span class="body-small">
                         Season standings and rewards
                     </span>
 
@@ -461,7 +461,7 @@
                     <x-icons.handshake
                         class="w-8 h-8 shrink-0 text-sp-charcoal" />
 
-                    <span class="body-small-light">
+                    <span class="body-small">
                         Community and friendly competition
                     </span>
 
