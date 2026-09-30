@@ -36,7 +36,7 @@
     </div>
 
     {{-- Search + Filters --}}
-    <div class="col-span-12 mt-4 md:mt-8">
+    <div class="col-span-12 min-w-0 mt-4 md:mt-8">
 
         {{-- Search --}}
         <form
