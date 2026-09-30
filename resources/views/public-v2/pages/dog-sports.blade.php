@@ -116,7 +116,7 @@
         <div class="px-6 text-center border-r border-sp-warmStone">
 
             <x-icons.balloon
-            class="w-10 h-10 md:w-12 md:h-12 text-sp-prairieGreen  mx-auto" />
+                class="w-10 h-10 md:w-12 md:h-12 text-sp-prairieGreen  mx-auto" />
 
             <p class="body-small mt-4">
                 Fun for dogs<br>
@@ -128,8 +128,8 @@
         {{-- Confidence --}}
         <div class="px-6 text-center border-r border-sp-warmStone">
 
-           <x-icons.paw-print
-            class="w-10 h-10 md:w-12 md:h-12 text-sp-prairieGreen mx-auto" />
+            <x-icons.paw-print
+                class="w-10 h-10 md:w-12 md:h-12 text-sp-prairieGreen mx-auto" />
 
             <p class="body-small mt-4">
                 Build confidence<br>
@@ -142,7 +142,7 @@
         <div class="px-6 text-center border-r border-sp-warmStone">
 
             <x-icons.users
-            class="w-10 h-10 md:w-12 md:h-12 text-sp-prairieGreen  mx-auto" />
+                class="w-10 h-10 md:w-12 md:h-12 text-sp-prairieGreen  mx-auto" />
 
             <p class="body-small mt-4">
                 All breeds.<br>
@@ -155,7 +155,7 @@
         <div class="px-6 text-center">
 
             <x-icons.heart
-            class="w-10 h-10 md:w-12 md:h-12 text-sp-prairieGreen  mx-auto" />
+                class="w-10 h-10 md:w-12 md:h-12 text-sp-prairieGreen  mx-auto" />
 
             <p class="body-small mt-4">
                 Start small.<br>
@@ -291,7 +291,7 @@
 
         <a
             href="{{ route('public-v2.events.index') }}"
-            class="btn-primary-outline mt-6 bg-sp-warmIvory">
+            class="btn-light mt-6">
             View Upcoming Events
         </a>
 
@@ -401,7 +401,7 @@
                 Sport Dog League
             </h2>
 
-            <p class="body-large-light mt-4">
+            <p class="body-large mt-4">
                 A year-long league for handlers and dogs of all experience levels. Earn points, track your progress, and celebrate at the end of season party.
             </p>
 

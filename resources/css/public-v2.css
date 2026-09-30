@@ -301,7 +301,8 @@ h1.text-hero {
 .btn-primary,
 .btn-secondary,
 .btn-primary-outline,
-.btn-secondary-outline {
+.btn-secondary-outline,
+.btn-light {
     @apply inline-flex items-center justify-center gap-[10px]
         rounded-lg px-6 py-4
         text-sm font-normal uppercase
@@ -348,6 +349,16 @@ h1.text-hero {
 
 .btn-secondary-outline:hover {
     @apply border-sp-goldenrod text-sp-goldenrod;
+}
+
+/* Light */
+
+.btn-light {
+    @apply bg-sp-warmIvory text-sp-prairieGreen;
+}
+
+.btn-light:hover {
+    @apply bg-sp-prairieOchre text-sp-warmIvory;
 }
 
 /* ==========================================================================
