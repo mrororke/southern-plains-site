@@ -99,7 +99,7 @@
         </p>
 
         <h2 class="font-sans text-3xl font-semibold text-sp-charcoal mt-3">
-            You Don’t Need a Sport Dog.<br>
+            You Don’t Need a Sport Dog.<br class="hidden md:block">
             You Need Your Dog.
         </h2>
 
