@@ -43,7 +43,7 @@
         </p>
 
         <h1 class="text-hero">
-            Your dog was Made to do Stuff.
+            Your Dog was Made to do Stuff.
             </span>
         </h1>
 
@@ -186,14 +186,14 @@
     </div>
 
     {{-- Supporting Copy --}}
-    <div class="col-span-12 md:col-span-3 flex md:items-end md:justify-end">
+<div class="col-span-12 md:col-span-3">
 
-        <p class="body-small font-semibold text-sp-prairieGreen md:text-right">
-            Explore dog sports, find your game,<br class="hidden md:block">
-            and discover something new.
-        </p>
+    <p class="body-small font-semibold text-sp-slate md:text-right md:ml-auto md:max-w-64">
+        Explore dog sports, find your game,<br class="hidden md:block">
+        and discover something new.
+    </p>
 
-    </div>
+</div>
 
     {{--
         Featured Dog Sports Content
