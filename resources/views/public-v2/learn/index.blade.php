@@ -213,8 +213,9 @@
 
     </article>
 
+
     {{-- Book Review Card --}}
-    <article class="col-span-12 md:col-span-4 grid grid-cols-2 gap-6 rounded-md border border-sp-warmStone p-4">
+    <article class="col-span-12 md:col-span-4 grid grid-cols-1 md:grid-cols-2 gap-6 rounded-md border border-sp-warmStone p-4">
 
         {{-- Book Cover --}}
         <div>
@@ -222,7 +223,7 @@
             <img
                 src="{{ asset('images/learn/book-reviews/one-on-one.jpg') }}"
                 alt="Cover of One on One: A Dog Trainer’s Guide to Private Lessons by Nicole Wilde."
-                class="w-full h-full object-cover rounded-md">
+                class="w-full aspect-[3/4] object-cover rounded-md">
 
         </div>
 
@@ -251,7 +252,6 @@
         </div>
 
     </article>
-    {{-- End Book Review Card --}}
 
 </section>
 {{-- End Learn Articles --}}
