@@ -387,7 +387,7 @@
     </div>
 
     {{-- League Intro --}}
-    <div class="col-span-4 flex items-center">
+    <div class="col-span-5 flex items-center">
 
         <div>
 
@@ -414,8 +414,6 @@
 
     </div>
 
-    {{-- Intentional Empty Space --}}
-    <div class="col-span-2"></div>
 
     {{-- League Features --}}
     <div class="col-span-2 flex items-center">
