@@ -116,3 +116,55 @@
 {{-- End Learn Hero --}}
 
 @endsection
+
+@section('content')
+
+{{-- Featured Article --}}
+<section class="px-6 py-12 md:px-8 md:py-16 bg-sp-warmIvory">
+
+    <article class="grid grid-cols-12 gap-6 rounded-md border border-sp-warmStone bg-sp-limestone p-6">
+
+        {{-- Featured Image --}}
+        <div class="col-span-12 md:col-span-7">
+
+            <img
+                src="{{ asset('images/learn/what-is-nasda/featured.jpg') }}"
+                alt="Hamish, a black and white Sheltie, investigating a NASDA quarry box."
+                class="w-full h-full aspect-[16/9] object-cover rounded-md">
+
+        </div>
+
+        {{-- Featured Content --}}
+        <div class="col-span-12 md:col-span-5 flex items-center md:px-6">
+
+            <div>
+
+                <p class="font-display font-bold text-lg text-sp-prairieOchre uppercase">
+                    Dog Sports 101
+                </p>
+
+                <h2 class="font-sans text-3xl font-semibold text-sp-charcoal mt-3">
+                    What Is NASDA, Anyway?
+                </h2>
+
+                <p class="body-large text-sp-slate mt-6">
+                    From searching for lost objects to trailing and locating rats, NASDA lets dogs use their noses, independence, and problem solving skills in exciting and rewarding ways.
+                </p>
+
+                <a
+                    href="#"
+                    class="learn-more-link text-sp-prairieOchre mt-4">
+                    Read the Guide
+                    <x-icons.move-right />
+                </a>
+
+            </div>
+
+        </div>
+
+    </article>
+
+</section>
+{{-- End Featured Article --}}
+
+@endsection
