@@ -478,7 +478,7 @@
                 Get the Title.
             </h2>
 
-            <p class="body-large mt-4">
+            <p class="body-large text-sp-slate mt-4">
                 As an AKC CGC Evaluator, Melanie offers AKC Trick Dog evaluations online or in person. Earn titles that celebrate what your dog already knows — and open the door to even more fun.
             </p>
 
@@ -578,7 +578,7 @@
         <x-icons.clipboard-check
             class="w-8 h-8 text-sp-charcoal mb-4 mx-auto" />
 
-        <p class="body-small">
+        <p class="body-small text-sp-slate">
             AKC CGC<br>
             Evaluator
         </p>
@@ -591,7 +591,7 @@
         <x-icons.activity
             class="w-8 h-8 text-sp-charcoal mb-4 mx-auto" />
 
-        <p class="body-small">
+        <p class="body-small text-sp-slate">
             AKC Fit Dog<br>
             Instructor
         </p>
@@ -604,7 +604,7 @@
         <x-icons.graduation-cap
             class="w-8 h-8 text-sp-charcoal mb-4 mx-auto" />
 
-        <p class="body-small">
+        <p class="body-small text-sp-slate">
             Click to Calm<br>
             Instructor<br>
             In Progress
@@ -618,7 +618,7 @@
         <x-icons.badge-check
             class="w-8 h-8 text-sp-charcoal mb-4 mx-auto" />
 
-        <p class="body-small">
+        <p class="body-small text-sp-slate">
             NASDA<br>
             Judge
         </p>

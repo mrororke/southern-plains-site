@@ -239,7 +239,7 @@ h1.text-hero {
 /* Body text */
 
 .body-large {
-    @apply text-sp-slate font-sans;
+    @apply font-sans;
     font-size: 24px;
     font-style: normal;
     font-weight: 400;
@@ -247,7 +247,7 @@ h1.text-hero {
 }
 
 .body {
-    @apply text-sp-slate font-sans;
+    @apply font-sans;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -255,7 +255,7 @@ h1.text-hero {
 }
 
 .body-small {
-    @apply text-sp-slate font-sans;
+    @apply font-sans;
     font-size: 16px;
     font-style: normal;
     font-weight: 400;

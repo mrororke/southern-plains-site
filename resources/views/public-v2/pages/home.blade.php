@@ -53,7 +53,7 @@
             <hr>
         </div>
 
-        <p class="body-large">
+        <p class="body-large text-sp-slate">
             Positive reinforcement training. Dog sports. Real community.
             We’re here to help you and your dog learn, play,
             and thrive — together.
