@@ -332,6 +332,90 @@
 </nav>
 {{-- End Pagination --}}
 
+{{-- Browse by Topic --}}
+<section class="px-6 pb-16 md:px-8 md:pb-24">
+
+    <div class="border-t border-sp-warmStone pt-10 md:pt-12">
+
+        <div class="grid grid-cols-12 gap-6">
+
+            {{-- Heading --}}
+            <div class="col-span-12 md:col-span-4">
+
+                <p class="text-eyebrow">
+                    Explore More
+                </p>
+
+                <h2 class="text-section mt-2">
+                    Browse by Topic
+                </h2>
+
+            </div>
+
+            {{-- Topics --}}
+            <div class="col-span-12 md:col-span-8">
+
+                <ul class="flex flex-wrap gap-3">
+
+                    <li>
+                        <a
+                            href="#"
+                            class="inline-flex rounded-full border border-sp-warmStone px-5 py-3 body-small text-sp-slate transition-colors hover:border-sp-prairieOchre hover:text-sp-prairieOchre">
+                            NASDA
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="#"
+                            class="inline-flex rounded-full border border-sp-warmStone px-5 py-3 body-small text-sp-slate transition-colors hover:border-sp-prairieOchre hover:text-sp-prairieOchre">
+                            Dog Sports
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="#"
+                            class="inline-flex rounded-full border border-sp-warmStone px-5 py-3 body-small text-sp-slate transition-colors hover:border-sp-prairieOchre hover:text-sp-prairieOchre">
+                            Positive Reinforcement
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="#"
+                            class="inline-flex rounded-full border border-sp-warmStone px-5 py-3 body-small text-sp-slate transition-colors hover:border-sp-prairieOchre hover:text-sp-prairieOchre">
+                            Training
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="#"
+                            class="inline-flex rounded-full border border-sp-warmStone px-5 py-3 body-small text-sp-slate transition-colors hover:border-sp-prairieOchre hover:text-sp-prairieOchre">
+                            Living With Dogs
+                        </a>
+                    </li>
+
+                    <li>
+                        <a
+                            href="#"
+                            class="inline-flex rounded-full border border-sp-warmStone px-5 py-3 body-small text-sp-slate transition-colors hover:border-sp-prairieOchre hover:text-sp-prairieOchre">
+                            Books
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+{{-- End Browse by Topic --}}
+
 
 @endsection
 
