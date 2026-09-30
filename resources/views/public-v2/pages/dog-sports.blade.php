@@ -187,13 +187,12 @@
 
     <div class="col-span-3 flex items-end justify-end">
 
-        <p class="body-small font-semibold text-sp-prairieGreen text-right max-w-64">
+        <p class="body-small font-semibold text-sp-prairieGreen text-right">
             Explore dog sports, find your game,<br>
             and discover something new.
         </p>
 
     </div>
-
 
     {{--
         Featured Dog Sports Content
@@ -205,7 +204,10 @@
     --}}
     <div class="col-span-12 border border-sp-warmStone rounded-md mt-2">
 
-        <div class="grid grid-cols-12 gap-6 px-16 py-20">
+        <div class="grid grid-cols-12 gap-6 py-20">
+
+            {{-- Empty Column --}}
+            <div class="col-span-1"></div>
 
             {{-- Featured Content --}}
             <div class="col-span-5 flex items-center">
@@ -239,22 +241,28 @@
 
             </div>
 
-
             {{-- Featured Image --}}
-            <div class="col-span-1"></div>
-
-            <div class="col-span-6 flex items-center">
+            <div class="col-span-5 flex items-center">
 
                 <div class="relative w-full">
 
                     <img
                         src="{{ asset('images/learn/what-is-nasda/featured.jpg') }}"
-                        alt="Black and white dog investigating a NASDA quarry box."
+                        alt="Hamish, a black and white Sheltie, investigating a NASDA quarry box."
                         class="w-full aspect-[16/9] object-cover rounded-md">
+
+                    <x-public-v2.image-registration
+                        text="Hamish, Photo by Blue Ridge Creative"
+                        position="bottom"
+                        compact
+                        href="https://www.blueridgeprairie.studio/" />
 
                 </div>
 
             </div>
+
+            {{-- Empty Column --}}
+            <div class="col-span-1"></div>
 
         </div>
 
