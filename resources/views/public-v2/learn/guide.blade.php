@@ -442,8 +442,7 @@
                             </h3>
 
                             <p class="body-small text-sp-slate mt-4">
-                                This is where most beginners start.<br />
-                                The dog should work the search independently rather than simply following handler movement. A Level I title is earned after accumulating 100 Level I points.
+                                This is where most beginners start. The dog should work the search independently rather than simply following handler movement. A Level I title is earned after accumulating 100 Level I points.
                             </p>
                         </div>
 
