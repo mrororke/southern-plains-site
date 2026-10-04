@@ -106,7 +106,7 @@
 
                 <x-public-v2.image-registration
             text="Hamish, Photo by Blue Ridge Creative"
-            position="bottom" 
+            position="right" 
             href="https://www.blueridgeprairie.studio/"/>
 
         </div>
