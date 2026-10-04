@@ -622,7 +622,7 @@
                 </section>
 
             {{-- Recommended Reading --}}
-            <section>
+            <section class="mt-8">
                 <h3 class="font-sans text-md font-semibold text-sp-slate">
                 Recommended Reading
             </h3>
