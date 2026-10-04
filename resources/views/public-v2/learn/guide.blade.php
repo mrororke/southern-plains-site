@@ -9,7 +9,7 @@
     class="grid grid-cols-12 gap-6 px-6 pt-8 pb-12 md:px-8 md:pt-12 md:pb-16">
 
     {{-- Intro --}}
-    <div class="col-span-12 md:col-span-7 md:col-start-2">
+    <div class="col-span-12 md:col-span-7">
 
         <p class="font-display font-bold text-2xl text-sp-burntClay">
             Dog Sports 101
