@@ -177,7 +177,7 @@
         <img
             src="{{ asset('images/learn/what-is-nasda/featured.jpg') }}"
             alt="Placeholder guide hero image"
-            class="w-full aspect-[16/9] object-cover rounded-md">
+            class="w-full aspect-[8/3] object-cover rounded-md">
 
     </div>
 
