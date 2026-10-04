@@ -18,7 +18,7 @@
      <div class="col-span-12 md:col-span-1">
         <!-- Empty Cell -->
      </div>
-    <div class="col-span-12 md:col-span-2">
+    <div class="col-span-12 md:col-span-2 md:border-l border-sp-warmStone">
         Sticky Nav
     </div>
 
