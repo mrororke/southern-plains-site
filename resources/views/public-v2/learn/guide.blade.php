@@ -610,6 +610,8 @@
                 <x-icons.move-right />
             </a>
 
+            <!-- TODO Create the workshop request form -->
+
         </div>
 
     </div>
@@ -618,6 +620,28 @@
 {{-- End Workshop CTA --}}
 
                 </section>
+
+            {{-- Recommended Reading --}}
+            <section>
+                <h3 class="font-sans text-md font-semibold text-sp-slate">
+                Recommended Reading
+            </h3>
+
+            <p class="body text-sp-slate mt-4">
+                Want to dig deeper into NASDA? Visit the North American Sport Dog Association for current rules, titles, registration information, and upcoming events.
+                <a
+                href="https://nasda.dog/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-link">
+                Visit NASDA
+            </a>.<br/>
+            <span class="italic">Competition rules and requirements can change. Always check current NASDA information and instructions from trial officials when preparing to compete.</span>
+            
+        </p>
+
+            </section>
+            {{-- End Recommended Reading --}}
 
             </article>
 
