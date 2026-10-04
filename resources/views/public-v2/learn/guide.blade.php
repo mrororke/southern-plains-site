@@ -180,4 +180,4 @@
 
 </div>
 
-@endcontent
+@endsection
