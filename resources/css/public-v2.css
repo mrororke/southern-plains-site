@@ -292,6 +292,15 @@ h1.text-hero {
     @apply w-full border-0 border-t border-sp-limestone;
 }
 
+.text-link {
+    @apply text-sp-prairieGreen underline underline-offset-4
+        transition-colors duration-200;
+}
+
+.text-link:hover {
+    @apply text-sp-prairieOchre;
+}
+
 /* ==========================================================================
    07. Buttons
    ========================================================================== */
