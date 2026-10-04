@@ -423,6 +423,133 @@
 
                 </figure>
 
+                <figure class="mt-10">
+
+                    <img
+                        src="{{ asset('images/learn/what-is-nasda/urban-locating.jpg') }}"
+                        alt="Placeholder supporting image"
+                        class="block w-full aspect-[4/3] object-cover rounded-md">
+
+                    <figcaption class="mt-3">
+
+                        <p class="font-display text-sm text-sp-prairieOchre uppercase">
+                            Figure 03
+                        </p>
+
+                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal mt-1">
+                            Urban Locating Level I
+                        </h3>
+
+                        <p class="body text-sp-slate mt-2">
+                            Hamish after finding a rat hidden in a barn.
+                        </p>
+
+                        <p class="body-small text-sp-slate mt-2">
+                            Photo: <a href="https://www.blueridgeprairie.studio/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-link">Blue Ridge Creative</a>
+                        </p>
+
+                    </figcaption>
+
+                </figure>
+
+                <figure class="mt-10">
+
+                    <img
+                        src="{{ asset('images/learn/what-is-nasda/shed-dog.jpg') }}"
+                        alt="Placeholder supporting image"
+                        class="block w-full aspect-[4/3] object-cover rounded-md">
+
+                    <figcaption class="mt-3">
+
+                        <p class="font-display text-sm text-sp-prairieOchre uppercase">
+                            Figure 04
+                        </p>
+
+                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal mt-1">
+                            Shed Level I
+                        </h3>
+
+                        <p class="body text-sp-slate mt-2">
+                            Hamish confidently going to the antler.
+                        </p>
+
+                        <p class="body-small text-sp-slate mt-2">
+                            Photo: <a href="https://www.blueridgeprairie.studio/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-link">Blue Ridge Creative</a>
+                        </p>
+
+                    </figcaption>
+
+                </figure>
+                <figure class="mt-10">
+
+                    <img
+                        src="{{ asset('images/learn/what-is-nasda/lost-item.jpg') }}"
+                        alt="Placeholder supporting image"
+                        class="block w-full aspect-[4/3] object-cover rounded-md">
+
+                    <figcaption class="mt-3">
+
+                        <p class="font-display text-sm text-sp-prairieOchre uppercase">
+                            Figure 05
+                        </p>
+
+                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal mt-1">
+                            Lost Item Level I
+                        </h3>
+
+                        <p class="body text-sp-slate mt-2">
+                            Hamish finding the car keys.
+                        </p>
+
+                        <p class="body-small text-sp-slate mt-2">
+                            Photo: <a href="https://www.blueridgeprairie.studio/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-link">Blue Ridge Creative</a>
+                        </p>
+
+                    </figcaption>
+
+                </figure>
+
+                <figure class="mt-10">
+
+                    <img
+                        src="{{ asset('images/learn/what-is-nasda/natural-distractions.jpg') }}"
+                        alt="Placeholder supporting image"
+                        class="block w-full aspect-[4/3] object-cover rounded-md">
+
+                    <figcaption class="mt-3">
+
+                        <p class="font-display text-sm text-sp-prairieOchre uppercase">
+                            Figure 06
+                        </p>
+
+                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal mt-1">
+                            Natural Distractions - Yuck!
+                        </h3>
+
+                        <p class="body text-sp-slate mt-2">
+                            Hamish enjoying a mid run “snack.”
+                        </p>
+
+                        <p class="body-small text-sp-slate mt-2">
+                            Photo: <a href="https://www.blueridgeprairie.studio/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-link">Blue Ridge Creative</a>
+                        </p>
+
+                    </figcaption>
+
+                </figure>
+
             </aside>
 
         </div>
