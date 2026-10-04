@@ -354,7 +354,7 @@
                             </h3>
 
                             <p class="body text-sp-slate mt-4">
-                                Just like today, enter the start cones and give your dog room to work. The judge will make the call.
+                                Enter the start cones and give your dog room to work. The judge will make the call.
                             </p>
                         </div>
 
@@ -386,7 +386,7 @@
                     </p>
 
                     <p class="body text-sp-slate mt-4">
-                        <span class="font-bold">What does the judge do?</span>
+                        <span class="font-bold">What does the judge do?</span><br/>
                         The judge evaluates your team's run.<br/>
                         They're watching how your dog is working and how you respond to your dog's body language. A judge is also watching for the difference between a dog working odor and a dog who has simply found something interesting to sniff.<br/>
                         You don't have to call the find. The judge makes the call.
