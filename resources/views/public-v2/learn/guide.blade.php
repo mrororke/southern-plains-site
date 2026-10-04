@@ -158,6 +158,57 @@
 
                     </section>
 
+                    {{-- Subsection: Urban Locating --}}
+                    <section class="mt-8">
+
+                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                            Urban Locating
+                        </h3>
+
+                        <p class="font-sans text-base font-semibold text-sp-charcoal mt-1">
+                            Search the area. Find the quarry
+                        </p>
+
+                        <p class="body text-sp-slate mt-2">
+                            Urban Locating takes away the scent trail. Instead, your dog searches a defined area to find hidden quarry. There's no required search pattern. Your dog doesn't have to methodically work from one side of the search area to the other. Give them room to investigate, follow scent, and work toward the source in their own way.
+                        </p>
+
+                    </section>
+
+                    {{-- Subsection: Shed Dog --}}
+                    <section class="mt-8">
+
+                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                            Shed Dog
+                        </h3>
+
+                        <p class="font-sans text-base font-semibold text-sp-charcoal mt-1">
+                            Find the antler. That's it.
+                        </p>
+
+                        <p class="body text-sp-slate mt-2">
+                           Shed Dog asks your dog to search an area and locate a naturally shed antler. And despite the name, your dog doesn't have to retrieve it. At Level I, your dog can indicate the shed or retrieve it. Either counts as locating the hide.
+                        </p>
+
+                    </section>
+
+                    {{-- Subsection --}}
+                    <section class="mt-8">
+
+                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                            Third Subsection
+                        </h3>
+
+                        <p class="font-sans text-base font-semibold text-sp-charcoal mt-1">
+                            A short supporting statement goes here.
+                        </p>
+
+                        <p class="body text-sp-slate mt-2">
+                            Placeholder content for the third subsection.
+                        </p>
+
+                    </section>
+
                     {{-- Subsection --}}
                     <section class="mt-8">
 
@@ -265,6 +316,10 @@
                         Placeholder content for this section of the guide.
                     </p>
 
+                </section>
+
+                <section>
+                    CTA: Request a Workshop
                 </section>
 
             </article>
