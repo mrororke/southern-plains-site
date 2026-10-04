@@ -490,11 +490,21 @@
                     class="mt-16">
 
                     <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-                        What to Expect
+                        What should I expect at My First Trial?
                     </h2>
 
                     <p class="body text-sp-slate mt-4">
-                        Placeholder content for this section of the guide.
+                        First: there will be people there who know more than you do. That's okay. Talk to them. Talk with other competitors and volunteers. When they're available, talk with the judges. Dog sports should be a welcoming community, and you can learn an incredible amount simply by talking to the people around you.<br/>
+                        It's okay to ask questions. Usually, it's encouraged.<br/>
+                        And if it's your dog's first trial, bring a sense of humor.
+
+                    <p class="body text-sp-slate mt-4">
+                        Trials are difficult. There's movement everywhere. There are unfamiliar people and dogs. There are new environments and so many smells. Your dog may walk through those start cones and immediately do something completely ridiculous. <span class="font-semibold">Laugh.</span> Hamish used to absolutely LOVE eating horse manure instead of working. I have pictures to prove it.
+                    </p>
+
+                    <p class="body text-sp-slate mt-4">
+                        One run doesn't define your dog. Maybe they get distracted by something you never anticipated. Maybe they don't work at all. Maybe they walk into the search area and absolutely blow you away. You probably won't feel like you or your dog are completely ready for that first trial. That's okay, too. You don't have to become an expert before you enter Level I. A lot of the learning happens during the runs themselves. Your dog might surprise you.<br/>
+                        And whether you're at your first trial or your fiftieth, remember this: <span class="font-bold">At the end of the day, you get to go home with the best dog there</span>.
                     </p>
 
                 </section>
