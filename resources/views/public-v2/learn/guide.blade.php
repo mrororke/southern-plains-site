@@ -97,7 +97,7 @@
     <div class="col-span-12 md:col-span-10 md:col-start-1">
 
        {{-- Guide Hero Image --}}
-<div class="mb-12 md:mb-16">
+<div class="mb-12 md:mb-16 relative">
 
     <img
         src="{{ asset('images/learn/what-is-nasda/featured.jpg') }}"
