@@ -96,21 +96,21 @@
     {{-- Guide --}}
     <div class="col-span-12 md:col-span-10 md:col-start-1">
 
-       {{-- Guide Hero Image --}}
-<div class="mb-12 md:mb-16 relative">
+        {{-- Guide Hero Image --}}
+        <div class="mb-12 md:mb-16 relative">
 
-    <img
-        src="{{ asset('images/learn/what-is-nasda/featured.jpg') }}"
-        alt="Hamish, a black and white Sheltie, investigating a NASDA quarry box outdoors."
-        class="w-full aspect-[8/3] object-cover rounded-md">
+            <img
+                src="{{ asset('images/learn/what-is-nasda/featured.jpg') }}"
+                alt="Hamish, a black and white Sheltie, investigating a NASDA quarry box outdoors."
+                class="w-full aspect-[8/3] object-cover rounded-md">
 
-    <x-public-v2.image-registration
-        text="Hamish, Photo by Blue Ridge Creative"
-        position="right"
-        href="https://www.blueridgeprairie.studio/" />
+            <x-public-v2.image-registration
+                text="Hamish, Photo by Blue Ridge Creative"
+                position="right"
+                href="https://www.blueridgeprairie.studio/" />
 
-</div>
-{{-- End Guide Hero Image --}}
+        </div>
+        {{-- End Guide Hero Image --}}
 
         {{-- Guide Body --}}
         <div class="grid grid-cols-10 items-stretch gap-6">
@@ -266,14 +266,41 @@
                     class="mt-16">
 
                     <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-                        Training
+                        Does My Dog Need Special Training?
                     </h2>
 
                     <p class="body text-sp-slate mt-4">
-                        Placeholder content for the next major section of the guide.
+                        One of the great things about NASDA is that it's beginner-friendly for both the handler
+                         and the dog. Most dogs already like smelling new and interesting things. That makes those
+                          first finds fairly easy for a lot of dogs. The dog isn't really learning how to smell—they've 
+                          had that figured out their entire life. They're learning what this particular game is asking them to find.
+                    </p>
+
+                    <p class="body text-sp-slate mt-4">
+                        I like to say that at Level I, the dog is learning the game. At Level II, the handler is learning the game. By Level III, it's all about teamwork.
+                    </p>
+
+                    <p class="body text-sp-slate mt-4">
+                        Your dog doesn't need to know what they're doing yet.<br />
+                        Neither do you.
+                    </p>
+
+                    <p class="body text-sp-slate mt-4">
+                        At Level I, you don't even need to recognize or call your dog's alert. The judge is watching your dog work and will make the call when your dog independently locates the source.
+
+                    </p>
+
+                    <p class="body text-sp-slate mt-4">
+                        <span class="italic">What you can start learning is how your individual dog communicates.</span><br />
+                        Maybe it's a sudden head snap or an ear twitch. Maybe their sniffing becomes more intense. Their speed changes. Their body changes. Their tail starts moving differently. Every dog communicates differently. There isn't one behavior every NASDA dog needs to perform when they've found something. <span class="italic">That's part of learning to TRAIN the dog in front of you.</span>
+                    </p>
+
+                    <p class="body text-sp-slate mt-4">
+                        You don't need much equipment to get started, either. As a competitor, you can have a great trial day with your dog, an appropriate collar or harness, and a leash. Add a pair of shoes appropriate for the trial site and something your dog finds rewarding, and you're ready to go.
                     </p>
 
                 </section>
+
 
                 {{-- Major Guide Section --}}
                 <section
@@ -382,9 +409,9 @@
 
                         <p class="body-small text-sp-slate mt-2">
                             Photo: <a href="https://www.blueridgeprairie.studio/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="text-link">Blue Ridge Creative</a>
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-link">Blue Ridge Creative</a>
                         </p>
 
                     </figcaption>
@@ -414,9 +441,9 @@
 
                         <p class="body-small text-sp-slate mt-2">
                             Photo: <a href="https://www.blueridgeprairie.studio/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="text-link">Blue Ridge Creative</a>
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-link">Blue Ridge Creative</a>
                         </p>
 
                     </figcaption>
@@ -446,9 +473,9 @@
 
                         <p class="body-small text-sp-slate mt-2">
                             Photo: <a href="https://www.blueridgeprairie.studio/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="text-link">Blue Ridge Creative</a>
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-link">Blue Ridge Creative</a>
                         </p>
 
                     </figcaption>
@@ -478,9 +505,9 @@
 
                         <p class="body-small text-sp-slate mt-2">
                             Photo: <a href="https://www.blueridgeprairie.studio/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="text-link">Blue Ridge Creative</a>
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-link">Blue Ridge Creative</a>
                         </p>
 
                     </figcaption>
@@ -509,9 +536,9 @@
 
                         <p class="body-small text-sp-slate mt-2">
                             Photo: <a href="https://www.blueridgeprairie.studio/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="text-link">Blue Ridge Creative</a>
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-link">Blue Ridge Creative</a>
                         </p>
 
                     </figcaption>
@@ -541,9 +568,9 @@
 
                         <p class="body-small text-sp-slate mt-2">
                             Photo: <a href="https://www.blueridgeprairie.studio/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    class="text-link">Blue Ridge Creative</a>
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="text-link">Blue Ridge Creative</a>
                         </p>
 
                     </figcaption>
