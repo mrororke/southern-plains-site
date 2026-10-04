@@ -95,7 +95,7 @@
             In This Guide
         </p>
 
-        <ul class="flex flex-col gap-6 mt-8">
+        <ul class="flex flex-col gap-4 mt-2">
 
             <li>
                 <a
