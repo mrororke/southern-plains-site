@@ -187,7 +187,7 @@
                         </p>
 
                         <p class="body text-sp-slate mt-2">
-                           Shed Dog asks your dog to search an area and locate a naturally shed antler. And despite the name, your dog doesn't have to retrieve it. At Level I, your dog can indicate the shed or retrieve it. Either counts as locating the hide.
+                            Shed Dog asks your dog to search an area and locate a naturally shed antler. And despite the name, your dog doesn't have to retrieve it. At Level I, your dog can indicate the shed or retrieve it. Either counts as locating the hide.
                         </p>
 
                     </section>
@@ -227,32 +227,32 @@
                     </section>
 
                     {{-- Development Callout --}}
-<div class="mt-8 rounded-md border border-sp-warmStone bg-sp-limestone p-5 md:p-6">
+                    <div class="mt-8 rounded-md border border-sp-warmStone bg-sp-limestone p-5 md:p-6">
 
-    <div class="flex items-start gap-4">
+                        <div class="flex items-start gap-4">
 
-        <x-icons.notebook-dot
-            class="mt-0.5 h-6 w-6 shrink-0 text-sp-prairieOchre"
-            aria-hidden="true" />
+                            <x-icons.notebook-dot
+                                class="mt-0.5 h-6 w-6 shrink-0 text-sp-prairieOchre"
+                                aria-hidden="true" />
 
-        <div>
+                            <div>
 
-            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
-                Still In Development
-            </h3>
+                                <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                                    Still In Development
+                                </h3>
 
-            <p class="body text-sp-slate mt-4">
-                Den Hunt is currently still in development. The rules and requirements are still being field tested, and adjusted.
-            </p>
+                                <p class="body text-sp-slate mt-4">
+                                    Den Hunt is currently still in development. The rules and requirements are still being field tested, and adjusted.
+                                </p>
 
-        </div>
+                            </div>
 
-    </div>
+                        </div>
 
-</div>
-{{-- End Development Callout --}}
+                    </div>
+                    {{-- End Development Callout --}}
 
-             
+
                 </section>
 
                 {{-- Major Guide Section --}}
@@ -368,15 +368,18 @@
                         </p>
 
                         <h3 class="font-sans text-xl font-semibold text-sp-charcoal mt-1">
-                            Supporting Figure Title
+                            Trailing & Locating Level One
                         </h3>
 
                         <p class="body text-sp-slate mt-2">
-                            Short description of the image goes here.
+                            Hamish at a quarry box, successfully finding a rat.
                         </p>
 
                         <p class="body-small text-sp-slate mt-2">
-                            Photo: Photographer Name
+                            Photo: <a href=""
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-link">Blue Ridge Creative</a>
                         </p>
 
                     </figcaption>
@@ -397,15 +400,18 @@
                         </p>
 
                         <h3 class="font-sans text-xl font-semibold text-sp-charcoal mt-1">
-                            Another Supporting Figure
+                            Trailing Brace Level I
                         </h3>
 
                         <p class="body text-sp-slate mt-2">
-                            Another short description of the image goes here.
+                            Hamish and his first ever Brace partner, River.
                         </p>
 
                         <p class="body-small text-sp-slate mt-2">
-                            Photo: Photographer Name
+                            Photo: <a href=""
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="text-link">Blue Ridge Creative</a>
                         </p>
 
                     </figcaption>
