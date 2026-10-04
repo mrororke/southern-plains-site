@@ -490,7 +490,7 @@
                     class="mt-16">
 
                     <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-                        What should I expect at My First Trial?
+                        What Should I Expect at My First Trial?
                     </h2>
 
                     <p class="body text-sp-slate mt-4">
@@ -515,7 +515,7 @@
                     class="mt-16">
 
                     <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-                        What do I need to bring?
+                        What do I Need to Bring?
                     </h2>
 
                     <p class="body text-sp-slate mt-4">
@@ -534,11 +534,48 @@
                     class="mt-16">
 
                     <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-                        Getting Started
+                        How do I Get Started?
                     </h2>
 
                     <p class="body text-sp-slate mt-4">
-                        Placeholder content for this section of the guide.
+                        So, ready to get started? You don't have to take the same next step as everyone else.
+                    </p>
+
+                    <p class="body text-sp-slate mt-4">
+                        <span class="font-bold">I just want to learn more.</span><br/>
+                        Visit 
+                        <a
+                            href="https://nasda.dog/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-link">
+                            NASDA </a>
+                            to explore the sports, current rules, titles, registration information, and upcoming events.</p>
+
+                    <p class="body text-sp-slate mt-4">
+                        <span class="font-bold">I'd like to practice first.</span><br/>
+                        Come give it a try before entering a trial. Practice is a chance for both you and your dog to figure out what these games are all about. Find a 
+                         <a
+                    href="{{ route('public-v2.training') }}"
+                    class="text-link">practice opportunity</a>.</p>
+
+                    <p class="body text-sp-slate mt-4">
+                        <span class="font-bold">I'm ready to try it.</span><br/>
+                            Take a look at upcoming 
+                            <a
+                            href="https://nasda.dog/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-link">
+                            NASDA </a> events and find an opportunity to get your dog on the start line.
+                        </p>
+
+                        <p class="body text-sp-slate mt-4">
+                        <span class="font-bold">I want to feel more prepared first.</span><br/>
+                        We've got you covered there, too. 
+                        <!-- TODO: Write this guide: [LINK: Prepare for your first trial → Preparing for Your First Dog Sport Trial] --></p>
+
+                        <p class="body text-sp-slate mt-4">You don't have to know which game your dog will love. You don't have to know exactly what their alert looks like. And you definitely don't have to have everything polished before you show up. Give your dog the opportunity to try something new and see what happens. Most importantly, keep playing with your dog.
                     </p>
 
                 </section>
