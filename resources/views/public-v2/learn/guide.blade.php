@@ -319,7 +319,7 @@
                     <div class="grid grid-cols-1 gap-4 mt-8 md:grid-cols-5">
 
                         <div class="rounded-md bg-sp-limestone p-5">
-                            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                            <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
                                 Check In
                             </h3>
 
@@ -329,7 +329,7 @@
                         </div>
 
                         <div class="rounded-md bg-sp-limestone p-5">
-                            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                            <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
                                 Attend the Briefing
                             </h3>
 
@@ -339,7 +339,7 @@
                         </div>
 
                         <div class="rounded-md bg-sp-limestone p-5">
-                            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                            <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
                                 Wait Your Turn
                             </h3>
 
@@ -349,7 +349,7 @@
                         </div>
 
                         <div class="rounded-md bg-sp-limestone p-5">
-                            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                            <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
                                 Let Your Dog Search
                             </h3>
 
@@ -359,7 +359,7 @@
                         </div>
 
                         <div class="rounded-md bg-sp-limestone p-5">
-                            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                            <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
                                 Celebrate!
                             </h3>
 
