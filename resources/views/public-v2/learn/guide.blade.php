@@ -366,7 +366,7 @@
 
         <ul class="flex flex-col gap-4 mt-2">
 
-                <li>
+            <li>
                 <a
                     href="#the-games"
                     data-guide-nav
