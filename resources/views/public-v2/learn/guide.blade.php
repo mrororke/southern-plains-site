@@ -192,40 +192,67 @@
 
                     </section>
 
-                    {{-- Subsection --}}
+                    {{-- Subsection: Lost Item --}}
                     <section class="mt-8">
 
                         <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
-                            Third Subsection
+                            Lost Item
                         </h3>
 
                         <p class="font-sans text-base font-semibold text-sp-charcoal mt-1">
-                            A short supporting statement goes here.
+                            Your scent. Their Search
                         </p>
 
                         <p class="body text-sp-slate mt-2">
-                            Placeholder content for the third subsection.
+                            Lost Item asks your dog to search for an everyday object carrying your scent. You provide the items your dog will search for, and one is selected for the search. It's a different challenge from searching for quarry or an antler: this time, what matters is something that smells like you.
                         </p>
 
                     </section>
 
-                    {{-- Subsection --}}
+                    {{-- Subsection: Den Hunt --}}
                     <section class="mt-8">
 
                         <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
-                            Third Subsection
+                            Den Hunt
                         </h3>
 
                         <p class="font-sans text-base font-semibold text-sp-charcoal mt-1">
-                            A short supporting statement goes here.
+                            Enter the tunnel. Find the quarry.
                         </p>
 
                         <p class="body text-sp-slate mt-2">
-                            Placeholder content for the third subsection.
+                            Den Hunt asks the dog to enter a tunnel and travel through it to locate quarry. The introductory level, Den Hunt Tested, uses a straight tunnel and is pass/fail. The dog must enter independently, reach the quarry, and remain there for the required amount of time.
                         </p>
 
                     </section>
 
+                    {{-- Development Callout --}}
+<div class="mt-8 rounded-md border border-sp-warmStone bg-sp-limestone p-5 md:p-6">
+
+    <div class="flex items-start gap-4">
+
+        <x-icons.notebook-dot
+            class="mt-0.5 h-6 w-6 shrink-0 text-sp-prairieOchre"
+            aria-hidden="true" />
+
+        <div>
+
+            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                Still In Development
+            </h3>
+
+            <p class="body text-sp-slate mt-4">
+                Den Hunt is currently still in development. The rules and requirements are still being field tested, and adjusted.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+{{-- End Development Callout --}}
+
+             
                 </section>
 
                 {{-- Major Guide Section --}}
