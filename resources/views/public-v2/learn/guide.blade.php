@@ -169,6 +169,259 @@
 
 @section('content')
 
-super cool
+{{-- Guide Hero Image --}}
+<section class="px-6 pb-12 md:px-8 md:pb-16">
+
+    <img
+        src="{{ asset('images/learn/what-is-nasda/featured.jpg') }}"
+        alt="Placeholder guide hero image"
+        class="w-full aspect-[16/9] object-cover rounded-md">
+
+</section>
+{{-- End Guide Hero Image --}}
+
+
+{{-- Guide Body --}}
+<section class="grid grid-cols-12 gap-6 px-6 pb-16 md:px-8 md:pb-24">
+
+    {{-- Main Guide Content --}}
+    <article class="col-span-12 md:col-span-8">
+
+        {{-- Major Guide Section --}}
+        <section id="the-games">
+
+            <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
+                What Can My Dog Actually Do?
+            </h2>
+
+            <p class="body text-sp-slate mt-4">
+                Placeholder introductory text for this section of the guide. This will eventually
+                introduce the topic and give the reader some context before moving into the individual sections.
+            </p>
+
+
+            {{-- Subsection --}}
+            <section class="mt-8">
+
+                <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                    First Subsection
+                </h3>
+
+                <p class="font-sans text-base font-semibold text-sp-charcoal mt-1">
+                    A short supporting statement goes here.
+                </p>
+
+                <p class="body text-sp-slate mt-2">
+                    Placeholder content for this subsection. This is where the main guide text will live.
+                    We can replace this with the actual content once the structure is approved.
+                </p>
+
+            </section>
+
+
+            {{-- Subsection --}}
+            <section class="mt-8">
+
+                <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                    Second Subsection
+                </h3>
+
+                <p class="font-sans text-base font-semibold text-sp-charcoal mt-1">
+                    Another short supporting statement.
+                </p>
+
+                <p class="body text-sp-slate mt-2">
+                    Placeholder content for the second subsection. Additional paragraphs can be added
+                    naturally as needed.
+                </p>
+
+            </section>
+
+
+            {{-- Subsection --}}
+            <section class="mt-8">
+
+                <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                    Third Subsection
+                </h3>
+
+                <p class="font-sans text-base font-semibold text-sp-charcoal mt-1">
+                    A short supporting statement goes here.
+                </p>
+
+                <p class="body text-sp-slate mt-2">
+                    Placeholder content for the third subsection. The actual guide content will replace
+                    this text.
+                </p>
+
+            </section>
+
+        </section>
+
+
+        {{-- Next Major Guide Section --}}
+        <section
+            id="training"
+            class="mt-16">
+
+            <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
+                Training
+            </h2>
+
+            <p class="body text-sp-slate mt-4">
+                Placeholder content for the next major section of the guide.
+            </p>
+
+        </section>
+
+
+        {{-- Next Major Guide Section --}}
+        <section
+            id="your-first-trial"
+            class="mt-16">
+
+            <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
+                Your First Trial
+            </h2>
+
+            <p class="body text-sp-slate mt-4">
+                Placeholder content for this section of the guide.
+            </p>
+
+        </section>
+
+
+        {{-- Next Major Guide Section --}}
+        <section
+            id="scoring-levels"
+            class="mt-16">
+
+            <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
+                Scoring &amp; Levels
+            </h2>
+
+            <p class="body text-sp-slate mt-4">
+                Placeholder content for this section of the guide.
+            </p>
+
+        </section>
+
+
+        {{-- Next Major Guide Section --}}
+        <section
+            id="what-to-expect"
+            class="mt-16">
+
+            <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
+                What to Expect
+            </h2>
+
+            <p class="body text-sp-slate mt-4">
+                Placeholder content for this section of the guide.
+            </p>
+
+        </section>
+
+
+        {{-- Next Major Guide Section --}}
+        <section
+            id="what-to-bring"
+            class="mt-16">
+
+            <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
+                What to Bring
+            </h2>
+
+            <p class="body text-sp-slate mt-4">
+                Placeholder content for this section of the guide.
+            </p>
+
+        </section>
+
+
+        {{-- Next Major Guide Section --}}
+        <section
+            id="getting-started"
+            class="mt-16">
+
+            <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
+                Getting Started
+            </h2>
+
+            <p class="body text-sp-slate mt-4">
+                Placeholder content for this section of the guide.
+            </p>
+
+        </section>
+
+    </article>
+
+
+    {{-- Supporting Figures --}}
+    <aside class="col-span-12 md:col-span-4">
+
+        <figure>
+
+            <img
+                src="{{ asset('images/learn/what-is-nasda/trailing-locating.jpg') }}"
+                alt="Placeholder supporting image"
+                class="w-full aspect-[4/3] object-cover rounded-md">
+
+            <figcaption class="mt-3">
+
+                <p class="font-display text-sm text-sp-prairieOchre uppercase">
+                    Figure 01
+                </p>
+
+                <h3 class="font-sans text-xl font-semibold text-sp-charcoal mt-1">
+                    Supporting Figure Title
+                </h3>
+
+                <p class="body text-sp-slate mt-2">
+                    Short description of the image goes here.
+                </p>
+
+                <p class="body-small text-sp-slate mt-2">
+                    Photo: Photographer Name
+                </p>
+
+            </figcaption>
+
+        </figure>
+
+
+        <figure class="mt-10">
+
+            <img
+                src="{{ asset('images/learn/what-is-nasda/trailing-brace.jpg') }}"
+                alt="Placeholder supporting image"
+                class="w-full aspect-[4/3] object-cover rounded-md">
+
+            <figcaption class="mt-3">
+
+                <p class="font-display text-sm text-sp-prairieOchre uppercase">
+                    Figure 02
+                </p>
+
+                <h3 class="font-sans text-xl font-semibold text-sp-charcoal mt-1">
+                    Another Supporting Figure
+                </h3>
+
+                <p class="body text-sp-slate mt-2">
+                    Another short description of the image goes here.
+                </p>
+
+                <p class="body-small text-sp-slate mt-2">
+                    Photo: Photographer Name
+                </p>
+
+            </figcaption>
+
+        </figure>
+
+    </aside>
+
+</section>
+{{-- End Guide Body --}}
 
 @endsection
