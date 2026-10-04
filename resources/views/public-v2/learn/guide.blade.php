@@ -581,7 +581,42 @@
                 </section>
 
                 <section>
-                    CTA: Request a Workshop
+                    
+                {{-- Workshop CTA --}}
+<div class="mt-12 rounded-md bg-sp-prairieGreen p-6 md:p-8">
+
+    <div class="flex items-start gap-4">
+
+        <x-icons.calendar-plus
+            class="mt-0.5 h-6 w-6 shrink-0 text-sp-warmIvory"
+            aria-hidden="true" />
+
+        <div>
+
+            <h3 class="font-sans text-2xl font-semibold text-sp-warmIvory">
+                Want to Try NASDA Together?
+            </h3>
+
+            <p class="body text-sp-warmIvory mt-4">
+                Interested in bringing NASDA to your club, training group, or community?
+                Southern Plains Sport Dog Club offers introductory workshops designed to give
+                handlers a chance to learn the games, try the skills, and have fun with their dogs.
+            </p>
+
+            <a
+                href="#"
+                class="learn-more-link text-sp-warmIvory mt-5">
+                Request a Workshop
+                <x-icons.move-right />
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+{{-- End Workshop CTA --}}
+
                 </section>
 
             </article>
