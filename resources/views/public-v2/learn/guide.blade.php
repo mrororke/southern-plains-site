@@ -96,21 +96,21 @@
     {{-- Guide --}}
     <div class="col-span-12 md:col-span-10 md:col-start-1">
 
-        {{-- Guide Hero Image --}}
-        <div class="mb-12 md:mb-16">
+       {{-- Guide Hero Image --}}
+<div class="mb-12 md:mb-16">
 
-            <img
-                src="{{ asset('images/learn/what-is-nasda/featured.jpg') }}"
-                alt="Placeholder guide hero image"
-                class="w-full aspect-[8/3] object-cover rounded-md">
+    <img
+        src="{{ asset('images/learn/what-is-nasda/featured.jpg') }}"
+        alt="Placeholder guide hero image"
+        class="w-full aspect-[8/3] object-cover rounded-md">
 
-                <x-public-v2.image-registration
-            text="Hamish, Photo by Blue Ridge Creative"
-            position="right" 
-            href="https://www.blueridgeprairie.studio/"/>
+    <x-public-v2.image-registration
+        text="Hamish, Photo by Blue Ridge Creative"
+        position="right"
+        href="https://www.blueridgeprairie.studio/" />
 
-        </div>
-        {{-- End Guide Hero Image --}}
+</div>
+{{-- End Guide Hero Image --}}
 
         {{-- Guide Body --}}
         <div class="grid grid-cols-10 items-stretch gap-6">
