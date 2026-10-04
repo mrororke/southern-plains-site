@@ -515,11 +515,15 @@
                     class="mt-16">
 
                     <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-                        What to Bring
+                        What do I need to bring?
                     </h2>
 
                     <p class="body text-sp-slate mt-4">
-                        Placeholder content for this section of the guide.
+                       First and foremost: Your dog.<br/>
+                       I jest, but when you're busy worrying about all the stuff, it's surprisingly easy to overlook something obvious.
+                       For a basic trial day, plan to bring appropriate gear for your dog, plenty of rewards, water, a crate or another safe resting setup, and whatever you need to keep both of you comfortable in the weather. Bring water and snacks for yourself, too. And don't forget that sense of humor.
+
+<!-- TODO: Write this guide:  This isn't meant to be the definitive packing list. We've got a whole guide for that. [LINK: Planning your first trial? → Preparing for Your First Dog Sport Trial] -->
                     </p>
 
                 </section>
