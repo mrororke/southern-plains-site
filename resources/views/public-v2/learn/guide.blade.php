@@ -31,7 +31,7 @@
             class="w-5 h-5 shrink-0"
             aria-hidden="true" />
 
-        <span class="body">
+        <span class="body-small">
             Dog Sports 101
         </span>
 
@@ -43,7 +43,7 @@
             class="w-5 h-5 shrink-0"
             aria-hidden="true" />
 
-        <span class="body">
+        <span class="body-small">
             8 min read
         </span>
 
@@ -55,7 +55,7 @@
             class="w-5 h-5 shrink-0"
             aria-hidden="true" />
 
-        <span class="body">
+        <span class="body-small">
             Last updated August 12th, 2026
         </span>
 
@@ -64,7 +64,7 @@
 </ul>
 {{-- End Article Metadata --}}
 
-        <p class="body-large text-sp-slate mt-4">
+        <p class="body text-sp-slate mt-4">
             The 
             <a
                 href="https://nasda.dog/"
@@ -74,19 +74,91 @@
                     North American Sport Dog Association (NASDA)
             </a>
             offers scent-based dog sports designed to show off something dogs are already incredibly good at: using their noses.</p>
-        <p class="body-large text-sp-slate mt-4">
+        <p class="body text-sp-slate mt-4">
             The games are based on historic working and competitive field activities and are designed to resemble real-life situations for dogs and their handlers. Purebred or mixed breed, young or old, experienced sport dog or complete beginner—NASDA gives dogs of all kinds an opportunity to search, problem-solve, and do what comes naturally.</p>
 
-        <p class="body-large text-sp-slate mt-4">It’s also an incredibly beginner-friendly dog sport. You don’t need a long list of obedience titles, specialized equipment, or years of training before you can give it a try. Your dog doesn’t have to be perfect to come play.</p>
+        <p class="body text-sp-slate mt-4">It’s also an incredibly beginner-friendly dog sport. You don’t need a long list of obedience titles, specialized equipment, or years of training before you can give it a try. Your dog doesn’t have to be perfect to come play.</p>
         </p>
 
     </div>
      <div class="col-span-12 md:col-span-1">
         <!-- Empty Cell -->
      </div>
-    <div class="col-span-12 md:col-span-2 md:p-6 md:border-l border-sp-warmStone">
-        Sticky Nav
-    </div>
+    {{-- Guide Navigation --}}
+<aside
+    class="hidden md:col-span-2 md:block md:self-start md:sticky md:top-8 md:border-l md:border-sp-warmStone md:pl-6"
+    aria-label="Guide navigation">
+
+    <nav>
+
+        <p class="font-display font-bold text-2xl text-sp-prairieGreen uppercase">
+            In This Guide
+        </p>
+
+        <ul class="flex flex-col gap-6 mt-8">
+
+            <li>
+                <a
+                    href="#the-games"
+                    class="body-large text-sp-prairieOchre transition-colors hover:text-sp-prairieGreen">
+                    The Games
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="#training"
+                    class="body-large text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                    Training
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="#your-first-trial"
+                    class="body-large text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                    Your First Trial
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="#scoring-levels"
+                    class="body-large text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                    Scoring &amp; Levels
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="#what-to-expect"
+                    class="body-large text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                    What to Expect
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="#what-to-bring"
+                    class="body-large text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                    What to Bring
+                </a>
+            </li>
+
+            <li>
+                <a
+                    href="#getting-started"
+                    class="body-large text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                    Getting Started
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+</aside>
+{{-- End Guide Navigation --}}
 
      <div class="col-span-12 md:col-span-1">
         <!-- Empty Cell -->
