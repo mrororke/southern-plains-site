@@ -323,7 +323,7 @@
                                 Check In
                             </h3>
 
-                            <p class="body text-sp-slate mt-4">
+                            <p class="body-small text-sp-slate mt-4">
                                 Let the trial secretary know you’ve arrived.
                             </p>
                         </div>
@@ -333,7 +333,7 @@
                                 Attend the Briefing
                             </h3>
 
-                            <p class="body text-sp-slate mt-4">
+                            <p class="body-small text-sp-slate mt-4">
                                 Before the class starts, the judge will explain the course and answer questions.
                             </p>
                         </div>
@@ -343,7 +343,7 @@
                                 Wait Your Turn
                             </h3>
 
-                            <p class="body text-sp-slate mt-4">
+                            <p class="body-small text-sp-slate mt-4">
                                 Keep yourself and your dog comfortable until your class/turn.
                             </p>
                         </div>
@@ -353,7 +353,7 @@
                                 Let Your Dog Search
                             </h3>
 
-                            <p class="body text-sp-slate mt-4">
+                            <p class="body-small text-sp-slate mt-4">
                                 Enter the start cones and give your dog room to work. The judge will make the call.
                             </p>
                         </div>
@@ -363,7 +363,7 @@
                                 Celebrate!
                             </h3>
 
-                            <p class="body text-sp-slate mt-4">
+                            <p class="body-small text-sp-slate mt-4">
                                 Reinforce at source when permitted, leave the search area, and tell your dog how great they are!
                             </p>
                         </div>
