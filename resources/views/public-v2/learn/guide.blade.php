@@ -104,6 +104,11 @@
                 alt="Placeholder guide hero image"
                 class="w-full aspect-[8/3] object-cover rounded-md">
 
+                <x-public-v2.image-registration
+            text="Hamish, Photo by Blue Ridge Creative"
+            position="bottom" 
+            href="https://www.blueridgeprairie.studio/"/>
+
         </div>
         {{-- End Guide Hero Image --}}
 
@@ -376,7 +381,7 @@
                         </p>
 
                         <p class="body-small text-sp-slate mt-2">
-                            Photo: <a href=""
+                            Photo: <a href="https://www.blueridgeprairie.studio/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     class="text-link">Blue Ridge Creative</a>
@@ -408,7 +413,7 @@
                         </p>
 
                         <p class="body-small text-sp-slate mt-2">
-                            Photo: <a href=""
+                            Photo: <a href="https://www.blueridgeprairie.studio/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     class="text-link">Blue Ridge Creative</a>
