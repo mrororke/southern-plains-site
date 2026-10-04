@@ -376,39 +376,39 @@
                     </p>
 
                     <p class="body text-sp-slate mt-4">
-                        <span class="font-bold">What's a run?</span><br/>
+                        <span class="font-bold">What's a run?</span><br />
                         A run begins when your dog crosses the start line, which is marked by two cones. NASDA trials can run concurrently. If an event is holding three trials, for example, you may run Trial One, Trial Two, and Trial Three back to back.
                     </p>
 
                     <p class="body text-sp-slate mt-4">
-                        That can sound confusing when you're new.<br/>
+                        That can sound confusing when you're new.<br />
                         Instead of running once, waiting for the rest of the class, running again, waiting again, and finally running a third time, your dog completes those runs one after another. If your dog is only entered in one event, you may be finished once those runs are complete.
                     </p>
 
                     <p class="body text-sp-slate mt-4">
-                        <span class="font-bold">What does the judge do?</span><br/>
-                        The judge evaluates your team's run.<br/>
-                        They're watching how your dog is working and how you respond to your dog's body language. A judge is also watching for the difference between a dog working odor and a dog who has simply found something interesting to sniff.<br/>
+                        <span class="font-bold">What does the judge do?</span><br />
+                        The judge evaluates your team's run.<br />
+                        They're watching how your dog is working and how you respond to your dog's body language. A judge is also watching for the difference between a dog working odor and a dog who has simply found something interesting to sniff.<br />
                         You don't have to call the find. The judge makes the call.
                     </p>
 
                     <p class="body text-sp-slate mt-4">
-                        <span class="font-bold">What does the handler do?</span><br/>
-                        Your main job is to support your dog.<br/>
+                        <span class="font-bold">What does the handler do?</span><br />
+                        Your main job is to support your dog.<br />
                         Sometimes that means encouraging a dog who's unsure whether they can approach an area. Sometimes it's helping a dog build the confidence to approach a quarry cage. You're also responsible for managing your equipment and yourself without simply leading your dog to the hide. <span class="italic">Give your dog room to solve the problem.</span>
                     </p>
 
                     <p class="body text-sp-slate mt-4">
-                        <span class="font-bold">What is the dog expected to do?</span><br/>
+                        <span class="font-bold">What is the dog expected to do?</span><br />
                         Mainly? <span class="italic">The dog should be a dog.</span>
                         Your dog should be interested in exploring their environment and investigating interesting smells. At Level I, this is where a lot of dogs begin learning the game. What gets reinforced gets repeated. It usually doesn't take dogs long to figure out that finding what we're looking for results in praise—and sometimes cookies.
 
                     </p>
 
                     <p class="body text-sp-slate mt-4">
-                        <span class="font-bold">What happens while we're waiting?</span><br/>
-                        Trial days can involve quite a bit of waiting. How much depends on the number of entries, the size of the search areas, the weather, and plenty of other variables. Make sure your dog has a comfortable place to rest.<br/>
-                        Then talk to people. Watch other dogs run when you're permitted to. Ask questions. Volunteer to help with course setup or breakdown.<br/>
+                        <span class="font-bold">What happens while we're waiting?</span><br />
+                        Trial days can involve quite a bit of waiting. How much depends on the number of entries, the size of the search areas, the weather, and plenty of other variables. Make sure your dog has a comfortable place to rest.<br />
+                        Then talk to people. Watch other dogs run when you're permitted to. Ask questions. Volunteer to help with course setup or breakdown.
                         Many hands make light work, and trials move much more smoothly when everyone pitches in.
                     </p>
 
@@ -420,11 +420,67 @@
                     class="mt-16">
 
                     <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-                        Scoring &amp; Levels
+                        How do Scoring, Levels, & Titles Work?
                     </h2>
 
+                    {{-- Scoring & Titles --}}
+                    <div class="grid grid-cols-1 gap-4 mt-8 md:grid-cols-2">
+
+                        <div class="rounded-md bg-sp-limestone p-5">
+                            <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
+                                Puppy Aptitude Test
+                            </h3>
+
+                            <p class="body-small text-sp-slate mt-4">
+                                Depending on your dog's age, you may be able to start with the optional Puppy Aptitude Test. This is a pass/fail course that allows the judge to assess whether the puppy can independently identify the hide.
+                            </p>
+                        </div>
+
+                        <div class="rounded-md bg-sp-limestone p-5">
+                            <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
+                                Level I
+                            </h3>
+
+                            <p class="body-small text-sp-slate mt-4">
+                                This is where most beginners start.<br />
+                                The dog should work the search independently rather than simply following handler movement. A Level I title is earned after accumulating 100 Level I points.
+                            </p>
+                        </div>
+
+                        <div class="rounded-md bg-sp-limestone p-5">
+                            <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
+                                Level II
+                            </h3>
+
+                            <p class="body-small text-sp-slate mt-4">
+                                At Level II, the searches become more challenging. Hides can be covered or partially inaccessible and may be elevated.
+                                A Level II title is earned after accumulating 400 Level II points.
+                            </p>
+                        </div>
+
+                        <div class="rounded-md bg-sp-limestone p-5">
+                            <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
+                                Level 3 & Beyond
+                            </h3>
+
+                            <p class="body-small text-sp-slate mt-4">
+                                Level III introduces significantly more difficult searches.
+                                These classes are blind: handlers don't know where the hide is located, can't watch other teams run before their own search, and enter knowing the course boundaries but not where the search will lead them.
+                            </p>
+                        </div>
+
+                    </div>
+                    {{-- End Scoring & Titles --}}
+
                     <p class="body text-sp-slate mt-4">
-                        Placeholder content for this section of the guide.
+                        And there is still somewhere to go from there. NASDA offers additional advanced and championship titles, along with versatility titles for dogs competing across events. This guide isn't going to turn into a rulebook, though. Learn more about
+                        <a
+                            href="https://nasda.dog/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-link">
+                            NASDA titles, points and current requirements.
+                        </a>
                     </p>
 
                 </section>
