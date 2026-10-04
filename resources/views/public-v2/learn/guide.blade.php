@@ -121,42 +121,39 @@
                     </h2>
 
                     <p class="body text-sp-slate mt-4">
-                        Placeholder introductory text for this section of the guide.
-                        This will eventually introduce the topic and provide context
-                        before moving into the individual sections.
+                        NASDA isn't a single game. There are several different ways for dogs to put their noses to work, and each asks them to solve a slightly different problem. You may find that your dog loves one and couldn't care less about another. That's part of the fun.
                     </p>
 
-                    {{-- Subsection --}}
+                    {{-- Subsection: Trailing & Locating --}}
                     <section class="mt-8">
 
                         <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
-                            First Subsection
+                            Trailing & Locating
                         </h3>
 
                         <p class="font-sans text-base font-semibold text-sp-charcoal mt-1">
-                            A short supporting statement goes here.
+                            Follow the trail. Find the quarry.
                         </p>
 
                         <p class="body text-sp-slate mt-2">
-                            Placeholder content for this subsection. This is where the
-                            main guide text will live.
+                            Trailing & Locating asks your dog to follow a scent trail to find hidden quarry at the end. At Level I, your dog has two minutes to make the find. But don't picture a dog following a perfect line with their nose glued to the ground. Dogs can work a scent trail in different ways. Your job is to give your dog room to work it out.
                         </p>
 
                     </section>
 
-                    {{-- Subsection --}}
+                    {{-- Subsection: Trailing Brace --}}
                     <section class="mt-8">
 
                         <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
-                            Second Subsection
+                            Trailing Brace
                         </h3>
 
                         <p class="font-sans text-base font-semibold text-sp-charcoal mt-1">
-                            Another short supporting statement.
+                            Follow the trail. Find the quarry. Together.
                         </p>
 
                         <p class="body text-sp-slate mt-2">
-                            Placeholder content for the second subsection.
+                            Trailing Brace puts two dogs on the trail together. Both dogs work off leash, following a scent trail to locate the quarry. Each dog needs to make the find, so while they're working as a team, they're also being evaluated individually.
                         </p>
 
                     </section>
