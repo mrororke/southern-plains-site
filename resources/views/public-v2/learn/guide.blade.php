@@ -627,7 +627,7 @@
                 Recommended Reading
             </h3>
 
-            <p class="body text-sp-slate mt-4">
+            <p class="body-small text-sp-slate mt-4">
                 Want to dig deeper into NASDA? Visit the North American Sport Dog Association for current rules, titles, registration information, and upcoming events.
                 <a
                 href="https://nasda.dog/"
