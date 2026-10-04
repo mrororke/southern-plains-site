@@ -1,7 +1,6 @@
 @extends('public-v2.layouts.app')
 
 @section('hero')
-@section('hero')
 
 {{-- Learn Hero --}}
 <div
@@ -160,7 +159,7 @@
                 </p>
 
                 <a
-                    href="#"
+                    href="{{ route('public-v2.learn.guide') }}"
                     class="learn-more-link text-sp-prairieOchre mt-4">
                     Read the Guide
                     <x-icons.move-right />

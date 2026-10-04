@@ -62,6 +62,9 @@ Route::prefix('v2')
         Route::view('/learn', 'public-v2.learn.index')
             ->name('learn.index');
 
+        Route::view('/learn/what-is-nasda', 'public-v2.learn.guide')
+            ->name('learn.guide');
+
         Route::view('/events', 'public-v2.events.index')
             ->name('events.index');
 
