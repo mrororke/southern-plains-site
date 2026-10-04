@@ -278,7 +278,7 @@
                 <figure>
 
                     <img
-                        src="{{ asset('images/learn/what-is-nasda/trailing-locating.jpg') }}"
+                        src="{{ asset('images/learn/what-is-nasda/trailing-and-locating.jpg') }}"
                         alt="Placeholder supporting image"
                         class="block w-full aspect-[4/3] object-cover rounded-md">
 
