@@ -101,7 +101,7 @@
 
     <img
         src="{{ asset('images/learn/what-is-nasda/featured.jpg') }}"
-        alt="Placeholder guide hero image"
+        alt="Hamish, a black and white Sheltie, investigating a NASDA quarry box outdoors."
         class="w-full aspect-[8/3] object-cover rounded-md">
 
     <x-public-v2.image-registration
@@ -363,7 +363,7 @@
 
                     <img
                         src="{{ asset('images/learn/what-is-nasda/trailing-and-locating.jpg') }}"
-                        alt="Placeholder supporting image"
+                        alt="Hamish, a black and white Sheltie, investigating a NASDA quarry box while searching for quarry."
                         class="block w-full aspect-[4/3] object-cover rounded-md">
 
                     <figcaption class="mt-3">
@@ -395,7 +395,7 @@
 
                     <img
                         src="{{ asset('images/learn/what-is-nasda/trailing-brace.jpg') }}"
-                        alt="Placeholder supporting image"
+                        alt="Two dogs searching through leaves and brush during a NASDA scent sport exercise."
                         class="block w-full aspect-[4/3] object-cover rounded-md">
 
                     <figcaption class="mt-3">
@@ -427,7 +427,7 @@
 
                     <img
                         src="{{ asset('images/learn/what-is-nasda/urban-locating.jpg') }}"
-                        alt="Placeholder supporting image"
+                        alt="Hamish, a black and white Sheltie, standing in a barn after locating hidden quarry."
                         class="block w-full aspect-[4/3] object-cover rounded-md">
 
                     <figcaption class="mt-3">
@@ -459,7 +459,7 @@
 
                     <img
                         src="{{ asset('images/learn/what-is-nasda/shed-dog.jpg') }}"
-                        alt="Placeholder supporting image"
+                        alt="A black and white Sheltie sniffing the ground toward a shed deer antler."
                         class="block w-full aspect-[4/3] object-cover rounded-md">
 
                     <figcaption class="mt-3">
@@ -490,7 +490,7 @@
 
                     <img
                         src="{{ asset('images/learn/what-is-nasda/lost-item.jpg') }}"
-                        alt="Placeholder supporting image"
+                        alt="A black and white Sheltie sniffing near a set of car keys on the ground outdoors."
                         class="block w-full aspect-[4/3] object-cover rounded-md">
 
                     <figcaption class="mt-3">
@@ -522,7 +522,7 @@
 
                     <img
                         src="{{ asset('images/learn/what-is-nasda/natural-distractions.jpg') }}"
-                        alt="Placeholder supporting image"
+                        alt="A black and white Sheltie eating horse manure."
                         class="block w-full aspect-[4/3] object-cover rounded-md">
 
                     <figcaption class="mt-3">
