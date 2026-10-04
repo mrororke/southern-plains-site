@@ -354,82 +354,153 @@
 
 
     {{-- Guide Navigation --}}
-    <aside
-        class="hidden md:col-span-2 md:col-start-11 md:block md:self-start md:sticky md:top-8 md:border-l md:border-sp-warmStone md:pl-6"
-        aria-label="Guide navigation">
+<aside
+    class="hidden md:col-span-2 md:col-start-11 md:block md:self-start md:sticky md:top-8 md:border-l md:border-sp-warmStone md:pl-6"
+    aria-label="Guide navigation">
 
-        <nav>
+    <nav>
 
-            <p class="font-display font-bold text-2xl text-sp-prairieGreen uppercase">
-                In This Guide
-            </p>
+        <p class="font-display font-bold text-2xl text-sp-prairieGreen uppercase">
+            In This Guide
+        </p>
 
-            <ul class="flex flex-col gap-4 mt-2">
+        <ul class="flex flex-col gap-4 mt-2">
 
-                <li>
-                    <a
-                        href="#the-games"
-                        class="body text-sp-prairieOchre transition-colors hover:text-sp-prairieGreen">
-                        The Games
-                    </a>
-                </li>
+            <li>
+                <a
+                    href="#the-games"
+                    data-guide-nav
+                    class="body text-sp-prairieOchre transition-colors">
+                    The Games
+                </a>
+            </li>
 
-                <li>
-                    <a
-                        href="#training"
-                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                        Training
-                    </a>
-                </li>
+            <li>
+                <a
+                    href="#training"
+                    data-guide-nav
+                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                    Training
+                </a>
+            </li>
 
-                <li>
-                    <a
-                        href="#your-first-trial"
-                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                        Your First Trial
-                    </a>
-                </li>
+            <li>
+                <a
+                    href="#your-first-trial"
+                    data-guide-nav
+                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                    Your First Trial
+                </a>
+            </li>
 
-                <li>
-                    <a
-                        href="#scoring-levels"
-                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                        Scoring &amp; Levels
-                    </a>
-                </li>
+            <li>
+                <a
+                    href="#scoring-levels"
+                    data-guide-nav
+                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                    Scoring &amp; Levels
+                </a>
+            </li>
 
-                <li>
-                    <a
-                        href="#what-to-expect"
-                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                        What to Expect
-                    </a>
-                </li>
+            <li>
+                <a
+                    href="#what-to-expect"
+                    data-guide-nav
+                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                    What to Expect
+                </a>
+            </li>
 
-                <li>
-                    <a
-                        href="#what-to-bring"
-                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                        What to Bring
-                    </a>
-                </li>
+            <li>
+                <a
+                    href="#what-to-bring"
+                    data-guide-nav
+                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                    What to Bring
+                </a>
+            </li>
 
-                <li>
-                    <a
-                        href="#getting-started"
-                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                        Getting Started
-                    </a>
-                </li>
+            <li>
+                <a
+                    href="#getting-started"
+                    data-guide-nav
+                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                    Getting Started
+                </a>
+            </li>
 
-            </ul>
+        </ul>
 
-        </nav>
+    </nav>
 
-    </aside>
-    {{-- End Guide Navigation --}}
+</aside>
+{{-- End Guide Navigation --}}
 
 </section>
 {{-- End Guide Content --}}
 
 @endsection
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const navLinks = document.querySelectorAll('[data-guide-nav]');
+
+        if (!navLinks.length) {
+            return;
+        }
+
+        const guideSections = Array.from(navLinks)
+            .map(link => document.querySelector(link.getAttribute('href')))
+            .filter(Boolean);
+
+        if (!guideSections.length) {
+            return;
+        }
+
+        const setActiveSection = (id) => {
+
+            navLinks.forEach(link => {
+
+                const isActive = link.getAttribute('href') === `#${id}`;
+
+                link.classList.toggle('is-active', isActive);
+
+                if (isActive) {
+                    link.setAttribute('aria-current', 'location');
+                } else {
+                    link.removeAttribute('aria-current');
+                }
+
+            });
+
+        };
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+
+                const visibleSections = entries
+                    .filter(entry => entry.isIntersecting)
+                    .sort(
+                        (a, b) =>
+                            a.boundingClientRect.top - b.boundingClientRect.top
+                    );
+
+                if (visibleSections.length) {
+                    setActiveSection(visibleSections[0].target.id);
+                }
+
+            },
+            {
+                rootMargin: '-20% 0px -65% 0px',
+                threshold: 0
+            }
+        );
+
+        guideSections.forEach(section => {
+            observer.observe(section);
+        });
+
+    });
+</script>
