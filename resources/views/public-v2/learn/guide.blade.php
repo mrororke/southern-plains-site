@@ -100,7 +100,7 @@
             <li>
                 <a
                     href="#the-games"
-                    class="body-large text-sp-prairieOchre transition-colors hover:text-sp-prairieGreen">
+                    class="body text-sp-prairieOchre transition-colors hover:text-sp-prairieGreen">
                     The Games
                 </a>
             </li>
@@ -108,7 +108,7 @@
             <li>
                 <a
                     href="#training"
-                    class="body-large text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
                     Training
                 </a>
             </li>
@@ -116,7 +116,7 @@
             <li>
                 <a
                     href="#your-first-trial"
-                    class="body-large text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
                     Your First Trial
                 </a>
             </li>
@@ -124,7 +124,7 @@
             <li>
                 <a
                     href="#scoring-levels"
-                    class="body-large text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
                     Scoring &amp; Levels
                 </a>
             </li>
@@ -132,7 +132,7 @@
             <li>
                 <a
                     href="#what-to-expect"
-                    class="body-large text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
                     What to Expect
                 </a>
             </li>
@@ -140,7 +140,7 @@
             <li>
                 <a
                     href="#what-to-bring"
-                    class="body-large text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
                     What to Bring
                 </a>
             </li>
@@ -148,7 +148,7 @@
             <li>
                 <a
                     href="#getting-started"
-                    class="body-large text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
                     Getting Started
                 </a>
             </li>
