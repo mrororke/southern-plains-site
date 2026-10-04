@@ -167,6 +167,7 @@
 </div>
 @endsection
 
+@section('content')
 <div
     id="hero-image"
     class="grid grid-cols-12 gap-6 px-6 pt-8 pb-12 md:px-8 md:pt-12 md:pb-16">
@@ -178,3 +179,5 @@
     Main content area
 
 </div>
+
+@endcontent
