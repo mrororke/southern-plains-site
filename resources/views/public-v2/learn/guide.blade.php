@@ -107,9 +107,8 @@
         </div>
         {{-- End Guide Hero Image --}}
 
-
         {{-- Guide Body --}}
-        <div class="grid grid-cols-10 gap-6">
+        <div class="grid grid-cols-10 items-stretch gap-6">
 
             {{-- Main Guide Content --}}
             <article class="col-span-10 md:col-span-7">
@@ -126,7 +125,6 @@
                         This will eventually introduce the topic and provide context
                         before moving into the individual sections.
                     </p>
-
 
                     {{-- Subsection --}}
                     <section class="mt-8">
@@ -146,7 +144,6 @@
 
                     </section>
 
-
                     {{-- Subsection --}}
                     <section class="mt-8">
 
@@ -163,7 +160,6 @@
                         </p>
 
                     </section>
-
 
                     {{-- Subsection --}}
                     <section class="mt-8">
@@ -184,7 +180,6 @@
 
                 </section>
 
-
                 {{-- Major Guide Section --}}
                 <section
                     id="training"
@@ -199,7 +194,6 @@
                     </p>
 
                 </section>
-
 
                 {{-- Major Guide Section --}}
                 <section
@@ -216,7 +210,6 @@
 
                 </section>
 
-
                 {{-- Major Guide Section --}}
                 <section
                     id="scoring-levels"
@@ -231,7 +224,6 @@
                     </p>
 
                 </section>
-
 
                 {{-- Major Guide Section --}}
                 <section
@@ -248,7 +240,6 @@
 
                 </section>
 
-
                 {{-- Major Guide Section --}}
                 <section
                     id="what-to-bring"
@@ -263,7 +254,6 @@
                     </p>
 
                 </section>
-
 
                 {{-- Major Guide Section --}}
                 <section
@@ -282,16 +272,15 @@
 
             </article>
 
-
             {{-- Supporting Figures --}}
-            <aside class="col-span-10 md:col-span-3">
+            <aside class="col-span-10 self-start md:col-span-3">
 
                 <figure>
 
                     <img
                         src="{{ asset('images/learn/what-is-nasda/trailing-locating.jpg') }}"
                         alt="Placeholder supporting image"
-                        class="w-full aspect-[4/3] object-cover rounded-md">
+                        class="block w-full aspect-[4/3] object-cover rounded-md">
 
                     <figcaption class="mt-3">
 
@@ -315,13 +304,12 @@
 
                 </figure>
 
-
                 <figure class="mt-10">
 
                     <img
                         src="{{ asset('images/learn/what-is-nasda/trailing-brace.jpg') }}"
                         alt="Placeholder supporting image"
-                        class="w-full aspect-[4/3] object-cover rounded-md">
+                        class="block w-full aspect-[4/3] object-cover rounded-md">
 
                     <figcaption class="mt-3">
 
@@ -350,91 +338,93 @@
         </div>
         {{-- End Guide Body --}}
 
+
+
     </div>
 
 
     {{-- Guide Navigation --}}
-<aside
-    class="hidden md:col-span-2 md:col-start-11 md:block md:self-start md:sticky md:top-8 md:border-l md:border-sp-warmStone md:pl-6"
-    aria-label="Guide navigation">
+    <aside
+        class="hidden md:col-span-2 md:col-start-11 md:block md:self-start md:sticky md:top-8 md:border-l md:border-sp-warmStone md:pl-6"
+        aria-label="Guide navigation">
 
-    <nav>
+        <nav>
 
-        <p class="font-display font-bold text-2xl text-sp-prairieGreen uppercase">
-            In This Guide
-        </p>
+            <p class="font-display font-bold text-2xl text-sp-prairieGreen uppercase">
+                In This Guide
+            </p>
 
-        <ul class="flex flex-col gap-4 mt-2">
+            <ul class="flex flex-col gap-4 mt-2">
 
-            <li>
-                <a
-                    href="#the-games"
-                    data-guide-nav
-                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                    The Games
-                </a>
-            </li>
+                <li>
+                    <a
+                        href="#the-games"
+                        data-guide-nav
+                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                        The Games
+                    </a>
+                </li>
 
-            <li>
-                <a
-                    href="#training"
-                    data-guide-nav
-                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                    Training
-                </a>
-            </li>
+                <li>
+                    <a
+                        href="#training"
+                        data-guide-nav
+                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                        Training
+                    </a>
+                </li>
 
-            <li>
-                <a
-                    href="#your-first-trial"
-                    data-guide-nav
-                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                    Your First Trial
-                </a>
-            </li>
+                <li>
+                    <a
+                        href="#your-first-trial"
+                        data-guide-nav
+                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                        Your First Trial
+                    </a>
+                </li>
 
-            <li>
-                <a
-                    href="#scoring-levels"
-                    data-guide-nav
-                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                    Scoring &amp; Levels
-                </a>
-            </li>
+                <li>
+                    <a
+                        href="#scoring-levels"
+                        data-guide-nav
+                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                        Scoring &amp; Levels
+                    </a>
+                </li>
 
-            <li>
-                <a
-                    href="#what-to-expect"
-                    data-guide-nav
-                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                    What to Expect
-                </a>
-            </li>
+                <li>
+                    <a
+                        href="#what-to-expect"
+                        data-guide-nav
+                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                        What to Expect
+                    </a>
+                </li>
 
-            <li>
-                <a
-                    href="#what-to-bring"
-                    data-guide-nav
-                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                    What to Bring
-                </a>
-            </li>
+                <li>
+                    <a
+                        href="#what-to-bring"
+                        data-guide-nav
+                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                        What to Bring
+                    </a>
+                </li>
 
-            <li>
-                <a
-                    href="#getting-started"
-                    data-guide-nav
-                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                    Getting Started
-                </a>
-            </li>
+                <li>
+                    <a
+                        href="#getting-started"
+                        data-guide-nav
+                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                        Getting Started
+                    </a>
+                </li>
 
-        </ul>
+            </ul>
 
-    </nav>
+        </nav>
 
-</aside>
-{{-- End Guide Navigation --}}
+    </aside>
+    {{-- End Guide Navigation --}}
 
 </section>
 {{-- End Guide Content --}}
@@ -484,15 +474,14 @@
                     .filter(entry => entry.isIntersecting)
                     .sort(
                         (a, b) =>
-                            a.boundingClientRect.top - b.boundingClientRect.top
+                        a.boundingClientRect.top - b.boundingClientRect.top
                     );
 
                 if (visibleSections.length) {
                     setActiveSection(visibleSections[0].target.id);
                 }
 
-            },
-            {
+            }, {
                 rootMargin: '-20% 0px -65% 0px',
                 threshold: 0
             }
