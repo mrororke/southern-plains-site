@@ -271,9 +271,9 @@
 
                     <p class="body text-sp-slate mt-4">
                         One of the great things about NASDA is that it's beginner-friendly for both the handler
-                         and the dog. Most dogs already like smelling new and interesting things. That makes those
-                          first finds fairly easy for a lot of dogs. The dog isn't really learning how to smell—they've 
-                          had that figured out their entire life. They're learning what this particular game is asking them to find.
+                        and the dog. Most dogs already like smelling new and interesting things. That makes those
+                        first finds fairly easy for a lot of dogs. The dog isn't really learning how to smell—they've
+                        had that figured out their entire life. They're learning what this particular game is asking them to find.
                     </p>
 
                     <p class="body text-sp-slate mt-4">
@@ -308,11 +308,108 @@
                     class="mt-16">
 
                     <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-                        Your First Trial
+                        What happens at a NASDA Trial?
                     </h2>
 
                     <p class="body text-sp-slate mt-4">
-                        Placeholder content for this section of the guide.
+                        Your first trial can seem complicated from the outside. Once you're there, the basic process is pretty simple:
+                    </p>
+
+                    {{-- Trial Process --}}
+                    <div class="grid grid-cols-1 gap-4 mt-8 md:grid-cols-5">
+
+                        <div class="rounded-md bg-sp-limestone p-5">
+                            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                                Check In
+                            </h3>
+
+                            <p class="body text-sp-slate mt-4">
+                                Let the trial secretary know you’ve arrived.
+                            </p>
+                        </div>
+
+                        <div class="rounded-md bg-sp-limestone p-5">
+                            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                                Attend the Briefing
+                            </h3>
+
+                            <p class="body text-sp-slate mt-4">
+                                Before the class starts, the judge will explain the course and answer questions.
+                            </p>
+                        </div>
+
+                        <div class="rounded-md bg-sp-limestone p-5">
+                            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                                Wait Your Turn
+                            </h3>
+
+                            <p class="body text-sp-slate mt-4">
+                                Keep yourself and your dog comfortable until your class/turn.
+                            </p>
+                        </div>
+
+                        <div class="rounded-md bg-sp-limestone p-5">
+                            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                                Let Your Dog Search
+                            </h3>
+
+                            <p class="body text-sp-slate mt-4">
+                                Just like today, enter the start cones and give your dog room to work. The judge will make the call.
+                            </p>
+                        </div>
+
+                        <div class="rounded-md bg-sp-limestone p-5">
+                            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                                Celebrate!
+                            </h3>
+
+                            <p class="body text-sp-slate mt-4">
+                                Reinforce at source when permitted, leave the search area, and tell your dog how great they are!
+                            </p>
+                        </div>
+
+                    </div>
+                    {{-- End Trial Process --}}
+
+                    <p class="body text-sp-slate mt-4">
+                        At check-in, you'll let the trial secretary know you've arrived. Before the class begins, the judge will explain the course and answer questions. Then you wait with your dog until it's your turn. When you're called, you take your dog to the start line and let them do the important part: search. That's really not so different from practice.
+                    </p>
+
+                    <p class="body text-sp-slate mt-4">
+                        <span class="font-bold">What's a run?</span><br/>
+                        A run begins when your dog crosses the start line, which is marked by two cones. NASDA trials can run concurrently. If an event is holding three trials, for example, you may run Trial One, Trial Two, and Trial Three back to back.
+                    </p>
+
+                    <p class="body text-sp-slate mt-4">
+                        That can sound confusing when you're new.<br/>
+                        Instead of running once, waiting for the rest of the class, running again, waiting again, and finally running a third time, your dog completes those runs one after another. If your dog is only entered in one event, you may be finished once those runs are complete.
+                    </p>
+
+                    <p class="body text-sp-slate mt-4">
+                        <span class="font-bold">What does the judge do?</span>
+                        The judge evaluates your team's run.<br/>
+                        They're watching how your dog is working and how you respond to your dog's body language. A judge is also watching for the difference between a dog working odor and a dog who has simply found something interesting to sniff.<br/>
+                        You don't have to call the find. The judge makes the call.
+                    </p>
+
+                    <p class="body text-sp-slate mt-4">
+                        <span class="font-bold">What does the handler do?</span><br/>
+                        Your main job is to support your dog.<br/>
+                        Sometimes that means encouraging a dog who's unsure whether they can approach an area. Sometimes it's helping a dog build the confidence to approach a quarry cage. You're also responsible for managing your equipment and yourself without simply leading your dog to the hide. <span class="italic">Give your dog room to solve the problem.</span>
+                    </p>
+
+                    <p class="body text-sp-slate mt-4">
+                        <span class="font-bold">What is the dog expected to do?</span><br/>
+                        Mainly? <span class="italic">The dog should be a dog.</span>
+                        Your dog should be interested in exploring their environment and investigating interesting smells. At Level I, this is where a lot of dogs begin learning the game. What gets reinforced gets repeated. It usually doesn't take dogs long to figure out that finding what we're looking for results in praise—and sometimes cookies.
+
+                    </p>
+
+                    <p class="body text-sp-slate mt-4">
+                        <span class="font-bold">What happens while we're waiting?</span><br/>
+                        Trial days can involve quite a bit of waiting. How much depends on the number of entries, the size of the search areas, the weather, and plenty of other variables. Make sure your dog has a comfortable place to rest.<br/>
+                        Then talk to people. Watch other dogs run when you're permitted to. Ask questions. Volunteer to help with course setup or breakdown.<br/>
+                        Many hands make light work, and trials move much more smoothly when everyone pitches in.
                     </p>
 
                 </section>
