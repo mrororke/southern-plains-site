@@ -366,11 +366,11 @@
 
         <ul class="flex flex-col gap-4 mt-2">
 
-            <li>
+                <li>
                 <a
                     href="#the-games"
                     data-guide-nav
-                    class="body text-sp-prairieOchre transition-colors">
+                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
                     The Games
                 </a>
             </li>
