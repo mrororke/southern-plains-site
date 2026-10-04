@@ -1,5 +1,6 @@
 @extends('public-v2.layouts.app')
 
+
 @section('hero')
 
 {{-- Learn Hero --}}
@@ -7,13 +8,9 @@
     id="hero"
     class="grid grid-cols-12 gap-6 px-6 pt-8 pb-12 md:px-8 md:pt-12 md:pb-16">
 
-    <div class="col-span-12 md:col-span-1">
-        <!-- Empty Cell -->
-     </div>
-
     {{-- Intro --}}
-    <div class="col-span-12 md:col-span-7">
-        
+    <div class="col-span-12 md:col-span-7 md:col-start-2">
+
         <p class="font-display font-bold text-2xl text-sp-burntClay">
             Dog Sports 101
         </p>
@@ -23,413 +20,416 @@
         </h2>
 
         {{-- Article Metadata --}}
-<ul class="flex flex-wrap items-center gap-x-8 gap-y-3 mt-6 text-sp-slate">
+        <ul class="flex flex-wrap items-center gap-x-8 gap-y-3 mt-6 text-sp-slate">
 
-    <li class="flex items-center gap-2">
+            <li class="flex items-center gap-2">
 
-        <x-icons.folder
-            class="w-5 h-5 shrink-0"
-            aria-hidden="true" />
+                <x-icons.folder
+                    class="w-5 h-5 shrink-0"
+                    aria-hidden="true" />
 
-        <span class="body-small">
-            Dog Sports 101
-        </span>
+                <span class="body-small">
+                    Dog Sports 101
+                </span>
 
-    </li>
+            </li>
 
-    <li class="flex items-center gap-2">
+            <li class="flex items-center gap-2">
 
-        <x-icons.clock
-            class="w-5 h-5 shrink-0"
-            aria-hidden="true" />
+                <x-icons.clock
+                    class="w-5 h-5 shrink-0"
+                    aria-hidden="true" />
 
-        <span class="body-small">
-            8 min read
-        </span>
+                <span class="body-small">
+                    8 min read
+                </span>
 
-    </li>
+            </li>
 
-    <li class="flex items-center gap-2">
+            <li class="flex items-center gap-2">
 
-        <x-icons.calendar-days
-            class="w-5 h-5 shrink-0"
-            aria-hidden="true" />
+                <x-icons.calendar-days
+                    class="w-5 h-5 shrink-0"
+                    aria-hidden="true" />
 
-        <span class="body-small">
-            Last updated August 12th, 2026
-        </span>
+                <span class="body-small">
+                    Last updated August 12th, 2026
+                </span>
 
-    </li>
+            </li>
 
-</ul>
-{{-- End Article Metadata --}}
+        </ul>
+        {{-- End Article Metadata --}}
 
         <p class="body text-sp-slate mt-4">
-            The 
+            The
             <a
                 href="https://nasda.dog/"
                 target="_blank"
                 rel="noopener noreferrer"
                 class="text-link">
-                    North American Sport Dog Association (NASDA)
+                North American Sport Dog Association (NASDA)
             </a>
-            offers scent-based dog sports designed to show off something dogs are already incredibly good at: using their noses.</p>
-        <p class="body text-sp-slate mt-4">
-            The games are based on historic working and competitive field activities and are designed to resemble real-life situations for dogs and their handlers. Purebred or mixed breed, young or old, experienced sport dog or complete beginner—NASDA gives dogs of all kinds an opportunity to search, problem-solve, and do what comes naturally.</p>
+            offers scent-based dog sports designed to show off something dogs are already incredibly good at: using their noses.
+        </p>
 
-        <p class="body text-sp-slate mt-4">It’s also an incredibly beginner-friendly dog sport. You don’t need a long list of obedience titles, specialized equipment, or years of training before you can give it a try. Your dog doesn’t have to be perfect to come play.</p>
+        <p class="body text-sp-slate mt-4">
+            The games are based on historic working and competitive field activities and are designed to resemble real-life situations for dogs and their handlers. Purebred or mixed breed, young or old, experienced sport dog or complete beginner—NASDA gives dogs of all kinds an opportunity to search, problem-solve, and do what comes naturally.
+        </p>
+
+        <p class="body text-sp-slate mt-4">
+            It’s also an incredibly beginner-friendly dog sport. You don’t need a long list of obedience titles, specialized equipment, or years of training before you can give it a try. Your dog doesn’t have to be perfect to come play.
         </p>
 
     </div>
-     <div class="col-span-12 md:col-span-1">
-        <!-- Empty Cell -->
-     </div>
-    {{-- Guide Navigation --}}
-<aside
-    class="hidden md:col-span-2 md:block md:self-start md:sticky md:top-8 md:border-l md:border-sp-warmStone md:pl-6"
-    aria-label="Guide navigation">
-
-    <nav>
-
-        <p class="font-display font-bold text-2xl text-sp-prairieGreen uppercase">
-            In This Guide
-        </p>
-
-        <ul class="flex flex-col gap-4 mt-2">
-
-            <li>
-                <a
-                    href="#the-games"
-                    class="body text-sp-prairieOchre transition-colors hover:text-sp-prairieGreen">
-                    The Games
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#training"
-                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                    Training
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#your-first-trial"
-                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                    Your First Trial
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#scoring-levels"
-                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                    Scoring &amp; Levels
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#what-to-expect"
-                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                    What to Expect
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#what-to-bring"
-                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                    What to Bring
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#getting-started"
-                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                    Getting Started
-                </a>
-            </li>
-
-        </ul>
-
-    </nav>
-
-</aside>
-{{-- End Guide Navigation --}}
-
-     <div class="col-span-12 md:col-span-1">
-        <!-- Empty Cell -->
-     </div>
 
 </div>
+
 @endsection
+
 
 @section('content')
 
-{{-- Guide Hero Image --}}
-<section class="grid grid-cols-12 px-6 pb-12 md:px-8 md:pb-16">
-
-    <div class="col-span-12 md:col-span-10 md:col-start-2">
-
-        <img
-            src="{{ asset('images/learn/what-is-nasda/featured.jpg') }}"
-            alt="Placeholder guide hero image"
-            class="w-full aspect-[8/3] object-cover rounded-md">
-
-    </div>
-
-</section>
-{{-- End Guide Hero Image --}}
-
-
-{{-- Guide Body --}}
+{{-- Guide Content --}}
 <section class="grid grid-cols-12 gap-6 px-6 pb-16 md:px-8 md:pb-24">
 
-    {{-- Guide Container --}}
-    <div class="col-span-12 md:col-span-10 md:col-start-2 grid grid-cols-10 gap-6">
+    {{-- Guide --}}
+    <div class="col-span-12 md:col-span-10 md:col-start-1">
 
-        {{-- Main Guide Content --}}
-        <article class="col-span-10 md:col-span-7">
+        {{-- Guide Hero Image --}}
+        <div class="mb-12 md:mb-16">
 
-            {{-- Major Guide Section --}}
-            <section id="the-games">
+            <img
+                src="{{ asset('images/learn/what-is-nasda/featured.jpg') }}"
+                alt="Placeholder guide hero image"
+                class="w-full aspect-[8/3] object-cover rounded-md">
 
-                <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-                    What Can My Dog Actually Do?
-                </h2>
-
-                <p class="body text-sp-slate mt-4">
-                    Placeholder introductory text for this section of the guide.
-                    This will eventually introduce the topic and provide context
-                    before moving into the individual sections.
-                </p>
+        </div>
+        {{-- End Guide Hero Image --}}
 
 
-                {{-- Subsection --}}
-                <section class="mt-8">
+        {{-- Guide Body --}}
+        <div class="grid grid-cols-10 gap-6">
 
-                    <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
-                        First Subsection
-                    </h3>
+            {{-- Main Guide Content --}}
+            <article class="col-span-10 md:col-span-7">
 
-                    <p class="font-sans text-base font-semibold text-sp-charcoal mt-1">
-                        A short supporting statement goes here.
+                {{-- Major Guide Section --}}
+                <section id="the-games">
+
+                    <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
+                        What Can My Dog Actually Do?
+                    </h2>
+
+                    <p class="body text-sp-slate mt-4">
+                        Placeholder introductory text for this section of the guide.
+                        This will eventually introduce the topic and provide context
+                        before moving into the individual sections.
                     </p>
 
-                    <p class="body text-sp-slate mt-2">
-                        Placeholder content for this subsection. This is where the
-                        main guide text will live.
+
+                    {{-- Subsection --}}
+                    <section class="mt-8">
+
+                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                            First Subsection
+                        </h3>
+
+                        <p class="font-sans text-base font-semibold text-sp-charcoal mt-1">
+                            A short supporting statement goes here.
+                        </p>
+
+                        <p class="body text-sp-slate mt-2">
+                            Placeholder content for this subsection. This is where the
+                            main guide text will live.
+                        </p>
+
+                    </section>
+
+
+                    {{-- Subsection --}}
+                    <section class="mt-8">
+
+                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                            Second Subsection
+                        </h3>
+
+                        <p class="font-sans text-base font-semibold text-sp-charcoal mt-1">
+                            Another short supporting statement.
+                        </p>
+
+                        <p class="body text-sp-slate mt-2">
+                            Placeholder content for the second subsection.
+                        </p>
+
+                    </section>
+
+
+                    {{-- Subsection --}}
+                    <section class="mt-8">
+
+                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                            Third Subsection
+                        </h3>
+
+                        <p class="font-sans text-base font-semibold text-sp-charcoal mt-1">
+                            A short supporting statement goes here.
+                        </p>
+
+                        <p class="body text-sp-slate mt-2">
+                            Placeholder content for the third subsection.
+                        </p>
+
+                    </section>
+
+                </section>
+
+
+                {{-- Major Guide Section --}}
+                <section
+                    id="training"
+                    class="mt-16">
+
+                    <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
+                        Training
+                    </h2>
+
+                    <p class="body text-sp-slate mt-4">
+                        Placeholder content for the next major section of the guide.
                     </p>
 
                 </section>
 
 
-                {{-- Subsection --}}
-                <section class="mt-8">
+                {{-- Major Guide Section --}}
+                <section
+                    id="your-first-trial"
+                    class="mt-16">
 
-                    <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
-                        Second Subsection
-                    </h3>
+                    <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
+                        Your First Trial
+                    </h2>
 
-                    <p class="font-sans text-base font-semibold text-sp-charcoal mt-1">
-                        Another short supporting statement.
+                    <p class="body text-sp-slate mt-4">
+                        Placeholder content for this section of the guide.
                     </p>
 
-                    <p class="body text-sp-slate mt-2">
-                        Placeholder content for the second subsection.
+                </section>
+
+
+                {{-- Major Guide Section --}}
+                <section
+                    id="scoring-levels"
+                    class="mt-16">
+
+                    <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
+                        Scoring &amp; Levels
+                    </h2>
+
+                    <p class="body text-sp-slate mt-4">
+                        Placeholder content for this section of the guide.
                     </p>
 
                 </section>
 
 
-                {{-- Subsection --}}
-                <section class="mt-8">
+                {{-- Major Guide Section --}}
+                <section
+                    id="what-to-expect"
+                    class="mt-16">
 
-                    <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
-                        Third Subsection
-                    </h3>
+                    <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
+                        What to Expect
+                    </h2>
 
-                    <p class="font-sans text-base font-semibold text-sp-charcoal mt-1">
-                        A short supporting statement goes here.
-                    </p>
-
-                    <p class="body text-sp-slate mt-2">
-                        Placeholder content for the third subsection.
+                    <p class="body text-sp-slate mt-4">
+                        Placeholder content for this section of the guide.
                     </p>
 
                 </section>
 
-            </section>
 
+                {{-- Major Guide Section --}}
+                <section
+                    id="what-to-bring"
+                    class="mt-16">
 
-            {{-- Major Guide Section --}}
-            <section
-                id="training"
-                class="mt-16">
+                    <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
+                        What to Bring
+                    </h2>
 
-                <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-                    Training
-                </h2>
-
-                <p class="body text-sp-slate mt-4">
-                    Placeholder content for the next major section of the guide.
-                </p>
-
-            </section>
-
-
-            {{-- Major Guide Section --}}
-            <section
-                id="your-first-trial"
-                class="mt-16">
-
-                <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-                    Your First Trial
-                </h2>
-
-                <p class="body text-sp-slate mt-4">
-                    Placeholder content for this section of the guide.
-                </p>
-
-            </section>
-
-
-            {{-- Major Guide Section --}}
-            <section
-                id="scoring-levels"
-                class="mt-16">
-
-                <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-                    Scoring &amp; Levels
-                </h2>
-
-                <p class="body text-sp-slate mt-4">
-                    Placeholder content for this section of the guide.
-                </p>
-
-            </section>
-
-
-            {{-- Major Guide Section --}}
-            <section
-                id="what-to-expect"
-                class="mt-16">
-
-                <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-                    What to Expect
-                </h2>
-
-                <p class="body text-sp-slate mt-4">
-                    Placeholder content for this section of the guide.
-                </p>
-
-            </section>
-
-
-            {{-- Major Guide Section --}}
-            <section
-                id="what-to-bring"
-                class="mt-16">
-
-                <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-                    What to Bring
-                </h2>
-
-                <p class="body text-sp-slate mt-4">
-                    Placeholder content for this section of the guide.
-                </p>
-
-            </section>
-
-
-            {{-- Major Guide Section --}}
-            <section
-                id="getting-started"
-                class="mt-16">
-
-                <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-                    Getting Started
-                </h2>
-
-                <p class="body text-sp-slate mt-4">
-                    Placeholder content for this section of the guide.
-                </p>
-
-            </section>
-
-        </article>
-
-
-        {{-- Supporting Figures --}}
-        <aside class="col-span-10 md:col-span-3">
-
-            <figure>
-
-                <img
-                    src="{{ asset('images/learn/what-is-nasda/trailing-locating.jpg') }}"
-                    alt="Placeholder supporting image"
-                    class="w-full aspect-[4/3] object-cover rounded-md">
-
-                <figcaption class="mt-3">
-
-                    <p class="font-display text-sm text-sp-prairieOchre uppercase">
-                        Figure 01
+                    <p class="body text-sp-slate mt-4">
+                        Placeholder content for this section of the guide.
                     </p>
 
-                    <h3 class="font-sans text-xl font-semibold text-sp-charcoal mt-1">
-                        Supporting Figure Title
-                    </h3>
+                </section>
 
-                    <p class="body text-sp-slate mt-2">
-                        Short description of the image goes here.
+
+                {{-- Major Guide Section --}}
+                <section
+                    id="getting-started"
+                    class="mt-16">
+
+                    <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
+                        Getting Started
+                    </h2>
+
+                    <p class="body text-sp-slate mt-4">
+                        Placeholder content for this section of the guide.
                     </p>
 
-                    <p class="body-small text-sp-slate mt-2">
-                        Photo: Photographer Name
-                    </p>
+                </section>
 
-                </figcaption>
-
-            </figure>
+            </article>
 
 
-            <figure class="mt-10">
+            {{-- Supporting Figures --}}
+            <aside class="col-span-10 md:col-span-3">
 
-                <img
-                    src="{{ asset('images/learn/what-is-nasda/trailing-brace.jpg') }}"
-                    alt="Placeholder supporting image"
-                    class="w-full aspect-[4/3] object-cover rounded-md">
+                <figure>
 
-                <figcaption class="mt-3">
+                    <img
+                        src="{{ asset('images/learn/what-is-nasda/trailing-locating.jpg') }}"
+                        alt="Placeholder supporting image"
+                        class="w-full aspect-[4/3] object-cover rounded-md">
 
-                    <p class="font-display text-sm text-sp-prairieOchre uppercase">
-                        Figure 02
-                    </p>
+                    <figcaption class="mt-3">
 
-                    <h3 class="font-sans text-xl font-semibold text-sp-charcoal mt-1">
-                        Another Supporting Figure
-                    </h3>
+                        <p class="font-display text-sm text-sp-prairieOchre uppercase">
+                            Figure 01
+                        </p>
 
-                    <p class="body text-sp-slate mt-2">
-                        Another short description of the image goes here.
-                    </p>
+                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal mt-1">
+                            Supporting Figure Title
+                        </h3>
 
-                    <p class="body-small text-sp-slate mt-2">
-                        Photo: Photographer Name
-                    </p>
+                        <p class="body text-sp-slate mt-2">
+                            Short description of the image goes here.
+                        </p>
 
-                </figcaption>
+                        <p class="body-small text-sp-slate mt-2">
+                            Photo: Photographer Name
+                        </p>
 
-            </figure>
+                    </figcaption>
 
-        </aside>
+                </figure>
+
+
+                <figure class="mt-10">
+
+                    <img
+                        src="{{ asset('images/learn/what-is-nasda/trailing-brace.jpg') }}"
+                        alt="Placeholder supporting image"
+                        class="w-full aspect-[4/3] object-cover rounded-md">
+
+                    <figcaption class="mt-3">
+
+                        <p class="font-display text-sm text-sp-prairieOchre uppercase">
+                            Figure 02
+                        </p>
+
+                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal mt-1">
+                            Another Supporting Figure
+                        </h3>
+
+                        <p class="body text-sp-slate mt-2">
+                            Another short description of the image goes here.
+                        </p>
+
+                        <p class="body-small text-sp-slate mt-2">
+                            Photo: Photographer Name
+                        </p>
+
+                    </figcaption>
+
+                </figure>
+
+            </aside>
+
+        </div>
+        {{-- End Guide Body --}}
 
     </div>
 
+
+    {{-- Guide Navigation --}}
+    <aside
+        class="hidden md:col-span-2 md:col-start-11 md:block md:self-start md:sticky md:top-8 md:border-l md:border-sp-warmStone md:pl-6"
+        aria-label="Guide navigation">
+
+        <nav>
+
+            <p class="font-display font-bold text-2xl text-sp-prairieGreen uppercase">
+                In This Guide
+            </p>
+
+            <ul class="flex flex-col gap-4 mt-2">
+
+                <li>
+                    <a
+                        href="#the-games"
+                        class="body text-sp-prairieOchre transition-colors hover:text-sp-prairieGreen">
+                        The Games
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="#training"
+                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                        Training
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="#your-first-trial"
+                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                        Your First Trial
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="#scoring-levels"
+                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                        Scoring &amp; Levels
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="#what-to-expect"
+                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                        What to Expect
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="#what-to-bring"
+                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                        What to Bring
+                    </a>
+                </li>
+
+                <li>
+                    <a
+                        href="#getting-started"
+                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                        Getting Started
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </aside>
+    {{-- End Guide Navigation --}}
+
 </section>
-{{-- End Guide Body --}}
+{{-- End Guide Content --}}
 
 @endsection
