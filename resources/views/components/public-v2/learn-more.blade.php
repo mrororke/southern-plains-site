@@ -54,7 +54,7 @@
                             {{ $item['title'] }}
                         </h3>
 
-                        <p class="body text-sp-slate mt-4">
+                        <p class="body-small text-sp-slate mt-4">
                             {{ $item['description'] }}
                         </p>
 
