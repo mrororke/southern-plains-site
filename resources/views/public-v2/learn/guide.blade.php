@@ -263,9 +263,11 @@
                     </p>
 
                     {{-- Trial Process --}}
+                    {{-- Trial Process --}}
                     <div class="grid grid-cols-1 gap-4 mt-8 md:grid-cols-5">
 
                         <x-public-v2.learn-card>
+
                             <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
                                 Check In
                             </h3>
@@ -273,9 +275,12 @@
                             <p class="body text-sp-slate mt-4">
                                 Let the trial secretary know you’ve arrived.
                             </p>
+
                         </x-public-v2.learn-card>
 
+
                         <x-public-v2.learn-card>
+
                             <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
                                 Attend the Briefing
                             </h3>
@@ -283,11 +288,50 @@
                             <p class="body text-sp-slate mt-4">
                                 Before the class starts, the judge will explain the course and answer questions.
                             </p>
+
                         </x-public-v2.learn-card>
 
-                        {{-- etc. --}}
+
+                        <x-public-v2.learn-card>
+
+                            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                                Wait Your Turn
+                            </h3>
+
+                            <p class="body text-sp-slate mt-4">
+                                Keep yourself and your dog comfortable until your class/turn.
+                            </p>
+
+                        </x-public-v2.learn-card>
+
+
+                        <x-public-v2.learn-card>
+
+                            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                                Let Your Dog Search
+                            </h3>
+
+                            <p class="body text-sp-slate mt-4">
+                                Just like today, enter the start cones and give your dog room to work. The judge will make the call.
+                            </p>
+
+                        </x-public-v2.learn-card>
+
+
+                        <x-public-v2.learn-card>
+
+                            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                                Celebrate!
+                            </h3>
+
+                            <p class="body text-sp-slate mt-4">
+                                Reinforce at source when permitted, leave the search area, and tell your dog how great they are!
+                            </p>
+
+                        </x-public-v2.learn-card>
 
                     </div>
+                    {{-- End Trial Process --}}
                     {{-- End Trial Process --}}
 
                     <p class="body text-sp-slate mt-4">
