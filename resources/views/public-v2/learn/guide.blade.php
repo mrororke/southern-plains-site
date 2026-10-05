@@ -119,7 +119,7 @@
             <article class="col-span-10 md:col-span-7">
 
                 {{-- Major Guide Section --}}
-                <section id="the-games">
+                <section id="the-games" class="scroll-mt-8">
 
                     <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
                         What Can My Dog Actually Do?
@@ -263,7 +263,7 @@
                 {{-- Major Guide Section --}}
                 <section
                     id="training"
-                    class="mt-16">
+                    class="mt-16 scroll-mt-8">
 
                     <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
                         Does My Dog Need Special Training?
@@ -305,7 +305,7 @@
                 {{-- Major Guide Section --}}
                 <section
                     id="your-first-trial"
-                    class="mt-16">
+                    class="mt-16 scroll-mt-8">
 
                     <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
                         What happens at a NASDA Trial?
@@ -417,7 +417,7 @@
                 {{-- Major Guide Section --}}
                 <section
                     id="scoring-levels"
-                    class="mt-16">
+                    class="mt-16 scroll-mt-8">
 
                     <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
                         How do Scoring, Levels, & Titles Work?
@@ -487,7 +487,7 @@
                 {{-- Major Guide Section --}}
                 <section
                     id="what-to-expect"
-                    class="mt-16">
+                    class="mt-16 scroll-mt-8">
 
                     <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
                         What Should I Expect at My First Trial?
@@ -512,7 +512,7 @@
                 {{-- Major Guide Section --}}
                 <section
                     id="what-to-bring"
-                    class="mt-16">
+                    class="mt-16 scroll-mt-8">
 
                     <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
                         What do I Need to Bring?
@@ -531,7 +531,7 @@
                 {{-- Major Guide Section --}}
                 <section
                     id="getting-started"
-                    class="mt-16">
+                    class="mt-16 scroll-mt-8">
 
                     <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
                         How do I Get Started?
