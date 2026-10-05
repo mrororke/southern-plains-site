@@ -139,7 +139,7 @@
 
                 {{-- Tags --}}
 
-                        <div class="col-span-12 md:col-span-8">
+                        <div class="col-span-12 md:col-span-8 mt-10">
 
                             <x-public-v2.learn-tags
                                 :tags="[
