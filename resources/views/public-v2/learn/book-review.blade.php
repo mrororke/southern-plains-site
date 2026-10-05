@@ -45,7 +45,7 @@
         </x-public-v2.callout>
         {{-- End Affiliate Callout --}}
 
-        <p class="body text-sp-slate mt-4">
+        <p class="body text-sp-slate mt-8">
             My overall impression of this 
             <a
                 href="https://www.dogwise.com/ebook-one-on-one-a-dog-trainers-guide-to-private-lessons-2nd-edition/?aff=698"
