@@ -383,7 +383,7 @@
 {{-- End Play With Us --}}
 
 {{-- Southern Plains Sport Dog League --}}
-<section class="grid grid-cols-12 gap-8 px-6 py-12 md:gap-6 md:px-8 md:py-16 bg-sp-warmIvory">
+<!-- <section class="grid grid-cols-12 gap-8 px-6 py-12 md:gap-6 md:px-8 md:py-16 bg-sp-warmIvory">
 
     {{-- Image --}}
     <div class="col-span-12 md:col-span-4">
@@ -491,7 +491,7 @@
     </div>
 
 </section>
-{{-- End Southern Plains Sport Dog League --}}
+{{-- End Southern Plains Sport Dog League --}} -->
 
 
 
