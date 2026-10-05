@@ -159,6 +159,8 @@
 
             </article>
 
+            
+
             {{-- Supporting Figures --}}
             <aside class="col-span-10 self-start md:col-span-3">
 
@@ -214,5 +216,37 @@
 
 </section>
 {{-- End Article Content --}}
+
+<x-public-v2.learn-more
+    :items="[
+        [
+            'category' => 'Dog Sports 101',
+            'title' => 'What Is NASDA, Anyway?',
+            'description' => 'From searching for lost objects to trailing and locating rats, NASDA lets dogs use their noses, independence, and problem solving skills in exciting and rewarding ways.',
+            'image' => asset('images/learn/what-is-nasda/featured.jpg'),
+            'image_alt' => 'Hamish searching a quarry box during a NASDA trial.',
+            'href' => route('learn.guide'),
+            'link_label' => 'Read the Guide',
+        ],
+        [
+            'category' => 'Handler Insights',
+            'title' => 'The Legacy of Luka',
+            'description' => 'A personal reflection on Luka, reactivity, dog training, and the unexpected ways one dog can change your life.',
+            'image' => asset('images/learn/articles/the-legacy-of-luka/featured.jpg'),
+            'image_alt' => 'Luka relaxing in the grass.',
+            'href' => route('learn.article'),
+            'link_label' => 'Read the Article',
+        ],
+        [
+            'category' => 'Placeholder',
+            'title' => 'Another Learn Resource',
+            'description' => 'Placeholder description for another resource in the Learn section.',
+            'image' => asset('images/learn/what-is-nasda/featured.jpg'),
+            'image_alt' => 'Placeholder supporting image.',
+            'href' => '#',
+            'link_label' => 'Read More',
+        ],
+    ]"
+    library-url="{{ route('learn.index') }}" />
 
 @endsection
