@@ -197,29 +197,11 @@
                     </section>
 
                     {{-- Development Callout --}}
-                    <div class="mt-8 rounded-md border border-sp-warmStone bg-sp-limestone p-5 md:p-6">
-
-                        <div class="flex items-start gap-4">
-
-                            <x-icons.notebook-dot
-                                class="mt-0.5 h-6 w-6 shrink-0 text-sp-prairieOchre"
-                                aria-hidden="true" />
-
-                            <div>
-
-                                <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
-                                    Still In Development
-                                </h3>
-
-                                <p class="body text-sp-slate mt-4">
-                                    Den Hunt is currently still in development. The rules and requirements are still being field tested, and adjusted.
-                                </p>
-
-                            </div>
-
-                        </div>
-
-                    </div>
+                    <x-public-v2.callout
+                        icon="notebook-dot"
+                        title="Still In Development">
+                        Den Hunt is currently still in development. The rules and requirements are still being field tested, and adjusted.
+                    </x-public-v2.callout>
                     {{-- End Development Callout --}}
 
 
