@@ -9,7 +9,7 @@
     class="grid grid-cols-12 gap-6 px-6 pt-8 pb-12 md:px-8 md:pt-12 md:pb-16">
 
     {{-- Intro --}}
-    <div class="col-span-12 md:col-span-10">
+    <div class="col-span-12 md:col-span-7">
 
         <p class="font-display font-bold text-2xl text-sp-burntClay">
             Dog Sports 101
@@ -46,6 +46,11 @@
             It’s also an incredibly beginner-friendly dog sport. You don’t need a long list of obedience titles, specialized equipment, or years of training before you can give it a try. Your dog doesn’t have to be perfect to come play.
         </p>
 
+    </div>
+
+    {{-- Book --}}
+    <div class="col-span-12 md:col-span-5">
+        Book cover here.
     </div>
 
 </div>
