@@ -20,45 +20,10 @@
         </h2>
 
         {{-- Article Metadata --}}
-        <ul class="flex flex-wrap items-center gap-x-8 gap-y-3 mt-6 text-sp-slate">
-
-            <li class="flex items-center gap-2">
-
-                <x-icons.folder
-                    class="w-5 h-5 shrink-0"
-                    aria-hidden="true" />
-
-                <span class="body-small">
-                    Dog Sports 101
-                </span>
-
-            </li>
-
-            <li class="flex items-center gap-2">
-
-                <x-icons.clock
-                    class="w-5 h-5 shrink-0"
-                    aria-hidden="true" />
-
-                <span class="body-small">
-                    8 min read
-                </span>
-
-            </li>
-
-            <li class="flex items-center gap-2">
-
-                <x-icons.calendar-days
-                    class="w-5 h-5 shrink-0"
-                    aria-hidden="true" />
-
-                <span class="body-small">
-                    Last updated August 12th, 2026
-                </span>
-
-            </li>
-
-        </ul>
+        <x-public-v2.article-metadata
+            category="Dog Sports 101"
+            read-time="8 min read"
+            updated="Last updated August 12th, 2026" />
         {{-- End Article Metadata --}}
 
         <p class="body text-sp-slate mt-4">
@@ -494,8 +459,8 @@
                     </h2>
 
                     <p class="body text-sp-slate mt-4">
-                        First: there will be people there who know more than you do. That's okay. Talk to them. Talk with other competitors and volunteers. When they're available, talk with the judges. Dog sports should be a welcoming community, and you can learn an incredible amount simply by talking to the people around you.<br/>
-                        It's okay to ask questions. Usually, it's encouraged.<br/>
+                        First: there will be people there who know more than you do. That's okay. Talk to them. Talk with other competitors and volunteers. When they're available, talk with the judges. Dog sports should be a welcoming community, and you can learn an incredible amount simply by talking to the people around you.<br />
+                        It's okay to ask questions. Usually, it's encouraged.<br />
                         And if it's your dog's first trial, bring a sense of humor.
 
                     <p class="body text-sp-slate mt-4">
@@ -503,7 +468,7 @@
                     </p>
 
                     <p class="body text-sp-slate mt-4">
-                        One run doesn't define your dog. Maybe they get distracted by something you never anticipated. Maybe they don't work at all. Maybe they walk into the search area and absolutely blow you away. You probably won't feel like you or your dog are completely ready for that first trial. That's okay, too. You don't have to become an expert before you enter Level I. A lot of the learning happens during the runs themselves. Your dog might surprise you.<br/>
+                        One run doesn't define your dog. Maybe they get distracted by something you never anticipated. Maybe they don't work at all. Maybe they walk into the search area and absolutely blow you away. You probably won't feel like you or your dog are completely ready for that first trial. That's okay, too. You don't have to become an expert before you enter Level I. A lot of the learning happens during the runs themselves. Your dog might surprise you.<br />
                         And whether you're at your first trial or your fiftieth, remember this: <span class="font-bold">At the end of the day, you get to go home with the best dog there</span>.
                     </p>
 
@@ -519,11 +484,11 @@
                     </h2>
 
                     <p class="body text-sp-slate mt-4">
-                       First and foremost: Your dog.<br/>
-                       I jest, but when you're busy worrying about all the stuff, it's surprisingly easy to overlook something obvious.
-                       For a basic trial day, plan to bring appropriate gear for your dog, plenty of rewards, water, a crate or another safe resting setup, and whatever you need to keep both of you comfortable in the weather. Bring water and snacks for yourself, too. And don't forget that sense of humor.
+                        First and foremost: Your dog.<br />
+                        I jest, but when you're busy worrying about all the stuff, it's surprisingly easy to overlook something obvious.
+                        For a basic trial day, plan to bring appropriate gear for your dog, plenty of rewards, water, a crate or another safe resting setup, and whatever you need to keep both of you comfortable in the weather. Bring water and snacks for yourself, too. And don't forget that sense of humor.
 
-<!-- TODO: Write this guide:  This isn't meant to be the definitive packing list. We've got a whole guide for that. [LINK: Planning your first trial? → Preparing for Your First Dog Sport Trial] -->
+                        <!-- TODO: Write this guide:  This isn't meant to be the definitive packing list. We've got a whole guide for that. [LINK: Planning your first trial? → Preparing for Your First Dog Sport Trial] -->
                     </p>
 
                 </section>
@@ -542,106 +507,109 @@
                     </p>
 
                     <p class="body text-sp-slate mt-4">
-                        <span class="font-bold">I just want to learn more.</span><br/>
-                        Visit 
+                        <span class="font-bold">I just want to learn more.</span><br />
+                        Visit
                         <a
                             href="https://nasda.dog/"
                             target="_blank"
                             rel="noopener noreferrer"
                             class="text-link">
                             NASDA </a>
-                            to explore the sports, current rules, titles, registration information, and upcoming events.</p>
+                        to explore the sports, current rules, titles, registration information, and upcoming events.
+                    </p>
 
                     <p class="body text-sp-slate mt-4">
-                        <span class="font-bold">I'd like to practice first.</span><br/>
-                        Come give it a try before entering a trial. Practice is a chance for both you and your dog to figure out what these games are all about. Find a 
-                         <a
-                    href="{{ route('public-v2.training') }}"
-                    class="text-link">practice opportunity</a>.</p>
+                        <span class="font-bold">I'd like to practice first.</span><br />
+                        Come give it a try before entering a trial. Practice is a chance for both you and your dog to figure out what these games are all about. Find a
+                        <a
+                            href="{{ route('public-v2.training') }}"
+                            class="text-link">practice opportunity</a>.
+                    </p>
 
                     <p class="body text-sp-slate mt-4">
-                        <span class="font-bold">I'm ready to try it.</span><br/>
-                            Take a look at upcoming 
-                            <a
+                        <span class="font-bold">I'm ready to try it.</span><br />
+                        Take a look at upcoming
+                        <a
                             href="https://nasda.dog/"
                             target="_blank"
                             rel="noopener noreferrer"
                             class="text-link">
                             NASDA </a> events and find an opportunity to get your dog on the start line.
-                        </p>
+                    </p>
 
-                        <p class="body text-sp-slate mt-4">
-                        <span class="font-bold">I want to feel more prepared first.</span><br/>
-                        We've got you covered there, too. 
-                        <!-- TODO: Write this guide: [LINK: Prepare for your first trial → Preparing for Your First Dog Sport Trial] --></p>
+                    <p class="body text-sp-slate mt-4">
+                        <span class="font-bold">I want to feel more prepared first.</span><br />
+                        We've got you covered there, too.
+                        <!-- TODO: Write this guide: [LINK: Prepare for your first trial → Preparing for Your First Dog Sport Trial] -->
+                    </p>
 
-                        <p class="body text-sp-slate mt-4">You don't have to know which game your dog will love. You don't have to know exactly what their alert looks like. And you definitely don't have to have everything polished before you show up. Give your dog the opportunity to try something new and see what happens. Most importantly, keep playing with your dog.
+                    <p class="body text-sp-slate mt-4">You don't have to know which game your dog will love. You don't have to know exactly what their alert looks like. And you definitely don't have to have everything polished before you show up. Give your dog the opportunity to try something new and see what happens. Most importantly, keep playing with your dog.
                     </p>
 
                 </section>
 
                 <section>
-                    
-                {{-- Workshop CTA --}}
-<div class="mt-12 rounded-md bg-sp-prairieGreen p-6 md:p-8">
 
-    <div class="flex items-start gap-4">
+                    {{-- Workshop CTA --}}
+                    <div class="mt-12 rounded-md bg-sp-prairieGreen p-6 md:p-8">
 
-        <x-icons.calendar-plus
-            class="mt-0.5 h-6 w-6 shrink-0 text-sp-warmIvory"
-            aria-hidden="true" />
+                        <div class="flex items-start gap-4">
 
-        <div>
+                            <x-icons.calendar-plus
+                                class="mt-0.5 h-6 w-6 shrink-0 text-sp-warmIvory"
+                                aria-hidden="true" />
 
-            <h3 class="font-sans text-2xl font-semibold text-sp-warmIvory">
-                Want to Try NASDA Together?
-            </h3>
+                            <div>
 
-            <p class="body text-sp-warmIvory mt-4">
-                Interested in bringing NASDA to your club, training group, or community?
-                Southern Plains Sport Dog Club offers introductory workshops designed to give
-                handlers a chance to learn the games, try the skills, and have fun with their dogs.
-            </p>
+                                <h3 class="font-sans text-2xl font-semibold text-sp-warmIvory">
+                                    Want to Try NASDA Together?
+                                </h3>
 
-            <a
-                href="#"
-                class="learn-more-link text-sp-warmIvory mt-5">
-                Request a Workshop
-                <x-icons.move-right />
-            </a>
+                                <p class="body text-sp-warmIvory mt-4">
+                                    Interested in bringing NASDA to your club, training group, or community?
+                                    Southern Plains Sport Dog Club offers introductory workshops designed to give
+                                    handlers a chance to learn the games, try the skills, and have fun with their dogs.
+                                </p>
 
-            <!-- TODO Create the workshop request form -->
+                                <a
+                                    href="#"
+                                    class="learn-more-link text-sp-warmIvory mt-5">
+                                    Request a Workshop
+                                    <x-icons.move-right />
+                                </a>
 
-        </div>
+                                <!-- TODO Create the workshop request form -->
 
-    </div>
+                            </div>
 
-</div>
-{{-- End Workshop CTA --}}
+                        </div>
+
+                    </div>
+                    {{-- End Workshop CTA --}}
 
                 </section>
 
-            {{-- Recommended Reading --}}
-            <section class="mt-8">
-                <h3 class="font-sans text-md font-semibold text-sp-slate">
-                Recommended Reading
-            </h3>
+                {{-- Recommended Reading --}}
+                <section class="mt-8">
+                    <h3 class="font-sans text-md font-semibold text-sp-slate">
+                        Recommended Reading
+                    </h3>
 
-            <p class="body-small text-sp-slate mt-4">
-                Want to dig deeper into NASDA? Visit the North American Sport Dog Association for current rules, titles, registration information, and upcoming events.
-                <a
-                href="https://nasda.dog/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-link">
-                Visit NASDA
-            </a>.<br/>
-            <span class="italic">Competition rules and requirements can change. Always check current NASDA information and instructions from trial officials when preparing to compete.</span>
-            
-        </p>
+                    <p class="body-small text-sp-slate mt-4">
+                        Want to dig deeper into NASDA? Visit the North American Sport Dog Association for current rules, titles, registration information, and upcoming events.
+                        <a
+                            href="https://nasda.dog/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-link">
+                            Visit NASDA
+                        </a>.<br />
+                        <span class="italic">Competition rules and requirements can change. Always check current NASDA information and instructions from trial officials when preparing to compete.</span>
 
-            </section>
-            {{-- End Recommended Reading --}}
+                    </p>
+
+                </section>
+                {{-- End Recommended Reading --}}
 
             </article>
 
