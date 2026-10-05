@@ -265,7 +265,7 @@
                     {{-- Trial Process --}}
                     <div class="grid grid-cols-1 gap-4 mt-8 md:grid-cols-5">
 
-                        <x-public-v2.card>
+                        <x-public-v2.learn-card>
                             <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
                                 Check In
                             </h3>
@@ -273,9 +273,9 @@
                             <p class="body text-sp-slate mt-4">
                                 Let the trial secretary know you’ve arrived.
                             </p>
-                        </x-public-v2.card>
+                        </x-public-v2.learn-card>
 
-                        <x-public-v2.card>
+                        <x-public-v2.learn-card>
                             <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
                                 Attend the Briefing
                             </h3>
@@ -283,7 +283,7 @@
                             <p class="body text-sp-slate mt-4">
                                 Before the class starts, the judge will explain the course and answer questions.
                             </p>
-                        </x-public-v2.card>
+                        </x-public-v2.learn-card>
 
                         {{-- etc. --}}
 
