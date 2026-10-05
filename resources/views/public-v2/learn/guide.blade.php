@@ -550,204 +550,200 @@
 
                     {{-- Workshop CTA --}}
                     <x-public-v2.learn-cta
-                        title="Want to Try NASDA Together?"
-                        text="Interested in bringing NASDA to your club, training group, or community? Southern Plains Sport Dog Club offers introductory workshops designed to give handlers a chance to learn the games, try the skills, and have fun with their dogs."
-                        href="#contact">
-                        Request a Workshop
-                    </x-public-v2.learn-cta>
+    title="Want to Try NASDA Together?"
+    text="Interested in bringing NASDA to your club, training group, or community? Southern Plains Sport Dog Club offers introductory workshops designed to give handlers a chance to learn the games, try the skills, and have fun with their dogs."
+    href="#contact">
+    Request a Workshop
+</x-public-v2.learn-cta>
 
-                    <!-- TODO Create the workshop request form -->
+                                <!-- TODO Create the workshop request form -->
+
+                           
+                    {{-- End Workshop CTA --}}
+
+                </section>
+
+                {{-- Recommended Reading --}}
+                <section class="mt-8">
+                    <h3 class="font-sans text-md font-semibold text-sp-slate">
+                        Recommended Reading
+                    </h3>
+
+                    <p class="body-small text-sp-slate mt-4">
+                        Want to dig deeper into NASDA? Visit the North American Sport Dog Association for current rules, titles, registration information, and upcoming events.
+                        <a
+                            href="https://nasda.dog/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="text-link">
+                            Visit NASDA
+                        </a>.<br />
+                        <span class="italic">Competition rules and requirements can change. Always check current NASDA information and instructions from trial officials when preparing to compete.</span>
+
+                    </p>
+
+                </section>
+                {{-- End Recommended Reading --}}
+
+            </article>
+
+            {{-- Supporting Figures --}}
+            <aside class="col-span-10 self-start md:col-span-3">
+
+                <x-public-v2.learn-figure
+                    image="images/learn/what-is-nasda/trailing-and-locating.jpg"
+                    alt="Hamish, a black and white Sheltie, investigating a NASDA quarry box while searching for quarry."
+                    number="01"
+                    title="Trailing & Locating Level I"
+                    credit="Blue Ridge Creative"
+                    credit-url="https://www.blueridgeprairie.studio/">
+                    Hamish at a quarry box, successfully finding a rat.
+                </x-public-v2.learn-figure>
+
+                <x-public-v2.learn-figure
+                    image="images/learn/what-is-nasda/trailing-brace.jpg"
+                    alt="Two dogs searching through leaves and brush during a NASDA scent sport exercise."
+                    number="02"
+                    title="Trailing Brace Level I"
+                    credit="Blue Ridge Creative"
+                    credit-url="https://www.blueridgeprairie.studio/">
+                    Hamish and his first ever Brace partner, River.
+                </x-public-v2.learn-figure>
+
+
+                <x-public-v2.learn-figure
+                    image="images/learn/what-is-nasda/urban-locating.jpg"
+                    alt="Hamish, a black and white Sheltie, standing in a barn after locating hidden quarry."
+                    number="03"
+                    title="Urban Locating Level I"
+                    credit="Blue Ridge Creative"
+                    credit-url="https://www.blueridgeprairie.studio/">
+                    Hamish after finding a rat hidden in a barn.
+                </x-public-v2.learn-figure>
+
+                <x-public-v2.learn-figure
+                    image="images/learn/what-is-nasda/shed-dog.jpg"
+                    alt="A black and white Sheltie sniffing the ground toward a shed deer antler."
+                    number="04"
+                    title="Shed Level I"
+                    credit="Blue Ridge Creative"
+                    credit-url="https://www.blueridgeprairie.studio/">
+                    Hamish confidently going to the antler.
+                </x-public-v2.learn-figure>
+
+                <x-public-v2.learn-figure
+                    image="images/learn/what-is-nasda/lost-item.jpg"
+                    alt="A black and white Sheltie sniffing near a set of car keys on the ground outdoors."
+                    number="05"
+                    title="Lost Item Level I"
+                    credit="Blue Ridge Creative"
+                    credit-url="https://www.blueridgeprairie.studio/">
+                    Hamish finding the car keys.
+                </x-public-v2.learn-figure>
+
+
+                <x-public-v2.learn-figure
+                    image="images/learn/what-is-nasda/natural-distractions.jpg"
+                    alt="A black and white Sheltie eating horse manure."
+                    number="06"
+                    title="Natural Distractions - Yuck!"
+                    credit="Blue Ridge Creative"
+                    credit-url="https://www.blueridgeprairie.studio/">
+                    Hamish enjoying a mid run “snack.”
+                </x-public-v2.learn-figure>
+
+            </aside>
 
         </div>
+        {{-- End Guide Body --}}
+
+
 
     </div>
 
-    </div>
-    {{-- End Workshop CTA --}}
 
-</section>
+    {{-- Guide Navigation --}}
+    <aside
+        class="hidden md:col-span-2 md:col-start-11 md:block md:self-start md:sticky md:top-8 md:border-l md:border-sp-warmStone md:pl-6"
+        aria-label="Guide navigation">
 
-{{-- Recommended Reading --}}
-<section class="mt-8">
-    <h3 class="font-sans text-md font-semibold text-sp-slate">
-        Recommended Reading
-    </h3>
+        <nav>
 
-    <p class="body-small text-sp-slate mt-4">
-        Want to dig deeper into NASDA? Visit the North American Sport Dog Association for current rules, titles, registration information, and upcoming events.
-        <a
-            href="https://nasda.dog/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-link">
-            Visit NASDA
-        </a>.<br />
-        <span class="italic">Competition rules and requirements can change. Always check current NASDA information and instructions from trial officials when preparing to compete.</span>
+            <p class="font-display font-bold text-2xl text-sp-prairieGreen uppercase">
+                In This Guide
+            </p>
 
-    </p>
+            <ul class="flex flex-col gap-4 mt-2">
 
-</section>
-{{-- End Recommended Reading --}}
+                <li>
+                    <a
+                        href="#the-games"
+                        data-guide-nav
+                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                        The Games
+                    </a>
+                </li>
 
-</article>
+                <li>
+                    <a
+                        href="#training"
+                        data-guide-nav
+                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                        Training
+                    </a>
+                </li>
 
-{{-- Supporting Figures --}}
-<aside class="col-span-10 self-start md:col-span-3">
+                <li>
+                    <a
+                        href="#your-first-trial"
+                        data-guide-nav
+                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                        Your First Trial
+                    </a>
+                </li>
 
-    <x-public-v2.learn-figure
-        image="images/learn/what-is-nasda/trailing-and-locating.jpg"
-        alt="Hamish, a black and white Sheltie, investigating a NASDA quarry box while searching for quarry."
-        number="01"
-        title="Trailing & Locating Level I"
-        credit="Blue Ridge Creative"
-        credit-url="https://www.blueridgeprairie.studio/">
-        Hamish at a quarry box, successfully finding a rat.
-    </x-public-v2.learn-figure>
+                <li>
+                    <a
+                        href="#scoring-levels"
+                        data-guide-nav
+                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                        Scoring &amp; Levels
+                    </a>
+                </li>
 
-    <x-public-v2.learn-figure
-        image="images/learn/what-is-nasda/trailing-brace.jpg"
-        alt="Two dogs searching through leaves and brush during a NASDA scent sport exercise."
-        number="02"
-        title="Trailing Brace Level I"
-        credit="Blue Ridge Creative"
-        credit-url="https://www.blueridgeprairie.studio/">
-        Hamish and his first ever Brace partner, River.
-    </x-public-v2.learn-figure>
+                <li>
+                    <a
+                        href="#what-to-expect"
+                        data-guide-nav
+                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                        What to Expect
+                    </a>
+                </li>
 
+                <li>
+                    <a
+                        href="#what-to-bring"
+                        data-guide-nav
+                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                        What to Bring
+                    </a>
+                </li>
 
-    <x-public-v2.learn-figure
-        image="images/learn/what-is-nasda/urban-locating.jpg"
-        alt="Hamish, a black and white Sheltie, standing in a barn after locating hidden quarry."
-        number="03"
-        title="Urban Locating Level I"
-        credit="Blue Ridge Creative"
-        credit-url="https://www.blueridgeprairie.studio/">
-        Hamish after finding a rat hidden in a barn.
-    </x-public-v2.learn-figure>
+                <li>
+                    <a
+                        href="#getting-started"
+                        data-guide-nav
+                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                        Getting Started
+                    </a>
+                </li>
 
-    <x-public-v2.learn-figure
-        image="images/learn/what-is-nasda/shed-dog.jpg"
-        alt="A black and white Sheltie sniffing the ground toward a shed deer antler."
-        number="04"
-        title="Shed Level I"
-        credit="Blue Ridge Creative"
-        credit-url="https://www.blueridgeprairie.studio/">
-        Hamish confidently going to the antler.
-    </x-public-v2.learn-figure>
+            </ul>
 
-    <x-public-v2.learn-figure
-        image="images/learn/what-is-nasda/lost-item.jpg"
-        alt="A black and white Sheltie sniffing near a set of car keys on the ground outdoors."
-        number="05"
-        title="Lost Item Level I"
-        credit="Blue Ridge Creative"
-        credit-url="https://www.blueridgeprairie.studio/">
-        Hamish finding the car keys.
-    </x-public-v2.learn-figure>
+        </nav>
 
-
-    <x-public-v2.learn-figure
-        image="images/learn/what-is-nasda/natural-distractions.jpg"
-        alt="A black and white Sheltie eating horse manure."
-        number="06"
-        title="Natural Distractions - Yuck!"
-        credit="Blue Ridge Creative"
-        credit-url="https://www.blueridgeprairie.studio/">
-        Hamish enjoying a mid run “snack.”
-    </x-public-v2.learn-figure>
-
-</aside>
-
-</div>
-{{-- End Guide Body --}}
-
-
-
-</div>
-
-
-{{-- Guide Navigation --}}
-<aside
-    class="hidden md:col-span-2 md:col-start-11 md:block md:self-start md:sticky md:top-8 md:border-l md:border-sp-warmStone md:pl-6"
-    aria-label="Guide navigation">
-
-    <nav>
-
-        <p class="font-display font-bold text-2xl text-sp-prairieGreen uppercase">
-            In This Guide
-        </p>
-
-        <ul class="flex flex-col gap-4 mt-2">
-
-            <li>
-                <a
-                    href="#the-games"
-                    data-guide-nav
-                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                    The Games
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#training"
-                    data-guide-nav
-                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                    Training
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#your-first-trial"
-                    data-guide-nav
-                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                    Your First Trial
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#scoring-levels"
-                    data-guide-nav
-                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                    Scoring &amp; Levels
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#what-to-expect"
-                    data-guide-nav
-                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                    What to Expect
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#what-to-bring"
-                    data-guide-nav
-                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                    What to Bring
-                </a>
-            </li>
-
-            <li>
-                <a
-                    href="#getting-started"
-                    data-guide-nav
-                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                    Getting Started
-                </a>
-            </li>
-
-        </ul>
-
-    </nav>
-
-</aside>
-{{-- End Guide Navigation --}}
+    </aside>
+    {{-- End Guide Navigation --}}
 
 </section>
 {{-- End Guide Content --}}
