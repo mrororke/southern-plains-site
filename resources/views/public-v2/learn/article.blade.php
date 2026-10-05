@@ -128,6 +128,19 @@
             {{-- Supporting Figures --}}
             <aside class="col-span-10 self-start md:col-span-3">
 
+                <figure class="mt-10">
+
+    <img
+        src="{{ asset('/images/blog/blog-saying-goodbye-01.jpg') }}"
+        alt="..."
+        class="block w-full rounded-md">
+
+    <figcaption class="body-small text-sp-slate mt-3">
+        Luka in June 2025, less than a month before I would lose him.
+    </figcaption>
+
+</figure>
+
                 <img
                     src="{{ asset('/images/blog/blog-saying-goodbye-01.jpg') }}"
                     alt="Luka in June 2025, less than a month before I would lose him."
