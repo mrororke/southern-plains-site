@@ -49,6 +49,12 @@
 
     </div>
 
+
+    {{-- Book --}}
+    <div class="col-span-12 md:col-span-5">
+        Book cover here.
+    </div>
+
 </div>
 
 @endsection
