@@ -490,8 +490,6 @@ h1.text-hero {
     }
 }
 
-/* Mobile: left-side variant (up to 767px; outside the component layer) */
-
 /* Mobile: right-side variant (up to 767px) */
 
 @media (max-width: 767px) {
@@ -508,7 +506,12 @@ h1.text-hero {
         @apply text-xs uppercase tracking-wider whitespace-normal;
         writing-mode: horizontal-tb;
     }
+}
 
+
+/* Mobile: left-side variant (up to 767px) */
+
+@media (max-width: 767px) {
     .image-registration-left {
         @apply bottom-6 left-6 top-auto right-6 flex-row;
     }
@@ -521,6 +524,7 @@ h1.text-hero {
     .image-registration-text-left {
         @apply text-xs uppercase tracking-wider whitespace-normal;
         writing-mode: horizontal-tb;
+        transform: none;
     }
 }
 
