@@ -138,9 +138,6 @@
                 </p>
 
                 {{-- Tags --}}
-                <section class="px-6 pb-16 md:px-8">
-
-                    <div class="grid grid-cols-12 gap-6">
 
                         <div class="col-span-12 md:col-span-8">
 
@@ -156,9 +153,7 @@
 
                         </div>
 
-                    </div>
-
-                </section>
+                  
                 {{-- End Tags --}}
 
 
