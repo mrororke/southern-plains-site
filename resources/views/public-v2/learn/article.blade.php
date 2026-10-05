@@ -59,10 +59,13 @@
 
             <x-public-v2.image-registration
                 text="Luka, Photo by Melanie O'Rorke"
-                position="right"
+                position="left"
                  />
 
         </div>
         {{-- End Guide Hero Image --}}
+    
+</div>
+{{-- End Guide --}}
 
     @endsection
