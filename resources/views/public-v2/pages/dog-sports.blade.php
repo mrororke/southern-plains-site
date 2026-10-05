@@ -352,11 +352,11 @@
                 class="w-10 h-10 text-sp-warmIvory mb-6" />
 
             <h3 class="font-sans font-semibold text-xl text-sp-warmIvory">
-                Sport Dog League
+                Workshops
             </h3>
 
             <p class="body-small-light mt-3">
-                Earn titles and celebrate your team’s hard work in a supportive competitive setting.
+                Join us for a workshop to learn more about things like NASDA or even Trick Dog training.
             </p>
 
         </div>
