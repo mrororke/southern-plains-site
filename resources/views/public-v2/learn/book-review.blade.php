@@ -25,7 +25,9 @@
         </p>
 
         {{-- Book Rating --}}
-        <x-public-v2.book-rating stars="4" />
+        <div class="mt-5">
+            <x-public-v2.book-rating stars="4" />
+        </div>
         {{-- End Book Rating --}}
 
         {{-- Article Metadata --}}
