@@ -68,6 +68,9 @@ Route::prefix('v2')
         Route::view('/learn/the-legacy-of-luka', 'public-v2.learn.article')
             ->name('learn.article');
 
+        Route::view('/learn/book-review/one-on-one', 'public-v2.learn.book-review')
+            ->name('learn.book-review');
+
         Route::view('/events', 'public-v2.events.index')
             ->name('events.index');
 
