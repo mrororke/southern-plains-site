@@ -20,9 +20,13 @@
         </h1>
 
         <p class="body-large text-sp-slate mt-4">
-            A Dog Trainer's Guide to Private Lessons<br>
+            A Dog Trainer's Guide to Private Lessons<br />
             Written by Nicole Wilde.
         </p>
+
+        {{-- Book Rating --}}
+        <x-public-v2.book-rating stars="4" />
+        {{-- End Book Rating --}}
 
         {{-- Article Metadata --}}
         <x-public-v2.article-metadata
@@ -30,9 +34,6 @@
             read-time="8 min read"
             updated="Last updated August 12th, 2026" />
         {{-- End Article Metadata --}}
-
-        
-        <x-public-v2.book-rating stars="4" />
 
         {{-- Affiliate Callout --}}
         <x-public-v2.callout
