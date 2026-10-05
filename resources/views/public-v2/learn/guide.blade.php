@@ -773,37 +773,15 @@
 
                 </figure>
 
-                <figure class="mt-10">
-
-                    <img
-                        src="{{ asset('images/learn/what-is-nasda/natural-distractions.jpg') }}"
-                        alt="A black and white Sheltie eating horse manure."
-                        class="block w-full aspect-[4/3] object-cover rounded-md">
-
-                    <figcaption class="mt-3">
-
-                        <p class="font-display text-sm text-sp-prairieOchre uppercase">
-                            Figure 06
-                        </p>
-
-                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal mt-1">
-                            Natural Distractions - Yuck!
-                        </h3>
-
-                        <p class="body text-sp-slate mt-2">
-                            Hamish enjoying a mid run “snack.”
-                        </p>
-
-                        <p class="body-small text-sp-slate mt-2">
-                            Photo: <a href="https://www.blueridgeprairie.studio/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="text-link">Blue Ridge Creative</a>
-                        </p>
-
-                    </figcaption>
-
-                </figure>
+                <x-public-v2.learn-figure
+    image="images/learn/what-is-nasda/natural-distractions.jpg"
+    alt="A black and white Sheltie eating horse manure."
+    number="06"
+    title="Natural Distractions - Yuck!"
+    credit="Blue Ridge Creative"
+    credit-url="https://www.blueridgeprairie.studio/">
+    Hamish enjoying a mid run “snack.”
+</x-public-v2.learn-figure>
 
             </aside>
 
