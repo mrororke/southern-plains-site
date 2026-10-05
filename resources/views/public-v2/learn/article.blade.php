@@ -16,7 +16,7 @@
         </p>
 
         <h2 class="font-sans text-3xl font-semibold text-sp-charcoal mt-3">
-            What is NASDA, Anyway?
+            The Legacy of Luka
         </h2>
 
         {{-- Article Metadata --}}
