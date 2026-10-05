@@ -658,86 +658,37 @@
 
 
     {{-- Guide Navigation --}}
-    <aside
-        class="hidden md:col-span-2 md:col-start-11 md:block md:self-start md:sticky md:top-8 md:border-l md:border-sp-warmStone md:pl-6"
-        aria-label="Guide navigation">
-
-        <nav>
-
-            <p class="font-display font-bold text-2xl text-sp-prairieGreen uppercase">
-                In This Guide
-            </p>
-
-            <ul class="flex flex-col gap-4 mt-2">
-
-                <li>
-                    <a
-                        href="#the-games"
-                        data-guide-nav
-                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                        The Games
-                    </a>
-                </li>
-
-                <li>
-                    <a
-                        href="#training"
-                        data-guide-nav
-                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                        Training
-                    </a>
-                </li>
-
-                <li>
-                    <a
-                        href="#your-first-trial"
-                        data-guide-nav
-                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                        Your First Trial
-                    </a>
-                </li>
-
-                <li>
-                    <a
-                        href="#scoring-levels"
-                        data-guide-nav
-                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                        Scoring &amp; Levels
-                    </a>
-                </li>
-
-                <li>
-                    <a
-                        href="#what-to-expect"
-                        data-guide-nav
-                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                        What to Expect
-                    </a>
-                </li>
-
-                <li>
-                    <a
-                        href="#what-to-bring"
-                        data-guide-nav
-                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                        What to Bring
-                    </a>
-                </li>
-
-                <li>
-                    <a
-                        href="#getting-started"
-                        data-guide-nav
-                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
-                        Getting Started
-                    </a>
-                </li>
-
-            </ul>
-
-        </nav>
-
-    </aside>
+    <x-public-v2.learn-guide-navigation
+    :items="[
+        [
+            'id' => 'the-games',
+            'label' => 'The Games',
+        ],
+        [
+            'id' => 'training',
+            'label' => 'Training',
+        ],
+        [
+            'id' => 'your-first-trial',
+            'label' => 'Your First Trial',
+        ],
+        [
+            'id' => 'scoring-levels',
+            'label' => 'Scoring & Levels',
+        ],
+        [
+            'id' => 'what-to-expect',
+            'label' => 'What to Expect',
+        ],
+        [
+            'id' => 'what-to-bring',
+            'label' => 'What to Bring',
+        ],
+        [
+            'id' => 'getting-started',
+            'label' => 'Getting Started',
+        ],
+    ]" />
     {{-- End Guide Navigation --}}
 
 </section>
