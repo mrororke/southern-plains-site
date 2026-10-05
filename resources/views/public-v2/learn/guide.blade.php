@@ -265,55 +265,27 @@
                     {{-- Trial Process --}}
                     <div class="grid grid-cols-1 gap-4 mt-8 md:grid-cols-5">
 
-                        <div class="rounded-md bg-sp-limestone p-5">
-                            <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
+                        <x-public-v2.card>
+                            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
                                 Check In
                             </h3>
 
-                            <p class="body-small text-sp-slate mt-4">
+                            <p class="body text-sp-slate mt-4">
                                 Let the trial secretary know you’ve arrived.
                             </p>
-                        </div>
+                        </x-public-v2.card>
 
-                        <div class="rounded-md bg-sp-limestone p-5">
-                            <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
+                        <x-public-v2.card>
+                            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
                                 Attend the Briefing
                             </h3>
 
-                            <p class="body-small text-sp-slate mt-4">
+                            <p class="body text-sp-slate mt-4">
                                 Before the class starts, the judge will explain the course and answer questions.
                             </p>
-                        </div>
+                        </x-public-v2.card>
 
-                        <div class="rounded-md bg-sp-limestone p-5">
-                            <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
-                                Wait Your Turn
-                            </h3>
-
-                            <p class="body-small text-sp-slate mt-4">
-                                Keep yourself and your dog comfortable until your class/turn.
-                            </p>
-                        </div>
-
-                        <div class="rounded-md bg-sp-limestone p-5">
-                            <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
-                                Let Your Dog Search
-                            </h3>
-
-                            <p class="body-small text-sp-slate mt-4">
-                                Enter the start cones and give your dog room to work. The judge will make the call.
-                            </p>
-                        </div>
-
-                        <div class="rounded-md bg-sp-limestone p-5">
-                            <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
-                                Celebrate!
-                            </h3>
-
-                            <p class="body-small text-sp-slate mt-4">
-                                Reinforce at source when permitted, leave the search area, and tell your dog how great they are!
-                            </p>
-                        </div>
+                        {{-- etc. --}}
 
                     </div>
                     {{-- End Trial Process --}}
