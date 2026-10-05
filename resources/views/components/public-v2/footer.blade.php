@@ -77,10 +77,6 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('public-v2.dog-sports') }}">League Info</a>
-                </li>
-
-                <li>
                     <a href="{{ route('public-v2.learn.index') }}">Trick Dog</a>
                 </li>
             </ul>
