@@ -459,7 +459,7 @@
 
                         <div class="rounded-md bg-sp-limestone p-5">
                             <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
-                                Level 3 & Beyond
+                                Level III & Beyond
                             </h3>
 
                             <p class="body-small text-sp-slate mt-4">
@@ -662,7 +662,7 @@
                         </p>
 
                         <h3 class="font-sans text-xl font-semibold text-sp-charcoal mt-1">
-                            Trailing & Locating Level One
+                            Trailing & Locating Level I
                         </h3>
 
                         <p class="body text-sp-slate mt-2">
