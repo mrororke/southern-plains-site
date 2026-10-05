@@ -4,6 +4,8 @@
 ])
 
 {{-- Learn More --}}
+
+<!-- TODO: Have this bring in content dynamically, maybe based on tags or categories -->
 <section class="mt-16 md:mt-20">
 
     <div class="grid grid-cols-12 gap-6">
@@ -48,7 +50,7 @@
                             {{ $item['category'] }}
                         </p>
 
-                        <h3 class="font-sans text-2xl font-semibold text-sp-charcoal mt-2">
+                        <h3 class="font-sans text-lg font-semibold text-sp-charcoal mt-2">
                             {{ $item['title'] }}
                         </h3>
 
