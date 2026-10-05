@@ -209,6 +209,47 @@
         </div>
         {{-- End Article Body --}}
 
+        <x-public-v2.learn-more
+    :items="[
+        [
+            'category' => 'Dog Sports 101',
+            'title' => 'What Is NASDA, Anyway?',
+            'description' => 'From searching for lost objects to trailing and locating rats, NASDA lets dogs use their noses, independence, and problem solving skills in exciting and rewarding ways.',
+            'image' => asset('images/learn/what-is-nasda/featured.jpg'),
+            'image_alt' => 'Hamish searching a quarry box during a NASDA trial.',
+            'href' => route('public-v2.learn.guide'),
+            'link_label' => 'Read the Guide',
+        ],
+        [
+            'category' => 'Handler Insights',
+            'title' => 'The Legacy of Luka',
+            'description' => 'A personal reflection on Luka, reactivity, dog training, and the unexpected ways one dog can change your life.',
+            'image' => asset('/images/blog/blog-saying-goodbye-hero.jpg'),
+            'image_alt' => 'Luka relaxing in the grass.',
+            'href' => route('public-v2.learn.article'),
+            'link_label' => 'Read the Article',
+        ],
+        [
+            'category' => 'Placeholder',
+            'title' => 'Another Learn Resource',
+            'description' => 'Placeholder description for another resource in the Learn section.',
+            'image' => asset('images/learn/what-is-nasda/featured.jpg'),
+            'image_alt' => 'Placeholder supporting image.',
+            'href' => '#',
+            'link_label' => 'Read More',
+        ],
+        [
+            'category' => 'Placeholder',
+            'title' => 'Another Learn Resource',
+            'description' => 'Placeholder description for another resource in the Learn section.',
+            'image' => asset('images/learn/what-is-nasda/featured.jpg'),
+            'image_alt' => 'Placeholder supporting image.',
+            'href' => '#',
+            'link_label' => 'Read More',
+        ],
+    ]"
+    library-url="{{ route('public-v2.learn.index') }}" />
+
 
 
     </div>
