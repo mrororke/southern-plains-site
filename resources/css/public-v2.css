@@ -492,20 +492,21 @@ h1.text-hero {
 
 /* Mobile: left-side variant (up to 767px; outside the component layer) */
 
+/* Mobile: right-side variant (up to 767px) */
+
 @media (max-width: 767px) {
-    .image-registration-left {
-        @apply bottom-6 left-6 top-auto right-auto flex-row;
+    .image-registration-right {
+        @apply bottom-6 left-6 top-auto right-6 flex-row;
     }
 
-    .image-registration-left .image-registration-line {
-        @apply h-px w-8;
+    .image-registration-right .image-registration-line {
+        @apply h-px w-8 shrink-0;
         margin: 0 10px;
     }
 
-    .image-registration-text-left {
-        @apply text-xs uppercase tracking-wider whitespace-nowrap;
+    .image-registration-text-right {
+        @apply text-xs uppercase tracking-wider whitespace-normal;
         writing-mode: horizontal-tb;
-        transform: none;
     }
 }
 
