@@ -119,7 +119,7 @@
             No Forcing the Issue.
         </h2>
 
-        <p class="body mt-4">
+        <p class="body text-sp-slate mt-4">
             Southern Plains uses positive reinforcement and marker-based training to help dogs understand what we’re asking of them. Clickers are encouraged. Choice matters. And training should build confidence—not make your dog worry about what happens when they get it wrong.
         </p>
 
@@ -144,7 +144,7 @@
                     Communicate Clearly
                 </h3>
 
-                <p class="body">
+                <p class="body text-sp-slate">
                     Make it easy for your dog to understand what earns reinforcement.
                 </p>
             </div>
@@ -162,7 +162,7 @@
                     Build Confidence
                 </h3>
 
-                <p class="body">
+                <p class="body text-sp-slate">
                     Help dogs feel confident enough to try, to think, and to participate.
                 </p>
             </div>
@@ -180,7 +180,7 @@
                     Have Some Fun
                 </h3>
 
-                <p class="body">
+                <p class="body text-sp-slate">
                     Because the whole point is getting to do more with your dog.
                 </p>
             </div>
@@ -239,7 +239,7 @@
                 Build Everyday Skills
             </h3>
 
-            <p class="body mt-3">
+            <p class="body text-sp-slate mt-3">
                 Manners, communication, CGC preparation, and stronger foundations for real life.
             </p>
 
@@ -275,7 +275,7 @@
                 Learn Something New
             </h3>
 
-            <p class="body mt-3">
+            <p class="body text-sp-slate  mt-3">
                 Tricks, workshops, specialty classes, and opportunities to explore new skills.
             </p>
 
@@ -311,7 +311,7 @@
                 Get Ready to Compete
             </h3>
 
-            <p class="body mt-3">
+            <p class="body text-sp-slate mt-3">
                 Develop the skills and teamwork you'll need for dog sports and trial environments.
             </p>
 
@@ -347,7 +347,7 @@
                 Work Through Something
             </h3>
 
-            <p class="body mt-3">
+            <p class="body text-sp-slate mt-3">
                 Private instruction for teams that need more individualized support and guidance.
             </p>
 
@@ -399,7 +399,7 @@
                     Communicate Clearly
                 </h3>
 
-                <p class="body mt-3">
+                <p class="body text-sp-slate mt-3">
                     Make it easy for your dog to understand what earns reinforcement.
                 </p>
 
@@ -427,7 +427,7 @@
             <x-icons.bone
                 class="w-8 h-8 md:w-10 md:h-10 text-sp-prairieGreen mb-4 md:mb-6" />
 
-            <p class="body">
+            <p class="text-sp-slate body">
                 Nothing scheduled right now — but we’re always working on what’s next.
             </p>
 
@@ -506,7 +506,7 @@
                 <x-icons.circle-check-big
                     class="w-8 h-8 shrink-0 text-sp-prairieGreen" />
 
-                <span class="body">
+                <span class="body text-sp-slate">
                     All levels: Novice, Intermediate, Advanced, Performer and Performer Elite.
                 </span>
 
@@ -517,7 +517,7 @@
                 <x-icons.circle-check-big
                     class="w-8 h-8 shrink-0 text-sp-prairieGreen" />
 
-                <span class="body">
+                <span class="body text-sp-slate">
                     Evaluation online or by appointment.
                 </span>
 
@@ -528,7 +528,7 @@
                 <x-icons.circle-check-big
                     class="w-8 h-8 shrink-0 text-sp-prairieGreen" />
 
-                <span class="body">
+                <span class="body text-sp-slate">
                     Open to all dogs.
                 </span>
 
@@ -539,7 +539,7 @@
                 <x-icons.circle-check-big
                     class="w-8 h-8 shrink-0 text-sp-prairieGreen" />
 
-                <span class="body">
+                <span class="body text-sp-slate">
                     Great goal for any team!
                 </span>
 
