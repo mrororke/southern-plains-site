@@ -58,8 +58,7 @@
 
             <x-public-v2.image-registration
                 text="Luka, Photo by Melanie O'Rorke"
-                position="left"
-                 />
+                position="left" />
 
         </div>
         {{-- End Guide Hero Image --}}
@@ -70,58 +69,58 @@
             {{-- Main Guide Content --}}
             <article class="col-span-10 md:col-span-7">
 
-            <p class="body text-sp-slate mt-4">
-                When my husband woke up, I told him something was wrong. He called Luka, but Luka didn’t run and jump on him as he normally would have. Lyle agreed something was not right. We called off work and we went to the vet. They did blood tests to check organ function. We did radiographs all down his spine and of course of his heart. He was showing no signs of neurological issues. It was determined that he had a pinched nerve, or impinged muscle in his neck. We were going to start conservatively to see if it would relax on its own. We left the vet with meds, a chiropractor referral, and hope that he will be better in a few days.
-            </p>
+                <p class="body text-sp-slate">
+                    When my husband woke up, I told him something was wrong. He called Luka, but Luka didn’t run and jump on him as he normally would have. Lyle agreed something was not right. We called off work and we went to the vet. They did blood tests to check organ function. We did radiographs all down his spine and of course of his heart. He was showing no signs of neurological issues. It was determined that he had a pinched nerve, or impinged muscle in his neck. We were going to start conservatively to see if it would relax on its own. We left the vet with meds, a chiropractor referral, and hope that he will be better in a few days.
+                </p>
 
-            <p class="body text-sp-slate mt-4">
-                Once home, he was still very subdued. We talked to the kids about his medicine schedule since they would need to help with it while we were at work. He was sleeping peacefully in his crate when I headed to teach my Tricks class for the week. Once home, Luka had his first set of meds on board and was very subdued. I made a pallet on the floor and lay down to watch TV with him before my evening shift. During this time, he wet himself on the pallet, and I called the vet.
-            </p>
+                <p class="body text-sp-slate mt-4">
+                    Once home, he was still very subdued. We talked to the kids about his medicine schedule since they would need to help with it while we were at work. He was sleeping peacefully in his crate when I headed to teach my Tricks class for the week. Once home, Luka had his first set of meds on board and was very subdued. I made a pallet on the floor and lay down to watch TV with him before my evening shift. During this time, he wet himself on the pallet, and I called the vet.
+                </p>
 
-            <p class="body text-sp-slate mt-4">
-                I mentioned that Luka was more subdued than I expected, and that voiding his bladder while lying down was completely new, and I was a bit worried. The doctor said maybe it was just too much, and to give him half the cocktail at bed time. I set up an exercise pen off the crate door and went to work. He was sleeping when I left. When I got home, he could barely walk. He wet himself again. After talking to a very knowledgeable dog friend, she recommended I don't give him the nighttime meds, and assess at what would be the halfway point to his next dose.
-            </p>
+                <p class="body text-sp-slate mt-4">
+                    I mentioned that Luka was more subdued than I expected, and that voiding his bladder while lying down was completely new, and I was a bit worried. The doctor said maybe it was just too much, and to give him half the cocktail at bed time. I set up an exercise pen off the crate door and went to work. He was sleeping when I left. When I got home, he could barely walk. He wet himself again. After talking to a very knowledgeable dog friend, she recommended I don't give him the nighttime meds, and assess at what would be the halfway point to his next dose.
+                </p>
 
-            <p class="body text-sp-slate mt-4">
-                I don’t remember if this is when I first thought that he seemed “locked in.” He seemed like someone who is completely aware of what is happening, but unable to move. His eyes were alert, not even his ears flicked. I laid down with him in the ex-pen. Once he seemed to be sleeping well, I got in bed for around two hours. I don’t think I slept, but I felt my moving around was keeping Luka from the rest he needed.
-            </p>
+                <p class="body text-sp-slate mt-4">
+                    I don’t remember if this is when I first thought that he seemed “locked in.” He seemed like someone who is completely aware of what is happening, but unable to move. His eyes were alert, not even his ears flicked. I laid down with him in the ex-pen. Once he seemed to be sleeping well, I got in bed for around two hours. I don’t think I slept, but I felt my moving around was keeping Luka from the rest he needed.
+                </p>
 
-            <p class="body text-sp-slate mt-4">
-                At 2:00am Luka had not only wet himself, but had also had a bowel movement. He couldn’t even stand up. I carried him, all seventy one pounds of him, outside. At this point he didn’t even attempt to stand. His breathing was labored, but his capillary response was still good.
-            </p>
+                <p class="body text-sp-slate mt-4">
+                    At 2:00am Luka had not only wet himself, but had also had a bowel movement. He couldn’t even stand up. I carried him, all seventy one pounds of him, outside. At this point he didn’t even attempt to stand. His breathing was labored, but his capillary response was still good.
+                </p>
 
-            <p class="body text-sp-slate mt-4">
-                After having him outside for a while, I took him into the bathroom. I had cleaned up all the urine with towels and wet rags, but the bowel movement was not as easy to clean this way. He needed at least a rear end bath. Anyone who has ever met Luka knows he was incredibly hydrophobic. Baths were also something he did because I tried to make them easy, but he would high step heavy dew. I honestly thought that putting him in the bath tub would make something happen. Nothing did. He continued to lie there while I cleaned him up. Once done, I wrapped him in a dry towel and carried him back to the ex-pen. His breathing was more labored. I propped him up on throw pillows, anything I could find to elevate his chest and neck, and when his breathing seemed to return to normal, I fell asleep with him.
-            </p>
+                <p class="body text-sp-slate mt-4">
+                    After having him outside for a while, I took him into the bathroom. I had cleaned up all the urine with towels and wet rags, but the bowel movement was not as easy to clean this way. He needed at least a rear end bath. Anyone who has ever met Luka knows he was incredibly hydrophobic. Baths were also something he did because I tried to make them easy, but he would high step heavy dew. I honestly thought that putting him in the bath tub would make something happen. Nothing did. He continued to lie there while I cleaned him up. Once done, I wrapped him in a dry towel and carried him back to the ex-pen. His breathing was more labored. I propped him up on throw pillows, anything I could find to elevate his chest and neck, and when his breathing seemed to return to normal, I fell asleep with him.
+                </p>
 
-            <p class="body text-sp-slate mt-4">
-                At 5:00am I was awake again. He had wet himself once again. I cleaned him up and just sat with him. He still seemed locked in. His eyes were alert, he was with me, his body just didn’t seem to be. At 6:00am I started getting ready for work. Once I was dressed I decided to take him outside to see if the nice weather would do anything to help bring him around. Surely the meds were wearing off by now? Right?
-            </p>
+                <p class="body text-sp-slate mt-4">
+                    At 5:00am I was awake again. He had wet himself once again. I cleaned him up and just sat with him. He still seemed locked in. His eyes were alert, he was with me, his body just didn’t seem to be. At 6:00am I started getting ready for work. Once I was dressed I decided to take him outside to see if the nice weather would do anything to help bring him around. Surely the meds were wearing off by now? Right?
+                </p>
 
-            <p class="body text-sp-slate mt-4">
-                I carried him outside and laid him in the grass. He was so still, his breathing ragged and heavy. I begged him to just hold on. Hold on while the meds finished wearing off, then he’d feel better. I went to check his capillary response. His gums were blue. I checked his heart beat. There was nothing. I screamed for Lyle and began CPR and rescue breathing. Lyle was waking the kids up, we didn’t want him to pass and them not be able to say goodbye.
-            </p>
+                <p class="body text-sp-slate mt-4">
+                    I carried him outside and laid him in the grass. He was so still, his breathing ragged and heavy. I begged him to just hold on. Hold on while the meds finished wearing off, then he’d feel better. I went to check his capillary response. His gums were blue. I checked his heart beat. There was nothing. I screamed for Lyle and began CPR and rescue breathing. Lyle was waking the kids up, we didn’t want him to pass and them not be able to say goodbye.
+                </p>
 
-            <p class="body text-sp-slate mt-4">
-                Then he took a breath. I had gotten him back! We all jumped in the car and headed to the vet.
-            </p>
+                <p class="body text-sp-slate mt-4">
+                    Then he took a breath. I had gotten him back! We all jumped in the car and headed to the vet.
+                </p>
 
-            <p class="body text-sp-slate mt-4">
+                <p class="body text-sp-slate mt-4">
 
-            </p>
+                </p>
 
-            <p class="body text-sp-slate mt-4">
+                <p class="body text-sp-slate mt-4">
 
-            </p>
+                </p>
 
-            <p class="body text-sp-slate mt-4">
+                <p class="body text-sp-slate mt-4">
 
-            </p>
+                </p>
 
-            <p class="body text-sp-slate mt-4">
+                <p class="body text-sp-slate mt-4">
 
-            </p>
-            
+                </p>
+
 
             </article>
 
@@ -130,33 +129,43 @@
 
                 <figure>
 
-    <img
-        src="{{ asset('/images/blog/blog-saying-goodbye-01.jpg') }}"
-        alt="..."
-        class="block w-full rounded-md">
+                    <img
+                        src="{{ asset('/images/blog/blog-saying-goodbye-01.jpg') }}"
+                        alt="Luka in June 2025, less than a month before I would lose him."
+                        class="block w-full rounded-md">
 
-    <figcaption class="text-sx text-sp-slate mt-3">
-        Luka in June 2025, less than a month before I would lose him.
-    </figcaption>
+                    <figcaption class="text-sx text-sp-slate mt-3">
+                        Luka in June 2025, less than a month before I would lose him.
+                    </figcaption>
 
-</figure>
+                </figure>
 
-                <img
-                    src="{{ asset('/images/blog/blog-saying-goodbye-01.jpg') }}"
-                    alt="Luka in June 2025, less than a month before I would lose him."
-                    class="block w-full rounded-md mt-10">
-                
-                <img
-                    src="{{ asset('/images/blog/blog-saying-goodbye-02.jpg') }}"
-                    alt="Luka competed for the last time in June of 2025. He completed his Urban Locating, and Lost Item level one titles."
-                    class="block w-full rounded-md mt-10">
+                <figure>
 
-                <img
-                    src="{{ asset('/images/blog/blog-saying-goodbye-03.jpg') }}"
-                    alt="Luka in June 2025, less than a month before I would lose him."
-                    class="block w-full rounded-md mt-10">
+                    <img
+                        src="{{ asset('/images/blog/blog-saying-goodbye-02.jpg') }}"
+                        alt="Luka competed for the last time in June of 2025. He completed his Urban Locating, and Lost Item level one titles."
+                        class="block w-full rounded-md">
 
-                
+                    <figcaption class="text-sx text-sp-slate mt-3">
+                        Luka competed for the last time in June of 2025. He completed his Urban Locating, and Lost Item level one titles.
+                    </figcaption>
+
+                </figure>
+
+                <figure>
+
+                    <img
+                        src="{{ asset('/images/blog/blog-saying-goodbye-03.jpg') }}"
+                        alt="Luka in June 2025, less than a month before I would lose him."
+                        class="block w-full rounded-md">
+
+                    <figcaption class="text-sx text-sp-slate mt-3">
+                        Luka in June 2025, less than a month before I would lose him.
+                    </figcaption>
+
+                </figure>
+
 
             </aside>
 
