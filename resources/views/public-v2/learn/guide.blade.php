@@ -702,6 +702,15 @@
             'href' => '#',
             'link_label' => 'Read More',
         ],
+        [
+            'category' => 'Placeholder',
+            'title' => 'Another Learn Resource',
+            'description' => 'Placeholder description for another resource in the Learn section.',
+            'image' => asset('images/learn/what-is-nasda/featured.jpg'),
+            'image_alt' => 'Placeholder supporting image.',
+            'href' => '#',
+            'link_label' => 'Read More',
+        ],
     ]"
     library-url="{{ route('public-v2.learn.index') }}" />
 

@@ -14,12 +14,7 @@
             <div class="flex items-end justify-between gap-6">
 
                 <div>
-
-                    <p class="font-display text-sm text-sp-prairieOchre uppercase">
-                        Learn More
-                    </p>
-
-                    <h2 class="font-sans text-3xl font-semibold text-sp-charcoal mt-2">
+                    <h2 class="font-sans text-lg font-semibold text-sp-charcoal mt-2">
                         Keep Learning
                     </h2>
 
@@ -40,7 +35,7 @@
             </div>
 
             {{-- Resource Cards --}}
-            <div class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-3">
+            <div class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-4">
 
                 @foreach ($items as $item)
 
