@@ -3,7 +3,7 @@
 ])
 
 @php
-    $stars = min(5, max(0, (float) $stars));
+    $stars = min(5, max(0, (int) $stars));
 @endphp
 
 {{-- Book Rating --}}
@@ -13,19 +13,9 @@
 
     @for ($i = 1; $i <= 5; $i++)
 
-        @if ($i <= $stars)
-
-            <x-icons.star
-                class="h-5 w-5 fill-current text-sp-prairieOchre"
-                aria-hidden="true" />
-
-        @else
-
-            <x-icons.star
-                class="h-5 w-5 text-sp-warmStone"
-                aria-hidden="true" />
-
-        @endif
+        <x-icons.star
+            class="h-5 w-5 {{ $i <= $stars ? 'fill-current text-sp-prairieOchre' : 'text-sp-warmStone' }}"
+            aria-hidden="true" />
 
     @endfor
 
