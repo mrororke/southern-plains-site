@@ -8,21 +8,18 @@
 
     <div class="grid grid-cols-12 gap-6">
 
-        <div class="col-span-12 md:col-span-12">
+        <div class="col-span-12">
 
             {{-- Section Header --}}
-            <div class="flex items-end justify-between gap-6">
+            <div class="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
 
-                <div>
-                    <h2 class="font-sans text-lg font-semibold text-sp-charcoal mt-2">
-                        Keep Learning
-                    </h2>
-
-                </div>
+                <h2 class="font-sans text-lg font-semibold text-sp-charcoal">
+                    Keep Learning
+                </h2>
 
                 <a
                     href="{{ $libraryUrl }}"
-                    class="hidden md:inline-flex items-center gap-2 font-sans text-base font-semibold text-sp-prairieGreen transition-colors hover:text-sp-prairieOchre">
+                    class="inline-flex items-center gap-2 font-sans text-base font-semibold text-sp-prairieGreen transition-colors hover:text-sp-prairieOchre">
 
                     View Full Library
 
@@ -33,6 +30,7 @@
                 </a>
 
             </div>
+            {{-- End Section Header --}}
 
             {{-- Resource Cards --}}
             <div class="grid grid-cols-1 gap-6 mt-8 md:grid-cols-4">
@@ -75,19 +73,7 @@
                 @endforeach
 
             </div>
-
-            {{-- Mobile Library Link --}}
-            <a
-                href="{{ $libraryUrl }}"
-                class="inline-flex md:hidden items-center gap-2 mt-6 font-sans text-base font-semibold text-sp-prairieGreen">
-
-                View Full Library
-
-                <x-icons.move-right
-                    class="w-5 h-5 shrink-0"
-                    aria-hidden="true" />
-
-            </a>
+            {{-- End Resource Cards --}}
 
         </div>
 
