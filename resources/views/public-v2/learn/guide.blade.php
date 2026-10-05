@@ -711,8 +711,6 @@
     ]" />
     {{-- End Guide Navigation --}}
 
-</section>
-{{-- End Guide Content --}}
 
 <x-public-v2.learn-more
     :items="[
@@ -745,6 +743,10 @@
         ],
     ]"
     library-url="{{ route('public-v2.learn.index') }}" />
+
+</section>
+{{-- End Guide Content --}}
+
 
 @endsection
 
