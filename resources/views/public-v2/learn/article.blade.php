@@ -137,6 +137,30 @@
                     I will continue my journey to being a dog trainer. I will always have a soft spot for big dogs that are fearful and reactive. I do want to help reactive dogs in the future. I will continue to learn, and grow. That will be Luka’s legacy. He unlocked a passion in me. It would be wrong of me to let him down.
                 </p>
 
+                {{-- Tags --}}
+                <section class="px-6 pb-16 md:px-8">
+
+                    <div class="grid grid-cols-12 gap-6">
+
+                        <div class="col-span-12 md:col-span-8">
+
+                            <x-public-v2.learn-tags
+                                :tags="[
+                    'NASDA',
+                    'Reactive dogs',
+                    'Trick Dog',
+                    'Private Training',
+                    'First Trials',
+                    'Resource Roundup',
+                ]" />
+
+                        </div>
+
+                    </div>
+
+                </section>
+                {{-- End Tags --}}
+
 
             </article>
 
