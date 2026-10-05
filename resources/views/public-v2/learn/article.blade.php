@@ -106,19 +106,35 @@
                 </p>
 
                 <p class="body text-sp-slate mt-4">
-
+                    His breathing was still ragged, but he was breathing. I kept begging him to hold on until we could get to the vet eighteen and a half miles away.
                 </p>
 
                 <p class="body text-sp-slate mt-4">
-
+                    He stopped breathing again. Again I performed rescue breaths and he returned. I don’t know how many times we did this, I just know that it wasn’t enough. I was completely out of breath and bawling, screaming for him to stay with me. Lyle was driving in the front seat, I think he was crying and screaming too. Krissy in the front passenger seat, and Stetson in the back with Luka and I. All of us—screaming for him to stay.
                 </p>
 
                 <p class="body text-sp-slate mt-4">
-
+                    I can’t tell you where we were, just somewhere on Highway 88, between Inola and Claremore. I can’t tell you what time it was. Our vet opens at 7:30am, and we got there right around that time.
                 </p>
 
                 <p class="body text-sp-slate mt-4">
+                    The staff at our vet clinic was amazing. The veterinarian who had worked with us the day before was just walking in as I got out of the car. What a horrible way to start her day. She was so kind and compassionate. They sent techs out to help us get him inside.
+                </p>
 
+                <p class="body text-sp-slate mt-4">
+                    After explaining everything that had happened through the night, they think that he had a blood clot, and passed due to a pulmonary embolism. He was four and a half years old. I’ve never had that kind of bond with a dog before. My heart literally hurt, my ribs too. Turns out that when I put him in the bathtub, I bruised, or possibly cracked the ribs on my left side.
+                </p>
+
+                <p class="body text-sp-slate mt-4">
+                    For days I cried myself to sleep. I cried just sitting around. I cried watching TV. I felt I would never run out of tears. My dog family and close friends and family really rallied around our family. We received condolences, cards and gifts, and snacks and food. I realized how large my very scared and reactive dog had made my life.
+                </p>
+
+                <p class="body text-sp-slate mt-4">
+                    I really didn’t realize that 90% (or more if you ask my husband) of my life revolved around Luka and all we did together. From tricks training, to NASDA, to learning all I could about reactivity and fearful behavior, Luka introduced me to so many new things. Along the way we met so many great people. People that I am glad to have in my life, and consider my found family. As an introvert I’ve never had a large circle, now I have a much larger circle than I ever realized.
+                </p>
+
+                <p class="body text-sp-slate mt-4">
+                    I will continue my journey to being a dog trainer. I will always have a soft spot for big dogs that are fearful and reactive. I do want to help reactive dogs in the future. I will continue to learn, and grow. That will be Luka’s legacy. He unlocked a passion in me. It would be wrong of me to let him down.
                 </p>
 
 
@@ -140,7 +156,7 @@
 
                 </figure>
 
-                <figure>
+                <figure class="mt-10">
 
                     <img
                         src="{{ asset('/images/blog/blog-saying-goodbye-02.jpg') }}"
@@ -153,7 +169,7 @@
 
                 </figure>
 
-                <figure>
+                <figure class="mt-10">
 
                     <img
                         src="{{ asset('/images/blog/blog-saying-goodbye-03.jpg') }}"
