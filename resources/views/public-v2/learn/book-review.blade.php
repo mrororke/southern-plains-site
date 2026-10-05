@@ -104,7 +104,7 @@
 @section('content')
 
 {{-- Book Review Supporting Content --}}
-<div class="px-6 md:px-8">
+<div class="px-6 md:px-8 md:py-8">
 
     {{-- Tags --}}
     <x-public-v2.learn-tags
@@ -136,6 +136,15 @@
                 'description' => 'A personal reflection on Luka, reactivity, dog training, and the unexpected ways one dog can change your life.',
                 'href' => url('/v2/learn/the-legacy-of-luka'),
                 'link_label' => 'Read the Article',
+            ],
+            [
+                'image' => asset('images/learn/what-is-nasda/featured.jpg'),
+                'image_alt' => 'Placeholder Learn resource image.',
+                'category' => 'Placeholder',
+                'title' => 'Another Learn Resource',
+                'description' => 'Placeholder description for another resource in the Learn section.',
+                'href' => '#',
+                'link_label' => 'Read More',
             ],
             [
                 'image' => asset('images/learn/what-is-nasda/featured.jpg'),
