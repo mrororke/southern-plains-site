@@ -688,7 +688,7 @@
             'category' => 'Handler Insights',
             'title' => 'The Legacy of Luka',
             'description' => 'A personal reflection on Luka, reactivity, dog training, and the unexpected ways one dog can change your life.',
-            'image' => asset('images/learn/articles/the-legacy-of-luka/featured.jpg'),
+            'image' => asset('/images/blog/blog-saying-goodbye-hero.jpg'),
             'image_alt' => 'Luka relaxing in the grass.',
             'href' => route('public-v2.learn.article'),
             'link_label' => 'Read the Article',
