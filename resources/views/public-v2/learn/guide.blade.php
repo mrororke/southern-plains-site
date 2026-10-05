@@ -550,39 +550,33 @@
 
                     {{-- Workshop CTA --}}
                     <x-public-v2.learn-cta
-    title="Want to Try NASDA Together?"
-    text="Interested in bringing NASDA to your club, training group, or community? Southern Plains Sport Dog Club offers introductory workshops designed to give handlers a chance to learn the games, try the skills, and have fun with their dogs."
-    href="#contact">
-    Request a Workshop
-</x-public-v2.learn-cta>
+                        title="Want to Try NASDA Together?"
+                        text="Interested in bringing NASDA to your club, training group, or community? Southern Plains Sport Dog Club offers introductory workshops designed to give handlers a chance to learn the games, try the skills, and have fun with their dogs."
+                        href="#contact">
+                        Request a Workshop
+                    </x-public-v2.learn-cta>
 
-                                <!-- TODO Create the workshop request form -->
+                    <!-- TODO Create the workshop request form -->
 
-                           
+
                     {{-- End Workshop CTA --}}
 
                 </section>
 
                 {{-- Recommended Reading --}}
-                <section class="mt-8">
-                    <h3 class="font-sans text-md font-semibold text-sp-slate">
-                        Recommended Reading
-                    </h3>
-
-                    <p class="body-small text-sp-slate mt-4">
-                        Want to dig deeper into NASDA? Visit the North American Sport Dog Association for current rules, titles, registration information, and upcoming events.
-                        <a
-                            href="https://nasda.dog/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-link">
-                            Visit NASDA
-                        </a>.<br />
-                        <span class="italic">Competition rules and requirements can change. Always check current NASDA information and instructions from trial officials when preparing to compete.</span>
-
-                    </p>
-
-                </section>
+                <x-public-v2.learn-references
+                    :references="[
+        [
+            'title' => 'What Is NASDA, Anyway?',
+            'description' => 'A beginner-friendly introduction to NASDA and its four Level One sports.',
+            'href' => route('public-v2.learn.guide'),
+        ],
+        [
+            'title' => 'North American Sport Dog Association',
+            'description' => 'Official NASDA information, rules, and resources.',
+            'href' => 'https://nasda.dog/',
+        ],
+    ]" />
                 {{-- End Recommended Reading --}}
 
             </article>
