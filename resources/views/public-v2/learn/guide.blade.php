@@ -614,174 +614,67 @@
             {{-- Supporting Figures --}}
             <aside class="col-span-10 self-start md:col-span-3">
 
-                <figure>
-
-                    <img
-                        src="{{ asset('images/learn/what-is-nasda/trailing-and-locating.jpg') }}"
-                        alt="Hamish, a black and white Sheltie, investigating a NASDA quarry box while searching for quarry."
-                        class="block w-full aspect-[4/3] object-cover rounded-md">
-
-                    <figcaption class="mt-3">
-
-                        <p class="font-display text-sm text-sp-prairieOchre uppercase">
-                            Figure 01
-                        </p>
-
-                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal mt-1">
-                            Trailing & Locating Level I
-                        </h3>
-
-                        <p class="body text-sp-slate mt-2">
-                            Hamish at a quarry box, successfully finding a rat.
-                        </p>
-
-                        <p class="body-small text-sp-slate mt-2">
-                            Photo: <a href="https://www.blueridgeprairie.studio/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="text-link">Blue Ridge Creative</a>
-                        </p>
-
-                    </figcaption>
-
-                </figure>
-
-                <figure class="mt-10">
-
-                    <img
-                        src="{{ asset('images/learn/what-is-nasda/trailing-brace.jpg') }}"
-                        alt="Two dogs searching through leaves and brush during a NASDA scent sport exercise."
-                        class="block w-full aspect-[4/3] object-cover rounded-md">
-
-                    <figcaption class="mt-3">
-
-                        <p class="font-display text-sm text-sp-prairieOchre uppercase">
-                            Figure 02
-                        </p>
-
-                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal mt-1">
-                            Trailing Brace Level I
-                        </h3>
-
-                        <p class="body text-sp-slate mt-2">
-                            Hamish and his first ever Brace partner, River.
-                        </p>
-
-                        <p class="body-small text-sp-slate mt-2">
-                            Photo: <a href="https://www.blueridgeprairie.studio/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="text-link">Blue Ridge Creative</a>
-                        </p>
-
-                    </figcaption>
-
-                </figure>
-
-                <figure class="mt-10">
-
-                    <img
-                        src="{{ asset('images/learn/what-is-nasda/urban-locating.jpg') }}"
-                        alt="Hamish, a black and white Sheltie, standing in a barn after locating hidden quarry."
-                        class="block w-full aspect-[4/3] object-cover rounded-md">
-
-                    <figcaption class="mt-3">
-
-                        <p class="font-display text-sm text-sp-prairieOchre uppercase">
-                            Figure 03
-                        </p>
-
-                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal mt-1">
-                            Urban Locating Level I
-                        </h3>
-
-                        <p class="body text-sp-slate mt-2">
-                            Hamish after finding a rat hidden in a barn.
-                        </p>
-
-                        <p class="body-small text-sp-slate mt-2">
-                            Photo: <a href="https://www.blueridgeprairie.studio/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="text-link">Blue Ridge Creative</a>
-                        </p>
-
-                    </figcaption>
-
-                </figure>
-
-                <figure class="mt-10">
-
-                    <img
-                        src="{{ asset('images/learn/what-is-nasda/shed-dog.jpg') }}"
-                        alt="A black and white Sheltie sniffing the ground toward a shed deer antler."
-                        class="block w-full aspect-[4/3] object-cover rounded-md">
-
-                    <figcaption class="mt-3">
-
-                        <p class="font-display text-sm text-sp-prairieOchre uppercase">
-                            Figure 04
-                        </p>
-
-                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal mt-1">
-                            Shed Level I
-                        </h3>
-
-                        <p class="body text-sp-slate mt-2">
-                            Hamish confidently going to the antler.
-                        </p>
-
-                        <p class="body-small text-sp-slate mt-2">
-                            Photo: <a href="https://www.blueridgeprairie.studio/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="text-link">Blue Ridge Creative</a>
-                        </p>
-
-                    </figcaption>
-
-                </figure>
-                <figure class="mt-10">
-
-                    <img
-                        src="{{ asset('images/learn/what-is-nasda/lost-item.jpg') }}"
-                        alt="A black and white Sheltie sniffing near a set of car keys on the ground outdoors."
-                        class="block w-full aspect-[4/3] object-cover rounded-md">
-
-                    <figcaption class="mt-3">
-
-                        <p class="font-display text-sm text-sp-prairieOchre uppercase">
-                            Figure 05
-                        </p>
-
-                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal mt-1">
-                            Lost Item Level I
-                        </h3>
-
-                        <p class="body text-sp-slate mt-2">
-                            Hamish finding the car keys.
-                        </p>
-
-                        <p class="body-small text-sp-slate mt-2">
-                            Photo: <a href="https://www.blueridgeprairie.studio/"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                class="text-link">Blue Ridge Creative</a>
-                        </p>
-
-                    </figcaption>
-
-                </figure>
+                <x-public-v2.learn-figure
+                    image="images/learn/what-is-nasda/trailing-and-locating.jpg"
+                    alt="Hamish, a black and white Sheltie, investigating a NASDA quarry box while searching for quarry."
+                    number="01"
+                    title="Trailing & Locating Level I"
+                    credit="Blue Ridge Creative"
+                    credit-url="https://www.blueridgeprairie.studio/">
+                    Hamish at a quarry box, successfully finding a rat.
+                </x-public-v2.learn-figure>
 
                 <x-public-v2.learn-figure
-    image="images/learn/what-is-nasda/natural-distractions.jpg"
-    alt="A black and white Sheltie eating horse manure."
-    number="06"
-    title="Natural Distractions - Yuck!"
-    credit="Blue Ridge Creative"
-    credit-url="https://www.blueridgeprairie.studio/">
-    Hamish enjoying a mid run “snack.”
-</x-public-v2.learn-figure>
+                    image="images/learn/what-is-nasda/trailing-brace.jpg"
+                    alt="Two dogs searching through leaves and brush during a NASDA scent sport exercise."
+                    number="02"
+                    title="Trailing Brace Level I"
+                    credit="Blue Ridge Creative"
+                    credit-url="https://www.blueridgeprairie.studio/">
+                    Hamish and his first ever Brace partner, River.
+                </x-public-v2.learn-figure>
+
+
+                <x-public-v2.learn-figure
+                    image="images/learn/what-is-nasda/urban-locating.jpg"
+                    alt="Hamish, a black and white Sheltie, standing in a barn after locating hidden quarry."
+                    number="03"
+                    title="Urban Locating Level I"
+                    credit="Blue Ridge Creative"
+                    credit-url="https://www.blueridgeprairie.studio/">
+                    Hamish after finding a rat hidden in a barn.
+                </x-public-v2.learn-figure>
+
+                <x-public-v2.learn-figure
+                    image="images/learn/what-is-nasda/shed-dog.jpg"
+                    alt="A black and white Sheltie sniffing the ground toward a shed deer antler."
+                    number="04"
+                    title="Shed Level I"
+                    credit="Blue Ridge Creative"
+                    credit-url="https://www.blueridgeprairie.studio/">
+                    Hamish confidently going to the antler.
+                </x-public-v2.learn-figure>
+
+                <x-public-v2.learn-figure
+                    image="images/learn/what-is-nasda/lost-item.jpg"
+                    alt="A black and white Sheltie sniffing near a set of car keys on the ground outdoors."
+                    number="05"
+                    title="Lost Item Level I"
+                    credit="Blue Ridge Creative"
+                    credit-url="https://www.blueridgeprairie.studio/">
+                    Hamish finding the car keys.
+                </x-public-v2.learn-figure>
+
+
+                <x-public-v2.learn-figure
+                    image="images/learn/what-is-nasda/natural-distractions.jpg"
+                    alt="A black and white Sheltie eating horse manure."
+                    number="06"
+                    title="Natural Distractions - Yuck!"
+                    credit="Blue Ridge Creative"
+                    credit-url="https://www.blueridgeprairie.studio/">
+                    Hamish enjoying a mid run “snack.”
+                </x-public-v2.learn-figure>
 
             </aside>
 
