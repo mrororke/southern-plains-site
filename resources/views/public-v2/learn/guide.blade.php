@@ -722,7 +722,7 @@
             'description' => 'From searching for lost objects to trailing and locating rats, NASDA lets dogs use their noses, independence, and problem solving skills in exciting and rewarding ways.',
             'image' => asset('images/learn/what-is-nasda/featured.jpg'),
             'image_alt' => 'Hamish searching a quarry box during a NASDA trial.',
-            'href' => route('learn.guide'),
+            'href' => route('public-v2.learn.guide'),
             'link_label' => 'Read the Guide',
         ],
         [
@@ -731,7 +731,7 @@
             'description' => 'A personal reflection on Luka, reactivity, dog training, and the unexpected ways one dog can change your life.',
             'image' => asset('images/learn/articles/the-legacy-of-luka/featured.jpg'),
             'image_alt' => 'Luka relaxing in the grass.',
-            'href' => route('learn.article'),
+            'href' => route('public-v2.learn.article'),
             'link_label' => 'Read the Article',
         ],
         [
@@ -744,7 +744,7 @@
             'link_label' => 'Read More',
         ],
     ]"
-    library-url="{{ route('learn.index') }}" />
+    library-url="{{ route('public-v2.learn.index') }}" />
 
 @endsection
 
