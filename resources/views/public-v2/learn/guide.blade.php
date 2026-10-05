@@ -568,13 +568,14 @@
                     :references="[
         [
             'title' => 'What Is NASDA, Anyway?',
-            'description' => 'A beginner-friendly introduction to NASDA and its four Level One sports.',
+            'description' => 'A beginner-friendly introduction to NASDA and its Level One sports.',
             'href' => route('public-v2.learn.guide'),
         ],
         [
             'title' => 'North American Sport Dog Association',
             'description' => 'Official NASDA information, rules, and resources.',
             'href' => 'https://nasda.dog/',
+            'external' => true,
         ],
     ]" />
                 {{-- End Recommended Reading --}}

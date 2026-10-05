@@ -17,6 +17,10 @@
 
                 <a
                     href="{{ $reference['href'] }}"
+                    @if (!empty($reference['external']))
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    @endif
                     class="group flex items-start justify-between gap-6">
 
                     <div>
