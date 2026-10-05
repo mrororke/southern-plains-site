@@ -5,7 +5,7 @@
 {{-- References --}}
 <section class="mt-12">
 
-    <h2 class="font-sans text-2xl font-semibold text-sp-charcoal">
+    <h2 class="font-sans text-xl font-semibold text-sp-charcoal">
         References
     </h2>
 
@@ -25,12 +25,12 @@
 
                     <div>
 
-                        <h3 class="font-sans text-lg font-semibold text-sp-charcoal transition-colors group-hover:text-sp-prairieOchre">
+                        <h3 class="font-sans body font-semibold text-sp-charcoal transition-colors group-hover:text-sp-prairieOchre">
                             {{ $reference['title'] }}
                         </h3>
 
                         @if (!empty($reference['description']))
-                            <p class="body text-sp-slate mt-1">
+                            <p class="body-small text-sp-slate mt-1">
                                 {{ $reference['description'] }}
                             </p>
                         @endif
