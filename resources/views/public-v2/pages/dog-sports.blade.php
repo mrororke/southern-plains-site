@@ -47,15 +47,15 @@
             Dog Sports
         </p>
 
-        <h1 class="text-hero">
-            Your Dog was Made to do Stuff.
+        <h1 class="text-hero text-sp-charcoal">
+            Your Dog was Made to Do Stuff.
         </h1>
 
         <div class="hl-break">
             <hr>
         </div>
 
-        <p class="body-large">
+        <p class="body-large text-sp-slate">
             Dogs sniff. Search. Chase. Explore. Solve problems. Dog sports give those natural instincts somewhere to go — and give you something pretty great to do together.
         </p>
 

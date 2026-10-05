@@ -67,7 +67,7 @@
         <hr>
     </div>
 
-    <p class="body-large">
+    <p class="body-large text-sp-slate">
         Positive reinforcement, clear communication, and plenty of room to have fun. Southern Plains helps you build skills with the dog in front of you—without force, intimidation, or physical correction.
     </p>
 
