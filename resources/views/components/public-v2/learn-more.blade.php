@@ -8,7 +8,7 @@
 
     <div class="grid grid-cols-12 gap-6">
 
-        <div class="col-span-12 md:col-span-10">
+        <div class="col-span-12 md:col-span-12">
 
             {{-- Section Header --}}
             <div class="flex items-end justify-between gap-6">
