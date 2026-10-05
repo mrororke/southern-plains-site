@@ -38,4 +38,31 @@
 
 </div>
 
+
 @endsection
+
+@section('content')
+
+{{-- Guide Content --}}
+<section class="grid grid-cols-12 gap-6 px-6 pb-16 md:px-8 md:pb-24">
+
+    {{-- Guide --}}
+    <div class="col-span-12 md:col-span-10 md:col-start-1">
+
+        {{-- Guide Hero Image --}}
+        <div class="mb-12 md:mb-16 relative">
+
+            <img
+                src="{{ asset('images/blog/blog-saying-goodbye-hero.jpg') }}"
+                alt="A Doberman Pinscher rolling in the grass.."
+                class="w-full aspect-[8/3] object-cover rounded-md">
+
+            <x-public-v2.image-registration
+                text="Luka, Photo by Melanie O'Rorke"
+                position="right"
+                 />
+
+        </div>
+        {{-- End Guide Hero Image --}}
+
+    @endsection
