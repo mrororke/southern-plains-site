@@ -113,7 +113,7 @@
             <h2 class="font-sans text-4xl text-sp-charcoal uppercase">
                 Play
             </h2>
-            <p class="body">
+            <p class="body text-sp-slate">
                 Create experiences that tap into natural instincts, spark joy, and build confidence.
             </p>
             <a href="#" class="learn-more-link text-sp-prairieGreen">
@@ -134,7 +134,7 @@
             <h2 class="font-sans text-4xl text-sp-charcoal uppercase">
                 Train
             </h2>
-            <p class="body">
+            <p class="body text-sp-slate">
                 Positive methods that strengthen communication, skills, and trust.
             </p>
             <a href="#" class="learn-more-link text-sp-prairieOchre">
@@ -155,7 +155,7 @@
             <h2 class="font-sans text-4xl text-sp-charcoal uppercase">
                 Grow
             </h2>
-            <p class="body">
+            <p class="body text-sp-slate">
                 From first steps to new titles, we’re here to support your journey together.
             </p>
             <a href="#" class="learn-more-link text-sp-burntClay">
@@ -182,7 +182,7 @@
                 What Is NASDA, Anyway?
             </h2>
 
-            <p class="body">
+            <p class="body text-sp-slate">
                 From finding lost items to searching for rats, NASDA gives dogs and their
                 handlers some wonderfully different ways to play together. Here’s what
                 the sport looks like, how trials work, and what to expect when you give it a try.
