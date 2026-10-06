@@ -1,7 +1,5 @@
 @extends('public-v2.layouts.app')
 
-@section('hero')
-
 {{-- Learn Hero --}}
 @section('hero')
 
@@ -72,11 +70,6 @@
 </section>
 {{-- End Learn Articles --}}
 
-
-    </article>
-
-</section>
-{{-- End Learn Articles --}}
 
 {{-- Pagination --}}
 <x-public-v2.learn-pagination
