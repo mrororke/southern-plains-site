@@ -49,10 +49,7 @@
 {{-- Learn Articles --}}
 <section class="grid grid-cols-12 items-start gap-6 px-6 pb-12 md:px-8 md:pb-16">
 
-    {{-- Article Card --}}
-    {{-- Learn Articles --}}
-<section class="grid grid-cols-12 items-start gap-6 px-6 pb-12 md:px-8 md:pb-16">
-
+    {{-- Standard Article Card --}}
     <x-public-v2.learn-standard-card
         image="{{ asset('images/learn/what-is-nasda/featured.jpg') }}"
         image-alt="Hamish, a black and white Sheltie, investigating a NASDA quarry box."
