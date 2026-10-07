@@ -3,10 +3,11 @@
     {{-- Article Details --}}
     <section
         x-data="{
-    articleType: @js(old('type', $article->type ?? 'standard'))
-}"
+            articleType: @js(old('type', $article->type ?? 'standard'))
+        }"
         class="rounded-md border border-sp-warmStone
                bg-sp-warmIvory p-6">
+
         <h2
             class="font-sans text-lg font-semibold text-sp-charcoal">
             Article Details
@@ -47,7 +48,6 @@
                 <x-admin.forms.field-error name="title" />
             </div>
 
-
             {{-- Type / Status --}}
             <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
 
@@ -70,43 +70,43 @@
                                text-sm text-sp-charcoal
                                focus:border-sp-prairieGreen
                                focus:ring-sp-prairieGreen">
+
                         <option
                             value="standard"
                             @selected(
-                            old( 'type' ,
-                            $article->type ?? 'standard'
-                            ) === 'standard'
-                            )
-                            >
+                                old(
+                                    'type',
+                                    $article->type ?? 'standard'
+                                ) === 'standard'
+                            )>
                             Standard Article
                         </option>
 
                         <option
                             value="guide"
                             @selected(
-                            old( 'type' ,
-                            $article->type ?? null
-                            ) === 'guide'
-                            )
-                            >
+                                old(
+                                    'type',
+                                    $article->type ?? null
+                                ) === 'guide'
+                            )>
                             Evergreen Guide
                         </option>
 
                         <option
                             value="book_review"
                             @selected(
-                            old( 'type' ,
-                            $article->type ?? null
-                            ) === 'book_review'
-                            )
-                            >
+                                old(
+                                    'type',
+                                    $article->type ?? null
+                                ) === 'book_review'
+                            )>
                             Book Review
                         </option>
                     </select>
 
                     <x-admin.forms.field-error name="type" />
                 </div>
-
 
                 {{-- Status --}}
                 <div>
@@ -126,36 +126,37 @@
                                text-sm text-sp-charcoal
                                focus:border-sp-prairieGreen
                                focus:ring-sp-prairieGreen">
+
                         <option
                             value="draft"
                             @selected(
-                            old( 'status' ,
-                            $article->status ?? 'draft'
-                            ) === 'draft'
-                            )
-                            >
+                                old(
+                                    'status',
+                                    $article->status ?? 'draft'
+                                ) === 'draft'
+                            )>
                             Draft
                         </option>
 
                         <option
                             value="published"
                             @selected(
-                            old( 'status' ,
-                            $article->status ?? null
-                            ) === 'published'
-                            )
-                            >
+                                old(
+                                    'status',
+                                    $article->status ?? null
+                                ) === 'published'
+                            )>
                             Published
                         </option>
 
                         <option
                             value="archived"
                             @selected(
-                            old( 'status' ,
-                            $article->status ?? null
-                            ) === 'archived'
-                            )
-                            >
+                                old(
+                                    'status',
+                                    $article->status ?? null
+                                ) === 'archived'
+                            )>
                             Archived
                         </option>
                     </select>
@@ -170,7 +171,8 @@
                 x-show="articleType === 'guide'"
                 x-cloak
                 class="rounded-md border border-sp-warmStone
-           bg-sp-limestone/30 p-4">
+                       bg-sp-limestone/30 p-4">
+
                 <h3 class="text-sm font-semibold text-sp-charcoal">
                     Evergreen Guide Details
                 </h3>
@@ -191,18 +193,18 @@
                         name="last_reviewed_at"
                         id="last_reviewed_at"
                         value="{{ old(
-                'last_reviewed_at',
-                isset($article) && $article->last_reviewed_at
-                    ? $article->last_reviewed_at->format('Y-m-d')
-                    : ''
-            ) }}"
+                            'last_reviewed_at',
+                            isset($article) && $article->last_reviewed_at
+                                ? $article->last_reviewed_at->format('Y-m-d')
+                                : ''
+                        ) }}"
                         class="mt-2 block w-full rounded-md
-                   border-sp-warmStone
-                   bg-sp-warmIvory
-                   text-sm text-sp-charcoal
-                   focus:border-sp-prairieGreen
-                   focus:ring-sp-prairieGreen
-                   md:max-w-xs">
+                               border-sp-warmStone
+                               bg-sp-warmIvory
+                               text-sm text-sp-charcoal
+                               focus:border-sp-prairieGreen
+                               focus:ring-sp-prairieGreen
+                               md:max-w-xs">
 
                     <p class="mt-1 text-xs text-sp-slate">
                         Leave blank until the guide has been reviewed.
@@ -217,7 +219,8 @@
                 x-show="articleType === 'book_review'"
                 x-cloak
                 class="rounded-md border border-sp-warmStone
-           bg-sp-limestone/30 p-4">
+                       bg-sp-limestone/30 p-4">
+
                 <h3 class="text-sm font-semibold text-sp-charcoal">
                     Book Review Details
                 </h3>
@@ -227,6 +230,7 @@
                 </p>
 
                 <div class="mt-4 grid grid-cols-1 gap-6 md:grid-cols-2">
+
                     {{-- Book Title --}}
                     <div>
                         <label
@@ -240,15 +244,15 @@
                             name="book_title"
                             id="book_title"
                             value="{{ old(
-                    'book_title',
-                    $article->bookReview->book_title ?? ''
-                ) }}"
+                                'book_title',
+                                $article->bookReview->book_title ?? ''
+                            ) }}"
                             class="mt-2 block w-full rounded-md
-                       border-sp-warmStone
-                       bg-sp-warmIvory
-                       text-sm text-sp-charcoal
-                       focus:border-sp-prairieGreen
-                       focus:ring-sp-prairieGreen">
+                                   border-sp-warmStone
+                                   bg-sp-warmIvory
+                                   text-sm text-sp-charcoal
+                                   focus:border-sp-prairieGreen
+                                   focus:ring-sp-prairieGreen">
 
                         <x-admin.forms.field-error name="book_title" />
                     </div>
@@ -266,15 +270,15 @@
                             name="book_author"
                             id="book_author"
                             value="{{ old(
-                    'book_author',
-                    $article->bookReview->book_author ?? ''
-                ) }}"
+                                'book_author',
+                                $article->bookReview->book_author ?? ''
+                            ) }}"
                             class="mt-2 block w-full rounded-md
-                       border-sp-warmStone
-                       bg-sp-warmIvory
-                       text-sm text-sp-charcoal
-                       focus:border-sp-prairieGreen
-                       focus:ring-sp-prairieGreen">
+                                   border-sp-warmStone
+                                   bg-sp-warmIvory
+                                   text-sm text-sp-charcoal
+                                   focus:border-sp-prairieGreen
+                                   focus:ring-sp-prairieGreen">
 
                         <x-admin.forms.field-error name="book_author" />
                     </div>
@@ -292,31 +296,32 @@
                         name="rating"
                         id="rating"
                         class="mt-2 block w-full rounded-md
-                   border-sp-warmStone
-                   bg-sp-warmIvory
-                   text-sm text-sp-charcoal
-                   focus:border-sp-prairieGreen
-                   focus:ring-sp-prairieGreen
-                   md:max-w-xs">
+                               border-sp-warmStone
+                               bg-sp-warmIvory
+                               text-sm text-sp-charcoal
+                               focus:border-sp-prairieGreen
+                               focus:ring-sp-prairieGreen
+                               md:max-w-xs">
+
                         <option value="">Select a rating</option>
 
                         @foreach ([
-                        '1',
-                        '2',
-                        '3',
-                        '4',
-                        '5',
+                            '1',
+                            '2',
+                            '3',
+                            '4',
+                            '5',
                         ] as $rating)
-                        <option
-                            value="{{ $rating }}"
-                            @selected(
-                            (string) old( 'rating' ,
-                            $article->bookReview->rating ?? ''
-                            ) === $rating
-                            )
-                            >
-                            {{ $rating }} {{ $rating === '1' ? 'star' : 'stars' }}
-                        </option>
+                            <option
+                                value="{{ $rating }}"
+                                @selected(
+                                    (string) old(
+                                        'rating',
+                                        $article->bookReview->rating ?? ''
+                                    ) === $rating
+                                )>
+                                {{ $rating }} {{ $rating === '1' ? 'star' : 'stars' }}
+                            </option>
                         @endforeach
                     </select>
 
@@ -325,23 +330,23 @@
 
                 {{-- Current Cover --}}
                 @if (
-                isset($article)
-                && $article->bookReview
-                && $article->bookReview->cover_image_path
+                    isset($article)
+                    && $article->bookReview
+                    && $article->bookReview->cover_image_path
                 )
-                <div class="mt-6">
-                    <p class="block text-sm font-medium text-sp-charcoal">
-                        Current Cover
-                    </p>
+                    <div class="mt-6">
+                        <p class="block text-sm font-medium text-sp-charcoal">
+                            Current Cover
+                        </p>
 
-                    <img
-                        src="{{ Storage::disk('public')->url(
-                    $article->bookReview->cover_image_path
-                ) }}"
-                        alt="Book cover for {{ $article->bookReview->book_title }}"
-                        class="mt-2 max-h-64 w-auto rounded-md
-                       border border-sp-warmStone">
-                </div>
+                        <img
+                            src="{{ Storage::disk('public')->url(
+                                $article->bookReview->cover_image_path
+                            ) }}"
+                            alt="Book cover for {{ $article->bookReview->book_title }}"
+                            class="mt-2 max-h-64 w-auto rounded-md
+                                   border border-sp-warmStone">
+                    </div>
                 @endif
 
                 {{-- Cover Upload --}}
@@ -358,21 +363,21 @@
                         id="cover_image"
                         accept="image/jpeg,image/png,image/webp"
                         class="mt-2 block w-full text-sm text-sp-charcoal
-                   file:mr-4 file:rounded-md file:border-0
-                   file:bg-sp-prairieGreen file:px-4 file:py-2
-                   file:text-sm file:font-semibold file:text-white
-                   hover:file:bg-sp-prairieOchre">
+                               file:mr-4 file:rounded-md file:border-0
+                               file:bg-sp-prairieGreen file:px-4 file:py-2
+                               file:text-sm file:font-semibold file:text-white
+                               hover:file:bg-sp-prairieOchre">
 
                     <p class="mt-1 text-xs text-sp-slate">
                         JPEG, PNG, or WebP.
                         @if (
-                        isset($article)
-                        && $article->bookReview
-                        && $article->bookReview->cover_image_path
+                            isset($article)
+                            && $article->bookReview
+                            && $article->bookReview->cover_image_path
                         )
-                        Leave blank to keep the current cover.
+                            Leave blank to keep the current cover.
                         @else
-                        A cover is required for Book Reviews.
+                            A cover is required for Book Reviews.
                         @endif
                     </p>
 
@@ -383,9 +388,10 @@
             {{-- Categories --}}
             <div
                 x-data="{
-        addingCategory: {{ old('new_category_name') ? 'true' : 'false' }}
-    }"
+                    addingCategory: {{ old('new_category_name') ? 'true' : 'false' }}
+                }"
                 class="space-y-4">
+
                 <div class="flex items-end justify-between gap-4">
                     <div class="flex-1">
                         <x-admin.forms.searchable-selector
@@ -393,11 +399,12 @@
                             name="categories"
                             :items="$categories"
                             :selected="old(
-                    'categories',
-                    $selectedCategoryIds ?? []
-                )"
+                                'categories',
+                                $selectedCategoryIds ?? []
+                            )"
                             search-placeholder="Search categories..."
                             empty-message="No categories have been created yet.">
+
                             <x-admin.forms.field-error name="categories" />
                             <x-admin.forms.field-error name="categories.*" />
                         </x-admin.forms.searchable-selector>
@@ -410,8 +417,9 @@
                         x-show="! addingCategory"
                         @click="addingCategory = true"
                         class="inline-flex items-center gap-2
-                   text-sm font-semibold text-sp-prairieGreen
-                   transition-colors hover:text-sp-prairieOchre">
+                               text-sm font-semibold text-sp-prairieGreen
+                               transition-colors hover:text-sp-prairieOchre">
+
                         <x-icons.plus class="h-4 w-4" />
 
                         Add Category
@@ -422,7 +430,8 @@
                     x-show="addingCategory"
                     x-cloak
                     class="rounded-md border border-sp-warmStone
-               bg-sp-limestone/30 p-4">
+                           bg-sp-limestone/30 p-4">
+
                     <div class="flex items-start justify-between gap-4">
                         <div>
                             <h3 class="text-sm font-semibold text-sp-charcoal">
@@ -437,12 +446,12 @@
                         <button
                             type="button"
                             @click="
-                    addingCategory = false;
-                    $refs.newCategoryName.value = '';
-                    $refs.newCategoryDescription.value = '';
-                "
+                                addingCategory = false;
+                                $refs.newCategoryName.value = '';
+                                $refs.newCategoryDescription.value = '';
+                            "
                             class="text-sm font-semibold text-sp-slate
-                       hover:text-sp-charcoal">
+                                   hover:text-sp-charcoal">
                             Cancel
                         </button>
                     </div>
@@ -463,11 +472,11 @@
                                 value="{{ old('new_category_name') }}"
                                 autocomplete="off"
                                 class="mt-2 block w-full rounded-md
-                           border-sp-warmStone
-                           bg-sp-warmIvory
-                           text-sm text-sp-charcoal
-                           focus:border-sp-prairieGreen
-                           focus:ring-sp-prairieGreen">
+                                       border-sp-warmStone
+                                       bg-sp-warmIvory
+                                       text-sm text-sp-charcoal
+                                       focus:border-sp-prairieGreen
+                                       focus:ring-sp-prairieGreen">
 
                             <x-admin.forms.field-error name="new_category_name" />
                         </div>
@@ -485,11 +494,11 @@
                                 id="new_category_description"
                                 rows="3"
                                 class="mt-2 block w-full rounded-md
-                           border-sp-warmStone
-                           bg-sp-warmIvory
-                           text-sm text-sp-charcoal
-                           focus:border-sp-prairieGreen
-                           focus:ring-sp-prairieGreen">{{ old('new_category_description') }}</textarea>
+                                       border-sp-warmStone
+                                       bg-sp-warmIvory
+                                       text-sm text-sp-charcoal
+                                       focus:border-sp-prairieGreen
+                                       focus:ring-sp-prairieGreen">{{ old('new_category_description') }}</textarea>
 
                             <p class="mt-1 text-xs text-sp-slate">
                                 Optional. Describe what belongs in this category.
@@ -505,9 +514,10 @@
             {{-- Tags --}}
             <div
                 x-data="{
-        addingTag: {{ old('new_tag_name') ? 'true' : 'false' }}
-    }"
+                    addingTag: {{ old('new_tag_name') ? 'true' : 'false' }}
+                }"
                 class="space-y-4">
+
                 <div class="flex items-end justify-between gap-4">
                     <div class="flex-1">
                         <x-admin.forms.searchable-selector
@@ -515,11 +525,12 @@
                             name="tags"
                             :items="$tags"
                             :selected="old(
-                    'tags',
-                    $selectedTagIds ?? []
-                )"
+                                'tags',
+                                $selectedTagIds ?? []
+                            )"
                             search-placeholder="Search tags..."
                             empty-message="No tags have been created yet.">
+
                             <x-admin.forms.field-error name="tags" />
                             <x-admin.forms.field-error name="tags.*" />
                         </x-admin.forms.searchable-selector>
@@ -532,8 +543,9 @@
                         x-show="! addingTag"
                         @click="addingTag = true"
                         class="inline-flex items-center gap-2
-                   text-sm font-semibold text-sp-prairieGreen
-                   transition-colors hover:text-sp-prairieOchre">
+                               text-sm font-semibold text-sp-prairieGreen
+                               transition-colors hover:text-sp-prairieOchre">
+
                         <x-icons.plus class="h-4 w-4" />
 
                         Add Tag
@@ -544,7 +556,8 @@
                     x-show="addingTag"
                     x-cloak
                     class="rounded-md border border-sp-warmStone
-               bg-sp-limestone/30 p-4">
+                           bg-sp-limestone/30 p-4">
+
                     <div class="flex items-start justify-between gap-4">
                         <div>
                             <h3 class="text-sm font-semibold text-sp-charcoal">
@@ -559,11 +572,11 @@
                         <button
                             type="button"
                             @click="
-                    addingTag = false;
-                    $refs.newTagName.value = '';
-                "
+                                addingTag = false;
+                                $refs.newTagName.value = '';
+                            "
                             class="text-sm font-semibold text-sp-slate
-                       hover:text-sp-charcoal">
+                                   hover:text-sp-charcoal">
                             Cancel
                         </button>
                     </div>
@@ -583,17 +596,16 @@
                             value="{{ old('new_tag_name') }}"
                             autocomplete="off"
                             class="mt-2 block w-full rounded-md
-                       border-sp-warmStone
-                       bg-sp-warmIvory
-                       text-sm text-sp-charcoal
-                       focus:border-sp-prairieGreen
-                       focus:ring-sp-prairieGreen">
+                                   border-sp-warmStone
+                                   bg-sp-warmIvory
+                                   text-sm text-sp-charcoal
+                                   focus:border-sp-prairieGreen
+                                   focus:ring-sp-prairieGreen">
 
                         <x-admin.forms.field-error name="new_tag_name" />
                     </div>
                 </div>
             </div>
-
 
             {{-- Excerpt --}}
             <div>
@@ -627,227 +639,246 @@
         </div>
     </section>
 
+    {{-- Editor Layout --}}
+    <div class="grid grid-cols-1 gap-8 xl:grid-cols-3">
 
-    {{-- Content --}}
-    <section
-        class="rounded-md border border-sp-warmStone
-               bg-sp-warmIvory p-6">
-        <h2
-            class="font-sans text-lg font-semibold text-sp-charcoal">
-            Content
-        </h2>
+        {{-- Main Editor --}}
+        <div class="xl:col-span-2">
 
-        <p class="mt-1 text-sm text-sp-slate">
-            Write the main article content.
-        </p>
+            {{-- Content --}}
+            <section
+                class="rounded-md border border-sp-warmStone
+                       bg-sp-warmIvory p-6">
 
-        <div class="mt-6">
-            <x-admin.forms.rich-text
-                id="body-editor"
-                name="body"
-                :value="old(
-                    'body',
-                    $article->body ?? ''
-                )" />
+                <h2
+                    class="font-sans text-lg font-semibold text-sp-charcoal">
+                    Content
+                </h2>
 
-            <x-admin.forms.field-error name="body" />
-        </div>
-    </section>
-
-    {{-- Publishing Options --}}
-    <section
-        class="rounded-md border border-sp-warmStone
-           bg-sp-warmIvory p-6">
-
-        <h2
-            class="font-sans text-lg font-semibold text-sp-charcoal">
-            Publishing Options
-        </h2>
-
-        <p class="mt-1 text-sm text-sp-slate">
-            Control additional publishing settings for this article.
-        </p>
-
-        <div class="mt-6">
-            <label
-                for="has_affiliate_links"
-                class="flex cursor-pointer items-start gap-3">
-
-                <input
-                    type="checkbox"
-                    name="has_affiliate_links"
-                    id="has_affiliate_links"
-                    value="1"
-                    @checked(
-                    old( 'has_affiliate_links' ,
-                    $article->has_affiliate_links ?? false
-                )
-                )
-                class="mt-1 rounded border-sp-warmStone
-                text-sp-prairieGreen
-                focus:ring-sp-prairieGreen">
-
-                <span>
-                    <span
-                        class="block text-sm font-medium text-sp-charcoal">
-                        Contains affiliate links
-                    </span>
-
-                    <span
-                        class="mt-1 block text-xs text-sp-slate">
-                        Automatically display an affiliate disclosure
-                        with this article.
-                    </span>
-                </span>
-            </label>
-
-            <x-admin.forms.field-error
-                name="has_affiliate_links" />
-        </div>
-
-         {{-- Featured Article --}}
-<div class="mt-6 border-t border-sp-warmStone pt-6">
-    <label
-        for="is_featured"
-        class="flex cursor-pointer items-start gap-3">
-
-        <input
-            type="checkbox"
-            name="is_featured"
-            id="is_featured"
-            value="1"
-            @checked(
-                old(
-                    'is_featured',
-                    $article->is_featured ?? false
-                )
-            )
-            class="mt-1 rounded border-sp-warmStone
-                   text-sp-prairieGreen
-                   focus:ring-sp-prairieGreen">
-
-        <span>
-            <span
-                class="block text-sm font-medium text-sp-charcoal">
-                Featured article
-            </span>
-
-            <span
-                class="mt-1 block text-xs text-sp-slate">
-                Feature this article prominently in the Learn section.
-                Book Reviews are not eligible to be featured.
-            </span>
-        </span>
-    </label>
-
-    <x-admin.forms.field-error name="is_featured" />
-</div>
-
-    </section>
-
-   
-
-    {{-- Search Engine Optimization --}}
-    <section
-        class="rounded-md border border-sp-warmStone
-           bg-sp-warmIvory p-6">
-
-        <h2
-            class="font-sans text-lg font-semibold text-sp-charcoal">
-            Search Engine Optimization
-        </h2>
-
-        <p class="mt-1 text-sm text-sp-slate">
-            Control how this article may appear in search results.
-        </p>
-
-        <div class="mt-6 space-y-6">
-
-            {{-- SEO Title --}}
-            <div>
-                <label
-                    for="seo_title"
-                    class="block text-sm font-medium text-sp-charcoal">
-                    SEO Title
-                </label>
-
-                <input
-                    type="text"
-                    name="seo_title"
-                    id="seo_title"
-                    value="{{ old(
-                    'seo_title',
-                    $article->seo_title ?? ''
-                ) }}"
-                    maxlength="255"
-                    autocomplete="off"
-                    class="mt-2 block w-full rounded-md
-                       border-sp-warmStone
-                       bg-sp-warmIvory
-                       text-sm text-sp-charcoal
-                       focus:border-sp-prairieGreen
-                       focus:ring-sp-prairieGreen">
-
-                <p class="mt-1 text-xs text-sp-slate">
-                    Optional. If left blank, the article title will be used.
+                <p class="mt-1 text-sm text-sp-slate">
+                    Write the main article content.
                 </p>
 
-                <x-admin.forms.field-error name="seo_title" />
-            </div>
+                <div class="mt-6">
+                    <x-admin.forms.rich-text
+                        id="body-editor"
+                        name="body"
+                        :value="old(
+                            'body',
+                            $article->body ?? ''
+                        )" />
 
-            {{-- Meta Description --}}
-            <div>
-                <label
-                    for="seo_description"
-                    class="block text-sm font-medium text-sp-charcoal">
-                    Meta Description
-                </label>
-
-                <textarea
-                    name="seo_description"
-                    id="seo_description"
-                    rows="3"
-                    class="mt-2 block w-full rounded-md
-                       border-sp-warmStone
-                       bg-sp-warmIvory
-                       text-sm text-sp-charcoal
-                       focus:border-sp-prairieGreen
-                       focus:ring-sp-prairieGreen">{{ old(
-                    'seo_description',
-                    $article->seo_description ?? ''
-                ) }}</textarea>
-
-                <p class="mt-1 text-xs text-sp-slate">
-                    Optional. If left blank, the article excerpt will be used.
-                </p>
-
-                <x-admin.forms.field-error name="seo_description" />
-            </div>
+                    <x-admin.forms.field-error name="body" />
+                </div>
+            </section>
 
         </div>
-    </section>
 
+        {{-- Article Sidebar --}}
+        <aside class="space-y-6">
 
-    {{-- Actions --}}
-    <div class="flex justify-end gap-4">
+            {{-- Publishing Options --}}
+            <section
+                class="rounded-md border border-sp-warmStone
+                       bg-sp-warmIvory p-6">
 
-        <a
-            href="{{ route('admin.learn.index') }}"
-            class="inline-flex items-center justify-center
-                   rounded-md border border-sp-warmStone
-                   px-4 py-2 text-sm font-semibold
-                   text-sp-charcoal hover:bg-sp-limestone/20">
-            Cancel
-        </a>
+                <h2
+                    class="font-sans text-lg font-semibold text-sp-charcoal">
+                    Publishing Options
+                </h2>
 
-        <button
-            type="submit"
-            class="inline-flex items-center justify-center
-                   rounded-md bg-sp-prairieGreen px-4 py-2
-                   text-sm font-semibold
-                   text-sp-warmIvory hover:bg-sp-prairieOchre">
-            Save Article
-        </button>
+                <p class="mt-1 text-sm text-sp-slate">
+                    Control additional publishing settings for this article.
+                </p>
+
+                {{-- Affiliate Links --}}
+                <div class="mt-6">
+                    <label
+                        for="has_affiliate_links"
+                        class="flex cursor-pointer items-start gap-3">
+
+                        <input
+                            type="checkbox"
+                            name="has_affiliate_links"
+                            id="has_affiliate_links"
+                            value="1"
+                            @checked(
+                                old(
+                                    'has_affiliate_links',
+                                    $article->has_affiliate_links ?? false
+                                )
+                            )
+                            class="mt-1 rounded border-sp-warmStone
+                                   text-sp-prairieGreen
+                                   focus:ring-sp-prairieGreen">
+
+                        <span>
+                            <span
+                                class="block text-sm font-medium text-sp-charcoal">
+                                Contains affiliate links
+                            </span>
+
+                            <span
+                                class="mt-1 block text-xs text-sp-slate">
+                                Automatically display an affiliate disclosure
+                                with this article.
+                            </span>
+                        </span>
+                    </label>
+
+                    <x-admin.forms.field-error
+                        name="has_affiliate_links" />
+                </div>
+
+                {{-- Featured Article --}}
+                <div class="mt-6 border-t border-sp-warmStone pt-6">
+                    <label
+                        for="is_featured"
+                        class="flex cursor-pointer items-start gap-3">
+
+                        <input
+                            type="checkbox"
+                            name="is_featured"
+                            id="is_featured"
+                            value="1"
+                            @checked(
+                                old(
+                                    'is_featured',
+                                    $article->is_featured ?? false
+                                )
+                            )
+                            class="mt-1 rounded border-sp-warmStone
+                                   text-sp-prairieGreen
+                                   focus:ring-sp-prairieGreen">
+
+                        <span>
+                            <span
+                                class="block text-sm font-medium text-sp-charcoal">
+                                Featured article
+                            </span>
+
+                            <span
+                                class="mt-1 block text-xs text-sp-slate">
+                                Feature this article prominently in the Learn section.
+                                Book Reviews are not eligible to be featured.
+                            </span>
+                        </span>
+                    </label>
+
+                    <x-admin.forms.field-error name="is_featured" />
+                </div>
+
+            </section>
+
+            {{-- Search Engine Optimization --}}
+            <section
+                class="rounded-md border border-sp-warmStone
+                       bg-sp-warmIvory p-6">
+
+                <h2
+                    class="font-sans text-lg font-semibold text-sp-charcoal">
+                    Search Engine Optimization
+                </h2>
+
+                <p class="mt-1 text-sm text-sp-slate">
+                    Control how this article may appear in search results.
+                </p>
+
+                <div class="mt-6 space-y-6">
+
+                    {{-- SEO Title --}}
+                    <div>
+                        <label
+                            for="seo_title"
+                            class="block text-sm font-medium text-sp-charcoal">
+                            SEO Title
+                        </label>
+
+                        <input
+                            type="text"
+                            name="seo_title"
+                            id="seo_title"
+                            value="{{ old(
+                                'seo_title',
+                                $article->seo_title ?? ''
+                            ) }}"
+                            maxlength="255"
+                            autocomplete="off"
+                            class="mt-2 block w-full rounded-md
+                                   border-sp-warmStone
+                                   bg-sp-warmIvory
+                                   text-sm text-sp-charcoal
+                                   focus:border-sp-prairieGreen
+                                   focus:ring-sp-prairieGreen">
+
+                        <p class="mt-1 text-xs text-sp-slate">
+                            Optional. If left blank, the article title will be used.
+                        </p>
+
+                        <x-admin.forms.field-error name="seo_title" />
+                    </div>
+
+                    {{-- Meta Description --}}
+                    <div>
+                        <label
+                            for="seo_description"
+                            class="block text-sm font-medium text-sp-charcoal">
+                            Meta Description
+                        </label>
+
+                        <textarea
+                            name="seo_description"
+                            id="seo_description"
+                            rows="4"
+                            class="mt-2 block w-full rounded-md
+                                   border-sp-warmStone
+                                   bg-sp-warmIvory
+                                   text-sm text-sp-charcoal
+                                   focus:border-sp-prairieGreen
+                                   focus:ring-sp-prairieGreen">{{ old(
+                            'seo_description',
+                            $article->seo_description ?? ''
+                        ) }}</textarea>
+
+                        <p class="mt-1 text-xs text-sp-slate">
+                            Optional. If left blank, the article excerpt will be used.
+                        </p>
+
+                        <x-admin.forms.field-error name="seo_description" />
+                    </div>
+
+                </div>
+            </section>
+
+            {{-- Actions --}}
+            <section
+                class="rounded-md border border-sp-warmStone
+                       bg-sp-warmIvory p-6
+                       xl:sticky xl:top-6">
+
+                <div class="flex flex-col gap-3">
+                    <button
+                        type="submit"
+                        class="inline-flex w-full items-center justify-center
+                               rounded-md bg-sp-prairieGreen px-4 py-2
+                               text-sm font-semibold
+                               text-sp-warmIvory hover:bg-sp-prairieOchre">
+                        Save Article
+                    </button>
+
+                    <a
+                        href="{{ route('admin.learn.index') }}"
+                        class="inline-flex w-full items-center justify-center
+                               rounded-md border border-sp-warmStone
+                               px-4 py-2 text-sm font-semibold
+                               text-sp-charcoal hover:bg-sp-limestone/20">
+                        Cancel
+                    </a>
+                </div>
+
+            </section>
+
+        </aside>
 
     </div>
 
