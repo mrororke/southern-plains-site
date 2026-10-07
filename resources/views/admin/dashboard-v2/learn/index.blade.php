@@ -2,17 +2,21 @@
 
 @section('title', 'Learn')
 
-
 @section('content')
     <div class="dashboard-content">
         <div class="py-4">
-        <img src="{{ asset('images/headers/header-learn.jpg') }}" alt="Hamish, a shetland sheepdog, in a field of wildflowers." class="rounded-md">
-    </div>
-        <h1 class="font-sans text-sp-charcoal font-semibold text-6xl">Learn</h1>
+            <img
+                src="{{ asset('images/headers/header-learn.jpg') }}"
+                alt="Hamish, a shetland sheepdog, in a field of wildflowers."
+                class="rounded-md"
+            >
+        </div>
 
-    </div>
+        <h1 class="font-sans text-sp-charcoal font-semibold text-6xl">
+            Learn
+        </h1>
 
-    <div class="mt-8">
+        <div class="mt-8">
             @if ($articles->isEmpty())
                 <div class="rounded-lg border border-dashed border-sp-slate/20 px-6 py-12 text-center">
                     <h2 class="font-archivo text-lg font-semibold text-sp-slate">
@@ -57,7 +61,3 @@
         </div>
     </div>
 @endsection
-
-    
-
-        
