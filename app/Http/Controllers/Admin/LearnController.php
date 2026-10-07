@@ -125,11 +125,10 @@ class LearnController extends Controller
                 'max:255',
             ],
             'rating' => [
-                'nullable',
-                'numeric',
-                'min:0.5',
-                'max:5',
-            ],
+    'nullable',
+    'integer',
+    'between:1,5',
+],
             'cover_image' => [
                 'required_if:type,book_review',
                 'nullable',
@@ -164,14 +163,14 @@ class LearnController extends Controller
             'excerpt' => $validated['excerpt'] ?? null,
             'body' => $validated['body'],
             'last_reviewed_at' =>
-                $validated['type'] === 'guide'
-                    ? ($validated['last_reviewed_at'] ?? null)
-                    : null,
+            $validated['type'] === 'guide'
+                ? ($validated['last_reviewed_at'] ?? null)
+                : null,
             'is_featured' => false,
             'published_at' =>
-                $validated['status'] === 'published'
-                    ? now()
-                    : null,
+            $validated['status'] === 'published'
+                ? now()
+                : null,
         ]);
 
         /*
@@ -196,7 +195,7 @@ class LearnController extends Controller
                 [
                     'name' => $categoryName,
                     'description' =>
-                        $validated['new_category_description']
+                    $validated['new_category_description']
                         ?? null,
                 ]
             );
@@ -381,16 +380,15 @@ class LearnController extends Controller
                 'max:255',
             ],
             'rating' => [
-                'nullable',
-                'numeric',
-                'min:0.5',
-                'max:5',
-            ],
+    'nullable',
+    'integer',
+    'between:1,5',
+],
             'cover_image' => [
                 $request->input('type') === 'book_review'
                     && ! $article->bookReview
-                        ? 'required'
-                        : 'nullable',
+                    ? 'required'
+                    : 'nullable',
                 'image',
                 'mimes:jpg,jpeg,png,webp',
                 'max:5120',
@@ -407,8 +405,8 @@ class LearnController extends Controller
 
             while (
                 LearnArticle::where('slug', $slug)
-                    ->whereKeyNot($article->id)
-                    ->exists()
+                ->whereKeyNot($article->id)
+                ->exists()
             ) {
                 $slug = $baseSlug . '-' . $counter;
                 $counter++;
@@ -438,9 +436,9 @@ class LearnController extends Controller
             'excerpt' => $validated['excerpt'] ?? null,
             'body' => $validated['body'],
             'last_reviewed_at' =>
-                $validated['type'] === 'guide'
-                    ? ($validated['last_reviewed_at'] ?? null)
-                    : null,
+            $validated['type'] === 'guide'
+                ? ($validated['last_reviewed_at'] ?? null)
+                : null,
         ]);
 
         /*
@@ -470,7 +468,7 @@ class LearnController extends Controller
                 [
                     'name' => $categoryName,
                     'description' =>
-                        $validated['new_category_description']
+                    $validated['new_category_description']
                         ?? null,
                 ]
             );

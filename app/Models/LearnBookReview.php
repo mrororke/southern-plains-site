@@ -19,7 +19,7 @@ class LearnBookReview extends Model
     ];
 
     protected $casts = [
-        'rating' => 'decimal:1',
+        'rating' => 'integer',
     ];
 
     public function article(): BelongsTo
