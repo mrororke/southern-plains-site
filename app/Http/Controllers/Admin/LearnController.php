@@ -92,6 +92,10 @@ class LearnController extends Controller
                 'nullable',
                 'boolean',
             ],
+            'is_featured' => [
+                'nullable',
+                'boolean',
+            ],
 
             'categories' => [
                 'nullable',
@@ -183,7 +187,9 @@ class LearnController extends Controller
                     : null,
             'has_affiliate_links' =>
                 $request->boolean('has_affiliate_links'),
-            'is_featured' => false,
+            'is_featured' =>
+                $validated['type'] !== 'book_review'
+                && $request->boolean('is_featured'),
             'published_at' =>
                 $validated['status'] === 'published'
                     ? now()
@@ -364,6 +370,10 @@ class LearnController extends Controller
                 'nullable',
                 'boolean',
             ],
+            'is_featured' => [
+                'nullable',
+                'boolean',
+            ],
 
             'categories' => [
                 'nullable',
@@ -473,14 +483,10 @@ class LearnController extends Controller
                     : null,
             'has_affiliate_links' =>
                 $request->boolean('has_affiliate_links'),
+            'is_featured' =>
+                $validated['type'] !== 'book_review'
+                && $request->boolean('is_featured'),
         ]);
-
-        /*
-         * Book Reviews are never featured.
-         */
-        if ($validated['type'] === 'book_review') {
-            $article->is_featured = false;
-        }
 
         $article->save();
 
