@@ -417,6 +417,12 @@ Route::middleware(['auth', 'device'])
         Route::get('/learn', [LearnController::class, 'index'])
             ->name('learn.index');
 
+        Route::get('/learn/create', [LearnController::class, 'create'])
+            ->name('learn.create');
+
+        Route::post('/learn', [LearnController::class, 'store'])
+            ->name('learn.store');
+
     
     });
 

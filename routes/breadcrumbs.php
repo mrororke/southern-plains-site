@@ -173,3 +173,18 @@ Breadcrumbs::for(
         );
     }
 );
+
+/*
+|--------------------------------------------------------------------------
+| Create Learn Article
+|--------------------------------------------------------------------------
+*/
+
+Breadcrumbs::for(
+    'admin.learn.create',
+    function (BreadcrumbTrail $trail) {
+        $trail->parent('admin.learn.index');
+
+        $trail->push('New Article');
+    }
+);
