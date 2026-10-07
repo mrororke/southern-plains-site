@@ -2,6 +2,9 @@
 
     {{-- Article Details --}}
     <section
+        x-data="{
+    articleType: @js(old('type', $article->type ?? 'standard'))
+}"
         class="rounded-md border border-sp-warmStone
                bg-sp-warmIvory p-6">
         <h2
@@ -57,6 +60,7 @@
                     </label>
 
                     <select
+                        x-model="articleType"
                         name="type"
                         id="type"
                         required
@@ -161,236 +165,269 @@
 
             </div>
 
-            {{-- Categories --}}
+            {{-- Evergreen Guide Details --}}
 <div
-    x-data="{
+    x-show="articleType === 'guide'"
+    x-cloak
+    class="rounded-md border border-sp-warmStone
+           bg-sp-limestone/30 p-4"
+>
+    <h3 class="text-sm font-semibold text-sp-charcoal">
+        Evergreen Guide Details
+    </h3>
+
+    <p class="mt-1 text-xs text-sp-slate">
+        Track when this guide was last reviewed for accuracy.
+    </p>
+
+    <div class="mt-4">
+        <label
+            for="last_reviewed_at"
+            class="block text-sm font-medium text-sp-charcoal"
+        >
+            Last Reviewed
+        </label>
+
+        <input
+            type="date"
+            name="last_reviewed_at"
+            id="last_reviewed_at"
+            value="{{ old(
+                'last_reviewed_at',
+                isset($article) && $article->last_reviewed_at
+                    ? $article->last_reviewed_at->format('Y-m-d')
+                    : ''
+            ) }}"
+            class="mt-2 block w-full rounded-md
+                   border-sp-warmStone
+                   bg-sp-warmIvory
+                   text-sm text-sp-charcoal
+                   focus:border-sp-prairieGreen
+                   focus:ring-sp-prairieGreen
+                   md:max-w-xs"
+        >
+
+        <p class="mt-1 text-xs text-sp-slate">
+            Leave blank until the guide has been reviewed.
+        </p>
+
+        <x-admin.forms.field-error name="last_reviewed_at" />
+    </div>
+</div>
+
+            {{-- Categories --}}
+            <div
+                x-data="{
         addingCategory: {{ old('new_category_name') ? 'true' : 'false' }}
     }"
-    class="space-y-4"
->
-    <div class="flex items-end justify-between gap-4">
-        <div class="flex-1">
-            <x-admin.forms.searchable-selector
-                label="Categories"
-                name="categories"
-                :items="$categories"
-                :selected="old(
+                class="space-y-4">
+                <div class="flex items-end justify-between gap-4">
+                    <div class="flex-1">
+                        <x-admin.forms.searchable-selector
+                            label="Categories"
+                            name="categories"
+                            :items="$categories"
+                            :selected="old(
                     'categories',
                     $selectedCategoryIds ?? []
                 )"
-                search-placeholder="Search categories..."
-                empty-message="No categories have been created yet."
-            >
-                <x-admin.forms.field-error name="categories" />
-                <x-admin.forms.field-error name="categories.*" />
-            </x-admin.forms.searchable-selector>
-        </div>
-    </div>
+                            search-placeholder="Search categories..."
+                            empty-message="No categories have been created yet.">
+                            <x-admin.forms.field-error name="categories" />
+                            <x-admin.forms.field-error name="categories.*" />
+                        </x-admin.forms.searchable-selector>
+                    </div>
+                </div>
 
-    <div>
-        <button
-            type="button"
-            x-show="! addingCategory"
-            @click="addingCategory = true"
-            class="inline-flex items-center gap-2
+                <div>
+                    <button
+                        type="button"
+                        x-show="! addingCategory"
+                        @click="addingCategory = true"
+                        class="inline-flex items-center gap-2
                    text-sm font-semibold text-sp-prairieGreen
-                   transition-colors hover:text-sp-prairieOchre"
-        >
-            <x-icons.plus class="h-4 w-4" />
+                   transition-colors hover:text-sp-prairieOchre">
+                        <x-icons.plus class="h-4 w-4" />
 
-            Add Category
-        </button>
-    </div>
+                        Add Category
+                    </button>
+                </div>
 
-    <div
-        x-show="addingCategory"
-        x-cloak
-        class="rounded-md border border-sp-warmStone
-               bg-sp-limestone/30 p-4"
-    >
-        <div class="flex items-start justify-between gap-4">
-            <div>
-                <h3 class="text-sm font-semibold text-sp-charcoal">
-                    New Category
-                </h3>
+                <div
+                    x-show="addingCategory"
+                    x-cloak
+                    class="rounded-md border border-sp-warmStone
+               bg-sp-limestone/30 p-4">
+                    <div class="flex items-start justify-between gap-4">
+                        <div>
+                            <h3 class="text-sm font-semibold text-sp-charcoal">
+                                New Category
+                            </h3>
 
-                <p class="mt-1 text-xs text-sp-slate">
-                    Create a category and assign it to this article.
-                </p>
-            </div>
+                            <p class="mt-1 text-xs text-sp-slate">
+                                Create a category and assign it to this article.
+                            </p>
+                        </div>
 
-            <button
-                type="button"
-                @click="
+                        <button
+                            type="button"
+                            @click="
                     addingCategory = false;
                     $refs.newCategoryName.value = '';
                     $refs.newCategoryDescription.value = '';
                 "
-                class="text-sm font-semibold text-sp-slate
-                       hover:text-sp-charcoal"
-            >
-                Cancel
-            </button>
-        </div>
+                            class="text-sm font-semibold text-sp-slate
+                       hover:text-sp-charcoal">
+                            Cancel
+                        </button>
+                    </div>
 
-        <div class="mt-4 space-y-4">
-            <div>
-                <label
-                    for="new_category_name"
-                    class="block text-sm font-medium text-sp-charcoal"
-                >
-                    Category Name
-                </label>
+                    <div class="mt-4 space-y-4">
+                        <div>
+                            <label
+                                for="new_category_name"
+                                class="block text-sm font-medium text-sp-charcoal">
+                                Category Name
+                            </label>
 
-                <input
-                    x-ref="newCategoryName"
-                    type="text"
-                    name="new_category_name"
-                    id="new_category_name"
-                    value="{{ old('new_category_name') }}"
-                    autocomplete="off"
-                    class="mt-2 block w-full rounded-md
+                            <input
+                                x-ref="newCategoryName"
+                                type="text"
+                                name="new_category_name"
+                                id="new_category_name"
+                                value="{{ old('new_category_name') }}"
+                                autocomplete="off"
+                                class="mt-2 block w-full rounded-md
                            border-sp-warmStone
                            bg-sp-warmIvory
                            text-sm text-sp-charcoal
                            focus:border-sp-prairieGreen
-                           focus:ring-sp-prairieGreen"
-                >
+                           focus:ring-sp-prairieGreen">
 
-                <x-admin.forms.field-error name="new_category_name" />
-            </div>
+                            <x-admin.forms.field-error name="new_category_name" />
+                        </div>
 
-            <div>
-                <label
-                    for="new_category_description"
-                    class="block text-sm font-medium text-sp-charcoal"
-                >
-                    Description
-                </label>
+                        <div>
+                            <label
+                                for="new_category_description"
+                                class="block text-sm font-medium text-sp-charcoal">
+                                Description
+                            </label>
 
-                <textarea
-                    x-ref="newCategoryDescription"
-                    name="new_category_description"
-                    id="new_category_description"
-                    rows="3"
-                    class="mt-2 block w-full rounded-md
+                            <textarea
+                                x-ref="newCategoryDescription"
+                                name="new_category_description"
+                                id="new_category_description"
+                                rows="3"
+                                class="mt-2 block w-full rounded-md
                            border-sp-warmStone
                            bg-sp-warmIvory
                            text-sm text-sp-charcoal
                            focus:border-sp-prairieGreen
-                           focus:ring-sp-prairieGreen"
-                >{{ old('new_category_description') }}</textarea>
+                           focus:ring-sp-prairieGreen">{{ old('new_category_description') }}</textarea>
 
-                <p class="mt-1 text-xs text-sp-slate">
-                    Optional. Describe what belongs in this category.
-                </p>
+                            <p class="mt-1 text-xs text-sp-slate">
+                                Optional. Describe what belongs in this category.
+                            </p>
 
-                <x-admin.forms.field-error
-                    name="new_category_description"
-                />
+                            <x-admin.forms.field-error
+                                name="new_category_description" />
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
 
-{{-- Tags --}}
-<div
-    x-data="{
+            {{-- Tags --}}
+            <div
+                x-data="{
         addingTag: {{ old('new_tag_name') ? 'true' : 'false' }}
     }"
-    class="space-y-4"
->
-    <div class="flex items-end justify-between gap-4">
-        <div class="flex-1">
-            <x-admin.forms.searchable-selector
-                label="Tags"
-                name="tags"
-                :items="$tags"
-                :selected="old(
+                class="space-y-4">
+                <div class="flex items-end justify-between gap-4">
+                    <div class="flex-1">
+                        <x-admin.forms.searchable-selector
+                            label="Tags"
+                            name="tags"
+                            :items="$tags"
+                            :selected="old(
                     'tags',
                     $selectedTagIds ?? []
                 )"
-                search-placeholder="Search tags..."
-                empty-message="No tags have been created yet."
-            >
-                <x-admin.forms.field-error name="tags" />
-                <x-admin.forms.field-error name="tags.*" />
-            </x-admin.forms.searchable-selector>
-        </div>
-    </div>
+                            search-placeholder="Search tags..."
+                            empty-message="No tags have been created yet.">
+                            <x-admin.forms.field-error name="tags" />
+                            <x-admin.forms.field-error name="tags.*" />
+                        </x-admin.forms.searchable-selector>
+                    </div>
+                </div>
 
-    <div>
-        <button
-            type="button"
-            x-show="! addingTag"
-            @click="addingTag = true"
-            class="inline-flex items-center gap-2
+                <div>
+                    <button
+                        type="button"
+                        x-show="! addingTag"
+                        @click="addingTag = true"
+                        class="inline-flex items-center gap-2
                    text-sm font-semibold text-sp-prairieGreen
-                   transition-colors hover:text-sp-prairieOchre"
-        >
-            <x-icons.plus class="h-4 w-4" />
+                   transition-colors hover:text-sp-prairieOchre">
+                        <x-icons.plus class="h-4 w-4" />
 
-            Add Tag
-        </button>
-    </div>
+                        Add Tag
+                    </button>
+                </div>
 
-    <div
-        x-show="addingTag"
-        x-cloak
-        class="rounded-md border border-sp-warmStone
-               bg-sp-limestone/30 p-4"
-    >
-        <div class="flex items-start justify-between gap-4">
-            <div>
-                <h3 class="text-sm font-semibold text-sp-charcoal">
-                    New Tag
-                </h3>
+                <div
+                    x-show="addingTag"
+                    x-cloak
+                    class="rounded-md border border-sp-warmStone
+               bg-sp-limestone/30 p-4">
+                    <div class="flex items-start justify-between gap-4">
+                        <div>
+                            <h3 class="text-sm font-semibold text-sp-charcoal">
+                                New Tag
+                            </h3>
 
-                <p class="mt-1 text-xs text-sp-slate">
-                    Create a tag and assign it to this article.
-                </p>
-            </div>
+                            <p class="mt-1 text-xs text-sp-slate">
+                                Create a tag and assign it to this article.
+                            </p>
+                        </div>
 
-            <button
-                type="button"
-                @click="
+                        <button
+                            type="button"
+                            @click="
                     addingTag = false;
                     $refs.newTagName.value = '';
                 "
-                class="text-sm font-semibold text-sp-slate
-                       hover:text-sp-charcoal"
-            >
-                Cancel
-            </button>
-        </div>
+                            class="text-sm font-semibold text-sp-slate
+                       hover:text-sp-charcoal">
+                            Cancel
+                        </button>
+                    </div>
 
-        <div class="mt-4">
-            <label
-                for="new_tag_name"
-                class="block text-sm font-medium text-sp-charcoal"
-            >
-                Tag Name
-            </label>
+                    <div class="mt-4">
+                        <label
+                            for="new_tag_name"
+                            class="block text-sm font-medium text-sp-charcoal">
+                            Tag Name
+                        </label>
 
-            <input
-                x-ref="newTagName"
-                type="text"
-                name="new_tag_name"
-                id="new_tag_name"
-                value="{{ old('new_tag_name') }}"
-                autocomplete="off"
-                class="mt-2 block w-full rounded-md
+                        <input
+                            x-ref="newTagName"
+                            type="text"
+                            name="new_tag_name"
+                            id="new_tag_name"
+                            value="{{ old('new_tag_name') }}"
+                            autocomplete="off"
+                            class="mt-2 block w-full rounded-md
                        border-sp-warmStone
                        bg-sp-warmIvory
                        text-sm text-sp-charcoal
                        focus:border-sp-prairieGreen
-                       focus:ring-sp-prairieGreen"
-            >
+                       focus:ring-sp-prairieGreen">
 
-            <x-admin.forms.field-error name="new_tag_name" />
-        </div>
-    </div>
-</div>
+                        <x-admin.forms.field-error name="new_tag_name" />
+                    </div>
+                </div>
+            </div>
 
 
             {{-- Excerpt --}}

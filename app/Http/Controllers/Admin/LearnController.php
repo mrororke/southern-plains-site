@@ -74,6 +74,10 @@ class LearnController extends Controller
                 'required',
                 'string',
             ],
+            'last_reviewed_at' => [
+                'nullable',
+                'date',
+            ],
 
             'categories' => [
                 'nullable',
@@ -132,9 +136,14 @@ class LearnController extends Controller
             'status' => $validated['status'],
             'excerpt' => $validated['excerpt'] ?? null,
             'body' => $validated['body'],
-            'published_at' => $validated['status'] === 'published'
-                ? now()
-                : null,
+            'last_reviewed_at' =>
+                $validated['type'] === 'guide'
+                    ? ($validated['last_reviewed_at'] ?? null)
+                    : null,
+            'published_at' =>
+                $validated['status'] === 'published'
+                    ? now()
+                    : null,
         ]);
 
         /*
@@ -167,10 +176,6 @@ class LearnController extends Controller
             $categoryIds[] = $category->id;
         }
 
-        /*
-         * Attach the selected and newly created
-         * categories to the article.
-         */
         $article->categories()->sync(
             array_unique($categoryIds)
         );
@@ -202,10 +207,6 @@ class LearnController extends Controller
             $tagIds[] = $tag->id;
         }
 
-        /*
-         * Attach the selected and newly created
-         * tags to the article.
-         */
         $article->tags()->sync(
             array_unique($tagIds)
         );
@@ -278,6 +279,10 @@ class LearnController extends Controller
             'body' => [
                 'required',
                 'string',
+            ],
+            'last_reviewed_at' => [
+                'nullable',
+                'date',
             ],
 
             'categories' => [
@@ -353,6 +358,10 @@ class LearnController extends Controller
             'status' => $validated['status'],
             'excerpt' => $validated['excerpt'] ?? null,
             'body' => $validated['body'],
+            'last_reviewed_at' =>
+                $validated['type'] === 'guide'
+                    ? ($validated['last_reviewed_at'] ?? null)
+                    : null,
         ]);
 
         $article->save();
@@ -363,10 +372,6 @@ class LearnController extends Controller
          */
         $categoryIds = $validated['categories'] ?? [];
 
-        /*
-         * If a new category was entered, create it
-         * and include it with the selected categories.
-         */
         if (! empty($validated['new_category_name'])) {
             $categoryName = trim(
                 $validated['new_category_name']
@@ -387,9 +392,6 @@ class LearnController extends Controller
             $categoryIds[] = $category->id;
         }
 
-        /*
-         * Synchronize the article's categories.
-         */
         $article->categories()->sync(
             array_unique($categoryIds)
         );
@@ -400,10 +402,6 @@ class LearnController extends Controller
          */
         $tagIds = $validated['tags'] ?? [];
 
-        /*
-         * If a new tag was entered, create it
-         * and include it with the selected tags.
-         */
         if (! empty($validated['new_tag_name'])) {
             $tagName = trim(
                 $validated['new_tag_name']
@@ -421,9 +419,6 @@ class LearnController extends Controller
             $tagIds[] = $tag->id;
         }
 
-        /*
-         * Synchronize the article's tags.
-         */
         $article->tags()->sync(
             array_unique($tagIds)
         );
