@@ -706,6 +706,44 @@
         </div>
     </section>
 
+    {{-- Featured Article --}}
+<div class="mt-6 border-t border-sp-warmStone pt-6">
+    <label
+        for="is_featured"
+        class="flex cursor-pointer items-start gap-3">
+
+        <input
+            type="checkbox"
+            name="is_featured"
+            id="is_featured"
+            value="1"
+            @checked(
+                old(
+                    'is_featured',
+                    $article->is_featured ?? false
+                )
+            )
+            class="mt-1 rounded border-sp-warmStone
+                   text-sp-prairieGreen
+                   focus:ring-sp-prairieGreen">
+
+        <span>
+            <span
+                class="block text-sm font-medium text-sp-charcoal">
+                Featured article
+            </span>
+
+            <span
+                class="mt-1 block text-xs text-sp-slate">
+                Feature this article prominently in the Learn section.
+                Book Reviews are not eligible to be featured.
+            </span>
+        </span>
+    </label>
+
+    <x-admin.forms.field-error name="is_featured" />
+</div>
+
     {{-- Search Engine Optimization --}}
     <section
         class="rounded-md border border-sp-warmStone
