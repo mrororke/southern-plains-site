@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\LearnArticle;
 use App\Models\LearnCategory;
-
 use App\Navigation\AdminNavigation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -33,14 +32,14 @@ class LearnController extends Controller
      * Show the form for creating a Learn article.
      */
     public function create()
-{
-    return view('admin.dashboard-v2.learn.create', [
-        'navigation' => AdminNavigation::items(),
-        'categories' => LearnCategory::query()
-            ->orderBy('name')
-            ->get(),
-    ]);
-}
+    {
+        return view('admin.dashboard-v2.learn.create', [
+            'navigation' => AdminNavigation::items(),
+            'categories' => LearnCategory::query()
+                ->orderBy('name')
+                ->get(),
+        ]);
+    }
 
     /**
      * Store a newly created Learn article.
@@ -48,7 +47,11 @@ class LearnController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'title' => ['required', 'string', 'max:255'],
+            'title' => [
+                'required',
+                'string',
+                'max:255',
+            ],
             'type' => [
                 'required',
                 'in:standard,guide,book_review',
@@ -57,10 +60,36 @@ class LearnController extends Controller
                 'required',
                 'in:draft,published,archived',
             ],
-            'excerpt' => ['nullable', 'string'],
-            'body' => ['required', 'string'],
+            'excerpt' => [
+                'nullable',
+                'string',
+            ],
+            'body' => [
+                'required',
+                'string',
+            ],
+            'categories' => [
+                'nullable',
+                'array',
+            ],
+            'categories.*' => [
+                'integer',
+                'exists:learn_categories,id',
+            ],
+            'new_category_name' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
+            'new_category_description' => [
+                'nullable',
+                'string',
+            ],
         ]);
 
+        /*
+         * Generate a unique slug for the article.
+         */
         $baseSlug = Str::slug($validated['title']);
         $slug = $baseSlug;
         $counter = 2;
@@ -72,6 +101,9 @@ class LearnController extends Controller
             $counter++;
         }
 
+        /*
+         * Create the article.
+         */
         $article = LearnArticle::create([
             'title' => $validated['title'],
             'slug' => $slug,
@@ -83,6 +115,44 @@ class LearnController extends Controller
                 ? now()
                 : null,
         ]);
+
+        /*
+         * Collect any existing categories selected
+         * in the form.
+         */
+        $categoryIds = $validated['categories'] ?? [];
+
+        /*
+         * If a new category was entered, create it
+         * and include it with the selected categories.
+         */
+        if (! empty($validated['new_category_name'])) {
+            $categoryName = trim(
+                $validated['new_category_name']
+            );
+
+            $category = LearnCategory::firstOrCreate(
+                [
+                    'slug' => Str::slug($categoryName),
+                ],
+                [
+                    'name' => $categoryName,
+                    'description' =>
+                        $validated['new_category_description']
+                        ?? null,
+                ]
+            );
+
+            $categoryIds[] = $category->id;
+        }
+
+        /*
+         * Attach the selected and newly created
+         * categories to the article.
+         */
+        $article->categories()->sync(
+            array_unique($categoryIds)
+        );
 
         return redirect()
             ->route('admin.learn.index')
@@ -96,20 +166,21 @@ class LearnController extends Controller
      * Show the form for editing a Learn article.
      */
     public function edit(LearnArticle $article)
-{
-    $article->load('categories');
+    {
+        $article->load('categories');
 
-    return view('admin.dashboard-v2.learn.edit', [
-        'navigation' => AdminNavigation::items(),
-        'article' => $article,
-        'categories' => LearnCategory::query()
-            ->orderBy('name')
-            ->get(),
-        'selectedCategoryIds' => $article->categories
-            ->pluck('id')
-            ->all(),
-    ]);
-}
+        return view('admin.dashboard-v2.learn.edit', [
+            'navigation' => AdminNavigation::items(),
+            'article' => $article,
+            'categories' => LearnCategory::query()
+                ->orderBy('name')
+                ->get(),
+            'selectedCategoryIds' => $article->categories
+                ->pluck('id')
+                ->all(),
+        ]);
+    }
+
     /**
      * Update an existing Learn article.
      */
@@ -118,7 +189,11 @@ class LearnController extends Controller
         LearnArticle $article
     ) {
         $validated = $request->validate([
-            'title' => ['required', 'string', 'max:255'],
+            'title' => [
+                'required',
+                'string',
+                'max:255',
+            ],
             'type' => [
                 'required',
                 'in:standard,guide,book_review',
@@ -127,13 +202,36 @@ class LearnController extends Controller
                 'required',
                 'in:draft,published,archived',
             ],
-            'excerpt' => ['nullable', 'string'],
-            'body' => ['required', 'string'],
+            'excerpt' => [
+                'nullable',
+                'string',
+            ],
+            'body' => [
+                'required',
+                'string',
+            ],
+            'categories' => [
+                'nullable',
+                'array',
+            ],
+            'categories.*' => [
+                'integer',
+                'exists:learn_categories,id',
+            ],
+            'new_category_name' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
+            'new_category_description' => [
+                'nullable',
+                'string',
+            ],
         ]);
 
         /*
-     * Generate a new slug only if the title changed.
-     */
+         * Generate a new slug only if the title changed.
+         */
         if ($validated['title'] !== $article->title) {
             $baseSlug = Str::slug($validated['title']);
             $slug = $baseSlug;
@@ -141,8 +239,8 @@ class LearnController extends Controller
 
             while (
                 LearnArticle::where('slug', $slug)
-                ->whereKeyNot($article->id)
-                ->exists()
+                    ->whereKeyNot($article->id)
+                    ->exists()
             ) {
                 $slug = $baseSlug . '-' . $counter;
                 $counter++;
@@ -152,9 +250,9 @@ class LearnController extends Controller
         }
 
         /*
-     * Set the publication date the first time an article
-     * becomes published.
-     */
+         * Set the publication date the first time
+         * an article becomes published.
+         */
         if (
             $validated['status'] === 'published'
             && is_null($article->published_at)
@@ -162,6 +260,9 @@ class LearnController extends Controller
             $article->published_at = now();
         }
 
+        /*
+         * Update the article.
+         */
         $article->fill([
             'title' => $validated['title'],
             'type' => $validated['type'],
@@ -171,6 +272,43 @@ class LearnController extends Controller
         ]);
 
         $article->save();
+
+        /*
+         * Collect any existing categories selected
+         * in the form.
+         */
+        $categoryIds = $validated['categories'] ?? [];
+
+        /*
+         * If a new category was entered, create it
+         * and include it with the selected categories.
+         */
+        if (! empty($validated['new_category_name'])) {
+            $categoryName = trim(
+                $validated['new_category_name']
+            );
+
+            $category = LearnCategory::firstOrCreate(
+                [
+                    'slug' => Str::slug($categoryName),
+                ],
+                [
+                    'name' => $categoryName,
+                    'description' =>
+                        $validated['new_category_description']
+                        ?? null,
+                ]
+            );
+
+            $categoryIds[] = $category->id;
+        }
+
+        /*
+         * Synchronize the article's categories.
+         */
+        $article->categories()->sync(
+            array_unique($categoryIds)
+        );
 
         return redirect()
             ->route('admin.learn.index')

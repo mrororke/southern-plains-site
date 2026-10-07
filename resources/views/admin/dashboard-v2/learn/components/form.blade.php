@@ -162,19 +162,136 @@
             </div>
 
             {{-- Categories --}}
+<div
+    x-data="{
+        addingCategory: {{ old('new_category_name') ? 'true' : 'false' }}
+    }"
+    class="space-y-4"
+>
+    <div class="flex items-end justify-between gap-4">
+        <div class="flex-1">
             <x-admin.forms.searchable-selector
                 label="Categories"
                 name="categories"
                 :items="$categories"
                 :selected="old(
-        'categories',
-        $selectedCategoryIds ?? []
-    )"
+                    'categories',
+                    $selectedCategoryIds ?? []
+                )"
                 search-placeholder="Search categories..."
-                empty-message="No categories have been created yet.">
+                empty-message="No categories have been created yet."
+            >
                 <x-admin.forms.field-error name="categories" />
                 <x-admin.forms.field-error name="categories.*" />
             </x-admin.forms.searchable-selector>
+        </div>
+    </div>
+
+    <div>
+        <button
+            type="button"
+            x-show="! addingCategory"
+            @click="addingCategory = true"
+            class="inline-flex items-center gap-2
+                   text-sm font-semibold text-sp-prairieGreen
+                   transition-colors hover:text-sp-prairieOchre"
+        >
+            <x-icons.plus class="h-4 w-4" />
+
+            Add Category
+        </button>
+    </div>
+
+    <div
+        x-show="addingCategory"
+        x-cloak
+        class="rounded-md border border-sp-warmStone
+               bg-sp-limestone/30 p-4"
+    >
+        <div class="flex items-start justify-between gap-4">
+            <div>
+                <h3 class="text-sm font-semibold text-sp-charcoal">
+                    New Category
+                </h3>
+
+                <p class="mt-1 text-xs text-sp-slate">
+                    Create a category and assign it to this article.
+                </p>
+            </div>
+
+            <button
+                type="button"
+                @click="
+                    addingCategory = false;
+                    $refs.newCategoryName.value = '';
+                    $refs.newCategoryDescription.value = '';
+                "
+                class="text-sm font-semibold text-sp-slate
+                       hover:text-sp-charcoal"
+            >
+                Cancel
+            </button>
+        </div>
+
+        <div class="mt-4 space-y-4">
+            <div>
+                <label
+                    for="new_category_name"
+                    class="block text-sm font-medium text-sp-charcoal"
+                >
+                    Category Name
+                </label>
+
+                <input
+                    x-ref="newCategoryName"
+                    type="text"
+                    name="new_category_name"
+                    id="new_category_name"
+                    value="{{ old('new_category_name') }}"
+                    autocomplete="off"
+                    class="mt-2 block w-full rounded-md
+                           border-sp-warmStone
+                           bg-sp-warmIvory
+                           text-sm text-sp-charcoal
+                           focus:border-sp-prairieGreen
+                           focus:ring-sp-prairieGreen"
+                >
+
+                <x-admin.forms.field-error name="new_category_name" />
+            </div>
+
+            <div>
+                <label
+                    for="new_category_description"
+                    class="block text-sm font-medium text-sp-charcoal"
+                >
+                    Description
+                </label>
+
+                <textarea
+                    x-ref="newCategoryDescription"
+                    name="new_category_description"
+                    id="new_category_description"
+                    rows="3"
+                    class="mt-2 block w-full rounded-md
+                           border-sp-warmStone
+                           bg-sp-warmIvory
+                           text-sm text-sp-charcoal
+                           focus:border-sp-prairieGreen
+                           focus:ring-sp-prairieGreen"
+                >{{ old('new_category_description') }}</textarea>
+
+                <p class="mt-1 text-xs text-sp-slate">
+                    Optional. Describe what belongs in this category.
+                </p>
+
+                <x-admin.forms.field-error
+                    name="new_category_description"
+                />
+            </div>
+        </div>
+    </div>
+</div>
 
 
             {{-- Excerpt --}}
