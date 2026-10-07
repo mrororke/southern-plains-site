@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Trick;
+use App\Models\LearnArticle;
 use App\Models\ResourceLibrary\Resource;
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
@@ -186,5 +187,22 @@ Breadcrumbs::for(
         $trail->parent('admin.learn.index');
 
         $trail->push('New Article');
+    }
+);
+
+/*
+|--------------------------------------------------------------------------
+| Edit Learn Article
+|--------------------------------------------------------------------------
+*/
+
+Breadcrumbs::for(
+    'admin.learn.edit',
+    function (BreadcrumbTrail $trail, LearnArticle $article) {
+        $trail->parent('admin.learn.index');
+
+        $trail->push(
+            'Edit ' . $article->title
+        );
     }
 );

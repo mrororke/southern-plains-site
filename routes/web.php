@@ -423,6 +423,12 @@ Route::middleware(['auth', 'device'])
         Route::post('/learn', [LearnController::class, 'store'])
             ->name('learn.store');
 
+        Route::get('/learn/{article}/edit', [LearnController::class, 'edit'])
+            ->name('learn.edit');
+
+        Route::put('/learn/{article}', [LearnController::class, 'update'])
+            ->name('learn.update');
+
     
     });
 

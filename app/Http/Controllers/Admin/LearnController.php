@@ -86,4 +86,84 @@ class LearnController extends Controller
                 'Article created successfully.'
             );
     }
+
+    /**
+     * Show the form for editing a Learn article.
+     */
+    public function edit(LearnArticle $article)
+    {
+        return view('admin.dashboard-v2.learn.edit', [
+            'navigation' => AdminNavigation::items(),
+            'article' => $article,
+        ]);
+    }
+    /**
+     * Update an existing Learn article.
+     */
+    public function update(
+        Request $request,
+        LearnArticle $article
+    ) {
+        $validated = $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'type' => [
+                'required',
+                'in:standard,guide,book_review',
+            ],
+            'status' => [
+                'required',
+                'in:draft,published,archived',
+            ],
+            'excerpt' => ['nullable', 'string'],
+            'body' => ['required', 'string'],
+        ]);
+
+        /*
+     * Generate a new slug only if the title changed.
+     */
+        if ($validated['title'] !== $article->title) {
+            $baseSlug = Str::slug($validated['title']);
+            $slug = $baseSlug;
+            $counter = 2;
+
+            while (
+                LearnArticle::where('slug', $slug)
+                ->whereKeyNot($article->id)
+                ->exists()
+            ) {
+                $slug = $baseSlug . '-' . $counter;
+                $counter++;
+            }
+
+            $article->slug = $slug;
+        }
+
+        /*
+     * Set the publication date the first time an article
+     * becomes published.
+     */
+        if (
+            $validated['status'] === 'published'
+            && is_null($article->published_at)
+        ) {
+            $article->published_at = now();
+        }
+
+        $article->fill([
+            'title' => $validated['title'],
+            'type' => $validated['type'],
+            'status' => $validated['status'],
+            'excerpt' => $validated['excerpt'] ?? null,
+            'body' => $validated['body'],
+        ]);
+
+        $article->save();
+
+        return redirect()
+            ->route('admin.learn.index')
+            ->with(
+                'success',
+                'Article updated successfully.'
+            );
+    }
 }
