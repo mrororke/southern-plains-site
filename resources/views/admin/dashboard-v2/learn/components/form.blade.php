@@ -704,9 +704,8 @@
             <x-admin.forms.field-error
                 name="has_affiliate_links" />
         </div>
-    </section>
 
-    {{-- Featured Article --}}
+         {{-- Featured Article --}}
 <div class="mt-6 border-t border-sp-warmStone pt-6">
     <label
         for="is_featured"
@@ -743,6 +742,10 @@
 
     <x-admin.forms.field-error name="is_featured" />
 </div>
+
+    </section>
+
+   
 
     {{-- Search Engine Optimization --}}
     <section
