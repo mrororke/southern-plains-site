@@ -155,3 +155,21 @@ Breadcrumbs::for(
         $trail->push('Edit');
     }
 );
+
+/*
+|--------------------------------------------------------------------------
+| Learn
+|--------------------------------------------------------------------------
+*/
+
+Breadcrumbs::for(
+    'admin.learn.index',
+    function (BreadcrumbTrail $trail) {
+        $trail->parent('admin.dashboard');
+
+        $trail->push(
+            'Learn',
+            route('admin.learn.index')
+        );
+    }
+);
