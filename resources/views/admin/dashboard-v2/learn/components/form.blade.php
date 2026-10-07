@@ -215,6 +215,190 @@
     </div>
 </div>
 
+{{-- Book Review Details --}}
+<div
+    x-show="articleType === 'book_review'"
+    x-cloak
+    class="rounded-md border border-sp-warmStone
+           bg-sp-limestone/30 p-4"
+>
+    <h3 class="text-sm font-semibold text-sp-charcoal">
+        Book Review Details
+    </h3>
+
+    <p class="mt-1 text-xs text-sp-slate">
+        Add the book information and cover used with this review.
+    </p>
+
+    <div class="mt-4 grid grid-cols-1 gap-6 md:grid-cols-2">
+        {{-- Book Title --}}
+        <div>
+            <label
+                for="book_title"
+                class="block text-sm font-medium text-sp-charcoal"
+            >
+                Book Title
+            </label>
+
+            <input
+                type="text"
+                name="book_title"
+                id="book_title"
+                value="{{ old(
+                    'book_title',
+                    $article->bookReview->book_title ?? ''
+                ) }}"
+                class="mt-2 block w-full rounded-md
+                       border-sp-warmStone
+                       bg-sp-warmIvory
+                       text-sm text-sp-charcoal
+                       focus:border-sp-prairieGreen
+                       focus:ring-sp-prairieGreen"
+            >
+
+            <x-admin.forms.field-error name="book_title" />
+        </div>
+
+        {{-- Author --}}
+        <div>
+            <label
+                for="book_author"
+                class="block text-sm font-medium text-sp-charcoal"
+            >
+                Author
+            </label>
+
+            <input
+                type="text"
+                name="book_author"
+                id="book_author"
+                value="{{ old(
+                    'book_author',
+                    $article->bookReview->book_author ?? ''
+                ) }}"
+                class="mt-2 block w-full rounded-md
+                       border-sp-warmStone
+                       bg-sp-warmIvory
+                       text-sm text-sp-charcoal
+                       focus:border-sp-prairieGreen
+                       focus:ring-sp-prairieGreen"
+            >
+
+            <x-admin.forms.field-error name="book_author" />
+        </div>
+    </div>
+
+    {{-- Rating --}}
+    <div class="mt-6">
+        <label
+            for="rating"
+            class="block text-sm font-medium text-sp-charcoal"
+        >
+            Rating
+        </label>
+
+        <select
+            name="rating"
+            id="rating"
+            class="mt-2 block w-full rounded-md
+                   border-sp-warmStone
+                   bg-sp-warmIvory
+                   text-sm text-sp-charcoal
+                   focus:border-sp-prairieGreen
+                   focus:ring-sp-prairieGreen
+                   md:max-w-xs"
+        >
+            <option value="">Select a rating</option>
+
+            @foreach ([
+                '0.5',
+                '1.0',
+                '1.5',
+                '2.0',
+                '2.5',
+                '3.0',
+                '3.5',
+                '4.0',
+                '4.5',
+                '5.0',
+            ] as $rating)
+                <option
+                    value="{{ $rating }}"
+                    @selected(
+                        (string) old(
+                            'rating',
+                            $article->bookReview->rating ?? ''
+                        ) === $rating
+                    )
+                >
+                    {{ $rating }} / 5
+                </option>
+            @endforeach
+        </select>
+
+        <x-admin.forms.field-error name="rating" />
+    </div>
+
+    {{-- Current Cover --}}
+    @if (
+        isset($article)
+        && $article->bookReview
+        && $article->bookReview->cover_image_path
+    )
+        <div class="mt-6">
+            <p class="block text-sm font-medium text-sp-charcoal">
+                Current Cover
+            </p>
+
+            <img
+                src="{{ Storage::disk('public')->url(
+                    $article->bookReview->cover_image_path
+                ) }}"
+                alt="Book cover for {{ $article->bookReview->book_title }}"
+                class="mt-2 max-h-64 w-auto rounded-md
+                       border border-sp-warmStone"
+            >
+        </div>
+    @endif
+
+    {{-- Cover Upload --}}
+    <div class="mt-6">
+        <label
+            for="cover_image"
+            class="block text-sm font-medium text-sp-charcoal"
+        >
+            Book Cover
+        </label>
+
+        <input
+            type="file"
+            name="cover_image"
+            id="cover_image"
+            accept="image/jpeg,image/png,image/webp"
+            class="mt-2 block w-full text-sm text-sp-charcoal
+                   file:mr-4 file:rounded-md file:border-0
+                   file:bg-sp-prairieGreen file:px-4 file:py-2
+                   file:text-sm file:font-semibold file:text-white
+                   hover:file:bg-sp-prairieOchre"
+        >
+
+        <p class="mt-1 text-xs text-sp-slate">
+            JPEG, PNG, or WebP.
+            @if (
+                isset($article)
+                && $article->bookReview
+                && $article->bookReview->cover_image_path
+            )
+                Leave blank to keep the current cover.
+            @else
+                A cover is required for Book Reviews.
+            @endif
+        </p>
+
+        <x-admin.forms.field-error name="cover_image" />
+    </div>
+</div>
+
             {{-- Categories --}}
             <div
                 x-data="{

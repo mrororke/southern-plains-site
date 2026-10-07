@@ -24,6 +24,7 @@
     <form
         method="POST"
         action="{{ route('admin.learn.update', $article) }}"
+        enctype="multipart/form-data"
         class="space-y-8"
     >
         @csrf

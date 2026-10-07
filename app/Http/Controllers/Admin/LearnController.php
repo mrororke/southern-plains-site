@@ -227,6 +227,7 @@ class LearnController extends Controller
         $article->load([
             'categories',
             'tags',
+            'bookReview',
         ]);
 
         return view('admin.dashboard-v2.learn.edit', [
