@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\TrickCatalogController;
 
 use App\Http\Controllers\Admin\BackendSearchController;
 use App\Http\Controllers\Admin\ResourceLibrary\ResourceController;
+use App\Http\Controllers\Admin\LearnController;
 
 use App\Http\Controllers\Admin\TrickEvaluationController as AdminTrickEvaluationController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
@@ -405,6 +406,18 @@ Route::middleware(['auth', 'device'])
             'resource-library/{resource}',
             [ResourceController::class, 'show']
         )->name('resource-library.show');
+
+
+            /*
+        |--------------------------------------------------------------------------
+        | Learn
+        |--------------------------------------------------------------------------
+        */
+
+        Route::get('/learn', [LearnController::class, 'index'])
+            ->name('learn.index');
+
+    
     });
 
 

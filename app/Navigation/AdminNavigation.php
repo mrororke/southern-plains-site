@@ -21,7 +21,7 @@ class AdminNavigation
                 'label' => 'Content',
                 'icon' => 'newspaper',
                 'roles' => ['admin'],
-                'status' => 'coming-soon',
+                'status' => 'active',
 
                 'children' => [
 
@@ -34,9 +34,9 @@ class AdminNavigation
 
                     [
                         /* TODO: Current admin route: admin/posts */
-                        'label' => 'Posts',
-                        'route' => 'admin.dashboard',
-                        'activeRoute' => 'admin.dashboard.*',
+                        'label' => 'Learn',
+                        'route' => 'admin.learn.index',
+                        'activeRoute' => 'admin.learn.*',
                         'status' => 'coming-soon',
                     ],
 
