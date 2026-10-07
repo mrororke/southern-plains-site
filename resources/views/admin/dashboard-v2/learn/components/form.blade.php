@@ -654,6 +654,86 @@
         </div>
     </section>
 
+    {{-- Search Engine Optimization --}}
+<section
+    class="rounded-md border border-sp-warmStone
+           bg-sp-warmIvory p-6">
+
+    <h2
+        class="font-sans text-lg font-semibold text-sp-charcoal">
+        Search Engine Optimization
+    </h2>
+
+    <p class="mt-1 text-sm text-sp-slate">
+        Control how this article may appear in search results.
+    </p>
+
+    <div class="mt-6 space-y-6">
+
+        {{-- SEO Title --}}
+        <div>
+            <label
+                for="seo_title"
+                class="block text-sm font-medium text-sp-charcoal">
+                SEO Title
+            </label>
+
+            <input
+                type="text"
+                name="seo_title"
+                id="seo_title"
+                value="{{ old(
+                    'seo_title',
+                    $article->seo_title ?? ''
+                ) }}"
+                maxlength="255"
+                autocomplete="off"
+                class="mt-2 block w-full rounded-md
+                       border-sp-warmStone
+                       bg-sp-warmIvory
+                       text-sm text-sp-charcoal
+                       focus:border-sp-prairieGreen
+                       focus:ring-sp-prairieGreen">
+
+            <p class="mt-1 text-xs text-sp-slate">
+                Optional. If left blank, the article title will be used.
+            </p>
+
+            <x-admin.forms.field-error name="seo_title" />
+        </div>
+
+        {{-- Meta Description --}}
+        <div>
+            <label
+                for="seo_description"
+                class="block text-sm font-medium text-sp-charcoal">
+                Meta Description
+            </label>
+
+            <textarea
+                name="seo_description"
+                id="seo_description"
+                rows="3"
+                class="mt-2 block w-full rounded-md
+                       border-sp-warmStone
+                       bg-sp-warmIvory
+                       text-sm text-sp-charcoal
+                       focus:border-sp-prairieGreen
+                       focus:ring-sp-prairieGreen">{{ old(
+                    'seo_description',
+                    $article->seo_description ?? ''
+                ) }}</textarea>
+
+            <p class="mt-1 text-xs text-sp-slate">
+                Optional. If left blank, the article excerpt will be used.
+            </p>
+
+            <x-admin.forms.field-error name="seo_description" />
+        </div>
+
+    </div>
+</section>
+
 
     {{-- Actions --}}
     <div class="flex justify-end gap-4">
