@@ -19,7 +19,7 @@ class LearnController extends Controller
             ->paginate(25)
             ->withQueryString();
 
-        return view('admin.dashboard-v2.desktop.learn.index', [
+        return view('admin.dashboard-v2.learn.index', [
             'articles' => $articles,
         ]);
     }
