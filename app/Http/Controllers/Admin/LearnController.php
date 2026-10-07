@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\LearnArticle;
+use App\Models\LearnCategory;
+
 use App\Navigation\AdminNavigation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -31,11 +33,14 @@ class LearnController extends Controller
      * Show the form for creating a Learn article.
      */
     public function create()
-    {
-        return view('admin.dashboard-v2.learn.create', [
-            'navigation' => AdminNavigation::items(),
-        ]);
-    }
+{
+    return view('admin.dashboard-v2.learn.create', [
+        'navigation' => AdminNavigation::items(),
+        'categories' => LearnCategory::query()
+            ->orderBy('name')
+            ->get(),
+    ]);
+}
 
     /**
      * Store a newly created Learn article.
@@ -91,12 +96,20 @@ class LearnController extends Controller
      * Show the form for editing a Learn article.
      */
     public function edit(LearnArticle $article)
-    {
-        return view('admin.dashboard-v2.learn.edit', [
-            'navigation' => AdminNavigation::items(),
-            'article' => $article,
-        ]);
-    }
+{
+    $article->load('categories');
+
+    return view('admin.dashboard-v2.learn.edit', [
+        'navigation' => AdminNavigation::items(),
+        'article' => $article,
+        'categories' => LearnCategory::query()
+            ->orderBy('name')
+            ->get(),
+        'selectedCategoryIds' => $article->categories
+            ->pluck('id')
+            ->all(),
+    ]);
+}
     /**
      * Update an existing Learn article.
      */
