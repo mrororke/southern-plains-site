@@ -1,10 +1,53 @@
-<div class="space-y-8">
+<div
+    x-data="{
+        articleType: @js(old('type', $article->type ?? 'standard')),
+
+        articleImages: [
+            {
+                id: 1
+            }
+        ],
+
+        nextArticleImageId: 2,
+
+        addArticleImage() {
+            this.articleImages.push({
+                id: this.nextArticleImageId++
+            });
+        },
+
+        removeArticleImage(id) {
+            this.articleImages = this.articleImages.filter(
+                image => image.id !== id
+            );
+        },
+
+        moveArticleImageUp(index) {
+            if (index === 0) {
+                return;
+            }
+
+            const image = this.articleImages[index];
+
+            this.articleImages.splice(index, 1);
+            this.articleImages.splice(index - 1, 0, image);
+        },
+
+        moveArticleImageDown(index) {
+            if (index === this.articleImages.length - 1) {
+                return;
+            }
+
+            const image = this.articleImages[index];
+
+            this.articleImages.splice(index, 1);
+            this.articleImages.splice(index + 1, 0, image);
+        }
+    }"
+    class="space-y-8">
 
     {{-- Article Details --}}
     <section
-        x-data="{
-            articleType: @js(old('type', $article->type ?? 'standard'))
-        }"
         class="rounded-md border border-sp-warmStone
                bg-sp-warmIvory p-6">
 
@@ -770,6 +813,233 @@
 
             </section>
 
+            {{-- Article Images --}}
+            <section
+                x-show="articleType !== 'book_review'"
+                x-cloak
+                class="rounded-md border border-sp-warmStone
+                       bg-sp-warmIvory p-6">
+
+                <h2
+                    class="font-sans text-lg font-semibold text-sp-charcoal">
+                    Article Images
+                </h2>
+
+                <p class="mt-1 text-sm text-sp-slate">
+                    Add images for the article sidebar.
+                </p>
+
+                <div class="mt-6 space-y-6">
+
+                    <template
+                        x-for="(image, index) in articleImages"
+                        :key="image.id">
+
+                        <div
+                            class="rounded-md border border-sp-warmStone
+                                   bg-sp-limestone/30 p-4">
+
+                            {{-- Image Header --}}
+                            <div class="flex items-start justify-between gap-4">
+
+                                <div>
+                                    <h3
+                                        class="text-sm font-semibold text-sp-charcoal"
+                                        x-text="`Image ${index + 1}`">
+                                    </h3>
+
+                                    <p
+                                        x-show="articleImages.length > 1"
+                                        class="mt-1 text-xs text-sp-slate">
+                                        Position
+                                        <span x-text="index + 1"></span>
+                                        of
+                                        <span x-text="articleImages.length"></span>
+                                    </p>
+                                </div>
+
+                                <button
+                                    type="button"
+                                    x-show="articleImages.length > 1"
+                                    @click="removeArticleImage(image.id)"
+                                    class="text-xs font-semibold text-sp-slate
+                                           transition-colors
+                                           hover:text-sp-charcoal">
+                                    Remove
+                                </button>
+
+                            </div>
+
+                            <div class="mt-4 space-y-4">
+
+                                {{-- Image Upload --}}
+                                <div>
+                                    <label
+                                        :for="`article_image_${image.id}`"
+                                        class="block text-sm font-medium text-sp-charcoal">
+                                        Image
+                                    </label>
+
+                                    <input
+                                        type="file"
+                                        :id="`article_image_${image.id}`"
+                                        accept="image/jpeg,image/png,image/webp"
+                                        class="mt-2 block w-full text-sm text-sp-charcoal
+                                               file:mr-3 file:rounded-md file:border-0
+                                               file:bg-sp-prairieGreen
+                                               file:px-3 file:py-2
+                                               file:text-xs file:font-semibold
+                                               file:text-white
+                                               hover:file:bg-sp-prairieOchre">
+
+                                    <p class="mt-1 text-xs text-sp-slate">
+                                        JPEG, PNG, or WebP.
+                                    </p>
+                                </div>
+
+                                {{-- Alt Text --}}
+                                <div>
+                                    <label
+                                        :for="`article_image_alt_${image.id}`"
+                                        class="block text-sm font-medium text-sp-charcoal">
+                                        Alt Text
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        :id="`article_image_alt_${image.id}`"
+                                        autocomplete="off"
+                                        class="mt-2 block w-full rounded-md
+                                               border-sp-warmStone
+                                               bg-sp-warmIvory
+                                               text-sm text-sp-charcoal
+                                               focus:border-sp-prairieGreen
+                                               focus:ring-sp-prairieGreen">
+
+                                    <p class="mt-1 text-xs text-sp-slate">
+                                        Required. Describe the image for someone
+                                        who cannot see it.
+                                    </p>
+                                </div>
+
+                                {{-- Caption --}}
+                                <div>
+                                    <label
+                                        :for="`article_image_caption_${image.id}`"
+                                        class="block text-sm font-medium text-sp-charcoal">
+                                        Caption
+                                    </label>
+
+                                    <textarea
+                                        :id="`article_image_caption_${image.id}`"
+                                        rows="2"
+                                        class="mt-2 block w-full rounded-md
+                                               border-sp-warmStone
+                                               bg-sp-warmIvory
+                                               text-sm text-sp-charcoal
+                                               focus:border-sp-prairieGreen
+                                               focus:ring-sp-prairieGreen"></textarea>
+
+                                    <p class="mt-1 text-xs text-sp-slate">
+                                        Optional text displayed with the image.
+                                    </p>
+                                </div>
+
+                                {{-- Display Type --}}
+                                <div>
+                                    <label
+                                        :for="`article_image_type_${image.id}`"
+                                        class="block text-sm font-medium text-sp-charcoal">
+                                        Display
+                                    </label>
+
+                                    <select
+                                        :id="`article_image_type_${image.id}`"
+                                        class="mt-2 block w-full rounded-md
+                                               border-sp-warmStone
+                                               bg-sp-warmIvory
+                                               text-sm text-sp-charcoal
+                                               focus:border-sp-prairieGreen
+                                               focus:ring-sp-prairieGreen">
+
+                                        <option value="image">
+                                            Image
+                                        </option>
+
+                                        <option value="figure">
+                                            Figure
+                                        </option>
+                                    </select>
+
+                                    <p class="mt-1 text-xs text-sp-slate">
+                                        Figures are numbered automatically
+                                        in display order.
+                                    </p>
+                                </div>
+
+                                {{-- Reorder --}}
+                                <div
+                                    x-show="articleImages.length > 1"
+                                    class="flex gap-2 border-t
+                                           border-sp-warmStone pt-4">
+
+                                    <button
+                                        type="button"
+                                        @click="moveArticleImageUp(index)"
+                                        :disabled="index === 0"
+                                        class="inline-flex flex-1 items-center
+                                               justify-center rounded-md
+                                               border border-sp-warmStone
+                                               px-3 py-2 text-xs font-semibold
+                                               text-sp-charcoal
+                                               transition-colors
+                                               hover:bg-sp-limestone/30
+                                               disabled:cursor-not-allowed
+                                               disabled:opacity-40">
+                                        Move Up
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        @click="moveArticleImageDown(index)"
+                                        :disabled="index === articleImages.length - 1"
+                                        class="inline-flex flex-1 items-center
+                                               justify-center rounded-md
+                                               border border-sp-warmStone
+                                               px-3 py-2 text-xs font-semibold
+                                               text-sp-charcoal
+                                               transition-colors
+                                               hover:bg-sp-limestone/30
+                                               disabled:cursor-not-allowed
+                                               disabled:opacity-40">
+                                        Move Down
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </template>
+
+                </div>
+
+                {{-- Add Image --}}
+                <button
+                    type="button"
+                    @click="addArticleImage()"
+                    class="mt-6 inline-flex items-center gap-2
+                           text-sm font-semibold text-sp-prairieGreen
+                           transition-colors hover:text-sp-prairieOchre">
+
+                    <x-icons.plus class="h-4 w-4" />
+
+                    Add Another Image
+                </button>
+
+            </section>
+
             {{-- Search Engine Optimization --}}
             <section
                 class="rounded-md border border-sp-warmStone
@@ -857,12 +1127,14 @@
                        xl:sticky xl:top-6">
 
                 <div class="flex flex-col gap-3">
+
                     <button
                         type="submit"
                         class="inline-flex w-full items-center justify-center
                                rounded-md bg-sp-prairieGreen px-4 py-2
                                text-sm font-semibold
-                               text-sp-warmIvory hover:bg-sp-prairieOchre">
+                               text-sp-warmIvory
+                               hover:bg-sp-prairieOchre">
                         Save Article
                     </button>
 
@@ -871,11 +1143,12 @@
                         class="inline-flex w-full items-center justify-center
                                rounded-md border border-sp-warmStone
                                px-4 py-2 text-sm font-semibold
-                               text-sp-charcoal hover:bg-sp-limestone/20">
+                               text-sp-charcoal
+                               hover:bg-sp-limestone/20">
                         Cancel
                     </a>
-                </div>
 
+                </div>
             </section>
 
         </aside>
