@@ -88,6 +88,10 @@ class LearnController extends Controller
                 'nullable',
                 'date',
             ],
+            'has_affiliate_links' => [
+                'nullable',
+                'boolean',
+            ],
 
             'categories' => [
                 'nullable',
@@ -177,6 +181,8 @@ class LearnController extends Controller
                 $validated['type'] === 'guide'
                     ? ($validated['last_reviewed_at'] ?? null)
                     : null,
+            'has_affiliate_links' =>
+                $request->boolean('has_affiliate_links'),
             'is_featured' => false,
             'published_at' =>
                 $validated['status'] === 'published'
@@ -354,6 +360,10 @@ class LearnController extends Controller
                 'nullable',
                 'date',
             ],
+            'has_affiliate_links' => [
+                'nullable',
+                'boolean',
+            ],
 
             'categories' => [
                 'nullable',
@@ -461,6 +471,8 @@ class LearnController extends Controller
                 $validated['type'] === 'guide'
                     ? ($validated['last_reviewed_at'] ?? null)
                     : null,
+            'has_affiliate_links' =>
+                $request->boolean('has_affiliate_links'),
         ]);
 
         /*
