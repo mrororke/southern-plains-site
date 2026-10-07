@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\LearnArticle;
 use App\Models\LearnCategory;
+use App\Models\LearnTag;
 use App\Navigation\AdminNavigation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -35,7 +36,12 @@ class LearnController extends Controller
     {
         return view('admin.dashboard-v2.learn.create', [
             'navigation' => AdminNavigation::items(),
+
             'categories' => LearnCategory::query()
+                ->orderBy('name')
+                ->get(),
+
+            'tags' => LearnTag::query()
                 ->orderBy('name')
                 ->get(),
         ]);
@@ -68,6 +74,7 @@ class LearnController extends Controller
                 'required',
                 'string',
             ],
+
             'categories' => [
                 'nullable',
                 'array',
@@ -84,6 +91,20 @@ class LearnController extends Controller
             'new_category_description' => [
                 'nullable',
                 'string',
+            ],
+
+            'tags' => [
+                'nullable',
+                'array',
+            ],
+            'tags.*' => [
+                'integer',
+                'exists:learn_tags,id',
+            ],
+            'new_tag_name' => [
+                'nullable',
+                'string',
+                'max:255',
             ],
         ]);
 
@@ -154,6 +175,41 @@ class LearnController extends Controller
             array_unique($categoryIds)
         );
 
+        /*
+         * Collect any existing tags selected
+         * in the form.
+         */
+        $tagIds = $validated['tags'] ?? [];
+
+        /*
+         * If a new tag was entered, create it
+         * and include it with the selected tags.
+         */
+        if (! empty($validated['new_tag_name'])) {
+            $tagName = trim(
+                $validated['new_tag_name']
+            );
+
+            $tag = LearnTag::firstOrCreate(
+                [
+                    'slug' => Str::slug($tagName),
+                ],
+                [
+                    'name' => $tagName,
+                ]
+            );
+
+            $tagIds[] = $tag->id;
+        }
+
+        /*
+         * Attach the selected and newly created
+         * tags to the article.
+         */
+        $article->tags()->sync(
+            array_unique($tagIds)
+        );
+
         return redirect()
             ->route('admin.learn.index')
             ->with(
@@ -167,15 +223,28 @@ class LearnController extends Controller
      */
     public function edit(LearnArticle $article)
     {
-        $article->load('categories');
+        $article->load([
+            'categories',
+            'tags',
+        ]);
 
         return view('admin.dashboard-v2.learn.edit', [
             'navigation' => AdminNavigation::items(),
             'article' => $article,
+
             'categories' => LearnCategory::query()
                 ->orderBy('name')
                 ->get(),
+
             'selectedCategoryIds' => $article->categories
+                ->pluck('id')
+                ->all(),
+
+            'tags' => LearnTag::query()
+                ->orderBy('name')
+                ->get(),
+
+            'selectedTagIds' => $article->tags
                 ->pluck('id')
                 ->all(),
         ]);
@@ -210,6 +279,7 @@ class LearnController extends Controller
                 'required',
                 'string',
             ],
+
             'categories' => [
                 'nullable',
                 'array',
@@ -226,6 +296,20 @@ class LearnController extends Controller
             'new_category_description' => [
                 'nullable',
                 'string',
+            ],
+
+            'tags' => [
+                'nullable',
+                'array',
+            ],
+            'tags.*' => [
+                'integer',
+                'exists:learn_tags,id',
+            ],
+            'new_tag_name' => [
+                'nullable',
+                'string',
+                'max:255',
             ],
         ]);
 
@@ -308,6 +392,40 @@ class LearnController extends Controller
          */
         $article->categories()->sync(
             array_unique($categoryIds)
+        );
+
+        /*
+         * Collect any existing tags selected
+         * in the form.
+         */
+        $tagIds = $validated['tags'] ?? [];
+
+        /*
+         * If a new tag was entered, create it
+         * and include it with the selected tags.
+         */
+        if (! empty($validated['new_tag_name'])) {
+            $tagName = trim(
+                $validated['new_tag_name']
+            );
+
+            $tag = LearnTag::firstOrCreate(
+                [
+                    'slug' => Str::slug($tagName),
+                ],
+                [
+                    'name' => $tagName,
+                ]
+            );
+
+            $tagIds[] = $tag->id;
+        }
+
+        /*
+         * Synchronize the article's tags.
+         */
+        $article->tags()->sync(
+            array_unique($tagIds)
         );
 
         return redirect()

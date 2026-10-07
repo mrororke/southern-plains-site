@@ -293,6 +293,105 @@
     </div>
 </div>
 
+{{-- Tags --}}
+<div
+    x-data="{
+        addingTag: {{ old('new_tag_name') ? 'true' : 'false' }}
+    }"
+    class="space-y-4"
+>
+    <div class="flex items-end justify-between gap-4">
+        <div class="flex-1">
+            <x-admin.forms.searchable-selector
+                label="Tags"
+                name="tags"
+                :items="$tags"
+                :selected="old(
+                    'tags',
+                    $selectedTagIds ?? []
+                )"
+                search-placeholder="Search tags..."
+                empty-message="No tags have been created yet."
+            >
+                <x-admin.forms.field-error name="tags" />
+                <x-admin.forms.field-error name="tags.*" />
+            </x-admin.forms.searchable-selector>
+        </div>
+    </div>
+
+    <div>
+        <button
+            type="button"
+            x-show="! addingTag"
+            @click="addingTag = true"
+            class="inline-flex items-center gap-2
+                   text-sm font-semibold text-sp-prairieGreen
+                   transition-colors hover:text-sp-prairieOchre"
+        >
+            <x-icons.plus class="h-4 w-4" />
+
+            Add Tag
+        </button>
+    </div>
+
+    <div
+        x-show="addingTag"
+        x-cloak
+        class="rounded-md border border-sp-warmStone
+               bg-sp-limestone/30 p-4"
+    >
+        <div class="flex items-start justify-between gap-4">
+            <div>
+                <h3 class="text-sm font-semibold text-sp-charcoal">
+                    New Tag
+                </h3>
+
+                <p class="mt-1 text-xs text-sp-slate">
+                    Create a tag and assign it to this article.
+                </p>
+            </div>
+
+            <button
+                type="button"
+                @click="
+                    addingTag = false;
+                    $refs.newTagName.value = '';
+                "
+                class="text-sm font-semibold text-sp-slate
+                       hover:text-sp-charcoal"
+            >
+                Cancel
+            </button>
+        </div>
+
+        <div class="mt-4">
+            <label
+                for="new_tag_name"
+                class="block text-sm font-medium text-sp-charcoal"
+            >
+                Tag Name
+            </label>
+
+            <input
+                x-ref="newTagName"
+                type="text"
+                name="new_tag_name"
+                id="new_tag_name"
+                value="{{ old('new_tag_name') }}"
+                autocomplete="off"
+                class="mt-2 block w-full rounded-md
+                       border-sp-warmStone
+                       bg-sp-warmIvory
+                       text-sm text-sp-charcoal
+                       focus:border-sp-prairieGreen
+                       focus:ring-sp-prairieGreen"
+            >
+
+            <x-admin.forms.field-error name="new_tag_name" />
+        </div>
+    </div>
+</div>
+
 
             {{-- Excerpt --}}
             <div>
