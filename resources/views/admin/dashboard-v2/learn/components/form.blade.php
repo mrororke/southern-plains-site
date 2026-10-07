@@ -14,6 +14,8 @@
             this.articleImages.push({
                 id: this.nextArticleImageId++
             });
+
+            this.articleImages = [...this.articleImages];
         },
 
         removeArticleImage(id) {
@@ -27,10 +29,17 @@
                 return;
             }
 
-            const image = this.articleImages[index];
+            const images = [...this.articleImages];
 
-            this.articleImages.splice(index, 1);
-            this.articleImages.splice(index - 1, 0, image);
+            [
+                images[index - 1],
+                images[index]
+            ] = [
+                images[index],
+                images[index - 1]
+            ];
+
+            this.articleImages = images;
         },
 
         moveArticleImageDown(index) {
@@ -38,10 +47,17 @@
                 return;
             }
 
-            const image = this.articleImages[index];
+            const images = [...this.articleImages];
 
-            this.articleImages.splice(index, 1);
-            this.articleImages.splice(index + 1, 0, image);
+            [
+                images[index],
+                images[index + 1]
+            ] = [
+                images[index + 1],
+                images[index]
+            ];
+
+            this.articleImages = images;
         }
     }"
     class="space-y-8">
