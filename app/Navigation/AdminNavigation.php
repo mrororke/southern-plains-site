@@ -37,7 +37,7 @@ class AdminNavigation
                         'label' => 'Learn',
                         'route' => 'admin.learn.index',
                         'activeRoute' => 'admin.learn.*',
-                        'status' => 'coming-soon',
+                        'status' => 'active',
                     ],
 
                     [
