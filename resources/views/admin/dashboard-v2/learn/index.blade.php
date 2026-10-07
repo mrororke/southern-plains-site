@@ -1,24 +1,18 @@
 @extends('admin.dashboard-v2.desktop')
 
+@section('title', 'Learn')
+
+
 @section('content')
-    <div class="px-6 py-6">
-        <div class="flex items-start justify-between gap-6">
-            <div>
-                <p class="text-sm font-medium uppercase tracking-wide text-sp-heritage">
-                    Content
-                </p>
+    <div class="dashboard-content">
+        <div class="py-4">
+        <img src="{{ asset('images/headers/header-learn.jpg') }}" alt="Hamish, a shetland sheepdog, in a field of wildflowers." class="rounded-md">
+    </div>
+        <h1 class="font-sans text-sp-charcoal font-semibold text-6xl">Learn</h1>
 
-                <h1 class="mt-1 font-archivo text-3xl font-semibold text-sp-slate">
-                    Learn
-                </h1>
+    </div>
 
-                <p class="mt-2 max-w-2xl text-sm text-sp-slate/70">
-                    Create and manage articles, evergreen guides, and book reviews.
-                </p>
-            </div>
-        </div>
-
-        <div class="mt-8">
+    <div class="mt-8">
             @if ($articles->isEmpty())
                 <div class="rounded-lg border border-dashed border-sp-slate/20 px-6 py-12 text-center">
                     <h2 class="font-archivo text-lg font-semibold text-sp-slate">
@@ -63,3 +57,7 @@
         </div>
     </div>
 @endsection
+
+    
+
+        
