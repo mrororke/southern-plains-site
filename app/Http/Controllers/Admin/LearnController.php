@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\LearnArticle;
+use App\Navigation\AdminNavigation;
 use Illuminate\Http\Request;
 
 class LearnController extends Controller
@@ -20,6 +21,7 @@ class LearnController extends Controller
             ->withQueryString();
 
         return view('admin.dashboard-v2.learn.index', [
+            'navigation' => AdminNavigation::items(),
             'articles' => $articles,
         ]);
     }
