@@ -24,6 +24,7 @@ class LearnArticle extends Model
         'is_featured',
         'seo_title',
         'seo_description',
+        'og_image_path',
         'published_at',
     ];
 

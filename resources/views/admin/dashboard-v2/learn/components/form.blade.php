@@ -133,10 +133,9 @@
                         <option
                             value="standard"
                             @selected(
-                                old(
-                                    'type',
-                                    $article->type ?? 'standard'
-                                ) === 'standard'
+                            old( 'type' ,
+                            $article->type ?? 'standard'
+                            ) === 'standard'
                             )>
                             Standard Article
                         </option>
@@ -144,10 +143,9 @@
                         <option
                             value="guide"
                             @selected(
-                                old(
-                                    'type',
-                                    $article->type ?? null
-                                ) === 'guide'
+                            old( 'type' ,
+                            $article->type ?? null
+                            ) === 'guide'
                             )>
                             Evergreen Guide
                         </option>
@@ -155,10 +153,9 @@
                         <option
                             value="book_review"
                             @selected(
-                                old(
-                                    'type',
-                                    $article->type ?? null
-                                ) === 'book_review'
+                            old( 'type' ,
+                            $article->type ?? null
+                            ) === 'book_review'
                             )>
                             Book Review
                         </option>
@@ -189,10 +186,9 @@
                         <option
                             value="draft"
                             @selected(
-                                old(
-                                    'status',
-                                    $article->status ?? 'draft'
-                                ) === 'draft'
+                            old( 'status' ,
+                            $article->status ?? 'draft'
+                            ) === 'draft'
                             )>
                             Draft
                         </option>
@@ -200,10 +196,9 @@
                         <option
                             value="published"
                             @selected(
-                                old(
-                                    'status',
-                                    $article->status ?? null
-                                ) === 'published'
+                            old( 'status' ,
+                            $article->status ?? null
+                            ) === 'published'
                             )>
                             Published
                         </option>
@@ -211,10 +206,9 @@
                         <option
                             value="archived"
                             @selected(
-                                old(
-                                    'status',
-                                    $article->status ?? null
-                                ) === 'archived'
+                            old( 'status' ,
+                            $article->status ?? null
+                            ) === 'archived'
                             )>
                             Archived
                         </option>
@@ -365,22 +359,21 @@
                         <option value="">Select a rating</option>
 
                         @foreach ([
-                            '1',
-                            '2',
-                            '3',
-                            '4',
-                            '5',
+                        '1',
+                        '2',
+                        '3',
+                        '4',
+                        '5',
                         ] as $rating)
-                            <option
-                                value="{{ $rating }}"
-                                @selected(
-                                    (string) old(
-                                        'rating',
-                                        $article->bookReview->rating ?? ''
-                                    ) === $rating
-                                )>
-                                {{ $rating }} {{ $rating === '1' ? 'star' : 'stars' }}
-                            </option>
+                        <option
+                            value="{{ $rating }}"
+                            @selected(
+                            (string) old( 'rating' ,
+                            $article->bookReview->rating ?? ''
+                            ) === $rating
+                            )>
+                            {{ $rating }} {{ $rating === '1' ? 'star' : 'stars' }}
+                        </option>
                         @endforeach
                     </select>
 
@@ -389,23 +382,23 @@
 
                 {{-- Current Cover --}}
                 @if (
-                    isset($article)
-                    && $article->bookReview
-                    && $article->bookReview->cover_image_path
+                isset($article)
+                && $article->bookReview
+                && $article->bookReview->cover_image_path
                 )
-                    <div class="mt-6">
-                        <p class="block text-sm font-medium text-sp-charcoal">
-                            Current Cover
-                        </p>
+                <div class="mt-6">
+                    <p class="block text-sm font-medium text-sp-charcoal">
+                        Current Cover
+                    </p>
 
-                        <img
-                            src="{{ Storage::disk('public')->url(
+                    <img
+                        src="{{ Storage::disk('public')->url(
                                 $article->bookReview->cover_image_path
                             ) }}"
-                            alt="Book cover for {{ $article->bookReview->book_title }}"
-                            class="mt-2 max-h-64 w-auto rounded-md
+                        alt="Book cover for {{ $article->bookReview->book_title }}"
+                        class="mt-2 max-h-64 w-auto rounded-md
                                    border border-sp-warmStone">
-                    </div>
+                </div>
                 @endif
 
                 {{-- Cover Upload --}}
@@ -430,13 +423,13 @@
                     <p class="mt-1 text-xs text-sp-slate">
                         JPEG, PNG, or WebP.
                         @if (
-                            isset($article)
-                            && $article->bookReview
-                            && $article->bookReview->cover_image_path
+                        isset($article)
+                        && $article->bookReview
+                        && $article->bookReview->cover_image_path
                         )
-                            Leave blank to keep the current cover.
+                        Leave blank to keep the current cover.
                         @else
-                            A cover is required for Book Reviews.
+                        A cover is required for Book Reviews.
                         @endif
                     </p>
 
@@ -762,14 +755,13 @@
                             id="has_affiliate_links"
                             value="1"
                             @checked(
-                                old(
-                                    'has_affiliate_links',
-                                    $article->has_affiliate_links ?? false
-                                )
-                            )
-                            class="mt-1 rounded border-sp-warmStone
-                                   text-sp-prairieGreen
-                                   focus:ring-sp-prairieGreen">
+                            old( 'has_affiliate_links' ,
+                            $article->has_affiliate_links ?? false
+                        )
+                        )
+                        class="mt-1 rounded border-sp-warmStone
+                        text-sp-prairieGreen
+                        focus:ring-sp-prairieGreen">
 
                         <span>
                             <span
@@ -801,14 +793,13 @@
                             id="is_featured"
                             value="1"
                             @checked(
-                                old(
-                                    'is_featured',
-                                    $article->is_featured ?? false
-                                )
-                            )
-                            class="mt-1 rounded border-sp-warmStone
-                                   text-sp-prairieGreen
-                                   focus:ring-sp-prairieGreen">
+                            old( 'is_featured' ,
+                            $article->is_featured ?? false
+                        )
+                        )
+                        class="mt-1 rounded border-sp-warmStone
+                        text-sp-prairieGreen
+                        focus:ring-sp-prairieGreen">
 
                         <span>
                             <span
@@ -1131,6 +1122,84 @@
                         </p>
 
                         <x-admin.forms.field-error name="seo_description" />
+                    </div>
+
+                    {{-- Open Graph Image --}}
+                    <div class="border-t border-sp-warmStone pt-6">
+
+                        <label
+                            for="og_image"
+                            class="block text-sm font-medium text-sp-charcoal">
+                            Open Graph Image
+                        </label>
+
+                        <p class="mt-1 text-xs text-sp-slate">
+                            Optional. Used when this article is shared on social media.
+                            Recommended dimensions: 1200 × 630 pixels.
+                        </p>
+
+                        {{-- Current OG Image --}}
+                        @if (isset($article) && $article->og_image_path)
+
+                        <div class="mt-4">
+
+                            <p class="text-sm font-medium text-sp-charcoal">
+                                Current Image
+                            </p>
+
+                            <img
+                                src="{{ Storage::disk('public')->url($article->og_image_path) }}"
+                                alt="Current Open Graph image for {{ $article->title }}"
+                                class="mt-2 w-full rounded-md border border-sp-warmStone">
+
+                            <label class="mt-3 flex cursor-pointer items-start gap-3">
+
+                                <input
+                                    type="checkbox"
+                                    name="remove_og_image"
+                                    id="remove_og_image"
+                                    value="1"
+                                    @checked(old('remove_og_image', false))
+                                    class="mt-1 rounded border-sp-warmStone
+                           text-sp-prairieGreen
+                           focus:ring-sp-prairieGreen">
+
+                                <span class="text-sm text-sp-charcoal">
+                                    Remove Image
+                                </span>
+
+                            </label>
+
+                        </div>
+
+                        @endif
+
+                        {{-- Upload --}}
+                        <div class="mt-4">
+
+                            <input
+                                type="file"
+                                name="og_image"
+                                id="og_image"
+                                accept="image/jpeg,image/png,image/webp"
+                                class="block w-full text-sm text-sp-charcoal
+                   file:mr-4 file:rounded-md file:border-0
+                   file:bg-sp-prairieGreen file:px-4 file:py-2
+                   file:text-sm file:font-semibold file:text-white
+                   hover:file:bg-sp-prairieOchre">
+
+                            <p class="mt-1 text-xs text-sp-slate">
+                                JPEG, PNG, or WebP.
+                                @if (isset($article) && $article->og_image_path)
+                                Leave blank to keep the current image.
+                                @endif
+                            </p>
+
+                            <x-admin.forms.field-error name="og_image" />
+                            <x-admin.forms.field-error name="remove_og_image" />
+
+                        </div>
+
                     </div>
 
                 </div>
