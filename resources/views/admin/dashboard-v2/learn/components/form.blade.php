@@ -401,42 +401,64 @@
                 </div>
                 @endif
 
-                {{-- Cover Upload --}}
-                <div class="mt-6">
+                                {{-- Cover Upload --}}
+                <div
+                    x-data="{ fileName: '' }"
+                    class="mt-6">
+
                     <label
                         for="cover_image"
                         class="block text-sm font-medium text-sp-charcoal">
                         Book Cover
                     </label>
 
+                    <div class="mt-2 flex flex-wrap items-center gap-3">
+
+                        <label
+                            for="cover_image"
+                            class="inline-flex shrink-0 cursor-pointer
+                                   items-center justify-center rounded-md
+                                   bg-sp-prairieGreen px-4 py-2
+                                   text-sm font-semibold text-white
+                                   transition-colors
+                                   hover:bg-sp-prairieOchre">
+                            Choose File
+                        </label>
+
+                        <span
+                            class="min-w-0 break-all text-sm text-sp-charcoal"
+                            x-text="fileName || 'No file chosen'">
+                        </span>
+
+                    </div>
+
                     <input
                         type="file"
                         name="cover_image"
                         id="cover_image"
                         accept="image/jpeg,image/png,image/webp"
-                        class="mt-2 block w-full min-w-0 text-sm text-sp-charcoal
-       file:mr-4 file:cursor-pointer file:rounded-md
-       file:border-0 file:bg-sp-prairieGreen
-       file:px-4 file:py-2
-       file:text-sm file:font-semibold file:text-white
-       hover:file:bg-sp-prairieOchre">
+                        class="sr-only"
+                        @change="fileName = $event.target.files[0]?.name || ''">
 
-                    <p class="mt-1 text-xs text-sp-slate">
+                    <p class="mt-2 text-xs text-sp-slate">
                         JPEG, PNG, or WebP.
+
                         @if (
-                        isset($article)
-                        && $article->bookReview
-                        && $article->bookReview->cover_image_path
+                            isset($article)
+                            && $article->bookReview
+                            && $article->bookReview->cover_image_path
                         )
-                        Leave blank to keep the current cover.
+                            Leave blank to keep the current cover.
                         @else
-                        A cover is required for Book Reviews.
+                            A cover is required for Book Reviews.
                         @endif
                     </p>
 
                     <x-admin.forms.field-error name="cover_image" />
+
                 </div>
             </div>
+                
 
             {{-- Categories --}}
             <div
