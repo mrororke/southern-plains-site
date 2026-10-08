@@ -1,19 +1,30 @@
+@php
+    $initialArticleImages = isset($article)
+        ? $article->images->map(fn ($image) => [
+            'id' => 'saved_' . $image->id,
+            'databaseId' => $image->id,
+            'fileName' => '',
+            'imagePath' => $image->image_path,
+            'altText' => $image->alt_text,
+            'caption' => $image->caption ?? '',
+            'displayType' => $image->display_type ?? 'image',
+        ])->values()->all()
+        : [];
+    if (empty($initialArticleImages)) {
+        $initialArticleImages = [[
+            'id' => 'new_1', 'databaseId' => null, 'fileName' => '',
+            'imagePath' => null, 'altText' => '', 'caption' => '', 'displayType' => 'image',
+        ]];
+    }
+@endphp
+
 <div
 
     x-data="{
 
         articleType: @js(old('type', $article->type ?? 'standard')),
 
-        articleImages: [
-
-            {
-
-                id: 1,
-                fileName: ''
-
-            }
-
-        ],
+        articleImages: @js($initialArticleImages),
 
         nextArticleImageId: 2,
 
@@ -21,8 +32,13 @@
 
             this.articleImages.push({
 
-                id: this.nextArticleImageId++,
-                fileName: ''
+                id: `new_${this.nextArticleImageId++}`,
+                databaseId: null,
+                fileName: '',
+                imagePath: null,
+                altText: '',
+                caption: '',
+                displayType: 'image'
 
             });
 
@@ -1525,6 +1541,15 @@
                             </div>
 
                             <div class="mt-4 space-y-4">
+                                <input type="hidden" :name="`article_images[${image.id}][sort_order]`" :value="index">
+                                <input type="hidden" :name="`article_images[${image.id}][id]`" :value="image.databaseId || ''">
+                                <template x-if="image.imagePath">
+                                    <div class="flex items-center gap-3">
+                                        <img :src="`{{ Storage::disk('public')->url('') }}${image.imagePath}`"
+                                             alt="Existing article image" class="h-20 w-20 rounded-md object-cover">
+                                        <span class="text-xs text-sp-slate">Current image (choose a file to replace)</span>
+                                    </div>
+                                </template>
 
                                 {{-- Image Upload --}}
                                 <div>
@@ -1552,6 +1577,7 @@
 
                                     <input
                                         type="file"
+                                        :name="`article_images[${image.id}][file]`"
                                         :id="`article_image_${image.id}`"
                                         accept="image/jpeg,image/png,image/webp"
                                         class="sr-only"
@@ -1581,7 +1607,8 @@
                                         type="text"
 
                                         :id="`article_image_alt_${image.id}`"
-
+                                        :name="`article_images[${image.id}][alt_text]`"
+                                        x-model="image.altText"
                                         autocomplete="off"
 
                                         class="mt-2 block w-full rounded-md
@@ -1623,7 +1650,8 @@
                                     <textarea
 
                                         :id="`article_image_caption_${image.id}`"
-
+                                        :name="`article_images[${image.id}][caption]`"
+                                        x-model="image.caption"
                                         rows="2"
 
                                         class="mt-2 block w-full rounded-md
@@ -1663,7 +1691,8 @@
                                     <select
 
                                         :id="`article_image_type_${image.id}`"
-
+                                        :name="`article_images[${image.id}][display_type]`"
+                                        x-model="image.displayType"
                                         class="mt-2 block w-full rounded-md
 
                                                border-sp-warmStone

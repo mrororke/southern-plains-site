@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\Admin;
-
 use App\Http\Controllers\Controller;
 use App\Models\LearnArticle;
 use App\Models\LearnCategory;
@@ -9,8 +7,8 @@ use App\Models\LearnTag;
 use App\Navigation\AdminNavigation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
-
 class LearnController extends Controller
 {
     /**
@@ -23,13 +21,11 @@ class LearnController extends Controller
             ->latest('updated_at')
             ->paginate(25)
             ->withQueryString();
-
         return view('admin.dashboard-v2.learn.index', [
             'navigation' => AdminNavigation::items(),
             'articles' => $articles,
         ]);
     }
-
     /**
      * Show the form for creating a Learn article.
      */
@@ -37,17 +33,14 @@ class LearnController extends Controller
     {
         return view('admin.dashboard-v2.learn.create', [
             'navigation' => AdminNavigation::items(),
-
             'categories' => LearnCategory::query()
                 ->orderBy('name')
                 ->get(),
-
             'tags' => LearnTag::query()
                 ->orderBy('name')
                 ->get(),
         ]);
     }
-
     /**
      * Store a newly created Learn article.
      */
@@ -96,7 +89,6 @@ class LearnController extends Controller
                 'nullable',
                 'boolean',
             ],
-
             'categories' => [
                 'nullable',
                 'array',
@@ -114,7 +106,6 @@ class LearnController extends Controller
                 'nullable',
                 'string',
             ],
-
             'tags' => [
                 'nullable',
                 'array',
@@ -128,7 +119,6 @@ class LearnController extends Controller
                 'string',
                 'max:255',
             ],
-
             'book_title' => [
                 'required_if:type,book_review',
                 'nullable',
@@ -153,22 +143,29 @@ class LearnController extends Controller
                 'mimes:jpg,jpeg,png,webp',
                 'max:5120',
             ],
-        ]);
+            'og_image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
+            'remove_og_image' => ['nullable', 'boolean'],
+            'article_images' => ['nullable', 'array'],
+            'article_images.*.id' => ['nullable', 'integer'],
+            'article_images.*.file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
+            'article_images.*.alt_text' => ['nullable', 'string', 'max:255'],
+            'article_images.*.caption' => ['nullable', 'string'],
+            'article_images.*.display_type' => ['required_with:article_images', 'in:image,figure'],
+            'article_images.*.sort_order' => ['required_with:article_images', 'integer', 'min:0'],
 
+        ]);
         /*
          * Generate a unique slug for the article.
          */
         $baseSlug = Str::slug($validated['title']);
         $slug = $baseSlug;
         $counter = 2;
-
         while (
             LearnArticle::where('slug', $slug)->exists()
         ) {
             $slug = $baseSlug . '-' . $counter;
             $counter++;
         }
-
         /*
          * Create the article.
          */
@@ -195,13 +192,11 @@ class LearnController extends Controller
                     ? now()
                     : null,
         ]);
-
         /*
          * Collect any existing categories selected
          * in the form.
          */
         $categoryIds = $validated['categories'] ?? [];
-
         /*
          * If a new category was entered, create it
          * and include it with the selected categories.
@@ -210,7 +205,6 @@ class LearnController extends Controller
             $categoryName = trim(
                 $validated['new_category_name']
             );
-
             $category = LearnCategory::firstOrCreate(
                 [
                     'slug' => Str::slug($categoryName),
@@ -222,20 +216,16 @@ class LearnController extends Controller
                         ?? null,
                 ]
             );
-
             $categoryIds[] = $category->id;
         }
-
         $article->categories()->sync(
             array_unique($categoryIds)
         );
-
         /*
          * Collect any existing tags selected
          * in the form.
          */
         $tagIds = $validated['tags'] ?? [];
-
         /*
          * If a new tag was entered, create it
          * and include it with the selected tags.
@@ -244,7 +234,6 @@ class LearnController extends Controller
             $tagName = trim(
                 $validated['new_tag_name']
             );
-
             $tag = LearnTag::firstOrCreate(
                 [
                     'slug' => Str::slug($tagName),
@@ -253,14 +242,11 @@ class LearnController extends Controller
                     'name' => $tagName,
                 ]
             );
-
             $tagIds[] = $tag->id;
         }
-
         $article->tags()->sync(
             array_unique($tagIds)
         );
-
         /*
          * Create Book Review metadata and store
          * its cover when applicable.
@@ -272,7 +258,6 @@ class LearnController extends Controller
                     'learn/book-covers',
                     'public'
                 );
-
             $article->bookReview()->create([
                 'book_title' => $validated['book_title'],
                 'book_author' => $validated['book_author'],
@@ -280,7 +265,7 @@ class LearnController extends Controller
                 'cover_image_path' => $coverPath,
             ]);
         }
-
+        $this->saveArticleMedia($request, $article, $validated);
         return redirect()
             ->route('admin.learn.index')
             ->with(
@@ -288,7 +273,6 @@ class LearnController extends Controller
                 'Article created successfully.'
             );
     }
-
     /**
      * Show the form for editing a Learn article.
      */
@@ -298,30 +282,25 @@ class LearnController extends Controller
             'categories',
             'tags',
             'bookReview',
+            'images',
         ]);
-
         return view('admin.dashboard-v2.learn.edit', [
             'navigation' => AdminNavigation::items(),
             'article' => $article,
-
             'categories' => LearnCategory::query()
                 ->orderBy('name')
                 ->get(),
-
             'selectedCategoryIds' => $article->categories
                 ->pluck('id')
                 ->all(),
-
             'tags' => LearnTag::query()
                 ->orderBy('name')
                 ->get(),
-
             'selectedTagIds' => $article->tags
                 ->pluck('id')
                 ->all(),
         ]);
     }
-
     /**
      * Update an existing Learn article.
      */
@@ -330,7 +309,6 @@ class LearnController extends Controller
         LearnArticle $article
     ) {
         $article->load('bookReview');
-
         $validated = $request->validate([
             'title' => [
                 'required',
@@ -374,7 +352,6 @@ class LearnController extends Controller
                 'nullable',
                 'boolean',
             ],
-
             'categories' => [
                 'nullable',
                 'array',
@@ -392,7 +369,6 @@ class LearnController extends Controller
                 'nullable',
                 'string',
             ],
-
             'tags' => [
                 'nullable',
                 'array',
@@ -406,7 +382,6 @@ class LearnController extends Controller
                 'string',
                 'max:255',
             ],
-
             'book_title' => [
                 'required_if:type,book_review',
                 'nullable',
@@ -433,8 +408,17 @@ class LearnController extends Controller
                 'mimes:jpg,jpeg,png,webp',
                 'max:5120',
             ],
-        ]);
+            'og_image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
+            'remove_og_image' => ['nullable', 'boolean'],
+            'article_images' => ['nullable', 'array'],
+            'article_images.*.id' => ['nullable', 'integer'],
+            'article_images.*.file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
+            'article_images.*.alt_text' => ['nullable', 'string', 'max:255'],
+            'article_images.*.caption' => ['nullable', 'string'],
+            'article_images.*.display_type' => ['required_with:article_images', 'in:image,figure'],
+            'article_images.*.sort_order' => ['required_with:article_images', 'integer', 'min:0'],
 
+        ]);
         /*
          * Generate a new slug only if the title changed.
          */
@@ -442,7 +426,6 @@ class LearnController extends Controller
             $baseSlug = Str::slug($validated['title']);
             $slug = $baseSlug;
             $counter = 2;
-
             while (
                 LearnArticle::where('slug', $slug)
                     ->whereKeyNot($article->id)
@@ -451,10 +434,8 @@ class LearnController extends Controller
                 $slug = $baseSlug . '-' . $counter;
                 $counter++;
             }
-
             $article->slug = $slug;
         }
-
         /*
          * Set the publication date the first time
          * an article becomes published.
@@ -465,7 +446,6 @@ class LearnController extends Controller
         ) {
             $article->published_at = now();
         }
-
         /*
          * Update the article.
          */
@@ -487,20 +467,16 @@ class LearnController extends Controller
                 $validated['type'] !== 'book_review'
                 && $request->boolean('is_featured'),
         ]);
-
         $article->save();
-
         /*
          * Collect any existing categories selected
          * in the form.
          */
         $categoryIds = $validated['categories'] ?? [];
-
         if (! empty($validated['new_category_name'])) {
             $categoryName = trim(
                 $validated['new_category_name']
             );
-
             $category = LearnCategory::firstOrCreate(
                 [
                     'slug' => Str::slug($categoryName),
@@ -512,25 +488,20 @@ class LearnController extends Controller
                         ?? null,
                 ]
             );
-
             $categoryIds[] = $category->id;
         }
-
         $article->categories()->sync(
             array_unique($categoryIds)
         );
-
         /*
          * Collect any existing tags selected
          * in the form.
          */
         $tagIds = $validated['tags'] ?? [];
-
         if (! empty($validated['new_tag_name'])) {
             $tagName = trim(
                 $validated['new_tag_name']
             );
-
             $tag = LearnTag::firstOrCreate(
                 [
                     'slug' => Str::slug($tagName),
@@ -539,14 +510,11 @@ class LearnController extends Controller
                     'name' => $tagName,
                 ]
             );
-
             $tagIds[] = $tag->id;
         }
-
         $article->tags()->sync(
             array_unique($tagIds)
         );
-
         /*
          * Create or update Book Review metadata.
          */
@@ -554,7 +522,6 @@ class LearnController extends Controller
             $coverPath = $article->bookReview
                 ? $article->bookReview->cover_image_path
                 : null;
-
             /*
              * Replace the existing cover when
              * a new file has been uploaded.
@@ -566,7 +533,6 @@ class LearnController extends Controller
                         'learn/book-covers',
                         'public'
                     );
-
                 if (
                     $coverPath
                     && Storage::disk('public')->exists(
@@ -577,10 +543,8 @@ class LearnController extends Controller
                         $coverPath
                     );
                 }
-
                 $coverPath = $newCoverPath;
             }
-
             $article->bookReview()->updateOrCreate(
                 [
                     'article_id' => $article->id,
@@ -599,7 +563,6 @@ class LearnController extends Controller
              */
             $coverPath =
                 $article->bookReview->cover_image_path;
-
             if (
                 $coverPath
                 && Storage::disk('public')->exists(
@@ -610,10 +573,9 @@ class LearnController extends Controller
                     $coverPath
                 );
             }
-
             $article->bookReview->delete();
         }
-
+        $this->saveArticleMedia($request, $article, $validated);
         return redirect()
             ->route('admin.learn.index')
             ->with(
@@ -621,4 +583,87 @@ class LearnController extends Controller
                 'Article updated successfully.'
             );
     }
+
+    /**
+     * Persist OG image and ordered article images. Existing images omitted from
+     * the submitted list are removed; a blank new row is ignored.
+     */
+    private function saveArticleMedia(Request $request, LearnArticle $article, array $validated): void
+    {
+        $disk = Storage::disk('public');
+        $previousOg = $article->og_image_path;
+        if ($request->hasFile('og_image')) {
+            $article->og_image_path = $request->file('og_image')->store('learn/og-images', 'public');
+            $article->save();
+            if ($previousOg) {
+                $disk->delete($previousOg);
+            }
+        } elseif ($request->boolean('remove_og_image') && $previousOg) {
+            $article->og_image_path = null;
+            $article->save();
+            $disk->delete($previousOg);
+        }
+
+        // Book reviews do not use the article-image sidebar.
+        if ($article->type === 'book_review') {
+            return;
+        }
+
+        $submitted = collect($validated['article_images'] ?? [])
+            ->sortBy('sort_order');
+        $existing = $article->images()->get()->keyBy('id');
+        $retained = [];
+        $filesToDelete = [];
+        $position = 0;
+
+        DB::transaction(function () use ($submitted, $request, $article, $existing, &$retained, &$filesToDelete, &$position) {
+            foreach ($submitted as $rowKey => $row) {
+                $id = isset($row['id']) ? (int) $row['id'] : null;
+                $image = $id ? $existing->get($id) : null;
+                if ($id && ! $image) {
+                    abort(422, 'An article image does not belong to this article.');
+                }
+
+                // Uploaded file stays tied to the stable Alpine row key.
+                $upload = $request->file('article_images.' . $rowKey . '.file');
+                if (! $image && ! $upload) {
+                    continue;
+                }
+                $alt = trim($row['alt_text'] ?? '');
+                if ($alt === '') {
+                    throw \Illuminate\Validation\ValidationException::withMessages([
+                        'article_images' => 'Alt text is required for every uploaded article image.',
+                    ]);
+                }
+                if (! $image) {
+                    $image = $article->images()->make();
+                }
+                if ($upload) {
+                    $newPath = $upload->store('learn/article-images', 'public');
+                    if ($image->image_path) {
+                        $filesToDelete[] = $image->image_path;
+                    }
+                    $image->image_path = $newPath;
+                }
+                $image->alt_text = $alt;
+                $image->caption = $row['caption'] ?? null;
+                $image->display_type = $row['display_type'] ?? 'image';
+                $image->sort_order = $position++;
+                $image->save();
+                $retained[] = $image->id;
+            }
+            foreach ($existing as $oldImage) {
+                if (! in_array($oldImage->id, $retained, true)) {
+                    $filesToDelete[] = $oldImage->image_path;
+                    $oldImage->delete();
+                }
+            }
+        });
+        foreach ($filesToDelete as $path) {
+            if ($path) {
+                $disk->delete($path);
+            }
+        }
+    }
+
 }
