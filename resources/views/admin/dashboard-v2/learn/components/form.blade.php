@@ -1124,121 +1124,127 @@
                         <x-admin.forms.field-error name="seo_description" />
                     </div>
 
-                    {{-- Open Graph Image --}}
-                    <div class="border-t border-sp-warmStone pt-6">
+                    {{-- Current OG Image --}}
+                    @if (isset($article) && $article->og_image_path)
 
-                        <label
-                            for="og_image"
-                            class="block text-sm font-medium text-sp-charcoal">
-                            Open Graph Image
-                        </label>
+                    <div class="mt-4">
 
-                        <p class="mt-1 text-xs text-sp-slate">
-                            Optional. Used when this article is shared on social media.
-                            Recommended dimensions: 1200 × 630 pixels.
+                        <p class="text-sm font-medium text-sp-charcoal">
+                            Current Image
                         </p>
 
-                        {{-- Current OG Image --}}
-                        @if (isset($article) && $article->og_image_path)
+                        <img
+                            src="{{ Storage::disk('public')->url($article->og_image_path) }}"
+                            alt="Current Open Graph image for {{ $article->title }}"
+                            class="mt-2 w-full rounded-md border border-sp-warmStone">
 
-                        <div class="mt-4">
-
-                            <p class="text-sm font-medium text-sp-charcoal">
-                                Current Image
-                            </p>
-
-                            <img
-                                src="{{ Storage::disk('public')->url($article->og_image_path) }}"
-                                alt="Current Open Graph image for {{ $article->title }}"
-                                class="mt-2 w-full rounded-md border border-sp-warmStone">
-
-                            <label class="mt-3 flex cursor-pointer items-start gap-3">
-
-                                <input
-                                    type="checkbox"
-                                    name="remove_og_image"
-                                    id="remove_og_image"
-                                    value="1"
-                                    @checked(old('remove_og_image', false))
-                                    class="mt-1 rounded border-sp-warmStone
-                           text-sp-prairieGreen
-                           focus:ring-sp-prairieGreen">
-
-                                <span class="text-sm text-sp-charcoal">
-                                    Remove Image
-                                </span>
-
-                            </label>
-
-                        </div>
-
-                        @endif
-
-                        {{-- Upload --}}
-                        <div class="mt-4">
+                        <label class="mt-3 flex cursor-pointer items-start gap-3">
 
                             <input
-                                type="file"
-                                name="og_image"
-                                id="og_image"
-                                accept="image/jpeg,image/png,image/webp"
-                                class="mt-2 block w-full min-w-0 text-sm text-sp-charcoal
-       file:mr-4 file:cursor-pointer file:rounded-md
-       file:border-0 file:bg-sp-prairieGreen
-       file:px-4 file:py-2
-       file:text-sm file:font-semibold file:text-white
-       hover:file:bg-sp-prairieOchre"">
+                                type="checkbox"
+                                name="remove_og_image"
+                                id="remove_og_image"
+                                value="1"
+                                @checked(old('remove_og_image', false))
+                                class="mt-1 rounded border-sp-warmStone
+                                           text-sp-prairieGreen
+                                           focus:ring-sp-prairieGreen">
 
-                            <p class="mt-1 text-xs text-sp-slate">
-                                JPEG, PNG, or WebP.
-                                @if (isset($article) && $article->og_image_path)
-                                Leave blank to keep the current image.
-                                @endif
-                            </p>
+                            <span class="text-sm text-sp-charcoal">
+                                Remove Image
+                            </span>
 
-                            <x-admin.forms.field-error name="og_image" />
-                            <x-admin.forms.field-error name="remove_og_image" />
+                        </label>
+
+                    </div>
+
+                    @endif
+
+                    {{-- Upload --}}
+                    <div
+                        x-data="{ fileName: '' }"
+                        class="mt-4">
+
+                        <div class="flex flex-wrap items-center gap-3">
+
+                            <label
+                                for="og_image"
+                                class="inline-flex shrink-0 cursor-pointer
+                                       items-center justify-center rounded-md
+                                       bg-sp-prairieGreen px-4 py-2
+                                       text-sm font-semibold text-white
+                                       transition-colors
+                                       hover:bg-sp-prairieOchre">
+                                Choose File
+                            </label>
+
+                            <span
+                                class="min-w-0 break-all text-sm text-sp-charcoal"
+                                x-text="fileName || 'No file chosen'">
+                            </span>
 
                         </div>
+
+                        <input
+                            type="file"
+                            name="og_image"
+                            id="og_image"
+                            accept="image/jpeg,image/png,image/webp"
+                            class="sr-only"
+                            @change="fileName = $event.target.files[0]?.name || ''">
+
+                        <p class="mt-2 text-xs text-sp-slate">
+                            JPEG, PNG, or WebP.
+
+                            @if (isset($article) && $article->og_image_path)
+                            Leave blank to keep the current image.
+                            @endif
+                        </p>
+
+                        <x-admin.forms.field-error name="og_image" />
+                        <x-admin.forms.field-error name="remove_og_image" />
 
                     </div>
 
                 </div>
-            </section>
 
-            {{-- Actions --}}
-            <section
-                class="rounded-md border border-sp-warmStone
+    </div>
+
+    </section>
+
+    {{-- Actions --}}
+    <section
+        class="rounded-md border border-sp-warmStone
                        bg-sp-warmIvory p-6
                        xl:sticky xl:top-6">
 
-                <div class="flex flex-col gap-3">
+        <div class="flex flex-col gap-3">
 
-                    <button
-                        type="submit"
-                        class="inline-flex w-full items-center justify-center
+            <button
+                type="submit"
+                class="inline-flex w-full items-center justify-center
                                rounded-md bg-sp-prairieGreen px-4 py-2
                                text-sm font-semibold
                                text-sp-warmIvory
                                hover:bg-sp-prairieOchre">
-                        Save Article
-                    </button>
+                Save Article
+            </button>
 
-                    <a
-                        href="{{ route('admin.learn.index') }}"
-                        class="inline-flex w-full items-center justify-center
+            <a
+                href="{{ route('admin.learn.index') }}"
+                class="inline-flex w-full items-center justify-center
                                rounded-md border border-sp-warmStone
                                px-4 py-2 text-sm font-semibold
                                text-sp-charcoal
                                hover:bg-sp-limestone/20">
-                        Cancel
-                    </a>
+                Cancel
+            </a>
 
-                </div>
-            </section>
+        </div>
+    </section>
 
-        </aside>
+    </aside>
 
-    </div>
+</div>
 
 </div>
