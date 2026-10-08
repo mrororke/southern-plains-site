@@ -414,11 +414,12 @@
                         name="cover_image"
                         id="cover_image"
                         accept="image/jpeg,image/png,image/webp"
-                        class="mt-2 block w-full text-sm text-sp-charcoal
-                               file:mr-4 file:rounded-md file:border-0
-                               file:bg-sp-prairieGreen file:px-4 file:py-2
-                               file:text-sm file:font-semibold file:text-white
-                               hover:file:bg-sp-prairieOchre">
+                        class="mt-2 block w-full min-w-0 text-sm text-sp-charcoal
+       file:mr-4 file:cursor-pointer file:rounded-md
+       file:border-0 file:bg-sp-prairieGreen
+       file:px-4 file:py-2
+       file:text-sm file:font-semibold file:text-white
+       hover:file:bg-sp-prairieOchre">
 
                     <p class="mt-1 text-xs text-sp-slate">
                         JPEG, PNG, or WebP.
@@ -891,13 +892,12 @@
                                         type="file"
                                         :id="`article_image_${image.id}`"
                                         accept="image/jpeg,image/png,image/webp"
-                                        class="mt-2 block w-full text-sm text-sp-charcoal
-                                               file:mr-3 file:rounded-md file:border-0
-                                               file:bg-sp-prairieGreen
-                                               file:px-3 file:py-2
-                                               file:text-xs file:font-semibold
-                                               file:text-white
-                                               hover:file:bg-sp-prairieOchre">
+                                        class="mt-2 block w-full min-w-0 text-sm text-sp-charcoal
+       file:mr-4 file:cursor-pointer file:rounded-md
+       file:border-0 file:bg-sp-prairieGreen
+       file:px-4 file:py-2
+       file:text-sm file:font-semibold file:text-white
+       hover:file:bg-sp-prairieOchre">
 
                                     <p class="mt-1 text-xs text-sp-slate">
                                         JPEG, PNG, or WebP.
@@ -1182,11 +1182,12 @@
                                 name="og_image"
                                 id="og_image"
                                 accept="image/jpeg,image/png,image/webp"
-                                class="block w-full text-sm text-sp-charcoal
-                   file:mr-4 file:rounded-md file:border-0
-                   file:bg-sp-prairieGreen file:px-4 file:py-2
-                   file:text-sm file:font-semibold file:text-white
-                   hover:file:bg-sp-prairieOchre">
+                                class="mt-2 block w-full min-w-0 text-sm text-sp-charcoal
+       file:mr-4 file:cursor-pointer file:rounded-md
+       file:border-0 file:bg-sp-prairieGreen
+       file:px-4 file:py-2
+       file:text-sm file:font-semibold file:text-white
+       hover:file:bg-sp-prairieOchre"">
 
                             <p class="mt-1 text-xs text-sp-slate">
                                 JPEG, PNG, or WebP.
