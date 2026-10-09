@@ -54,7 +54,7 @@
 
                 </h2>
 
-                <p class="body text-sp-slate mt-6 md:body-large">
+                <p class="body-small text-sp-slate mt-6 md:body-large">
                     {{ $description }}
                 </p>
 
