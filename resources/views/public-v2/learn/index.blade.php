@@ -33,6 +33,7 @@
 
     {{-- Featured Article --}}
     @if ($featuredArticle)
+
         @php
             $featuredImage = $featuredArticle->images->first();
 
@@ -53,6 +54,7 @@
             :href="route('public-v2.learn.show', $featuredArticle->slug)"
             :link-label="$featuredArticle->type === 'guide' ? 'Read the Guide' : 'Read the Article'"
         />
+
     @endif
     {{-- End Featured Article --}}
 
@@ -110,6 +112,7 @@
         @empty
 
             <div class="col-span-12 py-16 text-center">
+
                 <h2 class="font-sans text-2xl font-semibold text-sp-charcoal">
                     More to explore soon
                 </h2>
@@ -117,6 +120,7 @@
                 <p class="body text-sp-slate mt-4">
                     New articles and resources are on their way.
                 </p>
+
             </div>
 
         @endforelse
@@ -126,11 +130,7 @@
 
 
     {{-- Pagination --}}
-    @if ($articles->hasPages())
-        <div class="px-6 pb-12 md:px-8 md:pb-16">
-            {{ $articles->links() }}
-        </div>
-    @endif
+    <x-public-v2.learn-pagination :paginator="$articles" />
     {{-- End Pagination --}}
 
 

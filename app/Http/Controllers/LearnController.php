@@ -87,7 +87,7 @@ class LearnController extends Controller
             ])
             ->orderByDesc('published_at')
             ->orderByDesc('id')
-            ->paginate(12)
+            ->paginate(1)
             ->withQueryString();
 
         return view('public-v2.learn.index', [
