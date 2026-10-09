@@ -11,13 +11,25 @@
 
     @foreach ($tags as $tag)
 
-        <a
-            href="{{ route('public-v2.learn.index', ['tag' => $tag['slug']]) }}"
-            class="inline-flex items-center rounded-full bg-sp-limestone px-4 py-2 text-xs text-sp-prairieGreen transition-colors hover:bg-sp-prairieGreen hover:text-sp-warmIvory focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sp-prairieGreen">
+        @php
+            $tagName = is_array($tag)
+                ? ($tag['name'] ?? '')
+                : (is_object($tag) ? ($tag->name ?? '') : (string) $tag);
 
-            {{ $tag['name'] }}
+            $tagSlug = is_array($tag)
+                ? ($tag['slug'] ?? '')
+                : (is_object($tag) ? ($tag->slug ?? '') : \Illuminate\Support\Str::slug($tagName));
+        @endphp
 
-        </a>
+        @if ($tagName !== '' && $tagSlug !== '')
+            <a
+                href="{{ route('public-v2.learn.index', ['tag' => $tagSlug]) }}"
+                class="inline-flex items-center rounded-full bg-sp-limestone px-4 py-2 text-xs text-sp-prairieGreen transition-colors hover:bg-sp-prairieGreen hover:text-sp-warmIvory focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sp-prairieGreen">
+
+                {{ $tagName }}
+
+            </a>
+        @endif
 
     @endforeach
 
