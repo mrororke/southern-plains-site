@@ -409,20 +409,21 @@ Route::middleware(['auth', 'device'])
 |--------------------------------------------------------------------------
 */
 
-Route::get('/learn', [AdminLearnController::class, 'index'])
-    ->name('learn.index');
+        Route::get('/learn', [AdminLearnController::class, 'index'])
+            ->name('learn.index');
 
-Route::get('/learn/create', [AdminLearnController::class, 'create'])
-    ->name('learn.create');
+        Route::get('/learn/create', [AdminLearnController::class, 'create'])
+            ->name('learn.create');
 
-Route::post('/learn', [AdminLearnController::class, 'store'])
-    ->name('learn.store');
+        Route::post('/learn', [AdminLearnController::class, 'store'])
+            ->name('learn.store');
 
-Route::get('/learn/{article}/edit', [AdminLearnController::class, 'edit'])
-    ->name('learn.edit');
+        Route::get('/learn/{article}/edit', [AdminLearnController::class, 'edit'])
+            ->name('learn.edit');
 
-Route::put('/learn/{article}', [AdminLearnController::class, 'update'])
-    ->name('learn.update');
+        Route::put('/learn/{article}', [AdminLearnController::class, 'update'])
+            ->name('learn.update');
+    });
 
 
 /*
