@@ -6,7 +6,7 @@
 ])
 
 {{-- Article Metadata --}}
-<ul class="flex flex-wrap items-center gap-x-8 gap-y-3 mt-6 text-sp-slate">
+<ul class="flex flex-wrap items-start gap-x-8 gap-y-3 mt-6 text-sp-slate">
 
     <li class="flex items-center gap-2">
 
