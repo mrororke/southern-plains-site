@@ -79,12 +79,6 @@
                 :updated="$updatedDate" />
             {{-- End Article Metadata --}}
 
-            @if ($article->excerpt)
-                <p class="body text-sp-slate mt-4">
-                    {{ $article->excerpt }}
-                </p>
-            @endif
-
         </div>
 
     </div>
