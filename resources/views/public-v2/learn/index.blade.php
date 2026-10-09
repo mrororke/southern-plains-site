@@ -3,109 +3,166 @@
 {{-- Learn Hero --}}
 @section('hero')
 
-<x-public-v2.learn-hero
-    :filters="[
-        [
-            'label' => 'All',
-            'href' => '#',
-            'active' => true,
-        ],
-        [
-            'label' => 'Dog Sports',
-            'href' => '#',
-        ],
-        [
-            'label' => 'Handler Insights',
-            'href' => '#',
-        ],
-        [
-            'label' => 'Training Tips',
-            'href' => '#',
-        ],
-        [
-            'label' => 'Book Reviews',
-            'href' => '#',
-        ],
-    ]" />
+    @php
+        $filters = [
+            [
+                'label' => 'All',
+                'href' => route('public-v2.learn.index'),
+                'active' => ! request()->filled('category'),
+            ],
+        ];
+
+        foreach (\App\Models\LearnCategory::query()->orderBy('name')->get() as $category) {
+            $filters[] = [
+                'label' => $category->name,
+                'href' => route('public-v2.learn.index', [
+                    'category' => $category->slug,
+                ]),
+                'active' => request('category') === $category->slug,
+            ];
+        }
+    @endphp
+
+    <x-public-v2.learn-hero :filters="$filters" />
 
 @endsection
 {{-- End Learn Hero --}}
 
 
 @section('content')
-{{-- Featured Article --}}
-<x-public-v2.learn-featured
-    image="{{ asset('images/learn/what-is-nasda/featured.jpg') }}"
-    image-alt="Hamish, a black and white Sheltie, investigating a NASDA quarry box."
-    category="Dog Sports 101"
-    title="What Is NASDA, Anyway?"
-    description="From searching for lost objects to trailing and locating rats, NASDA lets dogs use their noses, independence, and problem solving skills in exciting and rewarding ways."
-    :href="route('public-v2.learn.guide')"
-    link-label="Read the Guide" />
-{{-- End Featured Article --}}
 
-{{-- Learn Articles --}}
-<section class="grid grid-cols-12 items-start gap-6 px-6 pb-12 md:px-8 md:pb-16">
+    {{-- Featured Article --}}
+    @if ($featuredArticle)
+        @php
+            $featuredImage = $featuredArticle->images->first();
 
-    {{-- Standard Article Card --}}
-    <x-public-v2.learn-standard-card
-        image="{{ asset('images/learn/what-is-nasda/featured.jpg') }}"
-        image-alt="Hamish, a black and white Sheltie, investigating a NASDA quarry box."
-        category="Dog Sports 101"
-        title="What Is NASDA, Anyway?"
-        description="From searching for lost objects to trailing and locating rats, NASDA lets dogs use their noses, independence, and problem solving skills in exciting and rewarding ways."
-        :href="route('public-v2.learn.guide')"
-        link-label="Read the Guide" />
+            $featuredImageUrl = $featuredImage
+                ? \Illuminate\Support\Facades\Storage::disk('public')->url($featuredImage->image_path)
+                : asset('images/og/home.jpg');
 
-    {{-- Book Review Card --}}
-    <x-public-v2.learn-book-card
-        image="{{ asset('images/learn/book-reviews/one-on-one.jpg') }}"
-        image-alt="Cover of One on One: A Dog Trainer’s Guide to Private Lessons by Nicole Wilde."
-        category="Book Review"
-        title="One on One"
-        description="A practical guide to private dog training lessons, from working with clients to structuring sessions and building a successful training relationship."
-        href="#"
-        link-label="Read the Review" />
+            $featuredCategory = $featuredArticle->categories->first()?->name
+                ?? 'Learn';
+        @endphp
 
-</section>
-{{-- End Learn Articles --}}
+        <x-public-v2.learn-featured
+            :image="$featuredImageUrl"
+            :image-alt="$featuredImage?->alt_text ?? $featuredArticle->title"
+            :category="$featuredCategory"
+            :title="$featuredArticle->title"
+            :description="$featuredArticle->excerpt ?? ''"
+            :href="route('public-v2.learn.show', $featuredArticle->slug)"
+            :link-label="$featuredArticle->type === 'guide' ? 'Read the Guide' : 'Read the Article'"
+        />
+    @endif
+    {{-- End Featured Article --}}
 
 
-{{-- Pagination --}}
-<x-public-v2.learn-pagination
-    current-page="1"
-    last-page="10" />
-{{-- End Pagination --}}
+    {{-- Learn Articles --}}
+    <section class="grid grid-cols-12 items-start gap-6 px-6 pb-12 md:px-8 md:pb-16">
 
-{{-- Browse by Topic --}}
-<x-public-v2.learn-topics
-    :topics="[
-        [
-            'label' => 'NASDA',
-            'href' => '#',
-        ],
-        [
-            'label' => 'Reactive Dogs',
-            'href' => '#',
-        ],
-        [
-            'label' => 'Trick Dog',
-            'href' => '#',
-        ],
-        [
-            'label' => 'Private Training',
-            'href' => '#',
-        ],
-        [
-            'label' => 'First Trials',
-            'href' => '#',
-        ],
-        [
-            'label' => 'Resource Roundup',
-            'href' => '#',
-        ],
-    ]" />
-{{-- End Browse by Topic --}}
+        @forelse ($articles as $article)
 
+            @if ($article->type === 'book_review')
+
+                @php
+                    $bookCover = $article->bookReview?->cover_image_path;
+
+                    $bookImageUrl = $bookCover
+                        ? \Illuminate\Support\Facades\Storage::disk('public')->url($bookCover)
+                        : asset('images/og/home.jpg');
+                @endphp
+
+                <x-public-v2.learn-book-card
+                    :image="$bookImageUrl"
+                    :image-alt="'Cover of ' . ($article->bookReview?->book_title ?? $article->title)"
+                    category="Book Review"
+                    :title="$article->title"
+                    :description="$article->excerpt ?? ''"
+                    :href="route('public-v2.learn.show', $article->slug)"
+                    link-label="Read the Review"
+                />
+
+            @else
+
+                @php
+                    $articleImage = $article->images->first();
+
+                    $articleImageUrl = $articleImage
+                        ? \Illuminate\Support\Facades\Storage::disk('public')->url($articleImage->image_path)
+                        : asset('images/og/home.jpg');
+
+                    $articleCategory = $article->categories->first()?->name
+                        ?? 'Learn';
+                @endphp
+
+                <x-public-v2.learn-standard-card
+                    :image="$articleImageUrl"
+                    :image-alt="$articleImage?->alt_text ?? $article->title"
+                    :category="$articleCategory"
+                    :title="$article->title"
+                    :description="$article->excerpt ?? ''"
+                    :href="route('public-v2.learn.show', $article->slug)"
+                    :link-label="$article->type === 'guide' ? 'Read the Guide' : 'Read the Article'"
+                />
+
+            @endif
+
+        @empty
+
+            <div class="col-span-12 py-16 text-center">
+                <h2 class="font-sans text-2xl font-semibold text-sp-charcoal">
+                    More to explore soon
+                </h2>
+
+                <p class="body text-sp-slate mt-4">
+                    New articles and resources are on their way.
+                </p>
+            </div>
+
+        @endforelse
+
+    </section>
+    {{-- End Learn Articles --}}
+
+
+    {{-- Pagination --}}
+    @if ($articles->hasPages())
+        <div class="px-6 pb-12 md:px-8 md:pb-16">
+            {{ $articles->links() }}
+        </div>
+    @endif
+    {{-- End Pagination --}}
+
+
+    {{-- Browse by Topic --}}
+    <x-public-v2.learn-topics
+        :topics="[
+            [
+                'label' => 'NASDA',
+                'href' => '#',
+            ],
+            [
+                'label' => 'Reactive Dogs',
+                'href' => '#',
+            ],
+            [
+                'label' => 'Trick Dog',
+                'href' => '#',
+            ],
+            [
+                'label' => 'Private Training',
+                'href' => '#',
+            ],
+            [
+                'label' => 'First Trials',
+                'href' => '#',
+            ],
+            [
+                'label' => 'Resource Roundup',
+                'href' => '#',
+            ],
+        ]"
+    />
+    {{-- End Browse by Topic --}}
 
 @endsection

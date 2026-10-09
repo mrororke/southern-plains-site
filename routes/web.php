@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\TrickCatalogController;
 
 use App\Http\Controllers\Admin\BackendSearchController;
 use App\Http\Controllers\Admin\ResourceLibrary\ResourceController;
+use App\Http\Controllers\LearnController;
 use App\Http\Controllers\Admin\LearnController;
 
 use App\Http\Controllers\Admin\TrickEvaluationController as AdminTrickEvaluationController;
@@ -60,17 +61,11 @@ Route::prefix('v2')
         Route::view('/dog-sports', 'public-v2.pages.dog-sports')
             ->name('dog-sports');
 
-        Route::view('/learn', 'public-v2.learn.index')
+        Route::get('/learn', [LearnController::class, 'index'])
             ->name('learn.index');
 
-        Route::view('/learn/what-is-nasda', 'public-v2.learn.guide')
-            ->name('learn.guide');
-
-        Route::view('/learn/the-legacy-of-luka', 'public-v2.learn.article')
-            ->name('learn.article');
-
-        Route::view('/learn/book-review/one-on-one', 'public-v2.learn.book-review')
-            ->name('learn.book-review');
+        Route::get('/learn/{article:slug}', [LearnController::class, 'show'])
+            ->name('learn.show');
 
         Route::view('/events', 'public-v2.events.index')
             ->name('events.index');
@@ -408,7 +403,7 @@ Route::middleware(['auth', 'device'])
         )->name('resource-library.show');
 
 
-            /*
+        /*
         |--------------------------------------------------------------------------
         | Learn
         |--------------------------------------------------------------------------
@@ -428,8 +423,6 @@ Route::middleware(['auth', 'device'])
 
         Route::put('/learn/{article}', [LearnController::class, 'update'])
             ->name('learn.update');
-
-    
     });
 
 
