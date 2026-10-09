@@ -166,42 +166,16 @@ class LearnController extends Controller
         ]);
 
         /*
-         * Find related published articles.
+         * Load manually selected Keep Learning articles.
+         *
+         * Only published articles are displayed.
+         * Results are ordered newest first.
+         * No automatic recommendations or fallback.
          */
-        $categoryIds = $article->categories->pluck('id');
-        $tagIds = $article->tags->pluck('id');
-
-        $relatedArticles = LearnArticle::query()
-            ->whereKeyNot($article->id)
+        $relatedArticles = $article->relatedArticles()
             ->where('status', 'published')
             ->whereNotNull('published_at')
             ->where('published_at', '<=', now())
-            ->when(
-                $categoryIds->isNotEmpty() || $tagIds->isNotEmpty(),
-                function ($query) use ($categoryIds, $tagIds) {
-                    $query->where(function ($query) use ($categoryIds, $tagIds) {
-                        if ($categoryIds->isNotEmpty()) {
-                            $query->whereHas(
-                                'categories',
-                                fn ($categoryQuery) => $categoryQuery
-                                    ->whereIn('learn_categories.id', $categoryIds)
-                            );
-                        }
-
-                        if ($tagIds->isNotEmpty()) {
-                            $method = $categoryIds->isNotEmpty()
-                                ? 'orWhereHas'
-                                : 'whereHas';
-
-                            $query->{$method}(
-                                'tags',
-                                fn ($tagQuery) => $tagQuery
-                                    ->whereIn('learn_tags.id', $tagIds)
-                            );
-                        }
-                    });
-                }
-            )
             ->with([
                 'categories',
                 'tags',
@@ -209,6 +183,7 @@ class LearnController extends Controller
                 'bookReview',
             ])
             ->orderByDesc('published_at')
+            ->orderByDesc('learn_articles.id')
             ->limit(4)
             ->get();
 

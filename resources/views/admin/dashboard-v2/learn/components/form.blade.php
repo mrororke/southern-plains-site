@@ -1448,6 +1448,29 @@
 
             </section>
 
+            {{-- Keep Learning --}}
+            <section class="rounded-md border border-sp-warmStone bg-sp-warmIvory p-6">
+                <h2 class="font-sans text-lg font-semibold text-sp-charcoal">
+                    Keep Learning
+                </h2>
+                <p class="mt-1 text-sm text-sp-slate">
+                    Select up to four articles to recommend. Published selections
+                    appear newest first. Leave empty to show no recommendations.
+                </p>
+                <div class="mt-6">
+                    <x-admin.forms.searchable-selector
+                        label="Related Articles"
+                        name="related_articles"
+                        :items="$availableRelatedArticles"
+                        :selected="old('related_articles', $selectedRelatedArticleIds ?? [])"
+                        search-placeholder="Search articles..."
+                        empty-message="No other published articles available.">
+                        <x-admin.forms.field-error name="related_articles" />
+                        <x-admin.forms.field-error name="related_articles.*" />
+                    </x-admin.forms.searchable-selector>
+                </div>
+            </section>
+
             {{-- Article Images --}}
 
             <section

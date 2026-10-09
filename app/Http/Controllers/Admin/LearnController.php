@@ -39,6 +39,14 @@ class LearnController extends Controller
             'tags' => LearnTag::query()
                 ->orderBy('name')
                 ->get(),
+            'availableRelatedArticles' => LearnArticle::query()
+                ->where('status', 'published')
+                ->whereNotNull('published_at')
+                ->where('published_at', '<=', now())
+                ->orderByDesc('published_at')
+                ->orderByDesc('id')
+                ->get(),
+            'selectedRelatedArticleIds' => [],
         ]);
     }
     /**
@@ -47,6 +55,8 @@ class LearnController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
+            'related_articles' => ['nullable', 'array', 'max:4'],
+            'related_articles.*' => ['integer', 'distinct', 'exists:learn_articles,id'],
             'title' => [
                 'required',
                 'string',
@@ -152,7 +162,6 @@ class LearnController extends Controller
             'article_images.*.caption' => ['nullable', 'string'],
             'article_images.*.display_type' => ['required_with:article_images', 'in:image,figure'],
             'article_images.*.sort_order' => ['required_with:article_images', 'integer', 'min:0'],
-
         ]);
         /*
          * Generate a unique slug for the article.
@@ -247,6 +256,7 @@ class LearnController extends Controller
         $article->tags()->sync(
             array_unique($tagIds)
         );
+        $article->relatedArticles()->sync($validated['related_articles'] ?? []);
         /*
          * Create Book Review metadata and store
          * its cover when applicable.
@@ -299,6 +309,17 @@ class LearnController extends Controller
             'selectedTagIds' => $article->tags
                 ->pluck('id')
                 ->all(),
+            'availableRelatedArticles' => LearnArticle::query()
+                ->whereKeyNot($article->id)
+                ->where('status', 'published')
+                ->whereNotNull('published_at')
+                ->where('published_at', '<=', now())
+                ->orderByDesc('published_at')
+                ->orderByDesc('id')
+                ->get(),
+            'selectedRelatedArticleIds' => $article->relatedArticles()
+                ->pluck('learn_articles.id')
+                ->all(),
         ]);
     }
     /**
@@ -310,6 +331,8 @@ class LearnController extends Controller
     ) {
         $article->load('bookReview');
         $validated = $request->validate([
+            'related_articles' => ['nullable', 'array', 'max:4'],
+            'related_articles.*' => ['integer', 'distinct', 'exists:learn_articles,id'],
             'title' => [
                 'required',
                 'string',
@@ -417,8 +440,12 @@ class LearnController extends Controller
             'article_images.*.caption' => ['nullable', 'string'],
             'article_images.*.display_type' => ['required_with:article_images', 'in:image,figure'],
             'article_images.*.sort_order' => ['required_with:article_images', 'integer', 'min:0'],
-
         ]);
+        if (in_array($article->id, $validated['related_articles'] ?? [], false)) {
+            throw \Illuminate\Validation\ValidationException::withMessages([
+                'related_articles' => 'An article cannot recommend itself.',
+            ]);
+        }
         /*
          * Generate a new slug only if the title changed.
          */
@@ -515,6 +542,7 @@ class LearnController extends Controller
         $article->tags()->sync(
             array_unique($tagIds)
         );
+        $article->relatedArticles()->sync($validated['related_articles'] ?? []);
         /*
          * Create or update Book Review metadata.
          */
@@ -583,7 +611,6 @@ class LearnController extends Controller
                 'Article updated successfully.'
             );
     }
-
     /**
      * Persist OG image and ordered article images. Existing images omitted from
      * the submitted list are removed; a blank new row is ignored.
@@ -603,19 +630,16 @@ class LearnController extends Controller
             $article->save();
             $disk->delete($previousOg);
         }
-
         // Book reviews do not use the article-image sidebar.
         if ($article->type === 'book_review') {
             return;
         }
-
         $submitted = collect($validated['article_images'] ?? [])
             ->sortBy('sort_order');
         $existing = $article->images()->get()->keyBy('id');
         $retained = [];
         $filesToDelete = [];
         $position = 0;
-
         DB::transaction(function () use ($submitted, $request, $article, $existing, &$retained, &$filesToDelete, &$position) {
             foreach ($submitted as $rowKey => $row) {
                 $id = isset($row['id']) ? (int) $row['id'] : null;
@@ -623,7 +647,6 @@ class LearnController extends Controller
                 if ($id && ! $image) {
                     abort(422, 'An article image does not belong to this article.');
                 }
-
                 // Uploaded file stays tied to the stable Alpine row key.
                 $upload = $request->file('article_images.' . $rowKey . '.file');
                 if (! $image && ! $upload) {
@@ -665,5 +688,4 @@ class LearnController extends Controller
             }
         }
     }
-
 }

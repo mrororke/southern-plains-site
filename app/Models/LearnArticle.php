@@ -55,6 +55,16 @@ class LearnArticle extends Model
         )->withTimestamps();
     }
 
+    public function relatedArticles(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            self::class,
+            'learn_article_related',
+            'article_id',
+            'related_article_id'
+        )->withTimestamps();
+    }
+
     public function images(): HasMany
     {
         return $this->hasMany(
@@ -71,9 +81,6 @@ class LearnArticle extends Model
         );
     }
 
-    /**
-     * Calculate estimated reading time from article content.
-     */
     public function getReadingTimeAttribute(): string
     {
         $plainText = trim(
@@ -85,7 +92,6 @@ class LearnArticle extends Model
         );
 
         $wordCount = str_word_count($plainText);
-
         $minutes = max(1, (int) ceil($wordCount / 200));
 
         return $minutes . ' min read';

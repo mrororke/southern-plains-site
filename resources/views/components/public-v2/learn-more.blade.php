@@ -4,8 +4,6 @@
 ])
 
 {{-- Learn More --}}
-
-<!-- TODO: Have this bring in content dynamically, maybe based on tags or categories -->
 <section class="mt-16 md:mt-20">
 
     <div class="grid grid-cols-12 gap-6">
@@ -41,17 +39,31 @@
 
                     <article class="rounded-md border border-sp-warmStone p-5">
 
-                        <img
-                            src="{{ $item['image'] }}"
-                            alt="{{ $item['image_alt'] }}"
-                            class="block w-full aspect-[16/9] object-cover rounded-md">
+                        <a
+                            href="{{ $item['href'] }}"
+                            class="block rounded-md focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sp-prairieGreen">
+
+                            <img
+                                src="{{ $item['image'] }}"
+                                alt="{{ $item['image_alt'] }}"
+                                class="block w-full aspect-[16/9] object-cover rounded-md">
+
+                        </a>
 
                         <p class="font-display text-sm text-sp-prairieOchre uppercase mt-6">
                             {{ $item['category'] }}
                         </p>
 
-                        <h3 class="font-sans text-lg font-semibold text-sp-charcoal mt-2">
-                            {{ $item['title'] }}
+                        <h3 class="font-sans text-lg font-semibold mt-2">
+
+                            <a
+                                href="{{ $item['href'] }}"
+                                class="text-sp-charcoal transition-colors hover:text-sp-prairieGreen focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sp-prairieGreen">
+
+                                {{ $item['title'] }}
+
+                            </a>
+
                         </h3>
 
                         <p class="body-small text-sp-slate mt-4">
