@@ -45,7 +45,11 @@ class LearnController extends Controller
                 ->where('published_at', '<=', now())
                 ->orderByDesc('published_at')
                 ->orderByDesc('id')
-                ->get(),
+                ->get()
+                ->map(fn (LearnArticle $relatedArticle) => (object) [
+                    'id' => $relatedArticle->id,
+                    'name' => $relatedArticle->title,
+                ]),
             'selectedRelatedArticleIds' => [],
         ]);
     }
@@ -316,7 +320,11 @@ class LearnController extends Controller
                 ->where('published_at', '<=', now())
                 ->orderByDesc('published_at')
                 ->orderByDesc('id')
-                ->get(),
+                ->get()
+                ->map(fn (LearnArticle $relatedArticle) => (object) [
+                    'id' => $relatedArticle->id,
+                    'name' => $relatedArticle->title,
+                ]),
             'selectedRelatedArticleIds' => $article->relatedArticles()
                 ->pluck('learn_articles.id')
                 ->all(),
