@@ -760,3 +760,102 @@ ul.footer-nav li:hover {
     @apply text-sp-prairieOchre;
     text-decoration: underline;
 }
+
+
+/* ==========================================================================
+   12. Learn article content
+   ========================================================================== */
+
+@layer components {
+
+    .learn-article-body {
+        @apply font-sans text-sp-slate;
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    /* Paragraphs */
+
+    .learn-article-body p {
+        @apply mb-4;
+    }
+
+    /* Headings */
+
+    .learn-article-body h2 {
+        @apply mt-16 mb-4 font-sans text-3xl font-semibold text-sp-charcoal;
+        scroll-margin-top: 2rem;
+    }
+
+    .learn-article-body h3 {
+        @apply mt-8 mb-2 font-sans text-xl font-semibold text-sp-charcoal;
+    }
+
+    .learn-article-body h4 {
+        @apply mt-6 mb-2 font-sans text-lg font-semibold text-sp-charcoal;
+    }
+
+    /* Links */
+
+    .learn-article-body a {
+        @apply text-sp-prairieGreen underline underline-offset-4 transition-colors duration-200;
+    }
+
+    .learn-article-body a:hover {
+        @apply text-sp-prairieOchre;
+    }
+
+    /* Lists */
+
+    .learn-article-body ul {
+        @apply mb-6 ml-6 list-disc space-y-2;
+    }
+
+    .learn-article-body ol {
+        @apply mb-6 ml-6 list-decimal space-y-2;
+    }
+
+    /* Quotes */
+
+    .learn-article-body blockquote {
+        @apply my-8 border-l-4 border-sp-prairieOchre pl-6 italic text-sp-charcoal;
+    }
+
+    /* Images */
+
+    .learn-article-body img {
+        @apply my-8 h-auto max-w-full rounded-md;
+    }
+
+    /* Horizontal rules */
+
+    .learn-article-body hr {
+        @apply my-10 border-sp-limestone;
+    }
+
+    /* Tables */
+
+    .learn-article-body table {
+        @apply my-8 w-full border-collapse;
+    }
+
+    .learn-article-body th,
+    .learn-article-body td {
+        @apply border-b border-sp-limestone p-3 text-left;
+    }
+
+    .learn-article-body th {
+        @apply font-semibold text-sp-charcoal;
+    }
+
+    /* Article boundaries */
+
+    .learn-article-body > :first-child {
+        margin-top: 0;
+    }
+
+    .learn-article-body > :last-child {
+        margin-bottom: 0;
+    }
+
+}

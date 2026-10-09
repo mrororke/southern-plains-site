@@ -1,825 +1,445 @@
 @extends('public-v2.layouts.app')
 
+@php
+    /*
+    |--------------------------------------------------------------------------
+    | Article Information
+    |--------------------------------------------------------------------------
+    */
+
+    $category = $article->categories->first()?->name ?? 'Learn';
+
+    $reviewDate = $article->last_reviewed_at
+        ? 'Last reviewed ' . $article->last_reviewed_at->format('F j, Y')
+        : 'Last updated ' . $article->updated_at->format('F j, Y');
+
+    /*
+    |--------------------------------------------------------------------------
+    | Images
+    |--------------------------------------------------------------------------
+    */
+
+    $heroImage = $article->images->first();
+
+    $supportingImages = $article->images->skip(1);
+
+    $heroImageUrl = $heroImage
+        ? \Illuminate\Support\Facades\Storage::disk('public')->url($heroImage->image_path)
+        : null;
+
+    /*
+    |--------------------------------------------------------------------------
+    | Generate Guide Navigation From H2 Headings
+    |--------------------------------------------------------------------------
+    |
+    | Preserve existing heading IDs where possible.
+    | Generate IDs for headings that do not already have one.
+    | Keep the article HTML and navigation synchronized.
+    |
+    */
+
+    $guideNavigation = [];
+
+    $guideBody = $article->body ?? '';
+
+    if (trim($guideBody) !== '') {
+
+        $document = new \DOMDocument('1.0', 'UTF-8');
+
+        $previousErrors = libxml_use_internal_errors(true);
+
+        $document->loadHTML(
+            '<?xml encoding="UTF-8"><div id="learn-guide-content">' .
+            $guideBody .
+            '</div>',
+            LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD
+        );
+
+        libxml_clear_errors();
+        libxml_use_internal_errors($previousErrors);
+
+        $xpath = new \DOMXPath($document);
+
+        $headings = $xpath->query(
+            '//*[@id="learn-guide-content"]//h2'
+        );
+
+        $usedIds = [];
+
+        // Reserve IDs already used anywhere in the article.
+        foreach ($xpath->query('//*[@id]') as $element) {
+            if ($element->getAttribute('id') !== 'learn-guide-content') {
+                $usedIds[] = $element->getAttribute('id');
+            }
+        }
+
+        foreach ($headings as $heading) {
+
+            $label = trim($heading->textContent);
+
+            if ($label === '') {
+                continue;
+            }
+
+            $existingId = trim($heading->getAttribute('id'));
+
+            if ($existingId !== '') {
+
+                $id = $existingId;
+
+            } else {
+
+                $baseId = \Illuminate\Support\Str::slug($label);
+
+                if ($baseId === '') {
+                    $baseId = 'guide-section';
+                }
+
+                $id = $baseId;
+                $suffix = 2;
+
+                while (in_array($id, $usedIds, true)) {
+                    $id = $baseId . '-' . $suffix;
+                    $suffix++;
+                }
+
+                $heading->setAttribute('id', $id);
+
+                $usedIds[] = $id;
+            }
+
+            $guideNavigation[] = [
+                'id' => $id,
+                'label' => $label,
+            ];
+        }
+
+        $container = $document->getElementById('learn-guide-content');
+
+        if ($container) {
+
+            $guideBody = '';
+
+            foreach ($container->childNodes as $child) {
+                $guideBody .= $document->saveHTML($child);
+            }
+        }
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Tags
+    |--------------------------------------------------------------------------
+    */
+
+    $articleTags = $article->tags
+        ->map(fn ($tag) => [
+            'name' => $tag->name,
+            'slug' => $tag->slug,
+        ])
+        ->all();
+
+    /*
+    |--------------------------------------------------------------------------
+    | Related Articles
+    |--------------------------------------------------------------------------
+    */
+
+    $relatedItems = $relatedArticles->map(function ($related) {
+
+        $image = $related->type === 'book_review'
+            ? $related->bookReview?->cover_image_path
+            : $related->images->first()?->image_path;
+
+        return [
+            'category' => $related->type === 'book_review'
+                ? 'Book Review'
+                : ($related->categories->first()?->name ?? 'Learn'),
+
+            'title' => $related->title,
+
+            'description' => $related->excerpt ?? '',
+
+            'image' => $image
+                ? \Illuminate\Support\Facades\Storage::disk('public')->url($image)
+                : asset('images/og/home.jpg'),
+
+            'image_alt' => $related->type === 'book_review'
+                ? $related->title
+                : ($related->images->first()?->alt_text ?? $related->title),
+
+            'href' => route('public-v2.learn.show', $related->slug),
+
+            'link_label' => match ($related->type) {
+                'guide' => 'Read the Guide',
+                'book_review' => 'Read the Review',
+                default => 'Read the Article',
+            },
+        ];
+    })->all();
+
+@endphp
+
 
 @section('hero')
 
-{{-- Learn Hero --}}
-<div
-    id="hero"
-    class="grid grid-cols-12 gap-6 px-6 pt-8 pb-12 md:px-8 md:pt-12 md:pb-16">
+    {{-- Learn Hero --}}
 
-    {{-- Intro --}}
-    <div class="col-span-12 md:col-span-10">
+    <div
+        id="hero"
+        class="grid grid-cols-12 gap-6 px-6 pt-8 pb-12 md:px-8 md:pt-12 md:pb-16">
 
-        <p class="font-display font-bold text-2xl text-sp-burntClay">
-            Dog Sports 101
-        </p>
+        <div class="col-span-12 md:col-span-10">
 
-        <h2 class="font-sans text-3xl font-semibold text-sp-charcoal mt-3">
-            What is NASDA, Anyway?
-        </h2>
+            {{-- Category --}}
 
-        {{-- Article Metadata --}}
-        <x-public-v2.article-metadata
-            category="Dog Sports 101"
-            read-time="8 min read"
-            updated="Last updated August 12th, 2026" />
-        {{-- End Article Metadata --}}
+            <p class="font-display font-bold text-2xl text-sp-burntClay">
+                {{ $category }}
+            </p>
 
-        <p class="body text-sp-slate mt-4">
-            The
-            <a
-                href="https://nasda.dog/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="text-link">
-                North American Sport Dog Association (NASDA)
-            </a>
-            offers scent-based dog sports designed to show off something dogs are already incredibly good at: using their noses.
-        </p>
+            {{-- Title --}}
 
-        <p class="body text-sp-slate mt-4">
-            The games are based on historic working and competitive field activities and are designed to resemble real-life situations for dogs and their handlers. Purebred or mixed breed, young or old, experienced sport dog or complete beginner—NASDA gives dogs of all kinds an opportunity to search, problem-solve, and do what comes naturally.
-        </p>
+            <h2 class="font-sans text-3xl font-semibold text-sp-charcoal mt-3">
+                {{ $article->title }}
+            </h2>
 
-        <p class="body text-sp-slate mt-4">
-            It’s also an incredibly beginner-friendly dog sport. You don’t need a long list of obedience titles, specialized equipment, or years of training before you can give it a try. Your dog doesn’t have to be perfect to come play.
-        </p>
+            {{-- Article Metadata --}}
+
+            <x-public-v2.article-metadata
+                :category="$category"
+                :read-time="$article->reading_time"
+                :updated="$reviewDate" />
+
+            {{-- Introduction --}}
+
+            @if($article->excerpt)
+
+                <p class="body text-sp-slate mt-4">
+                    {{ $article->excerpt }}
+                </p>
+
+            @endif
+
+        </div>
 
     </div>
-
-</div>
 
 @endsection
 
 
 @section('content')
 
-{{-- Guide Content --}}
-<section class="grid grid-cols-12 gap-6 px-6 pb-16 md:px-8 md:pb-24">
+    {{-- Guide Content --}}
 
-    {{-- Guide --}}
-    <div class="col-span-12 md:col-span-10 md:col-start-1">
+    <section class="grid grid-cols-12 gap-6 px-6 pb-16 md:px-8 md:pb-24">
 
-        {{-- Guide Hero Image --}}
-        <div class="mb-12 md:mb-16 relative">
+        <div class="col-span-12 md:col-span-10 md:col-start-1">
 
-            <img
-                src="{{ asset('images/learn/what-is-nasda/featured.jpg') }}"
-                alt="Hamish, a black and white Sheltie, investigating a NASDA quarry box outdoors."
-                class="w-full aspect-[8/3] object-cover rounded-md">
+            {{-- Guide Hero Image --}}
 
-            <x-public-v2.image-registration
-                text="Hamish, Photo by Blue Ridge Creative"
-                position="right"
-                href="https://www.blueridgeprairie.studio/" />
+            @if($heroImageUrl)
 
-        </div>
-        {{-- End Guide Hero Image --}}
+                <div class="mb-12 md:mb-16 relative">
 
-        {{-- Guide Body --}}
-        <div class="grid grid-cols-10 items-stretch gap-6">
+                    <img
+                        src="{{ $heroImageUrl }}"
+                        alt="{{ $heroImage->alt_text ?? $article->title }}"
+                        class="w-full aspect-[8/3] object-cover rounded-md">
 
-            {{-- Main Guide Content --}}
-            <article class="col-span-10 md:col-span-7">
+                    @if($heroImage->caption)
 
-                {{-- Major Guide Section --}}
-                <section id="the-games" class="scroll-mt-8">
+                        <x-public-v2.image-registration
+                            :text="$heroImage->caption"
+                            position="right" />
 
-                    <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-                        What Can My Dog Actually Do?
-                    </h2>
+                    @endif
 
-                    <p class="body text-sp-slate mt-4">
-                        NASDA isn't a single game. There are several different ways for dogs to put their noses to work, and each asks them to solve a slightly different problem. You may find that your dog loves one and couldn't care less about another. That's part of the fun.
-                    </p>
+                </div>
 
-                    {{-- Subsection: Trailing & Locating --}}
-                    <section class="mt-8">
+            @endif
 
-                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
-                            Trailing & Locating
-                        </h3>
+            {{-- End Guide Hero Image --}}
 
-                        <p class="font-sans text-base font-semibold text-sp-charcoal mt-1">
-                            Follow the trail. Find the quarry.
-                        </p>
 
-                        <p class="body text-sp-slate mt-2">
-                            Trailing & Locating asks your dog to follow a scent trail to find hidden quarry at the end. At Level I, your dog has two minutes to make the find. But don't picture a dog following a perfect line with their nose glued to the ground. Dogs can work a scent trail in different ways. Your job is to give your dog room to work it out.
-                        </p>
+            {{-- Guide Body --}}
 
-                    </section>
+            <div class="grid grid-cols-10 items-stretch gap-6">
 
-                    {{-- Subsection: Trailing Brace --}}
-                    <section class="mt-8">
+                {{-- Main Guide Content --}}
 
-                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
-                            Trailing Brace
-                        </h3>
+                <article class="col-span-10 md:col-span-7">
 
-                        <p class="font-sans text-base font-semibold text-sp-charcoal mt-1">
-                            Follow the trail. Find the quarry. Together.
-                        </p>
+                    <div class="learn-article-body">
 
-                        <p class="body text-sp-slate mt-2">
-                            Trailing Brace puts two dogs on the trail together. Both dogs work off leash, following a scent trail to locate the quarry. Each dog needs to make the find, so while they're working as a team, they're also being evaluated individually.
-                        </p>
-
-                    </section>
-
-                    {{-- Subsection: Urban Locating --}}
-                    <section class="mt-8">
-
-                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
-                            Urban Locating
-                        </h3>
-
-                        <p class="font-sans text-base font-semibold text-sp-charcoal mt-1">
-                            Search the area. Find the quarry
-                        </p>
-
-                        <p class="body text-sp-slate mt-2">
-                            Urban Locating takes away the scent trail. Instead, your dog searches a defined area to find hidden quarry. There's no required search pattern. Your dog doesn't have to methodically work from one side of the search area to the other. Give them room to investigate, follow scent, and work toward the source in their own way.
-                        </p>
-
-                    </section>
-
-                    {{-- Subsection: Shed Dog --}}
-                    <section class="mt-8">
-
-                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
-                            Shed Dog
-                        </h3>
-
-                        <p class="font-sans text-base font-semibold text-sp-charcoal mt-1">
-                            Find the antler. That's it.
-                        </p>
-
-                        <p class="body text-sp-slate mt-2">
-                            Shed Dog asks your dog to search an area and locate a naturally shed antler. And despite the name, your dog doesn't have to retrieve it. At Level I, your dog can indicate the shed or retrieve it. Either counts as locating the hide.
-                        </p>
-
-                    </section>
-
-                    {{-- Subsection: Lost Item --}}
-                    <section class="mt-8">
-
-                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
-                            Lost Item
-                        </h3>
-
-                        <p class="font-sans text-base font-semibold text-sp-charcoal mt-1">
-                            Your scent. Their Search
-                        </p>
-
-                        <p class="body text-sp-slate mt-2">
-                            Lost Item asks your dog to search for an everyday object carrying your scent. You provide the items your dog will search for, and one is selected for the search. It's a different challenge from searching for quarry or an antler: this time, what matters is something that smells like you.
-                        </p>
-
-                    </section>
-
-                    {{-- Subsection: Den Hunt --}}
-                    <section class="mt-8">
-
-                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
-                            Den Hunt
-                        </h3>
-
-                        <p class="font-sans text-base font-semibold text-sp-charcoal mt-1">
-                            Enter the tunnel. Find the quarry.
-                        </p>
-
-                        <p class="body text-sp-slate mt-2">
-                            Den Hunt asks the dog to enter a tunnel and travel through it to locate quarry. The introductory level, Den Hunt Tested, uses a straight tunnel and is pass/fail. The dog must enter independently, reach the quarry, and remain there for the required amount of time.
-                        </p>
-
-                    </section>
-
-                    {{-- Development Callout --}}
-                    <x-public-v2.callout
-                        icon="notebook-dot"
-                        title="Still In Development">
-                        Den Hunt is currently still in development. The rules and requirements are still being field tested, and adjusted.
-                    </x-public-v2.callout>
-                    {{-- End Development Callout --}}
-
-
-                </section>
-
-                {{-- Major Guide Section --}}
-                <section
-                    id="training"
-                    class="mt-16 scroll-mt-8">
-
-                    <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-                        Does My Dog Need Special Training?
-                    </h2>
-
-                    <p class="body text-sp-slate mt-4">
-                        One of the great things about NASDA is that it's beginner-friendly for both the handler
-                        and the dog. Most dogs already like smelling new and interesting things. That makes those
-                        first finds fairly easy for a lot of dogs. The dog isn't really learning how to smell—they've
-                        had that figured out their entire life. They're learning what this particular game is asking them to find.
-                    </p>
-
-                    <p class="body text-sp-slate mt-4">
-                        I like to say that at Level I, the dog is learning the game. At Level II, the handler is learning the game. By Level III, it's all about teamwork.
-                    </p>
-
-                    <p class="body text-sp-slate mt-4">
-                        Your dog doesn't need to know what they're doing yet.<br />
-                        Neither do you.
-                    </p>
-
-                    <p class="body text-sp-slate mt-4">
-                        At Level I, you don't even need to recognize or call your dog's alert. The judge is watching your dog work and will make the call when your dog independently locates the source.
-
-                    </p>
-
-                    <p class="body text-sp-slate mt-4">
-                        <span class="italic">What you can start learning is how your individual dog communicates.</span><br />
-                        Maybe it's a sudden head snap or an ear twitch. Maybe their sniffing becomes more intense. Their speed changes. Their body changes. Their tail starts moving differently. Every dog communicates differently. There isn't one behavior every NASDA dog needs to perform when they've found something. <span class="italic">That's part of learning to TRAIN the dog in front of you.</span>
-                    </p>
-
-                    <p class="body text-sp-slate mt-4">
-                        You don't need much equipment to get started, either. As a competitor, you can have a great trial day with your dog, an appropriate collar or harness, and a leash. Add a pair of shoes appropriate for the trial site and something your dog finds rewarding, and you're ready to go.
-                    </p>
-
-                </section>
-
-
-                {{-- Major Guide Section --}}
-                <section
-                    id="your-first-trial"
-                    class="mt-16 scroll-mt-8">
-
-                    <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-                        What happens at a NASDA Trial?
-                    </h2>
-
-                    <p class="body text-sp-slate mt-4">
-                        Your first trial can seem complicated from the outside. Once you're there, the basic process is pretty simple:
-                    </p>
-
-                    {{-- Trial Process --}}
-                    {{-- Trial Process --}}
-                    <div class="grid grid-cols-1 gap-4 mt-8 md:grid-cols-5">
-
-                        <x-public-v2.learn-card>
-
-                            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
-                                Check In
-                            </h3>
-
-                            <p class="body text-sp-slate mt-4">
-                                Let the trial secretary know you’ve arrived.
-                            </p>
-
-                        </x-public-v2.learn-card>
-
-
-                        <x-public-v2.learn-card>
-
-                            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
-                                Attend the Briefing
-                            </h3>
-
-                            <p class="body text-sp-slate mt-4">
-                                Before the class starts, the judge will explain the course and answer questions.
-                            </p>
-
-                        </x-public-v2.learn-card>
-
-
-                        <x-public-v2.learn-card>
-
-                            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
-                                Wait Your Turn
-                            </h3>
-
-                            <p class="body text-sp-slate mt-4">
-                                Keep yourself and your dog comfortable until your class/turn.
-                            </p>
-
-                        </x-public-v2.learn-card>
-
-
-                        <x-public-v2.learn-card>
-
-                            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
-                                Let Your Dog Search
-                            </h3>
-
-                            <p class="body text-sp-slate mt-4">
-                                Just like today, enter the start cones and give your dog room to work. The judge will make the call.
-                            </p>
-
-                        </x-public-v2.learn-card>
-
-
-                        <x-public-v2.learn-card>
-
-                            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
-                                Celebrate!
-                            </h3>
-
-                            <p class="body text-sp-slate mt-4">
-                                Reinforce at source when permitted, leave the search area, and tell your dog how great they are!
-                            </p>
-
-                        </x-public-v2.learn-card>
+                        {!! $guideBody !!}
 
                     </div>
-                    {{-- End Trial Process --}}
-                    {{-- End Trial Process --}}
 
-                    <p class="body text-sp-slate mt-4">
-                        At check-in, you'll let the trial secretary know you've arrived. Before the class begins, the judge will explain the course and answer questions. Then you wait with your dog until it's your turn. When you're called, you take your dog to the start line and let them do the important part: search. That's really not so different from practice.
-                    </p>
+                    {{-- Tags --}}
 
-                    <p class="body text-sp-slate mt-4">
-                        <span class="font-bold">What's a run?</span><br />
-                        A run begins when your dog crosses the start line, which is marked by two cones. NASDA trials can run concurrently. If an event is holding three trials, for example, you may run Trial One, Trial Two, and Trial Three back to back.
-                    </p>
+                    @if(count($articleTags) > 0)
 
-                    <p class="body text-sp-slate mt-4">
-                        That can sound confusing when you're new.<br />
-                        Instead of running once, waiting for the rest of the class, running again, waiting again, and finally running a third time, your dog completes those runs one after another. If your dog is only entered in one event, you may be finished once those runs are complete.
-                    </p>
-
-                    <p class="body text-sp-slate mt-4">
-                        <span class="font-bold">What does the judge do?</span><br />
-                        The judge evaluates your team's run.<br />
-                        They're watching how your dog is working and how you respond to your dog's body language. A judge is also watching for the difference between a dog working odor and a dog who has simply found something interesting to sniff.<br />
-                        You don't have to call the find. The judge makes the call.
-                    </p>
-
-                    <p class="body text-sp-slate mt-4">
-                        <span class="font-bold">What does the handler do?</span><br />
-                        Your main job is to support your dog.<br />
-                        Sometimes that means encouraging a dog who's unsure whether they can approach an area. Sometimes it's helping a dog build the confidence to approach a quarry cage. You're also responsible for managing your equipment and yourself without simply leading your dog to the hide. <span class="italic">Give your dog room to solve the problem.</span>
-                    </p>
-
-                    <p class="body text-sp-slate mt-4">
-                        <span class="font-bold">What is the dog expected to do?</span><br />
-                        Mainly? <span class="italic">The dog should be a dog.</span>
-                        Your dog should be interested in exploring their environment and investigating interesting smells. At Level I, this is where a lot of dogs begin learning the game. What gets reinforced gets repeated. It usually doesn't take dogs long to figure out that finding what we're looking for results in praise—and sometimes cookies.
-
-                    </p>
-
-                    <p class="body text-sp-slate mt-4">
-                        <span class="font-bold">What happens while we're waiting?</span><br />
-                        Trial days can involve quite a bit of waiting. How much depends on the number of entries, the size of the search areas, the weather, and plenty of other variables. Make sure your dog has a comfortable place to rest.<br />
-                        Then talk to people. Watch other dogs run when you're permitted to. Ask questions. Volunteer to help with course setup or breakdown.
-                        Many hands make light work, and trials move much more smoothly when everyone pitches in.
-                    </p>
-
-                </section>
-
-                {{-- Major Guide Section --}}
-                <section
-                    id="scoring-levels"
-                    class="mt-16 scroll-mt-8">
-
-                    <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-                        How do Scoring, Levels, & Titles Work?
-                    </h2>
-
-                    {{-- Scoring & Titles --}}
-                    <div class="grid grid-cols-1 gap-4 mt-8 md:grid-cols-2">
-
-                        <div class="rounded-md bg-sp-limestone p-5">
-                            <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
-                                Puppy Aptitude Test
-                            </h3>
-
-                            <p class="body-small text-sp-slate mt-4">
-                                Depending on your dog's age, you may be able to start with the optional Puppy Aptitude Test. This is a pass/fail course that allows the judge to assess whether the puppy can independently identify the hide.
-                            </p>
-                        </div>
-
-                        <div class="rounded-md bg-sp-limestone p-5">
-                            <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
-                                Level I
-                            </h3>
-
-                            <p class="body-small text-sp-slate mt-4">
-                                This is where most beginners start. The dog should work the search independently rather than simply following handler movement. A Level I title is earned after accumulating 100 Level I points.
-                            </p>
-                        </div>
-
-                        <div class="rounded-md bg-sp-limestone p-5">
-                            <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
-                                Level II
-                            </h3>
-
-                            <p class="body-small text-sp-slate mt-4">
-                                At Level II, the searches become more challenging. Hides can be covered or partially inaccessible and may be elevated.
-                                A Level II title is earned after accumulating 400 Level II points.
-                            </p>
-                        </div>
-
-                        <div class="rounded-md bg-sp-limestone p-5">
-                            <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
-                                Level III & Beyond
-                            </h3>
-
-                            <p class="body-small text-sp-slate mt-4">
-                                Level III introduces significantly more difficult searches.
-                                These classes are blind: handlers don't know where the hide is located, can't watch other teams run before their own search, and enter knowing the course boundaries but not where the search will lead them.
-                            </p>
-                        </div>
-
-                    </div>
-                    {{-- End Scoring & Titles --}}
-
-                    <p class="body text-sp-slate mt-4">
-                        And there is still somewhere to go from there. NASDA offers additional advanced and championship titles, along with versatility titles for dogs competing across events. This guide isn't going to turn into a rulebook, though. Learn more about
-                        <a
-                            href="https://nasda.dog/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-link">
-                            NASDA titles, points and current requirements.
-                        </a>
-                    </p>
-
-                </section>
-
-                {{-- Major Guide Section --}}
-                <section
-                    id="what-to-expect"
-                    class="mt-16 scroll-mt-8">
-
-                    <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-                        What Should I Expect at My First Trial?
-                    </h2>
-
-                    <p class="body text-sp-slate mt-4">
-                        First: there will be people there who know more than you do. That's okay. Talk to them. Talk with other competitors and volunteers. When they're available, talk with the judges. Dog sports should be a welcoming community, and you can learn an incredible amount simply by talking to the people around you.<br />
-                        It's okay to ask questions. Usually, it's encouraged.<br />
-                        And if it's your dog's first trial, bring a sense of humor.
-
-                    <p class="body text-sp-slate mt-4">
-                        Trials are difficult. There's movement everywhere. There are unfamiliar people and dogs. There are new environments and so many smells. Your dog may walk through those start cones and immediately do something completely ridiculous. <span class="font-semibold">Laugh.</span> Hamish used to absolutely LOVE eating horse manure instead of working. I have pictures to prove it.
-                    </p>
-
-                    <p class="body text-sp-slate mt-4">
-                        One run doesn't define your dog. Maybe they get distracted by something you never anticipated. Maybe they don't work at all. Maybe they walk into the search area and absolutely blow you away. You probably won't feel like you or your dog are completely ready for that first trial. That's okay, too. You don't have to become an expert before you enter Level I. A lot of the learning happens during the runs themselves. Your dog might surprise you.<br />
-                        And whether you're at your first trial or your fiftieth, remember this: <span class="font-bold">At the end of the day, you get to go home with the best dog there</span>.
-                    </p>
-
-                </section>
-
-                {{-- Major Guide Section --}}
-                <section
-                    id="what-to-bring"
-                    class="mt-16 scroll-mt-8">
-
-                    <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-                        What do I Need to Bring?
-                    </h2>
-
-                    <p class="body text-sp-slate mt-4">
-                        First and foremost: Your dog.<br />
-                        I jest, but when you're busy worrying about all the stuff, it's surprisingly easy to overlook something obvious.
-                        For a basic trial day, plan to bring appropriate gear for your dog, plenty of rewards, water, a crate or another safe resting setup, and whatever you need to keep both of you comfortable in the weather. Bring water and snacks for yourself, too. And don't forget that sense of humor.
-
-                        <!-- TODO: Write this guide:  This isn't meant to be the definitive packing list. We've got a whole guide for that. [LINK: Planning your first trial? → Preparing for Your First Dog Sport Trial] -->
-                    </p>
-
-                </section>
-
-                {{-- Major Guide Section --}}
-                <section
-                    id="getting-started"
-                    class="mt-16 scroll-mt-8">
-
-                    <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-                        How do I Get Started?
-                    </h2>
-
-                    <p class="body text-sp-slate mt-4">
-                        So, ready to get started? You don't have to take the same next step as everyone else.
-                    </p>
-
-                    <p class="body text-sp-slate mt-4">
-                        <span class="font-bold">I just want to learn more.</span><br />
-                        Visit
-                        <a
-                            href="https://nasda.dog/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-link">
-                            NASDA </a>
-                        to explore the sports, current rules, titles, registration information, and upcoming events.
-                    </p>
-
-                    <p class="body text-sp-slate mt-4">
-                        <span class="font-bold">I'd like to practice first.</span><br />
-                        Come give it a try before entering a trial. Practice is a chance for both you and your dog to figure out what these games are all about. Find a
-                        <a
-                            href="{{ route('public-v2.training') }}"
-                            class="text-link">practice opportunity</a>.
-                    </p>
-
-                    <p class="body text-sp-slate mt-4">
-                        <span class="font-bold">I'm ready to try it.</span><br />
-                        Take a look at upcoming
-                        <a
-                            href="https://nasda.dog/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="text-link">
-                            NASDA </a> events and find an opportunity to get your dog on the start line.
-                    </p>
-
-                    <p class="body text-sp-slate mt-4">
-                        <span class="font-bold">I want to feel more prepared first.</span><br />
-                        We've got you covered there, too.
-                        <!-- TODO: Write this guide: [LINK: Prepare for your first trial → Preparing for Your First Dog Sport Trial] -->
-                    </p>
-
-                    <p class="body text-sp-slate mt-4">You don't have to know which game your dog will love. You don't have to know exactly what their alert looks like. And you definitely don't have to have everything polished before you show up. Give your dog the opportunity to try something new and see what happens. Most importantly, keep playing with your dog.
-                    </p>
-
-                </section>
-
-                <section>
-
-                    {{-- Workshop CTA --}}
-                    <x-public-v2.learn-cta
-                        title="Want to Try NASDA Together?"
-                        text="Interested in bringing NASDA to your club, training group, or community? Southern Plains Sport Dog Club offers introductory workshops designed to give handlers a chance to learn the games, try the skills, and have fun with their dogs."
-                        href="#contact">
-                        Request a Workshop
-                    </x-public-v2.learn-cta>
-
-                    <!-- TODO Create the workshop request form -->
-
-
-                    {{-- End Workshop CTA --}}
-
-                </section>
-
-                {{-- Recommended Reading --}}
-                <x-public-v2.learn-references
-                    :references="[
-        [
-            'title' => 'What Is NASDA, Anyway?',
-            'description' => 'A beginner-friendly introduction to NASDA and its Level One sports.',
-            'href' => route('public-v2.learn.guide'),
-        ],
-        [
-            'title' => 'North American Sport Dog Association',
-            'description' => 'Official NASDA information, rules, and resources.',
-            'href' => 'https://nasda.dog/',
-            'external' => true,
-        ],
-    ]" />
-                {{-- End Recommended Reading --}}
-
-                {{-- Tags --}}
-
-                        <div class="col-span-12 md:col-span-8 mt-10">
+                        <div class="mt-10">
 
                             <x-public-v2.learn-tags
-                                :tags="[
-    'NASDA',
-    'Dog Sports',
-    'Scent Sports',
-    'First Trials',
-    'Getting Started',
-]" />
+                                :tags="$articleTags" />
 
                         </div>
 
-                  
-                {{-- End Tags --}}
+                    @endif
 
-            </article>
+                    {{-- End Tags --}}
 
-            
-
-            {{-- Supporting Figures --}}
-            <aside class="col-span-10 self-start md:col-span-3">
-
-                <x-public-v2.learn-figure
-                    image="images/learn/what-is-nasda/trailing-and-locating.jpg"
-                    alt="Hamish, a black and white Sheltie, investigating a NASDA quarry box while searching for quarry."
-                    number="01"
-                    title="Trailing & Locating Level I"
-                    credit="Blue Ridge Creative"
-                    credit-url="https://www.blueridgeprairie.studio/">
-                    Hamish at a quarry box, successfully finding a rat.
-                </x-public-v2.learn-figure>
-
-                <x-public-v2.learn-figure
-                    image="images/learn/what-is-nasda/trailing-brace.jpg"
-                    alt="Two dogs searching through leaves and brush during a NASDA scent sport exercise."
-                    number="02"
-                    title="Trailing Brace Level I"
-                    credit="Blue Ridge Creative"
-                    credit-url="https://www.blueridgeprairie.studio/">
-                    Hamish and his first ever Brace partner, River.
-                </x-public-v2.learn-figure>
+                </article>
 
 
-                <x-public-v2.learn-figure
-                    image="images/learn/what-is-nasda/urban-locating.jpg"
-                    alt="Hamish, a black and white Sheltie, standing in a barn after locating hidden quarry."
-                    number="03"
-                    title="Urban Locating Level I"
-                    credit="Blue Ridge Creative"
-                    credit-url="https://www.blueridgeprairie.studio/">
-                    Hamish after finding a rat hidden in a barn.
-                </x-public-v2.learn-figure>
+                {{-- Supporting Figures --}}
 
-                <x-public-v2.learn-figure
-                    image="images/learn/what-is-nasda/shed-dog.jpg"
-                    alt="A black and white Sheltie sniffing the ground toward a shed deer antler."
-                    number="04"
-                    title="Shed Level I"
-                    credit="Blue Ridge Creative"
-                    credit-url="https://www.blueridgeprairie.studio/">
-                    Hamish confidently going to the antler.
-                </x-public-v2.learn-figure>
+                @if($supportingImages->isNotEmpty())
 
-                <x-public-v2.learn-figure
-                    image="images/learn/what-is-nasda/lost-item.jpg"
-                    alt="A black and white Sheltie sniffing near a set of car keys on the ground outdoors."
-                    number="05"
-                    title="Lost Item Level I"
-                    credit="Blue Ridge Creative"
-                    credit-url="https://www.blueridgeprairie.studio/">
-                    Hamish finding the car keys.
-                </x-public-v2.learn-figure>
+                    <aside class="col-span-10 self-start md:col-span-3">
+
+                        @foreach($supportingImages as $image)
+
+                            <figure class="{{ $loop->first ? '' : 'mt-10' }}">
+
+                                <img
+                                    src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($image->image_path) }}"
+                                    alt="{{ $image->alt_text ?? '' }}"
+                                    class="block w-full rounded-md">
+
+                                @if($image->caption)
+
+                                    <figcaption class="text-xs text-sp-slate mt-3">
+                                        {{ $image->caption }}
+                                    </figcaption>
+
+                                @endif
+
+                            </figure>
+
+                        @endforeach
+
+                    </aside>
+
+                @endif
+
+                {{-- End Supporting Figures --}}
+
+            </div>
+
+            {{-- End Guide Body --}}
 
 
-                <x-public-v2.learn-figure
-                    image="images/learn/what-is-nasda/natural-distractions.jpg"
-                    alt="A black and white Sheltie eating horse manure."
-                    number="06"
-                    title="Natural Distractions - Yuck!"
-                    credit="Blue Ridge Creative"
-                    credit-url="https://www.blueridgeprairie.studio/">
-                    Hamish enjoying a mid run “snack.”
-                </x-public-v2.learn-figure>
+            {{-- Related Articles --}}
 
-            </aside>
+            @if(count($relatedItems) > 0)
+
+                <x-public-v2.learn-more
+                    :items="$relatedItems"
+                    :library-url="route('public-v2.learn.index')" />
+
+            @endif
+
+            {{-- End Related Articles --}}
 
         </div>
-        {{-- End Guide Body --}}
 
 
-<x-public-v2.learn-more
-    :items="[
-        [
-            'category' => 'Dog Sports 101',
-            'title' => 'What Is NASDA, Anyway?',
-            'description' => 'From searching for lost objects to trailing and locating rats, NASDA lets dogs use their noses, independence, and problem solving skills in exciting and rewarding ways.',
-            'image' => asset('images/learn/what-is-nasda/featured.jpg'),
-            'image_alt' => 'Hamish searching a quarry box during a NASDA trial.',
-            'href' => route('public-v2.learn.guide'),
-            'link_label' => 'Read the Guide',
-        ],
-        [
-            'category' => 'Handler Insights',
-            'title' => 'The Legacy of Luka',
-            'description' => 'A personal reflection on Luka, reactivity, dog training, and the unexpected ways one dog can change your life.',
-            'image' => asset('/images/blog/blog-saying-goodbye-hero.jpg'),
-            'image_alt' => 'Luka relaxing in the grass.',
-            'href' => route('public-v2.learn.article'),
-            'link_label' => 'Read the Article',
-        ],
-        [
-            'category' => 'Placeholder',
-            'title' => 'Another Learn Resource',
-            'description' => 'Placeholder description for another resource in the Learn section.',
-            'image' => asset('images/learn/what-is-nasda/featured.jpg'),
-            'image_alt' => 'Placeholder supporting image.',
-            'href' => '#',
-            'link_label' => 'Read More',
-        ],
-        [
-            'category' => 'Placeholder',
-            'title' => 'Another Learn Resource',
-            'description' => 'Placeholder description for another resource in the Learn section.',
-            'image' => asset('images/learn/what-is-nasda/featured.jpg'),
-            'image_alt' => 'Placeholder supporting image.',
-            'href' => '#',
-            'link_label' => 'Read More',
-        ],
-    ]"
-    library-url="{{ route('public-v2.learn.index') }}" />
+        {{-- Guide Navigation --}}
+
+        @if(count($guideNavigation) > 0)
+
+            <x-public-v2.learn-guide-navigation
+                :items="$guideNavigation" />
+
+        @endif
+
+        {{-- End Guide Navigation --}}
+
+    </section>
+
+    {{-- End Guide Content --}}
 
 
+    {{-- Guide Navigation Active Section Tracking --}}
 
-    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
 
+            const navLinks = document.querySelectorAll('[data-guide-nav]');
 
-    {{-- Guide Navigation --}}
-    <x-public-v2.learn-guide-navigation
-    :items="[
-        [
-            'id' => 'the-games',
-            'label' => 'The Games',
-        ],
-        [
-            'id' => 'training',
-            'label' => 'Training',
-        ],
-        [
-            'id' => 'your-first-trial',
-            'label' => 'Your First Trial',
-        ],
-        [
-            'id' => 'scoring-levels',
-            'label' => 'Scoring & Levels',
-        ],
-        [
-            'id' => 'what-to-expect',
-            'label' => 'What to Expect',
-        ],
-        [
-            'id' => 'what-to-bring',
-            'label' => 'What to Bring',
-        ],
-        [
-            'id' => 'getting-started',
-            'label' => 'Getting Started',
-        ],
-    ]" />
-    {{-- End Guide Navigation --}}
+            if (!navLinks.length) {
+                return;
+            }
 
+            const guideSections = Array.from(navLinks)
+                .map(link => {
+                    const id = link.getAttribute('href')?.substring(1);
 
+                    return id
+                        ? document.getElementById(id)
+                        : null;
+                })
+                .filter(Boolean);
 
-</section>
-{{-- End Guide Content --}}
+            if (!guideSections.length) {
+                return;
+            }
 
+            const setActiveSection = (id) => {
 
-@endsection
+                navLinks.forEach(link => {
 
+                    const isActive =
+                        link.getAttribute('href') === `#${id}`;
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
+                    link.classList.toggle('is-active', isActive);
 
-        const navLinks = document.querySelectorAll('[data-guide-nav]');
+                    if (isActive) {
+                        link.setAttribute('aria-current', 'location');
+                    } else {
+                        link.removeAttribute('aria-current');
+                    }
 
-        if (!navLinks.length) {
-            return;
-        }
+                });
 
-        const guideSections = Array.from(navLinks)
-            .map(link => document.querySelector(link.getAttribute('href')))
-            .filter(Boolean);
+            };
 
-        if (!guideSections.length) {
-            return;
-        }
+            const observer = new IntersectionObserver(
 
-        const setActiveSection = (id) => {
+                (entries) => {
 
-            navLinks.forEach(link => {
+                    const visibleSections = entries
+                        .filter(entry => entry.isIntersecting)
+                        .sort(
+                            (a, b) =>
+                                a.boundingClientRect.top -
+                                b.boundingClientRect.top
+                        );
 
-                const isActive = link.getAttribute('href') === `#${id}`;
+                    if (visibleSections.length) {
+                        setActiveSection(
+                            visibleSections[0].target.id
+                        );
+                    }
 
-                link.classList.toggle('is-active', isActive);
+                },
 
-                if (isActive) {
-                    link.setAttribute('aria-current', 'location');
-                } else {
-                    link.removeAttribute('aria-current');
+                {
+                    rootMargin: '-20% 0px -65% 0px',
+                    threshold: 0
                 }
 
+            );
+
+            guideSections.forEach(section => {
+                observer.observe(section);
             });
 
-        };
+            setActiveSection(guideSections[0].id);
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-
-                const visibleSections = entries
-                    .filter(entry => entry.isIntersecting)
-                    .sort(
-                        (a, b) =>
-                        a.boundingClientRect.top - b.boundingClientRect.top
-                    );
-
-                if (visibleSections.length) {
-                    setActiveSection(visibleSections[0].target.id);
-                }
-
-            }, {
-                rootMargin: '-20% 0px -65% 0px',
-                threshold: 0
-            }
-        );
-
-        guideSections.forEach(section => {
-            observer.observe(section);
         });
+    </script>
 
-    });
-</script>
+@endsection
