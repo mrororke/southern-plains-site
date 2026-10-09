@@ -8,6 +8,9 @@ export const allowedCalloutIcons = [
     "alert-circle",
 ];
 
+const normalizeIcon = icon =>
+    allowedCalloutIcons.includes(icon) ? icon : "info";
+
 export const Callout = Node.create({
     name: "callout",
 
@@ -22,18 +25,11 @@ export const Callout = Node.create({
             icon: {
                 default: "info",
 
-                parseHTML: element => {
-                    const icon = element.getAttribute("data-icon");
-
-                    return allowedCalloutIcons.includes(icon)
-                        ? icon
-                        : "info";
-                },
+                parseHTML: element =>
+                    normalizeIcon(element.getAttribute("data-icon")),
 
                 renderHTML: attributes => ({
-                    "data-icon": allowedCalloutIcons.includes(attributes.icon)
-                        ? attributes.icon
-                        : "info",
+                    "data-icon": normalizeIcon(attributes.icon),
                 }),
             },
         };
@@ -43,15 +39,23 @@ export const Callout = Node.create({
         return [
             {
                 tag: 'div[data-content-block="callout"]',
-                contentElement: ".learn-callout-content",
+
+                // Existing callouts may have content directly
+                // inside the wrapper or inside this container.
+                contentElement: element =>
+                    element.querySelector(
+                        ":scope > .learn-callout-content"
+                    ) ||
+                    element.querySelector(
+                        ":scope > div > .learn-callout-content"
+                    ) ||
+                    element,
             },
         ];
     },
 
     renderHTML({ HTMLAttributes }) {
-        const icon = allowedCalloutIcons.includes(HTMLAttributes["data-icon"])
-            ? HTMLAttributes["data-icon"]
-            : "info";
+        const icon = normalizeIcon(HTMLAttributes["data-icon"]);
 
         return [
             "div",
@@ -63,13 +67,18 @@ export const Callout = Node.create({
                 "span",
                 {
                     class: "learn-callout-icon",
-                    "data-lucide": icon,
+                    "data-lucide":
+                        icon === "alert-circle"
+                            ? "circle-alert"
+                            : icon,
                     "aria-hidden": "true",
                 },
             ],
             [
                 "div",
-                { class: "learn-callout-content" },
+                {
+                    class: "learn-callout-content",
+                },
                 0,
             ],
         ];
@@ -86,11 +95,11 @@ export const Callout = Node.create({
                 ({ commands }) =>
                     commands.insertContent({
                         type: this.name,
+
                         attrs: {
-                            icon: allowedCalloutIcons.includes(icon)
-                                ? icon
-                                : "info",
+                            icon: normalizeIcon(icon),
                         },
+
                         content: [
                             {
                                 type: "calloutTitle",
