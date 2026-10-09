@@ -75,7 +75,10 @@
 
         foreach ($headings as $heading) {
 
-            $label = trim($heading->textContent);
+            $label = trim(
+    $heading->getAttribute('data-nav-label')
+        ?: $heading->textContent
+);
 
             if ($label === '') {
                 continue;
