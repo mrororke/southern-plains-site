@@ -1244,6 +1244,32 @@
 
         <div class="xl:col-span-2">
 
+            {{-- Evergreen Guide Introduction --}}
+
+            <section
+                x-show="articleType === 'guide'"
+                x-cloak
+                class="mb-8 rounded-md border border-sp-warmStone bg-sp-warmIvory p-6">
+
+                <h2 class="font-sans text-lg font-semibold text-sp-charcoal">
+                    Introduction
+                </h2>
+
+                <p class="mt-1 text-sm text-sp-slate">
+                    Introduce the guide before its featured image. This is separate from the excerpt and main content.
+                </p>
+
+                <div class="mt-6">
+                    <x-admin.forms.rich-text
+                        id="introduction-editor"
+                        name="introduction"
+                        :value="old('introduction', $article->introduction ?? '')" />
+
+                    <x-admin.forms.field-error name="introduction" />
+                </div>
+
+            </section>
+
             {{-- Content --}}
 
             <section

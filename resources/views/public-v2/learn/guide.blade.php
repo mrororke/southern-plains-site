@@ -215,11 +215,11 @@
 
             {{-- Introduction --}}
 
-            @if($article->excerpt)
+            @if(filled($article->introduction))
 
-                <p class="body text-sp-slate mt-4">
-                    {{ $article->excerpt }}
-                </p>
+                <div class="learn-article-body mt-4 text-sp-slate">
+                    {!! $article->introduction !!}
+                </div>
 
             @endif
 

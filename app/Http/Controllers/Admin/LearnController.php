@@ -78,6 +78,10 @@ class LearnController extends Controller
                 'nullable',
                 'string',
             ],
+            'introduction' => [
+                'nullable',
+                'string',
+            ],
             'seo_title' => [
                 'nullable',
                 'string',
@@ -188,6 +192,9 @@ class LearnController extends Controller
             'type' => $validated['type'],
             'status' => $validated['status'],
             'excerpt' => $validated['excerpt'] ?? null,
+            'introduction' => $validated['type'] === 'guide'
+                ? ($validated['introduction'] ?? null)
+                : null,
             'body' => $validated['body'],
             'seo_title' => $validated['seo_title'] ?? null,
             'seo_description' => $validated['seo_description'] ?? null,
@@ -358,6 +365,10 @@ class LearnController extends Controller
                 'nullable',
                 'string',
             ],
+            'introduction' => [
+                'nullable',
+                'string',
+            ],
             'seo_title' => [
                 'nullable',
                 'string',
@@ -489,6 +500,9 @@ class LearnController extends Controller
             'type' => $validated['type'],
             'status' => $validated['status'],
             'excerpt' => $validated['excerpt'] ?? null,
+            'introduction' => $validated['type'] === 'guide'
+                ? ($validated['introduction'] ?? null)
+                : null,
             'body' => $validated['body'],
             'seo_title' => $validated['seo_title'] ?? null,
             'seo_description' => $validated['seo_description'] ?? null,

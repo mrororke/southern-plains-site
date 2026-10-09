@@ -18,6 +18,7 @@ class LearnArticle extends Model
         'title',
         'slug',
         'excerpt',
+        'introduction',
         'body',
         'last_reviewed_at',
         'has_affiliate_links',
@@ -83,9 +84,11 @@ class LearnArticle extends Model
 
     public function getReadingTimeAttribute(): string
     {
+        $content = ($this->introduction ?? '') . ' ' . ($this->body ?? '');
+
         $plainText = trim(
             html_entity_decode(
-                strip_tags($this->body ?? ''),
+                strip_tags($content),
                 ENT_QUOTES | ENT_HTML5,
                 'UTF-8'
             )
