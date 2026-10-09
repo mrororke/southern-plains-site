@@ -1,4 +1,12 @@
 import { Node, mergeAttributes } from "@tiptap/core";
+import { VueNodeViewRenderer } from "@tiptap/vue-3";
+import CalloutView from "../nodeviews/CalloutView.vue";
+
+export const allowedCalloutIcons = [
+    "info",
+    "lightbulb",
+    "alert-circle",
+];
 
 export const Callout = Node.create({
     name: "callout",
@@ -14,11 +22,18 @@ export const Callout = Node.create({
             icon: {
                 default: "info",
 
-                parseHTML: element =>
-                    element.getAttribute("data-icon") || "info",
+                parseHTML: element => {
+                    const icon = element.getAttribute("data-icon");
+
+                    return allowedCalloutIcons.includes(icon)
+                        ? icon
+                        : "info";
+                },
 
                 renderHTML: attributes => ({
-                    "data-icon": attributes.icon,
+                    "data-icon": allowedCalloutIcons.includes(attributes.icon)
+                        ? attributes.icon
+                        : "info",
                 }),
             },
         };
@@ -28,19 +43,40 @@ export const Callout = Node.create({
         return [
             {
                 tag: 'div[data-content-block="callout"]',
+                contentElement: ".learn-callout-content",
             },
         ];
     },
 
     renderHTML({ HTMLAttributes }) {
+        const icon = allowedCalloutIcons.includes(HTMLAttributes["data-icon"])
+            ? HTMLAttributes["data-icon"]
+            : "info";
+
         return [
             "div",
             mergeAttributes(HTMLAttributes, {
                 "data-content-block": "callout",
                 class: "learn-callout",
             }),
-            0,
+            [
+                "span",
+                {
+                    class: "learn-callout-icon",
+                    "data-lucide": icon,
+                    "aria-hidden": "true",
+                },
+            ],
+            [
+                "div",
+                { class: "learn-callout-content" },
+                0,
+            ],
         ];
+    },
+
+    addNodeView() {
+        return VueNodeViewRenderer(CalloutView);
     },
 
     addCommands() {
@@ -50,7 +86,11 @@ export const Callout = Node.create({
                 ({ commands }) =>
                     commands.insertContent({
                         type: this.name,
-                        attrs: { icon },
+                        attrs: {
+                            icon: allowedCalloutIcons.includes(icon)
+                                ? icon
+                                : "info",
+                        },
                         content: [
                             {
                                 type: "calloutTitle",
@@ -88,7 +128,7 @@ export const CalloutTitle = Node.create({
     parseHTML() {
         return [
             {
-                tag: 'div[data-content-block="callout"] > h3',
+                tag: "h3.learn-callout-title",
             },
         ];
     },

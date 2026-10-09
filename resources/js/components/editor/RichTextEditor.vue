@@ -46,10 +46,11 @@
 
             <!-- Content blocks -->
             <select
-                v-model="selectedCalloutIcon"
-                class="text-xs border border-gray-300 px-2 py-1"
-                title="Choose callout icon"
-            >
+    v-model="selectedCalloutIcon"
+    @change="updateCalloutIcon"
+    class="text-xs border border-gray-300 px-2 py-1"
+    title="Choose callout icon"
+>
                 <option value="info">Info</option>
                 <option value="lightbulb">Lightbulb</option>
                 <option value="alert-circle">Alert Circle</option>
@@ -181,6 +182,7 @@ const CustomHeading = Heading.extend({
 
 const editor = useEditor({
     content: props.value || "",
+
     extensions: [
         StarterKit.configure({
             heading: false,
@@ -195,13 +197,22 @@ const editor = useEditor({
         CalloutTitle,
         ContentCard,
     ],
+
     onUpdate: ({ editor }) => {
         const content = editor.getHTML();
+
         html.value = (
             content === "<p></p>" ||
             content === "<p><br></p>" ||
             content === '<p><br class="ProseMirror-trailingBreak"></p>'
         ) ? "" : content;
+    },
+
+    onSelectionUpdate: ({ editor }) => {
+        if (editor.isActive("callout")) {
+            selectedCalloutIcon.value =
+                editor.getAttributes("callout").icon || "info";
+        }
     },
 });
 
@@ -313,6 +324,20 @@ const clearFormatting = () =>
 const insertCallout = () =>
     editor.value?.chain().focus()
         .insertCallout(selectedCalloutIcon.value).run();
+
+const updateCalloutIcon = () => {
+    if (!editor.value?.isActive("callout")) {
+        return;
+    }
+
+    editor.value
+        .chain()
+        .focus()
+        .updateAttributes("callout", {
+            icon: selectedCalloutIcon.value,
+        })
+        .run();
+};
 
 const insertCard = () =>
     editor.value?.chain().focus().insertContentCard().run();

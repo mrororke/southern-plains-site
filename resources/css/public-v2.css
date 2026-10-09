@@ -859,3 +859,52 @@ ul.footer-nav li:hover {
     }
 
 }
+
+/* ==========================================================================
+   Learn — Rich Text Content Blocks
+   ========================================================================== */
+
+/* Callout */
+.learn-article-body .learn-callout {
+    @apply mt-8 rounded-md border border-sp-warmStone bg-sp-limestone p-5 md:p-6;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.learn-article-body .learn-callout-icon {
+    @apply mt-0.5 h-6 w-6 shrink-0 text-sp-prairieOchre;
+}
+
+.learn-article-body .learn-callout-icon svg {
+    width: 24px;
+    height: 24px;
+    stroke: currentColor;
+}
+
+.learn-article-body .learn-callout-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.learn-article-body .learn-callout-title {
+    @apply font-sans text-xl font-semibold text-sp-charcoal;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+/* Content Card */
+.learn-article-body .learn-content-card {
+    @apply rounded-md bg-sp-limestone p-5;
+}
+
+/* Spacing inside content blocks */
+.learn-article-body .learn-callout-content > :first-child,
+.learn-article-body .learn-content-card > :first-child {
+    margin-top: 0;
+}
+
+.learn-article-body .learn-callout-content > :last-child,
+.learn-article-body .learn-content-card > :last-child {
+    margin-bottom: 0;
+}
