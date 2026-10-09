@@ -8,17 +8,26 @@
             [
                 'label' => 'All',
                 'href' => route('public-v2.learn.index'),
-                'active' => ! request()->filled('category'),
+                'active' => ! $selectedCategory && ! $selectedTag,
             ],
         ];
 
         foreach (\App\Models\LearnCategory::query()->orderBy('name')->get() as $category) {
+            $parameters = [
+                'category' => $category->slug,
+            ];
+
+            if ($selectedTag) {
+                $parameters['tag'] = $selectedTag->slug;
+            }
+
             $filters[] = [
                 'label' => $category->name,
-                'href' => route('public-v2.learn.index', [
-                    'category' => $category->slug,
-                ]),
-                'active' => request('category') === $category->slug,
+                'href' => route(
+                    'public-v2.learn.index',
+                    $parameters
+                ),
+                'active' => $selectedCategory?->id === $category->id,
             ];
         }
     @endphp
@@ -121,6 +130,20 @@
                     New articles and resources are on their way.
                 </p>
 
+                @if ($selectedCategory || $selectedTag)
+
+                    <a
+                        href="{{ route('public-v2.learn.index') }}"
+                        class="learn-more-link text-sp-prairieOchre mt-6">
+
+                        Browse All Articles
+
+                        <x-icons.move-right />
+
+                    </a>
+
+                @endif
+
             </div>
 
         @endforelse
@@ -135,34 +158,11 @@
 
 
     {{-- Browse by Topic --}}
-    <x-public-v2.learn-topics
-        :topics="[
-            [
-                'label' => 'NASDA',
-                'href' => '#',
-            ],
-            [
-                'label' => 'Reactive Dogs',
-                'href' => '#',
-            ],
-            [
-                'label' => 'Trick Dog',
-                'href' => '#',
-            ],
-            [
-                'label' => 'Private Training',
-                'href' => '#',
-            ],
-            [
-                'label' => 'First Trials',
-                'href' => '#',
-            ],
-            [
-                'label' => 'Resource Roundup',
-                'href' => '#',
-            ],
-        ]"
-    />
+    @if (count($topics) > 0)
+
+        <x-public-v2.learn-topics :topics="$topics" />
+
+    @endif
     {{-- End Browse by Topic --}}
 
 @endsection

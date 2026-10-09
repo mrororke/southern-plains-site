@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\LearnArticle;
 use App\Models\LearnCategory;
+use App\Models\LearnTag;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
@@ -16,13 +17,23 @@ class LearnController extends Controller
     {
         /*
          * Resolve the selected category.
-         * An invalid category returns a 404.
          */
         $selectedCategory = null;
 
         if ($request->filled('category')) {
             $selectedCategory = LearnCategory::query()
                 ->where('slug', $request->query('category'))
+                ->firstOrFail();
+        }
+
+        /*
+         * Resolve the selected topic.
+         */
+        $selectedTag = null;
+
+        if ($request->filled('tag')) {
+            $selectedTag = LearnTag::query()
+                ->where('slug', $request->query('tag'))
                 ->firstOrFail();
         }
 
@@ -35,8 +46,7 @@ class LearnController extends Controller
             ->where('published_at', '<=', now());
 
         /*
-         * Apply the category filter to both the featured
-         * article and the regular archive.
+         * Apply the category filter.
          */
         if ($selectedCategory) {
             $publishedArticles->whereHas(
@@ -51,8 +61,25 @@ class LearnController extends Controller
         }
 
         /*
-         * The newest published Standard Article or
-         * Evergreen Guide is automatically featured.
+         * Apply the topic filter.
+         *
+         * Category and topic filters can be combined.
+         */
+        if ($selectedTag) {
+            $publishedArticles->whereHas(
+                'tags',
+                function ($query) use ($selectedTag) {
+                    $query->where(
+                        'learn_tags.id',
+                        $selectedTag->id
+                    );
+                }
+            );
+        }
+
+        /*
+         * Automatically feature the newest published
+         * Standard Article or Evergreen Guide.
          *
          * Book Reviews are never featured.
          */
@@ -69,8 +96,7 @@ class LearnController extends Controller
             ->first();
 
         /*
-         * Display all remaining published articles,
-         * including Book Reviews, newest first.
+         * Display the remaining published articles.
          */
         $articles = (clone $publishedArticles)
             ->when(
@@ -87,13 +113,76 @@ class LearnController extends Controller
             ])
             ->orderByDesc('published_at')
             ->orderByDesc('id')
-            ->paginate(1)
+            ->paginate(12)
             ->withQueryString();
+
+        /*
+         * Curated Browse by Topic selections.
+         *
+         * These are the six topics we've chosen
+         * to feature initially.
+         */
+        $featuredTopicSlugs = [
+            'nasda',
+            'getting-started-in-dog-sports',
+            'positive-reinforcement',
+            'reactive-dogs',
+            'trick-training',
+            'canine-fitness',
+        ];
+
+        /*
+         * Retrieve curated topics that have at least
+         * one publicly eligible article.
+         */
+        $availableTopics = LearnTag::query()
+            ->whereIn('slug', $featuredTopicSlugs)
+            ->whereHas('articles', function ($query) {
+                $query
+                    ->where('status', 'published')
+                    ->whereNotNull('published_at')
+                    ->where('published_at', '<=', now());
+            })
+            ->get()
+            ->sortBy(
+                fn ($tag) => array_search(
+                    $tag->slug,
+                    $featuredTopicSlugs,
+                    true
+                )
+            )
+            ->values();
+
+        /*
+         * Build links for the existing Browse by Topic
+         * component.
+         */
+        $topics = $availableTopics
+            ->map(function ($tag) use ($selectedCategory) {
+                $parameters = [
+                    'tag' => $tag->slug,
+                ];
+
+                if ($selectedCategory) {
+                    $parameters['category'] = $selectedCategory->slug;
+                }
+
+                return [
+                    'label' => $tag->name,
+                    'href' => route(
+                        'public-v2.learn.index',
+                        $parameters
+                    ),
+                ];
+            })
+            ->all();
 
         return view('public-v2.learn.index', [
             'featuredArticle' => $featuredArticle,
             'articles' => $articles,
             'selectedCategory' => $selectedCategory,
+            'selectedTag' => $selectedTag,
+            'topics' => $topics,
         ]);
     }
 }
