@@ -44,6 +44,13 @@
             },
         ];
     })->all();
+
+    $articleTags = $article->tags
+        ->map(fn ($tag) => [
+            'name' => $tag->name,
+            'slug' => $tag->slug,
+        ])
+        ->all();
 @endphp
 
 
@@ -126,12 +133,11 @@
                     </div>
 
                     {{-- Tags --}}
-                    @if ($article->tags->isNotEmpty())
+                    @if ($articleTags)
 
                         <div class="mt-10">
 
-                            <x-public-v2.learn-tags
-                                :tags="$article->tags->pluck('name')->all()" />
+                            <x-public-v2.learn-tags :tags="$articleTags" />
 
                         </div>
 
