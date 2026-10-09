@@ -17,7 +17,7 @@ use App\Http\Controllers\Admin\TrickCatalogController;
 use App\Http\Controllers\Admin\BackendSearchController;
 use App\Http\Controllers\Admin\ResourceLibrary\ResourceController;
 use App\Http\Controllers\LearnController;
-use App\Http\Controllers\Admin\LearnController;
+use App\Http\Controllers\Admin\LearnController as AdminLearnController;
 
 use App\Http\Controllers\Admin\TrickEvaluationController as AdminTrickEvaluationController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
@@ -404,26 +404,25 @@ Route::middleware(['auth', 'device'])
 
 
         /*
-        |--------------------------------------------------------------------------
-        | Learn
-        |--------------------------------------------------------------------------
-        */
+|--------------------------------------------------------------------------
+| Learn
+|--------------------------------------------------------------------------
+*/
 
-        Route::get('/learn', [LearnController::class, 'index'])
-            ->name('learn.index');
+Route::get('/learn', [AdminLearnController::class, 'index'])
+    ->name('learn.index');
 
-        Route::get('/learn/create', [LearnController::class, 'create'])
-            ->name('learn.create');
+Route::get('/learn/create', [AdminLearnController::class, 'create'])
+    ->name('learn.create');
 
-        Route::post('/learn', [LearnController::class, 'store'])
-            ->name('learn.store');
+Route::post('/learn', [AdminLearnController::class, 'store'])
+    ->name('learn.store');
 
-        Route::get('/learn/{article}/edit', [LearnController::class, 'edit'])
-            ->name('learn.edit');
+Route::get('/learn/{article}/edit', [AdminLearnController::class, 'edit'])
+    ->name('learn.edit');
 
-        Route::put('/learn/{article}', [LearnController::class, 'update'])
-            ->name('learn.update');
-    });
+Route::put('/learn/{article}', [AdminLearnController::class, 'update'])
+    ->name('learn.update');
 
 
 /*
