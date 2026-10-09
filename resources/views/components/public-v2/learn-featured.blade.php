@@ -16,10 +16,18 @@
         {{-- Featured Image --}}
         <div class="col-span-12 md:col-span-7">
 
-            <img
-                src="{{ $image }}"
-                alt="{{ $imageAlt }}"
-                class="w-full aspect-[16/9] object-cover rounded-md">
+            <a
+                href="{{ $href }}"
+                class="block rounded-md focus-visible:outline focus-visible:outline-2
+                       focus-visible:outline-offset-4 focus-visible:outline-sp-prairieOchre"
+                aria-label="{{ $title }}">
+
+                <img
+                    src="{{ $image }}"
+                    alt="{{ $imageAlt }}"
+                    class="w-full aspect-[16/9] object-cover rounded-md">
+
+            </a>
 
         </div>
 
@@ -33,7 +41,17 @@
                 </p>
 
                 <h2 class="font-sans text-3xl font-semibold text-sp-charcoal mt-3">
-                    {{ $title }}
+
+                    <a
+                        href="{{ $href }}"
+                        class="transition-colors hover:text-sp-prairieOchre
+                               focus-visible:outline focus-visible:outline-2
+                               focus-visible:outline-offset-4 focus-visible:outline-sp-prairieOchre">
+
+                        {{ $title }}
+
+                    </a>
+
                 </h2>
 
                 <p class="body text-sp-slate mt-6 md:body-large">
