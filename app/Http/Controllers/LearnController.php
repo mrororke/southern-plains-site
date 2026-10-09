@@ -15,9 +15,6 @@ class LearnController extends Controller
      */
     public function index(Request $request): View
     {
-        /*
-         * Resolve the selected category.
-         */
         $selectedCategory = null;
 
         if ($request->filled('category')) {
@@ -26,9 +23,6 @@ class LearnController extends Controller
                 ->firstOrFail();
         }
 
-        /*
-         * Resolve the selected topic.
-         */
         $selectedTag = null;
 
         if ($request->filled('tag')) {
@@ -37,17 +31,11 @@ class LearnController extends Controller
                 ->firstOrFail();
         }
 
-        /*
-         * Only publicly eligible articles are displayed.
-         */
         $publishedArticles = LearnArticle::query()
             ->where('status', 'published')
             ->whereNotNull('published_at')
             ->where('published_at', '<=', now());
 
-        /*
-         * Apply the category filter.
-         */
         if ($selectedCategory) {
             $publishedArticles->whereHas(
                 'categories',
@@ -60,11 +48,6 @@ class LearnController extends Controller
             );
         }
 
-        /*
-         * Apply the topic filter.
-         *
-         * Category and topic filters can be combined.
-         */
         if ($selectedTag) {
             $publishedArticles->whereHas(
                 'tags',
@@ -77,12 +60,6 @@ class LearnController extends Controller
             );
         }
 
-        /*
-         * Automatically feature the newest published
-         * Standard Article or Evergreen Guide.
-         *
-         * Book Reviews are never featured.
-         */
         $featuredArticle = (clone $publishedArticles)
             ->whereIn('type', ['standard', 'guide'])
             ->with([
@@ -95,9 +72,6 @@ class LearnController extends Controller
             ->orderByDesc('id')
             ->first();
 
-        /*
-         * Display the remaining published articles.
-         */
         $articles = (clone $publishedArticles)
             ->when(
                 $featuredArticle,
@@ -116,12 +90,6 @@ class LearnController extends Controller
             ->paginate(12)
             ->withQueryString();
 
-        /*
-         * Curated Browse by Topic selections.
-         *
-         * These are the six topics we've chosen
-         * to feature initially.
-         */
         $featuredTopicSlugs = [
             'nasda',
             'getting-started-in-dog-sports',
@@ -131,10 +99,6 @@ class LearnController extends Controller
             'canine-fitness',
         ];
 
-        /*
-         * Retrieve curated topics that have at least
-         * one publicly eligible article.
-         */
         $availableTopics = LearnTag::query()
             ->whereIn('slug', $featuredTopicSlugs)
             ->whereHas('articles', function ($query) {
@@ -153,10 +117,6 @@ class LearnController extends Controller
             )
             ->values();
 
-        /*
-         * Build links for the existing Browse by Topic
-         * component.
-         */
         $topics = $availableTopics
             ->map(function ($tag) use ($selectedCategory) {
                 $parameters = [
@@ -183,6 +143,84 @@ class LearnController extends Controller
             'selectedCategory' => $selectedCategory,
             'selectedTag' => $selectedTag,
             'topics' => $topics,
+        ]);
+    }
+
+    /**
+     * Display an individual published Learn article.
+     */
+    public function show(LearnArticle $article): View
+    {
+        abort_unless(
+            $article->status === 'published'
+                && $article->published_at
+                && $article->published_at->lte(now()),
+            404
+        );
+
+        $article->load([
+            'categories',
+            'tags',
+            'images',
+            'bookReview',
+        ]);
+
+        /*
+         * Find related published articles.
+         */
+        $categoryIds = $article->categories->pluck('id');
+        $tagIds = $article->tags->pluck('id');
+
+        $relatedArticles = LearnArticle::query()
+            ->whereKeyNot($article->id)
+            ->where('status', 'published')
+            ->whereNotNull('published_at')
+            ->where('published_at', '<=', now())
+            ->when(
+                $categoryIds->isNotEmpty() || $tagIds->isNotEmpty(),
+                function ($query) use ($categoryIds, $tagIds) {
+                    $query->where(function ($query) use ($categoryIds, $tagIds) {
+                        if ($categoryIds->isNotEmpty()) {
+                            $query->whereHas(
+                                'categories',
+                                fn ($categoryQuery) => $categoryQuery
+                                    ->whereIn('learn_categories.id', $categoryIds)
+                            );
+                        }
+
+                        if ($tagIds->isNotEmpty()) {
+                            $method = $categoryIds->isNotEmpty()
+                                ? 'orWhereHas'
+                                : 'whereHas';
+
+                            $query->{$method}(
+                                'tags',
+                                fn ($tagQuery) => $tagQuery
+                                    ->whereIn('learn_tags.id', $tagIds)
+                            );
+                        }
+                    });
+                }
+            )
+            ->with([
+                'categories',
+                'tags',
+                'images',
+                'bookReview',
+            ])
+            ->orderByDesc('published_at')
+            ->limit(4)
+            ->get();
+
+        $template = match ($article->type) {
+            'guide' => 'public-v2.learn.guide',
+            'book_review' => 'public-v2.learn.book-review',
+            default => 'public-v2.learn.article',
+        };
+
+        return view($template, [
+            'article' => $article,
+            'relatedArticles' => $relatedArticles,
         ]);
     }
 }

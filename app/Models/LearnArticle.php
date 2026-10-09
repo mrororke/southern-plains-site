@@ -35,12 +35,6 @@ class LearnArticle extends Model
         'published_at' => 'datetime',
     ];
 
-    /*
-    |--------------------------------------------------------------------------
-    | Relationships
-    |--------------------------------------------------------------------------
-    */
-
     public function categories(): BelongsToMany
     {
         return $this->belongsToMany(
@@ -75,5 +69,25 @@ class LearnArticle extends Model
             LearnBookReview::class,
             'article_id'
         );
+    }
+
+    /**
+     * Calculate estimated reading time from article content.
+     */
+    public function getReadingTimeAttribute(): string
+    {
+        $plainText = trim(
+            html_entity_decode(
+                strip_tags($this->body ?? ''),
+                ENT_QUOTES | ENT_HTML5,
+                'UTF-8'
+            )
+        );
+
+        $wordCount = str_word_count($plainText);
+
+        $minutes = max(1, (int) ceil($wordCount / 200));
+
+        return $minutes . ' min read';
     }
 }
