@@ -17,6 +17,10 @@
         ? 'Last updated ' . $article->updated_at->format('F j, Y')
         : null;
 
+    $publishedDate = $article->published_at
+        ? $article->published_at->format('F j, Y')
+        : null;
+
     $articleTags = $article->tags
         ->map(fn ($tag) => [
             'name' => $tag->name,
@@ -94,7 +98,8 @@
             <x-public-v2.article-metadata
                 category="Book Review"
                 :read-time="$article->reading_time"
-                :updated="$updatedDate" />
+                :updated="$updatedDate"
+                :published="$publishedDate" />
             {{-- End Article Metadata --}}
 
             {{-- Affiliate Callout --}}
