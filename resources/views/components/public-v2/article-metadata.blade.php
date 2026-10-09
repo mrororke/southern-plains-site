@@ -2,6 +2,7 @@
     'category',
     'readTime',
     'updated',
+    'published' => null,
 ])
 
 {{-- Article Metadata --}}
@@ -31,17 +32,29 @@
 
     </li>
 
-    <li class="flex items-center gap-2">
+    @if ($updated || $published)
+        <li class="flex items-start gap-2">
 
-        <x-icons.calendar-days
-            class="w-5 h-5 shrink-0"
-            aria-hidden="true" />
+            <x-icons.calendar-days
+                class="w-5 h-5 shrink-0"
+                aria-hidden="true" />
 
-        <span class="body-small">
-            {{ $updated }}
-        </span>
+            <div>
+                @if ($updated)
+                    <p class="body-small text-sp-slate">
+                        {{ $updated }}
+                    </p>
+                @endif
 
-    </li>
+                @if ($published && $published !== $updated)
+                    <p class="text-xs text-sp-slate mt-1">
+                        Originally published {{ $published }}
+                    </p>
+                @endif
+            </div>
+
+        </li>
+    @endif
 
 </ul>
 {{-- End Article Metadata --}}

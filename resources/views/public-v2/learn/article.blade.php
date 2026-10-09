@@ -13,6 +13,10 @@
     $updatedDate = $article->updated_at
         ? 'Last updated ' . $article->updated_at->format('F j, Y')
         : null;
+    
+    $publishedDate = $article->published_at
+    ? $article->published_at->format('F j, Y')
+    : null;
 
     $relatedItems = $relatedArticles->map(function ($related) {
         $image = $related->type === 'book_review'
@@ -74,9 +78,10 @@
 
             {{-- Article Metadata --}}
             <x-public-v2.article-metadata
-                :category="$category"
-                :read-time="$article->reading_time"
-                :updated="$updatedDate" />
+    :category="$category"
+    :read-time="$article->reading_time"
+    :updated="$updatedDate"
+    :published="$publishedDate" />
             {{-- End Article Metadata --}}
 
         </div>
