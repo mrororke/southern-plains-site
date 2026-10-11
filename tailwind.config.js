@@ -39,6 +39,8 @@ export default {
         "!hover:text-white",
         "hover:bg-transparent",
         "hover:border-white",
+
+        'md:grid-cols-5',
         // --- End Safelist ---
     ],
 
