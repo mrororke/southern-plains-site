@@ -40,7 +40,14 @@ export default {
         "hover:bg-transparent",
         "hover:border-white",
 
-        'md:grid-cols-5',
+        "md:grid-cols-5",
+        "text-sp-warmIvory",
+        "bg-sp-prairieGreen",
+        "md:p-8",
+        "inline-flex",
+        "items-center",
+        "gap-2",
+        "shrink-0",
         // --- End Safelist ---
     ],
 
@@ -75,7 +82,7 @@ export default {
                     warningOchre: "#C58C2A",
                     clayRed: "#B44B42",
                     prairieBlue: "#4D718F",
-                }
+                },
             },
 
             fontFamily: {
@@ -89,8 +96,5 @@ export default {
         },
     },
 
-    plugins: [
-        forms,
-        typography,
-    ],
+    plugins: [forms, typography],
 };
