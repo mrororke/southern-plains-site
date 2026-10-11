@@ -935,7 +935,7 @@ ul.footer-nav li:hover {
 }
 
 .learn-article-body .learn-cta-link {
-    @apply mt-5 inline-flex items-center gap-2 font-semibold text-sp-warmIvory underline-offset-4;
+    @apply mt-5 inline-flex items-center gap-2 font-semibold text-sp-warmIvory;
 }
 
 .learn-article-body .learn-cta-link:hover {
