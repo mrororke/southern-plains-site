@@ -27,13 +27,13 @@
         </h3>
 
         @if($description)
-            <p class="body text-sp-slate mt-2">
+            <p class="body-small text-sp-slate mt-2">
                 {{ $description }}
             </p>
         @endif
 
         @if(trim($slot))
-            <div class="bod-smally text-sp-slate mt-2">
+            <div class="bod-small text-sp-slate mt-2">
                 {{ $slot }}
             </div>
         @endif
