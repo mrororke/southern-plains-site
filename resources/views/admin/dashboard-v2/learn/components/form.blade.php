@@ -7,13 +7,14 @@
             'imagePath' => $image->image_path,
             'altText' => $image->alt_text,
             'caption' => $image->caption ?? '',
+            'photographerUrl' => $image->photographer_url ?? '',
             'displayType' => $image->display_type ?? 'image',
         ])->values()->all()
         : [];
     if (empty($initialArticleImages)) {
         $initialArticleImages = [[
             'id' => 'new_1', 'databaseId' => null, 'fileName' => '',
-            'imagePath' => null, 'altText' => '', 'caption' => '', 'displayType' => 'image',
+            'imagePath' => null, 'altText' => '', 'caption' => '', 'photographerUrl' => '', 'displayType' => 'image',
         ]];
     }
 @endphp
@@ -38,6 +39,7 @@
                 imagePath: null,
                 altText: '',
                 caption: '',
+                photographerUrl: '',
                 displayType: 'image'
 
             });
@@ -1245,29 +1247,23 @@
         <div class="xl:col-span-2">
 
             {{-- Evergreen Guide Introduction --}}
-
             <section
                 x-show="articleType === 'guide'"
                 x-cloak
                 class="mb-8 rounded-md border border-sp-warmStone bg-sp-warmIvory p-6">
-
                 <h2 class="font-sans text-lg font-semibold text-sp-charcoal">
                     Introduction
                 </h2>
-
                 <p class="mt-1 text-sm text-sp-slate">
                     Introduce the guide before its featured image. This is separate from the excerpt and main content.
                 </p>
-
                 <div class="mt-6">
                     <x-admin.forms.rich-text
                         id="introduction-editor"
                         name="introduction"
                         :value="old('introduction', $article->introduction ?? '')" />
-
                     <x-admin.forms.field-error name="introduction" />
                 </div>
-
             </section>
 
             {{-- Content --}}
@@ -1721,6 +1717,31 @@
 
                                     </p>
 
+                                </div>
+
+                                {{-- Photographer URL --}}
+                                <div>
+                                    <label
+                                        :for="`article_image_photographer_url_${image.id}`"
+                                        class="block text-sm font-medium text-sp-charcoal">
+                                        Photographer URL
+                                    </label>
+                                    <input
+                                        type="url"
+                                        :id="`article_image_photographer_url_${image.id}`"
+                                        :name="`article_images[${image.id}][photographer_url]`"
+                                        x-model="image.photographerUrl"
+                                        placeholder="https://example.com"
+                                        autocomplete="url"
+                                        class="mt-2 block w-full rounded-md
+                                               border-sp-warmStone
+                                               bg-sp-warmIvory
+                                               text-sm text-sp-charcoal
+                                               focus:border-sp-prairieGreen
+                                               focus:ring-sp-prairieGreen">
+                                    <p class="mt-1 text-xs text-sp-slate">
+                                        Optional. Link the image credit to the photographer's website.
+                                    </p>
                                 </div>
 
                                 {{-- Display Type --}}

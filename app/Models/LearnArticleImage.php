@@ -15,6 +15,7 @@ class LearnArticleImage extends Model
         'image_path',
         'alt_text',
         'caption',
+        'photographer_url',
         'display_type',
         'sort_order',
     ];

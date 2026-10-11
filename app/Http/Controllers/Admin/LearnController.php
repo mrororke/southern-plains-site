@@ -168,6 +168,7 @@ class LearnController extends Controller
             'article_images.*.file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
             'article_images.*.alt_text' => ['nullable', 'string', 'max:255'],
             'article_images.*.caption' => ['nullable', 'string'],
+            'article_images.*.photographer_url' => ['nullable', 'url:http,https', 'max:2048'],
             'article_images.*.display_type' => ['required_with:article_images', 'in:image,figure'],
             'article_images.*.sort_order' => ['required_with:article_images', 'integer', 'min:0'],
         ]);
@@ -457,6 +458,7 @@ class LearnController extends Controller
             'article_images.*.file' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:5120'],
             'article_images.*.alt_text' => ['nullable', 'string', 'max:255'],
             'article_images.*.caption' => ['nullable', 'string'],
+            'article_images.*.photographer_url' => ['nullable', 'url:http,https', 'max:2048'],
             'article_images.*.display_type' => ['required_with:article_images', 'in:image,figure'],
             'article_images.*.sort_order' => ['required_with:article_images', 'integer', 'min:0'],
         ]);
@@ -692,6 +694,7 @@ class LearnController extends Controller
                 }
                 $image->alt_text = $alt;
                 $image->caption = $row['caption'] ?? null;
+                $image->photographer_url = $row['photographer_url'] ?? null;
                 $image->display_type = $row['display_type'] ?? 'image';
                 $image->sort_order = $position++;
                 $image->save();
