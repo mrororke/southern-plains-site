@@ -3,6 +3,7 @@
     'alt',
     'number',
     'title',
+    'description' => null,
     'credit' => null,
     'creditUrl' => null,
 ])
@@ -21,20 +22,27 @@
             Figure {{ $number }}
         </p>
 
-        <h3 class="font-sans text-xl font-semibold text-sp-charcoal mt-1">
+        <h3 class="font-display text-xl font-semibold text-sp-charcoal mt-1">
             {{ $title }}
         </h3>
 
-        <div class="body text-sp-slate mt-2">
-            {{ $slot }}
-        </div>
+        @if($description)
+            <p class="body text-sp-slate mt-2">
+                {{ $description }}
+            </p>
+        @endif
 
-        @if ($credit)
+        @if(trim($slot))
+            <div class="body text-sp-slate mt-2">
+                {{ $slot }}
+            </div>
+        @endif
+
+        @if($credit)
             <p class="body-small text-sp-slate mt-2">
-
                 Photo:
-                
-                @if ($creditUrl)
+
+                @if($creditUrl)
                     <a
                         href="{{ $creditUrl }}"
                         target="_blank"
@@ -45,7 +53,6 @@
                 @else
                     {{ $credit }}
                 @endif
-
             </p>
         @endif
 

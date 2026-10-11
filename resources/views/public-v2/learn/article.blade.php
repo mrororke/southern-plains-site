@@ -147,36 +147,60 @@
                 {{-- End Main Article Content --}}
 
 
-                {{-- Supporting Figures --}}
-                @if ($supportingImages->isNotEmpty())
+               {{-- Supporting Figures --}}
+@if ($supportingImages->isNotEmpty())
 
-                    <aside class="col-span-10 self-start md:col-span-3">
+    <aside class="col-span-10 self-start md:col-span-3">
 
-                        @foreach ($supportingImages as $image)
+        @php
+            $figureNumber = 0;
+        @endphp
 
-                            <figure class="{{ $loop->first ? '' : 'mt-10' }}">
+        @foreach ($supportingImages as $image)
 
-                                <img
-                                    src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($image->image_path) }}"
-                                    alt="{{ $image->alt_text ?? '' }}"
-                                    class="block w-full rounded-md">
+            @if ($image->display_type === 'figure')
 
-                                @if ($image->caption)
+                @php
+                    $figureNumber++;
+                @endphp
 
-                                    <figcaption class="text-xs text-sp-slate mt-3">
-                                        {{ $image->caption }}
-                                    </figcaption>
+                <x-public-v2.learn-figure
+                    :image="'storage/' . $image->image_path"
+                    :alt="$image->alt_text ?? ''"
+                    :number="str_pad($figureNumber, 2, '0', STR_PAD_LEFT)"
+                    :title="$image->figure_title ?? ''"
+                    :description="$image->figure_description"
+                    :credit="$image->photographer_name"
+                    :credit-url="$image->photographer_url"
+                />
 
-                                @endif
+            @else
 
-                            </figure>
+                <figure class="{{ $loop->first ? '' : 'mt-10' }}">
 
-                        @endforeach
+                    <img
+                        src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($image->image_path) }}"
+                        alt="{{ $image->alt_text ?? '' }}"
+                        class="block w-full rounded-md">
 
-                    </aside>
+                    @if ($image->caption)
 
-                @endif
-                {{-- End Supporting Figures --}}
+                        <figcaption class="text-xs text-sp-slate mt-3">
+                            {{ $image->caption }}
+                        </figcaption>
+
+                    @endif
+
+                </figure>
+
+            @endif
+
+        @endforeach
+
+    </aside>
+
+@endif
+{{-- End Supporting Figures --}}
 
             </div>
             {{-- End Article Body --}}

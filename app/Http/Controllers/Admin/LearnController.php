@@ -169,6 +169,9 @@ class LearnController extends Controller
             'article_images.*.alt_text' => ['nullable', 'string', 'max:255'],
             'article_images.*.caption' => ['nullable', 'string'],
             'article_images.*.photographer_url' => ['nullable', 'url:http,https', 'max:2048'],
+            'article_images.*.figure_title' => ['nullable', 'string', 'max:255'],
+            'article_images.*.figure_description' => ['nullable', 'string'],
+            'article_images.*.photographer_name' => ['nullable', 'string', 'max:255'],
             'article_images.*.display_type' => ['required_with:article_images', 'in:image,figure'],
             'article_images.*.sort_order' => ['required_with:article_images', 'integer', 'min:0'],
         ]);
@@ -459,6 +462,9 @@ class LearnController extends Controller
             'article_images.*.alt_text' => ['nullable', 'string', 'max:255'],
             'article_images.*.caption' => ['nullable', 'string'],
             'article_images.*.photographer_url' => ['nullable', 'url:http,https', 'max:2048'],
+            'article_images.*.figure_title' => ['nullable', 'string', 'max:255'],
+            'article_images.*.figure_description' => ['nullable', 'string'],
+            'article_images.*.photographer_name' => ['nullable', 'string', 'max:255'],
             'article_images.*.display_type' => ['required_with:article_images', 'in:image,figure'],
             'article_images.*.sort_order' => ['required_with:article_images', 'integer', 'min:0'],
         ]);
@@ -695,6 +701,9 @@ class LearnController extends Controller
                 $image->alt_text = $alt;
                 $image->caption = $row['caption'] ?? null;
                 $image->photographer_url = $row['photographer_url'] ?? null;
+                $image->figure_title = $row['figure_title'] ?? null;
+                $image->figure_description = $row['figure_description'] ?? null;
+                $image->photographer_name = $row['photographer_name'] ?? null;
                 $image->display_type = $row['display_type'] ?? 'image';
                 $image->sort_order = $position++;
                 $image->save();

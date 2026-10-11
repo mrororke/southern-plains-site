@@ -314,7 +314,10 @@
                         :image="'storage/' . $image->image_path"
                         :alt="$image->alt_text ?? ''"
                         :number="str_pad($figureNumber, 2, '0', STR_PAD_LEFT)"
-                        :title="$image->caption ?? ''"
+                        :title="$image->figure_title ?? ''"
+                        :description="$image->figure_description"
+                        :credit="$image->photographer_name"
+                        :credit-url="$image->photographer_url"
                     />
                 @else
                     <figure>

@@ -8,13 +8,16 @@
             'altText' => $image->alt_text,
             'caption' => $image->caption ?? '',
             'photographerUrl' => $image->photographer_url ?? '',
+            'figureTitle' => $image->figure_title ?? '',
+            'figureDescription' => $image->figure_description ?? '',
+            'photographerName' => $image->photographer_name ?? '',
             'displayType' => $image->display_type ?? 'image',
         ])->values()->all()
         : [];
     if (empty($initialArticleImages)) {
         $initialArticleImages = [[
             'id' => 'new_1', 'databaseId' => null, 'fileName' => '',
-            'imagePath' => null, 'altText' => '', 'caption' => '', 'photographerUrl' => '', 'displayType' => 'image',
+            'imagePath' => null, 'altText' => '', 'caption' => '', 'photographerUrl' => '', 'figureTitle' => '', 'figureDescription' => '', 'photographerName' => '', 'displayType' => 'image',
         ]];
     }
 @endphp
@@ -40,6 +43,9 @@
                 altText: '',
                 caption: '',
                 photographerUrl: '',
+                figureTitle: '',
+                figureDescription: '',
+                photographerName: '',
                 displayType: 'image'
 
             });
@@ -1678,52 +1684,78 @@
 
                                 </div>
 
-                                {{-- Caption --}}
-
+                                {{-- Display Type --}}
                                 <div>
-
-                                    <label
-
-                                        :for="`article_image_caption_${image.id}`"
-
-                                        class="block text-sm font-medium text-sp-charcoal">
-
-                                        Caption
-
+                                    <label :for="`article_image_type_${image.id}`" class="block text-sm font-medium text-sp-charcoal">
+                                        Display
                                     </label>
+                                    <select
+                                        :id="`article_image_type_${image.id}`"
+                                        :name="`article_images[${image.id}][display_type]`"
+                                        x-model="image.displayType"
+                                        class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                        <option value="image">Image</option>
+                                        <option value="figure">Figure</option>
+                                    </select>
+                                    <p class="mt-1 text-xs text-sp-slate">Figures are numbered automatically in display order.</p>
+                                </div>
 
+                                {{-- Ordinary Image Caption --}}
+                                <div x-show="image.displayType === 'image'" x-cloak>
+                                    <label :for="`article_image_caption_${image.id}`" class="block text-sm font-medium text-sp-charcoal">
+                                        Caption
+                                    </label>
                                     <textarea
-
                                         :id="`article_image_caption_${image.id}`"
                                         :name="`article_images[${image.id}][caption]`"
                                         x-model="image.caption"
                                         rows="2"
+                                        class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"></textarea>
+                                    <p class="mt-1 text-xs text-sp-slate">Optional text displayed with the image.</p>
+                                </div>
 
-                                        class="mt-2 block w-full rounded-md
-
-                                               border-sp-warmStone
-
-                                               bg-sp-warmIvory
-
-                                               text-sm text-sp-charcoal
-
-                                               focus:border-sp-prairieGreen
-
-                                               focus:ring-sp-prairieGreen"></textarea>
-
-                                    <p class="mt-1 text-xs text-sp-slate">
-
-                                        Optional text displayed with the image.
-
-                                    </p>
-
+                                {{-- Figure Details --}}
+                                <div x-show="image.displayType === 'figure'" x-cloak class="space-y-4">
+                                    <div>
+                                        <label :for="`article_image_figure_title_${image.id}`" class="block text-sm font-medium text-sp-charcoal">
+                                            Figure Title
+                                        </label>
+                                        <input
+                                            type="text"
+                                            :id="`article_image_figure_title_${image.id}`"
+                                            :name="`article_images[${image.id}][figure_title]`"
+                                            x-model="image.figureTitle"
+                                            autocomplete="off"
+                                            class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                    </div>
+                                    <div>
+                                        <label :for="`article_image_figure_description_${image.id}`" class="block text-sm font-medium text-sp-charcoal">
+                                            Figure Description
+                                        </label>
+                                        <textarea
+                                            :id="`article_image_figure_description_${image.id}`"
+                                            :name="`article_images[${image.id}][figure_description]`"
+                                            x-model="image.figureDescription"
+                                            rows="3"
+                                            class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"></textarea>
+                                    </div>
+                                    <div>
+                                        <label :for="`article_image_photographer_name_${image.id}`" class="block text-sm font-medium text-sp-charcoal">
+                                            Photographer Name
+                                        </label>
+                                        <input
+                                            type="text"
+                                            :id="`article_image_photographer_name_${image.id}`"
+                                            :name="`article_images[${image.id}][photographer_name]`"
+                                            x-model="image.photographerName"
+                                            autocomplete="off"
+                                            class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                    </div>
                                 </div>
 
                                 {{-- Photographer URL --}}
                                 <div>
-                                    <label
-                                        :for="`article_image_photographer_url_${image.id}`"
-                                        class="block text-sm font-medium text-sp-charcoal">
+                                    <label :for="`article_image_photographer_url_${image.id}`" class="block text-sm font-medium text-sp-charcoal">
                                         Photographer URL
                                     </label>
                                     <input
@@ -1733,70 +1765,8 @@
                                         x-model="image.photographerUrl"
                                         placeholder="https://example.com"
                                         autocomplete="url"
-                                        class="mt-2 block w-full rounded-md
-                                               border-sp-warmStone
-                                               bg-sp-warmIvory
-                                               text-sm text-sp-charcoal
-                                               focus:border-sp-prairieGreen
-                                               focus:ring-sp-prairieGreen">
-                                    <p class="mt-1 text-xs text-sp-slate">
-                                        Optional. Link the image credit to the photographer's website.
-                                    </p>
-                                </div>
-
-                                {{-- Display Type --}}
-
-                                <div>
-
-                                    <label
-
-                                        :for="`article_image_type_${image.id}`"
-
-                                        class="block text-sm font-medium text-sp-charcoal">
-
-                                        Display
-
-                                    </label>
-
-                                    <select
-
-                                        :id="`article_image_type_${image.id}`"
-                                        :name="`article_images[${image.id}][display_type]`"
-                                        x-model="image.displayType"
-                                        class="mt-2 block w-full rounded-md
-
-                                               border-sp-warmStone
-
-                                               bg-sp-warmIvory
-
-                                               text-sm text-sp-charcoal
-
-                                               focus:border-sp-prairieGreen
-
-                                               focus:ring-sp-prairieGreen">
-
-                                        <option value="image">
-
-                                            Image
-
-                                        </option>
-
-                                        <option value="figure">
-
-                                            Figure
-
-                                        </option>
-
-                                    </select>
-
-                                    <p class="mt-1 text-xs text-sp-slate">
-
-                                        Figures are numbered automatically
-
-                                        in display order.
-
-                                    </p>
-
+                                        class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                    <p class="mt-1 text-xs text-sp-slate">Optional. Link the photographer credit to their website.</p>
                                 </div>
 
                                 {{-- Reorder --}}
