@@ -251,11 +251,13 @@
 
                     @if($heroImage->caption)
 
-                        <x-public-v2.image-registration
-                            :text="$heroImage->caption"
-                            position="right" />
+    <x-public-v2.image-registration
+        :text="$heroImage->caption"
+        :href="$heroImage->photographer_url"
+        position="right"
+    />
 
-                    @endif
+@endif
 
                 </div>
 
