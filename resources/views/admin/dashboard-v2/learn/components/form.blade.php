@@ -1487,15 +1487,17 @@
                 </p>
                 <div class="mt-6">
                     <x-admin.forms.searchable-selector
-                        label="Related Articles"
-                        name="related_articles"
-                        :items="$availableRelatedArticles"
-                        :selected="old('related_articles', $selectedRelatedArticleIds ?? [])"
-                        search-placeholder="Search articles..."
-                        empty-message="No other published articles available.">
-                        <x-admin.forms.field-error name="related_articles" />
-                        <x-admin.forms.field-error name="related_articles.*" />
-                    </x-admin.forms.searchable-selector>
+    label="Related Articles"
+    name="related_articles"
+    :items="$availableRelatedArticles"
+    :selected="old('related_articles', $selectedRelatedArticleIds ?? [])"
+    search-placeholder="Search articles..."
+    empty-message="No other published articles available."
+    columns="single"
+>
+    <x-admin.forms.field-error name="related_articles" />
+    <x-admin.forms.field-error name="related_articles.*" />
+</x-admin.forms.searchable-selector>
                 </div>
             </section>
 

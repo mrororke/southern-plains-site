@@ -5,6 +5,7 @@
     'selected' => [],
     'searchPlaceholder' => 'Search...',
     'emptyMessage' => 'No items available.',
+    'columns' => 'responsive',
 ])
 
 <div
@@ -48,10 +49,12 @@
 
     @if (collect($items)->isNotEmpty())
         <div
-            class="grid max-h-72 grid-cols-2 gap-2 overflow-y-auto
-                   rounded-md border border-sp-warmStone
-                   bg-sp-warmIvory p-3 lg:grid-cols-3"
-        >
+    @class([
+        'grid max-h-72 gap-2 overflow-y-auto rounded-md border border-sp-warmStone bg-sp-warmIvory p-3',
+        'grid-cols-1' => $columns === 'single',
+        'grid-cols-2 lg:grid-cols-3' => $columns !== 'single',
+    ])
+>
             <template
                 x-for="item in filtered()"
                 :key="item.id"
