@@ -22,7 +22,7 @@
             Figure {{ $number }}
         </p>
 
-        <h3 class="font-display text-xl font-semibold text-sp-charcoal mt-1">
+        <h3 class="text-lg font-semibold text-sp-charcoal mt-1">
             {{ $title }}
         </h3>
 
@@ -33,13 +33,13 @@
         @endif
 
         @if(trim($slot))
-            <div class="body text-sp-slate mt-2">
+            <div class="bod-smally text-sp-slate mt-2">
                 {{ $slot }}
             </div>
         @endif
 
         @if($credit)
-            <p class="body-small text-sp-slate mt-2">
+            <p class="text-xs text-sp-slate mt-2">
                 Photo:
 
                 @if($creditUrl)
