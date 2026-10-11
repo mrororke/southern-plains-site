@@ -297,37 +297,44 @@
 
 
                 {{-- Supporting Figures --}}
+@if($supportingImages->isNotEmpty())
+    <aside class="col-span-10 self-start md:col-span-3">
+        @php
+            $figureNumber = 0;
+        @endphp
 
-                @if($supportingImages->isNotEmpty())
+        @foreach($supportingImages as $image)
+            <div class="{{ $loop->first ? '' : 'mt-10' }}">
+                @if($image->display_type === 'figure')
+                    @php
+                        $figureNumber++;
+                    @endphp
 
-                    <aside class="col-span-10 self-start md:col-span-3">
+                    <x-public-v2.learn-figure
+                        :image="'storage/' . $image->image_path"
+                        :alt="$image->alt_text ?? ''"
+                        :number="str_pad($figureNumber, 2, '0', STR_PAD_LEFT)"
+                        :title="$image->caption ?? ''"
+                    />
+                @else
+                    <figure>
+                        <img
+                            src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($image->image_path) }}"
+                            alt="{{ $image->alt_text ?? '' }}"
+                            class="block w-full rounded-md">
 
-                        @foreach($supportingImages as $image)
-
-                            <figure class="{{ $loop->first ? '' : 'mt-10' }}">
-
-                                <img
-                                    src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($image->image_path) }}"
-                                    alt="{{ $image->alt_text ?? '' }}"
-                                    class="block w-full rounded-md">
-
-                                @if($image->caption)
-
-                                    <figcaption class="text-xs text-sp-slate mt-3">
-                                        {{ $image->caption }}
-                                    </figcaption>
-
-                                @endif
-
-                            </figure>
-
-                        @endforeach
-
-                    </aside>
-
+                        @if($image->caption)
+                            <figcaption class="mt-3 text-xs text-sp-slate">
+                                {{ $image->caption }}
+                            </figcaption>
+                        @endif
+                    </figure>
                 @endif
-
-                {{-- End Supporting Figures --}}
+            </div>
+        @endforeach
+    </aside>
+@endif
+{{-- End Supporting Figures --}}
 
             </div>
 
