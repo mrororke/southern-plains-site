@@ -908,3 +908,40 @@ ul.footer-nav li:hover {
 .learn-article-body .learn-content-card > :last-child {
     margin-bottom: 0;
 }
+
+/* ==========================================================================
+   Learn — CTA
+   ========================================================================== */
+
+.learn-article-body .learn-cta {
+    @apply mt-12 rounded-md bg-sp-prairieGreen p-6 md:p-8;
+}
+
+.learn-article-body .learn-cta-heading {
+    @apply flex items-center gap-4;
+}
+
+.learn-article-body .learn-cta-icon {
+    @apply h-6 w-6 shrink-0 text-sp-warmIvory;
+}
+
+.learn-article-body .learn-cta-title {
+    @apply font-sans text-2xl font-semibold text-sp-warmIvory;
+    margin: 0;
+}
+
+.learn-article-body .learn-cta-description {
+    @apply mt-4 text-sp-warmIvory;
+}
+
+.learn-article-body .learn-cta-link {
+    @apply mt-5 inline-flex items-center gap-2 font-semibold text-sp-warmIvory underline-offset-4;
+}
+
+.learn-article-body .learn-cta-link:hover {
+    @apply text-sp-limestone;
+}
+
+.learn-article-body .learn-cta-link svg {
+    @apply h-5 w-5;
+}
