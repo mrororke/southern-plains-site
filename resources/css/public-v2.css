@@ -812,8 +812,8 @@ ul.footer-nav li:hover {
     }
 
     .learn-article-body ol {
-        @apply mb-6 ml-6 list-decimal space-y-6;
-    }
+    @apply mb-6 ml-0 pl-6 list-decimal space-y-6;
+}
 
     /* Quotes */
 
