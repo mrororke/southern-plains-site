@@ -127,7 +127,7 @@ $articleTags = $article->tags
 
 
         {{-- Article Body --}}
-        <div class="grid grid-cols-10 items-stretch gap-6">
+        <div class="grid grid-cols-10 items-stretch gap-6 learn-article-body">
 
             {{-- Main Article Content --}}
             <article class="col-span-10 md:col-span-7">
