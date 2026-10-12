@@ -808,8 +808,13 @@ ul.footer-nav li:hover {
     }
 
     .learn-article-body ol {
-        @apply mb-6 ml-0 pl-0 list-decimal list-inside space-y-6;
-    }
+    @apply mb-6 ml-0 pl-0 list-decimal space-y-6;
+    list-style-position: outside;
+}
+
+.learn-article-body ol > li {
+    @apply ml-6 pl-2;
+}
 
     /* Quotes */
 
