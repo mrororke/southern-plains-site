@@ -84,19 +84,7 @@ $articleTags = $article->tags
             :published="$publishedDate" />
         {{-- End Article Metadata --}}
 
-        {{-- Affiliate Callout --}}
-            @if ($article->has_affiliate_links)
-                <x-public-v2.callout
-                    icon="ad"
-                    title="Affiliate Link Disclaimer">
-                    Some of the links in this post are affiliate links, which means
-                    I may earn a small commission at no additional cost to you if
-                    you make a purchase through these links. I only recommend
-                    products and services I genuinely use and believe will add
-                    value to you. Thank you for supporting Southern Plains!
-                </x-public-v2.callout>
-            @endif
-            {{-- End Affiliate Callout --}}
+        
 
     </div>
 
@@ -143,6 +131,19 @@ $articleTags = $article->tags
 
             {{-- Main Article Content --}}
             <article class="col-span-10 md:col-span-7">
+                {{-- Affiliate Callout --}}
+            @if ($article->has_affiliate_links)
+                <x-public-v2.callout
+                    icon="ad"
+                    title="Affiliate Link Disclaimer">
+                    Some of the links in this post are affiliate links, which means
+                    I may earn a small commission at no additional cost to you if
+                    you make a purchase through these links. I only recommend
+                    products and services I genuinely use and believe will add
+                    value to you. Thank you for supporting Southern Plains!
+                </x-public-v2.callout>
+            @endif
+            {{-- End Affiliate Callout --}}
 
                 <div class="body text-sp-slate">
                     {!! $article->body !!}
