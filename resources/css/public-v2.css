@@ -260,7 +260,6 @@ h1.text-hero {
     font-style: normal;
     font-weight: 400;
     line-height: 24px; /* 133.333% */
-
 }
 
 .body-large-light {
@@ -507,7 +506,6 @@ h1.text-hero {
         writing-mode: horizontal-tb;
     }
 }
-
 
 /* Mobile: left-side variant (up to 767px) */
 
@@ -761,13 +759,11 @@ ul.footer-nav li:hover {
     text-decoration: underline;
 }
 
-
 /* ==========================================================================
    12. Learn article content
    ========================================================================== */
 
 @layer components {
-
     .learn-article-body {
         @apply font-sans text-sp-slate;
         font-size: 18px;
@@ -811,9 +807,9 @@ ul.footer-nav li:hover {
         @apply mb-6 ml-6 list-disc space-y-2;
     }
 
-.learn-article-body ol {
-    @apply mb-6 ml-0 pl-0 list-decimal list-inside space-y-6;
-}
+    .learn-article-body ol {
+        @apply mb-6 ml-0 pl-0 list-decimal list-inside space-y-6;
+    }
 
     /* Quotes */
 
@@ -857,7 +853,6 @@ ul.footer-nav li:hover {
     .learn-article-body > :last-child {
         margin-bottom: 0;
     }
-
 }
 
 /* ==========================================================================
