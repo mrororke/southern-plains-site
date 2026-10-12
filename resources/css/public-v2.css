@@ -811,8 +811,8 @@ ul.footer-nav li:hover {
         @apply mb-6 ml-6 list-disc space-y-2;
     }
 
-    .learn-article-body ol {
-    @apply mb-6 ml-0 pl-6 list-decimal space-y-6;
+.learn-article-body ol {
+    @apply mb-6 ml-0 pl-0 list-decimal list-inside space-y-6;
 }
 
     /* Quotes */
