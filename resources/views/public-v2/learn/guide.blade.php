@@ -213,6 +213,20 @@
                 :read-time="$article->reading_time"
                 :updated="$reviewDate" />
 
+            {{-- Affiliate Callout --}}
+            @if ($article->has_affiliate_links)
+                <x-public-v2.callout
+                    icon="ad"
+                    title="Affiliate Link Disclaimer">
+                    Some of the links in this post are affiliate links, which means
+                    I may earn a small commission at no additional cost to you if
+                    you make a purchase through these links. I only recommend
+                    products and services I genuinely use and believe will add
+                    value to you. Thank you for supporting Southern Plains!
+                </x-public-v2.callout>
+            @endif
+            {{-- End Affiliate Callout --}}
+
             {{-- Introduction --}}
 
             @if(filled($article->introduction))
