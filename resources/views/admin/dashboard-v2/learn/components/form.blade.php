@@ -396,6 +396,41 @@
 
             </div>
 
+            {{-- Publish Date & Time --}}
+<div>
+    <label
+        for="published_at"
+        class="block text-sm font-medium text-sp-charcoal">
+        Publish Date & Time
+    </label>
+
+    <input
+        type="datetime-local"
+        name="published_at"
+        id="published_at"
+        value="{{ old(
+            'published_at',
+            isset($article) && $article->published_at
+                ? $article->published_at->format('Y-m-d\TH:i')
+                : ''
+        ) }}"
+        class="mt-2 block w-full rounded-md
+               border-sp-warmStone
+               bg-sp-warmIvory
+               text-sm text-sp-charcoal
+               focus:border-sp-prairieGreen
+               focus:ring-sp-prairieGreen
+               md:max-w-xs">
+
+    <p class="mt-1 text-xs text-sp-slate">
+        Times are in Central Time. Set a future date and select
+        Published to schedule this article. Leave blank to publish
+        immediately when selecting Published.
+    </p>
+
+    <x-admin.forms.field-error name="published_at" />
+</div>
+
             {{-- Evergreen Guide Details --}}
 
             <div

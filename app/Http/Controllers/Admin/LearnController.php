@@ -1,5 +1,7 @@
 <?php
+
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
 use App\Models\LearnArticle;
 use App\Models\LearnCategory;
@@ -9,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+
 class LearnController extends Controller
 {
     /**
@@ -46,7 +49,7 @@ class LearnController extends Controller
                 ->orderByDesc('published_at')
                 ->orderByDesc('id')
                 ->get()
-                ->map(fn (LearnArticle $relatedArticle) => (object) [
+                ->map(fn(LearnArticle $relatedArticle) => (object) [
                     'id' => $relatedArticle->id,
                     'name' => $relatedArticle->title,
                 ]),
@@ -74,6 +77,9 @@ class LearnController extends Controller
                 'required',
                 'in:draft,published,archived',
             ],
+            'published_at' => ! empty($validated['published_at'])
+    ? $validated['published_at']
+    : ($validated['status'] === 'published' ? now() : null),
             'excerpt' => [
                 'nullable',
                 'string',
@@ -203,18 +209,18 @@ class LearnController extends Controller
             'seo_title' => $validated['seo_title'] ?? null,
             'seo_description' => $validated['seo_description'] ?? null,
             'last_reviewed_at' =>
-                $validated['type'] === 'guide'
-                    ? ($validated['last_reviewed_at'] ?? null)
-                    : null,
+            $validated['type'] === 'guide'
+                ? ($validated['last_reviewed_at'] ?? null)
+                : null,
             'has_affiliate_links' =>
-                $request->boolean('has_affiliate_links'),
+            $request->boolean('has_affiliate_links'),
             'is_featured' =>
-                $validated['type'] !== 'book_review'
+            $validated['type'] !== 'book_review'
                 && $request->boolean('is_featured'),
             'published_at' =>
-                $validated['status'] === 'published'
-                    ? now()
-                    : null,
+            $validated['status'] === 'published'
+                ? now()
+                : null,
         ]);
         /*
          * Collect any existing categories selected
@@ -236,7 +242,7 @@ class LearnController extends Controller
                 [
                     'name' => $categoryName,
                     'description' =>
-                        $validated['new_category_description']
+                    $validated['new_category_description']
                         ?? null,
                 ]
             );
@@ -332,7 +338,7 @@ class LearnController extends Controller
                 ->orderByDesc('published_at')
                 ->orderByDesc('id')
                 ->get()
-                ->map(fn (LearnArticle $relatedArticle) => (object) [
+                ->map(fn(LearnArticle $relatedArticle) => (object) [
                     'id' => $relatedArticle->id,
                     'name' => $relatedArticle->title,
                 ]),
@@ -365,6 +371,10 @@ class LearnController extends Controller
                 'required',
                 'in:draft,published,archived',
             ],
+            'published_at' => [
+    'nullable',
+    'date_format:Y-m-d\TH:i',
+],
             'excerpt' => [
                 'nullable',
                 'string',
@@ -448,8 +458,8 @@ class LearnController extends Controller
             'cover_image' => [
                 $request->input('type') === 'book_review'
                     && ! $article->bookReview
-                        ? 'required'
-                        : 'nullable',
+                    ? 'required'
+                    : 'nullable',
                 'image',
                 'mimes:jpg,jpeg,png,webp',
                 'max:5120',
@@ -482,8 +492,8 @@ class LearnController extends Controller
             $counter = 2;
             while (
                 LearnArticle::where('slug', $slug)
-                    ->whereKeyNot($article->id)
-                    ->exists()
+                ->whereKeyNot($article->id)
+                ->exists()
             ) {
                 $slug = $baseSlug . '-' . $counter;
                 $counter++;
@@ -491,15 +501,20 @@ class LearnController extends Controller
             $article->slug = $slug;
         }
         /*
-         * Set the publication date the first time
-         * an article becomes published.
-         */
-        if (
-            $validated['status'] === 'published'
-            && is_null($article->published_at)
-        ) {
-            $article->published_at = now();
-        }
+ * Set or preserve the publication date.
+ *
+ * A supplied date overrides the existing value.
+ * An existing date is preserved when the field is blank.
+ * Newly published articles without a date publish immediately.
+ */
+if (! empty($validated['published_at'])) {
+    $article->published_at = $validated['published_at'];
+} elseif (
+    $validated['status'] === 'published'
+    && is_null($article->published_at)
+) {
+    $article->published_at = now();
+}
         /*
          * Update the article.
          */
@@ -515,13 +530,13 @@ class LearnController extends Controller
             'seo_title' => $validated['seo_title'] ?? null,
             'seo_description' => $validated['seo_description'] ?? null,
             'last_reviewed_at' =>
-                $validated['type'] === 'guide'
-                    ? ($validated['last_reviewed_at'] ?? null)
-                    : null,
+            $validated['type'] === 'guide'
+                ? ($validated['last_reviewed_at'] ?? null)
+                : null,
             'has_affiliate_links' =>
-                $request->boolean('has_affiliate_links'),
+            $request->boolean('has_affiliate_links'),
             'is_featured' =>
-                $validated['type'] !== 'book_review'
+            $validated['type'] !== 'book_review'
                 && $request->boolean('is_featured'),
         ]);
         $article->save();
@@ -541,7 +556,7 @@ class LearnController extends Controller
                 [
                     'name' => $categoryName,
                     'description' =>
-                        $validated['new_category_description']
+                    $validated['new_category_description']
                         ?? null,
                 ]
             );
