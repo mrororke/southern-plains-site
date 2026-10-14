@@ -13,6 +13,10 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    {{-- Site Icons --}}
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon/favicon-32-admin.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon/apple-touch-icon-admin.png') }}">
+
     <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.js" defer></script>
 </head>
