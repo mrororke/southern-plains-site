@@ -174,7 +174,7 @@
                         {{-- Article Title --}}
 <div class="min-w-0">
 
-                            <h2 class="font-archivo text-lg font-semibold leading-snug text-sp-charcoal transition-colors group-hover:text-sp-prairieGreen">
+                            <h2 class="font-sans text-lg font-semibold leading-snug text-sp-charcoal transition-colors group-hover:text-sp-prairieGreen">
 
                                 {{ $article->title }}
 
