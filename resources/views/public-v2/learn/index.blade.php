@@ -4,18 +4,29 @@
 @section('hero')
 
     @php
-        $filters = [
-            [
-                'label' => 'All',
-                'href' => route('public-v2.learn.index'),
-                'active' => ! $selectedCategory && ! $selectedTag,
-            ],
-        ];
+        $search = request()->query('search');
+
+$filters = [
+    [
+        'label' => 'All',
+        'href' => route(
+            'public-v2.learn.index',
+            array_filter([
+                'search' => $search,
+            ])
+        ),
+        'active' => ! $selectedCategory && ! $selectedTag,
+    ],
+];
 
         foreach (\App\Models\LearnCategory::query()->orderBy('name')->get() as $category) {
             $parameters = [
-                'category' => $category->slug,
-            ];
+    'category' => $category->slug,
+];
+
+if (filled($search)) {
+    $parameters['search'] = $search;
+}
 
             if ($selectedTag) {
                 $parameters['tag'] = $selectedTag->slug;
@@ -120,32 +131,61 @@
 
         @empty
 
-            <div class="col-span-12 py-16 text-center">
+    @unless ($featuredArticle)
 
-                <h2 class="font-sans text-2xl font-semibold text-sp-charcoal">
-                    More to explore soon
-                </h2>
+        <div class="col-span-12 py-16 text-center">
 
-                <p class="body text-sp-slate mt-4">
-                    New articles and resources are on their way.
-                </p>
+        @if (request()->filled('search'))
 
-                @if ($selectedCategory || $selectedTag)
+            <h2 class="font-sans text-2xl font-semibold text-sp-charcoal">
+                No matching articles found
+            </h2>
 
-                    <a
-                        href="{{ route('public-v2.learn.index') }}"
-                        class="learn-more-link text-sp-prairieOchre mt-6">
+            <p class="body text-sp-slate mt-4">
+                We couldn't find anything matching
+                "{{ request()->query('search') }}".
+                Try another search or browse all articles.
+            </p>
 
-                        Browse All Articles
+        @elseif ($selectedCategory || $selectedTag)
 
-                        <x-icons.move-right />
+            <h2 class="font-sans text-2xl font-semibold text-sp-charcoal">
+                Nothing here just yet
+            </h2>
 
-                    </a>
+            <p class="body text-sp-slate mt-4">
+                We haven't published anything in this area yet.
+                Explore another topic or browse all articles.
+            </p>
 
-                @endif
+        @else
 
-            </div>
+            <h2 class="font-sans text-2xl font-semibold text-sp-charcoal">
+                More to explore soon
+            </h2>
 
+            <p class="body text-sp-slate mt-4">
+                New articles and resources are on their way.
+            </p>
+
+        @endif
+
+        @if (request()->filled('search') || $selectedCategory || $selectedTag)
+
+            <a
+                href="{{ route('public-v2.learn.index') }}"
+                class="learn-more-link text-sp-prairieOchre mt-6">
+
+                Browse All Articles
+
+                <x-icons.move-right />
+
+            </a>
+
+        @endif
+
+    </div>
+            @endunless
         @endforelse
 
     </section>
