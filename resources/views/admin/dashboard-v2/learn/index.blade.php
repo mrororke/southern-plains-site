@@ -11,9 +11,23 @@
             class="rounded-md">
     </div>
 
+    <div class="flex flex-wrap items-center justify-between gap-4">
+
     <h1 class="font-sans text-sp-charcoal font-semibold text-6xl">
         Learn
     </h1>
+
+    <a
+        href="{{ route('admin.learn.create') }}"
+        class="inline-flex items-center justify-center gap-2 rounded-md bg-sp-prairieGreen px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-sp-prairieGreen/90">
+
+        <x-icons.plus class="h-4 w-4" aria-hidden="true" />
+
+        Create Article
+
+    </a>
+
+</div>
 
     <div class="mt-8">
         @if ($articles->isEmpty())
