@@ -104,13 +104,14 @@ public function index(Request $request)
                 'required',
                 'in:draft,published,archived',
             ],
-            'published_at' => ! empty($validated['published_at'])
-    ? $validated['published_at']
-    : ($validated['status'] === 'published' ? now() : null),
-            'excerpt' => [
-                'nullable',
-                'string',
-            ],
+            'published_at' => [
+    'nullable',
+    'date_format:Y-m-d\TH:i',
+],
+'excerpt' => [
+    'nullable',
+    'string',
+],
             'introduction' => [
                 'nullable',
                 'string',
@@ -228,6 +229,10 @@ public function index(Request $request)
             'slug' => $slug,
             'type' => $validated['type'],
             'status' => $validated['status'],
+
+'published_at' => ! empty($validated['published_at'])
+    ? $validated['published_at']
+    : ($validated['status'] === 'published' ? now() : null),
             'excerpt' => $validated['excerpt'] ?? null,
             'introduction' => $validated['type'] === 'guide'
                 ? ($validated['introduction'] ?? null)
