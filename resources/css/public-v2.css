@@ -867,6 +867,16 @@ ul.footer-nav li:hover {
     }
 }
 
+/* Article Tags */
+
+.learn-article-body a.learn-tag {
+    @apply no-underline text-sp-prairieGreen;
+}
+
+.learn-article-body a.learn-tag:hover {
+    @apply bg-sp-prairieGreen text-sp-warmIvory no-underline;
+}
+
 /* ==========================================================================
    Learn — Rich Text Content Blocks
    ========================================================================== */
