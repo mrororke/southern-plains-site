@@ -73,221 +73,221 @@
 
         @if ($articles->isEmpty())
 
-            {{-- Empty Library --}}
-            <div class="rounded-lg border border-dashed border-sp-slate/20 px-6 py-12 text-center">
+        {{-- Empty Library --}}
+        <div class="rounded-lg border border-dashed border-sp-slate/20 px-6 py-12 text-center">
 
-                <h2 class="font-archivo text-lg font-semibold text-sp-charcoal">
-                    No articles yet
-                </h2>
+            <h2 class="font-archivo text-lg font-semibold text-sp-charcoal">
+                No articles yet
+            </h2>
 
-                <p class="mt-2 text-sm text-sp-slate">
-                    Your Learn library is ready for its first article.
-                </p>
+            <p class="mt-2 text-sm text-sp-slate">
+                Your Learn library is ready for its first article.
+            </p>
 
-                <a
-                    href="{{ route('admin.learn.create') }}"
-                    class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sp-prairieGreen hover:underline">
+            <a
+                href="{{ route('admin.learn.create') }}"
+                class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-sp-prairieGreen hover:underline">
 
-                    Create Your First Article
+                Create Your First Article
 
-                    <x-icons.move-right
-                        class="h-4 w-4"
-                        aria-hidden="true" />
+                <x-icons.move-right
+                    class="h-4 w-4"
+                    aria-hidden="true" />
 
-                </a>
+            </a>
 
-            </div>
+        </div>
 
         @else
 
-            {{-- Article Table --}}
-            <div class="overflow-hidden rounded-lg border border-sp-slate/10 bg-white">
+        {{-- Article Table --}}
+        <div class="overflow-hidden rounded-lg border border-sp-slate/10 bg-white">
 
-                {{-- Table Header --}}
-                <div class="hidden grid-cols-12 gap-6 border-b border-sp-slate/10 bg-sp-warmIvory/50 px-6 py-4 md:grid">
+            {{-- Table Header --}}
+            <div class="hidden gap-6 border-b border-sp-slate/10 bg-sp-warmIvory/50 px-6 py-4 md:grid md:grid-cols-[minmax(0,6fr)_minmax(0,2fr)_minmax(0,2fr)_minmax(0,2fr)]">
 
-                    <div class="col-span-6">
-                        <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
-                            Article
-                        </span>
-                    </div>
-
-                    <div class="col-span-2">
-                        <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
-                            Type
-                        </span>
-                    </div>
-
-                    <div class="col-span-2">
-                        <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
-                            Status
-                        </span>
-                    </div>
-
-                    <div class="col-span-2 text-right">
-                        <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
-                            Last Updated
-                        </span>
-                    </div>
-
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
+                        Article
+                    </span>
                 </div>
-                {{-- End Table Header --}}
+
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
+                        Type
+                    </span>
+                </div>
+
+                <div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
+                        Status
+                    </span>
+                </div>
+
+                <div class="text-right">
+                    <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
+                        Last Updated
+                    </span>
+                </div>
+
+            </div>
+            {{-- End Table Header --}}
 
 
-                {{-- Article Rows --}}
-                <div class="divide-y divide-sp-slate/10">
+            {{-- Article Rows --}}
+            <div class="divide-y divide-sp-slate/10">
 
-                    @foreach ($articles as $article)
+                @foreach ($articles as $article)
 
-                        @php
-                            $isScheduled =
-                                $article->status === 'published'
-                                && $article->published_at
-                                && $article->published_at->isFuture();
+                @php
+                $isScheduled =
+                $article->status === 'published'
+                && $article->published_at
+                && $article->published_at->isFuture();
 
-                            $isPublished =
-                                $article->status === 'published'
-                                && $article->published_at
-                                && $article->published_at->lte(now());
+                $isPublished =
+                $article->status === 'published'
+                && $article->published_at
+                && $article->published_at->lte(now());
 
-                            $displayStatus = match (true) {
-                                $isScheduled => 'Scheduled',
-                                $isPublished => 'Published',
-                                $article->status === 'draft' => 'Draft',
-                                $article->status === 'archived' => 'Archived',
-                                default => 'Unscheduled',
-                            };
+                $displayStatus = match (true) {
+                $isScheduled => 'Scheduled',
+                $isPublished => 'Published',
+                $article->status === 'draft' => 'Draft',
+                $article->status === 'archived' => 'Archived',
+                default => 'Unscheduled',
+                };
 
-                            $articleType = match ($article->type) {
-                                'guide' => 'Evergreen Guide',
-                                'book_review' => 'Book Review',
-                                default => 'Standard',
-                            };
-                        @endphp
+                $articleType = match ($article->type) {
+                'guide' => 'Evergreen Guide',
+                'book_review' => 'Book Review',
+                default => 'Standard',
+                };
+                @endphp
 
-                        <a
-                            href="{{ route('admin.learn.edit', $article) }}"
-                            class="group block px-6 py-5 transition-colors hover:bg-sp-warmIvory/50 focus-visible:bg-sp-warmIvory/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-sp-prairieGreen">
+                <a
+    href="{{ route('admin.learn.edit', $article) }}"
+    class="group block px-6 py-4 transition-all duration-150 hover:bg-sp-warmIvory hover:shadow-[inset_3px_0_0_0_#506853] focus-visible:bg-sp-warmIvory focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-sp-prairieGreen">
 
-                            <div class="grid grid-cols-1 gap-4 md:grid-cols-12 md:items-center md:gap-6">
+                    <div class="grid grid-cols-1 gap-4 md:grid-cols-[minmax(0,6fr)_minmax(0,2fr)_minmax(0,2fr)_minmax(0,2fr)] md:items-center md:gap-6">
 
-                                {{-- Article Title --}}
-                                <div class="md:col-span-6">
+                        {{-- Article Title --}}
+                        <div class="md:col-span-6">
 
-                                    <h2 class="font-archivo text-lg font-semibold leading-snug text-sp-charcoal transition-colors group-hover:text-sp-prairieGreen">
+                            <h2 class="font-archivo text-lg font-semibold leading-snug text-sp-charcoal transition-colors group-hover:text-sp-prairieGreen">
 
-                                        {{ $article->title }}
+                                {{ $article->title }}
 
-                                    </h2>
+                            </h2>
 
-                                    @if ($isScheduled)
+                            @if ($isScheduled)
 
-                                        <p class="mt-2 text-xs text-sp-slate">
-                                            Scheduled for
-                                            {{ $article->published_at->format('M j, Y') }}
-                                            at
-                                            {{ $article->published_at->format('g:i A') }}
-                                            Central
-                                        </p>
+                            <p class="mt-2 text-xs text-sp-slate">
+                                Scheduled for
+                                {{ $article->published_at->format('M j, Y') }}
+                                at
+                                {{ $article->published_at->format('g:i A') }}
+                                Central
+                            </p>
 
-                                    @endif
+                            @endif
 
-                                </div>
-                                {{-- End Article Title --}}
-
-
-                                {{-- Article Type --}}
-                                <div class="md:col-span-2">
-
-                                    <span class="text-sm text-sp-slate">
-                                        {{ $articleType }}
-                                    </span>
-
-                                </div>
-                                {{-- End Article Type --}}
+                        </div>
+                        {{-- End Article Title --}}
 
 
-                                {{-- Publication Status --}}
-                                <div class="md:col-span-2">
+                        {{-- Article Type --}}
+                        <div class="md:col-span-2">
 
-                                    <div class="flex items-center gap-2">
+                            <span class="text-sm text-sp-slate">
+                                {{ $articleType }}
+                            </span>
 
-                                        @if ($displayStatus === 'Published')
-
-                                            <span
-                                                class="h-2 w-2 shrink-0 rounded-full bg-sp-prairieGreen"
-                                                aria-hidden="true">
-                                            </span>
-
-                                        @elseif ($displayStatus === 'Scheduled')
-
-                                            <span
-                                                class="h-2 w-2 shrink-0 rounded-full bg-sp-prairieOchre"
-                                                aria-hidden="true">
-                                            </span>
-
-                                        @elseif ($displayStatus === 'Draft')
-
-                                            <span
-                                                class="h-2 w-2 shrink-0 rounded-full bg-sp-slate/40"
-                                                aria-hidden="true">
-                                            </span>
-
-                                        @else
-
-                                            <span
-                                                class="h-2 w-2 shrink-0 rounded-full bg-sp-slate/20"
-                                                aria-hidden="true">
-                                            </span>
-
-                                        @endif
-
-                                        <span class="text-sm font-medium text-sp-charcoal">
-                                            {{ $displayStatus }}
-                                        </span>
-
-                                    </div>
-
-                                </div>
-                                {{-- End Publication Status --}}
+                        </div>
+                        {{-- End Article Type --}}
 
 
-                                {{-- Last Updated --}}
-                                <div class="md:col-span-2 md:text-right">
+                        {{-- Publication Status --}}
+                        <div class="md:col-span-2">
 
-                                    <span
-                                        class="text-xs text-sp-slate/70"
-                                        title="{{ $article->updated_at->format('M j, Y g:i A') }}">
+                            <div class="flex items-center gap-2">
 
-                                        {{ $article->updated_at->diffForHumans() }}
+                                @if ($displayStatus === 'Published')
 
-                                    </span>
+                                <span
+                                    class="h-2 w-2 shrink-0 rounded-full bg-sp-prairieGreen"
+                                    aria-hidden="true">
+                                </span>
 
-                                </div>
-                                {{-- End Last Updated --}}
+                                @elseif ($displayStatus === 'Scheduled')
+
+                                <span
+                                    class="h-2 w-2 shrink-0 rounded-full bg-sp-prairieOchre"
+                                    aria-hidden="true">
+                                </span>
+
+                                @elseif ($displayStatus === 'Draft')
+
+                                <span
+                                    class="h-2 w-2 shrink-0 rounded-full bg-sp-slate/40"
+                                    aria-hidden="true">
+                                </span>
+
+                                @else
+
+                                <span
+                                    class="h-2 w-2 shrink-0 rounded-full bg-sp-slate/20"
+                                    aria-hidden="true">
+                                </span>
+
+                                @endif
+
+                                <span class="text-sm font-medium text-sp-charcoal">
+                                    {{ $displayStatus }}
+                                </span>
 
                             </div>
 
-                        </a>
+                        </div>
+                        {{-- End Publication Status --}}
 
-                    @endforeach
 
-                </div>
-                {{-- End Article Rows --}}
+                        {{-- Last Updated --}}
+                        <div class="md:col-span-2 md:text-right">
+
+                            <span
+                                class="text-xs text-sp-slate/70"
+                                title="{{ $article->updated_at->format('M j, Y g:i A') }}">
+
+                                {{ $article->updated_at->diffForHumans() }}
+
+                            </span>
+
+                        </div>
+                        {{-- End Last Updated --}}
+
+                    </div>
+
+                </a>
+
+                @endforeach
 
             </div>
-            {{-- End Article Table --}}
+            {{-- End Article Rows --}}
+
+        </div>
+        {{-- End Article Table --}}
 
 
-            {{-- Pagination --}}
-            @if ($articles->hasPages())
+        {{-- Pagination --}}
+        @if ($articles->hasPages())
 
-                <div class="mt-6">
-                    {{ $articles->links() }}
-                </div>
+        <div class="mt-6">
+            {{ $articles->links() }}
+        </div>
 
-            @endif
-            {{-- End Pagination --}}
+        @endif
+        {{-- End Pagination --}}
 
         @endif
 
