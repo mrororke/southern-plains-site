@@ -14,21 +14,48 @@ use Illuminate\Support\Str;
 
 class LearnController extends Controller
 {
-    /**
-     * Display the Learn article library.
-     */
-    public function index(Request $request)
-    {
-        $articles = LearnArticle::query()
-            ->with(['categories', 'tags'])
-            ->latest('updated_at')
-            ->paginate(25)
-            ->withQueryString();
-        return view('admin.dashboard-v2.learn.index', [
-            'navigation' => AdminNavigation::items(),
-            'articles' => $articles,
-        ]);
-    }
+   /**
+ * Display the Learn article library.
+ */
+public function index(Request $request)
+{
+    $articles = LearnArticle::query()
+        ->with(['categories', 'tags'])
+        ->latest('updated_at')
+        ->paginate(25)
+        ->withQueryString();
+
+    $now = now();
+
+    $articleCounts = [
+        'total' => LearnArticle::count(),
+
+        'published' => LearnArticle::query()
+            ->where('status', 'published')
+            ->whereNotNull('published_at')
+            ->where('published_at', '<=', $now)
+            ->count(),
+
+        'scheduled' => LearnArticle::query()
+            ->where('status', 'published')
+            ->where('published_at', '>', $now)
+            ->count(),
+
+        'draft' => LearnArticle::query()
+            ->where('status', 'draft')
+            ->count(),
+
+        'archived' => LearnArticle::query()
+            ->where('status', 'archived')
+            ->count(),
+    ];
+
+    return view('admin.dashboard-v2.learn.index', [
+        'navigation' => AdminNavigation::items(),
+        'articles' => $articles,
+        'articleCounts' => $articleCounts,
+    ]);
+}
     /**
      * Show the form for creating a Learn article.
      */
