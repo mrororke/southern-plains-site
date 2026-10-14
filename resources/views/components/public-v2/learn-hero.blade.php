@@ -43,8 +43,24 @@
 
         {{-- Search --}}
         <form
-            role="search"
-            class="w-full">
+    role="search"
+    method="GET"
+    action="{{ route('public-v2.learn.index') }}"
+    class="w-full">
+
+    @if (request()->filled('category'))
+        <input
+            type="hidden"
+            name="category"
+            value="{{ request()->query('category') }}">
+    @endif
+
+    @if (request()->filled('tag'))
+        <input
+            type="hidden"
+            name="tag"
+            value="{{ request()->query('tag') }}">
+    @endif
 
             <label
                 for="learn-search"
@@ -63,6 +79,7 @@
                     id="learn-search"
                     name="search"
                     placeholder="Search Learn"
+                    value="{{ request()->query('search', '') }}"
                     class="w-full rounded-md border border-sp-warmStone bg-sp-warmIvory py-4 pl-12 pr-4 text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none">
 
             </div>

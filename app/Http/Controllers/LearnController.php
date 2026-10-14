@@ -36,6 +36,18 @@ class LearnController extends Controller
             ->whereNotNull('published_at')
             ->where('published_at', '<=', now());
 
+        if ($request->filled('search')) {
+            $search = trim($request->query('search'));
+
+            $publishedArticles->where(function ($query) use ($search) {
+                $query
+                    ->where('title', 'like', '%' . $search . '%')
+                    ->orWhere('excerpt', 'like', '%' . $search . '%')
+                    ->orWhere('introduction', 'like', '%' . $search . '%')
+                    ->orWhere('body', 'like', '%' . $search . '%');
+            });
+        }
+
         if ($selectedCategory) {
             $publishedArticles->whereHas(
                 'categories',
@@ -75,7 +87,7 @@ class LearnController extends Controller
         $articles = (clone $publishedArticles)
             ->when(
                 $featuredArticle,
-                fn ($query) => $query->whereKeyNot(
+                fn($query) => $query->whereKeyNot(
                     $featuredArticle->id
                 )
             )
@@ -109,7 +121,7 @@ class LearnController extends Controller
             })
             ->get()
             ->sortBy(
-                fn ($tag) => array_search(
+                fn($tag) => array_search(
                     $tag->slug,
                     $featuredTopicSlugs,
                     true
