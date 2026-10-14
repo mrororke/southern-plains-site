@@ -172,7 +172,7 @@
                     <div class="grid grid-cols-1 gap-4 md:grid-cols-[minmax(0,6fr)_minmax(0,2fr)_minmax(0,2fr)_minmax(0,2fr)] md:items-center md:gap-6">
 
                         {{-- Article Title --}}
-                        <div class="md:col-span-6">
+<div class="min-w-0">
 
                             <h2 class="font-archivo text-lg font-semibold leading-snug text-sp-charcoal transition-colors group-hover:text-sp-prairieGreen">
 
@@ -197,7 +197,7 @@
 
 
                         {{-- Article Type --}}
-                        <div class="md:col-span-2">
+<div>
 
                             <span class="text-sm text-sp-slate">
                                 {{ $articleType }}
@@ -208,7 +208,7 @@
 
 
                         {{-- Publication Status --}}
-                        <div class="md:col-span-2">
+                        <div>
 
                             <div class="flex items-center gap-2">
 
@@ -253,7 +253,7 @@
 
 
                         {{-- Last Updated --}}
-                        <div class="md:col-span-2 md:text-right">
+                        <div class="md:text-right">
 
                             <span
                                 class="text-xs text-sp-slate/70"
