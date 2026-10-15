@@ -70,6 +70,9 @@
         href="https://sibforms.com/forms/end-form/build/sib-styles.css">
 
 
+    {{-- Google Fonts --}}
+    @googlefonts
+
     {{-- Public V2 styles + scripts --}}
     @vite([
     'resources/css/public-v2.css',
