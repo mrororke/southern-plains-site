@@ -5,10 +5,7 @@
 
         {{-- Page Header --}}
         <div class="my-6">
-            <a href="{{ route('admin.dashboard') }}"
-                class="text-sm text-sp-prairieGreen hover:underline">
-                &larr; Back to Dashboard
-            </a>
+            
 
             <div class="flex flex-wrap items-center justify-between gap-4 mt-4">
                 <div>
