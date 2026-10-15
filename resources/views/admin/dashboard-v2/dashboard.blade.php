@@ -7,6 +7,6 @@
     </div>
         <h1 class="font-sans text-sp-charcoal font-semibold text-6xl">Dashboard</h1>
 
-        <x-admin.inbox />
+        <x-admin.inbox :inquiries="$inquiries" />
     </div>
 @endsection

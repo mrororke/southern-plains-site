@@ -276,6 +276,12 @@ Route::middleware(['auth', 'device'])
                 ->limit(5)
                 ->get();
 
+            // Retrieve active inquiries, newest first
+            $inquiries = \App\Models\Inquiry::query()
+                ->whereNull('archived_at')
+                ->latest()
+                ->get();
+
             return view(
                 $isMobile
                     ? 'admin.dashboard-v2.mobile.dashboard'
@@ -283,6 +289,7 @@ Route::middleware(['auth', 'device'])
                 [
                     'navigation' => \App\Navigation\AdminNavigation::items(),
                     'recentBehaviors' => $recentBehaviors,
+                    'inquiries' => $inquiries,
                 ]
             );
         })->name('dashboard');

@@ -1,3 +1,5 @@
+@props(['inquiries' => collect()])
+
 <div
                 x-data="{ tab: 'all' }"
                 class="border-2 border-sp-warmStone bg-sp-limestone text-sp-charcoal rounded-sm my-4">
@@ -16,53 +18,61 @@
                         </button>
 
                         <button
-                            @click="tab = 'trickEvals'"
-                            :class="tab === 'trickEvals' 
+                            @click="tab = 'contact'"
+                            :class="tab === 'contact' 
                     ? 'border-b-2 border-sp-prairieGreen text-sp-charcoal uppercase text-xs tracking-wide' 
                     : 'text-sp-charcoal uppercase text-xs tracking-wide'"
                             class="py-4">
-                            Trick Evaluations
+                            Contact
                         </button>
 
                         <button
-                            @click="tab = 'contactMessages'"
-                            :class="tab === 'contactMessages' 
+                            @click="tab = 'Training'"
+                            :class="tab === 'Training' 
                     ? 'border-b-2 border-sp-prairieGreen text-sp-charcoal uppercase text-xs tracking-wide' 
                     : 'text-sp-charcoal uppercase text-xs tracking-wide'"
                             class="py-4">
-                            Contact Messages
+                            Training Messages
                         </button>
                         <button
-                            @click="tab = 'formSubmissions'"
-                            :class="tab === 'formSubmissions' 
+                            @click="tab = 'Workshops'"
+                            :class="tab === 'Workshops' 
                     ? 'border-b-2 border-sp-prairieGreen text-sp-charcoal uppercase text-xs tracking-wide' 
                     : 'text-sp-charcoal uppercase text-xs tracking-wide'"
                             class="py-4">
-                            Form Submissions
+                            Workshops
                         </button>
                         <button
-                            @click="tab = 'onlineEvaluations'"
-                            :class="tab === 'onlineEvaluations' 
+                            @click="tab = 'Evaluations'"
+                            :class="tab === 'Evaluations' 
                     ? 'border-b-2 border-sp-prairieGreen text-sp-charcoal uppercase text-xs tracking-wide' 
                     : 'text-sp-charcoal uppercase text-xs tracking-wide'"
                             class="py-4">
-                            Online Evaluations
+                            Evaluations
                         </button>
                         <button
-                            @click="tab = 'resourceRequests'"
-                            :class="tab === 'resourceRequests' 
+                            @click="tab = 'Judging'"
+                            :class="tab === 'Judging' 
                     ? 'border-b-2 border-sp-prairieGreen text-sp-charcoal uppercase text-xs tracking-wide' 
                     : 'text-sp-charcoal uppercase text-xs tracking-wide'"
                             class="py-4">
-                            Resource Requests
+                            Judging Requests
                         </button>
                         <button
-                            @click="tab = 'trackingSport'"
-                            :class="tab === 'trackingSport' 
+                            @click="tab = 'Other'"
+                            :class="tab === 'Other' 
                     ? 'border-b-2 border-sp-prairieGreen text-sp-charcoal uppercase text-xs tracking-wide' 
                     : 'text-sp-charcoal uppercase text-xs tracking-wide'"
                             class="py-4">
-                            Tracking Sport Feedback
+                            other
+                        </button>
+                        <button
+                            @click="tab = 'Archived'"
+                            :class="tab === 'Archived' 
+                    ? 'border-b-2 border-sp-prairieGreen text-sp-charcoal uppercase text-xs tracking-wide' 
+                    : 'text-sp-charcoal uppercase text-xs tracking-wide'"
+                            class="py-4">
+                            archive
                         </button>
 
                     </nav>
