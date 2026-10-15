@@ -53,7 +53,7 @@
             <hr>
         </div>
 
-        <h3 class="text-sp-charcoal font-semibold text-2xl">
+        <h3 class="text-sp-charcoal font-semibold text-2xl pb-8">
             Interested in hosting an Intro to NASDA workshop for your club or training group? I’d love to help!
         </h3>
 
@@ -93,7 +93,14 @@
 
 @section('content')
 
-yay for content
+
+{{-- Begin Content --}}
+
+<div class="grid grid-cols-12 gap-y-10 md:gap-y-0 py-[64px] px-8">
+    Yay content will go here.
+</div>
+
+{{-- End Content --}}
 
 
 
