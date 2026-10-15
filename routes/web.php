@@ -282,6 +282,11 @@ Route::middleware(['auth', 'device'])
                 ->latest()
                 ->get();
 
+            $archivedInquiries = \App\Models\Inquiry::query()
+                ->whereNotNull('archived_at')
+                ->latest('archived_at')
+                ->get();
+
             return view(
                 $isMobile
                     ? 'admin.dashboard-v2.mobile.dashboard'
@@ -293,6 +298,27 @@ Route::middleware(['auth', 'device'])
                 ]
             );
         })->name('dashboard');
+
+        /*
+|--------------------------------------------------------------------------
+| Inquiries
+|--------------------------------------------------------------------------
+*/
+
+        Route::get(
+            'inquiries/{inquiry}',
+            [\App\Http\Controllers\Admin\InquiryController::class, 'show']
+        )->name('inquiries.show');
+
+        Route::patch(
+            'inquiries/{inquiry}/resolve',
+            [\App\Http\Controllers\Admin\InquiryController::class, 'resolve']
+        )->name('inquiries.resolve');
+
+        Route::patch(
+            'inquiries/{inquiry}/reopen',
+            [\App\Http\Controllers\Admin\InquiryController::class, 'reopen']
+        )->name('inquiries.reopen');
 
         /*
         |--------------------------------------------------------------------------

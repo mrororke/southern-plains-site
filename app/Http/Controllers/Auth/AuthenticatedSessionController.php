@@ -36,7 +36,7 @@ class AuthenticatedSessionController extends Controller
     }
 
     if ($user->roles()->where('slug', 'instructor')->exists()) {
-        return redirect()->route('admin.trick-catalog.index');
+        return redirect()->route('admin.behavior-catalog.index');
     }
 
     return redirect()->route('dashboard');
