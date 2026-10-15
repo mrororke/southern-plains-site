@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\ResourceLibrary\ResourceController;
 use App\Http\Controllers\LearnController;
 use App\Http\Controllers\Admin\LearnController as AdminLearnController;
 use App\Http\Controllers\Admin\InquiryController;
+use App\Http\Controllers\InquiryController as PublicInquiryController;
 
 use App\Http\Controllers\Admin\TrickEvaluationController as AdminTrickEvaluationController;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
@@ -73,6 +74,13 @@ Route::prefix('v2')
 
         Route::view('/contact', 'public-v2.pages.contact')
             ->name('contact');
+
+        // Intro to NASDA Workshop Request
+        Route::get('/inquiries/workshop', [PublicInquiryController::class, 'workshop'])
+            ->name('inquiries.workshop');
+
+        Route::post('/inquiries/workshop', [PublicInquiryController::class, 'storeWorkshop'])
+            ->name('inquiries.workshop.store');
     });
 
 
