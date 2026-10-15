@@ -83,6 +83,23 @@
 
 @section('content')
 
+@section('content')
+
+
+{{-- Begin content --}}
+
+<div class="grid grid-cols-12 gap-y-10 md:gap-y-0 py-[64px] px-8">
+    <div class="col-span-12 md:col-span-7 gap-4 flex">
+        Left Side
+    </div>
+    <div class="col-span-12 md:col-span-5 gap-4 flex">
+        Right Side
+    </div>
+</div>
+{{-- Begin content --}}
+
+
+
 <section id="workshop-request" class="py-16">
 
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
