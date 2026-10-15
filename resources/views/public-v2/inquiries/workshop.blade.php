@@ -202,7 +202,6 @@
 
     </div>
     <div class="col-span-12 md:col-span-5 gap-4 flex">
-        <div class="bg-sp-limestone rounded-md">
 
                 <p class="text-sp-burntClay uppercase text-xs mb-3">
                     Workshop Request
@@ -454,7 +453,6 @@
 
             </div>
     </div>
-</div>
 {{-- END content --}}
 
 
