@@ -64,7 +64,7 @@
         
     </div>
 
-    <div class="col-span-12 mt-8 md:col-span-7 md:mt-0 relative">
+    <div class="col-span-12 mt-8 pt-8 md:col-span-7 md:mt-0 relative">
 
         <img
             class="w-full h-full"
@@ -118,6 +118,83 @@
             position="bottom"
             href="https://www.blueridgeprairie.studio/" />
     </div>
+
+    {{-- Workshop Features --}}
+            <ul class="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+
+                {{-- Introduction --}}
+                <li class="flex flex-col items-center text-center">
+
+                    <div class="w-20 h-20 rounded-full bg-sp-limestone flex items-center justify-center mb-4">
+                        <i data-lucide="book-open" class="w-10 h-10 text-sp-burntClay"></i>
+                    </div>
+
+                    <h3 class="font-sans font-semibold text-sm uppercase text-sp-charcoal leading-tight">
+                        Introduction<br>to NASDA
+                    </h3>
+
+                    <p class="body-small text-sp-slate mt-3">
+                        Overview of the sport, rules, and expectations.
+                    </p>
+
+                </li>
+
+
+                {{-- Four Components --}}
+                <li class="flex flex-col items-center text-center">
+
+                    <div class="w-20 h-20 rounded-full bg-sp-limestone flex items-center justify-center mb-4">
+                        <i data-lucide="paw-print" class="w-10 h-10 text-sp-burntClay"></i>
+                    </div>
+
+                    <h3 class="font-sans font-semibold text-sm uppercase text-sp-charcoal leading-tight">
+                        Four Level 1<br>Components
+                    </h3>
+
+                    <p class="body-small text-sp-slate mt-3">
+                        Shed, Trailing &amp; Locating,
+                        Urban Locating, and Lost Item.
+                    </p>
+
+                </li>
+
+
+                {{-- Participation --}}
+                <li class="flex flex-col items-center text-center">
+
+                    <div class="w-20 h-20 rounded-full bg-sp-limestone flex items-center justify-center mb-4">
+                        <i data-lucide="users-round" class="w-10 h-10 text-sp-burntClay"></i>
+                    </div>
+
+                    <h3 class="font-sans font-semibold text-sm uppercase text-sp-charcoal leading-tight">
+                        Hands-On<br>Participation
+                    </h3>
+
+                    <p class="body-small text-sp-slate mt-3">
+                        Work with your own dog, or observe.
+                    </p>
+
+                </li>
+
+
+                {{-- Tailored --}}
+                <li class="flex flex-col items-center text-center">
+
+                    <div class="w-20 h-20 rounded-full bg-sp-limestone flex items-center justify-center mb-4">
+                        <i data-lucide="messages-square" class="w-10 h-10 text-sp-burntClay"></i>
+                    </div>
+
+                    <h3 class="font-sans font-semibold text-sm uppercase text-sp-charcoal leading-tight">
+                        Tailored to<br>Your Group
+                    </h3>
+
+                    <p class="body-small text-sp-slate mt-3">
+                        We'll discuss your goals and available space.
+                    </p>
+
+                </li>
+
+            </ul>
 
     </div>
     <div class="col-span-12 md:col-span-5 gap-4 flex">
