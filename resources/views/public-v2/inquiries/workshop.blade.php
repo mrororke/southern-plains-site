@@ -90,7 +90,35 @@
 
 <div class="grid grid-cols-12 gap-y-10 md:gap-y-0 py-[64px] px-8">
     <div class="col-span-12 md:col-span-7 gap-4 flex">
-        Left Side
+        <p class="font-display text-2xl  text-sp-burntClay">
+            A Hands-On Introduction
+        </p>
+        <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
+            Let's Get Your Dogs Playing!
+        </h2>
+        <p class="body text-sp-slate mt-4">
+            NASDA is a great way to introduce dogs and handlers to something new. Our three-hour Intro to NASDA workshop gives participants a chance to learn the basics and try the games themselves.
+        </p>
+        <p class="body text-sp-slate mt-4">
+            We’ll cover an overview of NASDA, the rules and expectations, and hands-on practice with the four Level I components: Shed Dog, Trailing & Locating, Urban Locating, and Lost Item.
+        </p>
+        <p class="body text-sp-slate mt-4">
+            We can discuss your group’s experience, available space, and what you’d like to accomplish to make the workshop a great fit for your club.
+        </p>
+
+        <div class="col-span-12 mt-8 md:col-span-7 md:mt-0 relative">
+
+        <img
+            class="w-full rounded-md"
+            src="{{ asset('images/inquiries/hamish-shed.png') }}"
+            alt="Hamish practicing Shed Dog in a field of wildflowers.">
+
+        <x-public-v2.image-registration
+            text="Hamish, Photo by Blue Ridge Creative"
+            position="bottom"
+            href="https://www.blueridgeprairie.studio/" />
+    </div>
+
     </div>
     <div class="col-span-12 md:col-span-5 gap-4 flex">
         Right Side
@@ -107,52 +135,7 @@
         {{-- Workshop Information --}}
         <div class="lg:col-span-7">
 
-            <p class="text-eyebrow-small">
-                A Hands-On Introduction
-            </p>
-
-            <h2 class="text-section-heading text-sp-charcoal mt-4">
-                Let's Get Your Dogs Playing!
-            </h2>
-
-            <div class="mt-6 space-y-6">
-
-                <p class="body text-sp-slate">
-                    NASDA is a great way to introduce dogs and handlers to something new.
-                    Our three-hour Intro to NASDA workshop gives participants a chance
-                    to learn the basics and try the games themselves.
-                </p>
-
-                <p class="body text-sp-slate">
-                    We'll cover an overview of NASDA, the rules and expectations,
-                    and hands-on practice with the four Level 1 components:
-                    Shed Dog, Trailing &amp; Locating, Urban Locating, and Lost Item.
-                </p>
-
-                <p class="body text-sp-slate">
-                    We can discuss your group's experience, available space,
-                    and what you'd like to accomplish to make the workshop
-                    a great fit for your club.
-                </p>
-
-            </div>
-
-
-            {{-- Workshop Photograph --}}
-            <div class="mt-10 relative">
-
-                <img
-                    src="{{ asset('images/REPLACE-WITH-WORKSHOP-PHOTO.jpg') }}"
-                    alt="Hamish practicing Shed Dog in a field of wildflowers."
-                    class="w-full rounded-md">
-
-                <x-public-v2.image-registration
-                    text="Hamish, Photo by Blue Ridge Creative"
-                    position="left"
-                    href="https://www.blueridgeprairie.studio/" />
-
-            </div>
-
+            
 
             {{-- Workshop Features --}}
             <ul class="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
