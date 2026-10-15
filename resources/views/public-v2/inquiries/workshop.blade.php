@@ -221,6 +221,8 @@
                 <li class="flex flex-col items-center text-center">
 
                     <div class="w-20 h-20 rounded-full bg-sp-limestone flex items-center justify-center mb-4">
+                        <x-icons.book-open
+                            class="w-10 h-10 md:w-12 md:h-12 text-sp-burntClay mx-auto" />
                         <i data-lucide="book-open" class="w-10 h-10 text-sp-burntClay"></i>
                     </div>
 
@@ -228,7 +230,7 @@
                         Introduction<br>to NASDA
                     </h3>
 
-                    <p class="body-small text-sp-slate mt-3">
+                    <p class="text-xs text-sp-slate mt-3">
                         Overview of the sport, rules, and expectations.
                     </p>
 
@@ -246,7 +248,7 @@
                         Four Level 1<br>Components
                     </h3>
 
-                    <p class="body-small text-sp-slate mt-3">
+                    <p class="text-xs text-sp-slate mt-3">
                         Shed, Trailing &amp; Locating,
                         Urban Locating, and Lost Item.
                     </p>
@@ -265,7 +267,7 @@
                         Hands-On<br>Participation
                     </h3>
 
-                    <p class="body-small text-sp-slate mt-3">
+                    <p class="text-sm text-sp-slate mt-3">
                         Work with your own dog, or observe.
                     </p>
 
@@ -283,7 +285,7 @@
                         Tailored to<br>Your Group
                     </h3>
 
-                    <p class="body-small text-sp-slate mt-3">
+                    <p class="text-xs text-sp-slate mt-3">
                         We'll discuss your goals and available space.
                     </p>
 
