@@ -81,7 +81,6 @@
 {{-- end hero --}}
 @endsection
 
-@section('content')
 
 @section('content')
 
