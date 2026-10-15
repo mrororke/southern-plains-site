@@ -296,6 +296,7 @@ Route::middleware(['auth', 'device'])
                     'navigation' => \App\Navigation\AdminNavigation::items(),
                     'recentBehaviors' => $recentBehaviors,
                     'inquiries' => $inquiries,
+                    'archivedInquiries' => $archivedInquiries,
                 ]
             );
         })->name('dashboard');
