@@ -126,7 +126,8 @@
                 <li class="flex flex-col items-center text-center">
 
                     <div class="w-20 h-20 rounded-full bg-sp-limestone flex items-center justify-center mb-4">
-                        <i data-lucide="book-open" class="w-10 h-10 text-sp-burntClay"></i>
+                        <x-icons.book-open
+                            class="w-10 h-10 md:w-12 md:h-12 text-sp-burntClay mx-auto" />
                     </div>
 
                     <h3 class="font-sans font-semibold text-sm uppercase text-sp-charcoal leading-tight">
@@ -221,9 +222,8 @@
                 <li class="flex flex-col items-center text-center">
 
                     <div class="w-20 h-20 rounded-full bg-sp-limestone flex items-center justify-center mb-4">
-                        <x-icons.book-open
-                            class="w-10 h-10 md:w-12 md:h-12 text-sp-burntClay mx-auto" />
-                        <i data-lucide="book-open" class="w-10 h-10 text-sp-burntClay"></i>
+                        
+                        
                     </div>
 
                     <h3 class="font-sans font-semibold text-sm uppercase text-sp-charcoal leading-tight">
