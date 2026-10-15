@@ -36,7 +36,7 @@
     id="hero"
     class="grid grid-cols-12 pt-8">
 
-    <div class="col-span-12 md:col-span-4 md:pr-0 pl-8 pr-8">
+    <div class="col-span-12 md:col-span-5 md:pr-0 pl-8 pr-8">
 
         <p class="text-eyebrow">
             Let's train together.
@@ -72,7 +72,7 @@
 
     </div>
 
-    <div class="col-span-12 mt-8 md:col-span-8 md:mt-0 relative">
+    <div class="col-span-12 mt-8 md:col-span-7 md:mt-0 relative">
 
         <img
             class="w-full h-full"
