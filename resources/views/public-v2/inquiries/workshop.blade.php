@@ -1,3 +1,5 @@
+@extends('public-v2.layouts.app')
+
 @section('meta_title', 'Request an Intro to NASDA Workshop | Southern Plains Sport Dog Club')
 @section('meta_description', 'Bring NASDA to your dog training club! Request a three-hour introductory workshop covering Shed Dog, Trailing & Locating, Urban Locating, and Lost Item.')
 
