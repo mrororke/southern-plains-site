@@ -3,6 +3,8 @@
 use App\Models\Trick;
 use App\Models\LearnArticle;
 use App\Models\ResourceLibrary\Resource;
+use App\Models\Inquiry;
+
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
 
@@ -203,6 +205,42 @@ Breadcrumbs::for(
 
         $trail->push(
             'Edit ' . $article->title
+        );
+    }
+);
+
+/*
+|--------------------------------------------------------------------------
+| Inquiries
+|--------------------------------------------------------------------------
+*/
+
+Breadcrumbs::for(
+    'admin.inquiries.index',
+    function (BreadcrumbTrail $trail) {
+        $trail->parent('admin.dashboard');
+
+        $trail->push(
+            'Inbox',
+            route('admin.dashboard')
+        );
+    }
+);
+
+/*
+|--------------------------------------------------------------------------
+| View Inquiry
+|--------------------------------------------------------------------------
+*/
+
+Breadcrumbs::for(
+    'admin.inquiries.show',
+    function (BreadcrumbTrail $trail, Inquiry $inquiry) {
+        $trail->parent('admin.inquiries.index');
+
+        $trail->push(
+            $inquiry->subject ?: 'Inquiry #' . $inquiry->id,
+            route('admin.inquiries.show', $inquiry)
         );
     }
 );
