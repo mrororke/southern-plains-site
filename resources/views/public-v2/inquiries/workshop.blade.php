@@ -45,7 +45,7 @@
         </p>
 
         <h1 class="text-hero">
-            Bring NASDA to Your Club
+            Bring NASDA<br/> to Your Club
             </span>
         </h1>
 
@@ -61,17 +61,7 @@
            Whether your group is brand new to NASDA or looking to get more comfortable with the basics, tell me a little about your group and what you’re hoping to accomplish, and we’ll see what we can put together.
         </p>
 
-        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 py-6">
-
-            <a
-                href="#workshop-requet"
-                class="btn-primary">
-                Request a Workshop
-            </a>
-
-
-        </div>
-
+        
     </div>
 
     <div class="col-span-12 mt-8 md:col-span-7 md:mt-0 relative">
