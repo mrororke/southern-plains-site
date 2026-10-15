@@ -87,7 +87,7 @@
 
 {{-- Begin content --}}
 
-<div class="grid grid-cols-12 gap-y-10 md:gap-y-0 py-[64px] px-8">
+<div class="grid grid-cols-12 gap-x-8 gap-y-10 md:gap-y-0 py-[64px] px-8">
     <div class="col-span-12 md:col-span-7 gap-4">
         <p class="font-display text-2xl  text-sp-burntClay">
             A Hands-On Introduction
@@ -105,7 +105,7 @@
             We can discuss your group’s experience, available space, and what you’d like to accomplish to make the workshop a great fit for your club.
         </p>
 
-        <div class="col-span-12 mt-8 md:col-span-7 md:mt-0 relative">
+        <div class="md:mt-0 relative">
 
         <img
             class="w-full rounded-md"
@@ -200,7 +200,7 @@
             </ul>
 
     </div>
-    <div class="col-span-12 md:col-span-5 gap-4 flex">
+    <div class="col-span-12 md:col-span-5">
 
                 <p class="text-sp-burntClay uppercase text-xs mb-3">
                     Workshop Request
