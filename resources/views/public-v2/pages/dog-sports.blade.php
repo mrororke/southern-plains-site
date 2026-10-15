@@ -104,7 +104,7 @@
     {{-- Intro --}}
     <div class="col-span-12 md:col-span-6">
 
-        <p class="font-display font-bold text-2xl text-sp-burntClay">
+        <p class="font-display text-2xl  text-sp-burntClay">
             Start Where You Are
         </p>
 
@@ -187,7 +187,7 @@
     {{-- Section Intro --}}
 <div class="col-span-12 md:col-span-9 md:self-start">
 
-    <p class="font-display font-bold text-2xl text-sp-burntClay">
+    <p class="font-display text-2xl  text-sp-burntClay">
         Find Your Game
     </p>
 
@@ -290,7 +290,7 @@
     {{-- Intro --}}
     <div class="col-span-12 md:col-span-4 md:pr-6">
 
-        <p class="font-display font-bold text-2xl text-sp-warmIvory">
+        <p class="font-display text-2xl  text-sp-warmIvory">
             Get Involved
         </p>
 
@@ -410,7 +410,7 @@
 
         <div>
 
-            <p class="font-display font-bold text-2xl text-sp-burntClay">
+            <p class="font-display text-2xl  text-sp-burntClay">
                 More Ways to Play
             </p>
 
