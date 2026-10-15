@@ -12,11 +12,9 @@
 
             <div class="flex flex-wrap items-center justify-between gap-4 mt-4">
                 <div>
-                    <p class="text-xs text-display uppercase tracking-wide text-sp-prairieOchre">
-                        {{ ucwords(str_replace('_', ' ', $inquiry->type)) }}
-                    </p>
+                    
 
-                    <h1 class="font-sans text-sp-charcoal font-semibold text-4xl mt-2">
+                    <h1 class="font-sans text-sp-charcoal font-semibold text-6xl">
                         {{ $inquiry->subject ?: 'Inquiry #' . $inquiry->id }}
                     </h1>
                 </div>
@@ -135,7 +133,7 @@
             @method('PATCH')
 
             <button type="submit"
-                class="px-6 py-3 bg-sp-prairieGreen text-white rounded-md hover:opacity-90 transition">
+                class="inline-flex items-center justify-center gap-2 rounded-md bg-sp-prairieGreen px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-sp-prairieGreen/90">
                 Mark as Resolved
             </button>
         </form>
@@ -149,7 +147,10 @@
             @method('PATCH')
 
             <button type="submit"
-                class="px-6 py-3 border border-sp-warmStone text-sp-charcoal rounded-md hover:bg-sp-warmStone transition">
+                class="ml-auto inline-flex items-center justify-center gap-2
+               rounded-md bg-sp-prairieGreen px-4 py-2
+               text-sm font-semibold text-sp-warmIvory
+               transition-colors hover:bg-sp-prairieOchre">
                 Restore Inquiry
             </button>
         </form>
@@ -160,7 +161,10 @@
             @method('PATCH')
 
             <button type="submit"
-                class="px-6 py-3 border border-sp-warmStone text-sp-charcoal rounded-md hover:bg-sp-warmStone transition">
+                class="inline-flex items-center justify-center
+                   rounded-md border border-sp-warmStone
+                   px-4 py-2 text-sm font-semibold
+                   text-sp-charcoal hover:bg-sp-limestone/20">
                 Archive Inquiry
             </button>
         </form>

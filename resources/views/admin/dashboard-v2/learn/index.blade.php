@@ -24,7 +24,10 @@
 
         <a
             href="{{ route('admin.learn.create') }}"
-            class="inline-flex items-center justify-center gap-2 rounded-md bg-sp-prairieGreen px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-sp-prairieGreen/90">
+            class="ml-auto inline-flex items-center justify-center gap-2
+               rounded-md bg-sp-prairieGreen px-4 py-2
+               text-sm font-semibold text-sp-warmIvory
+               transition-colors hover:bg-sp-prairieOchre">
 
             <x-icons.plus
                 class="h-4 w-4"
