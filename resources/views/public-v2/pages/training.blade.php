@@ -110,7 +110,7 @@
     {{-- Left Text Area --}}
     <div class="col-span-12 mt-3 md:col-span-4 md:mt-0">
 
-        <p class="font-display font-bold text-2xl text-sp-burntClay">
+        <p class="font-display text-2xl  text-sp-burntClay">
             Train Differently
         </p>
 
@@ -203,7 +203,7 @@
     {{-- Section Intro --}}
     <div class="col-span-12 mb-8 md:mb-12">
 
-        <p class="font-display font-bold text-2xl text-sp-burntClay">
+        <p class="font-display text-2xl  text-sp-burntClay">
             What Do You Want to Do With Your Dog?
         </p>
 
@@ -372,7 +372,7 @@
     {{-- Section Intro --}}
     <div class="col-span-12 mb-2 md:mb-6">
 
-        <p class="font-display font-bold text-2xl text-sp-burntClay">
+        <p class="font-display text-2xl  text-sp-burntClay">
             Ready to Train?
         </p>
 
@@ -473,7 +473,7 @@
 
         <div class="w-full">
 
-            <p class="font-display font-bold text-2xl text-sp-burntClay">
+            <p class="font-display text-2xl  text-sp-burntClay">
                 AKC Trick Dog
             </p>
 
@@ -559,7 +559,7 @@
     {{-- Intro --}}
     <div class="col-span-12 md:col-span-5">
 
-        <p class="font-display font-bold text-2xl text-sp-burntClay">
+        <p class="font-display text-2xl  text-sp-burntClay">
             Train With Confidence
         </p>
 

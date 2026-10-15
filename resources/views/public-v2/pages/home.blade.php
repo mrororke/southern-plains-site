@@ -107,7 +107,7 @@
             <x-icons.dog class="text-sp-prairieGreen w-24 h-24" />
         </div>
         <div>
-            <p class="font-display font-bold text-2xl text-sp-prairieGreen">
+            <p class="font-display text-2xl  text-sp-prairieGreen">
                 Let Dogs Be Dogs.
             </p>
             <h2 class="font-sans text-4xl text-sp-charcoal uppercase">
@@ -128,7 +128,7 @@
             <x-icons.award class="text-sp-prairieOchre w-24 h-24" />
         </div>
         <div>
-            <p class="font-display font-bold text-2xl text-sp-prairieOchre">
+            <p class="font-display text-2xl  text-sp-prairieOchre">
                 Build Better Partnerships.
             </p>
             <h2 class="font-sans text-4xl text-sp-charcoal uppercase">
@@ -149,7 +149,7 @@
             <x-icons.sprout class="text-sp-burntClay w-24 h-24" />
         </div>
         <div>
-            <p class="font-display font-bold text-2xl text-sp-burntClay">
+            <p class="font-display text-2xl  text-sp-burntClay">
                 Celebrate Every Victory.
             </p>
             <h2 class="font-sans text-4xl text-sp-charcoal uppercase">
@@ -174,7 +174,7 @@
     <div class="col-span-12 md:col-span-6 hazel-bg relative rounded-md p-8">
 
         <div class="nasda-feature-box">
-            <p class="font-display font-bold text-2xl text-sp-burntClay">
+            <p class="font-display text-2xl  text-sp-burntClay">
                 Dog Sports 101
             </p>
 
