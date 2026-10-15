@@ -322,6 +322,16 @@ Route::middleware(['auth', 'device'])
             [\App\Http\Controllers\Admin\InquiryController::class, 'reopen']
         )->name('inquiries.reopen');
 
+        Route::patch(
+            'inquiries/{inquiry}/archive',
+            [\App\Http\Controllers\Admin\InquiryController::class, 'archive']
+        )->name('inquiries.archive');
+
+        Route::patch(
+            'inquiries/{inquiry}/restore',
+            [\App\Http\Controllers\Admin\InquiryController::class, 'restore']
+        )->name('inquiries.restore');
+
         /*
         |--------------------------------------------------------------------------
         | Global Search

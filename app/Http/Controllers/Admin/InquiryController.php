@@ -53,4 +53,33 @@ class InquiryController extends Controller
             ->route('admin.inquiries.show', $inquiry)
             ->with('success', 'Inquiry reopened.');
     }
+
+        /**
+     * Archive an inquiry without deleting it.
+     */
+    public function archive(Inquiry $inquiry): RedirectResponse
+    {
+        $inquiry->update([
+            'archived_at' => now(),
+        ]);
+
+        return redirect()
+            ->route('admin.dashboard')
+            ->with('success', 'Inquiry archived successfully.');
+    }
+
+    /**
+     * Restore an archived inquiry to the active inbox.
+     */
+    public function restore(Inquiry $inquiry): RedirectResponse
+    {
+        $inquiry->update([
+            'archived_at' => null,
+        ]);
+
+        return redirect()
+            ->route('admin.inquiries.show', $inquiry)
+            ->with('success', 'Inquiry restored successfully.');
+    }
+
 }

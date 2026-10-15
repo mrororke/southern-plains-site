@@ -114,31 +114,59 @@
                     </p>
                 </div>
 
-                <div>
-                    @if ($inquiry->resolved_at)
-                        <form action="{{ route('admin.inquiries.reopen', $inquiry) }}"
-                            method="POST">
-                            @csrf
-                            @method('PATCH')
+                <div class="flex flex-wrap items-center gap-3">
 
-                            <button type="submit"
-                                class="px-6 py-3 border border-sp-prairieGreen text-sp-prairieGreen rounded-sm hover:bg-sp-prairieGreen hover:text-white transition">
-                                Reopen Inquiry
-                            </button>
-                        </form>
-                    @else
-                        <form action="{{ route('admin.inquiries.resolve', $inquiry) }}"
-                            method="POST">
-                            @csrf
-                            @method('PATCH')
+    {{-- Resolve / Reopen --}}
+    @if ($inquiry->resolved_at)
+        <form action="{{ route('admin.inquiries.reopen', $inquiry) }}"
+            method="POST">
+            @csrf
+            @method('PATCH')
 
-                            <button type="submit"
-                                class="px-6 py-3 bg-sp-prairieGreen text-white rounded-sm hover:opacity-90 transition">
-                                Mark as Resolved
-                            </button>
-                        </form>
-                    @endif
-                </div>
+            <button type="submit"
+                class="px-6 py-3 border border-sp-prairieGreen text-sp-prairieGreen rounded-sm hover:bg-sp-prairieGreen hover:text-white transition">
+                Reopen Inquiry
+            </button>
+        </form>
+    @else
+        <form action="{{ route('admin.inquiries.resolve', $inquiry) }}"
+            method="POST">
+            @csrf
+            @method('PATCH')
+
+            <button type="submit"
+                class="px-6 py-3 bg-sp-prairieGreen text-white rounded-sm hover:opacity-90 transition">
+                Mark as Resolved
+            </button>
+        </form>
+    @endif
+
+    {{-- Archive / Restore --}}
+    @if ($inquiry->archived_at)
+        <form action="{{ route('admin.inquiries.restore', $inquiry) }}"
+            method="POST">
+            @csrf
+            @method('PATCH')
+
+            <button type="submit"
+                class="px-6 py-3 border border-sp-warmStone text-sp-charcoal rounded-sm hover:bg-sp-warmStone transition">
+                Restore Inquiry
+            </button>
+        </form>
+    @else
+        <form action="{{ route('admin.inquiries.archive', $inquiry) }}"
+            method="POST">
+            @csrf
+            @method('PATCH')
+
+            <button type="submit"
+                class="px-6 py-3 border border-sp-warmStone text-sp-charcoal rounded-sm hover:bg-sp-warmStone transition">
+                Archive Inquiry
+            </button>
+        </form>
+    @endif
+
+</div>
 
             </div>
         </div>
