@@ -200,15 +200,16 @@
             </ul>
 
     </div>
-    <div class="col-span-12 md:col-span-5">
+    <div class="col-span-12 md:col-span-5 bg-sp-limestone p-8 rounded-md">
 
-                <p class="text-sp-burntClay uppercase text-xs mb-3">
-                    Workshop Request
-                </p>
+    <p class="font-display text-2xl  text-sp-burntClay">
+            Workshop Request
+        </p>
+        <h2 class="font-sans text-lg font-semibold text-sp-charcoal">
+            Tell Me More About Your Group
+        </h2>
 
-                <h2 class="font-sans font-semibold text-3xl text-sp-charcoal mb-6">
-                    Tell Me More About Your Group
-                </h2>
+               
 
 
                 {{-- Submission Confirmation --}}
@@ -216,7 +217,7 @@
 
                     <div class="mb-8">
 
-                        <p class="font-sans font-semibold text-sp-charcoal mb-3">
+                        <p class="font-sans font-semibold text-sp- mb-3">
                             {{ session('success.title') }}
                         </p>
 
@@ -237,7 +238,7 @@
 
                         {{-- Name --}}
                         <div>
-                            <label for="name" class="block mb-2">
+                            <label for="name" class="block text-sm mb-2">
                                 Your Name*
                             </label>
 
@@ -257,7 +258,7 @@
 
                         {{-- Email --}}
                         <div>
-                            <label for="email" class="block mb-2">
+                            <label for="email" class="block text-sm mb-2">
                                 Email Address*
                             </label>
 
@@ -277,7 +278,7 @@
 
                         {{-- Organization --}}
                         <div>
-                            <label for="organization" class="block mb-2">
+                            <label for="organization" class="block text-sm mb-2">
                                 Club or Organization
                             </label>
 
@@ -298,7 +299,7 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
                             <div>
-                                <label for="city" class="block mb-2">
+                                <label for="city" class="block text-sm mb-2">
                                     City*
                                 </label>
 
@@ -316,7 +317,7 @@
                             </div>
 
                             <div>
-                                <label for="state" class="block mb-2">
+                                <label for="state" class="block text-sm mb-2">
                                     State*
                                 </label>
 
@@ -338,7 +339,7 @@
 
                         {{-- Participants --}}
                         <div>
-                            <label for="participants" class="block mb-2">
+                            <label for="participants" class="block text-sm mb-2">
                                 Approximate Number of Participants*
                             </label>
 
@@ -359,7 +360,7 @@
 
                         {{-- Preferred Timeframe --}}
                         <div>
-                            <label for="preferred_timeframe" class="block mb-2">
+                            <label for="preferred_timeframe" class="block text-sm mb-2">
                                 Preferred Date or Timeframe
                             </label>
 
@@ -379,7 +380,7 @@
 
                         {{-- NASDA Experience --}}
                         <div>
-                            <label for="nasda_experience" class="block mb-2">
+                            <label for="nasda_experience" class="block text-sm mb-2">
                                 Does Your Club Have Experience With NASDA?
                             </label>
 
@@ -415,7 +416,7 @@
 
                         {{-- Message --}}
                         <div>
-                            <label for="message" class="block mb-2">
+                            <label for="message" class="block text-sm mb-2">
                                 Tell Me More*
                             </label>
 
