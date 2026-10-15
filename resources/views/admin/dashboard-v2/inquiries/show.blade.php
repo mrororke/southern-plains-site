@@ -12,7 +12,7 @@
 
             <div class="flex flex-wrap items-center justify-between gap-4 mt-4">
                 <div>
-                    <p class="text-xs uppercase tracking-wide text-sp-heritage">
+                    <p class="text-xs text-display uppercase tracking-wide text-sp-prairieOchre">
                         {{ ucwords(str_replace('_', ' ', $inquiry->type)) }}
                     </p>
 
@@ -28,7 +28,7 @@
         </div>
 
         {{-- Inquiry Details --}}
-        <div class="border-2 border-sp-warmStone bg-sp-limestone rounded-sm p-6">
+        <div class="border-2 border-sp-warmStone bg-sp-limestone rounded-md p-6">
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
 
@@ -96,7 +96,7 @@
         </div>
 
         {{-- Inquiry Management --}}
-        <div class="border-2 border-sp-warmStone bg-sp-limestone rounded-sm p-6 mt-6">
+        <div class="border-2 border-sp-warmStone bg-sp-limestone rounded-md p-6 mt-6">
 
             <div class="flex flex-wrap items-center justify-between gap-4">
 
@@ -124,7 +124,7 @@
             @method('PATCH')
 
             <button type="submit"
-                class="px-6 py-3 border border-sp-prairieGreen text-sp-prairieGreen rounded-sm hover:bg-sp-prairieGreen hover:text-white transition">
+                class="px-6 py-3 border border-sp-prairieGreen text-sp-prairieGreen rounded-md hover:bg-sp-prairieGreen hover:text-white transition">
                 Reopen Inquiry
             </button>
         </form>
@@ -135,7 +135,7 @@
             @method('PATCH')
 
             <button type="submit"
-                class="px-6 py-3 bg-sp-prairieGreen text-white rounded-sm hover:opacity-90 transition">
+                class="px-6 py-3 bg-sp-prairieGreen text-white rounded-md hover:opacity-90 transition">
                 Mark as Resolved
             </button>
         </form>
@@ -149,7 +149,7 @@
             @method('PATCH')
 
             <button type="submit"
-                class="px-6 py-3 border border-sp-warmStone text-sp-charcoal rounded-sm hover:bg-sp-warmStone transition">
+                class="px-6 py-3 border border-sp-warmStone text-sp-charcoal rounded-md hover:bg-sp-warmStone transition">
                 Restore Inquiry
             </button>
         </form>
@@ -160,7 +160,7 @@
             @method('PATCH')
 
             <button type="submit"
-                class="px-6 py-3 border border-sp-warmStone text-sp-charcoal rounded-sm hover:bg-sp-warmStone transition">
+                class="px-6 py-3 border border-sp-warmStone text-sp-charcoal rounded-md hover:bg-sp-warmStone transition">
                 Archive Inquiry
             </button>
         </form>
