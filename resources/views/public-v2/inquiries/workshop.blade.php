@@ -205,7 +205,7 @@
     <p class="font-display text-2xl  text-sp-burntClay">
             Workshop Request
         </p>
-        <h2 class="font-sans text-lg font-semibold text-sp-charcoal">
+        <h2 class="font-sans text-xl font-semibold text-sp-charcoal">
             Tell Me More About Your Group
         </h2>
 
