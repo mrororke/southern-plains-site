@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\WorkshopRequestMail;
 use App\Models\Inquiry;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\View\View;
 
 class InquiryController extends Controller
@@ -28,7 +30,8 @@ class InquiryController extends Controller
             'message' => ['required', 'string', 'max:5000'],
         ]);
 
-        Inquiry::create([
+        // Save the workshop request.
+        $inquiry = Inquiry::create([
             'type' => 'workshop_request',
             'name' => $validated['name'],
             'email' => $validated['email'],
@@ -44,11 +47,15 @@ class InquiryController extends Controller
             ],
         ]);
 
+        // Email the club when a new workshop request arrives.
+        Mail::to(config('mail.from.address'))
+            ->send(new WorkshopRequestMail($inquiry));
+
         return redirect()
-    ->back()
-    ->with('success', [
-        'title' => 'Your request is on its way!',
-        'message' => "Thanks for reaching out! I'll review your workshop request and get back to you by email.\nIn the meantime, feel free to explore the rest of the site and learn more about NASDA.",
-    ]);
+            ->back()
+            ->with('success', [
+                'title' => 'Your request is on its way!',
+                'message' => "Thanks for reaching out! I'll review your workshop request and get back to you by email.\nIn the meantime, feel free to explore the rest of the site and learn more about NASDA.",
+            ]);
     }
 }
