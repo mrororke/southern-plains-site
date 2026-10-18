@@ -11,22 +11,22 @@
 
 @section('structured_data')
 <script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Request an Intro to NASDA Workshop",
-    "description": "Request a three-hour Intro to NASDA workshop for your dog training club or organization.",
-    "url": "https://southernplains.dog/inquiries/workshop",
-    "isPartOf": {
-        "@type": "WebSite",
-        "name": "Southern Plains Sport Dog Club",
-        "url": "https://southernplains.dog/"
-    },
-    "about": {
-        "@type": "Thing",
-        "name": "North American Sport Dog Association (NASDA)"
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Request an Intro to NASDA Workshop",
+        "description": "Request a three-hour Intro to NASDA workshop for your dog training club or organization.",
+        "url": "https://southernplains.dog/inquiries/workshop",
+        "isPartOf": {
+            "@type": "WebSite",
+            "name": "Southern Plains Sport Dog Club",
+            "url": "https://southernplains.dog/"
+        },
+        "about": {
+            "@type": "Thing",
+            "name": "North American Sport Dog Association (NASDA)"
+        }
     }
-}
 </script>
 @endsection
 
@@ -45,7 +45,7 @@
         </p>
 
         <h1 class="text-hero">
-            Bring NASDA<br/> to Your Club
+            Bring NASDA<br /> to Your Club
             </span>
         </h1>
 
@@ -58,10 +58,10 @@
         </h3>
 
         <p class="body-large text-sp-slate">
-           Whether your group is brand new to NASDA or looking to get more comfortable with the basics, tell me a little about your group and what you’re hoping to accomplish, and we’ll see what we can put together.
+            Whether your group is brand new to NASDA or looking to get more comfortable with the basics, tell me a little about your group and what you’re hoping to accomplish, and we’ll see what we can put together.
         </p>
 
-        
+
     </div>
 
     <div class="col-span-12 mt-8 pt-8 md:col-span-7 md:mt-0 relative">
@@ -107,354 +107,372 @@
 
         <div class="md:mt-0 relative">
 
-        <img
-            class="w-full rounded-md"
-            src="{{ asset('images/inquiries/hamish-shed.jpg') }}"
-            alt="Hamish practicing Shed Dog in a field of wildflowers.">
+            <img
+                class="w-full rounded-md"
+                src="{{ asset('images/inquiries/hamish-shed.jpg') }}"
+                alt="Hamish practicing Shed Dog in a field of wildflowers.">
 
-        <x-public-v2.image-registration
-            text="Hamish, Photo by Blue Ridge Creative"
-            position="bottom"
-            href="https://www.blueridgeprairie.studio/" />
-    </div>
+            <x-public-v2.image-registration
+                text="Hamish, Photo by Blue Ridge Creative"
+                position="bottom"
+                href="https://www.blueridgeprairie.studio/" />
+        </div>
 
-    {{-- Workshop Features --}}
-            <ul class="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+        {{-- Workshop Features --}}
+        <ul class="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
 
-                {{-- Introduction --}}
-                <li class="flex flex-col items-center text-center">
+            {{-- Introduction --}}
+            <li class="flex flex-col items-center text-center">
 
-                    <div class="w-20 h-20 rounded-full bg-sp-limestone flex items-center justify-center mb-4">
-                        <x-icons.book-open
-                            class="w-10 h-10 md:w-12 md:h-12 text-sp-burntClay mx-auto" />
-                    </div>
+                <div class="w-20 h-20 rounded-full bg-sp-limestone flex items-center justify-center mb-4">
+                    <x-icons.book-open
+                        class="w-10 h-10 md:w-12 md:h-12 text-sp-burntClay mx-auto" />
+                </div>
 
-                    <h3 class="font-sans font-semibold text-sm uppercase text-sp-charcoal leading-tight">
-                        Introduction<br>to NASDA
-                    </h3>
+                <h3 class="font-sans font-semibold text-sm uppercase text-sp-charcoal leading-tight">
+                    Introduction<br>to NASDA
+                </h3>
 
-                    <p class="body-small text-sp-slate mt-3">
-                        Overview of the sport, rules, and expectations.
-                    </p>
+                <p class="body-small text-sp-slate mt-3">
+                    Overview of the sport, rules, and expectations.
+                </p>
 
-                </li>
-
-
-                {{-- Four Components --}}
-                <li class="flex flex-col items-center text-center">
-
-                    <div class="w-20 h-20 rounded-full bg-sp-limestone flex items-center justify-center mb-4">
-                        <x-icons.paw-print
-                            class="w-10 h-10 md:w-12 md:h-12 text-sp-burntClay mx-auto" />
-                    </div>
-
-                    <h3 class="font-sans font-semibold text-sm uppercase text-sp-charcoal leading-tight">
-                        Four Level 1<br>Components
-                    </h3>
-
-                    <p class="body-small text-sp-slate mt-3">
-                        Shed, Trailing &amp; Locating,
-                        Urban Locating, and Lost Item.
-                    </p>
-
-                </li>
+            </li>
 
 
-                {{-- Participation --}}
-                <li class="flex flex-col items-center text-center">
+            {{-- Four Components --}}
+            <li class="flex flex-col items-center text-center">
 
-                    <div class="w-20 h-20 rounded-full bg-sp-limestone flex items-center justify-center mb-4">
-                        <x-icons.users-round
-                            class="w-10 h-10 md:w-12 md:h-12 text-sp-burntClay mx-auto" />
-                    </div>
+                <div class="w-20 h-20 rounded-full bg-sp-limestone flex items-center justify-center mb-4">
+                    <x-icons.paw-print
+                        class="w-10 h-10 md:w-12 md:h-12 text-sp-burntClay mx-auto" />
+                </div>
 
-                    <h3 class="font-sans font-semibold text-sm uppercase text-sp-charcoal leading-tight">
-                        Hands-On<br>Participation
-                    </h3>
+                <h3 class="font-sans font-semibold text-sm uppercase text-sp-charcoal leading-tight">
+                    Four Level 1<br>Components
+                </h3>
 
-                    <p class="body-small text-sp-slate mt-3">
-                        Work with your own dog, or observe.
-                    </p>
+                <p class="body-small text-sp-slate mt-3">
+                    Shed, Trailing &amp; Locating,
+                    Urban Locating, and Lost Item.
+                </p>
 
-                </li>
+            </li>
 
 
-                {{-- Tailored --}}
-                <li class="flex flex-col items-center text-center">
+            {{-- Participation --}}
+            <li class="flex flex-col items-center text-center">
 
-                    <div class="w-20 h-20 rounded-full bg-sp-limestone flex items-center justify-center mb-4">
-                        <x-icons.message-circle-more
-                            class="w-10 h-10 md:w-12 md:h-12 text-sp-burntClay mx-auto" />
-                    </div>
+                <div class="w-20 h-20 rounded-full bg-sp-limestone flex items-center justify-center mb-4">
+                    <x-icons.users-round
+                        class="w-10 h-10 md:w-12 md:h-12 text-sp-burntClay mx-auto" />
+                </div>
 
-                    <h3 class="font-sans font-semibold text-sm uppercase text-sp-charcoal leading-tight">
-                        Tailored to<br>Your Group
-                    </h3>
+                <h3 class="font-sans font-semibold text-sm uppercase text-sp-charcoal leading-tight">
+                    Hands-On<br>Participation
+                </h3>
 
-                    <p class="body-small text-sp-slate mt-3">
-                        We'll discuss your goals and available space.
-                    </p>
+                <p class="body-small text-sp-slate mt-3">
+                    Work with your own dog, or observe.
+                </p>
 
-                </li>
+            </li>
 
-            </ul>
+
+            {{-- Tailored --}}
+            <li class="flex flex-col items-center text-center">
+
+                <div class="w-20 h-20 rounded-full bg-sp-limestone flex items-center justify-center mb-4">
+                    <x-icons.message-circle-more
+                        class="w-10 h-10 md:w-12 md:h-12 text-sp-burntClay mx-auto" />
+                </div>
+
+                <h3 class="font-sans font-semibold text-sm uppercase text-sp-charcoal leading-tight">
+                    Tailored to<br>Your Group
+                </h3>
+
+                <p class="body-small text-sp-slate mt-3">
+                    We'll discuss your goals and available space.
+                </p>
+
+            </li>
+
+        </ul>
 
     </div>
     <div class="col-span-12 md:col-span-5 bg-sp-limestone p-8 rounded-md">
 
-    <p class="font-display text-2xl  text-sp-burntClay">
+        <p class="font-display text-2xl  text-sp-burntClay">
             Workshop Request
         </p>
         <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
             Tell Me More About Your Group
         </h2>
 
-               
 
 
-                {{-- Submission Confirmation --}}
-                @if (session('success'))
 
-                    <div
-                        role="status"
-                        class="border-l-4 border-sp-successGreen bg-sp-successGreen/10 rounded-r-md p-6 mt-6">
+        {{-- Submission Confirmation --}}
+        @if (session('success'))
 
-                        <p class="font-sans font-semibold text-lg text-sp-successGreen mb-3">
-                            {{ session('success.title') }}
-                        </p>
+        <div
+            role="status"
+            class="border-l-4 border-sp-successGreen bg-sp-successGreen/10 rounded-r-md p-6 mt-6">
 
-                        <p class="body text-sp-slate whitespace-pre-line">
-                            {{ session('success.message') }}
-                        </p>
+            <p class="font-sans font-semibold text-lg text-sp-successGreen mb-3">
+                {{ session('success.title') }}
+            </p>
 
-                    </div>
+            <p class="body text-sp-slate whitespace-pre-line">
+                {{ session('success.message') }}
+            </p>
 
-                @else
+        </div>
 
-                    <form
-                        method="POST"
-                        action="{{ route('public-v2.inquiries.workshop.store') }}"
-                        class="space-y-5">
+        @else
 
-                        @csrf
+        <form
+            method="POST"
+            action="{{ route('public-v2.inquiries.workshop.store') }}"
+            class="space-y-5">
 
-                        {{-- Name --}}
-                        <div>
-                            <label for="name" class="block text-sp-slate text-sm mb-2">
-                                Your Name*
-                            </label>
+            @csrf
 
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                value="{{ old('name') }}"
-                                required
-                                class="w-full rounded-md">
+            {{-- Honeypot: leave this field empty --}}
+            <div
+                aria-hidden="true"
+                class="absolute -left-[9999px] w-px h-px overflow-hidden">
 
-                            @error('name')
-                                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
+                <label for="website_url">
+                    Website URL
+                </label>
 
-
-                        {{-- Email --}}
-                        <div>
-                            <label for="email" class="block text-sp-slate text-sm mb-2">
-                                Email Address*
-                            </label>
-
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                value="{{ old('email') }}"
-                                required
-                                class="w-full rounded-md">
-
-                            @error('email')
-                                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-
-                        {{-- Organization --}}
-                        <div>
-                            <label for="organization" class="block text-sp-slate text-sm mb-2">
-                                Club or Organization
-                            </label>
-
-                            <input
-                                type="text"
-                                id="organization"
-                                name="organization"
-                                value="{{ old('organization') }}"
-                                class="w-full rounded-md">
-
-                            @error('organization')
-                                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-
-                        {{-- City and State --}}
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-                            <div>
-                                <label for="city" class="block text-sp-slate text-sm mb-2">
-                                    City*
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="city"
-                                    name="city"
-                                    value="{{ old('city') }}"
-                                    required
-                                    class="w-full rounded-md">
-
-                                @error('city')
-                                    <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-
-                            <div>
-                                <label for="state" class="block text-sp-slate text-sm mb-2">
-                                    State*
-                                </label>
-
-                                <input
-                                    type="text"
-                                    id="state"
-                                    name="state"
-                                    value="{{ old('state') }}"
-                                    required
-                                    class="w-full rounded-md">
-
-                                @error('state')
-                                    <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                                @enderror
-                            </div>
-
-                        </div>
-
-
-                        {{-- Participants --}}
-                        <div>
-                            <label for="participants" class="block text-sp-slate text-sm mb-2">
-                                Approximate Number of Participants*
-                            </label>
-
-                            <input
-                                type="number"
-                                id="participants"
-                                name="participants"
-                                min="1"
-                                value="{{ old('participants') }}"
-                                required
-                                class="w-full rounded-md">
-
-                            @error('participants')
-                                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-
-                        {{-- Preferred Timeframe --}}
-                        <div>
-                            <label for="preferred_timeframe" class="block text-sp-slate text-sm mb-2">
-                                Preferred Date or Timeframe
-                            </label>
-
-                            <input
-                                type="text"
-                                id="preferred_timeframe"
-                                name="preferred_timeframe"
-                                placeholder="e.g. Spring 2027"
-                                value="{{ old('preferred_timeframe') }}"
-                                class="w-full rounded-md">
-
-                            @error('preferred_timeframe')
-                                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-
-                        {{-- NASDA Experience --}}
-                        <div>
-                            <label for="nasda_experience" class="block text-sp-slate text-sm mb-2">
-                                Does Your Club Have Experience With NASDA?
-                            </label>
-
-                            <select
-                                id="nasda_experience"
-                                name="nasda_experience"
-                                class="w-full rounded-md">
-
-                                <option value="">Select an option</option>
-
-                                <option value="Completely new to NASDA"
-                                    @selected(old('nasda_experience') === 'Completely new to NASDA')>
-                                    Completely new to NASDA
-                                </option>
-
-                                <option value="Some experience"
-                                    @selected(old('nasda_experience') === 'Some experience')>
-                                    Some experience
-                                </option>
-
-                                <option value="Experienced participants"
-                                    @selected(old('nasda_experience') === 'Experienced participants')>
-                                    Experienced participants
-                                </option>
-
-                            </select>
-
-                            @error('nasda_experience')
-                                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-
-                        {{-- Message --}}
-                        <div>
-                            <label for="message" class="block text-sp-slate text-sm mb-2">
-                                Tell Me More*
-                            </label>
-
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="5"
-                                required
-                                class="w-full rounded-md">{{ old('message') }}</textarea>
-
-                            @error('message')
-                                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                            @enderror
-                        </div>
-
-
-                        {{-- Submit --}}
-                        <button type="submit" class="btn-primary w-full">
-                            Send Workshop Request
-                            <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                        </button>
-
-
-                        <p class="body-small text-sp-slate">
-                            Submitting a request does not reserve a date or
-                            commit you to hosting a workshop. Workshop details,
-                            availability, and pricing will be discussed after
-                            reviewing your request.
-                        </p>
-
-                    </form>
-
-                @endif
+                <input
+                    type="text"
+                    id="website_url"
+                    name="website_url"
+                    tabindex="-1"
+                    autocomplete="off">
 
             </div>
+
+            {{-- Name --}}
+            <div>
+                <label for="name" class="block text-sp-slate text-sm mb-2">
+                    Your Name*
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value="{{ old('name') }}"
+                    required
+                    class="w-full rounded-md">
+
+                @error('name')
+                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
+                @enderror
+            </div>
+
+
+            {{-- Email --}}
+            <div>
+                <label for="email" class="block text-sp-slate text-sm mb-2">
+                    Email Address*
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value="{{ old('email') }}"
+                    required
+                    class="w-full rounded-md">
+
+                @error('email')
+                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
+                @enderror
+            </div>
+
+
+            {{-- Organization --}}
+            <div>
+                <label for="organization" class="block text-sp-slate text-sm mb-2">
+                    Club or Organization
+                </label>
+
+                <input
+                    type="text"
+                    id="organization"
+                    name="organization"
+                    value="{{ old('organization') }}"
+                    class="w-full rounded-md">
+
+                @error('organization')
+                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
+                @enderror
+            </div>
+
+
+            {{-- City and State --}}
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+
+                <div>
+                    <label for="city" class="block text-sp-slate text-sm mb-2">
+                        City*
+                    </label>
+
+                    <input
+                        type="text"
+                        id="city"
+                        name="city"
+                        value="{{ old('city') }}"
+                        required
+                        class="w-full rounded-md">
+
+                    @error('city')
+                    <p class="text-sp-clayRed mt-2">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div>
+                    <label for="state" class="block text-sp-slate text-sm mb-2">
+                        State*
+                    </label>
+
+                    <input
+                        type="text"
+                        id="state"
+                        name="state"
+                        value="{{ old('state') }}"
+                        required
+                        class="w-full rounded-md">
+
+                    @error('state')
+                    <p class="text-sp-clayRed mt-2">{{ $message }}</p>
+                    @enderror
+                </div>
+
+            </div>
+
+
+            {{-- Participants --}}
+            <div>
+                <label for="participants" class="block text-sp-slate text-sm mb-2">
+                    Approximate Number of Participants*
+                </label>
+
+                <input
+                    type="number"
+                    id="participants"
+                    name="participants"
+                    min="1"
+                    value="{{ old('participants') }}"
+                    required
+                    class="w-full rounded-md">
+
+                @error('participants')
+                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
+                @enderror
+            </div>
+
+
+            {{-- Preferred Timeframe --}}
+            <div>
+                <label for="preferred_timeframe" class="block text-sp-slate text-sm mb-2">
+                    Preferred Date or Timeframe
+                </label>
+
+                <input
+                    type="text"
+                    id="preferred_timeframe"
+                    name="preferred_timeframe"
+                    placeholder="e.g. Spring 2027"
+                    value="{{ old('preferred_timeframe') }}"
+                    class="w-full rounded-md">
+
+                @error('preferred_timeframe')
+                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
+                @enderror
+            </div>
+
+
+            {{-- NASDA Experience --}}
+            <div>
+                <label for="nasda_experience" class="block text-sp-slate text-sm mb-2">
+                    Does Your Club Have Experience With NASDA?
+                </label>
+
+                <select
+                    id="nasda_experience"
+                    name="nasda_experience"
+                    class="w-full rounded-md">
+
+                    <option value="">Select an option</option>
+
+                    <option value="Completely new to NASDA"
+                        @selected(old('nasda_experience')==='Completely new to NASDA' )>
+                        Completely new to NASDA
+                    </option>
+
+                    <option value="Some experience"
+                        @selected(old('nasda_experience')==='Some experience' )>
+                        Some experience
+                    </option>
+
+                    <option value="Experienced participants"
+                        @selected(old('nasda_experience')==='Experienced participants' )>
+                        Experienced participants
+                    </option>
+
+                </select>
+
+                @error('nasda_experience')
+                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
+                @enderror
+            </div>
+
+
+            {{-- Message --}}
+            <div>
+                <label for="message" class="block text-sp-slate text-sm mb-2">
+                    Tell Me More*
+                </label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="5"
+                    required
+                    class="w-full rounded-md">{{ old('message') }}</textarea>
+
+                @error('message')
+                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
+                @enderror
+            </div>
+
+
+            {{-- Submit --}}
+            <button type="submit" class="btn-primary w-full">
+                Send Workshop Request
+                <i data-lucide="arrow-right" class="w-5 h-5"></i>
+            </button>
+
+
+            <p class="body-small text-sp-slate">
+                Submitting a request does not reserve a date or
+                commit you to hosting a workshop. Workshop details,
+                availability, and pricing will be discussed after
+                reviewing your request.
+            </p>
+
+        </form>
+
+        @endif
+
     </div>
+</div>
 {{-- END content --}}
 
 
