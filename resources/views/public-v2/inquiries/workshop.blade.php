@@ -241,7 +241,7 @@
             {{-- Honeypot: leave this field empty --}}
             <div
                 aria-hidden="true"
-                class="absolute -left-[9999px] w-px h-px overflow-hidden">
+                class="hidden">
 
                 <label for="website_url">
                     Website URL
