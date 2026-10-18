@@ -215,9 +215,11 @@
                 {{-- Submission Confirmation --}}
                 @if (session('success'))
 
-                    <div class="mb-8">
+                    <div
+                        role="status"
+                        class="border-l-4 border-sp-successGreen bg-sp-successGreen/10 rounded-r-md p-6 mt-6">
 
-                        <p class="font-sans font-semibold text-sp- mb-3">
+                        <p class="font-sans font-semibold text-lg text-sp-successGreen mb-3">
                             {{ session('success.title') }}
                         </p>
 
