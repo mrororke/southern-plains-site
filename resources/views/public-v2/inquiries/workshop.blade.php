@@ -238,7 +238,7 @@
 
                         {{-- Name --}}
                         <div>
-                            <label for="name" class="block text-sm mb-2">
+                            <label for="name" class="block text-sp-slate text-sm mb-2">
                                 Your Name*
                             </label>
 
@@ -258,7 +258,7 @@
 
                         {{-- Email --}}
                         <div>
-                            <label for="email" class="block text-sm mb-2">
+                            <label for="email" class="block text-sp-slate text-sm mb-2">
                                 Email Address*
                             </label>
 
@@ -278,7 +278,7 @@
 
                         {{-- Organization --}}
                         <div>
-                            <label for="organization" class="block text-sm mb-2">
+                            <label for="organization" class="block text-sp-slate text-sm mb-2">
                                 Club or Organization
                             </label>
 
@@ -299,7 +299,7 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
                             <div>
-                                <label for="city" class="block text-sm mb-2">
+                                <label for="city" class="block text-sp-slate text-sm mb-2">
                                     City*
                                 </label>
 
@@ -317,7 +317,7 @@
                             </div>
 
                             <div>
-                                <label for="state" class="block text-sm mb-2">
+                                <label for="state" class="block text-sp-slate text-sm mb-2">
                                     State*
                                 </label>
 
@@ -339,7 +339,7 @@
 
                         {{-- Participants --}}
                         <div>
-                            <label for="participants" class="block text-sm mb-2">
+                            <label for="participants" class="block text-sp-slate text-sm mb-2">
                                 Approximate Number of Participants*
                             </label>
 
@@ -360,7 +360,7 @@
 
                         {{-- Preferred Timeframe --}}
                         <div>
-                            <label for="preferred_timeframe" class="block text-sm mb-2">
+                            <label for="preferred_timeframe" class="block text-sp-slate text-sm mb-2">
                                 Preferred Date or Timeframe
                             </label>
 
@@ -380,7 +380,7 @@
 
                         {{-- NASDA Experience --}}
                         <div>
-                            <label for="nasda_experience" class="block text-sm mb-2">
+                            <label for="nasda_experience" class="block text-sp-slate text-sm mb-2">
                                 Does Your Club Have Experience With NASDA?
                             </label>
 
@@ -416,7 +416,7 @@
 
                         {{-- Message --}}
                         <div>
-                            <label for="message" class="block text-sm mb-2">
+                            <label for="message" class="block text-sp-slate text-sm mb-2">
                                 Tell Me More*
                             </label>
 
