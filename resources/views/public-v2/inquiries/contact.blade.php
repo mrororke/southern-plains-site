@@ -1,56 +1,34 @@
 @extends('public-v2.layouts.app')
 
 
-@section('meta_title', 'Contact Southern Plains Sport Dog Club')
-
-@section('meta_description', 'Have a question about training, dog sports, events, or Southern Plains Sport Dog Club? Get in touch and send us a message.')
-
-
-@section('og_title', 'Get In Touch With Southern Plains | Southern Plains Sport Dog Club')
-
-@section('og_description', 'Have a question about training, dog sports, events, or Southern Plains Sport Dog Club? Send us a message.')
-
-@section('og_image', asset('images/og/default.jpg'))
-
-@section('canonical_url', 'https://southernplains.dog/inquiries/contact')
-
-
-@section('structured_data')
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "name": "Contact Southern Plains Sport Dog Club",
-    "description": "Get in touch with Southern Plains Sport Dog Club about training, dog sports, events, and other inquiries.",
-    "url": "https://southernplains.dog/inquiries/contact",
-    "isPartOf": {
-        "@type": "WebSite",
-        "name": "Southern Plains Sport Dog Club",
-        "url": "https://southernplains.dog/"
-    }
-}
-</script>
-
-@endsection
-
-
 @section('hero')
 
 {{-- Contact Hero --}}
 <div
     id="hero"
-    class="relative overflow-hidden">
+    class="relative overflow-hidden bg-sp-offWhite">
 
+    {{-- Hero Background --}}
+    <div class="absolute inset-0 z-0 overflow-hidden">
+
+        <img
+            src="{{ asset('images/headers/contact-bg.png') }}"
+            alt=""
+            aria-hidden="true"
+            class="absolute left-1/2 top-0 w-full max-w-none -translate-x-1/2">
+
+    </div>
+    {{-- End Hero Background --}}
 
 
     {{-- Hero Content --}}
     <div
-        class="relative grid grid-cols-12 gap-6 px-6 pt-8 pb-12 md:px-8 md:pt-12 md:pb-16">
+        class="relative z-10 grid grid-cols-12 gap-6 px-6 pt-8 pb-12 md:px-8 md:pt-12 md:pb-16">
 
-        {{-- Intro --}}
+        {{-- Intro + Form --}}
         <div class="col-span-12 md:col-span-7">
 
+            {{-- Intro --}}
             <p class="font-display font-bold text-2xl text-sp-burntClay">
                 Ask Us Anything
             </p>
@@ -63,52 +41,32 @@
             <p class="body-large text-sp-slate mt-4 max-w-xl">
                 Have a question about training, dog sports, an upcoming event, or something else? Send us a message and we’ll get back to you.
             </p>
+            {{-- End Intro --}}
 
 
             {{-- Contact Form Card --}}
             <div class="mt-8 max-w-xl rounded-md bg-sp-limestone p-6 md:p-8">
 
-                <p class="font-sans text-2xl font-semibold text-sp-charcoal">
+                <h2 class="font-sans text-2xl font-semibold text-sp-charcoal">
                     Send A Message
-                </p>
+                </h2>
 
 
-                {{-- Form --}}
+                {{-- Contact Form --}}
                 <form
-                    method="POST"
                     action="#"
-                    class="space-y-5 mt-6">
+                    method="POST"
+                    class="mt-6">
 
                     @csrf
 
-
-                    {{-- Honeypot: leave this field empty --}}
-                    <div
-                        aria-hidden="true"
-                        class="hidden">
-
-                        <label for="website_url">
-                            Website URL
-                        </label>
-
-                        <input
-                            type="text"
-                            id="website_url"
-                            name="website_url"
-                            tabindex="-1"
-                            autocomplete="off">
-
-                    </div>
-
-
                     {{-- Name --}}
                     <div>
-
                         <label
                             for="name"
-                            class="block text-sp-slate text-sm mb-2">
+                            class="block font-sans text-sm font-semibold text-sp-charcoal">
 
-                            Your Name *
+                            Your Name<span aria-hidden="true">*</span>
 
                         </label>
 
@@ -116,20 +74,21 @@
                             type="text"
                             id="name"
                             name="name"
+                            autocomplete="name"
                             required
-                            class="w-full rounded-md">
+                            placeholder="Your Name"
+                            class="mt-2 block w-full rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">
 
                     </div>
 
 
                     {{-- Email --}}
-                    <div>
-
+                    <div class="mt-4">
                         <label
                             for="email"
-                            class="block text-sp-slate text-sm mb-2">
+                            class="block font-sans text-sm font-semibold text-sp-charcoal">
 
-                            Email Address *
+                            Email Address<span aria-hidden="true">*</span>
 
                         </label>
 
@@ -137,67 +96,64 @@
                             type="email"
                             id="email"
                             name="email"
+                            autocomplete="email"
                             required
-                            class="w-full rounded-md">
+                            placeholder="Your email address"
+                            class="mt-2 block w-full rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">
 
                     </div>
 
 
-                    {{-- Inquiry --}}
-                    <div>
-
+                    {{-- Inquiry Type --}}
+                    <div class="mt-4">
                         <label
-                            for="inquiry_type"
-                            class="block text-sp-slate text-sm mb-2">
+                            for="inquiry"
+                            class="block font-sans text-sm font-semibold text-sp-charcoal">
 
-                            What is your inquiry about? *
+                            What is your inquiry about?<span aria-hidden="true">*</span>
 
                         </label>
 
                         <select
-                            id="inquiry_type"
-                            name="inquiry_type"
+                            id="inquiry"
+                            name="inquiry"
                             required
-                            class="w-full rounded-md">
+                            class="mt-2 block w-full rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">
 
-                            <option value="">
+                            <option value="" selected disabled>
                                 Select a topic
                             </option>
 
-                            <option value="General Question">
-                                General Question
+                            <option value="general">
+                                General Club Inquiry
                             </option>
 
-                            <option value="Dog Sports / NASDA">
-                                Dog Sports / NASDA
+                            <option value="league">
+                                League Question
                             </option>
 
-                            <option value="Events / Trial Information">
-                                Events / Trial Information
+                            <option value="trial-training">
+                                Trial / Training Day Logistics
                             </option>
 
-                            <option value="Private Training / Behavior Consultation">
+                            <option value="private-training">
                                 Private Training / Behavior Consultation
                             </option>
 
-                            <option value="Classes / Training">
-                                Classes / Training
+                            <option value="class">
+                                Class Enrollment
                             </option>
 
-                            <option value="Workshops">
-                                Workshops
+                            <option value="community">
+                                Community Meet-Up / Casual Training
                             </option>
 
-                            <option value="Membership / Volunteer Information">
-                                Membership / Volunteer Information
+                            <option value="membership">
+                                Membership &amp; Volunteer Information
                             </option>
 
-                            <option value="Sponsorship / Partnership">
-                                Sponsorship / Partnership
-                            </option>
-
-                            <option value="Other">
-                                Other
+                            <option value="sponsorship">
+                                Sponsorship / Partnership Inquiry
                             </option>
 
                         </select>
@@ -206,22 +162,22 @@
 
 
                     {{-- Message --}}
-                    <div>
-
+                    <div class="mt-4">
                         <label
                             for="message"
-                            class="block text-sp-slate text-sm mb-2">
+                            class="block font-sans text-sm font-semibold text-sp-charcoal">
 
-                            Message / Question *
+                            Message / Question<span aria-hidden="true">*</span>
 
                         </label>
 
                         <textarea
                             id="message"
                             name="message"
-                            rows="6"
+                            rows="7"
                             required
-                            class="w-full rounded-md"></textarea>
+                            placeholder="Tell us how we can help."
+                            class="mt-2 block w-full resize-y rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen"></textarea>
 
                     </div>
 
@@ -229,52 +185,38 @@
                     {{-- Submit --}}
                     <button
                         type="submit"
-                        class="btn-primary w-full">
+                        class="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-md bg-sp-prairieGreen px-5 py-3 font-sans text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-sp-prairieGreen/90">
 
                         Send Message
 
                         <x-icons.move-right
-                            class="w-5 h-5 shrink-0"
+                            class="h-5 w-5 shrink-0"
                             aria-hidden="true" />
 
                     </button>
 
                 </form>
-                {{-- End Form --}}
+                {{-- End Contact Form --}}
 
             </div>
             {{-- End Contact Form Card --}}
 
         </div>
+        {{-- End Intro + Form --}}
 
 
         {{-- Image Registration --}}
-        <div
-            class="col-span-12 md:col-span-5 relative">
+        <div class="pointer-events-none absolute right-6 top-1/2 z-20 hidden -translate-y-1/2 md:block">
 
             <x-public-v2.image-registration
-                text="Hamish, Photo by Blue Ridge Creative"
-                position="right"
-                href="https://www.blueridgeprairie.studio/" />
+                text="Hamish · Photo by Blue Ridge Creative"
+                position="right" />
 
         </div>
+        {{-- End Image Registration --}}
 
     </div>
-
-    {{-- Hero Image --}}
-    <div class="col-span-12 md:col-span-5 mt-8 md:mt-0 relative">
-
-        <img
-            src="{{ asset('images/headers/contact-bg.png') }}"
-            alt="Hamish, a Sheltie, standing among wildflowers."
-            class="block w-full h-full object-cover object-center">
-
-        <x-public-v2.image-registration
-            text="Hamish, Photo by Blue Ridge Creative"
-            position="right"
-            href="https://www.blueridgeprairie.studio/" />
-
-    </div>
+    {{-- End Hero Content --}}
 
 </div>
 {{-- End Contact Hero --}}
@@ -285,28 +227,28 @@
 @section('content')
 
 {{-- Other Ways To Connect --}}
-<section
-    class="grid grid-cols-12 gap-6 px-6 py-12 md:px-8 md:py-16">
+<section class="px-6 py-12 md:px-8 md:py-16">
 
-    <div class="col-span-12">
+    <div class="grid grid-cols-12 gap-6">
 
-        <h2 class="font-sans text-2xl font-semibold text-sp-charcoal">
-            Other Ways To Connect
-        </h2>
+        <div class="col-span-12">
+
+            <h2 class="font-sans text-2xl font-semibold text-sp-charcoal">
+                Other Ways To Connect
+            </h2>
+
+        </div>
 
 
-        {{-- Connection Options --}}
-        <div class="grid grid-cols-1 gap-10 mt-10 md:grid-cols-3 md:gap-8">
+        {{-- Workshops --}}
+        <div class="col-span-12 md:col-span-4">
 
-
-            {{-- Workshops --}}
             <div class="flex items-start gap-4">
 
-                <div
-                    class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-sp-limestone">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sp-sage/30 text-sp-prairieGreen">
 
-                    <x-icons.calendar-days
-                        class="h-6 w-6 text-sp-prairieGreen"
+                    <x-icons.calendar-plus
+                        class="h-5 w-5"
                         aria-hidden="true" />
 
                 </div>
@@ -322,13 +264,13 @@
                     </p>
 
                     <a
-                        href="#"
-                        class="inline-flex items-center gap-2 mt-4 font-sans text-sm font-semibold uppercase tracking-wide text-sp-prairieGreen transition-colors hover:text-sp-prairieOchre">
+                        href="{{ route('inquiries.workshop') }}"
+                        class="mt-3 inline-flex items-center gap-2 font-sans text-sm font-semibold uppercase tracking-wide text-sp-prairieGreen transition-colors hover:text-sp-prairieOchre">
 
                         Request A Workshop
 
                         <x-icons.move-right
-                            class="w-5 h-5 shrink-0"
+                            class="h-5 w-5 shrink-0"
                             aria-hidden="true" />
 
                     </a>
@@ -337,15 +279,19 @@
 
             </div>
 
+        </div>
+        {{-- End Workshops --}}
 
-            {{-- Judge Requests --}}
+
+        {{-- Judge Requests --}}
+        <div class="col-span-12 md:col-span-4">
+
             <div class="flex items-start gap-4">
 
-                <div
-                    class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-sp-limestone">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sp-sage/30 text-sp-prairieGreen">
 
-                    <x-icons.calendar-days
-                        class="h-6 w-6 text-sp-prairieGreen"
+                    <x-icons.calendar-plus
+                        class="h-5 w-5"
                         aria-hidden="true" />
 
                 </div>
@@ -362,12 +308,12 @@
 
                     <a
                         href="#"
-                        class="inline-flex items-center gap-2 mt-4 font-sans text-sm font-semibold uppercase tracking-wide text-sp-prairieGreen transition-colors hover:text-sp-prairieOchre">
+                        class="mt-3 inline-flex items-center gap-2 font-sans text-sm font-semibold uppercase tracking-wide text-sp-prairieGreen transition-colors hover:text-sp-prairieOchre">
 
                         Request A Judge
 
                         <x-icons.move-right
-                            class="w-5 h-5 shrink-0"
+                            class="h-5 w-5 shrink-0"
                             aria-hidden="true" />
 
                     </a>
@@ -376,15 +322,19 @@
 
             </div>
 
+        </div>
+        {{-- End Judge Requests --}}
 
-            {{-- Trial Requests --}}
+
+        {{-- Trial Requests --}}
+        <div class="col-span-12 md:col-span-4">
+
             <div class="flex items-start gap-4">
 
-                <div
-                    class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-sp-limestone">
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sp-sage/30 text-sp-prairieGreen">
 
-                    <x-icons.calendar-days
-                        class="h-6 w-6 text-sp-prairieGreen"
+                    <x-icons.calendar-plus
+                        class="h-5 w-5"
                         aria-hidden="true" />
 
                 </div>
@@ -396,17 +346,17 @@
                     </h3>
 
                     <p class="body text-sp-slate mt-2">
-                        Want to bring NASDA to your venue? We are made to travel and are happy to host a trial, with equipment options to fit your event.
+                        Want to bring NASDA to your venue? We are made to travel, and happy to host a trial, with equipment options to fit your event.
                     </p>
 
                     <a
                         href="#"
-                        class="inline-flex items-center gap-2 mt-4 font-sans text-sm font-semibold uppercase tracking-wide text-sp-prairieGreen transition-colors hover:text-sp-prairieOchre">
+                        class="mt-3 inline-flex items-center gap-2 font-sans text-sm font-semibold uppercase tracking-wide text-sp-prairieGreen transition-colors hover:text-sp-prairieOchre">
 
                         Request A Trial
 
                         <x-icons.move-right
-                            class="w-5 h-5 shrink-0"
+                            class="h-5 w-5 shrink-0"
                             aria-hidden="true" />
 
                     </a>
@@ -416,7 +366,7 @@
             </div>
 
         </div>
-        {{-- End Connection Options --}}
+        {{-- End Trial Requests --}}
 
     </div>
 
