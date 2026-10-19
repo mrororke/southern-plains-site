@@ -229,18 +229,15 @@
 
         </div>
         {{-- End Intro + Form --}}
-
-
         {{-- Image Registration --}}
-        <div class="col-span-12 mt-8 md:col-span-7 md:mt-0 relative">
+<div class="pointer-events-none absolute inset-y-0 right-0 z-20 hidden w-5/12 md:block">
 
-        <x-public-v2.image-registration
-            text="Hamish, Photo by Blue Ridge Creative"
-            position="right"
-            href="https://www.blueridgeprairie.studio/" />
+    <x-public-v2.image-registration
+        text="Hamish, Photo by Blue Ridge Creative"
+        position="right"
+        href="https://www.blueridgeprairie.studio/" />
 
-        </div>
-        {{-- End Image Registration --}}
+</div>
 
     </div>
     {{-- End Hero Content --}}
