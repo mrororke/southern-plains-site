@@ -47,7 +47,6 @@
         background-position: center;
         background-size: cover;
     "
-    "
 >
 
     {{-- Hero Content --}}
@@ -56,8 +55,6 @@
 
         {{-- Intro + Form --}}
         <div class="col-span-12 md:col-span-7">
-
-        
 
             {{-- Contact Form Card --}}
             <div class="mt-8 max-w-xl rounded-md bg-sp-limestone p-6 md:mt-16 md:p-8">
@@ -237,9 +234,10 @@
         {{-- Image Registration --}}
         <div class="pointer-events-none absolute right-6 top-1/2 z-20 hidden -translate-y-1/2 md:block">
 
-            <x-public-v2.image-registration
-                text="Hamish · Photo by Blue Ridge Creative"
-                position="right" />
+        <x-public-v2.image-registration
+            text="Hamish, Photo by Blue Ridge Creative"
+            position="right"
+            href="https://www.blueridgeprairie.studio/" />
 
         </div>
         {{-- End Image Registration --}}
