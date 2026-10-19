@@ -15,12 +15,6 @@
             <div class="col-span-10 flex items-center justify-end gap-8">
 
                 <a
-                    href="{{ route('public-v2.about') }}"
-                    class="nav-link {{ request()->routeIs('public-v2.about') ? 'nav-link-active' : '' }}">
-                    About
-                </a>
-
-                <a
                     href="{{ route('public-v2.training') }}"
                     class="nav-link {{ request()->routeIs('public-v2.training') ? 'nav-link-active' : '' }}">
                     Training
@@ -156,12 +150,6 @@
                 data-mobile-menu>
 
                 <div class="mobile-menu-links">
-
-                    <a
-                        href="{{ route('public-v2.about') }}"
-                        class="mobile-nav-link {{ request()->routeIs('public-v2.about') ? 'mobile-nav-link-active' : '' }}">
-                        About
-                    </a>
 
                     <a
                         href="{{ route('public-v2.training') }}"

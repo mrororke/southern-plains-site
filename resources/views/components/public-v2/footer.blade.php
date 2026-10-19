@@ -32,10 +32,7 @@
             </h4>
 
             <ul class="footer-nav">
-                <li>
-                    <a href="{{ route('public-v2.about') }}">About</a>
-                </li>
-
+                
                 <li>
                     <a href="{{ route('public-v2.training') }}">Training</a>
                 </li>
