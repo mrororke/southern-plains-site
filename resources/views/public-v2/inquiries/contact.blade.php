@@ -265,7 +265,7 @@
     <div class="col-span-12 md:col-span-5 mt-8 md:mt-0 relative">
 
         <img
-            src="{{ asset('images/headers/hamish-contact-transparent.png') }}"
+            src="{{ asset('images/headers/contact-bg.png') }}"
             alt="Hamish, a Sheltie, standing among wildflowers."
             class="block w-full h-full object-cover object-center">
 
