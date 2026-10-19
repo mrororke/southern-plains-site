@@ -188,7 +188,7 @@
                 the sport looks like, how trials work, and what to expect when you give it a try.
             </p>
 
-            <a href="#" class="learn-more-link text-sp-prairieOchre py-4">
+            <a href="{{ route('public-v2.learn.show', 'what-is-nasda') }}" class="learn-more-link text-sp-prairieOchre py-4">
                 Learn More
                 <x-icons.move-right />
             </a>
@@ -196,8 +196,8 @@
 
         <x-public-v2.image-registration
             text="Hazel, Photo by Blue Ridge Creative"
-            position="bottom" 
-            href="https://www.blueridgeprairie.studio/"/>
+            position="bottom"
+            href="https://www.blueridgeprairie.studio/" />
     </div>
 
 
