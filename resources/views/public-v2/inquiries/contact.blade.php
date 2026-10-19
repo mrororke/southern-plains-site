@@ -232,7 +232,7 @@
 
 
         {{-- Image Registration --}}
-        <div class="pointer-events-none absolute right-6 top-1/2 z-20 hidden -translate-y-1/2 md:block">
+        <div class="col-span-12 mt-8 md:col-span-7 md:mt-0 relative">
 
         <x-public-v2.image-registration
             text="Hamish, Photo by Blue Ridge Creative"
