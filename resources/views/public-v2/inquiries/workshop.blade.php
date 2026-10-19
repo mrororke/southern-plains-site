@@ -231,6 +231,23 @@
 
         @else
 
+        {{-- Rate Limit Notification --}}
+        @error('rate_limit')
+        <div
+            role="alert"
+            class="border-l-4 border-sp-clayRed bg-sp-clayRed/10 rounded-r-md p-6 mt-6 mb-6">
+
+            <p class="font-sans font-semibold text-lg text-sp-clayRed mb-2">
+                Too Many Requests
+            </p>
+
+            <p class="body text-sp-charcoal">
+                {{ $message }}
+            </p>
+
+        </div>
+        @enderror
+
         <form
             method="POST"
             action="{{ route('public-v2.inquiries.workshop.store') }}"
