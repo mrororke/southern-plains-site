@@ -1,5 +1,6 @@
 @extends('public-v2.layouts.app')
 
+
 @section('meta_title', 'Contact Southern Plains Sport Dog Club')
 
 @section('meta_description', 'Have a question about training, dog sports, events, or Southern Plains Sport Dog Club? Get in touch and send us a message.')
@@ -33,25 +34,20 @@
 
 @endsection
 
+
 @section('hero')
 
 {{-- Contact Hero --}}
 <div
     id="hero"
-    class="relative overflow-hidden bg-sp-offWhite">
-
-    {{-- Hero Background --}}
-    <div class="absolute inset-0 z-0 overflow-hidden">
-
-        <img
-            src="{{ asset('images/headers/contact-bg.png') }}"
-            alt=""
-            aria-hidden="true"
-            class="absolute left-1/2 top-0 w-full max-w-none -translate-x-1/2">
-
-    </div>
-    {{-- End Hero Background --}}
-
+    class="relative overflow-hidden bg-sp-offWhite"
+    style="
+        background-image: url('{{ asset('images/headers/contact-bg.png') }}');
+        background-repeat: no-repeat;
+        background-position: center 225px;
+        background-size: 100% auto;
+    "
+>
 
     {{-- Hero Content --}}
     <div
@@ -94,6 +90,7 @@
 
                     {{-- Name --}}
                     <div>
+
                         <label
                             for="name"
                             class="block font-sans text-sm font-semibold text-sp-charcoal">
@@ -116,6 +113,7 @@
 
                     {{-- Email --}}
                     <div class="mt-4">
+
                         <label
                             for="email"
                             class="block font-sans text-sm font-semibold text-sp-charcoal">
@@ -138,6 +136,7 @@
 
                     {{-- Inquiry Type --}}
                     <div class="mt-4">
+
                         <label
                             for="inquiry"
                             class="block font-sans text-sm font-semibold text-sp-charcoal">
@@ -195,6 +194,7 @@
 
                     {{-- Message --}}
                     <div class="mt-4">
+
                         <label
                             for="message"
                             class="block font-sans text-sm font-semibold text-sp-charcoal">
