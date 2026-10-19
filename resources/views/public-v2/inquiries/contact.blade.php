@@ -264,7 +264,7 @@
                     </p>
 
                     <a
-                        href="{{ route('inquiries.workshop') }}"
+                        href="#"
                         class="mt-3 inline-flex items-center gap-2 font-sans text-sm font-semibold uppercase tracking-wide text-sp-prairieGreen transition-colors hover:text-sp-prairieOchre">
 
                         Request A Workshop
