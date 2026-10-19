@@ -72,7 +72,7 @@ Route::prefix('v2')
         Route::view('/events', 'public-v2.events.index')
             ->name('events.index');
 
-        Route::view('/contact', 'public-v2.pages.contact')
+        Route::view('/contact', 'public-v2.inquiries.contact')
             ->name('contact');
 
         // Intro to NASDA Workshop Request
