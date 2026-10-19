@@ -1,5 +1,37 @@
 @extends('public-v2.layouts.app')
 
+@section('meta_title', 'Contact Southern Plains Sport Dog Club')
+
+@section('meta_description', 'Have a question about training, dog sports, events, or Southern Plains Sport Dog Club? Get in touch and send us a message.')
+
+
+@section('og_title', 'Get In Touch With Southern Plains | Southern Plains Sport Dog Club')
+
+@section('og_description', 'Have a question about training, dog sports, events, or Southern Plains Sport Dog Club? Send us a message.')
+
+@section('og_image', asset('images/og/default.jpg'))
+
+@section('canonical_url', 'https://southernplains.dog/inquiries/contact')
+
+
+@section('structured_data')
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Southern Plains Sport Dog Club",
+    "description": "Get in touch with Southern Plains Sport Dog Club about training, dog sports, events, and other inquiries.",
+    "url": "https://southernplains.dog/inquiries/contact",
+    "isPartOf": {
+        "@type": "Website",
+        "name": "Southern Plains Sport Dog Club",
+        "url": "https://southernplains.dog/"
+    }
+}
+</script>
+
+@endsection
 
 @section('hero')
 

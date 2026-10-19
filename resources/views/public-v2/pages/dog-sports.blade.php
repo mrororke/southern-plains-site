@@ -21,7 +21,7 @@
         "url": "https://southernplains.dog/dog-sports",
         "description": "Explore dog sports in Oklahoma with Southern Plains, including NASDA trials, training days, first trial resources, and opportunities for dogs of all breeds and experience levels.",
         "isPartOf": {
-            "@type": "WebSite",
+            "@type": "Website",
             "name": "Southern Plains Sport Dog Club",
             "url": "https://southernplains.dog/"
         },

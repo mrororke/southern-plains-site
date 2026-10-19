@@ -1,497 +1,408 @@
 @extends('public-v2.layouts.app')
 
-@section('meta_title', 'Request an Intro to NASDA Workshop | Southern Plains Sport Dog Club')
-@section('meta_description', 'Bring NASDA to your dog training club! Request a three-hour introductory workshop covering Shed Dog, Trailing & Locating, Urban Locating, and Lost Item.')
 
-@section('og_title', 'Bring NASDA to Your Club | Southern Plains Sport Dog Club')
-@section('og_description', 'Introduce your club to NASDA with a hands-on, three-hour workshop covering all four Level 1 components. No previous NASDA experience required.')
+@section('meta_title', 'Contact Southern Plains Sport Dog Club')
+
+@section('meta_description', 'Have a question about training, dog sports, events, or Southern Plains Sport Dog Club? Get in touch and send us a message.')
+
+
+@section('og_title', 'Get In Touch With Southern Plains | Southern Plains Sport Dog Club')
+
+@section('og_description', 'Have a question about training, dog sports, events, or Southern Plains Sport Dog Club? Send us a message.')
 
 @section('og_image', asset('images/og/default.jpg'))
-@section('canonical_url', 'https://southernplains.dog/inquiries/workshop')
+
+@section('canonical_url', 'https://southernplains.dog/inquiries/contact')
+
 
 @section('structured_data')
+
 <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "name": "Request an Intro to NASDA Workshop",
-        "description": "Request a three-hour Intro to NASDA workshop for your dog training club or organization.",
-        "url": "https://southernplains.dog/inquiries/workshop",
-        "isPartOf": {
-            "@type": "WebSite",
-            "name": "Southern Plains Sport Dog Club",
-            "url": "https://southernplains.dog/"
-        },
-        "about": {
-            "@type": "Thing",
-            "name": "North American Sport Dog Association (NASDA)"
-        }
+{
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Southern Plains Sport Dog Club",
+    "description": "Get in touch with Southern Plains Sport Dog Club about training, dog sports, events, and other inquiries.",
+    "url": "https://southernplains.dog/inquiries/contact",
+    "isPartOf": {
+        "@type": "Website",
+        "name": "Southern Plains Sport Dog Club",
+        "url": "https://southernplains.dog/"
     }
+}
 </script>
+
 @endsection
 
 
-
 @section('hero')
-{{-- Hero --}}
+
+{{-- Contact Hero --}}
 <div
     id="hero"
-    class="grid grid-cols-12 pt-8">
+    class="relative overflow-hidden bg-sp-offWhite"
+    style="
+        background-image: url('{{ asset('images/headers/contact-bg.png') }}');
+        background-repeat: no-repeat;
+        background-position: center 225px;
+        background-size: 100% auto;
+    "
+>
 
-    <div class="col-span-12 md:col-span-5 md:pr-0 pl-8 pr-8">
+    {{-- Hero Content --}}
+    <div
+        class="relative z-10 grid grid-cols-12 gap-6 px-6 pt-8 pb-12 md:px-8 md:pt-12 md:pb-16">
 
-        <p class="text-eyebrow">
-            Let's train together.
-        </p>
+        {{-- Intro + Form --}}
+        <div class="col-span-12 md:col-span-7">
 
-        <h1 class="text-hero">
-            Bring NASDA<br /> to Your Club
-            </span>
-        </h1>
+            {{-- Intro --}}
+            <p class="font-display font-bold text-2xl text-sp-burntClay">
+                Ask Us Anything
+            </p>
 
-        <div class="hl-break">
-            <hr>
+            <h1 class="font-sans text-3xl font-semibold text-sp-charcoal mt-3">
+                Get In Touch With<br class="hidden md:block" />
+                Southern Plains.
+            </h1>
+
+            <p class="body-large text-sp-slate mt-4 max-w-xl">
+                Have a question about training, dog sports, an upcoming event, or something else? Send us a message and we’ll get back to you.
+            </p>
+            {{-- End Intro --}}
+
+
+            {{-- Contact Form Card --}}
+            <div class="mt-8 max-w-xl rounded-md bg-sp-limestone p-6 md:p-8">
+
+                <h2 class="font-sans text-2xl font-semibold text-sp-charcoal">
+                    Send A Message
+                </h2>
+
+
+                {{-- Contact Form --}}
+                <form
+                    action="#"
+                    method="POST"
+                    class="mt-6">
+
+                    @csrf
+
+                    {{-- Name --}}
+                    <div>
+
+                        <label
+                            for="name"
+                            class="block font-sans text-sm font-semibold text-sp-charcoal">
+
+                            Your Name<span aria-hidden="true">*</span>
+
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            autocomplete="name"
+                            required
+                            placeholder="Your Name"
+                            class="mt-2 block w-full rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">
+
+                    </div>
+
+
+                    {{-- Email --}}
+                    <div class="mt-4">
+
+                        <label
+                            for="email"
+                            class="block font-sans text-sm font-semibold text-sp-charcoal">
+
+                            Email Address<span aria-hidden="true">*</span>
+
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            autocomplete="email"
+                            required
+                            placeholder="Your email address"
+                            class="mt-2 block w-full rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">
+
+                    </div>
+
+
+                    {{-- Inquiry Type --}}
+                    <div class="mt-4">
+
+                        <label
+                            for="inquiry"
+                            class="block font-sans text-sm font-semibold text-sp-charcoal">
+
+                            What is your inquiry about?<span aria-hidden="true">*</span>
+
+                        </label>
+
+                        <select
+                            id="inquiry"
+                            name="inquiry"
+                            required
+                            class="mt-2 block w-full rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">
+
+                            <option value="" selected disabled>
+                                Select a topic
+                            </option>
+
+                            <option value="general">
+                                General Club Inquiry
+                            </option>
+
+                            <option value="league">
+                                League Question
+                            </option>
+
+                            <option value="trial-training">
+                                Trial / Training Day Logistics
+                            </option>
+
+                            <option value="private-training">
+                                Private Training / Behavior Consultation
+                            </option>
+
+                            <option value="class">
+                                Class Enrollment
+                            </option>
+
+                            <option value="community">
+                                Community Meet-Up / Casual Training
+                            </option>
+
+                            <option value="membership">
+                                Membership &amp; Volunteer Information
+                            </option>
+
+                            <option value="sponsorship">
+                                Sponsorship / Partnership Inquiry
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    {{-- Message --}}
+                    <div class="mt-4">
+
+                        <label
+                            for="message"
+                            class="block font-sans text-sm font-semibold text-sp-charcoal">
+
+                            Message / Question<span aria-hidden="true">*</span>
+
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="7"
+                            required
+                            placeholder="Tell us how we can help."
+                            class="mt-2 block w-full resize-y rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen"></textarea>
+
+                    </div>
+
+
+                    {{-- Submit --}}
+                    <button
+                        type="submit"
+                        class="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-md bg-sp-prairieGreen px-5 py-3 font-sans text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-sp-prairieGreen/90">
+
+                        Send Message
+
+                        <x-icons.move-right
+                            class="h-5 w-5 shrink-0"
+                            aria-hidden="true" />
+
+                    </button>
+
+                </form>
+                {{-- End Contact Form --}}
+
+            </div>
+            {{-- End Contact Form Card --}}
+
         </div>
+        {{-- End Intro + Form --}}
 
-        <h3 class="text-sp-charcoal font-semibold text-2xl pb-8">
-            Interested in hosting an Intro to NASDA workshop for your club or training group? I’d love to help!
-        </h3>
 
-        <p class="body-large text-sp-slate">
-            Whether your group is brand new to NASDA or looking to get more comfortable with the basics, tell me a little about your group and what you’re hoping to accomplish, and we’ll see what we can put together.
-        </p>
+        {{-- Image Registration --}}
+        <div class="pointer-events-none absolute right-6 top-1/2 z-20 hidden -translate-y-1/2 md:block">
 
+            <x-public-v2.image-registration
+                text="Hamish · Photo by Blue Ridge Creative"
+                position="right" />
+
+        </div>
+        {{-- End Image Registration --}}
 
     </div>
-
-    <div class="col-span-12 mt-8 pt-8 md:col-span-7 md:mt-0 relative">
-
-        <img
-            class="w-full h-full"
-            src="{{ asset('images/headers/hamish-workshop-hero-transparent.png') }}"
-            alt="Hamish, a Sheltie, inspecting a quarry box.">
-
-        <x-public-v2.image-registration
-            text="Hamish, Photo by Blue Ridge Creative"
-            position="right"
-            href="https://www.blueridgeprairie.studio/" />
-    </div>
+    {{-- End Hero Content --}}
 
 </div>
-{{-- end hero --}}
+{{-- End Contact Hero --}}
+
 @endsection
 
 
 @section('content')
 
+{{-- Other Ways To Connect --}}
+<section class="px-6 py-12 md:px-8 md:py-16">
 
-{{-- Begin content --}}
+    <div class="grid grid-cols-12 gap-6">
 
-<div class="grid grid-cols-12 gap-x-8 gap-y-10 md:gap-y-0 py-[64px] px-8">
-    <div class="col-span-12 md:col-span-7 gap-4">
-        <p class="font-display text-2xl  text-sp-burntClay">
-            A Hands-On Introduction
-        </p>
-        <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-            Let's Get Your Dogs Playing!
-        </h2>
-        <p class="body text-sp-slate mt-4">
-            NASDA is a great way to introduce dogs and handlers to something new. Our three-hour Intro to NASDA workshop gives participants a chance to learn the basics and try the games themselves.
-        </p>
-        <p class="body text-sp-slate mt-4">
-            We’ll cover an overview of NASDA, the rules and expectations, and hands-on practice with the four Level I components: Shed Dog, Trailing & Locating, Urban Locating, and Lost Item.
-        </p>
-        <p class="body text-sp-slate mt-4">
-            We can discuss your group’s experience, available space, and what you’d like to accomplish to make the workshop a great fit for your club.
-        </p>
+        <div class="col-span-12">
 
-        <div class="md:mt-4 relative">
-
-            <img
-                class="w-full rounded-md"
-                src="{{ asset('images/inquiries/hamish-shed.jpg') }}"
-                alt="Hamish practicing Shed Dog in a field of wildflowers.">
-
-            <x-public-v2.image-registration
-                text="Hamish, Photo by Blue Ridge Creative"
-                position="bottom"
-                href="https://www.blueridgeprairie.studio/" />
-        </div>
-
-        {{-- Workshop Features --}}
-        <ul class="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
-
-            {{-- Introduction --}}
-            <li class="flex flex-col items-center text-center">
-
-                <div class="w-20 h-20 rounded-full bg-sp-limestone flex items-center justify-center mb-4">
-                    <x-icons.book-open
-                        class="w-10 h-10 md:w-12 md:h-12 text-sp-burntClay mx-auto" />
-                </div>
-
-                <h3 class="font-sans font-semibold text-sm uppercase text-sp-charcoal leading-tight">
-                    Introduction<br>to NASDA
-                </h3>
-
-                <p class="body-small text-sp-slate mt-3">
-                    Overview of the sport, rules, and expectations.
-                </p>
-
-            </li>
-
-
-            {{-- Four Components --}}
-            <li class="flex flex-col items-center text-center">
-
-                <div class="w-20 h-20 rounded-full bg-sp-limestone flex items-center justify-center mb-4">
-                    <x-icons.paw-print
-                        class="w-10 h-10 md:w-12 md:h-12 text-sp-burntClay mx-auto" />
-                </div>
-
-                <h3 class="font-sans font-semibold text-sm uppercase text-sp-charcoal leading-tight">
-                    Four Level 1<br>Components
-                </h3>
-
-                <p class="body-small text-sp-slate mt-3">
-                    Shed, Trailing &amp; Locating,
-                    Urban Locating, and Lost Item.
-                </p>
-
-            </li>
-
-
-            {{-- Participation --}}
-            <li class="flex flex-col items-center text-center">
-
-                <div class="w-20 h-20 rounded-full bg-sp-limestone flex items-center justify-center mb-4">
-                    <x-icons.users-round
-                        class="w-10 h-10 md:w-12 md:h-12 text-sp-burntClay mx-auto" />
-                </div>
-
-                <h3 class="font-sans font-semibold text-sm uppercase text-sp-charcoal leading-tight">
-                    Hands-On<br>Participation
-                </h3>
-
-                <p class="body-small text-sp-slate mt-3">
-                    Work with your own dog, or observe.
-                </p>
-
-            </li>
-
-
-            {{-- Tailored --}}
-            <li class="flex flex-col items-center text-center">
-
-                <div class="w-20 h-20 rounded-full bg-sp-limestone flex items-center justify-center mb-4">
-                    <x-icons.message-circle-more
-                        class="w-10 h-10 md:w-12 md:h-12 text-sp-burntClay mx-auto" />
-                </div>
-
-                <h3 class="font-sans font-semibold text-sm uppercase text-sp-charcoal leading-tight">
-                    Tailored to<br>Your Group
-                </h3>
-
-                <p class="body-small text-sp-slate mt-3">
-                    We'll discuss your goals and available space.
-                </p>
-
-            </li>
-
-        </ul>
-
-    </div>
-    <div class="col-span-12 md:col-span-5 bg-sp-limestone p-8 rounded-md">
-
-        <p class="font-display text-2xl  text-sp-burntClay">
-            Workshop Request
-        </p>
-        <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
-            Tell Me More About Your Group
-        </h2>
-
-
-
-
-        {{-- Submission Confirmation --}}
-        @if (session('success'))
-
-        <div
-            role="status"
-            class="border-l-4 border-sp-successGreen bg-sp-successGreen/10 rounded-r-md p-6 mt-6">
-
-            <p class="font-sans font-semibold text-lg text-sp-successGreen mb-3">
-                {{ session('success.title') }}
-            </p>
-
-            <p class="body text-sp-slate whitespace-pre-line">
-                {{ session('success.message') }}
-            </p>
+            <h2 class="font-sans text-2xl font-semibold text-sp-charcoal">
+                Other Ways To Connect
+            </h2>
 
         </div>
 
-        @else
 
-        {{-- Rate Limit Notification --}}
-        @error('rate_limit')
-        <div
-            role="alert"
-            class="border-l-4 border-sp-clayRed bg-sp-clayRed/10 rounded-r-md p-6 mt-6 mb-6">
+        {{-- Workshops --}}
+        <div class="col-span-12 md:col-span-4">
 
-            <p class="font-sans font-semibold text-lg text-sp-clayRed mb-2">
-                Too Many Requests
-            </p>
+            <div class="flex items-start gap-4">
 
-            <p class="body text-sp-charcoal">
-                {{ $message }}
-            </p>
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sp-sage/30 text-sp-prairieGreen">
 
-        </div>
-        @enderror
+                    <x-icons.calendar-plus
+                        class="h-5 w-5"
+                        aria-hidden="true" />
 
-        <form
-            method="POST"
-            action="{{ route('public-v2.inquiries.workshop.store') }}"
-            class="space-y-5">
-
-            @csrf
-
-            {{-- Honeypot: leave this field empty --}}
-            <div
-                aria-hidden="true"
-                class="hidden">
-
-                <label for="website_url">
-                    Website URL
-                </label>
-
-                <input
-                    type="text"
-                    id="website_url"
-                    name="website_url"
-                    tabindex="-1"
-                    autocomplete="off">
-
-            </div>
-
-            {{-- Name --}}
-            <div>
-                <label for="name" class="block text-sp-slate text-sm mb-2">
-                    Your Name*
-                </label>
-
-                <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    value="{{ old('name') }}"
-                    required
-                    class="w-full rounded-md">
-
-                @error('name')
-                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                @enderror
-            </div>
-
-
-            {{-- Email --}}
-            <div>
-                <label for="email" class="block text-sp-slate text-sm mb-2">
-                    Email Address*
-                </label>
-
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value="{{ old('email') }}"
-                    required
-                    class="w-full rounded-md">
-
-                @error('email')
-                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                @enderror
-            </div>
-
-
-            {{-- Organization --}}
-            <div>
-                <label for="organization" class="block text-sp-slate text-sm mb-2">
-                    Club or Organization
-                </label>
-
-                <input
-                    type="text"
-                    id="organization"
-                    name="organization"
-                    value="{{ old('organization') }}"
-                    class="w-full rounded-md">
-
-                @error('organization')
-                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                @enderror
-            </div>
-
-
-            {{-- City and State --}}
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-
-                <div>
-                    <label for="city" class="block text-sp-slate text-sm mb-2">
-                        City*
-                    </label>
-
-                    <input
-                        type="text"
-                        id="city"
-                        name="city"
-                        value="{{ old('city') }}"
-                        required
-                        class="w-full rounded-md">
-
-                    @error('city')
-                    <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                    @enderror
                 </div>
 
                 <div>
-                    <label for="state" class="block text-sp-slate text-sm mb-2">
-                        State*
-                    </label>
 
-                    <input
-                        type="text"
-                        id="state"
-                        name="state"
-                        value="{{ old('state') }}"
-                        required
-                        class="w-full rounded-md">
+                    <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
+                        Workshops
+                    </h3>
 
-                    @error('state')
-                    <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                    @enderror
+                    <p class="body text-sp-slate mt-2">
+                        Interested in hosting a workshop? Use our workshop request form to share the details, and we’ll work with you to plan a great experience for your group.
+                    </p>
+
+                    <a
+                        href="#"
+                        class="mt-3 inline-flex items-center gap-2 font-sans text-sm font-semibold uppercase tracking-wide text-sp-prairieGreen transition-colors hover:text-sp-prairieOchre">
+
+                        Request A Workshop
+
+                        <x-icons.move-right
+                            class="h-5 w-5 shrink-0"
+                            aria-hidden="true" />
+
+                    </a>
+
                 </div>
 
             </div>
 
+        </div>
+        {{-- End Workshops --}}
 
-            {{-- Participants --}}
-            <div>
-                <label for="participants" class="block text-sp-slate text-sm mb-2">
-                    Approximate Number of Participants*
-                </label>
 
-                <input
-                    type="number"
-                    id="participants"
-                    name="participants"
-                    min="1"
-                    value="{{ old('participants') }}"
-                    required
-                    class="w-full rounded-md">
+        {{-- Judge Requests --}}
+        <div class="col-span-12 md:col-span-4">
 
-                @error('participants')
-                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                @enderror
+            <div class="flex items-start gap-4">
+
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sp-sage/30 text-sp-prairieGreen">
+
+                    <x-icons.calendar-plus
+                        class="h-5 w-5"
+                        aria-hidden="true" />
+
+                </div>
+
+                <div>
+
+                    <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
+                        Judge Requests
+                    </h3>
+
+                    <p class="body text-sp-slate mt-2">
+                        Would you like to ask Melanie to judge your event? Send us the details, and let’s talk about your event and what you need.
+                    </p>
+
+                    <a
+                        href="#"
+                        class="mt-3 inline-flex items-center gap-2 font-sans text-sm font-semibold uppercase tracking-wide text-sp-prairieGreen transition-colors hover:text-sp-prairieOchre">
+
+                        Request A Judge
+
+                        <x-icons.move-right
+                            class="h-5 w-5 shrink-0"
+                            aria-hidden="true" />
+
+                    </a>
+
+                </div>
+
             </div>
 
+        </div>
+        {{-- End Judge Requests --}}
 
-            {{-- Preferred Timeframe --}}
-            <div>
-                <label for="preferred_timeframe" class="block text-sp-slate text-sm mb-2">
-                    Preferred Date or Timeframe
-                </label>
 
-                <input
-                    type="text"
-                    id="preferred_timeframe"
-                    name="preferred_timeframe"
-                    placeholder="e.g. Spring 2027"
-                    value="{{ old('preferred_timeframe') }}"
-                    class="w-full rounded-md">
+        {{-- Trial Requests --}}
+        <div class="col-span-12 md:col-span-4">
 
-                @error('preferred_timeframe')
-                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                @enderror
+            <div class="flex items-start gap-4">
+
+                <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-sp-sage/30 text-sp-prairieGreen">
+
+                    <x-icons.calendar-plus
+                        class="h-5 w-5"
+                        aria-hidden="true" />
+
+                </div>
+
+                <div>
+
+                    <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
+                        Trial Requests
+                    </h3>
+
+                    <p class="body text-sp-slate mt-2">
+                        Want to bring NASDA to your venue? We are made to travel, and happy to host a trial, with equipment options to fit your event.
+                    </p>
+
+                    <a
+                        href="#"
+                        class="mt-3 inline-flex items-center gap-2 font-sans text-sm font-semibold uppercase tracking-wide text-sp-prairieGreen transition-colors hover:text-sp-prairieOchre">
+
+                        Request A Trial
+
+                        <x-icons.move-right
+                            class="h-5 w-5 shrink-0"
+                            aria-hidden="true" />
+
+                    </a>
+
+                </div>
+
             </div>
 
-
-            {{-- NASDA Experience --}}
-            <div>
-                <label for="nasda_experience" class="block text-sp-slate text-sm mb-2">
-                    Does Your Club Have Experience With NASDA?
-                </label>
-
-                <select
-                    id="nasda_experience"
-                    name="nasda_experience"
-                    class="w-full rounded-md">
-
-                    <option value="">Select an option</option>
-
-                    <option value="Completely new to NASDA"
-                        @selected(old('nasda_experience')==='Completely new to NASDA' )>
-                        Completely new to NASDA
-                    </option>
-
-                    <option value="Some experience"
-                        @selected(old('nasda_experience')==='Some experience' )>
-                        Some experience
-                    </option>
-
-                    <option value="Experienced participants"
-                        @selected(old('nasda_experience')==='Experienced participants' )>
-                        Experienced participants
-                    </option>
-
-                </select>
-
-                @error('nasda_experience')
-                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                @enderror
-            </div>
-
-
-            {{-- Message --}}
-            <div>
-                <label for="message" class="block text-sp-slate text-sm mb-2">
-                    Tell Me More*
-                </label>
-
-                <textarea
-                    id="message"
-                    name="message"
-                    rows="5"
-                    required
-                    class="w-full rounded-md">{{ old('message') }}</textarea>
-
-                @error('message')
-                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                @enderror
-            </div>
-
-
-            {{-- Submit --}}
-            <button type="submit" class="btn-primary w-full">
-                Send Workshop Request
-                <i data-lucide="arrow-right" class="w-5 h-5"></i>
-            </button>
-
-
-            <p class="body-small text-sp-slate">
-                Submitting a request does not reserve a date or
-                commit you to hosting a workshop. Workshop details,
-                availability, and pricing will be discussed after
-                reviewing your request.
-            </p>
-
-        </form>
-
-        @endif
+        </div>
+        {{-- End Trial Requests --}}
 
     </div>
-</div>
-{{-- END content --}}
 
-
+</section>
+{{-- End Other Ways To Connect --}}
 
 @endsection
