@@ -42,13 +42,6 @@
     id="hero"
     class="relative overflow-hidden">
 
-    {{-- Hero Background --}}
-    <div class="absolute inset-0 -z-10 bg-sp-offWhite">
-        <img
-            src="{{ asset('images/headers/contact-bg.png') }}"
-            alt="Hamish, a Sheltie, standing among wildflowers."
-            class="absolute inset-0 h-full w-full object-cover object-center">
-    </div>
 
 
     {{-- Hero Content --}}
@@ -73,7 +66,7 @@
 
 
             {{-- Contact Form Card --}}
-            <div class="mt-8 max-w-xl rounded-md bg-sp-limestone/95 p-6 md:p-8">
+            <div class="mt-8 max-w-xl rounded-md bg-sp-limestone p-6 md:p-8">
 
                 <p class="font-sans text-2xl font-semibold text-sp-charcoal">
                     Send A Message
@@ -265,6 +258,21 @@
                 href="https://www.blueridgeprairie.studio/" />
 
         </div>
+
+    </div>
+
+    {{-- Hero Image --}}
+    <div class="col-span-12 md:col-span-5 mt-8 md:mt-0 relative">
+
+        <img
+            src="{{ asset('images/headers/hamish-contact-transparent.png') }}"
+            alt="Hamish, a Sheltie, standing among wildflowers."
+            class="block w-full h-full object-cover object-center">
+
+        <x-public-v2.image-registration
+            text="Hamish, Photo by Blue Ridge Creative"
+            position="right"
+            href="https://www.blueridgeprairie.studio/" />
 
     </div>
 
