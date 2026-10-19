@@ -74,7 +74,7 @@
 
 
             {{-- Contact Form Card --}}
-            <div class="mt-8 max-w-xl rounded-md bg-sp-limestone p-6 md:p-8">
+            <div class="mt-8 max-w-xl rounded-md bg-sp-limestone p-6 md:mt-16 md:p-8">
 
                 <h2 class="font-sans text-2xl font-semibold text-sp-charcoal">
                     Send A Message
