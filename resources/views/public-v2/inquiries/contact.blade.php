@@ -44,8 +44,9 @@
     style="
         background-image: url('{{ asset('images/headers/contact-bg.png') }}');
         background-repeat: no-repeat;
-        background-position: center 225px;
-        background-size: 100% auto;
+        background-position: center;
+        background-size: cover;
+    "
     "
 >
 
