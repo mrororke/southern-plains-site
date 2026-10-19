@@ -105,7 +105,7 @@
             We can discuss your group’s experience, available space, and what you’d like to accomplish to make the workshop a great fit for your club.
         </p>
 
-        <div class="md:mt-0 relative">
+        <div class="md:mt-4 relative">
 
             <img
                 class="w-full rounded-md"
