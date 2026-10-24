@@ -83,10 +83,10 @@ Route::prefix('v2')
             ->name('inquiries.workshop.store');
 
         // Basic Contact Inquiry
-        Route::get('/contact', [InquiryController::class, 'contact'])
+        Route::get('/contact', [PublicInquiryController::class, 'contact'])
             ->name('contact');
 
-        Route::post('/contact', [InquiryController::class, 'storeContact'])
+        Route::post('/contact', [PublicInquiryController::class, 'storeContact'])
             ->name('contact.store');
     });
 
