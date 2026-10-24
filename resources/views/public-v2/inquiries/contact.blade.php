@@ -150,37 +150,24 @@
                             </option>
 
                             <option value="general">
-                                General Club Inquiry
+                                General Question
                             </option>
 
-                            <option value="league">
-                                League Question
+                            <option value="training">
+                                Training & Classes
                             </option>
 
-                            <option value="trial-training">
-                                Trial / Training Day Logistics
+                            <option value="sports">
+                                Dog Sports & NASDA
                             </option>
 
-                            <option value="private-training">
-                                Private Training / Behavior Consultation
+                            <option value="events">
+                                Events & Workshops
                             </option>
 
-                            <option value="class">
-                                Class Enrollment
+                            <option value="other">
+                                Other
                             </option>
-
-                            <option value="community">
-                                Community Meet-Up / Casual Training
-                            </option>
-
-                            <option value="membership">
-                                Membership &amp; Volunteer Information
-                            </option>
-
-                            <option value="sponsorship">
-                                Sponsorship / Partnership Inquiry
-                            </option>
-
                         </select>
 
                     </div>
