@@ -10,7 +10,9 @@
 
 @section('og_description', 'Have a question about training, dog sports, events, or Southern Plains Sport Dog Club? Send us a message.')
 
+
 @section('og_image', asset('images/og/default.jpg'))
+
 
 @section('canonical_url', 'https://southernplains.dog/inquiries/contact')
 
@@ -60,172 +62,253 @@
             <div class="mt-8 max-w-xl rounded-md bg-sp-limestone p-6 md:mt-16 md:p-8">
 
                 {{-- Intro --}}
-            <p class="font-display font-bold text-2xl text-sp-burntClay">
-                Ask Us Anything
-            </p>
+                <p class="font-display font-bold text-2xl text-sp-burntClay">
+                    Ask Us Anything
+                </p>
 
-            <h1 class="font-sans text-3xl font-semibold text-sp-charcoal mt-3">
-                Get In Touch With<br class="hidden md:block" />
-                Southern Plains.
-            </h1>
+                <h1 class="font-sans text-3xl font-semibold text-sp-charcoal mt-3">
+                    Get In Touch With<br class="hidden md:block" />
+                    Southern Plains.
+                </h1>
 
-            <p class="body-large text-sp-slate mt-4 max-w-xl">
-                Have a question about training, dog sports, an upcoming event, or something else? Send us a message and we’ll get back to you.
-            </p>
+                <p class="body-large text-sp-slate mt-4 max-w-xl">
+                    Have a question about training, dog sports, an upcoming event, or something else? Send us a message and we’ll get back to you.
+                </p>
 
 
-                {{-- Contact Form --}}
-                <form
-                    action="#"
-                    method="POST"
-                    class="mt-6">
+                {{-- Submission Confirmation --}}
+                @if (session('success'))
 
-                    @csrf
+                    <div
+                        role="status"
+                        class="border-l-4 border-sp-successGreen bg-sp-successGreen/10 rounded-r-md p-6 mt-6">
 
-                    {{-- Name --}}
-                    <div>
+                        <p class="font-sans font-semibold text-lg text-sp-successGreen mb-3">
+                            {{ session('success.title') }}
+                        </p>
 
-                        <label
-                            for="name"
-                            class="block font-sans text-sm font-semibold text-sp-charcoal">
-
-                            Your Name<span aria-hidden="true">*</span>
-
-                        </label>
-
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            autocomplete="name"
-                            required
-                            placeholder="Your Name"
-                            class="mt-2 block w-full rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">
+                        <p class="body text-sp-slate whitespace-pre-line">
+                            {{ session('success.message') }}
+                        </p>
 
                     </div>
 
+                @else
 
-                    {{-- Email --}}
-                    <div class="mt-4">
+                    {{-- Rate Limit Notification --}}
+                    @error('rate_limit')
 
-                        <label
-                            for="email"
-                            class="block font-sans text-sm font-semibold text-sp-charcoal">
+                    <div
+                        role="alert"
+                        class="border-l-4 border-sp-clayRed bg-sp-clayRed/10 rounded-r-md p-6 mt-6 mb-6">
 
-                            Email Address<span aria-hidden="true">*</span>
+                        <p class="font-sans font-semibold text-lg text-sp-clayRed mb-2">
+                            Too Many Requests
+                        </p>
 
-                        </label>
-
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            autocomplete="email"
-                            required
-                            placeholder="Your email address"
-                            class="mt-2 block w-full rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">
+                        <p class="body text-sp-charcoal">
+                            {{ $message }}
+                        </p>
 
                     </div>
 
-
-                    {{-- Inquiry Type --}}
-                    <div class="mt-4">
-
-                        <label
-                            for="inquiry"
-                            class="block font-sans text-sm font-semibold text-sp-charcoal">
-
-                            What is your inquiry about?<span aria-hidden="true">*</span>
-
-                        </label>
-
-                        <select
-                            id="inquiry"
-                            name="inquiry"
-                            required
-                            class="mt-2 block w-full rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">
-
-                            <option value="" selected disabled>
-                                Select a topic
-                            </option>
-
-                            <option value="general">
-                                General Question
-                            </option>
-
-                            <option value="training">
-                                Training & Classes
-                            </option>
-
-                            <option value="sports">
-                                Dog Sports & NASDA
-                            </option>
-
-                            <option value="events">
-                                Events & Workshops
-                            </option>
-
-                            <option value="other">
-                                Other
-                            </option>
-                        </select>
-
-                    </div>
+                    @enderror
 
 
-                    {{-- Message --}}
-                    <div class="mt-4">
+                    {{-- Contact Form --}}
+                    <form
+                        action="{{ route('public-v2.contact.store') }}"
+                        method="POST"
+                        class="mt-6">
 
-                        <label
-                            for="message"
-                            class="block font-sans text-sm font-semibold text-sp-charcoal">
-
-                            Message / Question<span aria-hidden="true">*</span>
-
-                        </label>
-
-                        <textarea
-                            id="message"
-                            name="message"
-                            rows="7"
-                            required
-                            placeholder="Tell us how we can help."
-                            class="mt-2 block w-full resize-y rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen"></textarea>
-
-                    </div>
+                        @csrf
 
 
-                    {{-- Submit --}}
-                    <button
-                        type="submit"
-                        class="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-md bg-sp-prairieGreen px-5 py-3 font-sans text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-sp-prairieGreen/90">
+                        {{-- Honeypot: leave this field empty --}}
+                        <div
+                            aria-hidden="true"
+                            class="hidden">
 
-                        Send Message
+                            <label for="website_url">
+                                Website URL
+                            </label>
 
-                        <x-icons.move-right
-                            class="h-5 w-5 shrink-0"
-                            aria-hidden="true" />
+                            <input
+                                type="text"
+                                id="website_url"
+                                name="website_url"
+                                tabindex="-1"
+                                autocomplete="off">
 
-                    </button>
+                        </div>
 
-                </form>
-                {{-- End Contact Form --}}
+
+                        {{-- Name --}}
+                        <div>
+
+                            <label
+                                for="name"
+                                class="block font-sans text-sm font-semibold text-sp-charcoal">
+
+                                Your Name<span aria-hidden="true">*</span>
+
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                autocomplete="name"
+                                value="{{ old('name') }}"
+                                required
+                                placeholder="Your Name"
+                                class="mt-2 block w-full rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">
+
+                            @error('name')
+                                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
+                            @enderror
+
+                        </div>
+
+
+                        {{-- Email --}}
+                        <div class="mt-4">
+
+                            <label
+                                for="email"
+                                class="block font-sans text-sm font-semibold text-sp-charcoal">
+
+                                Email Address<span aria-hidden="true">*</span>
+
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                autocomplete="email"
+                                value="{{ old('email') }}"
+                                required
+                                placeholder="Your email address"
+                                class="mt-2 block w-full rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">
+
+                            @error('email')
+                                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
+                            @enderror
+
+                        </div>
+
+
+                        {{-- Inquiry Type --}}
+                        <div class="mt-4">
+
+                            <label
+                                for="inquiry"
+                                class="block font-sans text-sm font-semibold text-sp-charcoal">
+
+                                What is your inquiry about?<span aria-hidden="true">*</span>
+
+                            </label>
+
+                            <select
+                                id="inquiry"
+                                name="inquiry"
+                                required
+                                class="mt-2 block w-full rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">
+
+                                <option value="" disabled @selected(old('inquiry') === null)>
+                                    Select a topic
+                                </option>
+
+                                <option value="general" @selected(old('inquiry') === 'general')>
+                                    General Question
+                                </option>
+
+                                <option value="training" @selected(old('inquiry') === 'training')>
+                                    Training & Classes
+                                </option>
+
+                                <option value="sports" @selected(old('inquiry') === 'sports')>
+                                    Dog Sports & NASDA
+                                </option>
+
+                                <option value="events" @selected(old('inquiry') === 'events')>
+                                    Events & Workshops
+                                </option>
+
+                                <option value="other" @selected(old('inquiry') === 'other')>
+                                    Other
+                                </option>
+
+                            </select>
+
+                            @error('inquiry')
+                                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
+                            @enderror
+
+                        </div>
+
+
+                        {{-- Message --}}
+                        <div class="mt-4">
+
+                            <label
+                                for="message"
+                                class="block font-sans text-sm font-semibold text-sp-charcoal">
+
+                                Message / Question<span aria-hidden="true">*</span>
+
+                            </label>
+
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="7"
+                                required
+                                placeholder="Tell us how we can help."
+                                class="mt-2 block w-full resize-y rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate">{{ old('message') }}</textarea>
+
+                            @error('message')
+                                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
+                            @enderror
+
+                        </div>
+
+
+                        {{-- Submit --}}
+                        <button
+                            type="submit"
+                            class="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-md bg-sp-prairieGreen px-5 py-3 font-sans text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-sp-prairieGreen/90">
+
+                            Send Message
+
+                            <x-icons.move-right
+                                class="h-5 w-5 shrink-0"
+                                aria-hidden="true" />
+
+                        </button>
+
+                    </form>
+                    {{-- End Contact Form --}}
+
+                @endif
 
             </div>
             {{-- End Contact Form Card --}}
 
         </div>
         {{-- End Intro + Form --}}
+
         {{-- Image Registration --}}
-<div class="absolute inset-y-0 right-0 z-20 hidden w-5/12 md:block">
+        <div class="absolute inset-y-0 right-0 z-20 hidden w-5/12 md:block">
 
-    <x-public-v2.image-registration
-        text="Hamish, Photo by Blue Ridge Creative"
-        position="right"
-        href="https://www.blueridgeprairie.studio/" />
+            <x-public-v2.image-registration
+                text="Hamish, Photo by Blue Ridge Creative"
+                position="right"
+                href="https://www.blueridgeprairie.studio/" />
 
-</div>
-{{-- End Image Registration --}}
+        </div>
+        {{-- End Image Registration --}}
 
     </div>
     {{-- End Hero Content --}}
