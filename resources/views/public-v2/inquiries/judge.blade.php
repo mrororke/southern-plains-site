@@ -300,7 +300,7 @@
                                 <fieldset class="mt-8">
 
                                     <legend class="block font-sans text-sm font-semibold text-sp-charcoal">
-                                        Will you need equipment from Southern Plains?<span aria-hidden="true">*</span>
+                                        Will you need to rent equipment from Southern Plains?<span aria-hidden="true">*</span>
                                     </legend>
 
                                     <div class="space-y-3 mt-3">
@@ -358,7 +358,7 @@
                                         for="equipment_details"
                                         class="block font-sans text-sm font-semibold text-sp-charcoal">
 
-                                        What equipment will you need?
+                                        What equipment might you need?
 
                                     </label>
 
@@ -368,6 +368,7 @@
                                         name="equipment_details"
                                         value="{{ old('equipment_details') }}"
                                         placeholder="e.g. quarry boxes, sheds, rats"
+                                        :disabled="equipment !== 'yes'"
                                         class="mt-2 block w-full rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">
 
                                     @error('equipment_details')
@@ -381,7 +382,7 @@
                                 <fieldset class="mt-8">
 
                                     <legend class="block font-sans text-sm font-semibold text-sp-charcoal">
-                                        Are you requesting an apprentice or shadow judge?<span aria-hidden="true">*</span>
+                                        Would you like to request an apprentice or shadow judge?<span aria-hidden="true">*</span>
                                     </legend>
 
                                     <div class="space-y-3 mt-3">
@@ -422,10 +423,6 @@
 
                                     </div>
 
-                                    <p class="text-sm text-sp-slate mt-3">
-                                        Apprentice and shadow participation is subject to approval and is not guaranteed by submitting this request.
-                                    </p>
-
                                     @error('apprentice_request')
                                         <p class="text-sp-clayRed mt-2">{{ $message }}</p>
                                     @enderror
@@ -452,6 +449,7 @@
                                         name="apprentice_details"
                                         rows="3"
                                         placeholder="Name and any relevant details"
+                                        :disabled="apprentice !== 'yes'"
                                         class="mt-2 block w-full resize-y rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">{{ old('apprentice_details') }}</textarea>
 
                                     @error('apprentice_details')
@@ -903,7 +901,7 @@
 
                         {{-- Submit --}}
                         <button
-                            type="submit"
+                            type="button"
                             class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-sp-prairieGreen px-5 py-3 font-sans text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-sp-prairieGreen/90">
 
                             Request A Judge
