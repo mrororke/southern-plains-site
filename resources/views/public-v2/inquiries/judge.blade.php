@@ -50,7 +50,7 @@
     <div
         class="relative z-10 grid grid-cols-12 gap-6 px-6 pt-8 pb-12 md:px-8 md:pt-12 md:pb-16">
 
-        {{-- Intro + Form --}}
+        {{-- Judge Request Content --}}
         <div class="col-span-12 md:col-span-10 md:col-start-1">
 
             {{-- Judge Request Form Card --}}
@@ -67,7 +67,7 @@
                 </h1>
 
                 <p class="body-large text-sp-slate mt-4 max-w-2xl">
-                    Planning a NASDA trial? Tell us a little about your event, what you’d like Melanie to judge, and what you need to make the day run smoothly. This form is a request only and does not guarantee availability or acceptance.
+                    Planning a NASDA trial? Tell us a little about your event and what you’d like Melanie to judge. This is a request, not a booking—if your event looks like a good fit, we’ll follow up to discuss the details.
                 </p>
 
 
@@ -112,9 +112,13 @@
 
                     {{-- Judge Request Form --}}
                     <form
-                        action="{{ route('public-v2.inquiries.judge.store') }}"
+                        action="{{ route('inquiries.judge.store') }}"
                         method="POST"
-                        class="mt-8">
+                        class="mt-8"
+                        x-data="{
+                            equipment: '{{ old('equipment_plan') }}',
+                            apprentice: '{{ old('apprentice_request') }}'
+                        }">
 
                         @csrf
 
@@ -138,7 +142,7 @@
                         </div>
 
 
-                        {{-- Form Grid --}}
+                        {{-- Two Column Form --}}
                         <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
 
 
@@ -238,33 +242,6 @@
                                 </div>
 
 
-                                {{-- Phone --}}
-                                <div class="mt-4">
-
-                                    <label
-                                        for="phone"
-                                        class="block font-sans text-sm font-semibold text-sp-charcoal">
-
-                                        Phone Number
-
-                                    </label>
-
-                                    <input
-                                        type="tel"
-                                        id="phone"
-                                        name="phone"
-                                        autocomplete="tel"
-                                        value="{{ old('phone') }}"
-                                        placeholder="Optional"
-                                        class="mt-2 block w-full rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">
-
-                                    @error('phone')
-                                        <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                                    @enderror
-
-                                </div>
-
-
                                 {{-- Trial Date --}}
                                 <div class="mt-4">
 
@@ -292,83 +269,192 @@
                                 </div>
 
 
-                                {{-- Venue --}}
+                                {{-- Trial Location --}}
                                 <div class="mt-4">
 
                                     <label
-                                        for="venue"
+                                        for="location"
                                         class="block font-sans text-sm font-semibold text-sp-charcoal">
 
-                                        Venue<span aria-hidden="true">*</span>
+                                        Trial Location<span aria-hidden="true">*</span>
 
                                     </label>
 
                                     <input
                                         type="text"
-                                        id="venue"
-                                        name="venue"
-                                        value="{{ old('venue') }}"
+                                        id="location"
+                                        name="location"
+                                        value="{{ old('location') }}"
                                         required
-                                        placeholder="Venue or facility name"
+                                        placeholder="Venue, City, State"
                                         class="mt-2 block w-full rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">
 
-                                    @error('venue')
+                                    @error('location')
                                         <p class="text-sp-clayRed mt-2">{{ $message }}</p>
                                     @enderror
 
                                 </div>
 
 
-                                {{-- City --}}
-                                <div class="mt-4">
+                                {{-- Equipment --}}
+                                <fieldset class="mt-8">
+
+                                    <legend class="block font-sans text-sm font-semibold text-sp-charcoal">
+                                        Will you need equipment from Southern Plains?<span aria-hidden="true">*</span>
+                                    </legend>
+
+                                    <div class="space-y-3 mt-3">
+
+                                        <label class="flex items-start gap-3 text-sm text-sp-charcoal">
+                                            <input
+                                                type="radio"
+                                                name="equipment_plan"
+                                                value="no"
+                                                x-model="equipment"
+                                                required
+                                                class="mt-0.5 border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+
+                                            <span>No</span>
+                                        </label>
+
+                                        <label class="flex items-start gap-3 text-sm text-sp-charcoal">
+                                            <input
+                                                type="radio"
+                                                name="equipment_plan"
+                                                value="yes"
+                                                x-model="equipment"
+                                                class="mt-0.5 border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+
+                                            <span>Yes</span>
+                                        </label>
+
+                                        <label class="flex items-start gap-3 text-sm text-sp-charcoal">
+                                            <input
+                                                type="radio"
+                                                name="equipment_plan"
+                                                value="unsure"
+                                                x-model="equipment"
+                                                class="mt-0.5 border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+
+                                            <span>Not sure yet</span>
+                                        </label>
+
+                                    </div>
+
+                                    @error('equipment_plan')
+                                        <p class="text-sp-clayRed mt-2">{{ $message }}</p>
+                                    @enderror
+
+                                </fieldset>
+
+
+                                {{-- Equipment Details --}}
+                                <div
+                                    x-show="equipment === 'yes'"
+                                    x-cloak
+                                    class="mt-4">
 
                                     <label
-                                        for="city"
+                                        for="equipment_details"
                                         class="block font-sans text-sm font-semibold text-sp-charcoal">
 
-                                        City<span aria-hidden="true">*</span>
+                                        What equipment will you need?
 
                                     </label>
 
                                     <input
                                         type="text"
-                                        id="city"
-                                        name="city"
-                                        autocomplete="address-level2"
-                                        value="{{ old('city') }}"
-                                        required
-                                        placeholder="City"
+                                        id="equipment_details"
+                                        name="equipment_details"
+                                        value="{{ old('equipment_details') }}"
+                                        placeholder="e.g. quarry boxes, sheds, rats"
                                         class="mt-2 block w-full rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">
 
-                                    @error('city')
+                                    @error('equipment_details')
                                         <p class="text-sp-clayRed mt-2">{{ $message }}</p>
                                     @enderror
 
                                 </div>
 
 
-                                {{-- State --}}
-                                <div class="mt-4">
+                                {{-- Apprentice / Shadow --}}
+                                <fieldset class="mt-8">
+
+                                    <legend class="block font-sans text-sm font-semibold text-sp-charcoal">
+                                        Are you requesting an apprentice or shadow judge?<span aria-hidden="true">*</span>
+                                    </legend>
+
+                                    <div class="space-y-3 mt-3">
+
+                                        <label class="flex items-start gap-3 text-sm text-sp-charcoal">
+                                            <input
+                                                type="radio"
+                                                name="apprentice_request"
+                                                value="no"
+                                                x-model="apprentice"
+                                                required
+                                                class="mt-0.5 border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+
+                                            <span>No</span>
+                                        </label>
+
+                                        <label class="flex items-start gap-3 text-sm text-sp-charcoal">
+                                            <input
+                                                type="radio"
+                                                name="apprentice_request"
+                                                value="yes"
+                                                x-model="apprentice"
+                                                class="mt-0.5 border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+
+                                            <span>Yes</span>
+                                        </label>
+
+                                        <label class="flex items-start gap-3 text-sm text-sp-charcoal">
+                                            <input
+                                                type="radio"
+                                                name="apprentice_request"
+                                                value="unsure"
+                                                x-model="apprentice"
+                                                class="mt-0.5 border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+
+                                            <span>Not sure yet</span>
+                                        </label>
+
+                                    </div>
+
+                                    <p class="text-sm text-sp-slate mt-3">
+                                        Apprentice and shadow participation is subject to approval and is not guaranteed by submitting this request.
+                                    </p>
+
+                                    @error('apprentice_request')
+                                        <p class="text-sp-clayRed mt-2">{{ $message }}</p>
+                                    @enderror
+
+                                </fieldset>
+
+
+                                {{-- Apprentice / Shadow Details --}}
+                                <div
+                                    x-show="apprentice === 'yes'"
+                                    x-cloak
+                                    class="mt-4">
 
                                     <label
-                                        for="state"
+                                        for="apprentice_details"
                                         class="block font-sans text-sm font-semibold text-sp-charcoal">
 
-                                        State<span aria-hidden="true">*</span>
+                                        Tell us about the apprentice or shadow request.
 
                                     </label>
 
-                                    <input
-                                        type="text"
-                                        id="state"
-                                        name="state"
-                                        autocomplete="address-level1"
-                                        value="{{ old('state') }}"
-                                        required
-                                        placeholder="State"
-                                        class="mt-2 block w-full rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">
+                                    <textarea
+                                        id="apprentice_details"
+                                        name="apprentice_details"
+                                        rows="3"
+                                        placeholder="Name and any relevant details"
+                                        class="mt-2 block w-full resize-y rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">{{ old('apprentice_details') }}</textarea>
 
-                                    @error('state')
+                                    @error('apprentice_details')
                                         <p class="text-sp-clayRed mt-2">{{ $message }}</p>
                                     @enderror
 
@@ -385,7 +471,7 @@
                                 </h2>
 
                                 <p class="body text-sp-slate mt-2 mb-6">
-                                    Tell us what you’d like Melanie to judge and what your event needs.
+                                    Tell us what you’d like Melanie to judge.
                                 </p>
 
 
@@ -402,13 +488,13 @@
 
 
                                     {{-- Den Hunt --}}
-                                    <div class="border-t border-sp-warmStone pt-4">
+                                    <div class="border-t border-sp-warmStone pt-3">
 
                                         <p class="font-sans text-sm font-semibold text-sp-charcoal">
                                             Den Hunt
                                         </p>
 
-                                        <div class="grid grid-cols-2 gap-3 mt-3">
+                                        <div class="grid grid-cols-2 gap-x-4 gap-y-2 mt-2">
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
                                                 <input
@@ -436,51 +522,69 @@
 
 
                                     {{-- Lost Item Recovery --}}
-                                    <div class="border-t border-sp-warmStone pt-4 mt-4">
+                                    <div class="border-t border-sp-warmStone pt-3 mt-3">
 
                                         <p class="font-sans text-sm font-semibold text-sp-charcoal">
                                             Lost Item Recovery
                                         </p>
 
-                                        <div class="grid grid-cols-2 gap-3 mt-3">
+                                        <div class="grid grid-cols-2 gap-x-4 gap-y-2 mt-2">
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="lost_item_pat"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="lost_item_pat"
                                                     @checked(in_array('lost_item_pat', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 PAT
                                             </label>
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="lost_item_level_1"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="lost_item_level_1"
                                                     @checked(in_array('lost_item_level_1', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level I
                                             </label>
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="lost_item_level_2"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="lost_item_level_2"
                                                     @checked(in_array('lost_item_level_2', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level II
                                             </label>
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="lost_item_level_3"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="lost_item_level_3"
                                                     @checked(in_array('lost_item_level_3', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level III
                                             </label>
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="lost_item_mch"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="lost_item_mch"
                                                     @checked(in_array('lost_item_mch', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 MCH
                                             </label>
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="lost_item_gch"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="lost_item_gch"
                                                     @checked(in_array('lost_item_gch', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 GCH
@@ -492,44 +596,59 @@
 
 
                                     {{-- Shed Dog --}}
-                                    <div class="border-t border-sp-warmStone pt-4 mt-4">
+                                    <div class="border-t border-sp-warmStone pt-3 mt-3">
 
                                         <p class="font-sans text-sm font-semibold text-sp-charcoal">
                                             Shed Dog
                                         </p>
 
-                                        <div class="grid grid-cols-2 gap-3 mt-3">
+                                        <div class="grid grid-cols-2 gap-x-4 gap-y-2 mt-2">
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="shed_pat"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="shed_pat"
                                                     @checked(in_array('shed_pat', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 PAT
                                             </label>
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="shed_level_1"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="shed_level_1"
                                                     @checked(in_array('shed_level_1', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level I
                                             </label>
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="shed_level_2"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="shed_level_2"
                                                     @checked(in_array('shed_level_2', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level II
                                             </label>
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="shed_level_3"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="shed_level_3"
                                                     @checked(in_array('shed_level_3', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level III
                                             </label>
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="shed_mch"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="shed_mch"
                                                     @checked(in_array('shed_mch', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 MCH
@@ -541,51 +660,69 @@
 
 
                                     {{-- Trailing & Locating --}}
-                                    <div class="border-t border-sp-warmStone pt-4 mt-4">
+                                    <div class="border-t border-sp-warmStone pt-3 mt-3">
 
                                         <p class="font-sans text-sm font-semibold text-sp-charcoal">
                                             Trailing & Locating
                                         </p>
 
-                                        <div class="grid grid-cols-2 gap-3 mt-3">
+                                        <div class="grid grid-cols-2 gap-x-4 gap-y-2 mt-2">
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="trailing_locating_pat"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="trailing_locating_pat"
                                                     @checked(in_array('trailing_locating_pat', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 PAT
                                             </label>
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="trailing_locating_level_1"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="trailing_locating_level_1"
                                                     @checked(in_array('trailing_locating_level_1', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level I
                                             </label>
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="trailing_locating_level_2"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="trailing_locating_level_2"
                                                     @checked(in_array('trailing_locating_level_2', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level II
                                             </label>
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="trailing_locating_level_3"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="trailing_locating_level_3"
                                                     @checked(in_array('trailing_locating_level_3', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level III
                                             </label>
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="trailing_locating_mch"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="trailing_locating_mch"
                                                     @checked(in_array('trailing_locating_mch', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 MCH
                                             </label>
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="trailing_locating_gch"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="trailing_locating_gch"
                                                     @checked(in_array('trailing_locating_gch', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 GCH
@@ -597,37 +734,49 @@
 
 
                                     {{-- Trailing Brace --}}
-                                    <div class="border-t border-sp-warmStone pt-4 mt-4">
+                                    <div class="border-t border-sp-warmStone pt-3 mt-3">
 
                                         <p class="font-sans text-sm font-semibold text-sp-charcoal">
                                             Trailing Brace
                                         </p>
 
-                                        <div class="grid grid-cols-2 gap-3 mt-3">
+                                        <div class="grid grid-cols-2 gap-x-4 gap-y-2 mt-2">
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="trailing_brace_pat"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="trailing_brace_pat"
                                                     @checked(in_array('trailing_brace_pat', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 PAT
                                             </label>
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="trailing_brace_level_1"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="trailing_brace_level_1"
                                                     @checked(in_array('trailing_brace_level_1', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level I
                                             </label>
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="trailing_brace_level_2"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="trailing_brace_level_2"
                                                     @checked(in_array('trailing_brace_level_2', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level II
                                             </label>
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="trailing_brace_level_3"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="trailing_brace_level_3"
                                                     @checked(in_array('trailing_brace_level_3', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level III
@@ -639,51 +788,69 @@
 
 
                                     {{-- Urban Locating --}}
-                                    <div class="border-t border-sp-warmStone pt-4 mt-4">
+                                    <div class="border-t border-sp-warmStone pt-3 mt-3">
 
                                         <p class="font-sans text-sm font-semibold text-sp-charcoal">
                                             Urban Locating
                                         </p>
 
-                                        <div class="grid grid-cols-2 gap-3 mt-3">
+                                        <div class="grid grid-cols-2 gap-x-4 gap-y-2 mt-2">
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="urban_locating_pat"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="urban_locating_pat"
                                                     @checked(in_array('urban_locating_pat', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 PAT
                                             </label>
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="urban_locating_level_1"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="urban_locating_level_1"
                                                     @checked(in_array('urban_locating_level_1', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level I
                                             </label>
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="urban_locating_level_2"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="urban_locating_level_2"
                                                     @checked(in_array('urban_locating_level_2', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level II
                                             </label>
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="urban_locating_level_3"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="urban_locating_level_3"
                                                     @checked(in_array('urban_locating_level_3', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level III
                                             </label>
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="urban_locating_mch"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="urban_locating_mch"
                                                     @checked(in_array('urban_locating_mch', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 MCH
                                             </label>
 
                                             <label class="flex items-center gap-2 text-sm text-sp-charcoal">
-                                                <input type="checkbox" name="classes[]" value="urban_locating_gch"
+                                                <input
+                                                    type="checkbox"
+                                                    name="classes[]"
+                                                    value="urban_locating_gch"
                                                     @checked(in_array('urban_locating_gch', old('classes', [])))
                                                     class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 GCH
@@ -699,216 +866,6 @@
                                     @enderror
 
                                 </fieldset>
-
-
-                                {{-- Estimated Entries --}}
-                                <div class="mt-6">
-
-                                    <label
-                                        for="estimated_runs"
-                                        class="block font-sans text-sm font-semibold text-sp-charcoal">
-
-                                        Estimated Entries / Runs
-
-                                    </label>
-
-                                    <input
-                                        type="number"
-                                        id="estimated_runs"
-                                        name="estimated_runs"
-                                        value="{{ old('estimated_runs') }}"
-                                        min="1"
-                                        placeholder="Optional"
-                                        class="mt-2 block w-full rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">
-
-                                    @error('estimated_runs')
-                                        <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                                    @enderror
-
-                                </div>
-
-
-                                {{-- Equipment --}}
-                                <fieldset class="mt-6">
-
-                                    <legend class="block font-sans text-sm font-semibold text-sp-charcoal">
-                                        How will equipment be provided?<span aria-hidden="true">*</span>
-                                    </legend>
-
-                                    <div class="space-y-3 mt-3">
-
-                                        <label class="flex items-start gap-3 text-sm text-sp-charcoal">
-                                            <input
-                                                type="radio"
-                                                name="equipment_plan"
-                                                value="club_provides"
-                                                @checked(old('equipment_plan') === 'club_provides')
-                                                required
-                                                class="mt-0.5 border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
-                                            <span>
-                                                We will provide the required equipment.
-                                            </span>
-                                        </label>
-
-                                        <label class="flex items-start gap-3 text-sm text-sp-charcoal">
-                                            <input
-                                                type="radio"
-                                                name="equipment_plan"
-                                                value="rent"
-                                                @checked(old('equipment_plan') === 'rent')
-                                                class="mt-0.5 border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
-                                            <span>
-                                                We would like to rent equipment from Southern Plains.
-                                            </span>
-                                        </label>
-
-                                        <label class="flex items-start gap-3 text-sm text-sp-charcoal">
-                                            <input
-                                                type="radio"
-                                                name="equipment_plan"
-                                                value="unsure"
-                                                @checked(old('equipment_plan') === 'unsure')
-                                                class="mt-0.5 border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
-                                            <span>
-                                                We’re not sure yet.
-                                            </span>
-                                        </label>
-
-                                    </div>
-
-                                    @error('equipment_plan')
-                                        <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                                    @enderror
-
-                                </fieldset>
-
-
-                                {{-- Equipment Rental Details --}}
-                                <div class="mt-6">
-
-                                    <label
-                                        for="equipment_details"
-                                        class="block font-sans text-sm font-semibold text-sp-charcoal">
-
-                                        Equipment Needed
-
-                                    </label>
-
-                                    <p class="text-sm text-sp-slate mt-2">
-                                        If you are interested in rental equipment, tell us what you may need.
-                                    </p>
-
-                                    <textarea
-                                        id="equipment_details"
-                                        name="equipment_details"
-                                        rows="3"
-                                        placeholder="For example: quarry boxes, sheds, rats, or other equipment."
-                                        class="mt-2 block w-full resize-y rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">{{ old('equipment_details') }}</textarea>
-
-                                    @error('equipment_details')
-                                        <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                                    @enderror
-
-                                </div>
-
-
-                                {{-- Apprentice / Shadow Judge --}}
-                                <fieldset class="mt-6">
-
-                                    <legend class="block font-sans text-sm font-semibold text-sp-charcoal">
-                                        Apprentice / Shadow Judge
-                                    </legend>
-
-                                    <p class="text-sm text-sp-slate mt-2">
-                                        Would you like to request an apprentice or shadow judge to participate?
-                                    </p>
-
-                                    <div class="space-y-3 mt-3">
-
-                                        <label class="flex items-start gap-3 text-sm text-sp-charcoal">
-                                            <input
-                                                type="radio"
-                                                name="apprentice_request"
-                                                value="none"
-                                                @checked(old('apprentice_request') === 'none')
-                                                class="mt-0.5 border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
-                                            <span>
-                                                No
-                                            </span>
-                                        </label>
-
-                                        <label class="flex items-start gap-3 text-sm text-sp-charcoal">
-                                            <input
-                                                type="radio"
-                                                name="apprentice_request"
-                                                value="shadow"
-                                                @checked(old('apprentice_request') === 'shadow')
-                                                class="mt-0.5 border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
-                                            <span>
-                                                Yes — Shadow Apprentice
-                                            </span>
-                                        </label>
-
-                                        <label class="flex items-start gap-3 text-sm text-sp-charcoal">
-                                            <input
-                                                type="radio"
-                                                name="apprentice_request"
-                                                value="supervised"
-                                                @checked(old('apprentice_request') === 'supervised')
-                                                class="mt-0.5 border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
-                                            <span>
-                                                Yes — Supervised Apprentice
-                                            </span>
-                                        </label>
-
-                                        <label class="flex items-start gap-3 text-sm text-sp-charcoal">
-                                            <input
-                                                type="radio"
-                                                name="apprentice_request"
-                                                value="unsure"
-                                                @checked(old('apprentice_request') === 'unsure')
-                                                class="mt-0.5 border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
-                                            <span>
-                                                Not sure yet
-                                            </span>
-                                        </label>
-
-                                    </div>
-
-                                    @error('apprentice_request')
-                                        <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                                    @enderror
-
-                                </fieldset>
-
-
-                                {{-- Apprentice Details --}}
-                                <div class="mt-6">
-
-                                    <label
-                                        for="apprentice_details"
-                                        class="block font-sans text-sm font-semibold text-sp-charcoal">
-
-                                        Apprentice / Shadow Details
-
-                                    </label>
-
-                                    <p class="text-sm text-sp-slate mt-2">
-                                        If applicable, provide the apprentice’s name and anything else we should know.
-                                    </p>
-
-                                    <textarea
-                                        id="apprentice_details"
-                                        name="apprentice_details"
-                                        rows="3"
-                                        placeholder="Optional"
-                                        class="mt-2 block w-full resize-y rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">{{ old('apprentice_details') }}</textarea>
-
-                                    @error('apprentice_details')
-                                        <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                                    @enderror
-
-                                </div>
 
                             </div>
 
@@ -933,7 +890,7 @@
                             <textarea
                                 id="message"
                                 name="message"
-                                rows="6"
+                                rows="5"
                                 placeholder="Optional"
                                 class="mt-2 block w-full resize-y rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">{{ old('message') }}</textarea>
 
@@ -966,7 +923,7 @@
             {{-- End Judge Request Form Card --}}
 
         </div>
-        {{-- End Intro + Form --}}
+        {{-- End Judge Request Content --}}
 
 
         {{-- Image Registration --}}
