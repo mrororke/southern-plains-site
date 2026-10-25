@@ -112,7 +112,7 @@
 
                     {{-- Judge Request Form --}}
                     <form
-                        action="{{ route('inquiries.judge.store') }}"
+                        action="#"
                         method="POST"
                         class="mt-8"
                         x-data="{
