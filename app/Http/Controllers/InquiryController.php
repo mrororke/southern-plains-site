@@ -23,6 +23,11 @@ class InquiryController extends Controller
         return view('public-v2.inquiries.contact');
     }
 
+    public function judge(): View
+    {
+        return view('public-v2.inquiries.judge');
+    }
+
     public function storeWorkshop(Request $request): RedirectResponse
     {
         // Honeypot: silently reject submissions that fill the hidden field.
