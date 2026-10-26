@@ -616,7 +616,7 @@
 
 
         {{-- Image Registration --}}
-        <div class="pointer-events-none absolute inset-y-0 right-0 z-20 hidden w-5/12 md:block">
+        <div class="absolute inset-y-0 right-0 z-20 hidden w-5/12 md:block">
 
             <x-public-v2.image-registration
                 text="Hamish, Photo by Blue Ridge Creative"
