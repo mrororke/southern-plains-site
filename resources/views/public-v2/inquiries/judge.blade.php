@@ -112,13 +112,10 @@
 
                     {{-- Judge Request Form --}}
                     <form
+                        id="judge-request-form"
                         action="#"
                         method="POST"
-                        class="mt-8"
-                        x-data="{
-                            equipment: '{{ old('equipment_plan') }}',
-                            apprentice: '{{ old('apprentice_request') }}'
-                        }">
+                        class="mt-8">
 
                         @csrf
 
@@ -308,9 +305,8 @@
                                         <label class="flex items-start gap-3 text-sm text-sp-charcoal">
                                             <input
                                                 type="radio"
-                                                name="equipment_plan"
+                                                name="equipment_request"
                                                 value="no"
-                                                x-model="equipment"
                                                 required
                                                 class="mt-0.5 border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
 
@@ -320,9 +316,8 @@
                                         <label class="flex items-start gap-3 text-sm text-sp-charcoal">
                                             <input
                                                 type="radio"
-                                                name="equipment_plan"
+                                                name="equipment_request"
                                                 value="yes"
-                                                x-model="equipment"
                                                 class="mt-0.5 border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
 
                                             <span>Yes</span>
@@ -331,9 +326,8 @@
                                         <label class="flex items-start gap-3 text-sm text-sp-charcoal">
                                             <input
                                                 type="radio"
-                                                name="equipment_plan"
-                                                value="unsure"
-                                                x-model="equipment"
+                                                name="equipment_request"
+                                                value="not_sure"
                                                 class="mt-0.5 border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
 
                                             <span>Not sure yet</span>
@@ -341,7 +335,7 @@
 
                                     </div>
 
-                                    @error('equipment_plan')
+                                    @error('equipment_request')
                                         <p class="text-sp-clayRed mt-2">{{ $message }}</p>
                                     @enderror
 
@@ -350,28 +344,25 @@
 
                                 {{-- Equipment Details --}}
                                 <div
-                                    x-show="equipment === 'yes'"
-                                    x-cloak
-                                    class="mt-4">
+                                    id="equipment-details"
+                                    class="hidden mt-4">
 
                                     <label
-                                        for="equipment_details"
+                                        for="equipment_needed"
                                         class="block font-sans text-sm font-semibold text-sp-charcoal">
 
                                         What equipment might you need?
 
                                     </label>
 
-                                    <input
-                                        type="text"
-                                        id="equipment_details"
-                                        name="equipment_details"
-                                        value="{{ old('equipment_details') }}"
-                                        placeholder="e.g. quarry boxes, sheds, rats"
-                                        :disabled="equipment !== 'yes'"
-                                        class="mt-2 block w-full rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">
+                                    <textarea
+                                        id="equipment_needed"
+                                        name="equipment_needed"
+                                        rows="3"
+                                        placeholder="For example: quarry boxes, sheds, rats"
+                                        class="mt-2 block w-full resize-y rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen"></textarea>
 
-                                    @error('equipment_details')
+                                    @error('equipment_needed')
                                         <p class="text-sp-clayRed mt-2">{{ $message }}</p>
                                     @enderror
 
@@ -392,7 +383,6 @@
                                                 type="radio"
                                                 name="apprentice_request"
                                                 value="no"
-                                                x-model="apprentice"
                                                 required
                                                 class="mt-0.5 border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
 
@@ -404,7 +394,6 @@
                                                 type="radio"
                                                 name="apprentice_request"
                                                 value="yes"
-                                                x-model="apprentice"
                                                 class="mt-0.5 border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
 
                                             <span>Yes</span>
@@ -414,8 +403,7 @@
                                             <input
                                                 type="radio"
                                                 name="apprentice_request"
-                                                value="unsure"
-                                                x-model="apprentice"
+                                                value="not_sure"
                                                 class="mt-0.5 border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
 
                                             <span>Not sure yet</span>
@@ -432,9 +420,8 @@
 
                                 {{-- Apprentice / Shadow Details --}}
                                 <div
-                                    x-show="apprentice === 'yes'"
-                                    x-cloak
-                                    class="mt-4">
+                                    id="apprentice-details"
+                                    class="hidden mt-4">
 
                                     <label
                                         for="apprentice_details"
@@ -449,8 +436,7 @@
                                         name="apprentice_details"
                                         rows="3"
                                         placeholder="Name and any relevant details"
-                                        :disabled="apprentice !== 'yes'"
-                                        class="mt-2 block w-full resize-y rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen">{{ old('apprentice_details') }}</textarea>
+                                        class="mt-2 block w-full resize-y rounded-md border border-sp-slate bg-white px-3 py-3 font-sans text-sm text-sp-charcoal placeholder:text-sp-slate focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen"></textarea>
 
                                     @error('apprentice_details')
                                         <p class="text-sp-clayRed mt-2">{{ $message }}</p>
@@ -949,3 +935,68 @@
 {{-- No additional content --}}
 
 @endsection
+
+
+{{-- Conditional Judge Request Fields --}}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        const equipmentOptions = document.querySelectorAll(
+            'input[name="equipment_request"]'
+        );
+
+        const equipmentDetails = document.getElementById(
+            'equipment-details'
+        );
+
+        const apprenticeOptions = document.querySelectorAll(
+            'input[name="apprentice_request"]'
+        );
+
+        const apprenticeDetails = document.getElementById(
+            'apprentice-details'
+        );
+
+
+        function updateEquipment() {
+
+            const selected = document.querySelector(
+                'input[name="equipment_request"]:checked'
+            );
+
+            if (selected && selected.value === 'yes') {
+                equipmentDetails.classList.remove('hidden');
+            } else {
+                equipmentDetails.classList.add('hidden');
+            }
+        }
+
+
+        function updateApprentice() {
+
+            const selected = document.querySelector(
+                'input[name="apprentice_request"]:checked'
+            );
+
+            if (selected && selected.value === 'yes') {
+                apprenticeDetails.classList.remove('hidden');
+            } else {
+                apprenticeDetails.classList.add('hidden');
+            }
+        }
+
+
+        equipmentOptions.forEach(function (option) {
+            option.addEventListener('change', updateEquipment);
+        });
+
+        apprenticeOptions.forEach(function (option) {
+            option.addEventListener('change', updateApprentice);
+        });
+
+
+        updateEquipment();
+        updateApprentice();
+
+    });
+</script>
