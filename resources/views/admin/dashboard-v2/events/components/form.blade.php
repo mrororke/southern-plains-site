@@ -68,7 +68,7 @@
 
             </select>
 
-            <x-admin.forms.field-error field="type" />
+            <x-admin.forms.field-error name="type" />
         </div>
         {{-- End Event Type --}}
 
@@ -107,7 +107,7 @@
 
             </select>
 
-            <x-admin.forms.field-error field="status" />
+            <x-admin.forms.field-error name="status" />
         </div>
         {{-- End Publication Status --}}
 
@@ -133,7 +133,7 @@
             class="mt-2 block w-full rounded-md border-sp-slate/20 bg-white text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
         >
 
-        <x-admin.forms.field-error field="title" />
+        <x-admin.forms.field-error name="title" />
 
     </div>
     {{-- End Title --}}
@@ -160,7 +160,7 @@
             class="mt-2 block w-full rounded-md border-sp-slate/20 bg-white text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
         >{{ old('short_description') }}</textarea>
 
-        <x-admin.forms.field-error field="short_description" />
+        <x-admin.forms.field-error name="short_description" />
 
     </div>
     {{-- End Short Description --}}
@@ -187,7 +187,7 @@
             class="mt-2 block w-full rounded-md border-sp-slate/20 bg-white text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
         >{{ old('description') }}</textarea>
 
-        <x-admin.forms.field-error field="description" />
+        <x-admin.forms.field-error name="description" />
 
     </div>
     {{-- End Description --}}
@@ -232,7 +232,7 @@
             Maximum file size: 10 MB.
         </p>
 
-        <x-admin.forms.field-error field="featured_image" />
+        <x-admin.forms.field-error name="featured_image" />
 
     </div>
 
@@ -254,7 +254,7 @@
             class="mt-2 block w-full rounded-md border-sp-slate/20 bg-white text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
         >
 
-        <x-admin.forms.field-error field="featured_image_alt" />
+        <x-admin.forms.field-error name="featured_image_alt" />
 
     </div>
 
@@ -298,7 +298,7 @@
                 class="mt-2 block w-full rounded-md border-sp-slate/20 bg-white text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
             >
 
-            <x-admin.forms.field-error field="start_date" />
+            <x-admin.forms.field-error name="start_date" />
 
         </div>
 
@@ -324,7 +324,7 @@
                 Leave blank for a single-day event.
             </p>
 
-            <x-admin.forms.field-error field="end_date" />
+            <x-admin.forms.field-error name="end_date" />
 
         </div>
 
@@ -346,7 +346,7 @@
                 class="mt-2 block w-full rounded-md border-sp-slate/20 bg-white text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
             >
 
-            <x-admin.forms.field-error field="start_time" />
+            <x-admin.forms.field-error name="start_time" />
 
         </div>
 
@@ -368,7 +368,7 @@
                 class="mt-2 block w-full rounded-md border-sp-slate/20 bg-white text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
             >
 
-            <x-admin.forms.field-error field="end_time" />
+            <x-admin.forms.field-error name="end_time" />
 
         </div>
 
@@ -411,7 +411,7 @@
             class="mt-2 block w-full rounded-md border-sp-slate/20 bg-white text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
         >
 
-        <x-admin.forms.field-error field="venue_name" />
+        <x-admin.forms.field-error name="venue_name" />
 
     </div>
 
@@ -433,7 +433,7 @@
             class="mt-2 block w-full rounded-md border-sp-slate/20 bg-white text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
         >
 
-        <x-admin.forms.field-error field="address" />
+        <x-admin.forms.field-error name="address" />
 
     </div>
 
@@ -458,7 +458,7 @@
                 class="mt-2 block w-full rounded-md border-sp-slate/20 bg-white text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
             >
 
-            <x-admin.forms.field-error field="city" />
+            <x-admin.forms.field-error name="city" />
 
         </div>
 
@@ -481,7 +481,7 @@
                 class="mt-2 block w-full rounded-md border-sp-slate/20 bg-white text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
             >
 
-            <x-admin.forms.field-error field="state" />
+            <x-admin.forms.field-error name="state" />
 
         </div>
 
@@ -521,7 +521,7 @@
 
         </label>
 
-        <x-admin.forms.field-error field="is_private_location" />
+        <x-admin.forms.field-error name="is_private_location" />
 
     </div>
     {{-- End Private Location --}}
@@ -546,7 +546,7 @@
             class="mt-2 block w-full rounded-md border-sp-slate/20 bg-white text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
         >{{ old('location_details') }}</textarea>
 
-        <x-admin.forms.field-error field="location_details" />
+        <x-admin.forms.field-error name="location_details" />
 
     </div>
 
@@ -610,7 +610,7 @@
 
         </select>
 
-        <x-admin.forms.field-error field="registration_status" />
+        <x-admin.forms.field-error name="registration_status" />
 
     </div>
 
@@ -633,7 +633,7 @@
             class="mt-2 block w-full rounded-md border-sp-slate/20 bg-white text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
         >
 
-        <x-admin.forms.field-error field="registration_url" />
+        <x-admin.forms.field-error name="registration_url" />
 
     </div>
 
@@ -654,7 +654,7 @@
             class="mt-2 block w-full rounded-md border-sp-slate/20 bg-white text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
         >
 
-        <x-admin.forms.field-error field="registration_deadline" />
+        <x-admin.forms.field-error name="registration_deadline" />
 
     </div>
 
@@ -674,7 +674,7 @@
             class="mt-2 block w-full rounded-md border-sp-slate/20 bg-white text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
         >{{ old('registration_notes') }}</textarea>
 
-        <x-admin.forms.field-error field="registration_notes" />
+        <x-admin.forms.field-error name="registration_notes" />
 
     </div>
 
@@ -713,7 +713,7 @@
             class="mt-2 block w-full rounded-md border-sp-slate/20 bg-white text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
         >{{ old('what_to_expect') }}</textarea>
 
-        <x-admin.forms.field-error field="what_to_expect" />
+        <x-admin.forms.field-error name="what_to_expect" />
 
     </div>
 
@@ -733,7 +733,7 @@
             class="mt-2 block w-full rounded-md border-sp-slate/20 bg-white text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
         >{{ old('what_to_bring') }}</textarea>
 
-        <x-admin.forms.field-error field="what_to_bring" />
+        <x-admin.forms.field-error name="what_to_bring" />
 
     </div>
 
@@ -753,7 +753,7 @@
             class="mt-2 block w-full rounded-md border-sp-slate/20 bg-white text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
         >{{ old('requirements_notes') }}</textarea>
 
-        <x-admin.forms.field-error field="requirements_notes" />
+        <x-admin.forms.field-error name="requirements_notes" />
 
     </div>
 
@@ -797,7 +797,7 @@
                 class="mt-2 block w-full rounded-md border-sp-slate/20 bg-white text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
             >
 
-            <x-admin.forms.field-error field="cta_label" />
+            <x-admin.forms.field-error name="cta_label" />
 
         </div>
 
@@ -820,7 +820,7 @@
                 class="mt-2 block w-full rounded-md border-sp-slate/20 bg-white text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
             >
 
-            <x-admin.forms.field-error field="cta_url" />
+            <x-admin.forms.field-error name="cta_url" />
 
         </div>
 
@@ -863,7 +863,7 @@
             class="mt-2 block w-full rounded-md border-sp-slate/20 bg-white text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
         >
 
-        <x-admin.forms.field-error field="seo_title" />
+        <x-admin.forms.field-error name="seo_title" />
 
     </div>
 
@@ -884,7 +884,7 @@
             class="mt-2 block w-full rounded-md border-sp-slate/20 bg-white text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
         >{{ old('seo_description') }}</textarea>
 
-        <x-admin.forms.field-error field="seo_description" />
+        <x-admin.forms.field-error name="seo_description" />
 
     </div>
 
@@ -928,7 +928,7 @@
             Leave blank until you are ready to publish. A future date schedules the event.
         </p>
 
-        <x-admin.forms.field-error field="published_at" />
+        <x-admin.forms.field-error name="published_at" />
 
     </div>
 
