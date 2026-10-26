@@ -41,7 +41,7 @@
     style="
         background-image: url('{{ asset('images/headers/contact-bg.png') }}');
         background-repeat: no-repeat;
-        background-position: center;
+        background-position: center bottom;
         background-size: cover;
     "
 >
@@ -485,8 +485,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="den_hunt_pat"
+                                                    data-level="pat"
                                                     @checked(in_array('den_hunt_pat', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 PAT
                                             </label>
 
@@ -495,8 +496,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="den_hunt_level_1"
+                                                    data-level="level_1"
                                                     @checked(in_array('den_hunt_level_1', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level I
                                             </label>
 
@@ -519,8 +521,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="lost_item_pat"
+                                                    data-level="pat"
                                                     @checked(in_array('lost_item_pat', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 PAT
                                             </label>
 
@@ -529,8 +532,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="lost_item_level_1"
+                                                    data-level="level_1"
                                                     @checked(in_array('lost_item_level_1', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level I
                                             </label>
 
@@ -539,8 +543,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="lost_item_level_2"
+                                                    data-level="level_2"
                                                     @checked(in_array('lost_item_level_2', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level II
                                             </label>
 
@@ -549,8 +554,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="lost_item_level_3"
+                                                    data-level="level_3"
                                                     @checked(in_array('lost_item_level_3', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level III
                                             </label>
 
@@ -559,8 +565,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="lost_item_mch"
+                                                    data-level="mch"
                                                     @checked(in_array('lost_item_mch', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 MCH
                                             </label>
 
@@ -569,8 +576,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="lost_item_gch"
+                                                    data-level="gch"
                                                     @checked(in_array('lost_item_gch', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 GCH
                                             </label>
 
@@ -593,8 +601,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="shed_pat"
+                                                    data-level="pat"
                                                     @checked(in_array('shed_pat', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 PAT
                                             </label>
 
@@ -603,8 +612,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="shed_level_1"
+                                                    data-level="level_1"
                                                     @checked(in_array('shed_level_1', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level I
                                             </label>
 
@@ -613,8 +623,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="shed_level_2"
+                                                    data-level="level_2"
                                                     @checked(in_array('shed_level_2', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level II
                                             </label>
 
@@ -623,8 +634,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="shed_level_3"
+                                                    data-level="level_3"
                                                     @checked(in_array('shed_level_3', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level III
                                             </label>
 
@@ -633,8 +645,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="shed_mch"
+                                                    data-level="mch"
                                                     @checked(in_array('shed_mch', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 MCH
                                             </label>
 
@@ -657,8 +670,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="trailing_locating_pat"
+                                                    data-level="pat"
                                                     @checked(in_array('trailing_locating_pat', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 PAT
                                             </label>
 
@@ -667,8 +681,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="trailing_locating_level_1"
+                                                    data-level="level_1"
                                                     @checked(in_array('trailing_locating_level_1', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level I
                                             </label>
 
@@ -677,8 +692,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="trailing_locating_level_2"
+                                                    data-level="level_2"
                                                     @checked(in_array('trailing_locating_level_2', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level II
                                             </label>
 
@@ -687,8 +703,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="trailing_locating_level_3"
+                                                    data-level="level_3"
                                                     @checked(in_array('trailing_locating_level_3', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level III
                                             </label>
 
@@ -697,8 +714,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="trailing_locating_mch"
+                                                    data-level="mch"
                                                     @checked(in_array('trailing_locating_mch', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 MCH
                                             </label>
 
@@ -707,8 +725,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="trailing_locating_gch"
+                                                    data-level="gch"
                                                     @checked(in_array('trailing_locating_gch', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 GCH
                                             </label>
 
@@ -731,8 +750,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="trailing_brace_pat"
+                                                    data-level="pat"
                                                     @checked(in_array('trailing_brace_pat', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 PAT
                                             </label>
 
@@ -741,8 +761,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="trailing_brace_level_1"
+                                                    data-level="level_1"
                                                     @checked(in_array('trailing_brace_level_1', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level I
                                             </label>
 
@@ -751,8 +772,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="trailing_brace_level_2"
+                                                    data-level="level_2"
                                                     @checked(in_array('trailing_brace_level_2', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level II
                                             </label>
 
@@ -761,8 +783,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="trailing_brace_level_3"
+                                                    data-level="level_3"
                                                     @checked(in_array('trailing_brace_level_3', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level III
                                             </label>
 
@@ -785,8 +808,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="urban_locating_pat"
+                                                    data-level="pat"
                                                     @checked(in_array('urban_locating_pat', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 PAT
                                             </label>
 
@@ -795,8 +819,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="urban_locating_level_1"
+                                                    data-level="level_1"
                                                     @checked(in_array('urban_locating_level_1', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level I
                                             </label>
 
@@ -805,8 +830,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="urban_locating_level_2"
+                                                    data-level="level_2"
                                                     @checked(in_array('urban_locating_level_2', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level II
                                             </label>
 
@@ -815,8 +841,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="urban_locating_level_3"
+                                                    data-level="level_3"
                                                     @checked(in_array('urban_locating_level_3', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 Level III
                                             </label>
 
@@ -825,8 +852,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="urban_locating_mch"
+                                                    data-level="mch"
                                                     @checked(in_array('urban_locating_mch', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 MCH
                                             </label>
 
@@ -835,8 +863,9 @@
                                                     type="checkbox"
                                                     name="classes[]"
                                                     value="urban_locating_gch"
+                                                    data-level="gch"
                                                     @checked(in_array('urban_locating_gch', old('classes', [])))
-                                                    class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+                                                    class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
                                                 GCH
                                             </label>
 
@@ -937,7 +966,7 @@
 @endsection
 
 
-{{-- Conditional Judge Request Fields --}}
+{{-- Judge Request Conditional Fields --}}
 <script>
     document.addEventListener('DOMContentLoaded', function () {
 
@@ -955,6 +984,10 @@
 
         const apprenticeDetails = document.getElementById(
             'apprentice-details'
+        );
+
+        const levelSelectAll = document.querySelectorAll(
+            '.judge-level-select-all'
         );
 
 
@@ -986,6 +1019,30 @@
         }
 
 
+        function updateLevelSelectAll(level) {
+
+            const checkboxes = document.querySelectorAll(
+                '.judge-class-checkbox[data-level="' + level + '"]'
+            );
+
+            const selectAll = document.querySelector(
+                '.judge-level-select-all[data-level="' + level + '"]'
+            );
+
+            if (!selectAll || checkboxes.length === 0) {
+                return;
+            }
+
+            const checkedCount = Array.from(checkboxes).filter(function (checkbox) {
+                return checkbox.checked;
+            }).length;
+
+            selectAll.checked = checkedCount === checkboxes.length;
+            selectAll.indeterminate =
+                checkedCount > 0 && checkedCount < checkboxes.length;
+        }
+
+
         equipmentOptions.forEach(function (option) {
             option.addEventListener('change', updateEquipment);
         });
@@ -995,8 +1052,47 @@
         });
 
 
+        levelSelectAll.forEach(function (selectAll) {
+
+            selectAll.addEventListener('change', function () {
+
+                const level = this.dataset.level;
+
+                const checkboxes = document.querySelectorAll(
+                    '.judge-class-checkbox[data-level="' + level + '"]'
+                );
+
+                checkboxes.forEach(function (checkbox) {
+                    checkbox.checked = selectAll.checked;
+                });
+
+            });
+
+        });
+
+
+        document.querySelectorAll('.judge-class-checkbox').forEach(function (checkbox) {
+
+            checkbox.addEventListener('change', function () {
+                updateLevelSelectAll(this.dataset.level);
+            });
+
+        });
+
+
         updateEquipment();
         updateApprentice();
+
+        [
+            'pat',
+            'level_1',
+            'level_2',
+            'level_3',
+            'mch',
+            'gch'
+        ].forEach(function (level) {
+            updateLevelSelectAll(level);
+        });
 
     });
 </script>
