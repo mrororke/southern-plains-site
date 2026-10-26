@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\ContactInquiryMail;
 use App\Mail\JudgeRequestMail;
+use App\Mail\TrialRequestMail;
 use App\Mail\WorkshopRequestMail;
 use App\Models\Inquiry;
 use Illuminate\Http\RedirectResponse;
@@ -27,6 +28,11 @@ class InquiryController extends Controller
     public function judge(): View
     {
         return view('public-v2.inquiries.judge');
+    }
+
+    public function trial(): View
+    {
+        return view('public-v2.inquiries.trial');
     }
 
     public function storeWorkshop(Request $request): RedirectResponse
@@ -82,10 +88,8 @@ class InquiryController extends Controller
             ],
         ]);
 
-        // Count successful submissions toward the rate limit.
         RateLimiter::hit($rateLimitKey, 900);
 
-        // Email the club when a new workshop request arrives.
         Mail::to(config('mail.from.address'))
             ->send(new WorkshopRequestMail($inquiry));
 
@@ -140,10 +144,8 @@ class InquiryController extends Controller
             ],
         ]);
 
-        // Count successful submissions toward the rate limit.
         RateLimiter::hit($rateLimitKey, 900);
 
-        // Email the club when a new contact inquiry arrives.
         Mail::to(config('mail.from.address'))
             ->send(new ContactInquiryMail($inquiry));
 
@@ -213,10 +215,8 @@ class InquiryController extends Controller
             ],
         ]);
 
-        // Count successful submissions toward the rate limit.
         RateLimiter::hit($rateLimitKey, 900);
 
-        // Email the club when a new judge request arrives.
         Mail::to(config('mail.from.address'))
             ->send(new JudgeRequestMail($inquiry));
 
@@ -225,6 +225,81 @@ class InquiryController extends Controller
             ->with('success', [
                 'title' => 'Your request is on its way!',
                 'message' => "Thanks for reaching out! I'll review your judge request and get back to you by email.",
+            ]);
+    }
+
+    public function storeTrial(Request $request): RedirectResponse
+    {
+        // Honeypot: silently reject submissions that fill the hidden field.
+        if ($request->filled('website_url')) {
+            return redirect()
+                ->back()
+                ->with('success', [
+                    'title' => 'Your request is on its way!',
+                    'message' => "Thanks for reaching out! I'll review your trial request and get back to you by email.",
+                ]);
+        }
+
+        // Limit submissions to 3 per IP address every 15 minutes.
+        $rateLimitKey = 'trial-request:' . $request->ip();
+
+        if (RateLimiter::tooManyAttempts($rateLimitKey, 3)) {
+            return redirect()
+                ->back()
+                ->withErrors([
+                    'rate_limit' => 'Too many requests have been submitted. Please wait 15 minutes before trying again.',
+                ])
+                ->withInput($request->except('website_url'));
+        }
+
+        $validated = $request->validate([
+            'organization' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255'],
+            'trial_date' => ['required', 'string', 'max:255'],
+            'venue' => ['required', 'string', 'max:255'],
+            'city_state' => ['required', 'string', 'max:255'],
+            'venue_status' => ['required', 'string', 'in:secured,in_progress,not_secured'],
+            'trial_format' => ['required', 'string', 'in:one_day,multi_day,not_sure'],
+            'classes' => ['required', 'array', 'min:1'],
+            'classes.*' => ['string', 'in:lost_item_recovery,shed_dog,trailing_locating,trailing_brace,urban_locating'],
+            'equipment_request' => ['required', 'string', 'in:no,yes,not_sure'],
+            'equipment_needed' => ['nullable', 'string', 'max:2000'],
+            'message' => ['nullable', 'string', 'max:5000'],
+        ]);
+
+        // Save the trial request.
+        $inquiry = Inquiry::create([
+            'type' => 'trial_request',
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'subject' => 'NASDA Trial Request',
+            'message' => $validated['message'] ?? null,
+            'details' => [
+                'organization' => $validated['organization'],
+                'trial_date' => $validated['trial_date'],
+                'venue' => $validated['venue'],
+                'city_state' => $validated['city_state'],
+                'venue_status' => $validated['venue_status'],
+                'trial_format' => $validated['trial_format'],
+                'classes' => $validated['classes'],
+                'equipment_request' => $validated['equipment_request'],
+                'equipment_needed' => $validated['equipment_needed'] ?? null,
+            ],
+        ]);
+
+        // Count successful submissions toward the rate limit.
+        RateLimiter::hit($rateLimitKey, 900);
+
+        // Email the club when a new trial request arrives.
+        Mail::to(config('mail.from.address'))
+            ->send(new TrialRequestMail($inquiry));
+
+        return redirect()
+            ->back()
+            ->with('success', [
+                'title' => 'Your request is on its way!',
+                'message' => "Thanks for reaching out! I'll review your trial request and get back to you by email.",
             ]);
     }
 }

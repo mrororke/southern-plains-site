@@ -88,13 +88,20 @@ Route::prefix('v2')
 
         Route::post('/contact', [PublicInquiryController::class, 'storeContact'])
             ->name('contact.store');
-        
+
         // Judge Request
         Route::get('/inquiries/judge', [PublicInquiryController::class, 'judge'])
             ->name('inquiries.judge');
 
         Route::post('/inquiries/judge', [PublicInquiryController::class, 'storeJudge'])
             ->name('inquiries.judge.store');
+
+        // Trial Request
+        Route::get('/inquiries/trial', [InquiryController::class, 'trial'])
+            ->name('public-v2.inquiries.trial');
+
+        Route::post('/inquiries/trial', [InquiryController::class, 'storeTrial'])
+            ->name('public-v2.inquiries.trial.store');
     });
 
 
