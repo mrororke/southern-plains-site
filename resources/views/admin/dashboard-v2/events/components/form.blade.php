@@ -705,7 +705,7 @@
 
         <label
             for="what_to_expect"
-            class="block text-sm font-medium text-sp-charcoal">
+            class="block text-sm font-medium text-sp-charcoal mt-3">
             What to Expect
         </label>
 
@@ -724,7 +724,7 @@
 
         <label
             for="what_to_bring"
-            class="block text-sm font-medium text-sp-charcoal">
+            class="block text-sm font-medium text-sp-charcoal  mt-3">
             What to Bring
         </label>
 
@@ -743,7 +743,7 @@
 
         <label
             for="requirements_notes"
-            class="block text-sm font-medium text-sp-charcoal">
+            class="block text-sm font-medium text-sp-charcoal  mt-3">
             Requirements &amp; Notes
         </label>
 
