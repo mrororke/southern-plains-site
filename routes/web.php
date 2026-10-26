@@ -97,11 +97,11 @@ Route::prefix('v2')
             ->name('inquiries.judge.store');
 
         // Trial Request
-Route::get('/inquiries/trial', [PublicInquiryController::class, 'trial'])
-    ->name('inquiries.trial');
+        Route::get('/inquiries/trial', [PublicInquiryController::class, 'trial'])
+            ->name('inquiries.trial');
 
-Route::post('/inquiries/trial', [PublicInquiryController::class, 'storeTrial'])
-    ->name('inquiries.trial.store');
+        Route::post('/inquiries/trial', [PublicInquiryController::class, 'storeTrial'])
+            ->name('inquiries.trial.store');
     });
 
 
@@ -497,6 +497,30 @@ Route::middleware(['auth', 'device'])
 
         Route::put('/learn/{article}', [AdminLearnController::class, 'update'])
             ->name('learn.update');
+
+        /*
+|--------------------------------------------------------------------------
+| Events ROUTES
+|--------------------------------------------------------------------------
+*/
+
+        Route::get('/events', [\App\Http\Controllers\Admin\EventV2Controller::class, 'index'])
+            ->name('events-v2.index');
+
+        Route::get('/events/create', [\App\Http\Controllers\Admin\EventV2Controller::class, 'create'])
+            ->name('events-v2.create');
+
+        Route::post('/events', [\App\Http\Controllers\Admin\EventV2Controller::class, 'store'])
+            ->name('events-v2.store');
+
+        Route::get('/events/{event}/edit', [\App\Http\Controllers\Admin\EventV2Controller::class, 'edit'])
+            ->name('events-v2.edit');
+
+        Route::put('/events/{event}', [\App\Http\Controllers\Admin\EventV2Controller::class, 'update'])
+            ->name('events-v2.update');
+
+        Route::delete('/events/{event}', [\App\Http\Controllers\Admin\EventV2Controller::class, 'destroy'])
+            ->name('events-v2.destroy');
     });
 
 

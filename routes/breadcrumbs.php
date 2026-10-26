@@ -4,6 +4,8 @@ use App\Models\Trick;
 use App\Models\LearnArticle;
 use App\Models\ResourceLibrary\Resource;
 use App\Models\Inquiry;
+use App\Models\EventV2;
+
 
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
@@ -241,6 +243,56 @@ Breadcrumbs::for(
         $trail->push(
             $inquiry->subject ?: 'Inquiry #' . $inquiry->id,
             route('admin.inquiries.show', $inquiry)
+        );
+    }
+);
+
+/*
+|--------------------------------------------------------------------------
+| Events
+|--------------------------------------------------------------------------
+*/
+
+Breadcrumbs::for(
+    'admin.events-v2.index',
+    function (BreadcrumbTrail $trail) {
+        $trail->parent('admin.dashboard');
+
+        $trail->push(
+            'Events',
+            route('admin.events-v2.index')
+        );
+    }
+);
+
+/*
+|--------------------------------------------------------------------------
+| Create Event
+|--------------------------------------------------------------------------
+*/
+
+Breadcrumbs::for(
+    'admin.events-v2.create',
+    function (BreadcrumbTrail $trail) {
+        $trail->parent('admin.events-v2.index');
+
+        $trail->push('New Event');
+    }
+);
+
+/*
+|--------------------------------------------------------------------------
+| Edit Event
+|--------------------------------------------------------------------------
+*/
+
+Breadcrumbs::for(
+    'admin.events-v2.edit',
+    function (BreadcrumbTrail $trail, EventV2 $event) {
+        $trail->parent('admin.events-v2.index');
+
+        $trail->push(
+            'Edit ' . $event->title
         );
     }
 );
