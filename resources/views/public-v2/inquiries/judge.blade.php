@@ -54,7 +54,7 @@
         <div class="col-span-12 md:col-span-10 md:col-start-1">
 
             {{-- Judge Request Form Card --}}
-            <div class="mt-8 max-w-5xl rounded-md bg-sp-limestone p-6 md:mt-16 md:p-8">
+            <div class="relative mt-8 max-w-5xl rounded-md bg-sp-limestone p-6 md:mt-16 md:p-8">
 
                 {{-- Intro --}}
                 <p class="font-display font-bold text-2xl text-sp-burntClay">
@@ -608,23 +608,18 @@
 
                 @endif
 
+
+                {{-- Image Registration --}}
+                <x-public-v2.image-registration
+                    text="Hamish, Photo by Blue Ridge Creative"
+                    position="bottom"
+                    href="https://www.blueridgeprairie.studio/" />
+
             </div>
             {{-- End Judge Request Form Card --}}
 
         </div>
         {{-- End Judge Request Content --}}
-
-
-        {{-- Image Registration --}}
-        <div class="relative z-20 hidden md:block">
-
-            <x-public-v2.image-registration
-                text="Hamish, Photo by Blue Ridge Creative"
-                position="bottom"
-                href="https://www.blueridgeprairie.studio/" />
-
-        </div>
-        {{-- End Image Registration --}}
 
     </div>
     {{-- End Hero Content --}}
