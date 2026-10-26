@@ -48,7 +48,7 @@
 
     {{-- Hero Content --}}
     <div
-        class="relative z-30 grid grid-cols-12 gap-6 px-6 pt-8 pb-12 md:px-8 md:pt-12 md:pb-16">
+        class="relative z-10 grid grid-cols-12 gap-6 px-6 pt-8 pb-12 md:px-8 md:pt-12 md:pb-16">
 
         {{-- Judge Request Content --}}
         <div class="col-span-12 md:col-span-10 md:col-start-1">
@@ -616,7 +616,7 @@
 
 
         {{-- Image Registration --}}
-        <div class="absolute inset-y-0 right-0 z-20 hidden w-5/12 md:block">
+        <div class="pointer-events-none absolute inset-y-0 right-0 z-20 hidden w-5/12 md:block">
 
             <x-public-v2.image-registration
                 text="Hamish, Photo by Blue Ridge Creative"
