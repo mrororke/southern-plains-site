@@ -97,11 +97,11 @@ Route::prefix('v2')
             ->name('inquiries.judge.store');
 
         // Trial Request
-        Route::get('/inquiries/trial', [InquiryController::class, 'trial'])
-            ->name('public-v2.inquiries.trial');
+Route::get('/inquiries/trial', [PublicInquiryController::class, 'trial'])
+    ->name('inquiries.trial');
 
-        Route::post('/inquiries/trial', [InquiryController::class, 'storeTrial'])
-            ->name('public-v2.inquiries.trial.store');
+Route::post('/inquiries/trial', [PublicInquiryController::class, 'storeTrial'])
+    ->name('inquiries.trial.store');
     });
 
 
