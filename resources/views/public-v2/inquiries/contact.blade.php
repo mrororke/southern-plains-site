@@ -359,7 +359,7 @@
                     </p>
 
                     <a
-                        href="#"
+                        href="{{ route('public-v2.inquiries.workshop') }}"
                         class="mt-3 inline-flex items-center gap-2 font-sans text-sm font-semibold uppercase tracking-wide text-sp-prairieGreen transition-colors hover:text-sp-prairieOchre">
 
                         Request A Workshop
@@ -402,7 +402,7 @@
                     </p>
 
                     <a
-                        href="#"
+                        href="{{ route('public-v2.inquiries.judge') }}"
                         class="mt-3 inline-flex items-center gap-2 font-sans text-sm font-semibold uppercase tracking-wide text-sp-prairieGreen transition-colors hover:text-sp-prairieOchre">
 
                         Request A Judge
@@ -445,7 +445,7 @@
                     </p>
 
                     <a
-                        href="#"
+                        href="{{ route('public-v2.inquiries.trial') }}"
                         class="mt-3 inline-flex items-center gap-2 font-sans text-sm font-semibold uppercase tracking-wide text-sp-prairieGreen transition-colors hover:text-sp-prairieOchre">
 
                         Request A Trial
