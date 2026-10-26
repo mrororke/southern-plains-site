@@ -113,7 +113,7 @@
                     {{-- Judge Request Form --}}
                     <form
                         id="judge-request-form"
-                        action="#"
+                        action="{{ route('public-v2.inquiries.judge.store') }}"
                         method="POST"
                         class="mt-8">
 
@@ -887,7 +887,7 @@
 
                         {{-- Submit --}}
                         <button
-                            type="button"
+                            type="submit"
                             class="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-md bg-sp-prairieGreen px-5 py-3 font-sans text-sm font-semibold uppercase tracking-wide text-white transition-colors hover:bg-sp-prairieGreen/90">
 
                             Request A Judge

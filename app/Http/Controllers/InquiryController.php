@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactInquiryMail;
+use App\Mail\JudgeRequestMail;
 use App\Mail\WorkshopRequestMail;
 use App\Models\Inquiry;
 use Illuminate\Http\RedirectResponse;
@@ -151,6 +152,79 @@ class InquiryController extends Controller
             ->with('success', [
                 'title' => 'Your message is on its way!',
                 'message' => "Thanks for reaching out! I'll review your message and get back to you by email.",
+            ]);
+    }
+
+    public function storeJudge(Request $request): RedirectResponse
+    {
+        // Honeypot: silently reject submissions that fill the hidden field.
+        if ($request->filled('website_url')) {
+            return redirect()
+                ->back()
+                ->with('success', [
+                    'title' => 'Your request is on its way!',
+                    'message' => "Thanks for reaching out! I'll review your judge request and get back to you by email.",
+                ]);
+        }
+
+        // Limit submissions to 3 per IP address every 15 minutes.
+        $rateLimitKey = 'judge-request:' . $request->ip();
+
+        if (RateLimiter::tooManyAttempts($rateLimitKey, 3)) {
+            return redirect()
+                ->back()
+                ->withErrors([
+                    'rate_limit' => 'Too many requests have been submitted. Please wait 15 minutes before trying again.',
+                ])
+                ->withInput($request->except('website_url'));
+        }
+
+        $validated = $request->validate([
+            'organization' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'email', 'max:255'],
+            'trial_date' => ['required', 'string', 'max:255'],
+            'location' => ['required', 'string', 'max:255'],
+            'equipment_request' => ['required', 'string', 'in:no,yes,not_sure'],
+            'equipment_needed' => ['nullable', 'string', 'max:2000'],
+            'apprentice_request' => ['required', 'string', 'in:no,yes,not_sure'],
+            'apprentice_details' => ['nullable', 'string', 'max:2000'],
+            'classes' => ['required', 'array', 'min:1'],
+            'classes.*' => ['string', 'max:100'],
+            'message' => ['nullable', 'string', 'max:5000'],
+        ]);
+
+        // Save the judge request.
+        $inquiry = Inquiry::create([
+            'type' => 'judge_request',
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'subject' => 'NASDA Judge Request',
+            'message' => $validated['message'] ?? null,
+            'details' => [
+                'organization' => $validated['organization'],
+                'trial_date' => $validated['trial_date'],
+                'location' => $validated['location'],
+                'classes' => $validated['classes'],
+                'equipment_request' => $validated['equipment_request'],
+                'equipment_needed' => $validated['equipment_needed'] ?? null,
+                'apprentice_request' => $validated['apprentice_request'],
+                'apprentice_details' => $validated['apprentice_details'] ?? null,
+            ],
+        ]);
+
+        // Count successful submissions toward the rate limit.
+        RateLimiter::hit($rateLimitKey, 900);
+
+        // Email the club when a new judge request arrives.
+        Mail::to(config('mail.from.address'))
+            ->send(new JudgeRequestMail($inquiry));
+
+        return redirect()
+            ->back()
+            ->with('success', [
+                'title' => 'Your request is on its way!',
+                'message' => "Thanks for reaching out! I'll review your judge request and get back to you by email.",
             ]);
     }
 }
