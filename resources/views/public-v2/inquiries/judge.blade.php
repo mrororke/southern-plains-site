@@ -465,287 +465,85 @@
                                 </p>
 
 
-                                {{-- Classes & Levels --}}
+                                {{-- Classes Requested --}}
                                 <fieldset>
 
                                     <legend class="block font-sans text-sm font-semibold text-sp-charcoal">
-                                        Classes & Levels Requested<span aria-hidden="true">*</span>
+                                        Classes Requested<span aria-hidden="true">*</span>
                                     </legend>
 
                                     <p class="text-sm text-sp-slate mt-2 mb-4">
-                                        Select all that apply. Use the <strong>All</strong> checkbox in a level heading to select every eligible class at that level.
+                                        Select all that apply.
                                     </p>
 
-                                    <div class="overflow-x-auto rounded-md border border-sp-warmStone">
-                                        <table class="w-full min-w-[720px] border-collapse text-sm">
+                                    <div class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+
+                                        <label class="flex items-center gap-3 text-sm text-sp-charcoal">
+                                            <input
+                                                type="checkbox"
+                                                name="classes[]"
+                                                value="den_hunt"
+                                                @checked(in_array('den_hunt', old('classes', [])))
+                                                class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+
+                                            <span>Den Hunt</span>
+                                        </label>
+
+                                        <label class="flex items-center gap-3 text-sm text-sp-charcoal">
+                                            <input
+                                                type="checkbox"
+                                                name="classes[]"
+                                                value="lost_item_recovery"
+                                                @checked(in_array('lost_item_recovery', old('classes', [])))
+                                                class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+
+                                            <span>Lost Item Recovery</span>
+                                        </label>
+
+                                        <label class="flex items-center gap-3 text-sm text-sp-charcoal">
+                                            <input
+                                                type="checkbox"
+                                                name="classes[]"
+                                                value="shed_dog"
+                                                @checked(in_array('shed_dog', old('classes', [])))
+                                                class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+
+                                            <span>Shed Dog</span>
+                                        </label>
+
+                                        <label class="flex items-center gap-3 text-sm text-sp-charcoal">
+                                            <input
+                                                type="checkbox"
+                                                name="classes[]"
+                                                value="trailing_locating"
+                                                @checked(in_array('trailing_locating', old('classes', [])))
+                                                class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+
+                                            <span>Trailing &amp; Locating</span>
+                                        </label>
+
+                                        <label class="flex items-center gap-3 text-sm text-sp-charcoal">
+                                            <input
+                                                type="checkbox"
+                                                name="classes[]"
+                                                value="trailing_brace"
+                                                @checked(in_array('trailing_brace', old('classes', [])))
+                                                class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+
+                                            <span>Trailing Brace</span>
+                                        </label>
+
+                                        <label class="flex items-center gap-3 text-sm text-sp-charcoal">
+                                            <input
+                                                type="checkbox"
+                                                name="classes[]"
+                                                value="urban_locating"
+                                                @checked(in_array('urban_locating', old('classes', [])))
+                                                class="rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
+
+                                            <span>Urban Locating</span>
+                                        </label>
 
-                                            <thead>
-                                                <tr class="bg-sp-offWhite">
-
-                                                    <th class="px-3 py-3 text-left font-semibold text-sp-charcoal">
-                                                        Class
-                                                    </th>
-
-                                                    @foreach ([
-                                                        'pat' => 'PAT',
-                                                        'level_1' => 'Level I',
-                                                        'level_2' => 'Level II',
-                                                        'level_3' => 'Level III',
-                                                        'mch' => 'MCH',
-                                                        'gch' => 'GCH',
-                                                    ] as $level => $label)
-
-                                                        <th class="px-2 py-3 text-center font-semibold text-sp-charcoal">
-
-                                                            <div class="flex flex-col items-center gap-1">
-
-                                                                <span>
-                                                                    {{ $label }}
-                                                                </span>
-
-                                                                <label class="flex items-center gap-1 text-xs font-normal text-sp-slate">
-
-                                                                    <input
-                                                                        type="checkbox"
-                                                                        class="judge-level-select-all rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen"
-                                                                        data-level="{{ $level }}"
-                                                                        aria-label="Select all {{ $label }} classes">
-
-                                                                    <span>
-                                                                        All
-                                                                    </span>
-
-                                                                </label>
-
-                                                            </div>
-
-                                                        </th>
-
-                                                    @endforeach
-
-                                                </tr>
-                                            </thead>
-
-                                            <tbody class="divide-y divide-sp-warmStone">
-
-                                                {{-- Den Hunt --}}
-                                                <tr>
-
-                                                    <th class="px-3 py-3 text-left font-semibold text-sp-charcoal whitespace-nowrap">
-                                                        Den Hunt
-                                                    </th>
-
-                                                    <td class="px-2 py-3 text-center">
-                                                        <input
-                                                            type="checkbox"
-                                                            name="classes[]"
-                                                            value="den_hunt_pat"
-                                                            data-level="pat"
-                                                            @checked(in_array('den_hunt_pat', old('classes', [])))
-                                                            class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
-                                                    </td>
-
-                                                    <td class="px-2 py-3 text-center">
-                                                        <input
-                                                            type="checkbox"
-                                                            name="classes[]"
-                                                            value="den_hunt_level_1"
-                                                            data-level="level_1"
-                                                            @checked(in_array('den_hunt_level_1', old('classes', [])))
-                                                            class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
-                                                    </td>
-
-                                                    @foreach (['level_2', 'level_3', 'mch', 'gch'] as $level)
-                                                        <td class="px-2 py-3 text-center bg-sp-offWhite/60">
-                                                            <span class="text-sp-slate" aria-label="Not eligible">
-                                                                —
-                                                            </span>
-                                                        </td>
-                                                    @endforeach
-
-                                                </tr>
-
-
-                                                {{-- Lost Item Recovery --}}
-                                                <tr>
-
-                                                    <th class="px-3 py-3 text-left font-semibold text-sp-charcoal whitespace-nowrap">
-                                                        Lost Item Recovery
-                                                    </th>
-
-                                                    @foreach ([
-                                                        'pat' => 'lost_item_pat',
-                                                        'level_1' => 'lost_item_level_1',
-                                                        'level_2' => 'lost_item_level_2',
-                                                        'level_3' => 'lost_item_level_3',
-                                                        'mch' => 'lost_item_mch',
-                                                        'gch' => 'lost_item_gch',
-                                                    ] as $level => $value)
-
-                                                        <td class="px-2 py-3 text-center">
-
-                                                            <input
-                                                                type="checkbox"
-                                                                name="classes[]"
-                                                                value="{{ $value }}"
-                                                                data-level="{{ $level }}"
-                                                                @checked(in_array($value, old('classes', [])))
-                                                                class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
-
-                                                        </td>
-
-                                                    @endforeach
-
-                                                </tr>
-
-
-                                                {{-- Shed Dog --}}
-                                                <tr>
-
-                                                    <th class="px-3 py-3 text-left font-semibold text-sp-charcoal whitespace-nowrap">
-                                                        Shed Dog
-                                                    </th>
-
-                                                    @foreach ([
-                                                        'pat' => 'shed_pat',
-                                                        'level_1' => 'shed_level_1',
-                                                        'level_2' => 'shed_level_2',
-                                                        'level_3' => 'shed_level_3',
-                                                        'mch' => 'shed_mch',
-                                                    ] as $level => $value)
-
-                                                        <td class="px-2 py-3 text-center">
-
-                                                            <input
-                                                                type="checkbox"
-                                                                name="classes[]"
-                                                                value="{{ $value }}"
-                                                                data-level="{{ $level }}"
-                                                                @checked(in_array($value, old('classes', [])))
-                                                                class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
-
-                                                        </td>
-
-                                                    @endforeach
-
-                                                    <td class="px-2 py-3 text-center bg-sp-offWhite/60">
-                                                        <span class="text-sp-slate" aria-label="Not eligible">
-                                                            —
-                                                        </span>
-                                                    </td>
-
-                                                </tr>
-
-
-                                                {{-- Trailing & Locating --}}
-                                                <tr>
-
-                                                    <th class="px-3 py-3 text-left font-semibold text-sp-charcoal whitespace-nowrap">
-                                                        Trailing &amp; Locating
-                                                    </th>
-
-                                                    @foreach ([
-                                                        'pat' => 'trailing_locating_pat',
-                                                        'level_1' => 'trailing_locating_level_1',
-                                                        'level_2' => 'trailing_locating_level_2',
-                                                        'level_3' => 'trailing_locating_level_3',
-                                                        'mch' => 'trailing_locating_mch',
-                                                        'gch' => 'trailing_locating_gch',
-                                                    ] as $level => $value)
-
-                                                        <td class="px-2 py-3 text-center">
-
-                                                            <input
-                                                                type="checkbox"
-                                                                name="classes[]"
-                                                                value="{{ $value }}"
-                                                                data-level="{{ $level }}"
-                                                                @checked(in_array($value, old('classes', [])))
-                                                                class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
-
-                                                        </td>
-
-                                                    @endforeach
-
-                                                </tr>
-
-
-                                                {{-- Trailing Brace --}}
-                                                <tr>
-
-                                                    <th class="px-3 py-3 text-left font-semibold text-sp-charcoal whitespace-nowrap">
-                                                        Trailing Brace
-                                                    </th>
-
-                                                    @foreach ([
-                                                        'pat' => 'trailing_brace_pat',
-                                                        'level_1' => 'trailing_brace_level_1',
-                                                        'level_2' => 'trailing_brace_level_2',
-                                                        'level_3' => 'trailing_brace_level_3',
-                                                    ] as $level => $value)
-
-                                                        <td class="px-2 py-3 text-center">
-
-                                                            <input
-                                                                type="checkbox"
-                                                                name="classes[]"
-                                                                value="{{ $value }}"
-                                                                data-level="{{ $level }}"
-                                                                @checked(in_array($value, old('classes', [])))
-                                                                class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
-
-                                                        </td>
-
-                                                    @endforeach
-
-                                                    @foreach (['mch', 'gch'] as $level)
-
-                                                        <td class="px-2 py-3 text-center bg-sp-offWhite/60">
-                                                            <span class="text-sp-slate" aria-label="Not eligible">
-                                                                —
-                                                            </span>
-                                                        </td>
-
-                                                    @endforeach
-
-                                                </tr>
-
-
-                                                {{-- Urban Locating --}}
-                                                <tr>
-
-                                                    <th class="px-3 py-3 text-left font-semibold text-sp-charcoal whitespace-nowrap">
-                                                        Urban Locating
-                                                    </th>
-
-                                                    @foreach ([
-                                                        'pat' => 'urban_locating_pat',
-                                                        'level_1' => 'urban_locating_level_1',
-                                                        'level_2' => 'urban_locating_level_2',
-                                                        'level_3' => 'urban_locating_level_3',
-                                                        'mch' => 'urban_locating_mch',
-                                                        'gch' => 'urban_locating_gch',
-                                                    ] as $level => $value)
-
-                                                        <td class="px-2 py-3 text-center">
-
-                                                            <input
-                                                                type="checkbox"
-                                                                name="classes[]"
-                                                                value="{{ $value }}"
-                                                                data-level="{{ $level }}"
-                                                                @checked(in_array($value, old('classes', [])))
-                                                                class="judge-class-checkbox rounded border-sp-slate text-sp-prairieGreen focus:ring-sp-prairieGreen">
-
-                                                        </td>
-
-                                                    @endforeach
-
-                                                </tr>
-
-                                            </tbody>
-
-                                        </table>
                                     </div>
 
                                     @error('classes')
@@ -864,10 +662,6 @@
             'apprentice-details'
         );
 
-        const levelSelectAll = document.querySelectorAll(
-            '.judge-level-select-all'
-        );
-
 
         function updateEquipment() {
 
@@ -897,31 +691,6 @@
         }
 
 
-        function updateLevelSelectAll(level) {
-
-            const checkboxes = document.querySelectorAll(
-                '.judge-class-checkbox[data-level="' + level + '"]'
-            );
-
-            const selectAll = document.querySelector(
-                '.judge-level-select-all[data-level="' + level + '"]'
-            );
-
-            if (!selectAll || checkboxes.length === 0) {
-                return;
-            }
-
-            const checkedCount = Array.from(checkboxes).filter(function (checkbox) {
-                return checkbox.checked;
-            }).length;
-
-            selectAll.checked = checkedCount === checkboxes.length;
-
-            selectAll.indeterminate =
-                checkedCount > 0 && checkedCount < checkboxes.length;
-        }
-
-
         equipmentOptions.forEach(function (option) {
             option.addEventListener('change', updateEquipment);
         });
@@ -932,48 +701,8 @@
         });
 
 
-        levelSelectAll.forEach(function (selectAll) {
-
-            selectAll.addEventListener('change', function () {
-
-                const level = this.dataset.level;
-
-                const checkboxes = document.querySelectorAll(
-                    '.judge-class-checkbox[data-level="' + level + '"]'
-                );
-
-                checkboxes.forEach(function (checkbox) {
-                    checkbox.checked = selectAll.checked;
-                });
-
-            });
-
-        });
-
-
-        document.querySelectorAll('.judge-class-checkbox').forEach(function (checkbox) {
-
-            checkbox.addEventListener('change', function () {
-                updateLevelSelectAll(this.dataset.level);
-            });
-
-        });
-
-
         updateEquipment();
         updateApprentice();
-
-
-        [
-            'pat',
-            'level_1',
-            'level_2',
-            'level_3',
-            'mch',
-            'gch'
-        ].forEach(function (level) {
-            updateLevelSelectAll(level);
-        });
 
     });
 </script>
