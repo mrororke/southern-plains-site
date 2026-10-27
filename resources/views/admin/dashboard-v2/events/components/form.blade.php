@@ -1,3 +1,48 @@
+@php
+    $value = function (string $field, mixed $default = '') use ($event) {
+        return old(
+            $field,
+            $event?->{$field} ?? $default
+        );
+    };
+
+    $startDate = old(
+        'start_date',
+        $event?->start_date?->format('Y-m-d')
+    );
+
+    $endDate = old(
+        'end_date',
+        $event?->end_date?->format('Y-m-d')
+    );
+
+    $startTime = old(
+        'start_time',
+        $event?->start_time?->format('H:i')
+    );
+
+    $endTime = old(
+        'end_time',
+        $event?->end_time?->format('H:i')
+    );
+
+    $registrationDeadline = old(
+        'registration_deadline',
+        $event?->registration_deadline?->format('Y-m-d')
+    );
+
+    $publishedAt = old(
+        'published_at',
+        $event?->published_at?->format('Y-m-d\TH:i')
+    );
+
+    $isPrivateLocation = old(
+        'is_private_location',
+        $event?->is_private_location ?? false
+    );
+@endphp
+
+
 {{-- Event Basics --}}
 <section class="rounded-md border border-sp-warmStone bg-sp-warmIvory p-6">
 
@@ -33,37 +78,37 @@
 
                 <option
                     value="dog_sports"
-                    @selected(old('type') === 'dog_sports')>
+                    @selected($value('type') === 'dog_sports')>
                     Dog Sports
                 </option>
 
                 <option
                     value="training"
-                    @selected(old('type') === 'training')>
+                    @selected($value('type') === 'training')>
                     Training
                 </option>
 
                 <option
                     value="workshop"
-                    @selected(old('type') === 'workshop')>
+                    @selected($value('type') === 'workshop')>
                     Workshop
                 </option>
 
                 <option
                     value="class"
-                    @selected(old('type') === 'class')>
+                    @selected($value('type') === 'class')>
                     Class
                 </option>
 
                 <option
                     value="community"
-                    @selected(old('type') === 'community')>
+                    @selected($value('type') === 'community')>
                     Community
                 </option>
 
                 <option
                     value="other"
-                    @selected(old('type') === 'other')>
+                    @selected($value('type') === 'other')>
                     Other
                 </option>
 
@@ -92,19 +137,19 @@
 
                 <option
                     value="draft"
-                    @selected(old('status', 'draft') === 'draft')>
+                    @selected($value('status', 'draft') === 'draft')>
                     Draft
                 </option>
 
                 <option
                     value="published"
-                    @selected(old('status') === 'published')>
+                    @selected($value('status') === 'published')>
                     Published
                 </option>
 
                 <option
                     value="cancelled"
-                    @selected(old('status') === 'cancelled')>
+                    @selected($value('status') === 'cancelled')>
                     Cancelled
                 </option>
 
@@ -131,7 +176,7 @@
             type="text"
             name="title"
             id="title"
-            value="{{ old('title') }}"
+            value="{{ $value('title') }}"
             required
             maxlength="255"
             class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
@@ -162,7 +207,7 @@
             rows="3"
             maxlength="1000"
             class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
-        >{{ old('short_description') }}</textarea>
+        >{{ $value('short_description') }}</textarea>
 
         <x-admin.forms.field-error name="short_description" />
 
@@ -188,7 +233,7 @@
             <x-admin.forms.rich-text
                 id="description-editor"
                 name="description"
-                :value="old('description')"
+                :value="$value('description')"
             />
 
             <x-admin.forms.field-error name="description" />
@@ -253,6 +298,25 @@
     </div>
 
 
+    @if ($event?->featured_image_path)
+
+        <div class="mt-6">
+
+            <p class="text-sm font-medium text-sp-charcoal">
+                Current Featured Image
+            </p>
+
+            <img
+                src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($event->featured_image_path) }}"
+                alt="{{ $event->featured_image_alt ?: $event->title }}"
+                class="mt-3 max-h-64 rounded-md"
+            >
+
+        </div>
+
+    @endif
+
+
     <div class="mt-6">
 
         <label
@@ -265,7 +329,7 @@
             type="text"
             name="featured_image_alt"
             id="featured_image_alt"
-            value="{{ old('featured_image_alt') }}"
+            value="{{ $value('featured_image_alt') }}"
             maxlength="255"
             class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
         >
@@ -305,7 +369,7 @@
                 type="date"
                 name="start_date"
                 id="start_date"
-                value="{{ old('start_date') }}"
+                value="{{ $startDate }}"
                 required
                 class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
             >
@@ -328,7 +392,7 @@
                 type="date"
                 name="end_date"
                 id="end_date"
-                value="{{ old('end_date') }}"
+                value="{{ $endDate }}"
                 class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
             >
 
@@ -354,7 +418,7 @@
                 type="time"
                 name="start_time"
                 id="start_time"
-                value="{{ old('start_time') }}"
+                value="{{ $startTime }}"
                 class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
             >
 
@@ -376,7 +440,7 @@
                 type="time"
                 name="end_time"
                 id="end_time"
-                value="{{ old('end_time') }}"
+                value="{{ $endTime }}"
                 class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
             >
 
@@ -414,7 +478,7 @@
             type="text"
             name="venue_name"
             id="venue_name"
-            value="{{ old('venue_name') }}"
+            value="{{ $value('venue_name') }}"
             maxlength="255"
             class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
         >
@@ -436,7 +500,7 @@
             type="text"
             name="address"
             id="address"
-            value="{{ old('address') }}"
+            value="{{ $value('address') }}"
             maxlength="255"
             class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
         >
@@ -460,7 +524,7 @@
                 type="text"
                 name="city"
                 id="city"
-                value="{{ old('city') }}"
+                value="{{ $value('city') }}"
                 maxlength="255"
                 required
                 class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
@@ -483,7 +547,7 @@
                 type="text"
                 name="state"
                 id="state"
-                value="{{ old('state') }}"
+                value="{{ $value('state') }}"
                 maxlength="255"
                 required
                 class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
@@ -514,7 +578,7 @@
                 name="is_private_location"
                 id="is_private_location"
                 value="1"
-                @checked(old('is_private_location'))
+                @checked($isPrivateLocation)
                 class="mt-1 rounded border-sp-warmStone text-sp-prairieGreen focus:ring-sp-prairieGreen"
             >
 
@@ -555,7 +619,7 @@
             id="location_details"
             rows="5"
             class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
-        >{{ old('location_details') }}</textarea>
+        >{{ $value('location_details') }}</textarea>
 
         <x-admin.forms.field-error name="location_details" />
 
@@ -593,25 +657,25 @@
 
             <option
                 value="not_required"
-                @selected(old('registration_status', 'not_required') === 'not_required')>
+                @selected($value('registration_status', 'not_required') === 'not_required')>
                 Registration Not Required
             </option>
 
             <option
                 value="coming_soon"
-                @selected(old('registration_status') === 'coming_soon')>
+                @selected($value('registration_status') === 'coming_soon')>
                 Coming Soon
             </option>
 
             <option
                 value="open"
-                @selected(old('registration_status') === 'open')>
+                @selected($value('registration_status') === 'open')>
                 Registration Open
             </option>
 
             <option
                 value="closed"
-                @selected(old('registration_status') === 'closed')>
+                @selected($value('registration_status') === 'closed')>
                 Registration Closed
             </option>
 
@@ -634,7 +698,7 @@
             type="url"
             name="registration_url"
             id="registration_url"
-            value="{{ old('registration_url') }}"
+            value="{{ $value('registration_url') }}"
             maxlength="2048"
             placeholder="https://"
             class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
@@ -657,7 +721,7 @@
             type="date"
             name="registration_deadline"
             id="registration_deadline"
-            value="{{ old('registration_deadline') }}"
+            value="{{ $registrationDeadline }}"
             class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
         >
 
@@ -679,7 +743,7 @@
             id="registration_notes"
             rows="4"
             class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
-        >{{ old('registration_notes') }}</textarea>
+        >{{ $value('registration_notes') }}</textarea>
 
         <x-admin.forms.field-error name="registration_notes" />
 
@@ -708,14 +772,16 @@
             class="block text-sm font-medium text-sp-charcoal mt-3">
             What to Expect
         </label>
-        
+
         <div class="mt-3">
-        <x-admin.forms.rich-text
-            id="what-to-expect-editor"
-            name="what_to_expect"
-            :value="old('what_to_expect')"
-        />
-</div>
+
+            <x-admin.forms.rich-text
+                id="what-to-expect-editor"
+                name="what_to_expect"
+                :value="$value('what_to_expect')"
+            />
+
+        </div>
 
         <x-admin.forms.field-error name="what_to_expect" />
 
@@ -731,12 +797,14 @@
         </label>
 
         <div class="mt-3">
-        <x-admin.forms.rich-text
-            id="what-to-bring-editor"
-            name="what_to_bring"
-            :value="old('what_to_bring')"
-        />
-</div>
+
+            <x-admin.forms.rich-text
+                id="what-to-bring-editor"
+                name="what_to_bring"
+                :value="$value('what_to_bring')"
+            />
+
+        </div>
 
         <x-admin.forms.field-error name="what_to_bring" />
 
@@ -747,17 +815,19 @@
 
         <label
             for="requirements_notes"
-            class="block text-sm font-medium text-sp-charcoal  ">
+            class="block text-sm font-medium text-sp-charcoal">
             Requirements &amp; Notes
         </label>
 
         <div class="mt-3">
-        <x-admin.forms.rich-text
-            id="requirements-editor"
-            name="requirements_notes"
-            :value="old('requirements_notes')"
-        />
-</div>
+
+            <x-admin.forms.rich-text
+                id="requirements-editor"
+                name="requirements_notes"
+                :value="$value('requirements_notes')"
+            />
+
+        </div>
 
         <x-admin.forms.field-error name="requirements_notes" />
 
@@ -793,7 +863,7 @@
                 type="text"
                 name="cta_label"
                 id="cta_label"
-                value="{{ old('cta_label') }}"
+                value="{{ $value('cta_label') }}"
                 maxlength="255"
                 placeholder="Learn More"
                 class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
@@ -816,7 +886,7 @@
                 type="url"
                 name="cta_url"
                 id="cta_url"
-                value="{{ old('cta_url') }}"
+                value="{{ $value('cta_url') }}"
                 maxlength="2048"
                 placeholder="https://"
                 class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
@@ -856,7 +926,7 @@
             type="text"
             name="seo_title"
             id="seo_title"
-            value="{{ old('seo_title') }}"
+            value="{{ $value('seo_title') }}"
             maxlength="255"
             class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
         >
@@ -880,7 +950,7 @@
             rows="4"
             maxlength="1000"
             class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
-        >{{ old('seo_description') }}</textarea>
+        >{{ $value('seo_description') }}</textarea>
 
         <x-admin.forms.field-error name="seo_description" />
 
@@ -914,7 +984,7 @@
             type="datetime-local"
             name="published_at"
             id="published_at"
-            value="{{ old('published_at') }}"
+            value="{{ $publishedAt }}"
             class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen md:max-w-xs"
         >
 
@@ -945,7 +1015,7 @@
             type="submit"
             class="inline-flex items-center justify-center rounded-md bg-sp-prairieGreen px-4 py-2 text-sm font-semibold text-sp-warmIvory hover:bg-sp-prairieOchre">
 
-            Create Event
+            {{ isset($event) ? 'Update Event' : 'Create Event' }}
 
         </button>
 
