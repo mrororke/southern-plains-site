@@ -708,12 +708,14 @@
             class="block text-sm font-medium text-sp-charcoal mt-3">
             What to Expect
         </label>
-
+        
+        <div class="mt-3">
         <x-admin.forms.rich-text
             id="what-to-expect-editor"
             name="what_to_expect"
             :value="old('what_to_expect')"
         />
+</div>
 
         <x-admin.forms.field-error name="what_to_expect" />
 
@@ -724,15 +726,17 @@
 
         <label
             for="what_to_bring"
-            class="block text-sm font-medium text-sp-charcoal  mb-6">
+            class="block text-sm font-medium text-sp-charcoal">
             What to Bring
         </label>
 
+        <div class="mt-3">
         <x-admin.forms.rich-text
             id="what-to-bring-editor"
             name="what_to_bring"
             :value="old('what_to_bring')"
         />
+</div>
 
         <x-admin.forms.field-error name="what_to_bring" />
 
@@ -743,15 +747,17 @@
 
         <label
             for="requirements_notes"
-            class="block text-sm font-medium text-sp-charcoal  mb-6">
+            class="block text-sm font-medium text-sp-charcoal  ">
             Requirements &amp; Notes
         </label>
 
+        <div class="mt-3">
         <x-admin.forms.rich-text
             id="requirements-editor"
             name="requirements_notes"
             :value="old('requirements_notes')"
         />
+</div>
 
         <x-admin.forms.field-error name="requirements_notes" />
 
