@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreEventV2Request;
+use App\Http\Requests\UpdateEventV2Request;
 use App\Models\EventV2;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Illuminate\View\View;
@@ -113,10 +113,10 @@ class EventV2Controller extends Controller
      * Update an existing V2 event.
      */
     public function update(
-        Request $request,
+        UpdateEventV2Request $request,
         EventV2 $event
     ): RedirectResponse {
-        $validated = $this->validateEvent($request, $event);
+        $validated = $request->validated();
 
         if ($event->title !== $validated['title']) {
             $validated['slug'] = $this->generateUniqueSlug(
@@ -165,183 +165,6 @@ class EventV2Controller extends Controller
     }
 
     /**
-     * Validate event data for the update flow.
-     *
-     * The create flow uses StoreEventV2Request.
-     * This validation remains here until the update request is built.
-     */
-    protected function validateEvent(
-        Request $request,
-        ?EventV2 $event = null
-    ): array {
-        return $request->validate([
-            'type' => [
-                'required',
-                'string',
-                'in:dog_sports,training,workshop,class,community,other',
-            ],
-
-            'status' => [
-                'required',
-                'string',
-                'in:draft,published,cancelled',
-            ],
-
-            'title' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-
-            'short_description' => [
-                'nullable',
-                'string',
-                'max:1000',
-            ],
-
-            'description' => [
-                'required',
-                'string',
-            ],
-
-            'featured_image' => [
-                'nullable',
-                'image',
-                'max:10240',
-            ],
-
-            'featured_image_alt' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-
-            'start_date' => [
-                'required',
-                'date',
-            ],
-
-            'end_date' => [
-                'nullable',
-                'date',
-                'after_or_equal:start_date',
-            ],
-
-            'start_time' => [
-                'nullable',
-                'date_format:H:i',
-            ],
-
-            'end_time' => [
-                'nullable',
-                'date_format:H:i',
-            ],
-
-            'venue_name' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-
-            'address' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-
-            'city' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-
-            'state' => [
-                'required',
-                'string',
-                'max:255',
-            ],
-
-            'is_private_location' => [
-                'nullable',
-                'boolean',
-            ],
-
-            'location_details' => [
-                'nullable',
-                'string',
-                'max:5000',
-            ],
-
-            'registration_status' => [
-                'required',
-                'string',
-                'in:not_required,open,coming_soon,closed',
-            ],
-
-            'registration_url' => [
-                'nullable',
-                'url',
-                'max:2048',
-            ],
-
-            'registration_deadline' => [
-                'nullable',
-                'date',
-            ],
-
-            'registration_notes' => [
-                'nullable',
-                'string',
-                'max:5000',
-            ],
-
-            'what_to_expect' => [
-                'nullable',
-                'string',
-            ],
-
-            'what_to_bring' => [
-                'nullable',
-                'string',
-            ],
-
-            'requirements_notes' => [
-                'nullable',
-                'string',
-            ],
-
-            'cta_label' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-
-            'cta_url' => [
-                'nullable',
-                'url',
-                'max:2048',
-            ],
-
-            'seo_title' => [
-                'nullable',
-                'string',
-                'max:255',
-            ],
-
-            'seo_description' => [
-                'nullable',
-                'string',
-                'max:1000',
-            ],
-
-            'published_at' => [
-                'nullable',
-                'date',
-            ],
-        ]);
-    }
-
-    /**
      * Generate a unique event slug.
      */
     protected function generateUniqueSlug(
@@ -357,7 +180,7 @@ class EventV2Controller extends Controller
                 ->where('slug', $slug)
                 ->when(
                     $event,
-                    fn($query) => $query->whereKeyNot($event->id)
+                    fn ($query) => $query->whereKeyNot($event->id)
                 )
                 ->exists()
         ) {
