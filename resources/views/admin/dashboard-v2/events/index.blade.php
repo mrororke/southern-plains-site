@@ -107,7 +107,7 @@
             <div class="overflow-hidden rounded-lg border border-sp-warmStone bg-sp-warmIvory">
 
                 {{-- Table Header --}}
-                <div class="hidden gap-6 border-b border-sp-warmStone bg-sp-warmIvory/50 px-6 py-4 md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,2fr)_minmax(0,2fr)_minmax(0,2fr)_minmax(0,2fr)]">
+                <div class="hidden gap-6 border-b border-sp-warmStone bg-sp-warmIvory/50 px-6 py-4 md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,1.5fr)_minmax(0,2fr)_minmax(0,1.5fr)_minmax(0,1.5fr)_minmax(0,1.5fr)]">
 
                     <div>
                         <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
@@ -133,9 +133,15 @@
                         </span>
                     </div>
 
-                    <div class="text-right">
+                    <div>
                         <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
                             Registration
+                        </span>
+                    </div>
+
+                    <div class="text-right">
+                        <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
+                            Actions
                         </span>
                     </div>
 
@@ -196,21 +202,26 @@
                         @endphp
 
 
-                        <a
-                            href="{{ route('admin.events-v2.edit', $event) }}"
-                            class="group block px-6 py-4 transition-all duration-150 hover:bg-sp-warmIvory/60 hover:shadow-[inset_3px_0_0_0_#506853] focus-visible:bg-sp-warmIvory focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-sp-prairieGreen">
+                        <div
+                            class="group px-6 py-4 transition-all duration-150 hover:bg-sp-warmIvory/60 hover:shadow-[inset_3px_0_0_0_#506853]">
 
-                            <div class="grid grid-cols-1 gap-4 md:grid-cols-[minmax(0,5fr)_minmax(0,2fr)_minmax(0,2fr)_minmax(0,2fr)_minmax(0,2fr)] md:items-center md:gap-6">
+                            <div class="grid grid-cols-1 gap-4 md:grid-cols-[minmax(0,5fr)_minmax(0,1.5fr)_minmax(0,2fr)_minmax(0,1.5fr)_minmax(0,1.5fr)_minmax(0,1.5fr)] md:items-center md:gap-6">
 
 
                                 {{-- Event Title --}}
                                 <div class="min-w-0">
 
-                                    <h2 class="font-sans text-lg font-semibold leading-snug text-sp-charcoal transition-colors group-hover:text-sp-prairieGreen">
+                                    <a
+                                        href="{{ route('admin.events-v2.edit', $event) }}"
+                                        class="block">
 
-                                        {{ $event->title }}
+                                        <h2 class="font-sans text-lg font-semibold leading-snug text-sp-charcoal transition-colors group-hover:text-sp-prairieGreen">
 
-                                    </h2>
+                                            {{ $event->title }}
+
+                                        </h2>
+
+                                    </a>
 
                                     @if ($isScheduled)
 
@@ -330,7 +341,7 @@
 
 
                                 {{-- Registration --}}
-                                <div class="md:text-right">
+                                <div>
 
                                     <span class="text-sm font-medium {{ $registrationStatusClass }}">
                                         {{ $registrationStatus }}
@@ -339,9 +350,70 @@
                                 </div>
                                 {{-- End Registration --}}
 
+
+                                {{-- Actions --}}
+                                <div class="flex items-center justify-start gap-3 md:justify-end">
+
+                                    <a
+                                        href="{{ route('admin.events-v2.edit', $event) }}"
+                                        class="text-sm font-semibold text-sp-prairieGreen hover:text-sp-prairieOchre hover:underline">
+
+                                        Edit
+
+                                    </a>
+
+
+                                    @if ($event->status === 'published')
+
+                                        <form
+                                            method="POST"
+                                            action="{{ route('admin.events-v2.cancel', $event) }}"
+                                            onsubmit="return confirm('Cancel this event?');"
+                                        >
+                                            @csrf
+                                            @method('PATCH')
+
+                                            <button
+                                                type="submit"
+                                                class="text-sm font-semibold text-sp-burntClay hover:text-sp-prairieOchre hover:underline">
+
+                                                Cancel
+
+                                            </button>
+
+                                        </form>
+
+                                    @endif
+
+
+                                    @if (in_array($event->status, ['draft', 'cancelled'], true))
+
+                                        <form
+                                            method="POST"
+                                            action="{{ route('admin.events-v2.destroy', $event) }}"
+                                            onsubmit="return confirm('Delete this event permanently? This cannot be undone.');"
+                                        >
+                                            @csrf
+                                            @method('DELETE')
+
+                                            <button
+                                                type="submit"
+                                                class="text-sm font-semibold text-sp-burntClay hover:text-sp-prairieOchre hover:underline">
+
+                                                Delete
+
+                                            </button>
+
+                                        </form>
+
+                                    @endif
+
+                                </div>
+                                {{-- End Actions --}}
+
                             </div>
 
-                        </a>
+                        </div>
 
                     @endforeach
 

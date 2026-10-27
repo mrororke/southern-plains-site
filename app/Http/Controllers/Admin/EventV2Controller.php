@@ -147,6 +147,20 @@ class EventV2Controller extends Controller
     }
 
     /**
+     * Cancel an event.
+     */
+    public function cancel(EventV2 $event): RedirectResponse
+    {
+        $event->update([
+            'status' => 'cancelled',
+        ]);
+
+        return redirect()
+            ->route('admin.events-v2.index')
+            ->with('success', 'Event cancelled successfully.');
+    }
+
+    /**
      * Delete a V2 event.
      */
     public function destroy(EventV2 $event): RedirectResponse

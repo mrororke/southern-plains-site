@@ -521,6 +521,9 @@ Route::middleware(['auth', 'device'])
 
         Route::delete('/events/{event}', [\App\Http\Controllers\Admin\EventV2Controller::class, 'destroy'])
             ->name('events-v2.destroy');
+        
+        Route::patch('/events/{event}/cancel', [\App\Http\Controllers\Admin\EventV2Controller::class, 'cancel'])
+    ->name('events-v2.cancel');
     });
 
 
