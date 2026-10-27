@@ -107,39 +107,39 @@
             <div class="overflow-hidden rounded-lg border border-sp-warmStone bg-sp-warmIvory">
 
                 {{-- Table Header --}}
-                <div class="hidden gap-6 border-b border-sp-warmStone bg-sp-warmIvory/50 px-6 py-4 md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,1.5fr)_minmax(0,2fr)_minmax(0,1.5fr)_minmax(0,1.5fr)_minmax(0,1.5fr)]">
+                <div class="hidden border-b border-sp-warmStone bg-sp-warmIvory/50 px-6 py-4 md:grid md:grid-cols-12 md:items-center md:gap-6">
 
-                    <div>
+                    <div class="col-span-4">
                         <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
                             Event
                         </span>
                     </div>
 
-                    <div>
+                    <div class="col-span-2">
                         <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
                             Type
                         </span>
                     </div>
 
-                    <div>
+                    <div class="col-span-2">
                         <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
                             Date
                         </span>
                     </div>
 
-                    <div>
+                    <div class="col-span-1">
                         <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
                             Status
                         </span>
                     </div>
 
-                    <div>
+                    <div class="col-span-1">
                         <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
                             Registration
                         </span>
                     </div>
 
-                    <div class="text-right">
+                    <div class="col-span-2 text-right">
                         <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
                             Actions
                         </span>
@@ -202,20 +202,18 @@
                         @endphp
 
 
-                        <div
-                            class="group px-6 py-4 transition-all duration-150 hover:bg-sp-warmIvory/60 hover:shadow-[inset_3px_0_0_0_#506853]">
+                        <div class="px-6 py-4 transition-all duration-150 hover:bg-sp-warmIvory/60 hover:shadow-[inset_3px_0_0_0_#506853]">
 
-                            <div class="grid grid-cols-1 gap-4 md:grid-cols-[minmax(0,5fr)_minmax(0,1.5fr)_minmax(0,2fr)_minmax(0,1.5fr)_minmax(0,1.5fr)_minmax(0,1.5fr)] md:items-center md:gap-6">
-
+                            <div class="grid grid-cols-1 gap-4 md:grid-cols-12 md:items-center md:gap-6">
 
                                 {{-- Event Title --}}
-                                <div class="min-w-0">
+                                <div class="min-w-0 md:col-span-4">
 
                                     <a
                                         href="{{ route('admin.events-v2.edit', $event) }}"
                                         class="block">
 
-                                        <h2 class="font-sans text-lg font-semibold leading-snug text-sp-charcoal transition-colors group-hover:text-sp-prairieGreen">
+                                        <h2 class="font-sans text-lg font-semibold leading-snug text-sp-charcoal transition-colors hover:text-sp-prairieGreen">
 
                                             {{ $event->title }}
 
@@ -240,7 +238,7 @@
 
 
                                 {{-- Event Type --}}
-                                <div>
+                                <div class="md:col-span-2">
 
                                     <span class="text-sm text-sp-slate">
                                         {{ $eventType }}
@@ -251,7 +249,7 @@
 
 
                                 {{-- Event Date --}}
-                                <div>
+                                <div class="md:col-span-2">
 
                                     @if ($event->end_date)
 
@@ -289,7 +287,7 @@
 
 
                                 {{-- Publication Status --}}
-                                <div>
+                                <div class="md:col-span-1">
 
                                     <div class="flex items-center gap-2">
 
@@ -341,7 +339,7 @@
 
 
                                 {{-- Registration --}}
-                                <div>
+                                <div class="md:col-span-1">
 
                                     <span class="text-sm font-medium {{ $registrationStatusClass }}">
                                         {{ $registrationStatus }}
@@ -352,7 +350,7 @@
 
 
                                 {{-- Actions --}}
-                                <div class="flex items-center justify-start gap-3 md:justify-end">
+                                <div class="flex items-center justify-start gap-3 md:col-span-2 md:justify-end">
 
                                     <a
                                         href="{{ route('admin.events-v2.edit', $event) }}"
