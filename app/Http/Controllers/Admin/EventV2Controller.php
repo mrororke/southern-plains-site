@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreEventV2Request;
 use App\Models\EventV2;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -15,54 +16,51 @@ class EventV2Controller extends Controller
     /**
      * Display all V2 events.
      */
-    /**
- * Display all V2 events.
- */
-public function index(): View
-{
-    $events = EventV2::query()
-        ->orderByRaw("
-            CASE
-                WHEN start_date >= ? THEN 0
-                ELSE 1
-            END
-        ", [today()])
-        ->orderBy('start_date')
-        ->orderBy('id')
-        ->paginate(20);
+    public function index(): View
+    {
+        $events = EventV2::query()
+            ->orderByRaw("
+                CASE
+                    WHEN start_date >= ? THEN 0
+                    ELSE 1
+                END
+            ", [today()])
+            ->orderBy('start_date')
+            ->orderBy('id')
+            ->paginate(20);
 
-    $eventCounts = [
-        'total' => EventV2::count(),
+        $eventCounts = [
+            'total' => EventV2::count(),
 
-        'published' => EventV2::query()
-            ->where('status', 'published')
-            ->where(function ($query) {
-                $query
-                    ->whereNull('published_at')
-                    ->orWhere('published_at', '<=', now());
-            })
-            ->count(),
+            'published' => EventV2::query()
+                ->where('status', 'published')
+                ->where(function ($query) {
+                    $query
+                        ->whereNull('published_at')
+                        ->orWhere('published_at', '<=', now());
+                })
+                ->count(),
 
-        'scheduled' => EventV2::query()
-            ->where('status', 'published')
-            ->where('published_at', '>', now())
-            ->count(),
+            'scheduled' => EventV2::query()
+                ->where('status', 'published')
+                ->where('published_at', '>', now())
+                ->count(),
 
-        'draft' => EventV2::query()
-            ->where('status', 'draft')
-            ->count(),
+            'draft' => EventV2::query()
+                ->where('status', 'draft')
+                ->count(),
 
-        'cancelled' => EventV2::query()
-            ->where('status', 'cancelled')
-            ->count(),
-    ];
+            'cancelled' => EventV2::query()
+                ->where('status', 'cancelled')
+                ->count(),
+        ];
 
-    return view('admin.dashboard-v2.events.index', [
-        'events' => $events,
-        'eventCounts' => $eventCounts,
-        'navigation' => \App\Navigation\AdminNavigation::items(),
-    ]);
-}
+        return view('admin.dashboard-v2.events.index', [
+            'events' => $events,
+            'eventCounts' => $eventCounts,
+            'navigation' => \App\Navigation\AdminNavigation::items(),
+        ]);
+    }
 
     /**
      * Display the create event form.
@@ -77,9 +75,9 @@ public function index(): View
     /**
      * Store a new V2 event.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(StoreEventV2Request $request): RedirectResponse
     {
-        $validated = $this->validateEvent($request);
+        $validated = $request->validated();
 
         $validated['slug'] = $this->generateUniqueSlug(
             $validated['title']
@@ -167,7 +165,10 @@ public function index(): View
     }
 
     /**
-     * Validate event data.
+     * Validate event data for the update flow.
+     *
+     * The create flow uses StoreEventV2Request.
+     * This validation remains here until the update request is built.
      */
     protected function validateEvent(
         Request $request,
