@@ -107,39 +107,42 @@
             <div class="overflow-hidden rounded-lg border border-sp-warmStone bg-sp-warmIvory">
 
                 {{-- Table Header --}}
-                <div class="hidden border-b border-sp-warmStone bg-sp-warmIvory/50 px-6 py-4 md:grid md:grid-cols-12 md:items-center md:gap-6">
+                <div
+                    class="hidden border-b border-sp-warmStone bg-sp-warmIvory/50 px-6 py-4 md:grid md:items-center md:gap-6"
+                    style="grid-template-columns: minmax(0, 4fr) minmax(0, 2fr) minmax(0, 2fr) minmax(0, 1.25fr) minmax(0, 1.5fr) minmax(0, 1.75fr);"
+                >
 
-                    <div class="col-span-4">
+                    <div>
                         <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
                             Event
                         </span>
                     </div>
 
-                    <div class="col-span-2">
+                    <div>
                         <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
                             Type
                         </span>
                     </div>
 
-                    <div class="col-span-2">
+                    <div>
                         <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
                             Date
                         </span>
                     </div>
 
-                    <div class="col-span-1">
+                    <div>
                         <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
                             Status
                         </span>
                     </div>
 
-                    <div class="col-span-1">
+                    <div>
                         <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
                             Registration
                         </span>
                     </div>
 
-                    <div class="col-span-2 text-right">
+                    <div class="text-right">
                         <span class="text-xs font-semibold uppercase tracking-wider text-sp-slate">
                             Actions
                         </span>
@@ -202,16 +205,22 @@
                         @endphp
 
 
-                        <div class="px-6 py-4 transition-all duration-150 hover:bg-sp-warmIvory/60 hover:shadow-[inset_3px_0_0_0_#506853]">
+                        <div
+                            class="px-6 py-4 transition-all duration-150 hover:bg-sp-warmIvory/60 hover:shadow-[inset_3px_0_0_0_#506853]"
+                        >
 
-                            <div class="grid grid-cols-1 gap-4 md:grid-cols-12 md:items-center md:gap-6">
+                            <div
+                                class="grid grid-cols-1 gap-4 md:items-center md:gap-6"
+                                style="grid-template-columns: minmax(0, 4fr) minmax(0, 2fr) minmax(0, 2fr) minmax(0, 1.25fr) minmax(0, 1.5fr) minmax(0, 1.75fr);"
+                            >
 
                                 {{-- Event Title --}}
-                                <div class="min-w-0 md:col-span-4">
+                                <div class="min-w-0">
 
                                     <a
                                         href="{{ route('admin.events-v2.edit', $event) }}"
-                                        class="block">
+                                        class="block"
+                                    >
 
                                         <h2 class="font-sans text-lg font-semibold leading-snug text-sp-charcoal transition-colors hover:text-sp-prairieGreen">
 
@@ -238,7 +247,7 @@
 
 
                                 {{-- Event Type --}}
-                                <div class="md:col-span-2">
+                                <div>
 
                                     <span class="text-sm text-sp-slate">
                                         {{ $eventType }}
@@ -249,7 +258,7 @@
 
 
                                 {{-- Event Date --}}
-                                <div class="md:col-span-2">
+                                <div>
 
                                     @if ($event->end_date)
 
@@ -287,7 +296,7 @@
 
 
                                 {{-- Publication Status --}}
-                                <div class="md:col-span-1">
+                                <div>
 
                                     <div class="flex items-center gap-2">
 
@@ -339,7 +348,7 @@
 
 
                                 {{-- Registration --}}
-                                <div class="md:col-span-1">
+                                <div>
 
                                     <span class="text-sm font-medium {{ $registrationStatusClass }}">
                                         {{ $registrationStatus }}
@@ -350,14 +359,13 @@
 
 
                                 {{-- Actions --}}
-                                <div class="flex items-center justify-start gap-3 md:col-span-2 md:justify-end">
+                                <div class="flex items-center justify-start gap-3 md:justify-end">
 
                                     <a
                                         href="{{ route('admin.events-v2.edit', $event) }}"
-                                        class="text-sm font-semibold text-sp-prairieGreen hover:text-sp-prairieOchre hover:underline">
-
+                                        class="text-sm font-semibold text-sp-prairieGreen hover:text-sp-prairieOchre hover:underline"
+                                    >
                                         Edit
-
                                     </a>
 
 
@@ -373,10 +381,9 @@
 
                                             <button
                                                 type="submit"
-                                                class="text-sm font-semibold text-sp-burntClay hover:text-sp-prairieOchre hover:underline">
-
+                                                class="text-sm font-semibold text-sp-burntClay hover:text-sp-prairieOchre hover:underline"
+                                            >
                                                 Cancel
-
                                             </button>
 
                                         </form>
@@ -396,10 +403,9 @@
 
                                             <button
                                                 type="submit"
-                                                class="text-sm font-semibold text-sp-burntClay hover:text-sp-prairieOchre hover:underline">
-
+                                                class="text-sm font-semibold text-sp-burntClay hover:text-sp-prairieOchre hover:underline"
+                                            >
                                                 Delete
-
                                             </button>
 
                                         </form>
