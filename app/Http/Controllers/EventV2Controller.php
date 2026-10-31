@@ -8,7 +8,10 @@ use Illuminate\View\View;
 class EventV2Controller extends Controller
 {
     /**
-     * Display the public Events archive.
+     * Display the public Events landing page.
+     *
+     * The next upcoming published event is automatically featured.
+     * Remaining upcoming published events are displayed chronologically.
      */
     public function index(): View
     {
@@ -18,25 +21,26 @@ class EventV2Controller extends Controller
                 $query
                     ->whereNull('published_at')
                     ->orWhere('published_at', '<=', now());
-            });
+            })
+            ->where('start_date', '>=', today())
+            ->orderBy('start_date')
+            ->orderByRaw('start_time IS NULL')
+            ->orderBy('start_time')
+            ->orderBy('id');
+
+        $featuredEvent = (clone $publishedEvents)
+            ->first();
 
         $upcomingEvents = (clone $publishedEvents)
-            ->whereDate('start_date', '>=', today())
-            ->orderBy('start_date')
-            ->orderBy('start_time')
-            ->orderBy('id')
-            ->get();
-
-        $pastEvents = (clone $publishedEvents)
-            ->whereDate('start_date', '<', today())
-            ->orderByDesc('start_date')
-            ->orderByDesc('start_time')
-            ->orderByDesc('id')
+            ->when(
+                $featuredEvent,
+                fn ($query) => $query->whereKeyNot($featuredEvent->id)
+            )
             ->get();
 
         return view('public-v2.events.index', [
+            'featuredEvent' => $featuredEvent,
             'upcomingEvents' => $upcomingEvents,
-            'pastEvents' => $pastEvents,
         ]);
     }
 
