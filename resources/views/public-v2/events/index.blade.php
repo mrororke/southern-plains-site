@@ -133,7 +133,7 @@
 
                         <div class="flex items-start gap-2">
 
-                            <x-icons.calendar
+                            <x-icons.calendar-range
                                 class="mt-0.5 h-4 w-4 shrink-0 text-sp-slate"
                                 aria-hidden="true"
                             />
