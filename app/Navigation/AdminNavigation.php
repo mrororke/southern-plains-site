@@ -33,7 +33,6 @@ class AdminNavigation
                     ],
 
                     [
-                        /* TODO: Current admin route: admin/posts */
                         'label' => 'Learn',
                         'route' => 'admin.learn.index',
                         'activeRoute' => 'admin.learn.*',
@@ -106,9 +105,9 @@ class AdminNavigation
 
                     [
                         'label' => 'Events',
-                        'route' => 'admin.dashboard',
-                        'activeRoute' => 'admin.dashboard',
-                        'status' => 'coming-soon',
+                        'route' => 'admin.events-v2.index',
+                        'activeRoute' => 'admin.events-v2.*',
+                        'status' => 'active',
                     ],
 
                     [
@@ -400,13 +399,11 @@ class AdminNavigation
                             $child['disabled'] = $child['status'] !== 'active';
 
                             return $child;
-
                         })
                         ->all();
                 }
 
                 return $item;
-
             })
             ->all();
     }
