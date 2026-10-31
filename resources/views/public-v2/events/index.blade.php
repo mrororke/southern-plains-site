@@ -468,7 +468,7 @@
 
 
 {{-- Find Your Thing --}}
-<section class="bg-sp-sage px-6 py-12 md:px-8 md:py-16">
+<section class="bg-[#4F6954]/45 px-6 py-12 md:px-8 md:py-16">
 
     <div class="grid grid-cols-12 gap-6">
 
