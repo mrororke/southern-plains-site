@@ -309,7 +309,7 @@
 
     @if ($upcomingEvents->isNotEmpty())
 
-        <div class="mt-6 divide-y divide-sp-warmStone">
+        <div class="mt-6 space-y-2">
 
             @foreach ($upcomingEvents as $event)
 
@@ -325,7 +325,9 @@
                 @endphp
 
 
-                <article class="grid grid-cols-12 items-center gap-4 py-6 md:gap-6">
+                <article
+                    class="group grid grid-cols-12 items-center gap-4 rounded-md px-4 py-6 transition-colors duration-200 hover:bg-sp-limestone md:gap-6 md:px-6"
+                >
 
                     {{-- Date --}}
                     <div class="col-span-3 md:col-span-1">
@@ -358,12 +360,12 @@
                             <img
                                 src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($event->featured_image_path) }}"
                                 alt="{{ $event->featured_image_alt ?? $event->title }}"
-                                class="block aspect-[16/9] w-full rounded-md object-cover"
+                                class="block aspect-[2/1] w-full rounded-md object-cover"
                             >
 
                         @else
 
-                            <div class="flex aspect-[16/9] w-full items-center justify-center rounded-md bg-sp-warmIvory">
+                            <div class="flex aspect-[2/1] w-full items-center justify-center rounded-md bg-sp-warmIvory">
 
                                 <span class="font-display text-xl text-sp-slate">
                                     Southern Plains
@@ -393,7 +395,7 @@
 
                             <div class="flex items-start gap-2">
 
-                                <x-icons.map-pin
+                                <x-icons.signpost
                                     class="mt-0.5 h-4 w-4 shrink-0"
                                     aria-hidden="true"
                                 />
