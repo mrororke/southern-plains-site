@@ -87,7 +87,7 @@
 {{-- Featured Event --}}
 @if ($featuredEvent)
 
-    <section class="px-6 pb-12 md:px-8 md:pb-16">
+    <section class="px-6 pt-[88px] pb-12 md:px-8 md:pb-16">
 
         <div class="grid grid-cols-12 overflow-hidden rounded-md bg-sp-limestone">
 
