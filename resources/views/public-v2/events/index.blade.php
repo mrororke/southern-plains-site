@@ -516,7 +516,7 @@
                 class="col-span-12 rounded-md bg-sp-limestone p-5 transition-transform hover:-translate-y-0.5 md:col-span-4"
             >
 
-                <x-icons.calendar
+                <x-icons.calendar-check
                     class="h-7 w-7 text-sp-prairieGreen"
                     aria-hidden="true"
                 />
