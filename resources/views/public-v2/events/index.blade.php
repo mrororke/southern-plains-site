@@ -174,7 +174,7 @@
 
                         <div class="flex items-start gap-2">
 
-                            <x-icons.map-pin
+                            <x-icons.signpost
                                 class="mt-0.5 h-4 w-4 shrink-0 text-sp-slate"
                                 aria-hidden="true"
                             />
@@ -218,7 +218,7 @@
 
                         <div class="flex items-start gap-2">
 
-                            <x-icons.calendar-plus
+                            <x-icons.ticket
                                 class="mt-0.5 h-4 w-4 shrink-0 text-sp-slate"
                                 aria-hidden="true"
                             />
@@ -527,7 +527,7 @@
             class="col-span-12 rounded-md bg-sp-limestone p-5 transition-transform hover:-translate-y-0.5 md:col-span-4"
         >
 
-            <x-icons.calendar-plus
+            <x-icons.ticket
                 class="h-7 w-7 text-sp-prairieGreen"
                 aria-hidden="true"
             />
