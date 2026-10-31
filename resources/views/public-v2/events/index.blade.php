@@ -16,53 +16,66 @@
 
 @section('canonical_url', url('/v2/events'))
 
-
 @section('hero')
 
-    {{-- Events Hero --}}
-    <section
-        id="hero"
-        class="grid grid-cols-12 gap-6 px-6 pt-8 pb-12 md:px-8 md:pt-12 md:pb-16"
-    >
+{{-- Hero --}}
+<div
+    id="hero"
+    class="grid grid-cols-12 pt-8">
 
-        {{-- Hero Content --}}
-        <div class="col-span-12 md:col-span-4">
+    <div class="col-span-12 md:col-span-5 md:pr-0 pl-8 pr-8">
 
-            <p class="font-display font-bold text-2xl text-sp-burntClay">
-                Events
-            </p>
+        <p class="text-eyebrow">
+            Events
+        </p>
 
-            <h1 class="font-sans text-4xl font-semibold leading-tight text-sp-charcoal mt-3">
-                Come Play<br class="hidden md:block">
-                With Us.
-            </h1>
+        <h1 class="text-hero text-sp-charcoal">
+            Come Play With Us.
+        </h1>
 
-            <p class="body text-sp-slate mt-6 max-w-md">
-                From NASDA trials and workshops to classes, meetups, and special events, this is where you’ll find what’s coming up at Southern Plains Sport Dog Club.
-            </p>
+        <div class="hl-break">
+            <hr>
+        </div>
+
+        <p class="body-large text-sp-slate">
+            Find upcoming dog sports, workshops, training opportunities, and other ways to play, train, and grow together.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 py-6">
+
+            <a
+                href="#upcoming"
+                class="btn-primary">
+                See What's Coming Up
+            </a>
+
+            <a
+                href="#find-your-thing"
+                class="btn-primary-outline">
+                Find Your Thing
+            </a>
 
         </div>
-        {{-- End Hero Content --}}
 
+    </div>
 
-        {{-- Hero Image --}}
-        <div class="col-span-12 md:col-span-8">
+    <div class="col-span-12 mt-8 md:col-span-7 md:mt-0 relative">
 
-            <div class="relative overflow-hidden rounded-md">
+        <img
+            class="w-full h-full"
+            src="{{ asset('images/headers/header-events.png') }}"
+            alt="Southern Plains Sport Dog Club events.">
 
-                <img
-                    src="{{ asset('images/headers/header-events.png') }}"
-                    alt="A dog and handler moving through a field during a sport dog event."
-                    class="block aspect-[16/10] w-full object-cover"
-                >
+        <x-public-v2.image-registration
+            text="Photo by Blue Ridge Creative"
+            position="right"
+            href="https://www.blueridgeprairie.studio/" />
 
-            </div>
+    </div>
 
-        </div>
-        {{-- End Hero Image --}}
+</div>
 
-    </section>
-    {{-- End Events Hero --}}
+{{-- End Hero --}}
 
 @endsection
 
