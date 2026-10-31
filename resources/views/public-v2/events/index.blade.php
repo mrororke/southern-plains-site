@@ -192,6 +192,17 @@
 
                         @if ($featuredEvent->registration_status !== 'not_required')
 
+                            @php
+                                $registrationLabel = match (
+                                    $featuredEvent->effective_registration_status
+                                ) {
+                                    'open' => 'Registration Open',
+                                    'coming_soon' => 'Registration Coming Soon',
+                                    'closed' => 'Registration Closed',
+                                    default => 'Registration',
+                                };
+                            @endphp
+
                             <div class="flex items-start gap-2">
 
                                 <x-icons.calendar-plus
@@ -200,23 +211,7 @@
                                 />
 
                                 <span>
-
-                                    @match ($featuredEvent->effective_registration_status)
-
-                                        @case('open')
-                                            Registration Open
-                                            @break
-
-                                        @case('coming_soon')
-                                            Registration Coming Soon
-                                            @break
-
-                                        @case('closed')
-                                            Registration Closed
-                                            @break
-
-                                    @endmatch
-
+                                    {{ $registrationLabel }}
                                 </span>
 
                             </div>
