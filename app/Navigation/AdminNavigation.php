@@ -99,7 +99,7 @@ class AdminNavigation
                 'label' => 'Events & Sports',
                 'icon' => 'trophy',
                 'roles' => ['admin'],
-                'status' => 'coming-soon',
+                'status' => 'active',
 
                 'children' => [
 
