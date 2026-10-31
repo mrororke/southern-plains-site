@@ -13,6 +13,7 @@ use App\Http\Controllers\HistoryFormController;
 use App\Http\Controllers\TrickEvaluationController;
 use App\Http\Controllers\TrickController;
 use App\Http\Controllers\Admin\TrickCatalogController;
+use App\Http\Controllers\EventV2Controller;
 
 use App\Http\Controllers\Admin\BackendSearchController;
 use App\Http\Controllers\Admin\ResourceLibrary\ResourceController;
@@ -69,8 +70,11 @@ Route::prefix('v2')
         Route::get('/learn/{article:slug}', [LearnController::class, 'show'])
             ->name('learn.show');
 
-        Route::view('/events', 'public-v2.events.index')
-            ->name('events.index');
+        Route::get('/events', [EventV2Controller::class, 'index'])
+    ->name('events.index');
+
+Route::get('/events/{event:slug}', [EventV2Controller::class, 'show'])
+    ->name('events.show');
 
         Route::view('/contact', 'public-v2.inquiries.contact')
             ->name('contact');
