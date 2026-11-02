@@ -73,6 +73,9 @@ Route::prefix('v2')
         Route::get('/events', [EventV2Controller::class, 'index'])
     ->name('events.index');
 
+    Route::get('/events/archive', [EventV2Controller::class, 'archive'])
+    ->name('events.archive');
+
 Route::get('/events/{event:slug}', [EventV2Controller::class, 'show'])
     ->name('events.show');
 

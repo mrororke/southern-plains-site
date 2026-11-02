@@ -295,7 +295,7 @@
 
         {{-- Full Archive Link --}}
         <a
-            href="{{ route('public-v2.events.index') }}"
+            href="{{ route('public-v2.events.archive') }}"
             class="learn-more-link text-sp-prairieGreen"
         >
             View All Events
