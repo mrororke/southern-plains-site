@@ -440,7 +440,7 @@
 
 
     {{-- Archive Navigation --}}
-    <aside class="col-span-12 md:col-span-3">
+    <aside class="col-span-12 md:col-span-3 pt-6">
 
         <x-public-v2.events-navigation
     :event-categories="$eventCategories"
