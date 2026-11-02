@@ -4,59 +4,64 @@
     'hasPastEvents' => false,
 ])
 
-<nav
-    class="sticky top-6"
+{{-- Events Navigation --}}
+<aside
+    class="hidden md:col-span-3 md:block md:self-start md:sticky md:top-8 md:border-l md:border-sp-warmStone md:pl-6"
     aria-label="Events navigation">
 
-    <p class="text-eyebrow">
-        Events
-    </p>
+    <nav>
 
-    <ul class="mt-4 space-y-1">
+        <p class="font-display font-bold text-2xl text-sp-prairieGreen uppercase">
+            Events
+        </p>
 
-        <li>
-            <a
-                href="#upcoming"
-                data-events-nav
-                class="events-nav-link"
-            >
-                Upcoming
-            </a>
-        </li>
+        <ul class="flex flex-col gap-4 mt-2">
 
-        @foreach ($eventCategories as $type => $label)
+            <li>
+                <a
+                    href="#upcoming"
+                    data-events-nav
+                    data-target="upcoming"
+                    class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                    Upcoming
+                </a>
+            </li>
 
-            @if ($upcomingByCategory->has($type))
+            @foreach ($eventCategories as $type => $label)
+
+                @if ($upcomingByCategory->has($type))
+
+                    <li>
+                        <a
+                            href="#{{ \Illuminate\Support\Str::slug($label) }}"
+                            data-events-nav
+                            data-target="{{ \Illuminate\Support\Str::slug($label) }}"
+                            class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                            {{ $label }}
+                        </a>
+                    </li>
+
+                @endif
+
+            @endforeach
+
+            @if ($hasPastEvents)
 
                 <li>
                     <a
-                        href="#{{ \Illuminate\Support\Str::slug($label) }}"
+                        href="#past-events"
                         data-events-nav
-                        class="events-nav-link"
-                    >
-                        {{ $label }}
+                        data-target="past-events"
+                        class="body text-sp-charcoal transition-colors hover:text-sp-prairieOchre">
+                        Past Events
                     </a>
                 </li>
 
             @endif
 
-        @endforeach
+        </ul>
 
-        @if ($hasPastEvents)
+    </nav>
 
-            <li>
-                <a
-                    href="#past-events"
-                    data-events-nav
-                    class="events-nav-link"
-                >
-                    Past Events
-                </a>
-            </li>
-
-        @endif
-
-    </ul>
-
-</nav>
-
+</aside>
+{{-- End Events Navigation --}}

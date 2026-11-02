@@ -443,10 +443,10 @@
     <aside class="col-span-12 md:col-span-3">
 
         <x-public-v2.events-navigation
-            :event-categories="$eventCategories"
-            :upcoming-by-category="$upcomingByCategory"
-            :has-past-events="$pastEvents->isNotEmpty()"
-        />
+    :event-categories="$eventCategories"
+    :upcoming-by-category="$upcomingByCategory"
+    :has-past-events="$pastEvents->isNotEmpty()"
+/>
 
     </aside>
     {{-- End Archive Navigation --}}
