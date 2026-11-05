@@ -484,7 +484,7 @@
 
     {{-- Backdrop --}}
     <div
-        class="absolute inset-0 bg-[#66655F]/50"
+        class="absolute z-0 inset-0 bg-[#66655F]/75"
         data-close-reminder>
     </div>
 
