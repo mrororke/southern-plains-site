@@ -66,13 +66,26 @@
                 </div>
             @enderror
 
-            <form method="POST" action="{{ route('public-v2.events.register.store', $event) }}" class="space-y-6 mt-6" x-data="{
-                participation: @js(old('participation_type', 'working')),
-                dogs: @js(old('dogs', [['name' => '', 'age' => '', 'breed' => '']])),
-                addDog() { if (this.dogs.length < 20) this.dogs.push({ name: '', age: '', breed: '' }); },
-                removeDog(index) { if (this.dogs.length > 1) this.dogs.splice(index, 1); }
-            }">
+            <form method="POST"
+                action="{{ route('public-v2.events.register.store', $event) }}"
+                class="space-y-6 mt-6"
+                x-data="{
+                    participation: @js(old('participation_type', 'working')),
+                    dogs: @js(old('dogs', [['name' => '', 'age' => '', 'breed' => '']])),
+                    addDog() {
+                        if (this.dogs.length < 20) {
+                            this.dogs = [...this.dogs, { name: '', age: '', breed: '' }];
+                        }
+                    },
+                    removeDog(index) {
+                        if (this.dogs.length > 1) {
+                            this.dogs = this.dogs.filter((dog, i) => i !== index);
+                        }
+                    }
+                }">
+
                 @csrf
+
                 <div aria-hidden="true" class="hidden">
                     <label for="website_url">Website URL</label>
                     <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off">
@@ -90,6 +103,7 @@
                         <input type="email" id="email" name="email" value="{{ old('email') }}" required autocomplete="email" class="w-full rounded-md">
                         @error('email') <p class="text-sp-clayRed mt-2">{{ $message }}</p> @enderror
                     </div>
+
                     <div>
                         <label for="phone" class="block text-sp-slate text-sm mb-2">Phone Number*</label>
                         <input type="tel" id="phone" name="phone" value="{{ old('phone') }}" required autocomplete="tel" class="w-full rounded-md">
@@ -104,6 +118,7 @@
                             <input type="radio" name="participation_type" value="working" x-model="participation" required>
                             <span class="text-sp-charcoal font-semibold">Working Team</span>
                         </label>
+
                         <label class="flex items-center gap-3 border border-sp-slate/20 rounded-md p-4 cursor-pointer bg-white">
                             <input type="radio" name="participation_type" value="auditor" x-model="participation" required>
                             <span class="text-sp-charcoal font-semibold">Auditor</span>
@@ -115,22 +130,26 @@
                 <section x-show="participation === 'working'" x-cloak>
                     <h3 class="font-sans text-xl font-semibold text-sp-charcoal">Your Working Dogs</h3>
                     <p class="body-small text-sp-slate mt-1 mb-4">Each dog uses one working spot.</p>
+
                     <template x-for="(dog, index) in dogs" :key="index">
                         <div class="border border-sp-slate/20 bg-white rounded-md p-4 mb-4">
                             <div class="flex justify-between items-center mb-4 gap-3">
                                 <h4 class="font-sans font-semibold text-sp-charcoal" x-text="'Dog ' + (index + 1)"></h4>
                                 <button type="button" x-show="dogs.length > 1" @click="removeDog(index)" class="text-sm text-sp-clayRed underline">Remove Dog</button>
                             </div>
+
                             <div class="space-y-4">
                                 <div>
                                     <label class="block text-sp-slate text-sm mb-2" :for="'dog-name-' + index">Dog's Name*</label>
                                     <input type="text" :id="'dog-name-' + index" :name="'dogs[' + index + '][name]'" x-model="dog.name" :required="participation === 'working'" :disabled="participation !== 'working'" maxlength="255" class="w-full rounded-md">
                                 </div>
+
                                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                     <div>
                                         <label class="block text-sp-slate text-sm mb-2" :for="'dog-age-' + index">Age*</label>
                                         <input type="text" :id="'dog-age-' + index" :name="'dogs[' + index + '][age]'" x-model="dog.age" :required="participation === 'working'" :disabled="participation !== 'working'" maxlength="100" class="w-full rounded-md">
                                     </div>
+
                                     <div>
                                         <label class="block text-sp-slate text-sm mb-2" :for="'dog-breed-' + index">Breed*</label>
                                         <input type="text" :id="'dog-breed-' + index" :name="'dogs[' + index + '][breed]'" x-model="dog.breed" :required="participation === 'working'" :disabled="participation !== 'working'" maxlength="255" class="w-full rounded-md">
@@ -139,7 +158,9 @@
                             </div>
                         </div>
                     </template>
+
                     <button type="button" @click="addDog()" :disabled="dogs.length >= 20" class="font-sans font-semibold text-sp-prairieBlue underline disabled:opacity-50">+ Add Another Dog</button>
+
                     @error('dogs') <p class="text-sp-clayRed mt-2">{{ $message }}</p> @enderror
                     @foreach ($errors->getMessages() as $field => $messages)
                         @if (str_starts_with($field, 'dogs.'))
@@ -155,16 +176,19 @@
                     <textarea id="nasda_experience" name="nasda_experience" rows="3" class="w-full rounded-md">{{ old('nasda_experience') }}</textarea>
                     @error('nasda_experience') <p class="text-sp-clayRed mt-2">{{ $message }}</p> @enderror
                 </div>
+
                 <div>
                     <label for="other_sports" class="block text-sp-slate text-sm mb-2">Do You Participate in Other Dog Sports?</label>
                     <textarea id="other_sports" name="other_sports" rows="2" class="w-full rounded-md">{{ old('other_sports') }}</textarea>
                     @error('other_sports') <p class="text-sp-clayRed mt-2">{{ $message }}</p> @enderror
                 </div>
+
                 <div x-show="participation === 'working'" x-cloak>
                     <label for="reinforcers" class="block text-sp-slate text-sm mb-2">What Does Your Dog Find Rewarding?</label>
                     <textarea id="reinforcers" name="reinforcers" rows="2" class="w-full rounded-md" :disabled="participation !== 'working'">{{ old('reinforcers') }}</textarea>
                     @error('reinforcers') <p class="text-sp-clayRed mt-2">{{ $message }}</p> @enderror
                 </div>
+
                 <div>
                     <label for="notes" class="block text-sp-slate text-sm mb-2">Anything Else We Should Know?</label>
                     <textarea id="notes" name="notes" rows="4" class="w-full rounded-md">{{ old('notes') }}</textarea>
@@ -192,7 +216,9 @@
                     Submit Registration
                     <i data-lucide="arrow-right" class="w-5 h-5"></i>
                 </button>
+
                 <p class="body-small text-sp-slate">Available spots are reserved pending payment. If the event is full, you'll be added to the waitlist instead. Your registration is not confirmed until payment is recorded.</p>
+
             </form>
         @endif
     </div>
