@@ -57,93 +57,82 @@
 )
 
 
-@section('content')
+@section('hero')
 
-{{-- Event Page --}}
-<main>
+{{-- Hero --}}
+<div
+    id="hero"
+    class="grid grid-cols-12 pt-8">
 
-    {{-- Breadcrumb --}}
-    <div class="px-6 pt-8 md:px-8">
+    <div class="col-span-12 md:col-span-5 md:pr-0 pl-8 pr-8">
 
-        <nav
-            aria-label="Breadcrumb"
-            class="text-sm text-sp-slate">
+        <p class="text-eyebrow">
+            {{ $eventType }}
+        </p>
 
-            <ol class="flex flex-wrap items-center gap-2">
+        <h1 class="text-hero text-sp-charcoal">
+            {{ $event->title }}
+        </h1>
 
-                <li>
-                    <a
-                        href="{{ route('public-v2.events.index') }}"
-                        class="transition-colors hover:text-sp-prairieOchre">
-                        Events
-                    </a>
-                </li>
+        <div class="hl-break">
+            <hr>
+        </div>
 
-                <li aria-hidden="true">
-                    /
-                </li>
+        @if ($event->short_description)
 
-                <li class="text-sp-charcoal">
-                    {{ $event->title }}
-                </li>
-
-            </ol>
-
-        </nav>
-
-    </div>
-    {{-- End Breadcrumb --}}
-
-
-    {{-- Event Hero --}}
-    <section class="grid grid-cols-12 gap-8 px-6 pt-10 pb-16 md:gap-10 md:px-8 md:pt-12 md:pb-20">
-
-        {{-- Hero Details --}}
-        <div class="col-span-12 flex flex-col justify-center md:col-span-5">
-
-            <p class="text-eyebrow">
-                {{ $eventType }}
+            <p class="body-large text-sp-slate">
+                {{ $event->short_description }}
             </p>
 
-            <h1 class="text-hero text-sp-charcoal mt-2">
-                {{ $event->title }}
-            </h1>
+        @endif
 
-            <div class="hl-break">
-                <hr>
+
+        {{-- Event Metadata --}}
+        <div class="mt-5 space-y-2 text-sm text-sp-slate">
+
+            <div class="flex items-start gap-2">
+
+                <x-icons.calendar-range
+                    class="mt-0.5 h-4 w-4 shrink-0"
+                    aria-hidden="true"
+                />
+
+                <span>
+
+                    @if ($event->end_date)
+
+                        {{ $event->start_date->format('F j') }}
+                        –
+                        {{ $event->end_date->format('F j, Y') }}
+
+                    @else
+
+                        {{ $event->start_date->format('F j, Y') }}
+
+                    @endif
+
+                </span>
+
             </div>
 
 
-            @if ($event->short_description)
+            @if ($event->start_time)
 
-                <p class="body-large text-sp-slate">
-                    {{ $event->short_description }}
-                </p>
+                <div class="flex items-start gap-2">
 
-            @endif
-
-
-            {{-- Hero Metadata --}}
-            <div class="mt-6 space-y-3 text-sp-slate">
-
-                <div class="flex items-start gap-3">
-
-                    <x-icons.calendar-range
-                        class="mt-0.5 h-5 w-5 shrink-0"
+                    <x-icons.clock
+                        class="mt-0.5 h-4 w-4 shrink-0"
                         aria-hidden="true"
                     />
 
                     <span>
 
-                        @if ($event->end_date)
+                        {{ $event->start_time->format('g:i A') }}
 
-                            {{ $event->start_date->format('F j') }}
+                        @if ($event->end_time)
+
                             –
-                            {{ $event->end_date->format('F j, Y') }}
-
-                        @else
-
-                            {{ $event->start_date->format('F j, Y') }}
+                            {{ $event->end_time->format('g:i A') }}
 
                         @endif
 
@@ -151,194 +140,53 @@
 
                 </div>
 
-
-                @if ($event->start_time)
-
-                    <div class="flex items-start gap-3">
-
-                        <span
-                            class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center text-xs font-semibold"
-                            aria-hidden="true">
-                            —
-                        </span>
-
-                        <span>
-
-                            {{ $event->start_time->format('g:i A') }}
-
-                            @if ($event->end_time)
-
-                                –
-                                {{ $event->end_time->format('g:i A') }}
-
-                            @endif
-
-                        </span>
-
-                    </div>
-
-                @endif
-
-
-                @if ($event->city || $event->state)
-
-                    <div class="flex items-start gap-3">
-
-                        <x-icons.signpost
-                            class="mt-0.5 h-5 w-5 shrink-0"
-                            aria-hidden="true"
-                        />
-
-                        <span>
-
-                            @if ($event->is_private_location)
-
-                                {{ $event->city }}, {{ $event->state }}
-
-                            @else
-
-                                {{ $event->venue_name
-                                    ? $event->venue_name . ', '
-                                    : ''
-                                }}
-
-                                {{ $event->city }}, {{ $event->state }}
-
-                            @endif
-
-                        </span>
-
-                    </div>
-
-                @endif
-
-            </div>
-            {{-- End Hero Metadata --}}
-
-
-            {{-- Hero CTA --}}
-            @if (! $isPast && $event->registration_status !== 'not_required')
-
-                @if ($registrationStatus === 'open' && $event->registration_url)
-
-                    <div class="mt-7">
-
-                        <a
-                            href="{{ $event->registration_url }}"
-                            class="inline-flex items-center gap-2 rounded-md bg-sp-prairieGreen px-5 py-3 text-sm font-semibold text-sp-warmIvory transition-colors hover:bg-sp-prairieOchre"
-                            target="_blank"
-                            rel="noopener"
-                        >
-
-                            {{ $event->cta_label ?: 'Register Now' }}
-
-                            <x-icons.move-right
-                                class="h-4 w-4"
-                                aria-hidden="true"
-                            />
-
-                        </a>
-
-                    </div>
-
-                @elseif ($registrationStatus === 'coming_soon')
-
-                    <div class="mt-7">
-
-                        <span class="inline-flex items-center gap-2 rounded-md bg-sp-limestone px-5 py-3 text-sm font-semibold text-sp-slate">
-                            Registration Coming Soon
-                        </span>
-
-                    </div>
-
-                @elseif ($registrationStatus === 'closed')
-
-                    <div class="mt-7">
-
-                        <span class="inline-flex items-center gap-2 rounded-md bg-sp-limestone px-5 py-3 text-sm font-semibold text-sp-slate">
-                            Registration Closed
-                        </span>
-
-                    </div>
-
-                @endif
-
-            @elseif (! $isPast && $event->registration_status === 'not_required')
-
-                @if ($event->cta_label && $event->cta_url)
-
-                    <div class="mt-7">
-
-                        <a
-                            href="{{ $event->cta_url }}"
-                            class="inline-flex items-center gap-2 rounded-md bg-sp-prairieGreen px-5 py-3 text-sm font-semibold text-sp-warmIvory transition-colors hover:bg-sp-prairieOchre"
-                            target="_blank"
-                            rel="noopener"
-                        >
-
-                            {{ $event->cta_label }}
-
-                            <x-icons.move-right
-                                class="h-4 w-4"
-                                aria-hidden="true"
-                            />
-
-                        </a>
-
-                    </div>
-
-                @endif
-
             @endif
 
 
-            @if ($event->registration_deadline && ! $isPast)
+            @if ($event->city || $event->state)
 
-                <p class="text-sm text-sp-slate mt-3">
-                    Registration closes {{ $event->registration_deadline->format('F j, Y') }}.
-                </p>
+                <div class="flex items-start gap-2">
 
-            @endif
-
-
-            @if ($isPast)
-
-                <p class="text-sm font-semibold text-sp-slate mt-7">
-                    This event has already taken place.
-                </p>
-
-            @endif
-
-        </div>
-        {{-- End Hero Details --}}
-
-
-        {{-- Hero Image --}}
-        <div class="col-span-12 md:col-span-7 relative">
-
-            @if ($event->featured_image_path)
-
-                <img
-                    src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($event->featured_image_path) }}"
-                    alt="{{ $event->featured_image_alt ?? $event->title }}"
-                    class="block aspect-[4/3] w-full rounded-md object-cover md:aspect-[4/3]"
-                >
-
-                @if ($event->featured_image_alt)
-
-                    <x-public-v2.image-registration
-                        text="{{ $event->featured_image_alt }}"
-                        position="right"
+                    <x-icons.signpost
+                        class="mt-0.5 h-4 w-4 shrink-0"
+                        aria-hidden="true"
                     />
 
-                @endif
+                    <span>
 
-            @else
+                        @if ($event->is_private_location)
 
-                <div class="flex aspect-[4/3] w-full items-center justify-center rounded-md bg-sp-limestone">
+                            {{ $event->city }}, {{ $event->state }}
 
-                    <span class="font-display text-2xl text-sp-slate">
-                        Southern Plains Sport Dog Club
+                        @else
+
+                            {{ $event->venue_name
+                                ? $event->venue_name . ', '
+                                : ''
+                            }}
+
+                            {{ $event->city }}, {{ $event->state }}
+
+                        @endif
+
+                    </span>
+
+                </div>
+
+            @endif
+
+
+            @if ($event->registration_status !== 'not_required')
+
+                <div class="flex items-start gap-2">
+
+                    <x-icons.ticket
+                        class="mt-0.5 h-4 w-4 shrink-0"
+                        aria-hidden="true"
+                    />
+
+                    <span>
+                        {{ $registrationLabel }}
                     </span>
 
                 </div>
@@ -346,14 +194,125 @@
             @endif
 
         </div>
-        {{-- End Hero Image --}}
-
-    </section>
-    {{-- End Event Hero --}}
+        {{-- End Event Metadata --}}
 
 
-    {{-- Event Content --}}
-    <section class="grid grid-cols-12 gap-8 bg-sp-warmIvory px-6 py-16 md:gap-12 md:px-8 md:py-20">
+        {{-- Hero CTA --}}
+        @if (! $isPast)
+
+            @if (
+                $registrationStatus === 'open'
+                && $event->registration_url
+            )
+
+                <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 py-6">
+
+                    <a
+                        href="{{ $event->registration_url }}"
+                        class="btn-primary"
+                        target="_blank"
+                        rel="noopener"
+                    >
+
+                        {{ $event->cta_label ?: 'Register Now' }}
+
+                        <x-icons.move-right
+                            class="h-4 w-4"
+                            aria-hidden="true"
+                        />
+
+                    </a>
+
+                </div>
+
+            @elseif (
+                $event->registration_status === 'not_required'
+                && $event->cta_label
+                && $event->cta_url
+            )
+
+                <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 py-6">
+
+                    <a
+                        href="{{ $event->cta_url }}"
+                        class="btn-primary"
+                        target="_blank"
+                        rel="noopener"
+                    >
+
+                        {{ $event->cta_label }}
+
+                        <x-icons.move-right
+                            class="h-4 w-4"
+                            aria-hidden="true"
+                        />
+
+                    </a>
+
+                </div>
+
+            @endif
+
+        @endif
+
+
+        @if ($event->registration_deadline && ! $isPast)
+
+            <p class="text-sm text-sp-slate">
+                Registration closes
+                {{ $event->registration_deadline->format('F j, Y') }}.
+            </p>
+
+        @endif
+
+
+        @if ($isPast)
+
+            <p class="text-sm font-semibold text-sp-slate py-6">
+                This event has already taken place.
+            </p>
+
+        @endif
+
+    </div>
+
+
+    <div class="col-span-12 mt-8 md:col-span-7 md:mt-0 relative">
+
+        @if ($event->featured_image_path)
+
+            <img
+                class="w-full h-full"
+                src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($event->featured_image_path) }}"
+                alt="{{ $event->featured_image_alt ?? $event->title }}">
+
+        @else
+
+            <div class="flex w-full h-full min-h-[320px] items-center justify-center bg-sp-limestone">
+
+                <span class="font-display text-2xl text-sp-slate">
+                    Southern Plains Sport Dog Club
+                </span>
+
+            </div>
+
+        @endif
+
+    </div>
+
+</div>
+
+{{-- End Hero --}}
+
+@endsection
+
+
+@section('content')
+
+{{-- Event Content --}}
+<section class="px-6 py-16 md:px-8 md:py-20">
+
+    <div class="grid grid-cols-12 gap-8 md:gap-12">
 
         {{-- Main Content --}}
         <div class="col-span-12 md:col-span-8">
@@ -366,7 +325,7 @@
                         About This Event
                     </h2>
 
-                    <div class="prose prose-lg max-w-none text-sp-slate mt-5">
+                    <div class="prose max-w-none text-sp-slate mt-5">
                         {!! $event->description !!}
                     </div>
 
@@ -481,11 +440,10 @@
 
                         <div class="flex items-start gap-3">
 
-                            <span
-                                class="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center text-xs font-semibold text-sp-slate"
-                                aria-hidden="true">
-                                —
-                            </span>
+                            <x-icons.clock
+                                class="mt-0.5 h-5 w-5 shrink-0 text-sp-slate"
+                                aria-hidden="true"
+                            />
 
                             <div>
 
@@ -600,16 +558,14 @@
                         @if ($event->registration_deadline && ! $isPast)
 
                             <p class="text-sm text-sp-slate mt-4">
-                                Registration closes {{ $event->registration_deadline->format('F j, Y') }}.
+                                Registration closes
+                                {{ $event->registration_deadline->format('F j, Y') }}.
                             </p>
 
                         @endif
 
 
-                        @if (
-                            $event->registration_notes
-                            && ! $isPast
-                        )
+                        @if ($event->registration_notes && ! $isPast)
 
                             <div class="text-sm text-sp-slate mt-4">
                                 {!! $event->registration_notes !!}
@@ -677,28 +633,27 @@
         </aside>
         {{-- End Event Details --}}
 
-    </section>
-    {{-- End Event Content --}}
-
-
-    {{-- Back to Events --}}
-    <div class="px-6 py-12 md:px-8 md:py-16">
-
-        <a
-            href="{{ route('public-v2.events.archive') }}"
-            class="inline-flex items-center gap-2 font-semibold text-sp-prairieGreen transition-colors hover:text-sp-prairieOchre"
-        >
-
-            <span aria-hidden="true">←</span>
-
-            Back to Events
-
-        </a>
-
     </div>
-    {{-- End Back to Events --}}
 
-</main>
-{{-- End Event Page --}}
+</section>
+{{-- End Event Content --}}
+
+
+{{-- Back to Events --}}
+<div class="px-6 pb-16 md:px-8 md:pb-20">
+
+    <a
+        href="{{ route('public-v2.events.archive') }}"
+        class="learn-more-link text-sp-prairieGreen"
+    >
+
+        Back to Events
+
+        <x-icons.move-left />
+
+    </a>
+
+</div>
+{{-- End Back to Events --}}
 
 @endsection
