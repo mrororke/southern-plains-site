@@ -528,7 +528,7 @@
                 Want to Know When This Comes Around Again?
             </h2>
 
-            <p class="body-large text-sp-slate mt-4 max-w-2xl">
+            <p class="body text-sp-slate mt-4 max-w-2xl">
                 Leave us your email and we'll let you know when similar events are announced.
             </p>
 
@@ -617,7 +617,7 @@
                 You're on the list.
             </p>
 
-            <p class="body-large text-sp-slate mt-5 max-w-2xl">
+            <p class="body text-sp-slate mt-5 max-w-2xl">
                 We'll let you know when similar events are announced.
             </p>
 
