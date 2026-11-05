@@ -286,6 +286,15 @@
                 src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($event->featured_image_path) }}"
                 alt="{{ $event->featured_image_alt ?? $event->title }}">
 
+            @if ($event->featured_image_credit)
+
+                <x-public-v2.image-registration
+                    :text="$event->featured_image_credit"
+                    position="right"
+                    :href="$event->featured_image_credit_url" />
+
+            @endif
+
         @else
 
             <div class="flex w-full h-full min-h-[320px] items-center justify-center bg-sp-limestone">
