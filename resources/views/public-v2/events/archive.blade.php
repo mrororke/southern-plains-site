@@ -613,7 +613,7 @@
             class="hidden"
         >
 
-            <p class="font-display font-bold text-4xl uppercase leading-none text-sp-burntClay">
+            <p class="font-sans font-bold text-2xl uppercase leading-none text-sp-charcoal">
                 You're on the list.
             </p>
 
