@@ -14,6 +14,7 @@ use App\Http\Controllers\TrickEvaluationController;
 use App\Http\Controllers\TrickController;
 use App\Http\Controllers\Admin\TrickCatalogController;
 use App\Http\Controllers\EventV2Controller;
+use App\Http\Controllers\EventRegistrationController;
 
 use App\Http\Controllers\Admin\BackendSearchController;
 use App\Http\Controllers\Admin\ResourceLibrary\ResourceController;
@@ -71,13 +72,20 @@ Route::prefix('v2')
             ->name('learn.show');
 
         Route::get('/events', [EventV2Controller::class, 'index'])
-    ->name('events.index');
+            ->name('events.index');
 
-    Route::get('/events/archive', [EventV2Controller::class, 'archive'])
-    ->name('events.archive');
+        Route::get('/events/archive', [EventV2Controller::class, 'archive'])
+            ->name('events.archive');
 
-Route::get('/events/{event:slug}', [EventV2Controller::class, 'show'])
-    ->name('events.show');
+        Route::get('/events/{event:slug}', [EventV2Controller::class, 'show'])
+            ->name('events.show');
+
+        // On-site event registration
+        Route::get('/events/{event:slug}/register', [EventRegistrationController::class, 'create'])
+            ->name('events.register');
+
+        Route::post('/events/{event:slug}/register', [EventRegistrationController::class, 'store'])
+            ->name('events.register.store');
 
         Route::view('/contact', 'public-v2.inquiries.contact')
             ->name('contact');
@@ -368,6 +376,22 @@ Route::middleware(['auth', 'device'])
             [\App\Http\Controllers\Admin\InquiryController::class, 'restore']
         )->name('inquiries.restore');
 
+        // Event registration management
+        Route::patch(
+            'inquiries/{inquiry}/confirm-payment',
+            [InquiryController::class, 'confirmPayment']
+        )->name('inquiries.confirm-payment');
+
+        Route::patch(
+            'inquiries/{inquiry}/cancel-registration',
+            [InquiryController::class, 'cancelRegistration']
+        )->name('inquiries.cancel-registration');
+
+        Route::patch(
+            'inquiries/{inquiry}/offer-waitlist-spot',
+            [InquiryController::class, 'offerWaitlistSpot']
+        )->name('inquiries.offer-waitlist-spot');
+
         /*
         |--------------------------------------------------------------------------
         | Global Search
@@ -528,9 +552,9 @@ Route::middleware(['auth', 'device'])
 
         Route::delete('/events/{event}', [\App\Http\Controllers\Admin\EventV2Controller::class, 'destroy'])
             ->name('events-v2.destroy');
-        
+
         Route::patch('/events/{event}/cancel', [\App\Http\Controllers\Admin\EventV2Controller::class, 'cancel'])
-    ->name('events-v2.cancel');
+            ->name('events-v2.cancel');
     });
 
 

@@ -12,7 +12,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        // $schedule->command('inspire')->hourly();
+        // Expire unpaid event registrations every 15 minutes.
+        $schedule->command('registrations:expire')
+            ->everyFifteenMinutes()
+            ->withoutOverlapping();
     }
 
     /**

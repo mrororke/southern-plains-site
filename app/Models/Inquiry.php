@@ -8,6 +8,7 @@ class Inquiry extends Model
 {
     protected $fillable = [
         'type',
+        'event_id',
         'name',
         'email',
         'subject',
@@ -24,4 +25,12 @@ class Inquiry extends Model
         'resolved_at' => 'datetime',
         'archived_at' => 'datetime',
     ];
+
+    /**
+     * Get the event associated with this inquiry.
+     */
+    public function event()
+    {
+        return $this->belongsTo(EventV2::class, 'event_id');
+    }
 }

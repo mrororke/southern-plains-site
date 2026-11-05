@@ -1,3 +1,4 @@
+
 <?php
 
 namespace App\Http\Requests;
@@ -135,6 +136,12 @@ class StoreEventV2Request extends FormRequest
                 'in:not_required,open,coming_soon,closed',
             ],
 
+            'registration_method' => [
+                'nullable',
+                'string',
+                'in:on-site,external',
+            ],
+
             'registration_url' => [
                 'nullable',
                 'url',
@@ -150,6 +157,18 @@ class StoreEventV2Request extends FormRequest
                 'nullable',
                 'string',
                 'max:5000',
+            ],
+
+            'working_capacity' => [
+                'nullable',
+                'integer',
+                'min:0',
+            ],
+
+            'auditor_capacity' => [
+                'nullable',
+                'integer',
+                'min:0',
             ],
 
             'what_to_expect' => [

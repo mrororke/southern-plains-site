@@ -1,3 +1,4 @@
+
 <?php
 
 namespace App\Models;
@@ -33,9 +34,12 @@ class EventV2 extends Model
         'is_private_location',
         'location_details',
         'registration_status',
+        'registration_method',
         'registration_url',
         'registration_deadline',
         'registration_notes',
+        'working_capacity',
+        'auditor_capacity',
         'what_to_expect',
         'what_to_bring',
         'requirements_notes',
@@ -53,6 +57,8 @@ class EventV2 extends Model
         'end_time' => 'datetime:H:i',
         'is_private_location' => 'boolean',
         'registration_deadline' => 'date',
+        'working_capacity' => 'integer',
+        'auditor_capacity' => 'integer',
         'published_at' => 'datetime',
     ];
 
@@ -136,5 +142,13 @@ class EventV2 extends Model
     public function locationIsPrivate(): bool
     {
         return $this->is_private_location;
+    }
+
+    /**
+     * Get the inquiries associated with this event.
+     */
+    public function inquiries()
+    {
+        return $this->hasMany(Inquiry::class, 'event_id');
     }
 }
