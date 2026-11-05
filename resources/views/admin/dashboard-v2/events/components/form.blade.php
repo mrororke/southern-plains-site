@@ -1221,6 +1221,50 @@
     </div>
     {{-- End Registration Capacities --}}
 
+    {{-- Registration Pricing --}}
+<div class="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2">
+    <div>
+        <label for="working_price" class="block text-sm font-medium text-sp-charcoal">
+            Working Spot Price
+        </label>
+        <p class="mt-1 text-xs text-sp-slate">
+            Price per working dog. Enter 0 for free or leave blank if not applicable.
+        </p>
+        <input
+            type="number"
+            name="working_price"
+            id="working_price"
+            min="0"
+            max="99999999.99"
+            step="0.01"
+            value="{{ $value('working_price') }}"
+            class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
+        >
+        <x-admin.forms.field-error name="working_price" />
+    </div>
+
+    <div>
+        <label for="auditor_price" class="block text-sm font-medium text-sp-charcoal">
+            Auditor Price
+        </label>
+        <p class="mt-1 text-xs text-sp-slate">
+            Price per auditor. Enter 0 for free or leave blank if not applicable.
+        </p>
+        <input
+            type="number"
+            name="auditor_price"
+            id="auditor_price"
+            min="0"
+            max="99999999.99"
+            step="0.01"
+            value="{{ $value('auditor_price') }}"
+            class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
+        >
+        <x-admin.forms.field-error name="auditor_price" />
+    </div>
+</div>
+{{-- End Registration Pricing --}}
+
 </section>
 
 {{-- End Registration --}}

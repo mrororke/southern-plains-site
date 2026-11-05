@@ -170,6 +170,20 @@ class StoreEventV2Request extends FormRequest
                 'min:0',
             ],
 
+            'working_price' => [
+                'nullable',
+                'numeric',
+                'min:0',
+                'max:99999999.99',
+            ],
+
+            'auditor_price' => [
+                'nullable',
+                'numeric',
+                'min:0',
+                'max:99999999.99',
+            ],
+
             'what_to_expect' => [
                 'nullable',
                 'string',

@@ -39,6 +39,8 @@ class EventV2 extends Model
         'registration_notes',
         'working_capacity',
         'auditor_capacity',
+        'working_price',
+        'auditor_price',
         'what_to_expect',
         'what_to_bring',
         'requirements_notes',
@@ -58,6 +60,8 @@ class EventV2 extends Model
         'registration_deadline' => 'date',
         'working_capacity' => 'integer',
         'auditor_capacity' => 'integer',
+        'working_price' => 'decimal:2',
+        'auditor_price' => 'decimal:2',
         'published_at' => 'datetime',
     ];
 
