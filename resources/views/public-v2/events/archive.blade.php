@@ -359,7 +359,7 @@
 
 
                             {{-- Event Details --}}
-                            <div class="col-span-12 md:col-span-5">
+                            <div class="col-span-12 md:col-span-4">
 
                                 <p class="font-display font-bold text-sm uppercase tracking-wide text-sp-slate">
                                     {{ $eventType }}
@@ -400,13 +400,13 @@
 
 
                             {{-- Details + Reminder --}}
-                            <div class="col-span-12 md:col-span-2 md:text-right">
+                            <div class="col-span-12 md:col-span-3 md:text-right">
 
-                                <div class="flex flex-col items-start gap-3 md:items-end">
+                                <div class="flex items-center justify-end gap-2 whitespace-nowrap">
 
                                     <a
                                         href="{{ route('public-v2.events.show', $event->slug) }}"
-                                        class="inline-flex items-center gap-2 rounded-md border border-sp-prairieGreen px-4 py-2 text-sm font-semibold text-sp-prairieGreen transition-colors hover:bg-sp-prairieGreen hover:text-sp-warmIvory"
+                                        class="inline-flex items-center gap-1 text-sm font-semibold text-sp-prairieGreen transition-colors hover:text-sp-prairieOchre"
                                     >
 
                                         View Event
@@ -417,6 +417,12 @@
                                         />
 
                                     </a>
+
+                                    <span
+                                        class="text-sp-warmStone"
+                                        aria-hidden="true">
+                                        ·
+                                    </span>
 
                                     <button
                                         type="button"
@@ -478,30 +484,34 @@
 
     {{-- Backdrop --}}
     <div
-        class="absolute inset-0 bg-sp-charcoal/60"
+        class="absolute inset-0 bg-[#66655F]/50"
         data-close-reminder>
     </div>
 
 
     {{-- Modal --}}
     <div
-        class="relative w-full max-w-3xl rounded-md bg-sp-warmIvory px-8 py-10 shadow-2xl md:px-10 md:py-12"
+        class="relative z-10 w-full max-w-3xl rounded-md bg-sp-warmIvory px-8 py-10 shadow-2xl md:px-10 md:py-12"
     >
 
         {{-- Close --}}
-        <button
-            type="button"
-            data-close-reminder
-            class="absolute right-5 top-5 text-sp-slate transition-colors hover:text-sp-charcoal"
-            aria-label="Close reminder form"
-        >
+        <div class="flex justify-end">
 
-            <x-icons.x
-                class="h-5 w-5"
-                aria-hidden="true"
-            />
+            <button
+                type="button"
+                data-close-reminder
+                class="text-sp-slate transition-colors hover:text-sp-charcoal"
+                aria-label="Close reminder form"
+            >
 
-        </button>
+                <x-icons.x
+                    class="h-5 w-5"
+                    aria-hidden="true"
+                />
+
+            </button>
+
+        </div>
 
 
         {{-- Modal Heading --}}
