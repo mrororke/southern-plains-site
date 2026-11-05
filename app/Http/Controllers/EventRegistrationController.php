@@ -64,7 +64,10 @@ class EventRegistrationController extends Controller
 
         $result = DB::transaction(function () use ($event, $validated, $dogs, $isWorking, $requestedSlots) {
             // Serialize registrations for this event to avoid overselling the last spots.
-            $lockedEvent = EventV2::query()->whereKey($event->getKey())->lockForUpdate()->firstOrFail();
+            $lockedEvent = EventV2::query()
+                ->whereKey($event->getKey())
+                ->lockForUpdate()
+                ->firstOrFail();
 
             if (! $this->acceptsRegistrations($lockedEvent)) {
                 throw ValidationException::withMessages([
@@ -83,7 +86,10 @@ class EventRegistrationController extends Controller
                 ]);
             }
 
-            $capacity = $isWorking ? $lockedEvent->working_capacity : $lockedEvent->auditor_capacity;
+            $capacity = $isWorking
+                ? $lockedEvent->working_capacity
+                : $lockedEvent->auditor_capacity;
+
             $reserved = 0;
 
             $registrations = Inquiry::query()
@@ -114,18 +120,51 @@ class EventRegistrationController extends Controller
                     }
                 }
 
-                $reserved += $isWorking ? count($details['dogs'] ?? []) : 1;
+                $reserved += $isWorking
+                    ? count($details['dogs'] ?? [])
+                    : 1;
             }
 
             // Null means no capacity limit; zero means no spots available.
-            $hasSpace = $capacity === null || ($reserved + $requestedSlots <= $capacity);
+            $hasSpace = $capacity === null
+                || ($reserved + $requestedSlots <= $capacity);
+
             $status = $hasSpace ? 'pending_payment' : 'waitlisted';
 
             // More than seven days: 48-hour hold. Two to seven days: 24-hour hold.
             // Never extend a payment deadline beyond the event start.
             $hoursUntilEvent = $now->diffInHours($start);
             $holdHours = $hoursUntilEvent > 168 ? 48 : 24;
-            $paymentDueAt = $hasSpace ? $now->copy()->addHours($holdHours) : null;
+
+            $paymentDueAt = $hasSpace
+                ? $now->copy()->addHours($holdHours)
+                : null;
+
+            /*
+             * Registration Pricing
+             *
+             * Working registrations are priced per dog.
+             * Auditor registrations are priced per participant.
+             *
+             * Store the price and total at registration time so
+             * subsequent event price changes do not affect this
+             * registration.
+             *
+             * Null means the event price has not been specified.
+             * Zero means registration is free.
+             */
+            $unitPrice = $isWorking
+                ? $lockedEvent->working_price
+                : $lockedEvent->auditor_price;
+
+            $totalAmount = $unitPrice !== null
+                ? number_format(
+                    (float) $unitPrice * $requestedSlots,
+                    2,
+                    '.',
+                    ''
+                )
+                : null;
 
             Inquiry::create([
                 'event_id' => $lockedEvent->getKey(),
@@ -147,6 +186,10 @@ class EventRegistrationController extends Controller
                     'registration_status' => $status,
                     'payment_status' => 'unpaid',
                     'payment_due_at' => $paymentDueAt?->toIso8601String(),
+
+                    // Pricing snapshot for this registration.
+                    'unit_price' => $unitPrice,
+                    'total_amount' => $totalAmount,
                 ],
             ]);
 
@@ -178,7 +221,10 @@ class EventRegistrationController extends Controller
         $date = $event->start_date->format('Y-m-d');
         $time = $event->start_time?->format('H:i:s') ?? '00:00:00';
 
-        return Carbon::parse($date . ' ' . $time, config('app.timezone'));
+        return Carbon::parse(
+            $date . ' ' . $time,
+            config('app.timezone')
+        );
     }
 
     private function acceptsRegistrations(EventV2 $event): bool
@@ -186,6 +232,9 @@ class EventRegistrationController extends Controller
         return $event->isPublished()
             && $event->registration_method === 'on-site'
             && $event->registrationIsOpen()
-            && (! $event->registration_deadline || ! $event->registration_deadline->lt(today()));
+            && (
+                ! $event->registration_deadline
+                || ! $event->registration_deadline->lt(today())
+            );
     }
 }
