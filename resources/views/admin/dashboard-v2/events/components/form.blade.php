@@ -336,6 +336,55 @@
 
         <x-admin.forms.field-error name="featured_image_alt" />
 
+        {{-- Image Credit --}}
+<div class="mt-6">
+
+    <label
+        for="featured_image_credit"
+        class="block text-sm font-medium text-sp-charcoal">
+        Image Credit
+    </label>
+
+    <input
+        type="text"
+        name="featured_image_credit"
+        id="featured_image_credit"
+        value="{{ $value('featured_image_credit') }}"
+        maxlength="255"
+        placeholder="e.g. Photo by Blue Ridge Creative"
+        class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
+    >
+
+    <x-admin.forms.field-error name="featured_image_credit" />
+
+</div>
+{{-- End Image Credit --}}
+
+
+{{-- Image Credit URL --}}
+<div class="mt-6">
+
+    <label
+        for="featured_image_credit_url"
+        class="block text-sm font-medium text-sp-charcoal">
+        Image Credit URL
+    </label>
+
+    <input
+        type="url"
+        name="featured_image_credit_url"
+        id="featured_image_credit_url"
+        value="{{ $value('featured_image_credit_url') }}"
+        maxlength="255"
+        placeholder="https://example.com"
+        class="mt-2 block w-full rounded-md border-sp-warmStone bg-sp-warmIvory text-sm text-sp-charcoal focus:border-sp-prairieGreen focus:ring-sp-prairieGreen"
+    >
+
+    <x-admin.forms.field-error name="featured_image_credit_url" />
+
+</div>
+{{-- End Image Credit URL --}}
+
     </div>
 
 </section>

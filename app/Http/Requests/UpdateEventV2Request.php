@@ -61,6 +61,18 @@ class UpdateEventV2Request extends FormRequest
                 'max:255',
             ],
 
+            'featured_image_credit' => [
+                'nullable',
+                'string',
+                'max:255',
+            ],
+
+            'featured_image_credit_url' => [
+                'nullable',
+                'url',
+                'max:2048',
+            ],
+
             'start_date' => [
                 'required',
                 'date',

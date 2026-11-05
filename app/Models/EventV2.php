@@ -20,6 +20,8 @@ class EventV2 extends Model
         'description',
         'featured_image_path',
         'featured_image_alt',
+        'featured_image_path',
+        'featured_image_alt',
         'start_date',
         'end_date',
         'start_time',
