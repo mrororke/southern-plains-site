@@ -1,3 +1,4 @@
+
 @extends('public-v2.layouts.app')
 
 @php
@@ -215,7 +216,9 @@
                     class="mt-8"
                     x-data="eventRegistrationForm(
                         {{ \Illuminate\Support\Js::from(old('participation_type', 'working')) }},
-                        {{ \Illuminate\Support\Js::from(old('dogs', [['name' => '', 'age' => '', 'breed' => '']])) }}
+                        {{ \Illuminate\Support\Js::from(old('dogs', [['name' => '', 'age' => '', 'breed' => '']])) }},
+                        {{ \Illuminate\Support\Js::from($event->working_price) }},
+                        {{ \Illuminate\Support\Js::from($event->auditor_price) }}
                     )"
                 >
                     @csrf
@@ -499,6 +502,60 @@
 
                     </section>
                     {{-- End Working Dogs --}}
+
+                    {{-- Registration Pricing --}}
+                    <section class="mt-12 border-t border-sp-warmStone pt-8">
+
+                        <h3 class="font-sans text-2xl font-semibold text-sp-charcoal">
+                            Registration Pricing
+                        </h3>
+
+                        <div class="mt-6 rounded-md bg-sp-limestone p-6">
+
+                            <div class="flex flex-wrap items-start justify-between gap-4">
+
+                                <div>
+                                    <p class="text-sm font-semibold text-sp-charcoal"
+                                        x-text="participation === 'working' ? 'Working Spots' : 'Auditor Registration'">
+                                    </p>
+
+                                    <p class="body-small text-sp-slate mt-2"
+                                        x-text="participation === 'working'
+                                            ? dogs.length + (dogs.length === 1 ? ' dog' : ' dogs') + ' × ' + formatPrice(workingPrice)
+                                            : '1 auditor × ' + formatPrice(auditorPrice)">
+                                    </p>
+                                </div>
+
+                                <div class="text-right">
+                                    <p class="text-xs uppercase tracking-wide text-sp-slate mb-2">
+                                        Registration Total
+                                    </p>
+
+                                    <p
+                                        class="font-sans text-2xl font-semibold text-sp-charcoal"
+                                        aria-live="polite"
+                                        x-text="formatPrice(registrationTotal)"
+                                    ></p>
+                                </div>
+
+                            </div>
+
+                            <p
+                                class="body-small text-sp-slate mt-5"
+                                x-show="registrationTotal === null"
+                                x-cloak
+                            >
+                                Pricing has not been specified for this registration type.
+                            </p>
+
+                            <p class="body-small text-sp-slate mt-5">
+                                This is your registration total, not a payment request. If you're waitlisted, please don't send payment until you're offered a spot.
+                            </p>
+
+                        </div>
+
+                    </section>
+                    {{-- End Registration Pricing --}}
 
                     {{-- Experience --}}
                     <section class="mt-12 border-t border-sp-warmStone pt-8">
@@ -834,7 +891,8 @@
 {{-- End Back to Event --}}
 
 <script>
-    function eventRegistrationForm(initialParticipation, initialDogs) {
+    function eventRegistrationForm(initialParticipation, initialDogs, workingPrice, auditorPrice) {
+
         let nextDogId = 0;
 
         const makeDog = (dog = {}) => ({
@@ -846,9 +904,40 @@
 
         return {
             participation: initialParticipation,
+
             dogs: Array.isArray(initialDogs) && initialDogs.length
                 ? initialDogs.map(makeDog)
                 : [makeDog()],
+
+            workingPrice: workingPrice === null ? null : Number(workingPrice),
+            auditorPrice: auditorPrice === null ? null : Number(auditorPrice),
+
+            get registrationTotal() {
+                if (this.participation === 'working') {
+                    return this.workingPrice === null
+                        ? null
+                        : this.workingPrice * this.dogs.length;
+                }
+
+                return this.auditorPrice;
+            },
+
+            formatPrice(amount) {
+                if (amount === null || amount === undefined) {
+                    return 'Not specified';
+                }
+
+                if (amount === 0) {
+                    return 'Free';
+                }
+
+                return new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                }).format(amount);
+            },
 
             addDog() {
                 if (this.dogs.length >= 20) {
