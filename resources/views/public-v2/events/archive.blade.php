@@ -88,7 +88,7 @@
     <div class="col-span-12 md:col-span-9">
 
         {{-- Upcoming Events --}}
-        <div id="upcoming" class="pt-6">
+        <div id="upcoming">
 
             <p class="font-display font-bold text-2xl text-sp-burntClay">
                 Upcoming
@@ -484,7 +484,7 @@
 
     {{-- Backdrop --}}
     <div
-        class="absolute inset-0 bg-[#66655F]/75"
+        class="absolute inset-0 bg-[#66655F]/50"
         data-close-reminder>
     </div>
 
@@ -514,98 +514,129 @@
         </div>
 
 
-        {{-- Modal Heading --}}
-        <p
-            id="reminder-modal-title"
-            class="font-display font-bold text-2xl uppercase leading-none text-sp-burntClay"
-        >
-            Stay in the Loop
-        </p>
+        {{-- Reminder Form --}}
+        <div data-reminder-form-content>
 
-        <h2 class="font-sans text-3xl font-semibold text-sp-charcoal mt-5">
-            Want to Know When This Comes Around Again?
-        </h2>
+            <p
+                id="reminder-modal-title"
+                class="font-display font-bold text-4xl uppercase leading-none text-sp-burntClay"
+            >
+                Stay in the Loop
+            </p>
 
-        <p class="body-large text-sp-slate mt-4 max-w-2xl">
-            Leave us your email and we'll let you know when similar events are announced.
-        </p>
+            <h2 class="font-sans text-3xl font-semibold leading-tight text-sp-charcoal mt-5">
+                Want to Know When This Comes Around Again?
+            </h2>
+
+            <p class="body-large text-sp-slate mt-4 max-w-2xl">
+                Leave us your email and we'll let you know when similar events are announced.
+            </p>
 
 
-        {{-- Brevo Form --}}
-        <form
-            id="event-reminder-form"
-            method="POST"
-            action="https://a7e86912.sibforms.com/serve/MUIFAILpaCKA0oKzmNw0A1XP0CWKujxwiy8PgxaSyyWajBaBSLV7AwW9lI7LJ9xxGzlEV_gEm28RjLhh-KY6OVAwomPmSnbB73Wkajd_CDGhUe4hwNeDPa_XUDeDJgk9fKRl2Ll55g61LgbIrQ4nD-mLFRPCzgbonTifjvt7A_WXemtrI9voe3RENZkc6dqp8l0ZaMbewD866uP4Og=="
-            class="mt-8"
-        >
+            {{-- Brevo Form --}}
+            <form
+                id="event-reminder-form"
+                method="POST"
+                target="event-reminder-submit"
+                action="https://a7e86912.sibforms.com/serve/MUIFAILpaCKA0oKzmNw0A1XP0CWKujxwiy8PgxaSyyWajBaBSLV7AwW9lI7LJ9xxGzlEV_gEm28RjLhh-KY6OVAwomPmSnbB73Wkajd_CDGhUe4hwNeDPa_XUDeDJgk9fKRl2Ll55g61LgbIrQ4nD-mLFRPCzgbonTifjvt7A_WXemtrI9voe3RENZkc6dqp8l0ZaMbewD866uP4Og=="
+                class="mt-8"
+            >
 
-            <div>
+                <div>
 
-                <label
-                    for="event-reminder-email"
-                    class="block text-sm font-semibold text-sp-charcoal"
+                    <label
+                        for="event-reminder-email"
+                        class="block text-sm font-semibold text-sp-charcoal"
+                    >
+                        Email address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="event-reminder-email"
+                        name="EMAIL"
+                        autocomplete="email"
+                        placeholder="Email Address"
+                        required
+                        class="mt-2 block w-full rounded-md border border-sp-warmStone bg-white px-5 py-4 text-base text-sp-charcoal placeholder:text-sp-slate/70 focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen"
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="mt-6 inline-flex items-center gap-3 rounded-md bg-sp-prairieGreen px-5 py-3 text-sm font-semibold uppercase tracking-wide text-sp-warmIvory transition-colors hover:bg-sp-prairieOchre"
                 >
-                    Email address
-                </label>
 
+                    Remind Me
+
+                    <x-icons.move-right
+                        class="h-4 w-4"
+                        aria-hidden="true"
+                    />
+
+                </button>
+
+
+                {{-- Brevo Honeypot --}}
                 <input
-                    type="email"
-                    id="event-reminder-email"
-                    name="EMAIL"
-                    autocomplete="email"
-                    placeholder="Email Address"
-                    required
-                    class="mt-2 block w-full rounded-md border border-sp-warmStone bg-white px-5 py-4 text-base text-sp-charcoal placeholder:text-sp-slate/70 focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen"
+                    type="text"
+                    name="email_address_check"
+                    value=""
+                    class="input--hidden"
                 >
 
-            </div>
+                {{-- Brevo Locale --}}
+                <input
+                    type="hidden"
+                    name="locale"
+                    value="en"
+                >
+
+                {{-- Brevo Simple Form --}}
+                <input
+                    type="hidden"
+                    name="html_type"
+                    value="simple"
+                >
+
+            </form>
+            {{-- End Brevo Form --}}
+
+        </div>
 
 
-            <button
-                type="submit"
-                class="mt-6 inline-flex items-center gap-3 rounded-md bg-sp-prairieGreen px-5 py-3 text-sm font-semibold uppercase tracking-wide text-sp-warmIvory transition-colors hover:bg-sp-prairieOchre"
-            >
+        {{-- Success Message --}}
+        <div
+            data-reminder-success
+            class="hidden"
+        >
 
-                Remind Me
+            <p class="font-display font-bold text-4xl uppercase leading-none text-sp-burntClay">
+                You're on the list.
+            </p>
 
-                <x-icons.move-right
-                    class="h-4 w-4"
-                    aria-hidden="true"
-                />
+            <p class="body-large text-sp-slate mt-5 max-w-2xl">
+                We'll let you know when similar events are announced.
+            </p>
 
-            </button>
-
-
-            {{-- Brevo Honeypot --}}
-            <input
-                type="text"
-                name="email_address_check"
-                value=""
-                class="input--hidden"
-            >
-
-            {{-- Brevo Locale --}}
-            <input
-                type="hidden"
-                name="locale"
-                value="en"
-            >
-
-            {{-- Brevo Simple Form --}}
-            <input
-                type="hidden"
-                name="html_type"
-                value="simple"
-            >
-
-        </form>
-        {{-- End Brevo Form --}}
+        </div>
 
     </div>
     {{-- End Modal --}}
 
 </div>
 {{-- End Reminder Modal --}}
+
+
+{{-- Hidden Brevo Submission Target --}}
+<iframe
+    name="event-reminder-submit"
+    id="event-reminder-submit"
+    class="hidden"
+    title="Event reminder form submission"
+></iframe>
 
 
 @endsection
@@ -727,6 +758,22 @@
             '[data-close-reminder]'
         );
 
+        const form = document.querySelector(
+            '#event-reminder-form'
+        );
+
+        const formContent = document.querySelector(
+            '[data-reminder-form-content]'
+        );
+
+        const successMessage = document.querySelector(
+            '[data-reminder-success]'
+        );
+
+        const submissionFrame = document.querySelector(
+            '#event-reminder-submit'
+        );
+
         if (!modal || !openButtons.length) {
             return;
         }
@@ -784,6 +831,48 @@
             }
 
         });
+
+
+        if (form && submissionFrame) {
+
+            form.addEventListener('submit', () => {
+
+                const submitButton = form.querySelector(
+                    'button[type="submit"]'
+                );
+
+                if (submitButton) {
+
+                    submitButton.disabled = true;
+
+                    submitButton.classList.add(
+                        'opacity-60',
+                        'cursor-wait'
+                    );
+
+                }
+
+            });
+
+
+            submissionFrame.addEventListener('load', () => {
+
+                if (
+                    !modal.classList.contains('hidden') &&
+                    form &&
+                    form.querySelector(
+                        'input[name="EMAIL"]'
+                    ).value
+                ) {
+
+                    formContent.classList.add('hidden');
+                    successMessage.classList.remove('hidden');
+
+                }
+
+            });
+
+        }
 
     });
 </script>
