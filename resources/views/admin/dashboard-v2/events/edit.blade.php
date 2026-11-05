@@ -21,14 +21,6 @@
 
     <x-admin.forms.validation-summary />
 
-    @if (session('success'))
-
-        <div class="mb-6 rounded-md border border-sp-prairieGreen/20 bg-sp-sage/20 px-4 py-3 text-sm text-sp-charcoal">
-            {{ session('success') }}
-        </div>
-
-    @endif
-
     <form
         method="POST"
         action="{{ route('admin.events-v2.update', $event) }}"
