@@ -89,13 +89,24 @@ class EventV2Controller extends Controller
                 ->store('events', 'public');
         }
 
+        $validated['featured_image_credit'] = $request->input(
+            'featured_image_credit'
+        );
+
+        $validated['featured_image_credit_url'] = $request->input(
+            'featured_image_credit_url'
+        );
+
         unset($validated['featured_image']);
 
         $event = EventV2::create($validated);
 
         return redirect()
             ->route('admin.events-v2.edit', $event)
-            ->with('success', 'Event created successfully.');
+            ->with('success', [
+                'title' => 'Event created',
+                'message' => 'Event created successfully.',
+            ]);
     }
 
     /**
@@ -137,13 +148,24 @@ class EventV2Controller extends Controller
                 ->store('events', 'public');
         }
 
+        $validated['featured_image_credit'] = $request->input(
+            'featured_image_credit'
+        );
+
+        $validated['featured_image_credit_url'] = $request->input(
+            'featured_image_credit_url'
+        );
+
         unset($validated['featured_image']);
 
         $event->update($validated);
 
         return redirect()
             ->route('admin.events-v2.edit', $event)
-            ->with('success', 'Event updated successfully.');
+            ->with('success', [
+                'title' => 'Event updated',
+                'message' => 'Event updated successfully.',
+            ]);
     }
 
     /**
@@ -157,7 +179,10 @@ class EventV2Controller extends Controller
 
         return redirect()
             ->route('admin.events-v2.index')
-            ->with('success', 'Event cancelled successfully.');
+            ->with('success', [
+                'title' => 'Event cancelled',
+                'message' => 'Event cancelled successfully.',
+            ]);
     }
 
     /**
@@ -175,7 +200,10 @@ class EventV2Controller extends Controller
 
         return redirect()
             ->route('admin.events-v2.index')
-            ->with('success', 'Event deleted successfully.');
+            ->with('success', [
+                'title' => 'Event deleted',
+                'message' => 'Event deleted successfully.',
+            ]);
     }
 
     /**
