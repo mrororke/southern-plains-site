@@ -44,6 +44,17 @@
                 Workshops ({{ $inquiries->where('type', 'workshop_request')->count() }})
             </button>
 
+            {{-- Event Registrations --}}
+            <button
+                type="button"
+                @click="tab = 'event_registrations'"
+                :class="tab === 'event_registrations'
+                    ? 'border-b-2 border-sp-prairieGreen text-sp-charcoal'
+                    : 'text-sp-slate'"
+                class="py-4 uppercase text-xs tracking-wide">
+                Event Registrations ({{ $inquiries->where('type', 'workshop_registration')->count() }})
+            </button>
+
             {{-- Judge Requests --}}
             <button
                 type="button"
@@ -450,6 +461,103 @@
 
                             </tr>
 
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+
+        @endif
+
+    </div>
+
+    {{-- Event Registrations --}}
+    <div x-show="tab === 'event_registrations'" x-cloak>
+
+        @php
+            $eventRegistrations = $inquiries->where('type', 'workshop_registration');
+            $eventTitles = \App\Models\EventV2::query()
+                ->whereIn('id', $eventRegistrations->pluck('event_id')->filter()->unique()->all())
+                ->pluck('title', 'id');
+        @endphp
+
+        @if ($eventRegistrations->isEmpty())
+
+            <div class="p-8 text-left">
+                <p class="text-sp-charcoal font-medium">
+                    No event registrations yet.
+                </p>
+                <p class="text-sm text-sp-slate mt-2">
+                    New event registrations will appear here.
+                </p>
+            </div>
+
+        @else
+
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm">
+                    <thead class="border-b border-sp-warmStone">
+                        <tr class="text-xs uppercase tracking-wide text-sp-slate">
+                            <th scope="col" class="py-4 pl-6 pr-2 w-8"><span class="sr-only">Unread</span></th>
+                            <th scope="col" class="py-4 px-3 font-medium">Received</th>
+                            <th scope="col" class="py-4 px-3 font-medium">Participant</th>
+                            <th scope="col" class="py-4 px-3 font-medium">Event</th>
+                            <th scope="col" class="py-4 px-3 font-medium">Participation</th>
+                            <th scope="col" class="py-4 px-3 font-medium">Slots</th>
+                            <th scope="col" class="py-4 px-3 font-medium">Registration</th>
+                            <th scope="col" class="py-4 px-3 font-medium">Payment</th>
+                            <th scope="col" class="py-4 pl-3 pr-6 font-medium"><span class="sr-only">Actions</span></th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-sp-warmStone">
+                        @foreach ($eventRegistrations as $inquiry)
+                            @php
+                                $details = $inquiry->details ?? [];
+                                $participation = $details['participation_type'] ?? null;
+                                $slotCount = $participation === 'working'
+                                    ? count($details['dogs'] ?? [])
+                                    : ($participation === 'auditor' ? 1 : 0);
+                                $registrationStatus = $details['registration_status'] ?? null;
+                                $paymentStatus = $details['payment_status'] ?? null;
+                            @endphp
+                            <tr class="relative hover:bg-sp-warmStone/20 transition cursor-pointer">
+                                <td class="py-4 pl-6 pr-2 align-middle">
+                                    @if (!$inquiry->read_at)
+                                        <span class="block w-2 h-2 rounded-full bg-sp-prairieGreen" title="Unread registration"></span>
+                                    @endif
+                                </td>
+                                <td class="py-4 px-3 text-sp-slate whitespace-nowrap">
+                                    {{ $inquiry->created_at->format('M j, Y') }}
+                                </td>
+                                <td class="py-4 px-3">
+                                    <p class="font-medium text-sp-charcoal">{{ $inquiry->name }}</p>
+                                    <p class="text-xs text-sp-slate mt-1">{{ $inquiry->email }}</p>
+                                </td>
+                                <td class="py-4 px-3 text-sp-charcoal">
+                                    {{ $eventTitles->get($inquiry->event_id) ?? 'Event #' . $inquiry->event_id }}
+                                </td>
+                                <td class="py-4 px-3 text-sp-slate whitespace-nowrap">
+                                    {{ $participation ? ucfirst($participation) : 'Not provided' }}
+                                </td>
+                                <td class="py-4 px-3 text-sp-slate whitespace-nowrap">
+                                    {{ $slotCount }} {{ $participation === 'auditor' ? ($slotCount === 1 ? 'auditor' : 'auditors') : ($slotCount === 1 ? 'dog' : 'dogs') }}
+                                </td>
+                                <td class="py-4 px-3 whitespace-nowrap">
+                                    <span class="{{ $registrationStatus === 'confirmed' ? 'font-medium text-sp-prairieGreen' : 'text-sp-slate' }}">
+                                        {{ $registrationStatus ? ucwords(str_replace('_', ' ', $registrationStatus)) : 'Not set' }}
+                                    </span>
+                                </td>
+                                <td class="py-4 px-3 text-sp-slate whitespace-nowrap">
+                                    {{ $paymentStatus ? ucfirst($paymentStatus) : 'Not set' }}
+                                </td>
+                                <td class="py-4 pl-3 pr-6 text-right whitespace-nowrap">
+                                    <a
+                                        href="{{ route('admin.inquiries.show', $inquiry) }}"
+                                        class="after:absolute after:inset-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sp-prairieGreen text-sp-prairieGreen hover:underline"
+                                        aria-label="View registration from {{ $inquiry->name }}">
+                                        View &rarr;
+                                    </a>
+                                </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
