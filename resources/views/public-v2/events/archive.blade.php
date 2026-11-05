@@ -80,529 +80,523 @@
 
 @section('content')
 
-<div
-    x-data="{ reminderModalOpen: false }"
-    x-on:keydown.escape.window="reminderModalOpen = false">
+{{-- Archive Content --}}
+<section
+    class="grid grid-cols-12 gap-6 px-6 pb-16 md:px-8 md:pb-24">
 
-    {{-- Archive Content --}}
-    <section
-        class="grid grid-cols-12 gap-6 px-6 pb-16 md:px-8 md:pb-24">
+    {{-- Main Archive Content --}}
+    <div class="col-span-12 md:col-span-9">
 
-        {{-- Main Archive Content --}}
-        <div class="col-span-12 md:col-span-9">
+        {{-- Upcoming Events --}}
+        <div id="upcoming">
 
-            {{-- Upcoming Events --}}
-            <div id="upcoming">
+            <p class="font-display font-bold text-2xl text-sp-burntClay">
+                Upcoming
+            </p>
 
-                <p class="font-display font-bold text-2xl text-sp-burntClay">
-                    Upcoming
-                </p>
-
-                <h2 class="font-sans text-3xl font-semibold text-sp-charcoal mt-2">
-                    What's Coming Next
-                </h2>
+            <h2 class="font-sans text-3xl font-semibold text-sp-charcoal mt-2">
+                What's Coming Next
+            </h2>
 
 
-                @if ($upcomingEvents->isNotEmpty())
+            @if ($upcomingEvents->isNotEmpty())
 
-                    <div class="mt-10 space-y-12">
+                <div class="mt-10 space-y-12">
 
-                        @foreach ($upcomingByCategory as $type => $events)
+                    @foreach ($upcomingByCategory as $type => $events)
 
-                            <section
-                                id="{{ \Illuminate\Support\Str::slug($eventCategories[$type]) }}"
-                                class="scroll-mt-32">
+                        <section
+                            id="{{ \Illuminate\Support\Str::slug($eventCategories[$type]) }}"
+                            class="scroll-mt-32">
 
-                                <h3 class="font-sans text-2xl font-semibold text-sp-charcoal">
-                                    {{ $eventCategories[$type] }}
-                                </h3>
-
-
-                                <div class="mt-5 space-y-2">
-
-                                    @foreach ($events as $event)
-
-                                        @php
-                                            $eventType = match ($event->type) {
-                                                'dog_sports' => 'Dog Sports',
-                                                'training' => 'Training',
-                                                'workshop' => 'Workshop',
-                                                'class' => 'Class',
-                                                'community' => 'Community',
-                                                default => 'Event',
-                                            };
-                                        @endphp
+                            <h3 class="font-sans text-2xl font-semibold text-sp-charcoal">
+                                {{ $eventCategories[$type] }}
+                            </h3>
 
 
-                                        <article
-                                            class="group grid grid-cols-12 items-center gap-4 rounded-md px-4 py-6 transition-colors duration-200 hover:bg-sp-limestone md:gap-6 md:px-6"
-                                        >
+                            <div class="mt-5 space-y-2">
 
-                                            {{-- Date --}}
-                                            <div class="col-span-3 md:col-span-1">
+                                @foreach ($events as $event)
 
-                                                <div class="text-left">
-
-                                                    <p class="font-display font-bold text-lg uppercase text-sp-slate">
-                                                        {{ $event->start_date->format('M') }}
-                                                    </p>
-
-                                                    <p class="font-sans text-4xl font-semibold leading-none text-sp-prairieGreen">
-                                                        {{ $event->start_date->format('d') }}
-                                                    </p>
-
-                                                    <p class="mt-1 text-sm text-sp-slate">
-                                                        {{ $event->start_date->format('Y') }}
-                                                    </p>
-
-                                                </div>
-
-                                            </div>
+                                    @php
+                                        $eventType = match ($event->type) {
+                                            'dog_sports' => 'Dog Sports',
+                                            'training' => 'Training',
+                                            'workshop' => 'Workshop',
+                                            'class' => 'Class',
+                                            'community' => 'Community',
+                                            default => 'Event',
+                                        };
+                                    @endphp
 
 
-                                            {{-- Image --}}
-                                            <div class="col-span-9 md:col-span-4">
+                                    <article
+                                        class="group grid grid-cols-12 items-center gap-4 rounded-md px-4 py-6 transition-colors duration-200 hover:bg-sp-limestone md:gap-6 md:px-6"
+                                    >
 
-                                                @if ($event->featured_image_path)
+                                        {{-- Date --}}
+                                        <div class="col-span-3 md:col-span-1">
 
-                                                    <img
-                                                        src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($event->featured_image_path) }}"
-                                                        alt="{{ $event->featured_image_alt ?? $event->title }}"
-                                                        class="block aspect-[2/1] w-full rounded-md object-cover"
-                                                    >
+                                            <div class="text-left">
 
-                                                @else
-
-                                                    <div class="flex aspect-[2/1] w-full items-center justify-center rounded-md bg-sp-warmIvory">
-
-                                                        <span class="font-display text-xl text-sp-slate">
-                                                            Southern Plains
-                                                        </span>
-
-                                                    </div>
-
-                                                @endif
-
-                                            </div>
-
-
-                                            {{-- Event Details --}}
-                                            <div class="col-span-12 md:col-span-5">
-
-                                                <p class="font-display font-bold text-sm uppercase tracking-wide text-sp-prairieOchre">
-                                                    {{ $eventType }}
+                                                <p class="font-display font-bold text-lg uppercase text-sp-slate">
+                                                    {{ $event->start_date->format('M') }}
                                                 </p>
 
-                                                <h4 class="font-sans text-xl font-semibold leading-tight text-sp-charcoal mt-1">
-                                                    {{ $event->title }}
-                                                </h4>
+                                                <p class="font-sans text-4xl font-semibold leading-none text-sp-prairieGreen">
+                                                    {{ $event->start_date->format('d') }}
+                                                </p>
 
-
-                                                <div class="mt-3 space-y-1 text-sm text-sp-slate">
-
-                                                    <div class="flex items-start gap-2">
-
-                                                        <x-icons.signpost
-                                                            class="mt-0.5 h-4 w-4 shrink-0"
-                                                            aria-hidden="true"
-                                                        />
-
-                                                        <span>
-                                                            {{ $event->city }}, {{ $event->state }}
-                                                        </span>
-
-                                                    </div>
-
-                                                </div>
-
-
-                                                @if ($event->short_description)
-
-                                                    <p class="body text-sp-slate mt-3">
-                                                        {{ $event->short_description }}
-                                                    </p>
-
-                                                @endif
+                                                <p class="mt-1 text-sm text-sp-slate">
+                                                    {{ $event->start_date->format('Y') }}
+                                                </p>
 
                                             </div>
 
+                                        </div>
 
-                                            {{-- Details Link --}}
-                                            <div class="col-span-12 md:col-span-2 md:text-right">
 
-                                                <a
-                                                    href="{{ route('public-v2.events.show', $event->slug) }}"
-                                                    class="inline-flex items-center gap-2 rounded-md border border-sp-prairieGreen px-4 py-2 text-sm font-semibold text-sp-prairieGreen transition-colors hover:bg-sp-prairieGreen hover:text-sp-warmIvory"
+                                        {{-- Image --}}
+                                        <div class="col-span-9 md:col-span-4">
+
+                                            @if ($event->featured_image_path)
+
+                                                <img
+                                                    src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($event->featured_image_path) }}"
+                                                    alt="{{ $event->featured_image_alt ?? $event->title }}"
+                                                    class="block aspect-[2/1] w-full rounded-md object-cover"
                                                 >
 
-                                                    Details
+                                            @else
 
-                                                    <x-icons.move-right
-                                                        class="h-4 w-4"
+                                                <div class="flex aspect-[2/1] w-full items-center justify-center rounded-md bg-sp-warmIvory">
+
+                                                    <span class="font-display text-xl text-sp-slate">
+                                                        Southern Plains
+                                                    </span>
+
+                                                </div>
+
+                                            @endif
+
+                                        </div>
+
+
+                                        {{-- Event Details --}}
+                                        <div class="col-span-12 md:col-span-5">
+
+                                            <p class="font-display font-bold text-sm uppercase tracking-wide text-sp-prairieOchre">
+                                                {{ $eventType }}
+                                            </p>
+
+                                            <h4 class="font-sans text-xl font-semibold leading-tight text-sp-charcoal mt-1">
+                                                {{ $event->title }}
+                                            </h4>
+
+
+                                            <div class="mt-3 space-y-1 text-sm text-sp-slate">
+
+                                                <div class="flex items-start gap-2">
+
+                                                    <x-icons.signpost
+                                                        class="mt-0.5 h-4 w-4 shrink-0"
                                                         aria-hidden="true"
                                                     />
 
-                                                </a>
+                                                    <span>
+                                                        {{ $event->city }}, {{ $event->state }}
+                                                    </span>
+
+                                                </div>
 
                                             </div>
 
-                                        </article>
 
-                                    @endforeach
+                                            @if ($event->short_description)
 
-                                </div>
+                                                <p class="body text-sp-slate mt-3">
+                                                    {{ $event->short_description }}
+                                                </p>
 
-                            </section>
-
-                        @endforeach
-
-                    </div>
-
-                @else
-
-                    <div class="mt-8 rounded-md bg-sp-limestone px-6 py-10 text-center">
-
-                        <h3 class="font-sans text-2xl font-semibold text-sp-charcoal">
-                            Nothing scheduled right now.
-                        </h3>
-
-                        <p class="body text-sp-slate mt-3 max-w-xl mx-auto">
-                            We’re always working on what’s next. Check back soon for upcoming events, classes, workshops, and opportunities to play.
-                        </p>
-
-                    </div>
-
-                @endif
-
-            </div>
-            {{-- End Upcoming Events --}}
-
-
-            {{-- Past Events --}}
-            <section
-                id="past-events"
-                class="mt-20 scroll-mt-32">
-
-                <p class="font-display font-bold text-2xl text-sp-burntClay">
-                    Past Events
-                </p>
-
-                <h2 class="font-sans text-3xl font-semibold text-sp-charcoal mt-2">
-                    Where We've Been
-                </h2>
-
-
-                @if ($pastEvents->isNotEmpty())
-
-                    <div class="mt-10 space-y-2">
-
-                        @foreach ($pastEvents as $event)
-
-                            @php
-                                $eventType = match ($event->type) {
-                                    'dog_sports' => 'Dog Sports',
-                                    'training' => 'Training',
-                                    'workshop' => 'Workshop',
-                                    'class' => 'Class',
-                                    'community' => 'Community',
-                                    default => 'Event',
-                                };
-                            @endphp
-
-
-                            <article
-                                class="group grid grid-cols-12 items-center gap-4 rounded-md px-4 py-6 transition-colors duration-200 hover:bg-sp-limestone md:gap-6 md:px-6"
-                            >
-
-                                {{-- Date --}}
-                                <div class="col-span-3 md:col-span-1">
-
-                                    <div class="text-left">
-
-                                        <p class="font-display font-bold text-lg uppercase text-sp-slate">
-                                            {{ $event->start_date->format('M') }}
-                                        </p>
-
-                                        <p class="font-sans text-4xl font-semibold leading-none text-sp-slate">
-                                            {{ $event->start_date->format('d') }}
-                                        </p>
-
-                                        <p class="mt-1 text-sm text-sp-slate">
-                                            {{ $event->start_date->format('Y') }}
-                                        </p>
-
-                                    </div>
-
-                                </div>
-
-
-                                {{-- Image --}}
-                                <div class="col-span-9 md:col-span-4">
-
-                                    @if ($event->featured_image_path)
-
-                                        <img
-                                            src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($event->featured_image_path) }}"
-                                            alt="{{ $event->featured_image_alt ?? $event->title }}"
-                                            class="block aspect-[2/1] w-full rounded-md object-cover"
-                                        >
-
-                                    @else
-
-                                        <div class="flex aspect-[2/1] w-full items-center justify-center rounded-md bg-sp-warmIvory">
-
-                                            <span class="font-display text-xl text-sp-slate">
-                                                Southern Plains
-                                            </span>
+                                            @endif
 
                                         </div>
 
-                                    @endif
 
-                                </div>
+                                        {{-- Details Link --}}
+                                        <div class="col-span-12 md:col-span-2 md:text-right">
 
+                                            <a
+                                                href="{{ route('public-v2.events.show', $event->slug) }}"
+                                                class="inline-flex items-center gap-2 rounded-md border border-sp-prairieGreen px-4 py-2 text-sm font-semibold text-sp-prairieGreen transition-colors hover:bg-sp-prairieGreen hover:text-sp-warmIvory"
+                                            >
 
-                                {{-- Event Details --}}
-                                <div class="col-span-12 md:col-span-4">
+                                                Details
 
-                                    <p class="font-display font-bold text-sm uppercase tracking-wide text-sp-slate">
-                                        {{ $eventType }}
-                                    </p>
+                                                <x-icons.move-right
+                                                    class="h-4 w-4"
+                                                    aria-hidden="true"
+                                                />
 
-                                    <h3 class="font-sans text-xl font-semibold leading-tight text-sp-charcoal mt-1">
-                                        {{ $event->title }}
-                                    </h3>
-
-
-                                    <div class="mt-3 space-y-1 text-sm text-sp-slate">
-
-                                        <div class="flex items-start gap-2">
-
-                                            <x-icons.signpost
-                                                class="mt-0.5 h-4 w-4 shrink-0"
-                                                aria-hidden="true"
-                                            />
-
-                                            <span>
-                                                {{ $event->city }}, {{ $event->state }}
-                                            </span>
+                                            </a>
 
                                         </div>
 
-                                    </div>
+                                    </article>
 
+                                @endforeach
 
-                                    @if ($event->short_description)
+                            </div>
 
-                                        <p class="body text-sp-slate mt-3">
-                                            {{ $event->short_description }}
-                                        </p>
+                        </section>
 
-                                    @endif
+                    @endforeach
 
-                                </div>
+                </div>
 
+            @else
 
-                                {{-- Details + Reminder --}}
-                                <div class="col-span-12 md:col-span-3">
+                <div class="mt-8 rounded-md bg-sp-limestone px-6 py-10 text-center">
 
-                                    <div class="flex items-center justify-end gap-2 whitespace-nowrap">
+                    <h3 class="font-sans text-2xl font-semibold text-sp-charcoal">
+                        Nothing scheduled right now.
+                    </h3>
 
-                                        <a
-                                            href="{{ route('public-v2.events.show', $event->slug) }}"
-                                            class="inline-flex items-center gap-1 text-sm font-semibold text-sp-prairieGreen transition-colors hover:text-sp-prairieOchre"
-                                        >
-
-                                            View Event
-
-                                            <x-icons.move-right
-                                                class="h-4 w-4"
-                                                aria-hidden="true"
-                                            />
-
-                                        </a>
-
-                                        <span
-                                            class="text-sp-warmStone"
-                                            aria-hidden="true">
-                                            ·
-                                        </span>
-
-                                        <button
-                                            type="button"
-                                            @click="reminderModalOpen = true"
-                                            class="text-sm font-semibold text-sp-slate transition-colors hover:text-sp-prairieOchre"
-                                        >
-                                            Remind Me
-                                        </button>
-
-                                    </div>
-
-                                </div>
-
-                            </article>
-
-                        @endforeach
-
-                    </div>
-
-                @else
-
-                    <p class="body text-sp-slate mt-8">
-                        No past events are currently available.
+                    <p class="body text-sp-slate mt-3 max-w-xl mx-auto">
+                        We’re always working on what’s next. Check back soon for upcoming events, classes, workshops, and opportunities to play.
                     </p>
 
-                @endif
+                </div>
 
-            </section>
-            {{-- End Past Events --}}
+            @endif
 
         </div>
-        {{-- End Main Archive Content --}}
+        {{-- End Upcoming Events --}}
 
 
-        {{-- Archive Navigation --}}
-        <aside class="col-span-12 md:col-span-3 pt-6">
+        {{-- Past Events --}}
+        <section
+            id="past-events"
+            class="mt-20 scroll-mt-32">
 
-            <x-public-v2.events-navigation
-                :event-categories="$eventCategories"
-                :upcoming-by-category="$upcomingByCategory"
-                :has-past-events="$pastEvents->isNotEmpty()"
+            <p class="font-display font-bold text-2xl text-sp-burntClay">
+                Past Events
+            </p>
+
+            <h2 class="font-sans text-3xl font-semibold text-sp-charcoal mt-2">
+                Where We've Been
+            </h2>
+
+
+            @if ($pastEvents->isNotEmpty())
+
+                <div class="mt-10 space-y-2">
+
+                    @foreach ($pastEvents as $event)
+
+                        @php
+                            $eventType = match ($event->type) {
+                                'dog_sports' => 'Dog Sports',
+                                'training' => 'Training',
+                                'workshop' => 'Workshop',
+                                'class' => 'Class',
+                                'community' => 'Community',
+                                default => 'Event',
+                            };
+                        @endphp
+
+
+                        <article
+                            class="group grid grid-cols-12 items-center gap-4 rounded-md px-4 py-6 transition-colors duration-200 hover:bg-sp-limestone md:gap-6 md:px-6"
+                        >
+
+                            {{-- Date --}}
+                            <div class="col-span-3 md:col-span-1">
+
+                                <div class="text-left">
+
+                                    <p class="font-display font-bold text-lg uppercase text-sp-slate">
+                                        {{ $event->start_date->format('M') }}
+                                    </p>
+
+                                    <p class="font-sans text-4xl font-semibold leading-none text-sp-slate">
+                                        {{ $event->start_date->format('d') }}
+                                    </p>
+
+                                    <p class="mt-1 text-sm text-sp-slate">
+                                        {{ $event->start_date->format('Y') }}
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            {{-- Image --}}
+                            <div class="col-span-9 md:col-span-4">
+
+                                @if ($event->featured_image_path)
+
+                                    <img
+                                        src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($event->featured_image_path) }}"
+                                        alt="{{ $event->featured_image_alt ?? $event->title }}"
+                                        class="block aspect-[2/1] w-full rounded-md object-cover"
+                                    >
+
+                                @else
+
+                                    <div class="flex aspect-[2/1] w-full items-center justify-center rounded-md bg-sp-warmIvory">
+
+                                        <span class="font-display text-xl text-sp-slate">
+                                            Southern Plains
+                                        </span>
+
+                                    </div>
+
+                                @endif
+
+                            </div>
+
+
+                            {{-- Event Details --}}
+                            <div class="col-span-12 md:col-span-5">
+
+                                <p class="font-display font-bold text-sm uppercase tracking-wide text-sp-slate">
+                                    {{ $eventType }}
+                                </p>
+
+                                <h3 class="font-sans text-xl font-semibold leading-tight text-sp-charcoal mt-1">
+                                    {{ $event->title }}
+                                </h3>
+
+
+                                <div class="mt-3 space-y-1 text-sm text-sp-slate">
+
+                                    <div class="flex items-start gap-2">
+
+                                        <x-icons.signpost
+                                            class="mt-0.5 h-4 w-4 shrink-0"
+                                            aria-hidden="true"
+                                        />
+
+                                        <span>
+                                            {{ $event->city }}, {{ $event->state }}
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+
+                                @if ($event->short_description)
+
+                                    <p class="body text-sp-slate mt-3">
+                                        {{ $event->short_description }}
+                                    </p>
+
+                                @endif
+
+                            </div>
+
+
+                            {{-- Details + Reminder --}}
+                            <div class="col-span-12 md:col-span-2 md:text-right">
+
+                                <div class="flex flex-col items-start gap-3 md:items-end">
+
+                                    <a
+                                        href="{{ route('public-v2.events.show', $event->slug) }}"
+                                        class="inline-flex items-center gap-2 rounded-md border border-sp-prairieGreen px-4 py-2 text-sm font-semibold text-sp-prairieGreen transition-colors hover:bg-sp-prairieGreen hover:text-sp-warmIvory"
+                                    >
+
+                                        View Event
+
+                                        <x-icons.move-right
+                                            class="h-4 w-4"
+                                            aria-hidden="true"
+                                        />
+
+                                    </a>
+
+                                    <button
+                                        type="button"
+                                        data-open-reminder
+                                        class="text-sm font-semibold text-sp-slate transition-colors hover:text-sp-prairieOchre"
+                                    >
+                                        Remind Me
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    @endforeach
+
+                </div>
+
+            @else
+
+                <p class="body text-sp-slate mt-8">
+                    No past events are currently available.
+                </p>
+
+            @endif
+
+        </section>
+        {{-- End Past Events --}}
+
+    </div>
+    {{-- End Main Archive Content --}}
+
+
+    {{-- Archive Navigation --}}
+    <aside class="col-span-12 md:col-span-3 pt-6">
+
+        <x-public-v2.events-navigation
+            :event-categories="$eventCategories"
+            :upcoming-by-category="$upcomingByCategory"
+            :has-past-events="$pastEvents->isNotEmpty()"
+        />
+
+    </aside>
+    {{-- End Archive Navigation --}}
+
+</section>
+{{-- End Archive Content --}}
+
+
+{{-- Reminder Modal --}}
+<div
+    data-reminder-modal
+    class="fixed inset-0 z-50 hidden items-center justify-center px-4 py-8"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="reminder-modal-title"
+>
+
+    {{-- Backdrop --}}
+    <div
+        class="absolute inset-0 bg-sp-charcoal/60"
+        data-close-reminder>
+    </div>
+
+
+    {{-- Modal --}}
+    <div
+        class="relative w-full max-w-3xl rounded-md bg-sp-warmIvory px-8 py-10 shadow-2xl md:px-10 md:py-12"
+    >
+
+        {{-- Close --}}
+        <button
+            type="button"
+            data-close-reminder
+            class="absolute right-5 top-5 text-sp-slate transition-colors hover:text-sp-charcoal"
+            aria-label="Close reminder form"
+        >
+
+            <x-icons.x
+                class="h-5 w-5"
+                aria-hidden="true"
             />
 
-        </aside>
-        {{-- End Archive Navigation --}}
-
-    </section>
-    {{-- End Archive Content --}}
+        </button>
 
 
-    {{-- Remind Me Modal --}}
-    <div
-        x-show="reminderModalOpen"
-        x-cloak
-        style="display: none;"
-        class="fixed inset-0 z-50 flex items-center justify-center px-4 py-8"
-        aria-labelledby="reminder-modal-title"
-        role="dialog"
-        aria-modal="true">
+        {{-- Modal Heading --}}
+        <p
+            id="reminder-modal-title"
+            class="font-display font-bold text-4xl uppercase leading-none text-sp-burntClay"
+        >
+            Stay in the Loop
+        </p>
 
-        {{-- Backdrop --}}
-        <div
-            class="absolute inset-0 bg-sp-charcoal/60"
-            @click="reminderModalOpen = false">
-        </div>
+        <h2 class="font-sans text-3xl font-semibold leading-tight text-sp-charcoal mt-5">
+            Want to Know When This Comes Around Again?
+        </h2>
+
+        <p class="body-large text-sp-slate mt-4 max-w-2xl">
+            Leave us your email and we'll let you know when similar events are announced.
+        </p>
 
 
-        {{-- Modal --}}
-        <div
-            class="relative z-10 w-full max-w-xl rounded-md bg-sp-warmIvory p-6 shadow-xl md:p-8"
-            @click.stop>
+        {{-- Brevo Form --}}
+        <form
+            id="event-reminder-form"
+            method="POST"
+            action="https://a7e86912.sibforms.com/serve/MUIFAILpaCKA0oKzmNw0A1XP0CWKujxwiy8PgxaSyyWajBaBSLV7AwW9lI7LJ9xxGzlEV_gEm28RjLhh-KY6OVAwomPmSnbB73Wkajd_CDGhUe4hwNeDPa_XUDeDJgk9fKRl2Ll55g61LgbIrQ4nD-mLFRPCzgbonTifjvt7A_WXemtrI9voe3RENZkc6dqp8l0ZaMbewD866uP4Og=="
+            class="mt-8"
+        >
+
+            <div>
+
+                <label
+                    for="event-reminder-email"
+                    class="block text-sm font-semibold text-sp-charcoal"
+                >
+                    Email address
+                </label>
+
+                <input
+                    type="email"
+                    id="event-reminder-email"
+                    name="EMAIL"
+                    autocomplete="email"
+                    placeholder="Email Address"
+                    required
+                    class="mt-2 block w-full rounded-md border border-sp-warmStone bg-white px-5 py-4 text-base text-sp-charcoal placeholder:text-sp-slate/70 focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen"
+                >
+
+            </div>
+
 
             <button
-                type="button"
-                @click="reminderModalOpen = false"
-                class="absolute right-5 top-5 text-sp-slate transition-colors hover:text-sp-charcoal"
-                aria-label="Close reminder form">
+                type="submit"
+                class="mt-6 inline-flex items-center gap-3 rounded-md bg-sp-prairieGreen px-5 py-3 text-sm font-semibold uppercase tracking-wide text-sp-warmIvory transition-colors hover:bg-sp-prairieOchre"
+            >
 
-                <x-icons.x
-                    class="h-5 w-5"
+                Remind Me
+
+                <x-icons.move-right
+                    class="h-4 w-4"
                     aria-hidden="true"
                 />
 
             </button>
 
 
-            <div class="pr-8">
+            {{-- Brevo Honeypot --}}
+            <input
+                type="text"
+                name="email_address_check"
+                value=""
+                class="input--hidden"
+            >
 
-                <p class="text-eyebrow">
-                    Stay In The Loop
-                </p>
+            {{-- Brevo Locale --}}
+            <input
+                type="hidden"
+                name="locale"
+                value="en"
+            >
 
-                <h2
-                    id="reminder-modal-title"
-                    class="font-sans text-2xl font-semibold text-sp-charcoal mt-2">
-                    Want to Know When This Comes Around Again?
-                </h2>
+            {{-- Brevo Simple Form --}}
+            <input
+                type="hidden"
+                name="html_type"
+                value="simple"
+            >
 
-                <p class="body text-sp-slate mt-3">
-                    Leave us your email and we'll let you know when similar events are announced.
-                </p>
-
-            </div>
-
-
-            <form
-                method="POST"
-                action="https://a7e86912.sibforms.com/serve/MUIFAILpaCKA0oKzmNw0A1XP0CWKujxwiy8PgxaSyyWajBaBSLV7AwW9lI7LJ9xxGzlEV_gEm28RjLhh-KY6OVAwomPmSnbB73Wkajd_CDGhUe4hwNeDPa_XUDeDJgk9fKRl2Ll55g61LgbIrQ4nD-mLFRPCzgbonTifjvt7A_WXemtrI9voe3RENZkc6dqp8l0ZaMbewD866uP4Og=="
-                class="mt-6">
-
-                <div>
-
-                    <label
-                        for="event-reminder-email"
-                        class="block text-sm font-semibold text-sp-charcoal">
-                        Email address
-                    </label>
-
-                    <input
-                        id="event-reminder-email"
-                        type="email"
-                        name="EMAIL"
-                        autocomplete="email"
-                        required
-                        class="mt-2 block w-full rounded-md border border-sp-warmStone bg-white px-4 py-3 text-sp-charcoal placeholder:text-sp-slate/60 focus:border-sp-prairieGreen focus:outline-none focus:ring-1 focus:ring-sp-prairieGreen"
-                        placeholder="Email Address">
-
-                </div>
-
-
-                <div class="mt-6">
-
-                    <button
-                        type="submit"
-                        class="btn-primary">
-
-                        Remind Me
-
-                        <x-icons.move-right
-                            class="ml-2 inline-block h-4 w-4"
-                            aria-hidden="true"
-                        />
-
-                    </button>
-
-                </div>
-
-
-                {{-- Brevo Honeypot --}}
-                <input
-                    type="text"
-                    name="email_address_check"
-                    value=""
-                    class="input--hidden">
-
-                {{-- Brevo Locale --}}
-                <input
-                    type="hidden"
-                    name="locale"
-                    value="en">
-
-                {{-- Brevo Simple Form --}}
-                <input
-                    type="hidden"
-                    name="html_type"
-                    value="simple">
-
-            </form>
-
-        </div>
+        </form>
+        {{-- End Brevo Form --}}
 
     </div>
-    {{-- End Remind Me Modal --}}
+    {{-- End Modal --}}
 
 </div>
-{{-- End Alpine Archive Wrapper --}}
+{{-- End Reminder Modal --}}
+
 
 @endsection
 
@@ -705,3 +699,82 @@
     });
 </script>
 {{-- End Events Navigation Active Section Tracking --}}
+
+
+{{-- Event Reminder Modal --}}
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+        const modal = document.querySelector(
+            '[data-reminder-modal]'
+        );
+
+        const openButtons = document.querySelectorAll(
+            '[data-open-reminder]'
+        );
+
+        const closeButtons = document.querySelectorAll(
+            '[data-close-reminder]'
+        );
+
+        if (!modal || !openButtons.length) {
+            return;
+        }
+
+
+        const openModal = () => {
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+
+            document.body.classList.add('overflow-hidden');
+
+        };
+
+
+        const closeModal = () => {
+
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+
+            document.body.classList.remove('overflow-hidden');
+
+        };
+
+
+        openButtons.forEach(button => {
+
+            button.addEventListener(
+                'click',
+                openModal
+            );
+
+        });
+
+
+        closeButtons.forEach(button => {
+
+            button.addEventListener(
+                'click',
+                closeModal
+            );
+
+        });
+
+
+        document.addEventListener('keydown', event => {
+
+            if (
+                event.key === 'Escape' &&
+                !modal.classList.contains('hidden')
+            ) {
+
+                closeModal();
+
+            }
+
+        });
+
+    });
+</script>
+{{-- End Event Reminder Modal --}}
