@@ -363,7 +363,7 @@
 
 
                                 {{-- Event Details --}}
-                                <div class="col-span-12 md:col-span-5">
+                                <div class="col-span-12 md:col-span-4">
 
                                     <p class="font-display font-bold text-sm uppercase tracking-wide text-sp-slate">
                                         {{ $eventType }}
@@ -403,14 +403,14 @@
                                 </div>
 
 
-                                {{-- Details + Reminder Links --}}
-                                <div class="col-span-12 md:col-span-2 md:text-right">
+                                {{-- Details + Reminder --}}
+                                <div class="col-span-12 md:col-span-3">
 
-                                    <div class="flex flex-wrap items-center gap-x-2 gap-y-2 md:justify-end">
+                                    <div class="flex items-center justify-end gap-2 whitespace-nowrap">
 
                                         <a
                                             href="{{ route('public-v2.events.show', $event->slug) }}"
-                                            class="inline-flex items-center gap-2 text-sm font-semibold text-sp-prairieGreen transition-colors hover:text-sp-prairieOchre"
+                                            class="inline-flex items-center gap-1 text-sm font-semibold text-sp-prairieGreen transition-colors hover:text-sp-prairieOchre"
                                         >
 
                                             View Event
@@ -481,6 +481,7 @@
     <div
         x-show="reminderModalOpen"
         x-cloak
+        style="display: none;"
         class="fixed inset-0 z-50 flex items-center justify-center px-4 py-8"
         aria-labelledby="reminder-modal-title"
         role="dialog"
@@ -491,6 +492,7 @@
             class="absolute inset-0 bg-sp-charcoal/60"
             @click="reminderModalOpen = false">
         </div>
+
 
         {{-- Modal --}}
         <div
