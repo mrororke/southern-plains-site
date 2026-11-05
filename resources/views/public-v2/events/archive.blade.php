@@ -88,7 +88,7 @@
     <div class="col-span-12 md:col-span-9">
 
         {{-- Upcoming Events --}}
-        <div id="upcoming">
+        <div id="upcoming" class="pt-6">
 
             <p class="font-display font-bold text-2xl text-sp-burntClay">
                 Upcoming
@@ -484,7 +484,7 @@
 
     {{-- Backdrop --}}
     <div
-        class="absolute inset-0 bg-[#66655F]/50"
+        class="absolute inset-0 bg-[#66655F]/75"
         data-close-reminder>
     </div>
 
@@ -517,12 +517,12 @@
         {{-- Modal Heading --}}
         <p
             id="reminder-modal-title"
-            class="font-display font-bold text-4xl uppercase leading-none text-sp-burntClay"
+            class="font-display font-bold text-2xl uppercase leading-none text-sp-burntClay"
         >
             Stay in the Loop
         </p>
 
-        <h2 class="font-sans text-3xl font-semibold leading-tight text-sp-charcoal mt-5">
+        <h2 class="font-sans text-3xl font-semibold text-sp-charcoal mt-5">
             Want to Know When This Comes Around Again?
         </h2>
 

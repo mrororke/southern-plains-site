@@ -12,17 +12,17 @@
     "name": "module.esm"
   },
   "resources/css/app.css": {
-    "file": "assets/app-D6ugGxJk.css",
+    "file": "assets/app-BGO-9AaA.css",
     "src": "resources/css/app.css",
     "isEntry": true
   },
   "resources/css/dashboard-v2.css": {
-    "file": "assets/dashboard-v2-CUXN0ILf.css",
+    "file": "assets/dashboard-v2-EUoyI5pw.css",
     "src": "resources/css/dashboard-v2.css",
     "isEntry": true
   },
   "resources/css/public-v2.css": {
-    "file": "assets/public-v2-D8Xo1OGn.css",
+    "file": "assets/public-v2-D3KQZRMf.css",
     "src": "resources/css/public-v2.css",
     "isEntry": true
   },
@@ -113,7 +113,7 @@
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-BaBqa3SN.js",
+    "file": "assets/app-CLJ7FJGm.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -122,7 +122,7 @@
       "_module.esm-DdaDH_LP.js"
     ],
     "css": [
-      "assets/app-D6ugGxJk.css"
+      "assets/app-BGO-9AaA.css"
     ]
   },
   "resources/js/public-v2.js": {
