@@ -1,226 +1,872 @@
 @extends('public-v2.layouts.app')
 
+@php
+    $eventType = match ($event->type) {
+        'dog_sports' => 'Dog Sports',
+        'training' => 'Training',
+        'workshop' => 'Workshop',
+        'class' => 'Class',
+        'community' => 'Community',
+        default => 'Event',
+    };
+
+    $registrationStatus = $event->effective_registration_status;
+
+    $registrationLabel = match ($registrationStatus) {
+        'open' => 'Registration Open',
+        'coming_soon' => 'Registration Coming Soon',
+        'closed' => 'Registration Closed',
+        'not_required' => 'No Registration Required',
+        default => 'Registration',
+    };
+@endphp
+
 @section('meta_title', 'Register for ' . $event->title . ' | Southern Plains Sport Dog Club')
 @section('meta_description', 'Register for ' . $event->title . ' with Southern Plains Sport Dog Club.')
 
 @section('hero')
-<div id="hero" class="px-8 pt-10 pb-12 bg-sp-limestone">
-    <div class="max-w-6xl mx-auto">
-        <p class="text-eyebrow">Let's play!</p>
-        <h1 class="text-hero mt-3">Event Registration</h1>
-        <div class="hl-break"><hr></div>
-        <h2 class="font-sans text-2xl font-semibold text-sp-charcoal mt-6">{{ $event->title }}</h2>
-        <p class="body-large text-sp-slate mt-3">Choose how you'd like to participate, then tell us a little about yourself and your dog.</p>
+
+{{-- Hero --}}
+<div id="hero" class="grid grid-cols-12 pt-8">
+
+    <div class="col-span-12 md:col-span-5 md:pr-0 pl-8 pr-8">
+
+        <p class="text-eyebrow">
+            {{ $eventType }}
+        </p>
+
+        <h1 class="text-hero text-sp-charcoal">
+            {{ $event->title }}
+        </h1>
+
+        <div class="hl-break">
+            <hr>
+        </div>
+
+        @if ($event->short_description)
+            <p class="body-large text-sp-slate">
+                {{ $event->short_description }}
+            </p>
+        @endif
+
+        {{-- Event Metadata --}}
+        <div class="mt-5 space-y-2 text-sm text-sp-slate">
+
+            <div class="flex items-start gap-2">
+                <x-icons.calendar-range
+                    class="mt-0.5 h-4 w-4 shrink-0"
+                    aria-hidden="true"
+                />
+
+                <span>
+                    @if ($event->end_date)
+                        {{ $event->start_date->format('F j') }}
+                        –
+                        {{ $event->end_date->format('F j, Y') }}
+                    @else
+                        {{ $event->start_date->format('F j, Y') }}
+                    @endif
+                </span>
+            </div>
+
+            @if ($event->start_time)
+                <div class="flex items-start gap-2">
+                    <x-icons.clock
+                        class="mt-0.5 h-4 w-4 shrink-0"
+                        aria-hidden="true"
+                    />
+
+                    <span>
+                        {{ $event->start_time->format('g:i A') }}
+
+                        @if ($event->end_time)
+                            –
+                            {{ $event->end_time->format('g:i A') }}
+                        @endif
+                    </span>
+                </div>
+            @endif
+
+            @if ($event->city || $event->state)
+                <div class="flex items-start gap-2">
+                    <x-icons.signpost
+                        class="mt-0.5 h-4 w-4 shrink-0"
+                        aria-hidden="true"
+                    />
+
+                    <span>
+                        @if ($event->is_private_location)
+                            {{ $event->city }}, {{ $event->state }}
+                        @else
+                            {{ $event->venue_name
+                                ? $event->venue_name . ', '
+                                : ''
+                            }}
+
+                            {{ $event->city }}, {{ $event->state }}
+                        @endif
+                    </span>
+                </div>
+            @endif
+
+            <div class="flex items-start gap-2">
+                <x-icons.ticket
+                    class="mt-0.5 h-4 w-4 shrink-0"
+                    aria-hidden="true"
+                />
+
+                <span>
+                    {{ $registrationLabel }}
+                </span>
+            </div>
+
+        </div>
+        {{-- End Event Metadata --}}
+
     </div>
+
+    <div class="col-span-12 mt-8 md:col-span-7 md:mt-0 relative">
+
+        @if ($event->featured_image_path)
+
+            <img
+                class="w-full h-full"
+                src="{{ \Illuminate\Support\Facades\Storage::disk('public')->url($event->featured_image_path) }}"
+                alt="{{ $event->featured_image_alt ?? $event->title }}">
+
+            @if ($event->featured_image_credit)
+                <x-public-v2.image-registration
+                    :text="$event->featured_image_credit"
+                    position="right"
+                    :href="$event->featured_image_credit_url" />
+            @endif
+
+        @else
+
+            <div class="flex w-full h-full min-h-[320px] items-center justify-center bg-sp-limestone">
+                <span class="font-display text-2xl text-sp-slate">
+                    Southern Plains Sport Dog Club
+                </span>
+            </div>
+
+        @endif
+
+    </div>
+
 </div>
+{{-- End Hero --}}
+
 @endsection
 
 @section('content')
-<div class="grid grid-cols-12 gap-x-8 gap-y-10 py-[64px] px-8 max-w-7xl mx-auto">
-    <div class="col-span-12 lg:col-span-5">
-        <p class="font-display text-2xl text-sp-burntClay">Before You Register</p>
-        <h2 class="font-sans text-3xl font-semibold text-sp-charcoal mt-1">A Little About the Day</h2>
-        <p class="body text-sp-slate mt-4">Working spots are for participants bringing dogs to practice. Auditors attend without a working dog and can watch and learn.</p>
-        <p class="body text-sp-slate mt-4">Each dog requires its own working spot. If there isn't enough room for all the dogs in your registration, we'll place the entire registration on the waitlist.</p>
-        <p class="body text-sp-slate mt-4">Submitting this form reserves available spots pending payment. Your registration is confirmed once payment is recorded. If you're waitlisted, please don't send payment until you're offered a spot.</p>
 
-        @if ($event->registration_notes)
-            <div class="border-l-4 border-sp-prairieBlue bg-sp-prairieBlue/10 rounded-r-md p-5 mt-8">
-                <h3 class="font-sans font-semibold text-sp-charcoal">Registration Information</h3>
-                <p class="body text-sp-slate whitespace-pre-line mt-2">{{ $event->registration_notes }}</p>
-            </div>
-        @endif
+<section class="px-6 py-16 md:px-8 md:py-20">
 
-        <div class="mt-8">
-            <h3 class="font-sans text-xl font-semibold text-sp-charcoal">Workshop Policies</h3>
-            <ul class="list-disc pl-5 mt-3 space-y-2 body text-sp-slate">
-                <li>Workshops take place in all weather conditions unless the organizer announces otherwise.</li>
-                <li>Refunds are not available within 48 hours of the workshop.</li>
-                <li>Registrations are not transferable.</li>
-                <li>Waitlisted participants should not pay until offered a spot.</li>
-                <li>Dogs must be safely managed between activities, including when crated in vehicles.</li>
-            </ul>
-        </div>
-    </div>
+    <div class="grid grid-cols-12 gap-8 md:gap-12">
 
-    <div class="col-span-12 lg:col-span-7 bg-sp-limestone p-6 sm:p-8 rounded-md">
-        <p class="font-display text-2xl text-sp-burntClay">Join Us</p>
-        <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">Register for This Event</h2>
+        {{-- Main Content --}}
+        <div class="col-span-12 md:col-span-8">
 
-        @if (session('success'))
-            <div role="status" class="border-l-4 border-sp-successGreen bg-sp-successGreen/10 rounded-r-md p-6 mt-6">
-                <p class="font-sans font-semibold text-lg text-sp-successGreen mb-3">{{ session('success.title') }}</p>
-                <p class="body text-sp-slate whitespace-pre-line">{{ session('success.message') }}</p>
-            </div>
-        @else
-            @error('rate_limit')
-                <div role="alert" class="border-l-4 border-sp-clayRed bg-sp-clayRed/10 rounded-r-md p-6 mt-6">
-                    <p class="font-sans font-semibold text-lg text-sp-clayRed mb-2">Too Many Registrations</p>
-                    <p class="body text-sp-charcoal">{{ $message }}</p>
-                </div>
-            @enderror
+            <h2 class="font-sans text-3xl font-semibold text-sp-charcoal">
+                Event Registration
+            </h2>
 
-            @error('registration')
-                <div role="alert" class="border-l-4 border-sp-clayRed bg-sp-clayRed/10 rounded-r-md p-6 mt-6">
-                    <p class="body text-sp-clayRed">{{ $message }}</p>
-                </div>
-            @enderror
+            <p class="body text-sp-slate mt-5">
+                Choose how you'd like to participate, then tell us a little about yourself and your dog.
+            </p>
 
-            <form method="POST"
-                action="{{ route('public-v2.events.register.store', $event) }}"
-                class="space-y-6 mt-6"
-                x-data="{
-                    participation: @js(old('participation_type', 'working')),
-                    dogs: @js(old('dogs', [['name' => '', 'age' => '', 'breed' => '']])),
-                    addDog() {
-                        if (this.dogs.length < 20) {
-                            this.dogs = [...this.dogs, { name: '', age: '', breed: '' }];
-                        }
-                    },
-                    removeDog(index) {
-                        if (this.dogs.length > 1) {
-                            this.dogs = this.dogs.filter((dog, i) => i !== index);
-                        }
-                    }
-                }">
+            @if (session('success'))
 
-                @csrf
+                <div role="status" class="mt-8 border-l-4 border-sp-prairieGreen pl-5">
+                    <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                        {{ session('success.title') }}
+                    </h3>
 
-                <div aria-hidden="true" class="hidden">
-                    <label for="website_url">Website URL</label>
-                    <input type="text" id="website_url" name="website_url" tabindex="-1" autocomplete="off">
+                    <p class="body text-sp-slate mt-3 whitespace-pre-line">
+                        {{ session('success.message') }}
+                    </p>
                 </div>
 
-                <div>
-                    <label for="name" class="block text-sp-slate text-sm mb-2">Your Name*</label>
-                    <input type="text" id="name" name="name" value="{{ old('name') }}" required autocomplete="name" class="w-full rounded-md">
-                    @error('name') <p class="text-sp-clayRed mt-2">{{ $message }}</p> @enderror
-                </div>
+            @else
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label for="email" class="block text-sp-slate text-sm mb-2">Email Address*</label>
-                        <input type="email" id="email" name="email" value="{{ old('email') }}" required autocomplete="email" class="w-full rounded-md">
-                        @error('email') <p class="text-sp-clayRed mt-2">{{ $message }}</p> @enderror
+                @error('rate_limit')
+                    <div role="alert" class="mt-8 border-l-4 border-sp-burntClay pl-5">
+                        <h3 class="font-sans text-xl font-semibold text-sp-charcoal">
+                            Too Many Registrations
+                        </h3>
+
+                        <p class="body text-sp-slate mt-3">
+                            {{ $message }}
+                        </p>
+                    </div>
+                @enderror
+
+                @error('registration')
+                    <div role="alert" class="mt-8 border-l-4 border-sp-burntClay pl-5">
+                        <p class="body text-sp-slate">
+                            {{ $message }}
+                        </p>
+                    </div>
+                @enderror
+
+                <form
+                    method="POST"
+                    action="{{ route('public-v2.events.register.store', $event) }}"
+                    class="mt-8"
+                    x-data="eventRegistrationForm(
+                        {{ \Illuminate\Support\Js::from(old('participation_type', 'working')) }},
+                        {{ \Illuminate\Support\Js::from(old('dogs', [['name' => '', 'age' => '', 'breed' => '']])) }}
+                    )"
+                >
+                    @csrf
+
+                    <div aria-hidden="true" class="hidden">
+                        <label for="website_url">Website URL</label>
+                        <input
+                            type="text"
+                            id="website_url"
+                            name="website_url"
+                            tabindex="-1"
+                            autocomplete="off"
+                        >
                     </div>
 
-                    <div>
-                        <label for="phone" class="block text-sp-slate text-sm mb-2">Phone Number*</label>
-                        <input type="tel" id="phone" name="phone" value="{{ old('phone') }}" required autocomplete="tel" class="w-full rounded-md">
-                        @error('phone') <p class="text-sp-clayRed mt-2">{{ $message }}</p> @enderror
-                    </div>
-                </div>
+                    {{-- Participant Information --}}
+                    <section>
 
-                <fieldset>
-                    <legend class="block text-sp-slate text-sm mb-3">How Would You Like to Participate?*</legend>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <label class="flex items-center gap-3 border border-sp-slate/20 rounded-md p-4 cursor-pointer bg-white">
-                            <input type="radio" name="participation_type" value="working" x-model="participation" required>
-                            <span class="text-sp-charcoal font-semibold">Working Team</span>
-                        </label>
+                        <h3 class="font-sans text-2xl font-semibold text-sp-charcoal">
+                            Participant Information
+                        </h3>
 
-                        <label class="flex items-center gap-3 border border-sp-slate/20 rounded-md p-4 cursor-pointer bg-white">
-                            <input type="radio" name="participation_type" value="auditor" x-model="participation" required>
-                            <span class="text-sp-charcoal font-semibold">Auditor</span>
-                        </label>
-                    </div>
-                    @error('participation_type') <p class="text-sp-clayRed mt-2">{{ $message }}</p> @enderror
-                </fieldset>
+                        <div class="mt-6 space-y-5">
 
-                <section x-show="participation === 'working'" x-cloak>
-                    <h3 class="font-sans text-xl font-semibold text-sp-charcoal">Your Working Dogs</h3>
-                    <p class="body-small text-sp-slate mt-1 mb-4">Each dog uses one working spot.</p>
+                            <div>
+                                <label for="name" class="block text-sm font-semibold text-sp-charcoal mb-2">
+                                    Your Name *
+                                </label>
 
-                    <template x-for="(dog, index) in dogs" :key="index">
-                        <div class="border border-sp-slate/20 bg-white rounded-md p-4 mb-4">
-                            <div class="flex justify-between items-center mb-4 gap-3">
-                                <h4 class="font-sans font-semibold text-sp-charcoal" x-text="'Dog ' + (index + 1)"></h4>
-                                <button type="button" x-show="dogs.length > 1" @click="removeDog(index)" class="text-sm text-sp-clayRed underline">Remove Dog</button>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    value="{{ old('name') }}"
+                                    required
+                                    autocomplete="name"
+                                    class="w-full rounded-md"
+                                >
+
+                                @error('name')
+                                    <p class="text-sp-burntClay text-sm mt-2">{{ $message }}</p>
+                                @enderror
                             </div>
 
-                            <div class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
                                 <div>
-                                    <label class="block text-sp-slate text-sm mb-2" :for="'dog-name-' + index">Dog's Name*</label>
-                                    <input type="text" :id="'dog-name-' + index" :name="'dogs[' + index + '][name]'" x-model="dog.name" :required="participation === 'working'" :disabled="participation !== 'working'" maxlength="255" class="w-full rounded-md">
+                                    <label for="email" class="block text-sm font-semibold text-sp-charcoal mb-2">
+                                        Email Address *
+                                    </label>
+
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        value="{{ old('email') }}"
+                                        required
+                                        autocomplete="email"
+                                        class="w-full rounded-md"
+                                    >
+
+                                    @error('email')
+                                        <p class="text-sp-burntClay text-sm mt-2">{{ $message }}</p>
+                                    @enderror
                                 </div>
 
-                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                    <div>
-                                        <label class="block text-sp-slate text-sm mb-2" :for="'dog-age-' + index">Age*</label>
-                                        <input type="text" :id="'dog-age-' + index" :name="'dogs[' + index + '][age]'" x-model="dog.age" :required="participation === 'working'" :disabled="participation !== 'working'" maxlength="100" class="w-full rounded-md">
-                                    </div>
+                                <div>
+                                    <label for="phone" class="block text-sm font-semibold text-sp-charcoal mb-2">
+                                        Phone Number *
+                                    </label>
 
-                                    <div>
-                                        <label class="block text-sp-slate text-sm mb-2" :for="'dog-breed-' + index">Breed*</label>
-                                        <input type="text" :id="'dog-breed-' + index" :name="'dogs[' + index + '][breed]'" x-model="dog.breed" :required="participation === 'working'" :disabled="participation !== 'working'" maxlength="255" class="w-full rounded-md">
-                                    </div>
+                                    <input
+                                        type="tel"
+                                        id="phone"
+                                        name="phone"
+                                        value="{{ old('phone') }}"
+                                        required
+                                        autocomplete="tel"
+                                        class="w-full rounded-md"
+                                    >
+
+                                    @error('phone')
+                                        <p class="text-sp-burntClay text-sm mt-2">{{ $message }}</p>
+                                    @enderror
                                 </div>
+
                             </div>
+
                         </div>
-                    </template>
 
-                    <button type="button" @click="addDog()" :disabled="dogs.length >= 20" class="font-sans font-semibold text-sp-prairieBlue underline disabled:opacity-50">+ Add Another Dog</button>
+                    </section>
+                    {{-- End Participant Information --}}
 
-                    @error('dogs') <p class="text-sp-clayRed mt-2">{{ $message }}</p> @enderror
-                    @foreach ($errors->getMessages() as $field => $messages)
-                        @if (str_starts_with($field, 'dogs.'))
-                            @foreach ($messages as $message)
-                                <p class="text-sp-clayRed mt-2">{{ $message }}</p>
-                            @endforeach
-                        @endif
-                    @endforeach
-                </section>
+                    {{-- Participation --}}
+                    <section class="mt-12 border-t border-sp-warmStone pt-8">
 
-                <div>
-                    <label for="nasda_experience" class="block text-sp-slate text-sm mb-2">Tell Us About Your NASDA Experience</label>
-                    <textarea id="nasda_experience" name="nasda_experience" rows="3" class="w-full rounded-md">{{ old('nasda_experience') }}</textarea>
-                    @error('nasda_experience') <p class="text-sp-clayRed mt-2">{{ $message }}</p> @enderror
-                </div>
+                        <h3 class="font-sans text-2xl font-semibold text-sp-charcoal">
+                            Participation
+                        </h3>
 
-                <div>
-                    <label for="other_sports" class="block text-sp-slate text-sm mb-2">Do You Participate in Other Dog Sports?</label>
-                    <textarea id="other_sports" name="other_sports" rows="2" class="w-full rounded-md">{{ old('other_sports') }}</textarea>
-                    @error('other_sports') <p class="text-sp-clayRed mt-2">{{ $message }}</p> @enderror
-                </div>
+                        <fieldset class="mt-5">
 
-                <div x-show="participation === 'working'" x-cloak>
-                    <label for="reinforcers" class="block text-sp-slate text-sm mb-2">What Does Your Dog Find Rewarding?</label>
-                    <textarea id="reinforcers" name="reinforcers" rows="2" class="w-full rounded-md" :disabled="participation !== 'working'">{{ old('reinforcers') }}</textarea>
-                    @error('reinforcers') <p class="text-sp-clayRed mt-2">{{ $message }}</p> @enderror
-                </div>
+                            <legend class="block text-sm font-semibold text-sp-charcoal mb-4">
+                                How Would You Like to Participate? *
+                            </legend>
 
-                <div>
-                    <label for="notes" class="block text-sp-slate text-sm mb-2">Anything Else We Should Know?</label>
-                    <textarea id="notes" name="notes" rows="4" class="w-full rounded-md">{{ old('notes') }}</textarea>
-                    @error('notes') <p class="text-sp-clayRed mt-2">{{ $message }}</p> @enderror
-                </div>
+                            <div class="space-y-3">
 
-                <fieldset>
-                    <legend class="block text-sp-slate text-sm mb-3">May Southern Plains Sport Dog Club use photos of you or your dog from this event?*</legend>
-                    <div class="flex flex-wrap gap-6">
-                        <label class="flex items-center gap-2 text-sp-charcoal"><input type="radio" name="photo_permission" value="1" @checked(old('photo_permission') === '1') required> Yes</label>
-                        <label class="flex items-center gap-2 text-sp-charcoal"><input type="radio" name="photo_permission" value="0" @checked(old('photo_permission') === '0') required> No</label>
+                                <label class="flex items-center gap-3 text-sp-slate">
+                                    <input
+                                        type="radio"
+                                        name="participation_type"
+                                        value="working"
+                                        x-model="participation"
+                                        required
+                                    >
+
+                                    <span class="body">
+                                        Working Team
+                                    </span>
+                                </label>
+
+                                <label class="flex items-center gap-3 text-sp-slate">
+                                    <input
+                                        type="radio"
+                                        name="participation_type"
+                                        value="auditor"
+                                        x-model="participation"
+                                        required
+                                    >
+
+                                    <span class="body">
+                                        Auditor
+                                    </span>
+                                </label>
+
+                            </div>
+
+                            @error('participation_type')
+                                <p class="text-sp-burntClay text-sm mt-2">{{ $message }}</p>
+                            @enderror
+
+                        </fieldset>
+
+                    </section>
+                    {{-- End Participation --}}
+
+                    {{-- Working Dogs --}}
+                    <section
+                        class="mt-12 border-t border-sp-warmStone pt-8"
+                        x-show="participation === 'working'"
+                        x-cloak
+                    >
+
+                        <h3 class="font-sans text-2xl font-semibold text-sp-charcoal">
+                            Your Working Dogs
+                        </h3>
+
+                        <p class="body text-sp-slate mt-3">
+                            Each dog requires its own working spot.
+                        </p>
+
+                        <div class="mt-6 space-y-8">
+
+                            <template x-for="(dog, index) in dogs" :key="dog.id">
+
+                                <div>
+
+                                    <div class="flex items-center justify-between gap-4">
+
+                                        <h4
+                                            class="font-sans text-xl font-semibold text-sp-charcoal"
+                                            x-text="'Dog ' + (index + 1)"
+                                        ></h4>
+
+                                        <button
+                                            type="button"
+                                            x-show="dogs.length > 1"
+                                            x-on:click="removeDog(index)"
+                                            class="learn-more-link text-sp-prairieGreen"
+                                        >
+                                            Remove Dog
+                                        </button>
+
+                                    </div>
+
+                                    <div class="mt-5 space-y-5">
+
+                                        <div>
+                                            <label
+                                                class="block text-sm font-semibold text-sp-charcoal mb-2"
+                                                :for="'dog-name-' + dog.id"
+                                            >
+                                                Dog's Name *
+                                            </label>
+
+                                            <input
+                                                type="text"
+                                                :id="'dog-name-' + dog.id"
+                                                :name="'dogs[' + index + '][name]'"
+                                                x-model="dog.name"
+                                                :required="participation === 'working'"
+                                                :disabled="participation !== 'working'"
+                                                maxlength="255"
+                                                class="w-full rounded-md"
+                                            >
+                                        </div>
+
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+
+                                            <div>
+                                                <label
+                                                    class="block text-sm font-semibold text-sp-charcoal mb-2"
+                                                    :for="'dog-age-' + dog.id"
+                                                >
+                                                    Age *
+                                                </label>
+
+                                                <input
+                                                    type="text"
+                                                    :id="'dog-age-' + dog.id"
+                                                    :name="'dogs[' + index + '][age]'"
+                                                    x-model="dog.age"
+                                                    :required="participation === 'working'"
+                                                    :disabled="participation !== 'working'"
+                                                    maxlength="100"
+                                                    class="w-full rounded-md"
+                                                >
+                                            </div>
+
+                                            <div>
+                                                <label
+                                                    class="block text-sm font-semibold text-sp-charcoal mb-2"
+                                                    :for="'dog-breed-' + dog.id"
+                                                >
+                                                    Breed *
+                                                </label>
+
+                                                <input
+                                                    type="text"
+                                                    :id="'dog-breed-' + dog.id"
+                                                    :name="'dogs[' + index + '][breed]'"
+                                                    x-model="dog.breed"
+                                                    :required="participation === 'working'"
+                                                    :disabled="participation !== 'working'"
+                                                    maxlength="255"
+                                                    class="w-full rounded-md"
+                                                >
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </template>
+
+                        </div>
+
+                        <button
+                            type="button"
+                            x-on:click="addDog()"
+                            :disabled="dogs.length >= 20"
+                            class="learn-more-link text-sp-prairieGreen mt-6 disabled:opacity-50"
+                        >
+                            + Add Another Dog
+                        </button>
+
+                        @error('dogs')
+                            <p class="text-sp-burntClay text-sm mt-3">{{ $message }}</p>
+                        @enderror
+
+                        @foreach ($errors->getMessages() as $field => $messages)
+                            @if (str_starts_with($field, 'dogs.'))
+                                @foreach ($messages as $message)
+                                    <p class="text-sp-burntClay text-sm mt-3">{{ $message }}</p>
+                                @endforeach
+                            @endif
+                        @endforeach
+
+                    </section>
+                    {{-- End Working Dogs --}}
+
+                    {{-- Experience --}}
+                    <section class="mt-12 border-t border-sp-warmStone pt-8">
+
+                        <h3 class="font-sans text-2xl font-semibold text-sp-charcoal">
+                            Your Experience
+                        </h3>
+
+                        <div class="mt-6 space-y-6">
+
+                            <div>
+                                <label for="nasda_experience" class="block text-sm font-semibold text-sp-charcoal mb-2">
+                                    Tell Us About Your NASDA Experience
+                                </label>
+
+                                <textarea
+                                    id="nasda_experience"
+                                    name="nasda_experience"
+                                    rows="3"
+                                    class="w-full rounded-md"
+                                >{{ old('nasda_experience') }}</textarea>
+
+                                @error('nasda_experience')
+                                    <p class="text-sp-burntClay text-sm mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div>
+                                <label for="other_sports" class="block text-sm font-semibold text-sp-charcoal mb-2">
+                                    Do You Participate in Other Dog Sports?
+                                </label>
+
+                                <textarea
+                                    id="other_sports"
+                                    name="other_sports"
+                                    rows="2"
+                                    class="w-full rounded-md"
+                                >{{ old('other_sports') }}</textarea>
+
+                                @error('other_sports')
+                                    <p class="text-sp-burntClay text-sm mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div x-show="participation === 'working'" x-cloak>
+                                <label for="reinforcers" class="block text-sm font-semibold text-sp-charcoal mb-2">
+                                    What Does Your Dog Find Rewarding?
+                                </label>
+
+                                <textarea
+                                    id="reinforcers"
+                                    name="reinforcers"
+                                    rows="2"
+                                    class="w-full rounded-md"
+                                    :disabled="participation !== 'working'"
+                                >{{ old('reinforcers') }}</textarea>
+
+                                @error('reinforcers')
+                                    <p class="text-sp-burntClay text-sm mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                            <div>
+                                <label for="notes" class="block text-sm font-semibold text-sp-charcoal mb-2">
+                                    Anything Else We Should Know?
+                                </label>
+
+                                <textarea
+                                    id="notes"
+                                    name="notes"
+                                    rows="4"
+                                    class="w-full rounded-md"
+                                >{{ old('notes') }}</textarea>
+
+                                @error('notes')
+                                    <p class="text-sp-burntClay text-sm mt-2">{{ $message }}</p>
+                                @enderror
+                            </div>
+
+                        </div>
+
+                    </section>
+                    {{-- End Experience --}}
+
+                    {{-- Permissions --}}
+                    <section class="mt-12 border-t border-sp-warmStone pt-8">
+
+                        <h3 class="font-sans text-2xl font-semibold text-sp-charcoal">
+                            Permissions & Acknowledgment
+                        </h3>
+
+                        <fieldset class="mt-6">
+
+                            <legend class="block text-sm font-semibold text-sp-charcoal mb-4">
+                                May Southern Plains Sport Dog Club use photos of you or your dog from this event? *
+                            </legend>
+
+                            <div class="flex flex-wrap gap-6">
+
+                                <label class="flex items-center gap-2 text-sp-slate">
+                                    <input
+                                        type="radio"
+                                        name="photo_permission"
+                                        value="1"
+                                        @checked(old('photo_permission') === '1')
+                                        required
+                                    >
+                                    Yes
+                                </label>
+
+                                <label class="flex items-center gap-2 text-sp-slate">
+                                    <input
+                                        type="radio"
+                                        name="photo_permission"
+                                        value="0"
+                                        @checked(old('photo_permission') === '0')
+                                        required
+                                    >
+                                    No
+                                </label>
+
+                            </div>
+
+                            @error('photo_permission')
+                                <p class="text-sp-burntClay text-sm mt-2">{{ $message }}</p>
+                            @enderror
+
+                        </fieldset>
+
+                        <div class="mt-8">
+
+                            <label class="flex items-start gap-3 text-sp-slate">
+
+                                <input
+                                    type="checkbox"
+                                    name="policy_acknowledged"
+                                    value="1"
+                                    @checked(old('policy_acknowledged'))
+                                    required
+                                    class="mt-1"
+                                >
+
+                                <span class="body-small">
+                                    I have read and understand the workshop policies, including the refund, transfer, weather, and payment requirements. *
+                                </span>
+
+                            </label>
+
+                            @error('policy_acknowledged')
+                                <p class="text-sp-burntClay text-sm mt-2">{{ $message }}</p>
+                            @enderror
+
+                        </div>
+
+                    </section>
+                    {{-- End Permissions --}}
+
+                    <div class="mt-10">
+
+                        <button type="submit" class="btn-primary">
+                            Submit Registration
+
+                            <x-icons.move-right
+                                class="h-4 w-4"
+                                aria-hidden="true"
+                            />
+                        </button>
+
+                        <p class="body-small text-sp-slate mt-5">
+                            Available spots are reserved pending payment. If the event is full, you'll be added to the waitlist instead. Your registration is not confirmed until payment is recorded.
+                        </p>
+
                     </div>
-                    @error('photo_permission') <p class="text-sp-clayRed mt-2">{{ $message }}</p> @enderror
-                </fieldset>
 
-                <div class="border-t border-sp-slate/20 pt-5">
-                    <label class="flex gap-3 items-start text-sp-charcoal">
-                        <input type="checkbox" name="policy_acknowledged" value="1" @checked(old('policy_acknowledged')) required class="mt-1">
-                        <span class="body-small">I have read and understand the workshop policies, including the refund, transfer, weather, and payment requirements.*</span>
-                    </label>
-                    @error('policy_acknowledged') <p class="text-sp-clayRed mt-2">{{ $message }}</p> @enderror
+                </form>
+
+            @endif
+
+        </div>
+        {{-- End Main Content --}}
+
+        {{-- Registration Details --}}
+        <aside class="col-span-12 md:col-span-4">
+
+            <div class="rounded-md bg-sp-limestone p-6 md:p-8">
+
+                <p class="font-display font-bold text-2xl uppercase text-sp-burntClay">
+                    Registration Details
+                </p>
+
+                <div class="mt-5 border-t border-sp-warmStone pt-5 space-y-5">
+
+                    <div class="flex items-start gap-3">
+
+                        <x-icons.ticket
+                            class="mt-0.5 h-5 w-5 shrink-0 text-sp-slate"
+                            aria-hidden="true"
+                        />
+
+                        <div>
+                            <p class="text-sm font-semibold text-sp-charcoal">
+                                Participation
+                            </p>
+
+                            <p class="body text-sp-slate mt-1">
+                                Working participants bring dogs to practice. Auditors attend without a working dog and can watch and learn.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div class="flex items-start gap-3">
+
+                        <x-icons.calendar-range
+                            class="mt-0.5 h-5 w-5 shrink-0 text-sp-slate"
+                            aria-hidden="true"
+                        />
+
+                        <div>
+                            <p class="text-sm font-semibold text-sp-charcoal">
+                                Date
+                            </p>
+
+                            <p class="body text-sp-slate mt-1">
+                                @if ($event->end_date)
+                                    {{ $event->start_date->format('F j') }}
+                                    –
+                                    {{ $event->end_date->format('F j, Y') }}
+                                @else
+                                    {{ $event->start_date->format('F j, Y') }}
+                                @endif
+                            </p>
+                        </div>
+
+                    </div>
+
+                    @if ($event->start_time)
+                        <div class="flex items-start gap-3">
+
+                            <x-icons.clock
+                                class="mt-0.5 h-5 w-5 shrink-0 text-sp-slate"
+                                aria-hidden="true"
+                            />
+
+                            <div>
+                                <p class="text-sm font-semibold text-sp-charcoal">
+                                    Time
+                                </p>
+
+                                <p class="body text-sp-slate mt-1">
+                                    {{ $event->start_time->format('g:i A') }}
+
+                                    @if ($event->end_time)
+                                        –
+                                        {{ $event->end_time->format('g:i A') }}
+                                    @endif
+                                </p>
+                            </div>
+
+                        </div>
+                    @endif
+
                 </div>
 
-                <button type="submit" class="btn-primary w-full">
-                    Submit Registration
-                    <i data-lucide="arrow-right" class="w-5 h-5"></i>
-                </button>
+                @if ($event->registration_notes)
+                    <div class="mt-7 border-t border-sp-warmStone pt-6">
 
-                <p class="body-small text-sp-slate">Available spots are reserved pending payment. If the event is full, you'll be added to the waitlist instead. Your registration is not confirmed until payment is recorded.</p>
+                        <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
+                            Registration Information
+                        </h3>
 
-            </form>
-        @endif
+                        <p class="body text-sp-slate whitespace-pre-line mt-3">
+                            {{ $event->registration_notes }}
+                        </p>
+
+                    </div>
+                @endif
+
+                <div class="mt-7 border-t border-sp-warmStone pt-6">
+
+                    <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
+                        Workshop Policies
+                    </h3>
+
+                    <ul class="list-disc pl-5 mt-4 space-y-3 body-small text-sp-slate">
+                        <li>Workshops take place in all weather conditions unless the organizer announces otherwise.</li>
+                        <li>Refunds are not available within 48 hours of the workshop.</li>
+                        <li>Registrations are not transferable.</li>
+                        <li>Waitlisted participants should not pay until offered a spot.</li>
+                        <li>Dogs must be safely managed between activities, including when crated in vehicles.</li>
+                    </ul>
+
+                </div>
+
+                <div class="mt-7 border-t border-sp-warmStone pt-6">
+
+                    <h3 class="font-sans text-lg font-semibold text-sp-charcoal">
+                        Payment & Waitlist
+                    </h3>
+
+                    <p class="body-small text-sp-slate mt-3">
+                        Each dog requires its own working spot. If there isn't enough room for all dogs in your registration, the entire registration will be waitlisted.
+                    </p>
+
+                    <p class="body-small text-sp-slate mt-3">
+                        Your registration is confirmed once payment is recorded. Please don't send payment if you're waitlisted until you're offered a spot.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </aside>
+        {{-- End Registration Details --}}
+
     </div>
+
+</section>
+
+{{-- Back to Event --}}
+<div class="px-6 pb-16 md:px-8 md:pb-20">
+
+    <a
+        href="{{ route('public-v2.events.show', $event->slug) }}"
+        class="learn-more-link text-sp-prairieGreen"
+    >
+        Back to Event
+
+        <x-icons.move-left />
+    </a>
+
 </div>
+{{-- End Back to Event --}}
+
+<script>
+    function eventRegistrationForm(initialParticipation, initialDogs) {
+        let nextDogId = 0;
+
+        const makeDog = (dog = {}) => ({
+            id: nextDogId++,
+            name: dog.name ?? '',
+            age: dog.age ?? '',
+            breed: dog.breed ?? '',
+        });
+
+        return {
+            participation: initialParticipation,
+            dogs: Array.isArray(initialDogs) && initialDogs.length
+                ? initialDogs.map(makeDog)
+                : [makeDog()],
+
+            addDog() {
+                if (this.dogs.length >= 20) {
+                    return;
+                }
+
+                this.dogs.push(makeDog());
+            },
+
+            removeDog(index) {
+                if (this.dogs.length <= 1) {
+                    return;
+                }
+
+                this.dogs.splice(index, 1);
+            },
+        };
+    }
+</script>
+
 @endsection
