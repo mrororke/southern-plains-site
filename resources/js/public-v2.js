@@ -4,6 +4,11 @@
 |--------------------------------------------------------------------------
 */
 
+import Alpine from 'alpinejs';
+
+window.Alpine = Alpine;
+Alpine.start();
+
 /* SITE SEARCH (Nav Bar)  */ 
 document.addEventListener('DOMContentLoaded', () => {
     const siteSearch = document.querySelector('[data-site-search]');
