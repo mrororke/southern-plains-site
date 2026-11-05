@@ -519,7 +519,7 @@
 
             <p
                 id="reminder-modal-title"
-                class="font-display font-bold text-4xl uppercase leading-none text-sp-burntClay"
+                class="font-display font-bold text-2xl uppercase leading-none text-sp-burntClay"
             >
                 Stay in the Loop
             </p>
