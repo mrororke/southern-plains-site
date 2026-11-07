@@ -392,19 +392,15 @@ Route::middleware(['auth', 'device'])
             [InquiryController::class, 'offerWaitlistSpot']
         )->name('inquiries.offer-waitlist-spot');
 
-        Route::get('/email-preview/registration-received/{inquiry}', function ($inquiry) {
-    $registration = \App\Models\Inquiry::find($inquiry);
+        // Temporary registration email preview
+Route::get('/email-preview/registration-received/{inquiry}', function ($inquiry) {
+    $registration = \App\Models\Inquiry::findOrFail($inquiry);
+    $event = \App\Models\EventV2::findOrFail($registration->event_id);
 
-    if (! $registration) {
-        return 'Inquiry not found: ' . $inquiry;
-    }
-
-    return [
-        'inquiry_id' => $registration->id,
-        'type' => $registration->type,
-        'event_id' => $registration->event_id,
-        'event_exists' => \App\Models\EventV2::whereKey($registration->event_id)->exists(),
-    ];
+    return view('mail.registration-received', [
+        'inquiry' => $registration,
+        'event' => $event,
+    ]);
 })->name('email-preview.registration-received');
 
         /*
