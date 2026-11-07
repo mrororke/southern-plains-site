@@ -393,15 +393,15 @@ Route::middleware(['auth', 'device'])
         )->name('inquiries.offer-waitlist-spot');
 
         // Temporary registration email preview
-Route::get('/email-preview/registration-canceled/{inquiry}', function ($inquiry) {
+Route::get('/email-preview/registration-expired/{inquiry}', function ($inquiry) {
     $registration = \App\Models\Inquiry::findOrFail($inquiry);
     $event = \App\Models\EventV2::findOrFail($registration->event_id);
 
-    return view('mail.registration-canceled', [
+    return view('mail.registration-expired', [
         'inquiry' => $registration,
         'event' => $event,
     ]);
-})->name('email-preview.registration-canceled');
+})->name('email-preview.registration-expired');
 
         /*
         |--------------------------------------------------------------------------
