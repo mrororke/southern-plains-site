@@ -48,34 +48,20 @@
                                 background-repeat:no-repeat;
                             "
                         >
-
                             <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
                                 <tr>
                                     <td style="padding:24px;">
 
-                                        <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="background-color:#F7F5F0;">
-                                            <tr>
-                                                <td style="padding:15px 20px;">
-
-                                                    <img
-                                                        src="{{ $logoUrl }}"
-                                                        alt="Southern Plains Sport Dog Club"
-                                                        width="125"
-                                                        style="display:block;width:125px;max-width:100%;height:auto;border:0;"
-                                                    >
-
-                                                    <p style="margin:10px 0 0;font-size:10px;line-height:15px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#4F6954;text-align:center;">
-                                                        Play. Train. Grow.
-                                                    </p>
-
-                                                </td>
-                                            </tr>
-                                        </table>
+                                        <img
+                                            src="{{ $logoUrl }}"
+                                            alt="Southern Plains Sport Dog Club"
+                                            width="125"
+                                            style="display:block;width:125px;max-width:100%;height:auto;border:0;"
+                                        >
 
                                     </td>
                                 </tr>
                             </table>
-
                         </td>
                     </tr>
 
@@ -97,43 +83,40 @@
 
                     {{-- Footer --}}
                     <tr>
-                        <td style="padding:32px;background-color:#2E312E;">
+                        <td style="padding:26px 32px;background-color:#2E312E;">
 
                             <p style="margin:0;font-size:15px;line-height:22px;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:#F7F5F0;">
                                 Southern Plains Sport Dog Club
                             </p>
 
-                            <p style="margin:8px 0 0;font-size:11px;line-height:18px;letter-spacing:1.5px;text-transform:uppercase;color:#C5D0C5;">
-                                Play. Train. Grow.
-                            </p>
+                            <div style="margin-top:14px;border-top:1px solid #4F6954;padding-top:14px;">
 
-                            <div style="margin-top:24px;border-top:1px solid #4F6954;padding-top:22px;">
-
-                                <p style="margin:0;font-size:13px;line-height:21px;color:#E4E6E1;">
+                                <p style="margin:0 0 16px;font-size:12px;line-height:19px;color:#D8DDE0;">
                                     Questions about your registration? Simply reply to this email.
+                                    You're receiving this message because you registered for an event with Southern Plains Sport Dog Club.
                                 </p>
 
-                                <p style="margin:14px 0 0;font-size:12px;line-height:20px;color:#D8DDE0;">
-                                    You're receiving this email because you registered for an event with Southern Plains Sport Dog Club.
-                                </p>
+                                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+                                    <tr>
+                                        <td valign="top" style="font-size:11px;line-height:18px;color:#BFC7BF;">
+                                            &copy; {{ date('Y') }} Southern Plains Sport Dog Club
+                                        </td>
 
-                                <p style="margin:18px 0 0;font-size:12px;line-height:20px;color:#D8DDE0;">
+                                        <td align="right" valign="top" style="font-size:11px;line-height:18px;white-space:nowrap;">
 
-                                    <a href="https://southernplains.dog" style="color:#D8DDE0;text-decoration:underline;">
-                                        southernplains.dog
-                                    </a>
+                                            <a href="https://southernplains.dog" style="color:#D8DDE0;text-decoration:underline;">
+                                                Website
+                                            </a>
 
-                                    <span style="padding:0 9px;color:#8E9A8E;">|</span>
+                                            <span style="padding:0 7px;color:#8E9A8E;">|</span>
 
-                                    <a href="https://southernplains.dog/legal/privacy" style="color:#D8DDE0;text-decoration:underline;">
-                                        Privacy Policy
-                                    </a>
+                                            <a href="https://southernplains.dog/legal/privacy" style="color:#D8DDE0;text-decoration:underline;">
+                                                Privacy Policy
+                                            </a>
 
-                                </p>
-
-                                <p style="margin:18px 0 0;font-size:11px;line-height:18px;color:#BFC7BF;">
-                                    &copy; {{ date('Y') }} Southern Plains Sport Dog Club. All rights reserved.
-                                </p>
+                                        </td>
+                                    </tr>
+                                </table>
 
                             </div>
 

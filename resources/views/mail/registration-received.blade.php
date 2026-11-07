@@ -40,7 +40,7 @@
     ])));
 @endphp
 
-<h1 style="margin:0 0 20px;font-size:28px;line-height:35px;font-weight:700;color:#2E312E;">
+<h1 style="margin:0 0 20px;font-size:28px;line-height:35px;font-weight:700;color:#4F6954;">
     We received your registration!
 </h1>
 
@@ -119,7 +119,7 @@
 </table>
 
 {{-- Payment Instructions --}}
-<h2 style="margin:32px 0 12px;font-size:21px;line-height:28px;font-weight:700;color:#2E312E;">
+<h2 style="margin:32px 0 12px;font-size:21px;line-height:28px;font-weight:700;color:#4F6954;">
     Complete Your Registration
 </h2>
 
@@ -194,7 +194,7 @@
     <tr>
         <td style="padding:20px 22px;">
 
-            <p style="margin:0 0 9px;font-size:16px;line-height:23px;font-weight:700;color:#2E312E;">
+            <p style="margin:0 0 9px;font-size:16px;line-height:23px;font-weight:700;color:#4F6954;">
                 What's Next?
             </p>
 
