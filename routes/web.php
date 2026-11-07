@@ -397,11 +397,11 @@ Route::get('/email-preview/registration-confirmed/{inquiry}', function ($inquiry
     $registration = \App\Models\Inquiry::findOrFail($inquiry);
     $event = \App\Models\EventV2::findOrFail($registration->event_id);
 
-    return view('mail.registration-received', [
+    return view('mail.registration-confirmed', [
         'inquiry' => $registration,
         'event' => $event,
     ]);
-})->name('email-preview.registration-received');
+})->name('email-preview.registration-confirmed');
 
         /*
         |--------------------------------------------------------------------------
