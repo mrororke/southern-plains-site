@@ -89,9 +89,13 @@
                                 Southern Plains Sport Dog Club
                             </p>
 
+                            <p style="margin:5px 0 0;font-size:11px;line-height:18px;letter-spacing:1.5px;text-transform:uppercase;color:#C5D0C5;">
+                                Play. Train. Grow.
+                            </p>
+
                             <div style="margin-top:14px;border-top:1px solid #4F6954;padding-top:14px;">
 
-                                <p style="margin:0 0 16px;font-size:12px;line-height:19px;color:#D8DDE0;">
+                                <p style="margin:0 0 12px;font-size:12px;line-height:19px;color:#D8DDE0;">
                                     Questions about your registration? Simply reply to this email.
                                     You're receiving this message because you registered for an event with Southern Plains Sport Dog Club.
                                 </p>
