@@ -1,3 +1,4 @@
+
 <?php
 
 namespace App\Http\Controllers;
@@ -8,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Validation\ValidationException;
 use Illuminate\View\View;
@@ -129,17 +131,6 @@ class EventRegistrationController extends Controller
             $hasSpace = $capacity === null
                 || ($reserved + $requestedSlots <= $capacity);
 
-            $status = $hasSpace ? 'pending_payment' : 'waitlisted';
-
-            // More than seven days: 48-hour hold. Two to seven days: 24-hour hold.
-            // Never extend a payment deadline beyond the event start.
-            $hoursUntilEvent = $now->diffInHours($start);
-            $holdHours = $hoursUntilEvent > 168 ? 48 : 24;
-
-            $paymentDueAt = $hasSpace
-                ? $now->copy()->addHours($holdHours)
-                : null;
-
             /*
              * Registration Pricing
              *
@@ -166,7 +157,29 @@ class EventRegistrationController extends Controller
                 )
                 : null;
 
-            Inquiry::create([
+            $isFree = $totalAmount !== null
+                && (float) $totalAmount === 0.0;
+
+            // Free registrations are confirmed immediately when space is available.
+            // Paid registrations require payment; full events use the waitlist.
+            $status = ! $hasSpace
+                ? 'waitlisted'
+                : ($isFree ? 'confirmed' : 'pending_payment');
+
+            // More than seven days: 48-hour hold. Two to seven days: 24-hour hold.
+            // Never extend a payment deadline beyond the event start.
+            $hoursUntilEvent = $now->diffInHours($start);
+            $holdHours = $hoursUntilEvent > 168 ? 48 : 24;
+
+            $paymentDueAt = $status === 'pending_payment'
+                ? $now->copy()->addHours($holdHours)
+                : null;
+
+            $paymentStatus = $isFree
+                ? 'not_required'
+                : 'unpaid';
+
+            $inquiry = Inquiry::create([
                 'event_id' => $lockedEvent->getKey(),
                 'type' => 'workshop_registration',
                 'name' => $validated['name'],
@@ -184,7 +197,7 @@ class EventRegistrationController extends Controller
                     'photo_permission' => (bool) $validated['photo_permission'],
                     'policy_acknowledged' => true,
                     'registration_status' => $status,
-                    'payment_status' => 'unpaid',
+                    'payment_status' => $paymentStatus,
                     'payment_due_at' => $paymentDueAt?->toIso8601String(),
 
                     // Pricing snapshot for this registration.
@@ -194,6 +207,8 @@ class EventRegistrationController extends Controller
             ]);
 
             return [
+                'inquiry' => $inquiry,
+                'event' => $lockedEvent,
                 'status' => $status,
                 'payment_due_at' => $paymentDueAt,
             ];
@@ -201,10 +216,51 @@ class EventRegistrationController extends Controller
 
         RateLimiter::hit($rateLimitKey, 900);
 
+        /*
+         * Registration Email
+         *
+         * Send the appropriate email after the registration
+         * transaction has completed successfully.
+         */
+        $emailTemplates = [
+            'pending_payment' => 'mail.registration-received',
+            'waitlisted' => 'mail.registration-waitlisted',
+            'confirmed' => 'mail.registration-confirmed',
+        ];
+
+        $emailSubjects = [
+            'pending_payment' => 'Registration Received: ' . $result['event']->title,
+            'waitlisted' => 'You’re on the Waitlist: ' . $result['event']->title,
+            'confirmed' => 'Registration Confirmed: ' . $result['event']->title,
+        ];
+
+        $template = $emailTemplates[$result['status']];
+        $subject = $emailSubjects[$result['status']];
+
+        Mail::send(
+            $template,
+            [
+                'inquiry' => $result['inquiry'],
+                'event' => $result['event'],
+            ],
+            function ($message) use ($result, $subject) {
+                $message
+                    ->to($result['inquiry']->email, $result['inquiry']->name)
+                    ->subject($subject);
+            }
+        );
+
         if ($result['status'] === 'waitlisted') {
             return redirect()->back()->with('success', [
                 'title' => 'Added to the waitlist',
-                'message' => 'The requested spots are currently full. You have been added to the waitlist. Please do not send payment unless a spot is offered.',
+                'message' => 'The requested spots are currently full. You have been added to the waitlist. Please do not send payment unless a spot is offered. Check your email for details.',
+            ]);
+        }
+
+        if ($result['status'] === 'confirmed') {
+            return redirect()->back()->with('success', [
+                'title' => 'Registration confirmed!',
+                'message' => 'Your registration is confirmed. No payment is required. Check your email for your registration details.',
             ]);
         }
 
@@ -212,7 +268,7 @@ class EventRegistrationController extends Controller
             'title' => 'Registration received!',
             'message' => 'Your spot is temporarily held until '
                 . $result['payment_due_at']->format('F j, Y \a\t g:i A T')
-                . '. Your registration is not confirmed until payment is received and recorded. Payment instructions will be provided separately.',
+                . '. Your registration is not confirmed until payment is received and recorded. Check your email for payment instructions.',
         ]);
     }
 
