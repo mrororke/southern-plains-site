@@ -394,11 +394,6 @@ Route::middleware(['auth', 'device'])
 
         // Temporary registration email preview
 Route::get('/email-preview/registration-received/{inquiry}', function (\App\Models\Inquiry $inquiry) {
-    abort_unless(
-        $inquiry->type === 'workshop_registration' && $inquiry->event_id,
-        404
-    );
-
     $event = \App\Models\EventV2::findOrFail($inquiry->event_id);
 
     return view('mail.registration-received', [
